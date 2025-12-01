@@ -9,7 +9,7 @@ export default class Station {
     this.majorFloodLevelM = data.major_flood_level_m;
   }
 
-  static async loadStations() {
+  static async listAll() {
     try {
       const response = await fetch(
         process.env.PUBLIC_URL + "/data/static/stations.json"

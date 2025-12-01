@@ -7,7 +7,7 @@ export default function MapView() {
   const [stations, setStations] = useState([]);
 
   useEffect(() => {
-    Station.loadStations().then((loadedStations) => {
+    Station.listAll().then((loadedStations) => {
       setStations(loadedStations);
     });
   }, []);
