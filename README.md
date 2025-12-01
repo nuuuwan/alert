@@ -2,7 +2,7 @@
 
 ## v0 – MVP: Immediate usefulness during a crisis
 
-- Live weather alerts (fact: push or pull from official meteorological sources).
+- Live weather alerts
 - Active disaster layer on the map, showing floods, landslides, storms, road closures, power outages, where data is available.
 - Emergency contacts widget pinned on the map edge, offering tap-to-call for police, ambulance, fire, local authorities.
 - Safe places: manually curated list of hospitals, police stations, fire stations, and known evacuation centres.
