@@ -15,7 +15,7 @@ export default class Station {
     return Cache.get("stations.lisAll", async () => {
       try {
         const response = await fetch(
-          process.env.PUBLIC_URL + "/data/static/stations.json"
+          process.env.PUBLIC_URL + "/data/static/stations.json",
         );
 
         if (!response.ok) {
