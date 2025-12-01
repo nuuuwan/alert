@@ -11,8 +11,17 @@ export default class Station {
 
   static async loadStations() {
     try {
-      const response = await fetch("/data/static/stations.json");
+      const response = await fetch(
+        process.env.PUBLIC_URL + "/data/static/stations.json"
+      );
+      console.debug("response", response);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
+      console.debug("Loaded stations:", data.length);
       return data.map((stationData) => new Station(stationData));
     } catch (error) {
       console.error("Error loading stations:", error);
