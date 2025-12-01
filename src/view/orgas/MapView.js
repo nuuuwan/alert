@@ -25,7 +25,7 @@ export default function MapView() {
       {stations.map((station, index) => (
         <CircleMarker
           key={index}
-          center={[station.latitude, station.longitude]}
+          center={station.latLng}
           radius={8}
           pathOptions={{ color: "red", fillColor: "red", fillOpacity: 0.5 }}
         >

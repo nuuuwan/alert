@@ -1,41 +1,16 @@
-import { Cache } from "../base";
+import Location from "./Location.js";
 
-export default class Station {
+export default class Station extends Location {
+  static getClassID() {
+    return "station";
+  }
   constructor(data) {
-    this.name = data.name;
+    super(data);
+    // this.name and this.latLng are set in StaticData and Location
     this.riverName = data.river_name;
     this.districtId = data.district_id;
-    this.latLng = data.lat_lng;
     this.alertLevelM = data.alert_level_m;
     this.minorFloodLevelM = data.minor_flood_level_m;
     this.majorFloodLevelM = data.major_flood_level_m;
-  }
-
-  static async listAll() {
-    return Cache.get("stations.lisAll", async () => {
-      try {
-        const response = await fetch(
-          process.env.PUBLIC_URL + "/data/static/stations.json",
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        return data.map((stationData) => new Station(stationData));
-      } catch (error) {
-        console.error("Error loading stations:", error);
-        return [];
-      }
-    });
-  }
-
-  get latitude() {
-    return this.latLng[0];
-  }
-
-  get longitude() {
-    return this.latLng[1];
   }
 }
