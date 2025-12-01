@@ -1,0 +1,250 @@
+[
+  {
+    "name": "Aththanagalu Oya",
+    "basin_name": "Aththanagalu Oya",
+    "location_names": [
+      "Dunamale",
+      "Negombo"
+    ]
+  },
+  {
+    "name": "Badulu Oya",
+    "basin_name": "Mahaweli Ganga",
+    "location_names": [
+      "Badulla",
+      "Thaldena",
+      "Minipe"
+    ]
+  },
+  {
+    "name": "Deduru Oya",
+    "basin_name": "Deduru Oya",
+    "location_names": [
+      "Keppitigala",
+      "Moragaswewa",
+      "Chilaw"
+    ]
+  },
+  {
+    "name": "Gal Oya",
+    "basin_name": "Gal Oya",
+    "location_names": [
+      "Ampara"
+    ]
+  },
+  {
+    "name": "Gin Ganga",
+    "basin_name": "Gin Ganga",
+    "location_names": [
+      "Gongala",
+      "Thawalama",
+      "Baddegama",
+      "Gintota"
+    ]
+  },
+  {
+    "name": "Gurugoda Oya",
+    "basin_name": "Kelani Ganga",
+    "location_names": [
+      "Holombuwa",
+      "Ruwanwella"
+    ]
+  },
+  {
+    "name": "Heda Oya",
+    "basin_name": "Heda Oya",
+    "location_names": [
+      "Siyambalanduwa",
+      "Arugam Bay"
+    ]
+  },
+  {
+    "name": "Kalu Ganga",
+    "basin_name": "Kalu Ganga",
+    "location_names": [
+      "Sri Pada",
+      "Rathnapura",
+      "Ellagawa",
+      "Putupaula",
+      "Kalutara"
+    ]
+  },
+  {
+    "name": "Kehelgamu Oya",
+    "basin_name": "Kelani Ganga",
+    "location_names": [
+      "Norwood",
+      "Kithulgala"
+    ]
+  },
+  {
+    "name": "Kelani Ganga",
+    "basin_name": "Kelani Ganga",
+    "location_names": [
+      "Maussakelle",
+      "Canyon",
+      "Laxapana",
+      "Kithulgala",
+      "Ruwanwella",
+      "Glencourse",
+      "Hanwella",
+      "Nagalagam Street"
+    ]
+  },
+  {
+    "name": "Kirindi Oya",
+    "basin_name": "Kirindi Oya",
+    "location_names": [
+      "Namunukula",
+      "Wellawaya",
+      "Kuda Oya",
+      "Thanamalwila",
+      "Kirinda"
+    ]
+  },
+  {
+    "name": "Kuda Ganga",
+    "basin_name": "Kalu Ganga",
+    "location_names": [
+      "Kalawellawa (Millakanda)",
+      "Putupaula"
+    ]
+  },
+  {
+    "name": "Kuda Oya",
+    "basin_name": "Kirindi Oya",
+    "location_names": [
+      "Kuda Oya"
+    ]
+  },
+  {
+    "name": "Kumbukkan Oya",
+    "basin_name": "Kumbukkan Oya",
+    "location_names": [
+      "Lunugala",
+      "Nakkala",
+      "Kumana"
+    ]
+  },
+  {
+    "name": "Maduru Oya",
+    "basin_name": "Maduru Oya",
+    "location_names": [
+      "Padiyathalawa",
+      "Kalkudah"
+    ]
+  },
+  {
+    "name": "Maguru Ganga",
+    "basin_name": "Kalu Ganga",
+    "location_names": [
+      "Magura",
+      "Kalawellawa (Millakanda)"
+    ]
+  },
+  {
+    "name": "Maha Oya",
+    "basin_name": "Maha Oya",
+    "location_names": [
+      "Rakshawa Mountains",
+      "Mawanella",
+      "Giriulla",
+      "Badalgama",
+      "Kochchikade"
+    ]
+  },
+  {
+    "name": "Mahaweli Ganga",
+    "basin_name": "Mahaweli Ganga",
+    "location_names": [
+      "Nuwara Eliya",
+      "Nawalapitiya",
+      "Peradeniya",
+      "Minipe",
+      "Weraganthota",
+      "Manampitiya",
+      "Trincomalee"
+    ]
+  },
+  {
+    "name": "Malwathu Oya",
+    "basin_name": "Malwathu Oya",
+    "location_names": [
+      "Inamaluwa",
+      "Anuradhapura",
+      "Thanthirimale",
+      "Vankalai"
+    ]
+  },
+  {
+    "name": "Mee Oya",
+    "basin_name": "Mee Oya",
+    "location_names": [
+      "Galgamuwa",
+      "Puttalam"
+    ]
+  },
+  {
+    "name": "Menik Ganga",
+    "basin_name": "Menik Ganga",
+    "location_names": [
+      "Namunukula",
+      "Katharagama",
+      "Yala"
+    ]
+  },
+  {
+    "name": "Mukunu Oya",
+    "basin_name": "Ma Oya",
+    "location_names": [
+      "Yaka Wewa",
+      "Kokkilai"
+    ]
+  },
+  {
+    "name": "Nilwala Ganga",
+    "basin_name": "Nilwala Ganga",
+    "location_names": [
+      "Kotapola",
+      "Pitabeddara",
+      "Panadugama",
+      "Thalgahagoda",
+      "Matara"
+    ]
+  },
+  {
+    "name": "Seethawaka Ganga",
+    "basin_name": "Kelani Ganga",
+    "location_names": [
+      "Deraniyagala",
+      "Glencourse"
+    ]
+  },
+  {
+    "name": "Urubokka Ganga",
+    "basin_name": "Nilwala Ganga",
+    "location_names": [
+      "Urawa",
+      "Pitabeddara"
+    ]
+  },
+  {
+    "name": "Walawe Ganga",
+    "basin_name": "Walawe Ganga",
+    "location_names": [
+      "Horton Plains",
+      "Balangoda",
+      "Moraketiya",
+      "Ambalantota"
+    ]
+  },
+  {
+    "name": "Yan Oya",
+    "basin_name": "Yan Oya",
+    "location_names": [
+      "Ritigala",
+      "Horowpothana",
+      "Pulmoddai"
+    ]
+  }
+]
