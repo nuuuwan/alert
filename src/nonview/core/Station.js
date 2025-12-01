@@ -1,3 +1,5 @@
+import { Cache } from "../base";
+
 export default class Station {
   constructor(data) {
     this.name = data.name;
@@ -10,21 +12,23 @@ export default class Station {
   }
 
   static async listAll() {
-    try {
-      const response = await fetch(
-        process.env.PUBLIC_URL + "/data/static/stations.json"
-      );
+    return Cache.get("stations.lisAll", async () => {
+      try {
+        const response = await fetch(
+          process.env.PUBLIC_URL + "/data/static/stations.json"
+        );
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.map((stationData) => new Station(stationData));
+      } catch (error) {
+        console.error("Error loading stations:", error);
+        return [];
       }
-
-      const data = await response.json();
-      return data.map((stationData) => new Station(stationData));
-    } catch (error) {
-      console.error("Error loading stations:", error);
-      return [];
-    }
+    });
   }
 
   get latitude() {
