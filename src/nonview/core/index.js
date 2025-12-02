@@ -6,5 +6,6 @@ import Location from "./Location";
 import River from "./River";
 import RiverWaterLevel from "./RiverWaterLevel";
 import Station from "./Station";
+import Weather from "./Weather";
 
-export { Alert, Basin, DB, Location, River, RiverWaterLevel, Station };
+export { Alert, Basin, DB, Location, River, RiverWaterLevel, Station, Weather };

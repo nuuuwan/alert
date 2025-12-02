@@ -14,6 +14,7 @@ export default function MapView() {
   const [stationToLatest, setStationToLatest] = useState({});
   const [stationToAlert, setStationToAlert] = useState({});
   const [riverWaterLevelIdx, setRiverWaterLevelIdx] = useState({});
+  const [weatherList, setWeatherList] = useState([]);
 
   useEffect(() => {
     DB.load().then((data) => {
@@ -24,8 +25,11 @@ export default function MapView() {
       setStationToLatest(data.stationToLatest);
       setStationToAlert(data.stationToAlert);
       setRiverWaterLevelIdx(data.riverWaterLevelIdx);
+      setWeatherList(data.weatherList);
     });
   }, []);
+
+  console.debug({ weatherList });
 
   return (
     <MapContainer

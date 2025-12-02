@@ -2,17 +2,25 @@ import Station from "./Station";
 import Location from "./Location";
 import River from "./River";
 import RiverWaterLevel from "./RiverWaterLevel";
+import Weather from "./Weather";
 
 export default class DB {
   static async load() {
-    const [stations, locations, rivers, stationToLatest, riverWaterLevelIdx] =
-      await Promise.all([
-        Station.listAll(),
-        Location.listAll(),
-        River.listAll(),
-        RiverWaterLevel.stationToLatest(),
-        RiverWaterLevel.idx(),
-      ]);
+    const [
+      stations,
+      locations,
+      rivers,
+      stationToLatest,
+      riverWaterLevelIdx,
+      weatherList,
+    ] = await Promise.all([
+      Station.listAll(),
+      Location.listAll(),
+      River.listAll(),
+      RiverWaterLevel.stationToLatest(),
+      RiverWaterLevel.idx(),
+      Weather.listAll(),
+    ]);
 
     // Build location map
     const locationMap = {};
@@ -43,6 +51,7 @@ export default class DB {
       stationToLatest,
       stationToAlert,
       riverWaterLevelIdx,
+      weatherList,
     };
   }
 }
