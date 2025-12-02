@@ -15,11 +15,7 @@ export default function MapStationView({
     <>
       {stations.map((station, index) => {
         const alert = stationToAlert[station.name];
-        const fillColor = alert
-          ? `rgb(${alert.color[0] * 255}, ${alert.color[1] * 255}, ${
-              alert.color[2] * 255
-            })`
-          : "white";
+        const fillColor = alert ? alert.colorRgb : "white";
         return (
           <MapMarkerView
             key={`station-group-${index}`}
@@ -36,8 +32,7 @@ export default function MapStationView({
             renderPopupContent={(station) => {
               const latestLevel = stationToLatest[station.name];
               const alert = station.getAlert(latestLevel.waterLevelM);
-              const [r, g, b] = alert.color;
-              const alertColor = `rgb(${r * 255}, ${g * 255}, ${b * 255})`;
+              const alertColor = alert.colorRgb;
 
               const date = latestLevel.date;
               const formattedDate = date.toLocaleString("en-US", {

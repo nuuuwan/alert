@@ -10,6 +10,11 @@ export default class Alert {
     return this.name;
   }
 
+  get colorRgb() {
+    const [r, g, b] = this.color;
+    return `rgb(${r * 255}, ${g * 255}, ${b * 255})`;
+  }
+
   isLessThan(other) {
     return this.level < other.level;
   }

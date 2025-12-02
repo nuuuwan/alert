@@ -56,12 +56,6 @@ export default function WaterLevelChart({ station }) {
   const dates = data.map((d) => d.date);
   const waterLevels = data.map((d) => d.waterLevel);
 
-  // Helper function to convert Alert color to CSS
-  const alertToColor = (alert) => {
-    const [r, g, b] = alert.color;
-    return `rgb(${r * 255}, ${g * 255}, ${b * 255})`;
-  };
-
   // Create reference lines for flood levels
   const series = [
     {
@@ -79,7 +73,7 @@ export default function WaterLevelChart({ station }) {
       id: "majorFlood",
       data: dates.map(() => station.majorFloodLevelM),
       label: "Major Flood",
-      color: alertToColor(Alert.MAJOR),
+      color: Alert.MAJOR.colorRgb,
       showMark: false,
       curve: "linear",
     });
@@ -91,7 +85,7 @@ export default function WaterLevelChart({ station }) {
       id: "minorFlood",
       data: dates.map(() => station.minorFloodLevelM),
       label: "Minor Flood",
-      color: alertToColor(Alert.MINOR),
+      color: Alert.MINOR.colorRgb,
       showMark: false,
       curve: "linear",
     });
@@ -103,7 +97,7 @@ export default function WaterLevelChart({ station }) {
       id: "alert",
       data: dates.map(() => station.alertLevelM),
       label: "Alert",
-      color: alertToColor(Alert.ALERT),
+      color: Alert.ALERT.colorRgb,
       showMark: false,
       curve: "linear",
     });

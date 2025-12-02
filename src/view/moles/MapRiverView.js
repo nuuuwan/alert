@@ -35,11 +35,6 @@ export default function MapRiverView({ rivers, locationMap, stationToAlert }) {
     return alert1.level > alert2.level ? alert1 : alert2;
   };
 
-  const alertToColor = (alert) => {
-    const [r, g, b] = alert.color;
-    return `rgb(${r * 255}, ${g * 255}, ${b * 255})`;
-  };
-
   return (
     <>
       {rivers.map((river, index) => {
@@ -66,7 +61,7 @@ export default function MapRiverView({ rivers, locationMap, stationToAlert }) {
           segments.push({
             points: segmentPoints,
             alert: segmentAlert,
-            color: alertToColor(segmentAlert),
+            color: segmentAlert.colorRgb,
           });
         }
 
