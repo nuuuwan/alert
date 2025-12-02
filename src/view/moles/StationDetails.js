@@ -3,7 +3,12 @@ import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import WaterLevelChart from "./WaterLevelChart";
 import { DATE_TIME_FORMAT } from "../_cons/FormatConstants";
-import { WaterLevelView, RateOfRiseView, SatelliteImageView } from "../atoms";
+import {
+  WaterLevelView,
+  RateOfRiseView,
+  SatelliteImageView,
+  GaugeStationIcon,
+} from "../atoms";
 
 export default function StationDetails({
   station,
@@ -39,9 +44,20 @@ export default function StationDetails({
         <Typography variant="overline" color="text.secondary">
           {station.riverName}
         </Typography>
-        <Typography variant="h3" component="h1">
-          {station.name}
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1 }}>
+          <Box
+            dangerouslySetInnerHTML={{
+              __html: GaugeStationIcon({
+                size: 48,
+                color: alert ? alert.colorRgb : "#888888",
+                strokeColor: "white",
+              }),
+            }}
+          />
+          <Typography variant="h3" component="h1" color={alert.colorRgb}>
+            {station.name}
+          </Typography>
+        </Box>
         <Typography variant="body2" color="text.secondary" gutterBottom>
           Gauging Station
         </Typography>
