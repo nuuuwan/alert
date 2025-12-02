@@ -1,4 +1,5 @@
 import { Polyline, Popup } from "react-leaflet";
+import { RIVER_LINE_WIDTH } from "../_cons";
 
 // Helper function to create intermediate points at 45-degree angles
 function createAngledSegments(start, end) {
@@ -41,7 +42,7 @@ export default function MapRiverView({ rivers, locationMap }) {
         for (let i = 0; i < positions.length - 1; i++) {
           const segmentPoints = createAngledSegments(
             positions[i],
-            positions[i + 1],
+            positions[i + 1]
           );
           if (i === 0) {
             angledPositions.push(...segmentPoints);
@@ -54,7 +55,11 @@ export default function MapRiverView({ rivers, locationMap }) {
           <Polyline
             key={`river-${index}`}
             positions={angledPositions}
-            pathOptions={{ color: "blue", weight: 4, opacity: 0.6 }}
+            pathOptions={{
+              color: "blue",
+              weight: RIVER_LINE_WIDTH,
+              opacity: 0.6,
+            }}
           >
             <Popup>
               <strong>{river.name}</strong>

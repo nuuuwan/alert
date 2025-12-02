@@ -1,4 +1,5 @@
 import { CircleMarker, Popup } from "react-leaflet";
+import { LOCATION_MARKER_RADIUS } from "../_cons";
 
 export default function MapLocationView({ locations }) {
   return (
@@ -7,7 +8,7 @@ export default function MapLocationView({ locations }) {
         <CircleMarker
           key={`location-${index}`}
           center={location.latLng}
-          radius={6}
+          radius={LOCATION_MARKER_RADIUS}
           pathOptions={{ color: "none", fillColor: "gray", fillOpacity: 1 }}
         >
           <Popup>
