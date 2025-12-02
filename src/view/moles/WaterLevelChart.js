@@ -120,7 +120,7 @@ export default function WaterLevelChart({ station }) {
         ]}
         series={series}
         height={375}
-        margin={{ left: 50, right: 20, top: 20, bottom: 50 }}
+        margin={20}
         grid={{ vertical: true, horizontal: true }}
         sx={{
           [`.${lineElementClasses.root}[data-series="majorFlood"]`]: {
