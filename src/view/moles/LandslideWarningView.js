@@ -54,10 +54,10 @@ export default function LandslideWarningView() {
           key={`landslide-dsd-${ent.id}-${index}`}
           ent={ent}
           pathOptions={{
-            color: getColorForLevel(level),
+            color: null,
             fillColor: getColorForLevel(level),
             fillOpacity: 0.3,
-            weight: 2,
+            weight: 0,
           }}
         />
       ))}
