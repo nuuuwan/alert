@@ -8,7 +8,7 @@ export default class StaticData {
     return await Cache.get(`${this.getClassID()}.listAll`, async () => {
       try {
         const response = await fetch(
-          process.env.PUBLIC_URL + `/data/static/${this.getClassID()}s.json`
+          process.env.PUBLIC_URL + `/data/static/${this.getClassID()}s.json`,
         );
 
         if (!response.ok) {
