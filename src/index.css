@@ -4,8 +4,7 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family:
-    "Ubuntu Sans", sans-serif;
+  font-family: "Ubuntu Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
