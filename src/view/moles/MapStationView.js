@@ -6,6 +6,7 @@ export default function MapStationView({
   stations,
   stationToLatest,
   stationToAlert,
+  riverWaterLevelIdx,
 }) {
   return (
     <>
@@ -29,6 +30,7 @@ export default function MapStationView({
               <StationDetails
                 station={station}
                 stationToLatest={stationToLatest}
+                riverWaterLevelIdx={riverWaterLevelIdx}
               />
             )}
           />

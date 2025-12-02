@@ -5,12 +5,14 @@ import RiverWaterLevel from "./RiverWaterLevel";
 
 export default class DB {
   static async load() {
-    const [stations, locations, rivers, stationToLatest] = await Promise.all([
-      Station.listAll(),
-      Location.listAll(),
-      River.listAll(),
-      RiverWaterLevel.stationToLatest(),
-    ]);
+    const [stations, locations, rivers, stationToLatest, riverWaterLevelIdx] =
+      await Promise.all([
+        Station.listAll(),
+        Location.listAll(),
+        River.listAll(),
+        RiverWaterLevel.stationToLatest(),
+        RiverWaterLevel.idx(),
+      ]);
 
     // Build location map
     const locationMap = {};
@@ -40,6 +42,7 @@ export default class DB {
       locationMap,
       stationToLatest,
       stationToAlert,
+      riverWaterLevelIdx,
     };
   }
 }

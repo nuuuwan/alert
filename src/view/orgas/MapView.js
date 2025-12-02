@@ -13,6 +13,7 @@ export default function MapView() {
   const [locationMap, setLocationMap] = useState({});
   const [stationToLatest, setStationToLatest] = useState({});
   const [stationToAlert, setStationToAlert] = useState({});
+  const [riverWaterLevelIdx, setRiverWaterLevelIdx] = useState({});
 
   useEffect(() => {
     DB.load().then((data) => {
@@ -22,6 +23,7 @@ export default function MapView() {
       setLocationMap(data.locationMap);
       setStationToLatest(data.stationToLatest);
       setStationToAlert(data.stationToAlert);
+      setRiverWaterLevelIdx(data.riverWaterLevelIdx);
     });
   }, []);
 
@@ -45,6 +47,7 @@ export default function MapView() {
         stations={stations}
         stationToLatest={stationToLatest}
         stationToAlert={stationToAlert}
+        riverWaterLevelIdx={riverWaterLevelIdx}
       />
     </MapContainer>
   );
