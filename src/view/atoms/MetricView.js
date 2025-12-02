@@ -40,7 +40,6 @@ export default function MetricView({
             color: "white",
             fontWeight: "bold",
             fontSize: valueVariant === "h3" ? "0.8125rem" : "0.75rem",
-            fontFamily: "Ubuntu Sans, sans-serif",
             px: valueVariant === "h3" ? 1.5 : 1.25,
             py: valueVariant === "h3" ? 0.5 : 0.375,
             borderRadius: valueVariant === "h3" ? "16px" : "12px",
