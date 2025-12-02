@@ -1,10 +1,11 @@
 import Drawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import DownloadIcon from "@mui/icons-material/Download";
 import { useRef } from "react";
-import html2canvas from "html2canvas";
+import DownloadableContent from "./DownloadableContent";
 
 export default function MarkerDrawer({
   open,
@@ -13,32 +14,14 @@ export default function MarkerDrawer({
   renderContent,
   getFileName,
 }) {
-  const contentRef = useRef(null);
+  const downloadRef = useRef(null);
 
-  const handleDownload = async () => {
-    if (!contentRef.current) return;
-
-    try {
-      const canvas = await html2canvas(contentRef.current, {
-        backgroundColor: "#ffffff",
-        scale: 2,
-        useCORS: true,
-        allowTaint: true,
-        logging: false,
-      });
-
-      const fileName = getFileName
-        ? getFileName(selectedItem)
-        : `station-details-${Date.now()}.png`;
-
-      const link = document.createElement("a");
-      link.download = fileName;
-      link.href = canvas.toDataURL("image/png");
-      link.click();
-    } catch (error) {
-      console.error("Error generating image:", error);
+  const handleDownload = () => {
+    if (downloadRef.current) {
+      downloadRef.current.download();
     }
   };
+
   return (
     <Drawer
       anchor="right"
@@ -52,7 +35,7 @@ export default function MarkerDrawer({
         },
       }}
     >
-      <Box sx={{ position: "relative", height: "100%" }}>
+      <Box sx={{ height: "100%" }}>
         <Box sx={{ position: "absolute", right: 8, top: 8, zIndex: 1 }}>
           <IconButton onClick={handleDownload} aria-label="download">
             <DownloadIcon />
@@ -61,9 +44,13 @@ export default function MarkerDrawer({
             <CloseIcon />
           </IconButton>
         </Box>
-        <Box ref={contentRef} sx={{ p: 2, pt: 7 }}>
-          {selectedItem && renderContent(selectedItem)}
-        </Box>
+        <DownloadableContent
+          ref={downloadRef}
+          getFileName={getFileName}
+          selectedItem={selectedItem}
+        >
+          <Paper sx={{ m: 1, p: 3 }}>{renderContent(selectedItem)}</Paper>
+        </DownloadableContent>
       </Box>
     </Drawer>
   );

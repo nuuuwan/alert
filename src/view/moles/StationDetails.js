@@ -30,7 +30,6 @@ export default function StationDetails({
 
   return (
     <Box>
-      {/* Top Pane: Header */}
       <Box sx={{ mb: 2 }}>
         <Typography variant="overline" color="text.secondary">
           {station.riverName}
@@ -71,17 +70,14 @@ export default function StationDetails({
 
       <Divider sx={{ my: 3 }} />
 
-      {/* Bottom Pane: Chart */}
       <WaterLevelChart station={station} />
 
-      <Box
-        sx={{ mt: 3, pt: 2, borderTop: "1px solid", borderColor: "divider" }}
-      >
-        <Typography variant="caption" color="text.secondary">
-          Data Source: Hydrology and Disaster Management Division, Irrigation
-          Department of Sri Lanka.
-        </Typography>
-      </Box>
+      <Divider sx={{ my: 3 }} />
+
+      <Typography variant="caption" color="text.secondary">
+        Data Source: Hydrology and Disaster Management Division, Irrigation
+        Department of Sri Lanka.
+      </Typography>
     </Box>
   );
 }
