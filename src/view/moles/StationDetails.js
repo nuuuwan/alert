@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import WaterLevelChart from "./WaterLevelChart";
 import { DATE_TIME_FORMAT } from "../_cons/FormatConstants";
-import { WaterLevelView, RateOfRiseView } from "../atoms";
+import { WaterLevelView, RateOfRiseView, SatelliteImageView } from "../atoms";
 
 export default function StationDetails({
   station,
@@ -15,25 +15,6 @@ export default function StationDetails({
 
   const date = latestLevel.date;
   const formattedDate = date.toLocaleString("en-US", DATE_TIME_FORMAT);
-
-  const latLngToWebMercator = (lat, lng) => {
-    const x = (lng * 20037508.34) / 180;
-    const y =
-      (Math.log(Math.tan(((90 + lat) * Math.PI) / 360)) / (Math.PI / 180)) *
-      (20037508.34 / 180);
-    return { x, y };
-  };
-
-  const [lat, lng] = station.latLng;
-  const center = latLngToWebMercator(lat, lng);
-
-  const bufferMeters = 500; // 500m on each side
-  const minX = center.x - bufferMeters;
-  const minY = center.y - bufferMeters;
-  const maxX = center.x + bufferMeters;
-  const maxY = center.y + bufferMeters;
-
-  const satelliteImageUrl = `https://sentinel.arcgis.com/arcgis/rest/services/Sentinel2/ImageServer/exportImage?f=image&bbox=${minX},${minY},${maxX},${maxY}&bboxSR=102100&imageSR=102100&size=400,400&compressionQuality=75&format=jpgpng`;
 
   // Compute rate of rise/drop
   let rateOfChangeCmPerHr = null;
@@ -103,31 +84,7 @@ export default function StationDetails({
           />
         </Box>
 
-        <Box>
-          <Typography
-            variant="caption"
-            color="text.secondary"
-            display="block"
-            sx={{ textTransform: "uppercase" }}
-          >
-            Satellite View
-          </Typography>
-          <Box
-            component="img"
-            src={satelliteImageUrl}
-            alt={`Satellite view of ${station.name}`}
-            crossOrigin="anonymous"
-            sx={{
-              width: "100%",
-              height: "auto",
-              aspectRatio: "1",
-              objectFit: "cover",
-              borderRadius: 1,
-              border: "1px solid",
-              borderColor: "divider",
-            }}
-          />
-        </Box>
+        <SatelliteImageView latLng={station.latLng} name={station.name} />
       </Box>
 
       <Divider sx={{ my: 3 }} />
