@@ -1,5 +1,8 @@
 import { STATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import MapMarkerView from "./MapMarkerView";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Chip from "@mui/material/Chip";
 
 export default function MapStationView({
   stations,
@@ -40,17 +43,47 @@ export default function MapStationView({
               });
 
               return (
-                <>
-                  <h3>{station.riverName}</h3>
-                  <h1>{station.name}</h1>
+                <Box>
+                  <Typography
+                    variant="overline"
+                    color="text.secondary"
+                    gutterBottom
+                  >
+                    {station.riverName}
+                  </Typography>
+                  <Typography
+                    variant="h4"
+                    component="h1"
+                    gutterBottom
+                    fontWeight="bold"
+                  >
+                    {station.name}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    gutterBottom
+                  >
+                    {formattedDate}
+                  </Typography>
+                  <Typography
+                    variant="h3"
+                    component="div"
+                    sx={{ mt: 3, mb: 1 }}
+                  >
+                    {latestLevel.waterLevelM.toFixed(2)}m
+                  </Typography>
 
-                  <h3>{latestLevel.waterLevelM.toFixed(2)}m</h3>
-                  <p>
-                    {"As of "}
-                    <strong>{formattedDate}</strong>
-                  </p>
-                  <p style={{ color: alertColor }}>{alert.label}</p>
-                </>
+                  <Chip
+                    label={alert.label}
+                    sx={{
+                      mt: 2,
+                      backgroundColor: alertColor,
+                      color: "white",
+                      fontWeight: "bold",
+                    }}
+                  />
+                </Box>
               );
             }}
           />
