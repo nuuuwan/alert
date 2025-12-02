@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import WaterLevelChart from "./WaterLevelChart";
 import { DATE_TIME_FORMAT } from "../_cons/FormatConstants";
+import { WaterLevelView, RateOfRiseView } from "../atoms";
 
 export default function StationDetails({
   station,
@@ -11,12 +12,10 @@ export default function StationDetails({
 }) {
   const latestLevel = stationToLatest[station.name];
   const alert = station.getAlert(latestLevel.waterLevelM);
-  const alertColor = alert.colorRgb;
 
   const date = latestLevel.date;
   const formattedDate = date.toLocaleString("en-US", DATE_TIME_FORMAT);
 
-  // Convert lat/lng to Web Mercator (EPSG:3857) for Sentinel-2 image
   const latLngToWebMercator = (lat, lng) => {
     const x = (lng * 20037508.34) / 180;
     const y =
@@ -28,7 +27,6 @@ export default function StationDetails({
   const [lat, lng] = station.latLng;
   const center = latLngToWebMercator(lat, lng);
 
-  // Create a bbox around the station (approximately 1km x 1km)
   const bufferMeters = 500; // 500m on each side
   const minX = center.x - bufferMeters;
   const minY = center.y - bufferMeters;
@@ -92,88 +90,17 @@ export default function StationDetails({
       >
         <Box margin={2}>
           <Box sx={{ mb: 2 }}>
-            <Typography
-              variant="caption"
-              color="text.secondary"
-              display="block"
-              sx={{ textTransform: "uppercase" }}
-            >
-              Water Level
-            </Typography>
-            <Box
-              sx={{ display: "flex", alignItems: "baseline", gap: 0.5, mb: 1 }}
-            >
-              <Typography variant="h3" component="span">
-                {latestLevel.waterLevelM.toFixed(2)}
-              </Typography>
-              <Typography variant="h6" component="span" color="text.secondary">
-                m
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: "inline-block",
-                backgroundColor: alertColor,
-                color: "white",
-                fontWeight: "bold",
-                fontSize: "0.8125rem",
-                fontFamily: "Ubuntu Sans, sans-serif",
-                px: 1.5,
-                py: 0.5,
-                borderRadius: "16px",
-              }}
-            >
-              {alert.label}
-            </Box>
+            <WaterLevelView
+              waterLevelM={latestLevel.waterLevelM}
+              alert={alert}
+            />
           </Box>
 
-          {rateChipLabel && (
-            <Box>
-              <Typography
-                variant="caption"
-                color="text.secondary"
-                display="block"
-                sx={{ textTransform: "uppercase" }}
-              >
-                Rate of Change
-              </Typography>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "baseline",
-                  gap: 0.5,
-                  mb: 0.5,
-                }}
-              >
-                <Typography variant="h5" component="span">
-                  {rateOfChangeCmPerHr > 0 ? "+" : ""}
-                  {rateOfChangeCmPerHr.toFixed(0)}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  component="span"
-                  color="text.secondary"
-                >
-                  cm/hr
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  display: "inline-block",
-                  backgroundColor: rateChipColor,
-                  color: "white",
-                  fontWeight: "bold",
-                  fontSize: "0.75rem",
-                  fontFamily: "Ubuntu Sans, sans-serif",
-                  px: 1.25,
-                  py: 0.375,
-                  borderRadius: "12px",
-                }}
-              >
-                {rateChipLabel}
-              </Box>
-            </Box>
-          )}
+          <RateOfRiseView
+            rateOfChangeCmPerHr={rateOfChangeCmPerHr}
+            label={rateChipLabel}
+            color={rateChipColor}
+          />
         </Box>
 
         <Box>
