@@ -19,7 +19,7 @@ export default function Header() {
       <Toolbar variant="dense">
         <WaterIcon sx={{ mr: 2 }} />
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Awareness, Logistics, Evacuation, Recovery and Tracking Platform
+          Awareness, Logistics, Evacuation, Recovery and Tracking
         </Typography>
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <IconButton
