@@ -3,16 +3,16 @@ const { Station } = await import("./Station.js");
 
 export default class RiverWaterLevel {
   constructor(data) {
-    this.stationName = data.station_name;
-    this.timeUt = data.time_ut;
-    this.waterLevelM = data.water_level_m;
+    this.stationName = data.stationName || data.station_name;
+    this.timeUt = data.timeUt || data.time_ut;
+    this.waterLevelM = data.waterLevelM || data.water_level_m;
   }
 
   static async listAll() {
     const cachedData = await Cache.get("riverWaterLevel.listAll", async () => {
       try {
         const response = await fetch(
-          "https://raw.githubusercontent.com/nuuuwan/lk_irrigation/refs/heads/main/data/all.json",
+          "https://raw.githubusercontent.com/nuuuwan/lk_irrigation/refs/heads/main/data/all.json"
         );
 
         if (!response.ok) {

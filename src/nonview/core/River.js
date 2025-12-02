@@ -8,8 +8,8 @@ export default class River extends StaticData {
 
   constructor(data) {
     super(data);
-    this.basinName = data.basin_name;
-    this.locationNames = data.location_names;
+    this.basinName = data.basinName || data.basin_name;
+    this.locationNames = data.locationNames || data.location_names;
   }
 
   async basin() {
