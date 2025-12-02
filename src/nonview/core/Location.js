@@ -6,10 +6,6 @@ export default class Location extends StaticData {
   }
   constructor(data) {
     super(data);
-    this.latLng = data.lat_lng;
-  }
-
-  getAlertLevel(waterLevelM) {
-    return Alert.NO_DATA;
+    this.latLng = data.latLng || data.lat_lng;
   }
 }
