@@ -69,84 +69,132 @@ export default function StationDetails({
 
   return (
     <Box>
-      <Typography variant="h6">{station.riverName}</Typography>
-      <Typography variant="h4" component="h1">
-        {station.name}
-      </Typography>
-      <Typography
-        variant="body1"
-        component="h1"
-        color="text.secondary"
-        gutterBottom
-      >
-        Gauging Station
-      </Typography>
-      <Typography variant="body2">{formattedDate}</Typography>
-
-      <Box sx={{ mt: 3 }}>
-        <Box sx={{ display: "flex", alignItems: "baseline", gap: 0.5, mb: 1 }}>
-          <Typography variant="h3" component="span">
-            {latestLevel.waterLevelM.toFixed(2)}
-          </Typography>
-          <Typography variant="h6" component="span" color="text.secondary">
-            m
-          </Typography>
-        </Box>
-        <Chip
-          label={alert.label}
-          sx={{
-            backgroundColor: alertColor,
-            color: "white",
-            fontWeight: "bold",
-          }}
-        />
+      {/* Top Pane: Header */}
+      <Box sx={{ mb: 2 }}>
+        <Typography variant="overline" color="text.secondary">
+          {station.riverName}
+        </Typography>
+        <Typography variant="h5" component="h1">
+          {station.name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Gauging Station • {formattedDate}
+        </Typography>
       </Box>
 
-      {rateChipLabel && (
-        <Box sx={{ mt: 2 }}>
-          <Box
-            sx={{ display: "flex", alignItems: "baseline", gap: 0.5, mb: 0.5 }}
-          >
-            <Typography variant="h5" component="span">
-              {rateOfChangeCmPerHr > 0 ? "+" : ""}
-              {rateOfChangeCmPerHr.toFixed(0)}
+      {/* Top Pane: Measurements and Satellite in Grid */}
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: 2,
+          mb: 3,
+        }}
+      >
+        {/* Left: Measurements */}
+        <Box>
+          <Box sx={{ mb: 2 }}>
+            <Typography
+              variant="caption"
+              color="text.secondary"
+              display="block"
+              sx={{ textTransform: "uppercase" }}
+            >
+              Water Level
             </Typography>
-            <Typography variant="body2" component="span" color="text.secondary">
-              cm/hr
-            </Typography>
+            <Box
+              sx={{ display: "flex", alignItems: "baseline", gap: 0.5, mb: 1 }}
+            >
+              <Typography variant="h3" component="span">
+                {latestLevel.waterLevelM.toFixed(2)}
+              </Typography>
+              <Typography variant="h6" component="span" color="text.secondary">
+                m
+              </Typography>
+            </Box>
+            <Chip
+              label={alert.label}
+              sx={{
+                backgroundColor: alertColor,
+                color: "white",
+                fontWeight: "bold",
+              }}
+            />
           </Box>
-          <Chip
-            label={rateChipLabel}
-            size="small"
+
+          {rateChipLabel && (
+            <Box>
+              <Typography
+                variant="caption"
+                color="text.secondary"
+                display="block"
+                sx={{ textTransform: "uppercase" }}
+              >
+                Rate of Change
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "baseline",
+                  gap: 0.5,
+                  mb: 0.5,
+                }}
+              >
+                <Typography variant="h5" component="span">
+                  {rateOfChangeCmPerHr > 0 ? "+" : ""}
+                  {rateOfChangeCmPerHr.toFixed(0)}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  component="span"
+                  color="text.secondary"
+                >
+                  cm/hr
+                </Typography>
+              </Box>
+              <Chip
+                label={rateChipLabel}
+                size="small"
+                sx={{
+                  backgroundColor: rateChipColor,
+                  color: "white",
+                  fontWeight: "bold",
+                }}
+              />
+            </Box>
+          )}
+        </Box>
+
+        {/* Right: Satellite Image */}
+        <Box>
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            display="block"
+            sx={{ textTransform: "uppercase", mb: 1 }}
+          >
+            Satellite View
+          </Typography>
+          <Box
+            component="img"
+            src={satelliteImageUrl}
+            alt={`Satellite view of ${station.name}`}
             sx={{
-              backgroundColor: rateChipColor,
-              color: "white",
-              fontWeight: "bold",
+              width: "100%",
+              height: "auto",
+              aspectRatio: "1",
+              objectFit: "cover",
+              borderRadius: 1,
+              border: "1px solid",
+              borderColor: "divider",
             }}
           />
         </Box>
-      )}
+      </Box>
 
       <Divider sx={{ my: 3 }} />
 
-      <Box sx={{ mb: 3 }}>
-        <Typography variant="h6" gutterBottom>
-          Satellite View
-        </Typography>
-        <Box
-          component="img"
-          src={satelliteImageUrl}
-          alt={`Satellite view of ${station.name}`}
-          sx={{
-            width: "100%",
-            height: "auto",
-            borderRadius: 1,
-            border: "1px solid",
-            borderColor: "divider",
-          }}
-        />
-      </Box>
-
+      {/* Bottom Pane: Chart */}
       <WaterLevelChart station={station} />
 
       <Box

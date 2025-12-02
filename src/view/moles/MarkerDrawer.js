@@ -43,9 +43,9 @@ export default function MarkerDrawer({
       onClose={onClose}
       sx={{
         "& .MuiDrawer-paper": {
-          width: { xs: "100%", sm: 400 },
-          padding: "6px",
-          height: "calc(100% - 6px)",
+          width: { xs: "100%", sm: 600, md: 700 },
+          marginTop: "48px",
+          height: "calc(100% - 48px)",
         },
       }}
     >
