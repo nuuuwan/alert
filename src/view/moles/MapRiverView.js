@@ -110,7 +110,7 @@ export default function MapRiverView({ rivers, locationMap, nameToAlert }) {
                 <Popup>
                   <strong>{river.name}</strong>
                   <br />
-                  Basin: {river.basinName}
+                  {river.basinName} Basin
                 </Popup>
               </Polyline>
             ))}
