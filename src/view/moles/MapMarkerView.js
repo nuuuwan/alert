@@ -1,7 +1,8 @@
-import { CircleMarker, Marker } from "react-leaflet";
+import { Marker } from "react-leaflet";
 import { useState } from "react";
 import L from "leaflet";
 import MarkerDrawer from "./MarkerDrawer";
+import GaugeStationIcon from "../atoms/GaugeStationIcon";
 
 export default function MapMarkerView({
   items,
@@ -29,11 +30,19 @@ export default function MapMarkerView({
     <>
       {items.map((item, index) => (
         <>
-          <CircleMarker
+          <Marker
             key={`${markerType}-${index}`}
-            center={item.latLng}
-            radius={radius}
-            pathOptions={pathOptions}
+            position={item.latLng}
+            icon={L.divIcon({
+              className: `${markerType}-icon`,
+              html: GaugeStationIcon({
+                size: radius * 8,
+                color: pathOptions.color,
+                strokeColor: pathOptions.fillColor,
+              }),
+              iconSize: [radius * 8, radius * 8],
+              iconAnchor: [radius * 4, radius * 8],
+            })}
             eventHandlers={{
               click: () => handleMarkerClick(item),
             }}
@@ -47,7 +56,7 @@ export default function MapMarkerView({
                 radius * 2
               }px; ${labelStyle} white-space: nowrap; 
               line-height: 1; transform: translateY(-50%);">${formatLabel(
-                item,
+                item
               )}</div>`,
               iconSize: [0, 0],
               iconAnchor: [-radius * 2, radius / 2],
