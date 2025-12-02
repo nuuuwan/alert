@@ -45,6 +45,20 @@ export default class RiverWaterLevel {
     return index;
   }
 
+  static async stationToLatest() {
+    const index = await this.idx();
+    const latestMap = {};
+
+    for (const stationName in index) {
+      const levels = index[stationName];
+      if (levels.length > 0) {
+        latestMap[stationName] = levels[levels.length - 1];
+      }
+    }
+
+    return latestMap;
+  }
+
   get date() {
     return new Date(this.timeUt * 1000);
   }
