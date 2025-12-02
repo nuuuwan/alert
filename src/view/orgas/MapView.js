@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
-import { Station, Location, River, RiverWaterLevel } from "../../nonview/core";
+import { DB } from "../../nonview/core";
 import MapLocationView from "../moles/MapLocationView";
 import MapStationView from "../moles/MapStationView";
 import MapRiverView from "../moles/MapRiverView";
@@ -16,48 +16,15 @@ export default function MapView() {
   const [nameToAlert, setNameToAlert] = useState({});
 
   useEffect(() => {
-    Promise.all([
-      Station.listAll(),
-      Location.listAll(),
-      River.listAll(),
-      RiverWaterLevel.stationToLatest(),
-    ]).then(
-      ([
-        loadedStations,
-        loadedLocations,
-        loadedRivers,
-        loadedStationToLatest,
-      ]) => {
-        setStations(loadedStations);
-        setLocations(loadedLocations);
-        setRivers(loadedRivers);
-        setStationToLatest(loadedStationToLatest);
-
-        const map = {};
-        loadedStations.forEach((station) => {
-          map[station.name] = station.latLng;
-        });
-        loadedLocations.forEach((location) => {
-          map[location.name] = location.latLng;
-        });
-        setLocationMap(map);
-
-        const colorMap = {};
-        const alertMap = {};
-
-        loadedStations.forEach((station) => {
-          const latestLevel = loadedStationToLatest[station.name];
-          const waterLevelM = latestLevel.waterLevelM;
-          const alert = station.getAlert(waterLevelM);
-          const [r, g, b] = alert.color;
-          colorMap[station.name] = `rgb(${r * 255}, ${g * 255}, ${b * 255})`;
-          alertMap[station.name] = alert;
-        });
-
-        setStationToColor(colorMap);
-        setNameToAlert(alertMap);
-      },
-    );
+    DB.load().then((data) => {
+      setStations(data.stations);
+      setLocations(data.locations);
+      setRivers(data.rivers);
+      setLocationMap(data.locationMap);
+      setStationToLatest(data.stationToLatest);
+      setStationToColor(data.stationToColor);
+      setNameToAlert(data.nameToAlert);
+    });
   }, []);
 
   return (
