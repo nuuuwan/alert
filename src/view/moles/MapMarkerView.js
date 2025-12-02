@@ -2,6 +2,7 @@ import { Marker } from "react-leaflet";
 import { useState } from "react";
 import L from "leaflet";
 import MarkerDrawer from "./MarkerDrawer";
+import Box from "@mui/material/Box";
 
 export default function MapMarkerView({
   items,
@@ -29,7 +30,7 @@ export default function MapMarkerView({
   return (
     <>
       {items.map((item, index) => (
-        <>
+        <Box key={`${markerType}-box-${index}`}>
           <Marker
             key={`${markerType}-${index}`}
             position={item.latLng}
@@ -63,7 +64,7 @@ export default function MapMarkerView({
             })}
             interactive={false}
           />
-        </>
+        </Box>
       ))}
       <MarkerDrawer
         open={drawerOpen}

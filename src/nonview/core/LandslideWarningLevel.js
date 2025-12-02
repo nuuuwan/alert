@@ -8,7 +8,7 @@ export default class LandslideWarningLevel {
 
   static fromLevel(level) {
     const threatLevel = this.listAll().find(
-      (tl) => tl.level === parseInt(level)
+      (tl) => tl.level === parseInt(level),
     );
     if (!threatLevel) {
       throw new Error(`Invalid threat level: ${level}`);

@@ -22,7 +22,7 @@ export default class Ent {
 
           const latLngListList = await response.json();
           const lngLatListList = latLngListList.map((latLngList) =>
-            latLngList.map((latLng) => [latLng[1], latLng[0]])
+            latLngList.map((latLng) => [latLng[1], latLng[0]]),
           );
 
           return lngLatListList;
@@ -30,7 +30,7 @@ export default class Ent {
           console.error(`Error loading geo data for ${this.id}:`, error);
           return [];
         }
-      }
+      },
     );
 
     return lngLatListList;
