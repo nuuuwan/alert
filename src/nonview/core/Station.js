@@ -1,4 +1,5 @@
 import Location from "./Location.js";
+import River from "./River.js";
 
 export default class Station extends Location {
   static getClassID() {
@@ -12,5 +13,9 @@ export default class Station extends Location {
     this.alertLevelM = data.alert_level_m;
     this.minorFloodLevelM = data.minor_flood_level_m;
     this.majorFloodLevelM = data.major_flood_level_m;
+  }
+
+  async river() {
+    return await River.fromName(this.riverName);
   }
 }
