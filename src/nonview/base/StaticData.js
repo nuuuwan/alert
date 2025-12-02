@@ -1,9 +1,5 @@
 import { Cache } from "../base";
 export default class StaticData {
-  static getClassID() {
-    throw new Error("Not implemented");
-  }
-
   constructor(data) {
     this.name = data.name;
   }
@@ -12,7 +8,7 @@ export default class StaticData {
     return await Cache.get(`${this.getClassID()}.listAll`, async () => {
       try {
         const response = await fetch(
-          process.env.PUBLIC_URL + `/data/static/${this.getClassID()}s.json`,
+          process.env.PUBLIC_URL + `/data/static/${this.getClassID()}s.json`
         );
 
         if (!response.ok) {
@@ -30,7 +26,7 @@ export default class StaticData {
 
   static async idx() {
     const list = await this.listAll();
-    return Object.fromEntries(list.map((item) => [item.name, item]));
+    return Object.fromEntries(list.map((d) => [d.name, d]));
   }
 
   static async fromName(name) {
