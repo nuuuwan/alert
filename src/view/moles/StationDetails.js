@@ -1,6 +1,5 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
 import Divider from "@mui/material/Divider";
 import WaterLevelChart from "./WaterLevelChart";
 import { DATE_TIME_FORMAT } from "../_cons/FormatConstants";
