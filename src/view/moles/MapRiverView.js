@@ -30,7 +30,7 @@ function createAngledSegments(start, end) {
   }
 }
 
-export default function MapRiverView({ rivers, locationMap, nameToAlert }) {
+export default function MapRiverView({ rivers, locationMap, stationToAlert }) {
   const getHigherAlert = (alert1, alert2) => {
     return alert1.level > alert2.level ? alert1 : alert2;
   };
@@ -54,13 +54,13 @@ export default function MapRiverView({ rivers, locationMap, nameToAlert }) {
         for (let i = 0; i < positions.length - 1; i++) {
           const startName = river.locationNames[i];
           const endName = river.locationNames[i + 1];
-          const startAlert = nameToAlert[startName] || Alert.NO_DATA;
-          const endAlert = nameToAlert[endName] || Alert.NO_DATA;
+          const startAlert = stationToAlert[startName] || Alert.NO_DATA;
+          const endAlert = stationToAlert[endName] || Alert.NO_DATA;
           const segmentAlert = getHigherAlert(startAlert, endAlert);
 
           const segmentPoints = createAngledSegments(
             positions[i],
-            positions[i + 1],
+            positions[i + 1]
           );
 
           segments.push({

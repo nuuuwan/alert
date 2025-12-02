@@ -23,7 +23,7 @@ export default class DB {
 
     // Build station color and alert maps
     const stationToColor = {};
-    const nameToAlert = {};
+    const stationToAlert = {};
 
     stations.forEach((station) => {
       const latestLevel = stationToLatest[station.name];
@@ -34,7 +34,7 @@ export default class DB {
         stationToColor[station.name] = `rgb(${r * 255}, ${g * 255}, ${
           b * 255
         })`;
-        nameToAlert[station.name] = alert;
+        stationToAlert[station.name] = alert;
       }
     });
 
@@ -45,7 +45,7 @@ export default class DB {
       locationMap,
       stationToLatest,
       stationToColor,
-      nameToAlert,
+      stationToAlert,
     };
   }
 }
