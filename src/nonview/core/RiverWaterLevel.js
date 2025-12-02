@@ -72,6 +72,6 @@ export default class RiverWaterLevel {
 
   async alert() {
     const station = await this.station();
-    return station.getAlertLevel(this.waterLevelM);
+    return station.getAlert(this.waterLevelM);
   }
 }

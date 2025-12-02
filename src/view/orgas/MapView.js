@@ -48,7 +48,7 @@ export default function MapView() {
         loadedStations.forEach((station) => {
           const latestLevel = loadedStationToLatest[station.name];
           const waterLevelM = latestLevel.waterLevelM;
-          const alert = station.getAlertLevel(waterLevelM);
+          const alert = station.getAlert(waterLevelM);
           const [r, g, b] = alert.color;
           colorMap[station.name] = `rgb(${r * 255}, ${g * 255}, ${b * 255})`;
           alertMap[station.name] = alert;
@@ -56,7 +56,7 @@ export default function MapView() {
 
         setStationToColor(colorMap);
         setNameToAlert(alertMap);
-      },
+      }
     );
   }, []);
 

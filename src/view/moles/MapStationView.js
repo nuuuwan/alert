@@ -25,32 +25,31 @@ export default function MapStationView({
             formatLabel={(station) => `${station.name} Station`}
             renderPopupContent={(station) => {
               const latestLevel = stationToLatest[station.name];
-              if (latestLevel === undefined) {
-                return null;
-              }
+              const alert = station.getAlert(latestLevel.waterLevelM);
+              const [r, g, b] = alert.color;
+              const alertColor = `rgb(${r * 255}, ${g * 255}, ${b * 255})`;
+
+              const date = latestLevel.date;
+              const formattedDate = date.toLocaleString("en-US", {
+                hour: "numeric",
+                minute: "2-digit",
+                hour12: true,
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              });
 
               return (
                 <>
-                  <strong>{station.name}</strong>
-                  <br />
-                  River: {station.riverName}
-                  <br />
-                  {latestLevel && (
-                    <>
-                      <strong>Current Level: {latestLevel.waterLevelM}m</strong>
-                      <br />
-                      Time:{" "}
-                      {latestLevel.date
-                        ? latestLevel.date.toLocaleString()
-                        : "N/A"}
-                      <br />
-                    </>
-                  )}
-                  Alert Level: {station.alertLevelM}m
-                  <br />
-                  Minor Flood: {station.minorFloodLevelM}m
-                  <br />
-                  Major Flood: {station.majorFloodLevelM}m
+                  <h3>{station.riverName}</h3>
+                  <h1>{station.name}</h1>
+
+                  <h3>{latestLevel.waterLevelM.toFixed(2)}m</h3>
+                  <p>
+                    {"As of "}
+                    <strong>{formattedDate}</strong>
+                  </p>
+                  <p style={{ color: alertColor }}>{alert.label}</p>
                 </>
               );
             }}

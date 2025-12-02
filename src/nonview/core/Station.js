@@ -19,7 +19,7 @@ export default class Station extends Location {
     return await River.fromName(this.riverName);
   }
 
-  getAlertLevel(waterLevelM) {
+  getAlert(waterLevelM) {
     if (waterLevelM === null || waterLevelM === undefined) {
       return Alert.NO_DATA;
     }
