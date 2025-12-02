@@ -21,7 +21,7 @@ export default function MetricView({
         {label}
       </Typography>
       <Box sx={{ display: "flex", alignItems: "baseline", gap: 0.5, mb: 1 }}>
-        <Typography variant={valueVariant} component="span">
+        <Typography variant={valueVariant} component="span" color={badgeColor}>
           {value}
         </Typography>
         <Typography
