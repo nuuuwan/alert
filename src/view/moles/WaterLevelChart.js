@@ -114,9 +114,13 @@ export default function WaterLevelChart({ station }) {
             data: dates,
             scaleType: "time",
             valueFormatter: (date) =>
-              date.toLocaleDateString("en-US", {
+              date.toLocaleString("en-US", {
+                hour: "numeric",
+                minute: "2-digit",
+                hour12: true,
                 month: "short",
                 day: "numeric",
+                year: "2-digit",
               }),
           },
         ]}
