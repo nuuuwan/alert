@@ -1,5 +1,5 @@
 import { CircleMarker, Popup } from "react-leaflet";
-import { STATION_MARKER_RADIUS } from "../_cons";
+import { STATION_MARKER_RADIUS } from "../_cons/MapConstants";
 
 export default function MapStationView({ stations }) {
   return (

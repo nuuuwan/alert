@@ -1,5 +1,5 @@
 import { CircleMarker, Popup } from "react-leaflet";
-import { LOCATION_MARKER_RADIUS } from "../_cons";
+import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
 
 export default function MapLocationView({ locations }) {
   return (
