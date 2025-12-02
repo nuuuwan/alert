@@ -169,8 +169,13 @@
     "basin_name": "Malwathu Oya",
     "location_names": [
       "Inamaluwa",
+      "Nachchaduwa Tank",
       "Anuradhapura",
+      "Perimiyankulama Bridge",
+      "Galkadawala Anicut",
       "Thanthirimale",
+      "Kappachchi Weather Station",
+      "Veppankulam Bridge",
       "Vankalai"
     ]
   },
@@ -240,7 +245,11 @@
     "name": "Yan Oya",
     "basin_name": "Yan Oya",
     "location_names": [
-      "Ritigala",
+      "Habarana Wewa",
+      "Huruluwewa",
+      "Kannimaduwa Bridge",
+      "Ilukwewa Anicut",
+      "Ellapothana Anicut",
       "Horowpothana",
       "Pulmoddai"
     ]
