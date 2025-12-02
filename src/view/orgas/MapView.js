@@ -11,7 +11,7 @@ export default function MapView() {
   const [stationToLatest, setStationToLatest] = useState({});
   const [stationToAlert, setStationToAlert] = useState({});
   const [riverWaterLevelIdx, setRiverWaterLevelIdx] = useState({});
-  const [weatherList, setWeatherList] = useState([]);
+  const [locationToWeather, setLocationToWeather] = useState({});
 
   useEffect(() => {
     DB.load().then((data) => {
@@ -20,11 +20,9 @@ export default function MapView() {
       setStationToLatest(data.stationToLatest);
       setStationToAlert(data.stationToAlert);
       setRiverWaterLevelIdx(data.riverWaterLevelIdx);
-      setWeatherList(data.weatherList);
+      setLocationToWeather(data.locationToWeather);
     });
   }, []);
-
-  console.debug({ weatherList });
 
   return (
     <MapContainer
@@ -37,7 +35,10 @@ export default function MapView() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      <MapLocationView locations={locations} />
+      <MapLocationView
+        locations={locations}
+        locationToWeather={locationToWeather}
+      />
       <MapStationView
         stations={stations}
         stationToLatest={stationToLatest}

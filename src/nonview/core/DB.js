@@ -13,6 +13,7 @@ export default class DB {
       stationToLatest,
       riverWaterLevelIdx,
       weatherList,
+      locationToWeather,
     ] = await Promise.all([
       Station.listAll(),
       Location.listAll(),
@@ -20,6 +21,7 @@ export default class DB {
       RiverWaterLevel.stationToLatest(),
       RiverWaterLevel.idx(),
       Weather.listAll(),
+      Weather.idx(),
     ]);
 
     // Build location map
@@ -52,6 +54,7 @@ export default class DB {
       stationToAlert,
       riverWaterLevelIdx,
       weatherList,
+      locationToWeather,
     };
   }
 }

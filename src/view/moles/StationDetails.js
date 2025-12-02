@@ -2,13 +2,13 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import WaterLevelChart from "./WaterLevelChart";
+import DetailsHeader from "./DetailsHeader";
 
 import {
   WaterLevelView,
   RateOfRiseView,
   SatelliteImageView,
   GaugeStationIcon,
-  TimeAgoView,
 } from "../atoms";
 
 export default function StationDetails({
@@ -40,29 +40,15 @@ export default function StationDetails({
 
   return (
     <Box>
-      <Box sx={{ mb: 2 }}>
-        <Typography variant="overline" color="text.secondary">
-          {station.riverName}
-        </Typography>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1 }}>
-          <Box
-            dangerouslySetInnerHTML={{
-              __html: GaugeStationIcon({
-                size: 48,
-                color: alert ? alert.colorRgb : "#888888",
-                strokeColor: "white",
-              }),
-            }}
-          />
-          <Typography variant="h3" component="h1" color={alert.colorRgb}>
-            {station.name}
-          </Typography>
-        </Box>
-        <Typography variant="body2" color="text.secondary" gutterBottom>
-          Gauging Station
-        </Typography>
-        <TimeAgoView date={date} />
-      </Box>
+      <DetailsHeader
+        overlineText={station.riverName}
+        title={station.name}
+        titleColor={alert?.colorRgb}
+        subtitle="Gauging Station"
+        date={date}
+        icon={GaugeStationIcon}
+        iconColor={alert ? alert.colorRgb : "#888888"}
+      />
 
       <Box
         sx={{
