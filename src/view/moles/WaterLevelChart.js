@@ -132,6 +132,15 @@ export default function WaterLevelChart({ station }) {
           [`.${lineElementClasses.root}[data-series="alert"]`]: {
             strokeDasharray: "3 3",
           },
+          ".MuiLineElement-series-majorFlood": {
+            strokeDasharray: "3 3",
+          },
+          ".MuiLineElement-series-minorFlood": {
+            strokeDasharray: "3 3",
+          },
+          ".MuiLineElement-series-alert": {
+            strokeDasharray: "3 3",
+          },
         }}
       />
     </Box>
