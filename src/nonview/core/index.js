@@ -2,6 +2,7 @@
 import Basin from "./Basin";
 import Location from "./Location";
 import River from "./River";
+import RiverWaterLevel from "./RiverWaterLevel";
 import Station from "./Station";
 
-export { Basin, Location, River, Station };
+export { Basin, Location, River, RiverWaterLevel, Station };
