@@ -17,8 +17,8 @@ export default function MapStationView({
             markerType="station"
             radius={STATION_MARKER_RADIUS}
             pathOptions={{
-              color: "blue",
-              fillColor: fillColor,
+              color: fillColor,
+              fillColor: "white",
               fillOpacity: 1.0,
             }}
             labelStyle="color: #333; font-weight: 500;"
