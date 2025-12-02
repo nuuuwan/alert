@@ -3,6 +3,8 @@ import MapMarkerView from "./MapMarkerView";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
+import Divider from "@mui/material/Divider";
+import WaterLevelChart from "./WaterLevelChart";
 
 export default function MapStationView({
   stations,
@@ -81,6 +83,10 @@ export default function MapStationView({
                       fontWeight: "bold",
                     }}
                   />
+
+                  <Divider sx={{ my: 3 }} />
+
+                  <WaterLevelChart station={station} />
                 </Box>
               );
             }}
