@@ -12,6 +12,7 @@ export default function MapView() {
   const [rivers, setRivers] = useState([]);
   const [locationMap, setLocationMap] = useState({});
   const [stationToLatest, setStationToLatest] = useState({});
+  const [stationToColor, setStationToColor] = useState({});
 
   useEffect(() => {
     Promise.all([
@@ -31,7 +32,7 @@ export default function MapView() {
         setRivers(loadedRivers);
         setStationToLatest(loadedStationToLatest);
 
-        // Create a map of location names to coordinates
+        // locationMap
         const map = {};
         loadedStations.forEach((station) => {
           map[station.name] = station.latLng;
@@ -40,7 +41,21 @@ export default function MapView() {
           map[location.name] = location.latLng;
         });
         setLocationMap(map);
-      },
+
+        // stationToColor
+        const colorMap = {};
+        loadedStations.forEach((station) => {
+          const latestLevel = loadedStationToLatest[station.name];
+          if (!latestLevel) {
+            return;
+          }
+          const waterLevelM = latestLevel.waterLevelM;
+          const alert = station.getAlertLevel(waterLevelM);
+          const [r, g, b] = alert.color;
+          colorMap[station.name] = `rgb(${r * 255}, ${g * 255}, ${b * 255})`;
+        });
+        setStationToColor(colorMap);
+      }
     );
   }, []);
 
@@ -56,7 +71,11 @@ export default function MapView() {
       />
       <MapRiverView rivers={rivers} locationMap={locationMap} />
       <MapLocationView locations={locations} />
-      <MapStationView stations={stations} stationToLatest={stationToLatest} />
+      <MapStationView
+        stations={stations}
+        stationToLatest={stationToLatest}
+        stationToColor={stationToColor}
+      />
     </MapContainer>
   );
 }

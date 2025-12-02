@@ -1,5 +1,6 @@
 import Location from "./Location.js";
 import River from "./River.js";
+import Alert from "./Alert.js";
 
 export default class Station extends Location {
   static getClassID() {
@@ -17,5 +18,21 @@ export default class Station extends Location {
 
   async river() {
     return await River.fromName(this.riverName);
+  }
+
+  getAlertLevel(waterLevelM) {
+    if (waterLevelM === null || waterLevelM === undefined) {
+      return Alert.NO_DATA;
+    }
+    if (waterLevelM >= this.majorFloodLevelM) {
+      return Alert.MAJOR;
+    }
+    if (waterLevelM >= this.minorFloodLevelM) {
+      return Alert.MINOR;
+    }
+    if (waterLevelM >= this.alertLevelM) {
+      return Alert.ALERT;
+    }
+    return Alert.NORMAL;
   }
 }

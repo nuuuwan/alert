@@ -1,4 +1,3 @@
-import Alert from "@mui/material/Alert";
 import { Cache } from "../base";
 const { Station } = await import("./Station.js");
 
@@ -10,7 +9,7 @@ export default class RiverWaterLevel {
   }
 
   static async listAll() {
-    return await Cache.get("riverWaterLevel.listAll", async () => {
+    const cachedData = await Cache.get("riverWaterLevel.listAll", async () => {
       try {
         const response = await fetch(
           "https://raw.githubusercontent.com/nuuuwan/lk_irrigation/refs/heads/main/data/all.json"
@@ -21,12 +20,14 @@ export default class RiverWaterLevel {
         }
 
         const data = await response.json();
-        return data.map((levelData) => new RiverWaterLevel(levelData));
+        return data;
       } catch (error) {
         console.error("Error loading river water levels:", error);
         return [];
       }
     });
+
+    return cachedData.map((levelData) => new RiverWaterLevel(levelData));
   }
 
   static async idx() {
@@ -62,7 +63,7 @@ export default class RiverWaterLevel {
   }
 
   get date() {
-    return new Date(this.timeUt * 1000);
+    return new Date(this.timeUt);
   }
 
   async station() {
@@ -71,15 +72,6 @@ export default class RiverWaterLevel {
 
   async alert() {
     const station = await this.station();
-    if (this.waterLevelM >= station.majorFloodLevelM) {
-      return Alert.MAJOR;
-    }
-    if (this.waterLevelM >= station.minorFloodLevelM) {
-      return Alert.MINOR;
-    }
-    if (this.waterLevelM >= station.alertLevelM) {
-      return Alert.ALERT;
-    }
-    return Alert.NORMAL;
+    return station.getAlertLevel(this.waterLevelM);
   }
 }
