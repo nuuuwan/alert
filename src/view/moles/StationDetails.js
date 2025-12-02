@@ -74,7 +74,7 @@ export default function StationDetails({
         <Typography variant="overline" color="text.secondary">
           {station.riverName}
         </Typography>
-        <Typography variant="h4" component="h1">
+        <Typography variant="h3" component="h1">
           {station.name}
         </Typography>
         <Typography variant="body2" color="text.secondary" gutterBottom>
@@ -177,6 +177,7 @@ export default function StationDetails({
             component="img"
             src={satelliteImageUrl}
             alt={`Satellite view of ${station.name}`}
+            crossOrigin="anonymous"
             sx={{
               width: "100%",
               height: "auto",

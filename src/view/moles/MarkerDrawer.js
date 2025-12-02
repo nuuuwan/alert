@@ -22,6 +22,9 @@ export default function MarkerDrawer({
       const canvas = await html2canvas(contentRef.current, {
         backgroundColor: "#ffffff",
         scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        logging: false,
       });
 
       const fileName = getFileName
