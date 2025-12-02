@@ -11,7 +11,7 @@ export default class LandslideWarning {
     const cachedData = await Cache.get("landslideWarning.listAll", async () => {
       try {
         const response = await fetch(
-          "https://raw.githubusercontent.com/nuuuwan/lk_dmc_landslides/refs/heads/main/data/latest.json"
+          "https://raw.githubusercontent.com/nuuuwan/lk_dmc_landslides/refs/heads/main/data/latest.json",
         );
 
         if (!response.ok) {
