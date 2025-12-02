@@ -2,26 +2,28 @@ import { Polygon } from "react-leaflet";
 import { useState, useEffect } from "react";
 
 export default function EntView({ ent, pathOptions }) {
-  const [geoData, setGeoData] = useState([]);
+  const [lngLatListList, setlngLatListList] = useState([]);
 
   useEffect(() => {
     if (ent) {
-      ent.getGeo().then((data) => {
-        setGeoData(data);
+      ent.getlngLatListList().then((data) => {
+        setlngLatListList(data);
       });
     }
   }, [ent]);
 
-  if (!geoData || geoData.length === 0) {
+  if (!lngLatListList || lngLatListList.length === 0) {
     return null;
   }
 
+  console.debug(lngLatListList);
+
   return (
     <>
-      {geoData.map((polygonCoords, index) => (
+      {lngLatListList.map((lngLatList, index) => (
         <Polygon
-          key={`${ent.id}-polygon-${index}`}
-          positions={polygonCoords}
+          key={`${ent.id}-lngLatList-${index}`}
+          positions={lngLatList}
           pathOptions={pathOptions}
         />
       ))}

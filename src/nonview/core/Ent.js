@@ -1,32 +1,39 @@
 import { Cache } from "../base";
 
 export default class Ent {
-  constructor(data) {
-    this.id = data.id;
-    this.entType = data.entType || data.ent_type;
-    this.name = data.name;
+  constructor(id, entType, name) {
+    this.id = id;
+    this.entType = entType;
+    this.name = name;
   }
 
-  async getGeo() {
+  async getlngLatListList() {
     const url = `https://raw.githubusercontent.com/nuuuwan/gig-data/refs/heads/master/geo/${this.entType}/${this.id}.json`;
+    console.debug({ url });
 
-    const geoData = await Cache.get(`ent.getGeo.${this.id}`, async () => {
-      try {
-        const response = await fetch(url);
+    const lngLatListList = await Cache.get(
+      `ent.getlngLatListList.${this.id}`,
+      async () => {
+        try {
+          const response = await fetch(url);
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const latLngListList = await response.json();
+          const lngLatListList = latLngListList.map((latLngList) =>
+            latLngList.map((latLng) => [latLng[1], latLng[0]])
+          );
+
+          return lngLatListList;
+        } catch (error) {
+          console.error(`Error loading geo data for ${this.id}:`, error);
+          return [];
         }
-
-        const data = await response.json();
-
-        return data;
-      } catch (error) {
-        console.error(`Error loading geo data for ${this.id}:`, error);
-        return [];
       }
-    });
+    );
 
-    return geoData;
+    return lngLatListList;
   }
 }

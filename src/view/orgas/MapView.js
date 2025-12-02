@@ -4,6 +4,8 @@ import "leaflet/dist/leaflet.css";
 import { DB } from "../../nonview/core";
 import MapLocationView from "../moles/MapLocationView";
 import MapStationView from "../moles/MapStationView";
+import Ent from "../../nonview/core/Ent";
+import EntView from "../moles/EntView";
 
 export default function MapView() {
   const [stations, setStations] = useState([]);
@@ -24,6 +26,12 @@ export default function MapView() {
     });
   }, []);
 
+  const ent = new Ent("LK-1", "province", "Western");
+
+  // Ensure ent is loaded before rendering
+  if (!ent) {
+    return null;
+  }
   return (
     <MapContainer
       center={[7.8731, 80.7718]}
@@ -44,6 +52,14 @@ export default function MapView() {
         stationToLatest={stationToLatest}
         stationToAlert={stationToAlert}
         riverWaterLevelIdx={riverWaterLevelIdx}
+      />
+      <EntView
+        ent={ent}
+        pathOptions={{
+          color: "blue",
+          fillColor: "lightblue",
+          fillOpacity: 0.5,
+        }}
       />
     </MapContainer>
   );
