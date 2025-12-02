@@ -4,8 +4,8 @@ import "leaflet/dist/leaflet.css";
 import { DB } from "../../nonview/core";
 import MapLocationView from "../moles/MapLocationView";
 import MapStationView from "../moles/MapStationView";
+import LandslideWarningView from "../moles/LandslideWarningView";
 import Ent from "../../nonview/core/Ent";
-import EntView from "../moles/EntView";
 
 export default function MapView() {
   const [stations, setStations] = useState([]);
@@ -43,6 +43,7 @@ export default function MapView() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
+      <LandslideWarningView />
       <MapLocationView
         locations={locations}
         locationToWeather={locationToWeather}
@@ -52,14 +53,6 @@ export default function MapView() {
         stationToLatest={stationToLatest}
         stationToAlert={stationToAlert}
         riverWaterLevelIdx={riverWaterLevelIdx}
-      />
-      <EntView
-        ent={ent}
-        pathOptions={{
-          color: "blue",
-          fillColor: "lightblue",
-          fillOpacity: 0.5,
-        }}
       />
     </MapContainer>
   );
