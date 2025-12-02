@@ -1,6 +1,7 @@
 import { STATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import MapMarkerView from "./MapMarkerView";
 import StationDetails from "./StationDetails";
+import { GaugeStationIcon } from "../atoms";
 
 export default function MapStationView({
   stations,
@@ -50,6 +51,7 @@ export default function MapStationView({
               />
             )}
             getFileName={getFileName}
+            iconComponent={GaugeStationIcon}
           />
         );
       })}

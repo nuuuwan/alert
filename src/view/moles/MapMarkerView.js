@@ -2,7 +2,6 @@ import { Marker } from "react-leaflet";
 import { useState } from "react";
 import L from "leaflet";
 import MarkerDrawer from "./MarkerDrawer";
-import GaugeStationIcon from "../atoms/GaugeStationIcon";
 
 export default function MapMarkerView({
   items,
@@ -13,6 +12,7 @@ export default function MapMarkerView({
   renderPopupContent,
   formatLabel = (item) => item.name,
   getFileName,
+  iconComponent,
 }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -35,7 +35,7 @@ export default function MapMarkerView({
             position={item.latLng}
             icon={L.divIcon({
               className: `${markerType}-icon`,
-              html: GaugeStationIcon({
+              html: iconComponent({
                 size: radius * 8,
                 color: pathOptions.color,
                 strokeColor: pathOptions.fillColor,
@@ -56,7 +56,7 @@ export default function MapMarkerView({
                 radius * 2
               }px; ${labelStyle} white-space: nowrap; 
               line-height: 1; transform: translateY(-50%);">${formatLabel(
-                item,
+                item
               )}</div>`,
               iconSize: [0, 0],
               iconAnchor: [-radius * 2, radius / 2],
