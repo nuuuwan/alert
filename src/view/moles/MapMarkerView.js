@@ -31,7 +31,7 @@ export default function MapMarkerView({
                 radius * 2
               }px; ${labelStyle} white-space: nowrap; 
               line-height: 1; transform: translateY(-50%);">${formatLabel(
-                item
+                item,
               )}</div>`,
               iconSize: [0, 0],
               iconAnchor: [-radius * 2, radius / 2],
