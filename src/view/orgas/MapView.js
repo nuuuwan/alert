@@ -13,6 +13,7 @@ export default function MapView() {
   const [locationMap, setLocationMap] = useState({});
   const [stationToLatest, setStationToLatest] = useState({});
   const [stationToColor, setStationToColor] = useState({});
+  const [nameToAlert, setNameToAlert] = useState({});
 
   useEffect(() => {
     Promise.all([
@@ -32,7 +33,6 @@ export default function MapView() {
         setRivers(loadedRivers);
         setStationToLatest(loadedStationToLatest);
 
-        // locationMap
         const map = {};
         loadedStations.forEach((station) => {
           map[station.name] = station.latLng;
@@ -42,20 +42,21 @@ export default function MapView() {
         });
         setLocationMap(map);
 
-        // stationToColor
         const colorMap = {};
+        const alertMap = {};
+
         loadedStations.forEach((station) => {
           const latestLevel = loadedStationToLatest[station.name];
-          if (!latestLevel) {
-            return;
-          }
           const waterLevelM = latestLevel.waterLevelM;
           const alert = station.getAlertLevel(waterLevelM);
           const [r, g, b] = alert.color;
           colorMap[station.name] = `rgb(${r * 255}, ${g * 255}, ${b * 255})`;
+          alertMap[station.name] = alert;
         });
+
         setStationToColor(colorMap);
-      },
+        setNameToAlert(alertMap);
+      }
     );
   }, []);
 
@@ -69,7 +70,11 @@ export default function MapView() {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <MapRiverView rivers={rivers} locationMap={locationMap} />
+      <MapRiverView
+        rivers={rivers}
+        locationMap={locationMap}
+        nameToAlert={nameToAlert}
+      />
       <MapLocationView locations={locations} />
       <MapStationView
         stations={stations}
