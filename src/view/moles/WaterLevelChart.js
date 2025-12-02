@@ -127,7 +127,7 @@ export default function WaterLevelChart({ station }) {
           },
         ]}
         series={series}
-        height={250}
+        height={375}
         margin={{ left: 50, right: 20, top: 20, bottom: 50 }}
         grid={{ vertical: true, horizontal: true }}
         sx={{
