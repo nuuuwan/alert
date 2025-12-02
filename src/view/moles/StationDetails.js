@@ -111,14 +111,21 @@ export default function StationDetails({
                 m
               </Typography>
             </Box>
-            <Chip
-              label={alert.label}
+            <Box
               sx={{
+                display: "inline-block",
                 backgroundColor: alertColor,
                 color: "white",
                 fontWeight: "bold",
+                fontSize: "0.8125rem",
+                fontFamily: "Ubuntu Sans, sans-serif",
+                px: 1.5,
+                py: 0.5,
+                borderRadius: "16px",
               }}
-            />
+            >
+              {alert.label}
+            </Box>
           </Box>
 
           {rateChipLabel && (
@@ -151,15 +158,21 @@ export default function StationDetails({
                   cm/hr
                 </Typography>
               </Box>
-              <Chip
-                label={rateChipLabel}
-                size="small"
+              <Box
                 sx={{
+                  display: "inline-block",
                   backgroundColor: rateChipColor,
                   color: "white",
                   fontWeight: "bold",
+                  fontSize: "0.75rem",
+                  fontFamily: "Ubuntu Sans, sans-serif",
+                  px: 1.25,
+                  py: 0.375,
+                  borderRadius: "12px",
                 }}
-              />
+              >
+                {rateChipLabel}
+              </Box>
             </Box>
           )}
         </Box>

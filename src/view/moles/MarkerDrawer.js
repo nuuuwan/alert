@@ -52,22 +52,18 @@ export default function MarkerDrawer({
         },
       }}
     >
-      <Box ref={contentRef} sx={{ p: 2, position: "relative" }}>
-        <IconButton
-          onClick={handleDownload}
-          sx={{ position: "absolute", right: 48, top: 8 }}
-          aria-label="download"
-        >
-          <DownloadIcon />
-        </IconButton>
-        <IconButton
-          onClick={onClose}
-          sx={{ position: "absolute", right: 8, top: 8 }}
-          aria-label="close"
-        >
-          <CloseIcon />
-        </IconButton>
-        <Box>{selectedItem && renderContent(selectedItem)}</Box>
+      <Box sx={{ position: "relative", height: "100%" }}>
+        <Box sx={{ position: "absolute", right: 8, top: 8, zIndex: 1 }}>
+          <IconButton onClick={handleDownload} aria-label="download">
+            <DownloadIcon />
+          </IconButton>
+          <IconButton onClick={onClose} aria-label="close">
+            <CloseIcon />
+          </IconButton>
+        </Box>
+        <Box ref={contentRef} sx={{ p: 2, pt: 7 }}>
+          {selectedItem && renderContent(selectedItem)}
+        </Box>
       </Box>
     </Drawer>
   );
