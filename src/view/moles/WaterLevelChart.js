@@ -71,41 +71,40 @@ export default function WaterLevelChart({ station }) {
     },
   ];
 
-  // Add major flood level line if available
-  if (station.majorFloodLevelM && station.majorFloodLevelM > 0) {
-    series.push({
+  // Add alert level reference lines
+  const alertLevels = [
+    {
       id: "majorFlood",
-      data: dates.map(() => station.majorFloodLevelM),
+      levelM: station.majorFloodLevelM,
+      alert: Alert.MAJOR,
       label: "Major Flood",
-      color: Alert.MAJOR.colorRgb,
-      showMark: false,
-      curve: "linear",
-    });
-  }
-
-  // Add minor flood level line if available
-  if (station.minorFloodLevelM && station.minorFloodLevelM > 0) {
-    series.push({
+    },
+    {
       id: "minorFlood",
-      data: dates.map(() => station.minorFloodLevelM),
+      levelM: station.minorFloodLevelM,
+      alert: Alert.MINOR,
       label: "Minor Flood",
-      color: Alert.MINOR.colorRgb,
-      showMark: false,
-      curve: "linear",
-    });
-  }
-
-  // Add alert level line if available
-  if (station.alertLevelM && station.alertLevelM > 0) {
-    series.push({
+    },
+    {
       id: "alert",
-      data: dates.map(() => station.alertLevelM),
+      levelM: station.alertLevelM,
+      alert: Alert.ALERT,
       label: "Alert",
-      color: Alert.ALERT.colorRgb,
-      showMark: false,
-      curve: "linear",
-    });
-  }
+    },
+  ];
+
+  alertLevels.forEach(({ id, levelM, alert, label }) => {
+    if (levelM && levelM > 0) {
+      series.push({
+        id,
+        data: dates.map(() => levelM),
+        label,
+        color: alert.colorRgb,
+        showMark: false,
+        curve: "linear",
+      });
+    }
+  });
 
   return (
     <Box sx={{ mt: 3, mb: 2 }}>
