@@ -51,13 +51,11 @@ export default function MapStationView({
                   >
                     {station.riverName}
                   </Typography>
-                  <Typography
-                    variant="h4"
-                    component="h1"
-                    gutterBottom
-                    fontWeight="bold"
-                  >
+                  <Typography variant="h4" component="h1" gutterBottom>
                     {station.name}
+                  </Typography>
+                  <Typography variant="body1" component="h1" gutterBottom>
+                    Gauging Station
                   </Typography>
                   <Typography
                     variant="body2"

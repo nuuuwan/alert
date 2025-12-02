@@ -42,7 +42,7 @@ export default function MapMarkerView({
             position={item.latLng}
             icon={L.divIcon({
               className: `${markerType}-label`,
-              html: `<div style="font-size: ${
+              html: `<div style="font-family: 'Ubuntu Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: ${
                 radius * 2
               }px; ${labelStyle} white-space: nowrap; 
               line-height: 1; transform: translateY(-50%);">${formatLabel(

@@ -119,7 +119,7 @@ export default function MapRiverView({ rivers, locationMap, nameToAlert }) {
               position={[labelLat, labelLng]}
               icon={L.divIcon({
                 className: "river-label",
-                html: `<div style="font-size: ${
+                html: `<div style="font-family: 'Ubuntu Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: ${
                   RIVER_LINE_WIDTH * 2
                 }px; color: grey; font-weight: 200; font-style: italic; white-space: nowrap; transform: ${transform}; display: inline-block;">${
                   river.name
