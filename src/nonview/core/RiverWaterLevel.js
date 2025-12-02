@@ -12,7 +12,7 @@ export default class RiverWaterLevel {
     const cachedData = await Cache.get("riverWaterLevel.listAll", async () => {
       try {
         const response = await fetch(
-          "https://raw.githubusercontent.com/nuuuwan/lk_irrigation/refs/heads/main/data/all.json",
+          "https://raw.githubusercontent.com/nuuuwan/lk_irrigation/refs/heads/main/data/all.json"
         );
 
         if (!response.ok) {
@@ -63,7 +63,7 @@ export default class RiverWaterLevel {
   }
 
   get date() {
-    return new Date(this.timeUt);
+    return new Date(this.timeUt * 1000);
   }
 
   async station() {
