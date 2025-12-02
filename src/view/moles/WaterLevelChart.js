@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
 import { RiverWaterLevel, Alert } from "../../nonview/core";
+import { DATE_TIME_FORMAT } from "../_cons/FormatConstants";
 
 export default function WaterLevelChart({ station }) {
   const [data, setData] = useState(null);
@@ -114,14 +115,7 @@ export default function WaterLevelChart({ station }) {
             data: dates,
             scaleType: "time",
             valueFormatter: (date) =>
-              date.toLocaleString("en-US", {
-                hour: "numeric",
-                minute: "2-digit",
-                hour12: true,
-                month: "short",
-                day: "numeric",
-                year: "2-digit",
-              }),
+              date.toLocaleString("en-US", DATE_TIME_FORMAT),
           },
         ]}
         series={series}

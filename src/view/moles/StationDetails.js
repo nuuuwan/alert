@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
 import Divider from "@mui/material/Divider";
 import WaterLevelChart from "./WaterLevelChart";
+import { DATE_TIME_FORMAT } from "../_cons/FormatConstants";
 
 export default function StationDetails({
   station,
@@ -14,14 +15,7 @@ export default function StationDetails({
   const alertColor = alert.colorRgb;
 
   const date = latestLevel.date;
-  const formattedDate = date.toLocaleString("en-US", {
-    hour: "numeric",
-    minute: "2-digit",
-    hour12: true,
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
+  const formattedDate = date.toLocaleString("en-US", DATE_TIME_FORMAT);
 
   // Compute rate of rise/drop
   let rateOfChangeCmPerHr = null;
