@@ -1,4 +1,3 @@
-import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import MapMarkerView from "./MapMarkerView";
 
 export default function MapLocationView({ locations }) {

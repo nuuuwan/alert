@@ -1,5 +1,5 @@
 import { StaticData } from "../base";
-import Alert from "./Alert.js";
+
 export default class Location extends StaticData {
   static getClassID() {
     return "location";
