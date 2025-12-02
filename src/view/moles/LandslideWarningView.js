@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
-import { LandslideWarning, Ent } from "../../nonview/core";
+import {
+  LandslideWarning,
+  LandslideWarningLevel,
+  Ent,
+} from "../../nonview/core";
 import EntView from "./EntView";
 
 export default function LandslideWarningView() {
@@ -33,34 +37,23 @@ export default function LandslideWarningView() {
     });
   }, []);
 
-  // Define colors based on landslide warning level
-  const getColorForLevel = (level) => {
-    switch (level) {
-      case 1:
-        return "#ff0";
-      case 2:
-        return "#f80";
-      case 3:
-        return "#f00";
-      default:
-        return "#888";
-    }
-  };
-
   return (
     <>
-      {dsdEnts.map(({ ent, level }, index) => (
-        <EntView
-          key={`landslide-dsd-${ent.id}-${index}`}
-          ent={ent}
-          pathOptions={{
-            color: null,
-            fillColor: getColorForLevel(level),
-            fillOpacity: 0.3,
-            weight: 0,
-          }}
-        />
-      ))}
+      {dsdEnts.map(({ ent, level }, index) => {
+        const warningLevel = LandslideWarningLevel.fromLevel(level);
+        return (
+          <EntView
+            key={`landslide-dsd-${ent.id}-${index}`}
+            ent={ent}
+            pathOptions={{
+              color: null,
+              fillColor: warningLevel.colorRgb,
+              fillOpacity: 0.3,
+              weight: 0,
+            }}
+          />
+        );
+      })}
     </>
   );
 }

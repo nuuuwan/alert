@@ -16,8 +16,6 @@ export default function EntView({ ent, pathOptions }) {
     return null;
   }
 
-  console.debug(lngLatListList);
-
   return (
     <>
       {lngLatListList.map((lngLatList, index) => (
