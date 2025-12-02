@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
-import { Station, Location, River } from "../../nonview/core";
+import { Station, Location, River, RiverWaterLevel } from "../../nonview/core";
 import MapLocationView from "../moles/MapLocationView";
 import MapStationView from "../moles/MapStationView";
 import MapRiverView from "../moles/MapRiverView";
@@ -11,13 +11,25 @@ export default function MapView() {
   const [locations, setLocations] = useState([]);
   const [rivers, setRivers] = useState([]);
   const [locationMap, setLocationMap] = useState({});
+  const [stationToLatest, setStationToLatest] = useState({});
 
   useEffect(() => {
-    Promise.all([Station.listAll(), Location.listAll(), River.listAll()]).then(
-      ([loadedStations, loadedLocations, loadedRivers]) => {
+    Promise.all([
+      Station.listAll(),
+      Location.listAll(),
+      River.listAll(),
+      RiverWaterLevel.stationToLatest(),
+    ]).then(
+      ([
+        loadedStations,
+        loadedLocations,
+        loadedRivers,
+        loadedStationToLatest,
+      ]) => {
         setStations(loadedStations);
         setLocations(loadedLocations);
         setRivers(loadedRivers);
+        setStationToLatest(loadedStationToLatest);
 
         // Create a map of location names to coordinates
         const map = {};
@@ -28,7 +40,7 @@ export default function MapView() {
           map[location.name] = location.latLng;
         });
         setLocationMap(map);
-      },
+      }
     );
   }, []);
 
@@ -44,7 +56,7 @@ export default function MapView() {
       />
       <MapRiverView rivers={rivers} locationMap={locationMap} />
       <MapLocationView locations={locations} />
-      <MapStationView stations={stations} />
+      <MapStationView stations={stations} stationToLatest={stationToLatest} />
     </MapContainer>
   );
 }

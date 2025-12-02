@@ -1,7 +1,7 @@
 import { STATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import MapMarkerView from "./MapMarkerView";
 
-export default function MapStationView({ stations }) {
+export default function MapStationView({ stations, stationToLatest }) {
   return (
     <MapMarkerView
       items={stations}
@@ -14,19 +14,30 @@ export default function MapStationView({ stations }) {
       }}
       labelStyle="color: #333; font-weight: 500;"
       formatLabel={(station) => `${station.name} Station`}
-      renderPopupContent={(station) => (
-        <>
-          <strong>{station.name}</strong>
-          <br />
-          River: {station.riverName}
-          <br />
-          Alert Level: {station.alertLevelM}m
-          <br />
-          Minor Flood: {station.minorFloodLevelM}m
-          <br />
-          Major Flood: {station.majorFloodLevelM}m
-        </>
-      )}
+      renderPopupContent={(station) => {
+        const latestLevel = stationToLatest[station.name];
+        return (
+          <>
+            <strong>{station.name}</strong>
+            <br />
+            River: {station.riverName}
+            <br />
+            {latestLevel && (
+              <>
+                <strong>Current Level: {latestLevel.waterLevelM}m</strong>
+                <br />
+                Time: {latestLevel.date.toLocaleString()}
+                <br />
+              </>
+            )}
+            Alert Level: {station.alertLevelM}m
+            <br />
+            Minor Flood: {station.minorFloodLevelM}m
+            <br />
+            Major Flood: {station.majorFloodLevelM}m
+          </>
+        );
+      }}
     />
   );
 }
