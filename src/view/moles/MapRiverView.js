@@ -42,7 +42,7 @@ export default function MapRiverView({ rivers, locationMap }) {
         for (let i = 0; i < positions.length - 1; i++) {
           const segmentPoints = createAngledSegments(
             positions[i],
-            positions[i + 1]
+            positions[i + 1],
           );
           if (i === 0) {
             angledPositions.push(...segmentPoints);
