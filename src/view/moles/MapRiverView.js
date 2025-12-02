@@ -60,7 +60,7 @@ export default function MapRiverView({ rivers, locationMap, nameToAlert }) {
 
           const segmentPoints = createAngledSegments(
             positions[i],
-            positions[i + 1]
+            positions[i + 1],
           );
 
           segments.push({
