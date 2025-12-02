@@ -1,4 +1,6 @@
+import Alert from "@mui/material/Alert";
 import { Cache } from "../base";
+const { Station } = await import("./Station.js");
 
 export default class RiverWaterLevel {
   constructor(data) {
@@ -11,7 +13,7 @@ export default class RiverWaterLevel {
     return await Cache.get("riverWaterLevel.listAll", async () => {
       try {
         const response = await fetch(
-          "https://raw.githubusercontent.com/nuuuwan/lk_irrigation/refs/heads/main/data/all.json",
+          "https://raw.githubusercontent.com/nuuuwan/lk_irrigation/refs/heads/main/data/all.json"
         );
 
         if (!response.ok) {
@@ -61,5 +63,23 @@ export default class RiverWaterLevel {
 
   get date() {
     return new Date(this.timeUt * 1000);
+  }
+
+  async station() {
+    return await Station.fromName(this.stationName);
+  }
+
+  async alert() {
+    const station = await this.station();
+    if (this.waterLevelM >= station.majorFloodLevelM) {
+      return Alert.MAJOR;
+    }
+    if (this.waterLevelM >= station.minorFloodLevelM) {
+      return Alert.MINOR;
+    }
+    if (this.waterLevelM >= station.alertLevelM) {
+      return Alert.ALERT;
+    }
+    return Alert.NORMAL;
   }
 }
