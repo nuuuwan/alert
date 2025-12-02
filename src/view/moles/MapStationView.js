@@ -9,12 +9,17 @@ import WaterLevelChart from "./WaterLevelChart";
 export default function MapStationView({
   stations,
   stationToLatest,
-  stationToColor,
+  stationToAlert,
 }) {
   return (
     <>
       {stations.map((station, index) => {
-        const fillColor = stationToColor[station.name] || "white";
+        const alert = stationToAlert[station.name];
+        const fillColor = alert
+          ? `rgb(${alert.color[0] * 255}, ${alert.color[1] * 255}, ${
+              alert.color[2] * 255
+            })`
+          : "white";
         return (
           <MapMarkerView
             key={`station-group-${index}`}

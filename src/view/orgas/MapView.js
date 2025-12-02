@@ -12,8 +12,7 @@ export default function MapView() {
   const [rivers, setRivers] = useState([]);
   const [locationMap, setLocationMap] = useState({});
   const [stationToLatest, setStationToLatest] = useState({});
-  const [stationToColor, setStationToColor] = useState({});
-  const [stationToAlert, setstationToAlert] = useState({});
+  const [stationToAlert, setStationToAlert] = useState({});
 
   useEffect(() => {
     DB.load().then((data) => {
@@ -22,8 +21,7 @@ export default function MapView() {
       setRivers(data.rivers);
       setLocationMap(data.locationMap);
       setStationToLatest(data.stationToLatest);
-      setStationToColor(data.stationToColor);
-      setstationToAlert(data.stationToAlert);
+      setStationToAlert(data.stationToAlert);
     });
   }, []);
 
@@ -46,7 +44,7 @@ export default function MapView() {
       <MapStationView
         stations={stations}
         stationToLatest={stationToLatest}
-        stationToColor={stationToColor}
+        stationToAlert={stationToAlert}
       />
     </MapContainer>
   );

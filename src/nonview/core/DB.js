@@ -21,8 +21,7 @@ export default class DB {
       locationMap[location.name] = location.latLng;
     });
 
-    // Build station color and alert maps
-    const stationToColor = {};
+    // Build station alert map
     const stationToAlert = {};
 
     stations.forEach((station) => {
@@ -30,10 +29,6 @@ export default class DB {
       if (latestLevel) {
         const waterLevelM = latestLevel.waterLevelM;
         const alert = station.getAlert(waterLevelM);
-        const [r, g, b] = alert.color;
-        stationToColor[station.name] = `rgb(${r * 255}, ${g * 255}, ${
-          b * 255
-        })`;
         stationToAlert[station.name] = alert;
       }
     });
@@ -44,7 +39,6 @@ export default class DB {
       rivers,
       locationMap,
       stationToLatest,
-      stationToColor,
       stationToAlert,
     };
   }
