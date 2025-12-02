@@ -21,12 +21,17 @@ export default function StationDetails({
 
   const date = latestLevel.date;
 
-  // Compute rate of rise/drop
+  // Compute rate of rise/drop using 10 measurement window
   const measurements = riverWaterLevelIdx[station.name];
   let waterLevelDiff = null;
   let timeDiffHours = null;
 
-  if (measurements && measurements.length >= 2) {
+  if (measurements && measurements.length >= 11) {
+    const latest = measurements[measurements.length - 1];
+    const tenth = measurements[measurements.length - 11];
+    waterLevelDiff = latest.waterLevelM - tenth.waterLevelM;
+    timeDiffHours = (latest.timeUt - tenth.timeUt) / 3600;
+  } else if (measurements && measurements.length >= 2) {
     const latest = measurements[measurements.length - 1];
     const secondLatest = measurements[measurements.length - 2];
     waterLevelDiff = latest.waterLevelM - secondLatest.waterLevelM;
