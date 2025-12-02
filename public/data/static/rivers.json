@@ -67,8 +67,15 @@
     "name": "Kehelgamu Oya",
     "basin_name": "Kelani Ganga",
     "location_names": [
+      "Northcove Riverside",
+      "Tientsin Junction",  
       "Norwood",
-      "Kithulgala"
+      "Castlereagh Dam",
+      "Norton Bridge Dam",
+      "Upper Aberdeen Falls",
+      "Broadlands Dam",
+      "Kalugala"
+      
     ]
   },
   {
@@ -77,11 +84,15 @@
     "location_names": [
       "Maussakelle",
       "Canyon",
-      "Laxapana",
+      "Laxapana Dam",
+      "Kalugala",
       "Kithulgala",
       "Ruwanwella",
       "Glencourse",
+      "Pugoda-Kosgama Bridge",
       "Hanwella",
+      "Kaduwela Bridge",
+      "Ambatale",
       "Nagalagam Street"
     ]
   },
@@ -100,6 +111,7 @@
     "name": "Kuda Ganga",
     "basin_name": "Kalu Ganga",
     "location_names": [
+      "Kukule Ganga Dam",
       "Kalawellawa (Millakanda)",
       "Putupaula"
     ]
@@ -152,8 +164,13 @@
     "basin_name": "Mahaweli Ganga",
     "location_names": [
       "Nuwara Eliya",
+      "Upper Kotmale Dam",
+      "Kotmale Dam",
       "Nawalapitiya",
       "Peradeniya",
+      "Victoria Dam",
+      "Randenigala Dam",
+      "Rantambe Dam",
       "Minipe",
       "Weraganthota",
       "Mahiyanganaya Bridge",
@@ -222,7 +239,10 @@
     "basin_name": "Kelani Ganga",
     "location_names": [
       "Deraniyagala",
+      "Algoda Bridge",
+      "Seethawaka Bridge",
       "Glencourse"
+      
     ]
   },
   {
@@ -237,8 +257,9 @@
     "name": "Walawe Ganga",
     "basin_name": "Walawe Ganga",
     "location_names": [
-      "Horton Plains",
+      "Sri Pada",
       "Balangoda",
+      "Samanalawewa Dam",
       "Moraketiya",
       "Ambalantota"
     ]
@@ -254,6 +275,32 @@
       "Ellapothana Anicut",
       "Horowpothana",
       "Pulmoddai"
+    ]
+  },
+    {
+    "name": "Uma Oya",
+    "basin_name": "Mahaweli Ganga",
+    "location_names": [
+      "Uma Oya Dam",
+      "Rantambe Dam"
+    ]
+  },
+  {
+    "name": "Amban Ganga",
+    "basin_name": "Mahaweli Ganga",
+    "location_names": [
+      "Bowatenna Dam",
+      "Manampitiya"
+    ]
+  },
+    {
+    "name": "Belihul Oya",
+    "basin_name": "Walawe Ganga",
+    "location_names": [
+      "Black Bridge - Horton Plains",
+      "Baker's Falls",
+      "Belihul Oya",
+      "Samanalawewa Dam"
     ]
   }
 ]
