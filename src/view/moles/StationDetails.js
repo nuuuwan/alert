@@ -17,6 +17,27 @@ export default function StationDetails({
   const date = latestLevel.date;
   const formattedDate = date.toLocaleString("en-US", DATE_TIME_FORMAT);
 
+  // Convert lat/lng to Web Mercator (EPSG:3857) for Sentinel-2 image
+  const latLngToWebMercator = (lat, lng) => {
+    const x = (lng * 20037508.34) / 180;
+    const y =
+      (Math.log(Math.tan(((90 + lat) * Math.PI) / 360)) / (Math.PI / 180)) *
+      (20037508.34 / 180);
+    return { x, y };
+  };
+
+  const [lat, lng] = station.latLng;
+  const center = latLngToWebMercator(lat, lng);
+
+  // Create a bbox around the station (approximately 1km x 1km)
+  const bufferMeters = 500; // 500m on each side
+  const minX = center.x - bufferMeters;
+  const minY = center.y - bufferMeters;
+  const maxX = center.x + bufferMeters;
+  const maxY = center.y + bufferMeters;
+
+  const satelliteImageUrl = `https://sentinel.arcgis.com/arcgis/rest/services/Sentinel2/ImageServer/exportImage?f=image&bbox=${minX},${minY},${maxX},${maxY}&bboxSR=102100&imageSR=102100&size=400,400&compressionQuality=75&format=jpgpng`;
+
   // Compute rate of rise/drop
   let rateOfChangeCmPerHr = null;
   let rateChipLabel = null;
@@ -107,6 +128,24 @@ export default function StationDetails({
       )}
 
       <Divider sx={{ my: 3 }} />
+
+      <Box sx={{ mb: 3 }}>
+        <Typography variant="h6" gutterBottom>
+          Satellite View
+        </Typography>
+        <Box
+          component="img"
+          src={satelliteImageUrl}
+          alt={`Satellite view of ${station.name}`}
+          sx={{
+            width: "100%",
+            height: "auto",
+            borderRadius: 1,
+            border: "1px solid",
+            borderColor: "divider",
+          }}
+        />
+      </Box>
 
       <WaterLevelChart station={station} />
 
