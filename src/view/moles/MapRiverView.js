@@ -60,7 +60,7 @@ export default function MapRiverView({ rivers, locationMap }) {
         const dLat = lat2 - lat1;
         const dLng = lng2 - lng1;
         const distance = Math.sqrt(dLat * dLat + dLng * dLng);
-        const projectionFactor = 0.2;
+        const projectionFactor = 0.5;
 
         const labelLat = lat2 + (dLat / distance) * distance * projectionFactor;
         const labelLng = lng2 + (dLng / distance) * distance * projectionFactor;
