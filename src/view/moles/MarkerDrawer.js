@@ -44,12 +44,12 @@ export default function MarkerDrawer({
       sx={{
         "& .MuiDrawer-paper": {
           width: { xs: "100%", sm: 400 },
-          marginTop: "48px",
-          height: "calc(100% - 48px)",
+          padding: "6px",
+          height: "calc(100% - 6px)",
         },
       }}
     >
-      <Box sx={{ p: 2, position: "relative" }}>
+      <Box ref={contentRef} sx={{ p: 2, position: "relative" }}>
         <IconButton
           onClick={handleDownload}
           sx={{ position: "absolute", right: 48, top: 8 }}
@@ -64,9 +64,7 @@ export default function MarkerDrawer({
         >
           <CloseIcon />
         </IconButton>
-        <Box ref={contentRef} sx={{ mt: 4 }}>
-          {selectedItem && renderContent(selectedItem)}
-        </Box>
+        <Box>{selectedItem && renderContent(selectedItem)}</Box>
       </Box>
     </Drawer>
   );
