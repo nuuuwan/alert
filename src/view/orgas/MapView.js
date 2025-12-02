@@ -56,7 +56,7 @@ export default function MapView() {
 
         setStationToColor(colorMap);
         setNameToAlert(alertMap);
-      }
+      },
     );
   }, []);
 
