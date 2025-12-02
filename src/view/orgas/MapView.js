@@ -56,7 +56,7 @@ export default function MapView() {
 
         setStationToColor(colorMap);
         setNameToAlert(alertMap);
-      },
+      }
     );
   }, []);
 
@@ -64,7 +64,7 @@ export default function MapView() {
     <MapContainer
       center={[7.8731, 80.7718]}
       zoom={8}
-      style={{ height: "100vh", width: "100vw" }}
+      style={{ height: "100%", width: "100%" }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
