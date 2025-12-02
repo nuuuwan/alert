@@ -26,4 +26,26 @@ export default class RiverWaterLevel {
       }
     });
   }
+
+  static async idx() {
+    const list = await this.listAll();
+    const index = {};
+
+    for (const level of list) {
+      if (!index[level.stationName]) {
+        index[level.stationName] = [];
+      }
+      index[level.stationName].push(level);
+    }
+
+    for (const stationName in index) {
+      index[stationName].sort((a, b) => a.timeUt - b.timeUt);
+    }
+
+    return index;
+  }
+
+  get date() {
+    return new Date(this.timeUt * 1000);
+  }
 }
