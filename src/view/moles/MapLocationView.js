@@ -6,10 +6,11 @@ export default function MapLocationView({ locations }) {
     <MapMarkerView
       items={locations}
       markerType="location"
-      radius={LOCATION_MARKER_RADIUS}
+      radius={0}
       pathOptions={{ color: "none", fillColor: "gray", fillOpacity: 1 }}
       labelStyle="color: #666;"
-      renderPopupContent={(location) => <strong>{location.name}</strong>}
+      renderPopupContent={(location) => null}
+      formatLabel={(station) => ``}
     />
   );
 }
