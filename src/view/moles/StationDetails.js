@@ -17,32 +17,15 @@ export default function StationDetails({
   const formattedDate = date.toLocaleString("en-US", DATE_TIME_FORMAT);
 
   // Compute rate of rise/drop
-  let rateOfChangeCmPerHr = null;
-  let rateChipLabel = null;
-  let rateChipColor = null;
-
   const measurements = riverWaterLevelIdx[station.name];
+  let waterLevelDiff = null;
+  let timeDiffHours = null;
+
   if (measurements && measurements.length >= 2) {
     const latest = measurements[measurements.length - 1];
     const secondLatest = measurements[measurements.length - 2];
-
-    const waterLevelDiff = latest.waterLevelM - secondLatest.waterLevelM;
-    const timeDiffHours = (latest.timeUt - secondLatest.timeUt) / 3600;
-
-    if (timeDiffHours > 0) {
-      rateOfChangeCmPerHr = (waterLevelDiff / timeDiffHours) * 100;
-
-      if (rateOfChangeCmPerHr > 0.01) {
-        rateChipLabel = "Rising";
-        rateChipColor = "rgb(211, 47, 47)"; // red
-      } else if (rateOfChangeCmPerHr < -0.01) {
-        rateChipLabel = "Falling";
-        rateChipColor = "rgb(46, 125, 50)"; // green
-      } else {
-        rateChipLabel = "Steady";
-        rateChipColor = "rgb(117, 117, 117)"; // grey
-      }
-    }
+    waterLevelDiff = latest.waterLevelM - secondLatest.waterLevelM;
+    timeDiffHours = (latest.timeUt - secondLatest.timeUt) / 3600;
   }
 
   return (
@@ -78,9 +61,8 @@ export default function StationDetails({
           </Box>
 
           <RateOfRiseView
-            rateOfChangeCmPerHr={rateOfChangeCmPerHr}
-            label={rateChipLabel}
-            color={rateChipColor}
+            waterLevelDiff={waterLevelDiff}
+            timeDiffHours={timeDiffHours}
           />
         </Box>
 
