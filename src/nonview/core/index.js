@@ -2,10 +2,21 @@
 import Alert from "./Alert";
 import Basin from "./Basin";
 import DB from "./DB";
+import Ent from "./Ent";
 import Location from "./Location";
 import River from "./River";
 import RiverWaterLevel from "./RiverWaterLevel";
 import Station from "./Station";
 import Weather from "./Weather";
 
-export { Alert, Basin, DB, Location, River, RiverWaterLevel, Station, Weather };
+export {
+  Alert,
+  Basin,
+  DB,
+  Ent,
+  Location,
+  River,
+  RiverWaterLevel,
+  Station,
+  Weather,
+};
