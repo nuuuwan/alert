@@ -28,7 +28,7 @@ export default function MapView() {
           map[location.name] = location.latLng;
         });
         setLocationMap(map);
-      }
+      },
     );
   }, []);
 
