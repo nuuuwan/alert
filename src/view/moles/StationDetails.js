@@ -48,18 +48,19 @@ export default function StationDetails({
 
   return (
     <Box>
-      <Typography variant="overline" color="text.secondary" gutterBottom>
-        {station.riverName}
-      </Typography>
-      <Typography variant="h4" component="h1" gutterBottom>
+      <Typography variant="h6">{station.riverName}</Typography>
+      <Typography variant="h4" component="h1">
         {station.name}
       </Typography>
-      <Typography variant="body1" component="h1" gutterBottom>
+      <Typography
+        variant="body1"
+        component="h1"
+        color="text.secondary"
+        gutterBottom
+      >
         Gauging Station
       </Typography>
-      <Typography variant="body2" color="text.secondary" gutterBottom>
-        {formattedDate}
-      </Typography>
+      <Typography variant="body2">{formattedDate}</Typography>
 
       <Box sx={{ mt: 3 }}>
         <Box sx={{ display: "flex", alignItems: "baseline", gap: 0.5, mb: 1 }}>
