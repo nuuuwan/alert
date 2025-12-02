@@ -74,25 +74,24 @@ export default function StationDetails({
         <Typography variant="overline" color="text.secondary">
           {station.riverName}
         </Typography>
-        <Typography variant="h5" component="h1">
+        <Typography variant="h4" component="h1">
           {station.name}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Gauging Station • {formattedDate}
+        <Typography variant="body2" color="text.secondary" gutterBottom>
+          Gauging Station
         </Typography>
+        <Typography variant="body1">{formattedDate}</Typography>
       </Box>
 
-      {/* Top Pane: Measurements and Satellite in Grid */}
       <Box
         sx={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: 2,
-          mb: 3,
+          gap: 1,
+          mb: 1,
         }}
       >
-        {/* Left: Measurements */}
-        <Box>
+        <Box margin={2}>
           <Box sx={{ mb: 2 }}>
             <Typography
               variant="caption"
@@ -165,13 +164,12 @@ export default function StationDetails({
           )}
         </Box>
 
-        {/* Right: Satellite Image */}
         <Box>
           <Typography
             variant="caption"
             color="text.secondary"
             display="block"
-            sx={{ textTransform: "uppercase", mb: 1 }}
+            sx={{ textTransform: "uppercase" }}
           >
             Satellite View
           </Typography>
