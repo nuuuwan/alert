@@ -1,10 +1,7 @@
 import { CircleMarker, Marker } from "react-leaflet";
 import { useState } from "react";
 import L from "leaflet";
-import Drawer from "@mui/material/Drawer";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
+import MarkerDrawer from "./MarkerDrawer";
 
 export default function MapMarkerView({
   items,
@@ -58,31 +55,12 @@ export default function MapMarkerView({
           />
         </>
       ))}
-      <Drawer
-        anchor="right"
+      <MarkerDrawer
         open={drawerOpen}
         onClose={handleDrawerClose}
-        sx={{
-          "& .MuiDrawer-paper": {
-            width: { xs: "100%", sm: 400 },
-            marginTop: "48px",
-            height: "calc(100% - 48px)",
-          },
-        }}
-      >
-        <Box sx={{ p: 2, position: "relative" }}>
-          <IconButton
-            onClick={handleDrawerClose}
-            sx={{ position: "absolute", right: 8, top: 8 }}
-            aria-label="close"
-          >
-            <CloseIcon />
-          </IconButton>
-          <Box sx={{ mt: 4 }}>
-            {selectedItem && renderPopupContent(selectedItem)}
-          </Box>
-        </Box>
-      </Drawer>
+        selectedItem={selectedItem}
+        renderContent={renderPopupContent}
+      />
     </>
   );
 }
