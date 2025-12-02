@@ -109,6 +109,15 @@ export default function StationDetails({
       <Divider sx={{ my: 3 }} />
 
       <WaterLevelChart station={station} />
+
+      <Box
+        sx={{ mt: 3, pt: 2, borderTop: "1px solid", borderColor: "divider" }}
+      >
+        <Typography variant="caption" color="text.secondary">
+          Data Source: Hydrology and Disaster Management Division, Irrigation
+          Department of Sri Lanka.
+        </Typography>
+      </Box>
     </Box>
   );
 }
