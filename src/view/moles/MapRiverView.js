@@ -1,4 +1,5 @@
-import { Polyline, Popup } from "react-leaflet";
+import { Polyline, Popup, Marker } from "react-leaflet";
+import L from "leaflet";
 import { RIVER_LINE_WIDTH } from "../_cons/MapConstants";
 
 // Helper function to create intermediate points at 45-degree angles
@@ -51,22 +52,54 @@ export default function MapRiverView({ rivers, locationMap }) {
           }
         }
 
+        const lastPoint = angledPositions[angledPositions.length - 1];
+        const secondLastPoint = angledPositions[angledPositions.length - 2];
+        const [lat1, lng1] = secondLastPoint;
+        const [lat2, lng2] = lastPoint;
+
+        const dLat = lat2 - lat1;
+        const dLng = lng2 - lng1;
+        const distance = Math.sqrt(dLat * dLat + dLng * dLng);
+        const projectionFactor = 0.2;
+
+        const labelLat = lat2 + (dLat / distance) * distance * projectionFactor;
+        const labelLng = lng2 + (dLng / distance) * distance * projectionFactor;
+
+        const transform = dLng >= 0 ? "translateX(0)" : "translateX(-100%)";
+
         return (
-          <Polyline
-            key={`river-${index}`}
-            positions={angledPositions}
-            pathOptions={{
-              color: "blue",
-              weight: RIVER_LINE_WIDTH,
-              opacity: 0.6,
-            }}
-          >
-            <Popup>
-              <strong>{river.name}</strong>
-              <br />
-              Basin: {river.basinName}
-            </Popup>
-          </Polyline>
+          <>
+            <Polyline
+              key={`river-${index}`}
+              positions={angledPositions}
+              pathOptions={{
+                color: "blue",
+                weight: RIVER_LINE_WIDTH,
+                opacity: 0.6,
+              }}
+            >
+              <Popup>
+                <strong>{river.name}</strong>
+                <br />
+                Basin: {river.basinName}
+              </Popup>
+            </Polyline>
+            <Marker
+              key={`river-label-${index}`}
+              position={[labelLat, labelLng]}
+              icon={L.divIcon({
+                className: "river-label",
+                html: `<div style="font-size: ${
+                  RIVER_LINE_WIDTH * 2
+                }px; color: blue; font-weight: 200; font-style: italic; white-space: nowrap; transform: ${transform}; display: inline-block;">${
+                  river.name
+                }</div>`,
+                iconSize: [0, 0],
+                iconAnchor: [0, 0],
+              })}
+              interactive={false}
+            />
+          </>
         );
       })}
     </>
