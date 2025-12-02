@@ -21,6 +21,7 @@ export default class Cache {
       localStorage.setItem(cacheKey, JSON.stringify(value));
     } catch (error) {
       console.error(`Error writing to cache for key "${cacheKey}":`, error);
+      localStorage.clear();
     }
 
     return value;
