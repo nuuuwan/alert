@@ -1,13 +1,10 @@
-import {
-  MapContainer,
-  TileLayer,
-  CircleMarker,
-  Popup,
-  Polyline,
-} from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import { Station, Location, River } from "../../nonview/core";
+import MapLocationView from "../moles/MapLocationView";
+import MapStationView from "../moles/MapStationView";
+import MapRiverView from "../moles/MapRiverView";
 
 export default function MapView() {
   const [stations, setStations] = useState([]);
@@ -31,7 +28,7 @@ export default function MapView() {
           map[location.name] = location.latLng;
         });
         setLocationMap(map);
-      },
+      }
     );
   }, []);
 
@@ -45,54 +42,9 @@ export default function MapView() {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {rivers.map((river, index) => {
-        const positions = river.locationNames.map((name) => locationMap[name]);
-        return (
-          <Polyline
-            key={`river-${index}`}
-            positions={positions}
-            pathOptions={{ color: "blue", weight: 2 }}
-          >
-            <Popup>
-              <strong>{river.name}</strong>
-              <br />
-              Basin: {river.basinName}
-            </Popup>
-          </Polyline>
-        );
-      })}
-      {locations.map((location, index) => (
-        <CircleMarker
-          key={`location-${index}`}
-          center={location.latLng}
-          radius={6}
-          pathOptions={{ color: "none", fillColor: "gray", fillOpacity: 1 }}
-        >
-          <Popup>
-            <strong>{location.name}</strong>
-          </Popup>
-        </CircleMarker>
-      ))}
-      {stations.map((station, index) => (
-        <CircleMarker
-          key={`station-${index}`}
-          center={station.latLng}
-          radius={8}
-          pathOptions={{ color: "none", fillColor: "red", fillOpacity: 1.0 }}
-        >
-          <Popup>
-            <strong>{station.name}</strong>
-            <br />
-            River: {station.riverName}
-            <br />
-            Alert Level: {station.alertLevelM}m
-            <br />
-            Minor Flood: {station.minorFloodLevelM}m
-            <br />
-            Major Flood: {station.majorFloodLevelM}m
-          </Popup>
-        </CircleMarker>
-      ))}
+      <MapRiverView rivers={rivers} locationMap={locationMap} />
+      <MapLocationView locations={locations} />
+      <MapStationView stations={stations} />
     </MapContainer>
   );
 }
