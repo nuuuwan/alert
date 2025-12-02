@@ -16,6 +16,7 @@
       "Minipe"
     ]
   },
+
   {
     "name": "Deduru Oya",
     "basin_name": "Deduru Oya",
@@ -66,8 +67,15 @@
     "name": "Kehelgamu Oya",
     "basin_name": "Kelani Ganga",
     "location_names": [
+      "Northcove Riverside",
+      "Tientsin Junction",  
       "Norwood",
-      "Kithulgala"
+      "Castlereagh Dam",
+      "Norton Bridge Dam",
+      "Upper Aberdeen Falls",
+      "Broadlands Dam",
+      "Kalugala"
+      
     ]
   },
   {
@@ -76,11 +84,15 @@
     "location_names": [
       "Maussakelle",
       "Canyon",
-      "Laxapana",
+      "Laxapana Dam",
+      "Kalugala",
       "Kithulgala",
       "Ruwanwella",
       "Glencourse",
+      "Pugoda-Kosgama Bridge",
       "Hanwella",
+      "Kaduwela Bridge",
+      "Ambatale",
       "Nagalagam Street"
     ]
   },
@@ -99,6 +111,7 @@
     "name": "Kuda Ganga",
     "basin_name": "Kalu Ganga",
     "location_names": [
+      "Kukule Ganga Dam",
       "Kalawellawa (Millakanda)",
       "Putupaula"
     ]
@@ -151,11 +164,20 @@
     "basin_name": "Mahaweli Ganga",
     "location_names": [
       "Nuwara Eliya",
+      "Upper Kotmale Dam",
+      "Kotmale Dam",
       "Nawalapitiya",
       "Peradeniya",
+      "Victoria Dam",
+      "Randenigala Dam",
+      "Rantambe Dam",
       "Minipe",
       "Weraganthota",
+      "Mahiyanganaya Bridge",
+      "Wilgamuwa Bridge",
       "Manampitiya",
+      "Somawathiya Bridge",
+      "Allai - Kantalai Mahaveli Bridge",
       "Trincomalee"
     ]
   },
@@ -164,8 +186,13 @@
     "basin_name": "Malwathu Oya",
     "location_names": [
       "Inamaluwa",
+      "Nachchaduwa Tank",
       "Anuradhapura",
+      "Perimiyankulama Bridge",
+      "Galkadawala Anicut",
       "Thanthirimale",
+      "Kappachchi Weather Station",
+      "Veppankulam Bridge",
       "Vankalai"
     ]
   },
@@ -174,6 +201,8 @@
     "basin_name": "Mee Oya",
     "location_names": [
       "Galgamuwa",
+      "Kottukachchiya",
+      "A12-Mee Oya Bridge",
       "Puttalam"
     ]
   },
@@ -210,7 +239,10 @@
     "basin_name": "Kelani Ganga",
     "location_names": [
       "Deraniyagala",
+      "Algoda Bridge",
+      "Seethawaka Bridge",
       "Glencourse"
+      
     ]
   },
   {
@@ -225,8 +257,9 @@
     "name": "Walawe Ganga",
     "basin_name": "Walawe Ganga",
     "location_names": [
-      "Horton Plains",
+      "Sri Pada",
       "Balangoda",
+      "Samanalawewa Dam",
       "Moraketiya",
       "Ambalantota"
     ]
@@ -235,9 +268,39 @@
     "name": "Yan Oya",
     "basin_name": "Yan Oya",
     "location_names": [
-      "Ritigala",
+      "Habarana Wewa",
+      "Huruluwewa",
+      "Kannimaduwa Bridge",
+      "Ilukwewa Anicut",
+      "Ellapothana Anicut",
       "Horowpothana",
       "Pulmoddai"
+    ]
+  },
+    {
+    "name": "Uma Oya",
+    "basin_name": "Mahaweli Ganga",
+    "location_names": [
+      "Uma Oya Dam",
+      "Rantambe Dam"
+    ]
+  },
+  {
+    "name": "Amban Ganga",
+    "basin_name": "Mahaweli Ganga",
+    "location_names": [
+      "Bowatenna Dam",
+      "Manampitiya"
+    ]
+  },
+    {
+    "name": "Belihul Oya",
+    "basin_name": "Walawe Ganga",
+    "location_names": [
+      "Black Bridge - Horton Plains",
+      "Baker's Falls",
+      "Belihul Oya",
+      "Samanalawewa Dam"
     ]
   }
 ]

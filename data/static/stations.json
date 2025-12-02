@@ -1,17 +1,5 @@
 [
   {
-    "name": "Ampara",
-    "river_name": "Gal Oya",
-    "district_id": "LK-53",
-    "lat_lng": [
-      7.291174902374124,
-      81.67240963860993
-    ],
-    "alert_level_m": 0.0,
-    "minor_flood_level_m": 0.0,
-    "major_flood_level_m": 0.0
-  },
-  {
     "name": "Badalgama",
     "river_name": "Maha Oya",
     "district_id": "LK-62;LK-61;LK-12",
