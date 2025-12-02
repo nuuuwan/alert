@@ -8,7 +8,7 @@ export default function MapStationView({ stations }) {
           key={`station-${index}`}
           center={station.latLng}
           radius={8}
-          pathOptions={{ color: "none", fillColor: "red", fillOpacity: 1.0 }}
+          pathOptions={{ color: "blue", fillColor: "white", fillOpacity: 1.0 }}
         >
           <Popup>
             <strong>{station.name}</strong>
