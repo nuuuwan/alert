@@ -1,6 +1,6 @@
 export default class Cache {
   static SALT = "v1";
-  static CACHE_DURATION_MS = 60 * 60 * 1000;
+  static CACHE_DURATION_MS = 10 * 60 * 1000;
 
   static async get(key, callback) {
     const roundedTimestamp = Math.floor(Date.now() / this.CACHE_DURATION_MS);
