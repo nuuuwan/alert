@@ -6,3 +6,8 @@ export const DATE_TIME_FORMAT = {
   day: "numeric",
   year: "numeric",
 };
+
+export const SHORT_DATE_TIME_FORMAT = {
+  month: "short",
+  day: "numeric",
+};
