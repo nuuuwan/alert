@@ -11,6 +11,7 @@ export default function MapMarkerView({
   labelStyle,
   renderPopupContent,
   formatLabel = (item) => item.name,
+  getFileName,
 }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -46,7 +47,7 @@ export default function MapMarkerView({
                 radius * 2
               }px; ${labelStyle} white-space: nowrap; 
               line-height: 1; transform: translateY(-50%);">${formatLabel(
-                item,
+                item
               )}</div>`,
               iconSize: [0, 0],
               iconAnchor: [-radius * 2, radius / 2],
@@ -60,6 +61,7 @@ export default function MapMarkerView({
         onClose={handleDrawerClose}
         selectedItem={selectedItem}
         renderContent={renderPopupContent}
+        getFileName={getFileName}
       />
     </>
   );

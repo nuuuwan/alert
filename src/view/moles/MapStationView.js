@@ -8,6 +8,26 @@ export default function MapStationView({
   stationToAlert,
   riverWaterLevelIdx,
 }) {
+  const getFileName = (station) => {
+    const latestLevel = stationToLatest[station.name];
+    if (!latestLevel) return `${station.name}-station.png`;
+
+    const date = latestLevel.date;
+    const timestamp = date
+      .toLocaleString("en-US", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      })
+      .replace(/[\/,:]/g, "-")
+      .replace(/\s/g, "_");
+
+    return `${station.name}-${timestamp}.png`;
+  };
+
   return (
     <>
       {stations.map((station, index) => {
@@ -33,6 +53,7 @@ export default function MapStationView({
                 riverWaterLevelIdx={riverWaterLevelIdx}
               />
             )}
+            getFileName={getFileName}
           />
         );
       })}
