@@ -2,7 +2,12 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import DetailsHeader from "./DetailsHeader";
-import { SatelliteImageView, LocationIcon } from "../atoms";
+import {
+  SatelliteImageView,
+  LocationIcon,
+  RainfallView,
+  TemperatureView,
+} from "../atoms";
 
 export default function LocationDetails({ location, locationToWeather }) {
   const weather = locationToWeather[location.name];
@@ -44,40 +49,14 @@ export default function LocationDetails({ location, locationToWeather }) {
         }}
       >
         <Box margin={2}>
-          {weather.rainMM !== null && weather.rainMM !== undefined && (
-            <Box sx={{ mb: 2 }}>
-              <Typography variant="h3" component="div">
-                {weather.rainMM.toFixed(1)}
-                <Typography variant="h6" component="span" sx={{ ml: 1 }}>
-                  mm
-                </Typography>
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Rainfall
-              </Typography>
-            </Box>
-          )}
+          <Box sx={{ mb: 2 }}>
+            <RainfallView rainMM={weather.rainMM} />
+          </Box>
 
-          {(weather.tempMin !== null || weather.tempMax !== null) && (
-            <Box sx={{ mb: 2 }}>
-              <Typography variant="h4" component="div">
-                {weather.tempMin !== null && weather.tempMin !== undefined && (
-                  <span>
-                    {weather.tempMin.toFixed(1)}°C
-                    {weather.tempMax !== null &&
-                      weather.tempMax !== undefined &&
-                      " / "}
-                  </span>
-                )}
-                {weather.tempMax !== null && weather.tempMax !== undefined && (
-                  <span>{weather.tempMax.toFixed(1)}°C</span>
-                )}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Temperature (Min / Max)
-              </Typography>
-            </Box>
-          )}
+          <TemperatureView
+            tempMin={weather.tempMin}
+            tempMax={weather.tempMax}
+          />
         </Box>
 
         <SatelliteImageView latLng={location.latLng} name={location.name} />

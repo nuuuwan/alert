@@ -2,8 +2,10 @@
 import GaugeStationIcon from "./GaugeStationIcon";
 import LocationIcon from "./LocationIcon";
 import MetricView from "./MetricView";
+import RainfallView from "./RainfallView";
 import RateOfRiseView from "./RateOfRiseView";
 import SatelliteImageView from "./SatelliteImageView";
+import TemperatureView from "./TemperatureView";
 import TimeAgoView from "./TimeAgoView";
 import WaterLevelView from "./WaterLevelView";
 
@@ -11,8 +13,10 @@ export {
   GaugeStationIcon,
   LocationIcon,
   MetricView,
+  RainfallView,
   RateOfRiseView,
   SatelliteImageView,
+  TemperatureView,
   TimeAgoView,
   WaterLevelView,
 };
