@@ -17,8 +17,6 @@ export default function MapView() {
     DB.load().then((data) => {
       setStations(data.stations);
       setLocations(data.locations);
-      setRivers(data.rivers);
-      setLocationMap(data.locationMap);
       setStationToLatest(data.stationToLatest);
       setStationToAlert(data.stationToAlert);
       setRiverWaterLevelIdx(data.riverWaterLevelIdx);
