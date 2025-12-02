@@ -8,6 +8,7 @@ import {
   RateOfRiseView,
   SatelliteImageView,
   GaugeStationIcon,
+  TimeAgoView,
 } from "../atoms";
 
 export default function StationDetails({
@@ -19,12 +20,6 @@ export default function StationDetails({
   const alert = station.getAlert(latestLevel.waterLevelM);
 
   const date = latestLevel.date;
-  const formattedDate = date.toLocaleString("en-US", DATE_TIME_FORMAT);
-
-  // Check if data is older than 24 hours
-  const now = new Date();
-  const hoursSinceUpdate = (now - date) / (1000 * 60 * 60);
-  const isStale = hoursSinceUpdate > 24;
 
   // Compute rate of rise/drop
   const measurements = riverWaterLevelIdx[station.name];
@@ -61,25 +56,7 @@ export default function StationDetails({
         <Typography variant="body2" color="text.secondary" gutterBottom>
           Gauging Station
         </Typography>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <Typography variant="body1">{formattedDate}</Typography>
-          {isStale && (
-            <Box
-              sx={{
-                display: "inline-block",
-                px: 1,
-                py: 0.5,
-                borderRadius: "12px",
-                backgroundColor: "#888888",
-                color: "white",
-                fontSize: "0.75rem",
-                fontWeight: 500,
-              }}
-            >
-              Stale Data
-            </Box>
-          )}
-        </Box>
+        <TimeAgoView date={date} />
       </Box>
 
       <Box

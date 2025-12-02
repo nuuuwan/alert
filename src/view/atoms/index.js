@@ -3,6 +3,7 @@ import GaugeStationIcon from "./GaugeStationIcon";
 import MetricView from "./MetricView";
 import RateOfRiseView from "./RateOfRiseView";
 import SatelliteImageView from "./SatelliteImageView";
+import TimeAgoView from "./TimeAgoView";
 import WaterLevelView from "./WaterLevelView";
 
 export {
@@ -10,5 +11,6 @@ export {
   MetricView,
   RateOfRiseView,
   SatelliteImageView,
+  TimeAgoView,
   WaterLevelView,
 };
