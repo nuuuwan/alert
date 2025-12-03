@@ -5,7 +5,6 @@ import LandslideWarning from "./LandslideWarning";
 import LandslideWarningLevel from "./LandslideWarningLevel";
 import Location from "./Location";
 import RiverWaterLevel from "./RiverWaterLevel";
-import Station from "./Station";
 import Weather from "./Weather";
 
 export {
@@ -15,6 +14,5 @@ export {
   LandslideWarningLevel,
   Location,
   RiverWaterLevel,
-  Station,
   Weather,
 };
