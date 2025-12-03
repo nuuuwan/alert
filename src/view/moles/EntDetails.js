@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import DetailsHeader from "./DetailsHeader";
 import GaugingStationDetails from "./GaugingStationDetails";
 import WeatherStationDetails from "./WeatherStationDetails";
+import LandslideRegionDetails from "./LandslideRegionDetails";
 import { SatelliteImageView, LocationIcon, AdminRegionIcon } from "../atoms";
 import { COLORS } from "../_cons/StyleConstants";
 
@@ -44,6 +45,9 @@ export default function EntDetails({
         }
         if (eventClassName === "WeatherReport") {
           return <WeatherStationDetails key={eventClassName} place={ent} />;
+        }
+        if (eventClassName === "LandslideWarning") {
+          return <LandslideRegionDetails key={eventClassName} region={ent} />;
         }
 
         return null;
