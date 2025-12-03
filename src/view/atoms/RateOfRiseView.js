@@ -21,7 +21,7 @@ export default function RateOfRiseView({ waterLevelDiff, timeDiffHours }) {
 
   const formattedValue = `${
     rateOfChangeCmPerHr > 0 ? "+" : ""
-  }${rateOfChangeCmPerHr.toFixed(0)}`;
+  }${rateOfChangeCmPerHr.toFixed(1)}`;
 
   return (
     <MetricView
