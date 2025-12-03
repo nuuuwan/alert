@@ -1,5 +1,6 @@
 export default class Place {
-  constructor(name, latLng) {
+  constructor(id, name, latLng) {
+    this.id = id;
     this.name = name;
     this.latLng = latLng;
   }
