@@ -21,6 +21,6 @@ class WeatherReport extends BaseEvent {
 }
 
 Object.assign(WeatherReport.prototype, DataWithIDMixin);
-Object.assign(WeatherReport.prototype, DataWithTimeMixin);
+Object.assign(WeatherReport, DataWithTimeMixin);
 
 export default WeatherReport;
