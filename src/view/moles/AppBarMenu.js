@@ -3,11 +3,14 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import BugReportIcon from "@mui/icons-material/BugReport";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { useState } from "react";
+import { VERSION } from "../../nonview/cons";
 
 export default function AppBarMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -79,6 +82,12 @@ export default function AppBarMenu() {
             <RefreshIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Refresh</ListItemText>
+        </MenuItem>
+        <Divider />
+        <MenuItem disabled>
+          <Typography variant="body1" color="text.secondary">
+            v{VERSION.DATETIME_STR}
+          </Typography>
         </MenuItem>
       </Menu>
     </>
