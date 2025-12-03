@@ -3,14 +3,6 @@ import Alert from "./Alert";
 import DB from "./DB";
 import LandslideWarning from "./LandslideWarning";
 import LandslideWarningLevel from "./LandslideWarningLevel";
-import Location from "./Location";
 import Weather from "./Weather";
 
-export {
-  Alert,
-  DB,
-  LandslideWarning,
-  LandslideWarningLevel,
-  Location,
-  Weather,
-};
+export { Alert, DB, LandslideWarning, LandslideWarningLevel, Weather };

@@ -2,7 +2,6 @@
 import Cache from "./Cache";
 import DataWithIDMixin from "./DataWithIDMixin";
 import DataWithTimeMixin from "./DataWithTimeMixin";
-import StaticData from "./StaticData";
 import WWW from "./WWW";
 
-export { Cache, DataWithIDMixin, DataWithTimeMixin, StaticData, WWW };
+export { Cache, DataWithIDMixin, DataWithTimeMixin, WWW };
