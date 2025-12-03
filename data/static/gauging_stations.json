@@ -1,0 +1,275 @@
+[
+  {
+    "id": "Badalgama",
+    "river_name": "Maha Oya",
+    "alert_level_m": 5.0,
+    "minor_flood_level_m": 6.2,
+    "major_flood_level_m": 9.6
+  },
+  {
+    "id": "Baddegama",
+    "river_name": "Gin Ganga",
+    "alert_level_m": 3.5,
+    "minor_flood_level_m": 4.0,
+    "major_flood_level_m": 5.0
+  },
+  {
+    "id": "Deraniyagala",
+    "river_name": "Seethawaka Ganga",
+    "alert_level_m": 4.8,
+    "minor_flood_level_m": 5.8,
+    "major_flood_level_m": 6.4
+  },
+  {
+    "id": "Dunamale",
+    "river_name": "Aththanagalu Oya",
+    "alert_level_m": 3.3,
+    "minor_flood_level_m": 4.4,
+    "major_flood_level_m": 5.5
+  },
+  {
+    "id": "Ellagawa",
+    "river_name": "Kalu Ganga",
+    "alert_level_m": 10.0,
+    "minor_flood_level_m": 10.7,
+    "major_flood_level_m": 12.2
+  },
+  {
+    "id": "Galgamuwa",
+    "river_name": "Mee Oya",
+    "alert_level_m": 4.84,
+    "minor_flood_level_m": 5.94,
+    "major_flood_level_m": 8.0
+  },
+  {
+    "id": "Giriulla",
+    "river_name": "Maha Oya",
+    "alert_level_m": 5.5,
+    "minor_flood_level_m": 6.5,
+    "major_flood_level_m": 7.5
+  },
+  {
+    "id": "Glencourse",
+    "river_name": "Kelani Ganga",
+    "alert_level_m": 15.0,
+    "minor_flood_level_m": 16.5,
+    "major_flood_level_m": 19.0
+  },
+  {
+    "id": "Hanwella",
+    "river_name": "Kelani Ganga",
+    "alert_level_m": 7.0,
+    "minor_flood_level_m": 8.0,
+    "major_flood_level_m": 10.0
+  },
+  {
+    "id": "Holombuwa",
+    "river_name": "Gurugoda Oya",
+    "alert_level_m": 3.0,
+    "minor_flood_level_m": 3.4,
+    "major_flood_level_m": 5.0
+  },
+  {
+    "id": "Horowpothana",
+    "river_name": "Yan Oya",
+    "alert_level_m": 6.0,
+    "minor_flood_level_m": 7.5,
+    "major_flood_level_m": 10.5
+  },
+  {
+    "id": "Kalawellawa (Millakanda)",
+    "river_name": "Kuda Ganga",
+    "alert_level_m": 5.0,
+    "minor_flood_level_m": 6.5,
+    "major_flood_level_m": 8.0
+  },
+  {
+    "id": "Katharagama",
+    "river_name": "Menik Ganga",
+    "alert_level_m": 4.0,
+    "minor_flood_level_m": 4.6,
+    "major_flood_level_m": 6.5
+  },
+  {
+    "id": "Kithulgala",
+    "river_name": "Kelani Ganga",
+    "alert_level_m": 3.0,
+    "minor_flood_level_m": 4.0,
+    "major_flood_level_m": 6.0
+  },
+  {
+    "id": "Kuda Oya",
+    "river_name": "Kuda Oya",
+    "alert_level_m": 6.9,
+    "minor_flood_level_m": 8.4,
+    "major_flood_level_m": 8.8
+  },
+  {
+    "id": "Magura",
+    "river_name": "Maguru Ganga",
+    "alert_level_m": 4.0,
+    "minor_flood_level_m": 6.0,
+    "major_flood_level_m": 7.5
+  },
+  {
+    "id": "Manampitiya",
+    "river_name": "Mahaweli Ganga",
+    "alert_level_m": 3.0,
+    "minor_flood_level_m": 4.3,
+    "major_flood_level_m": 6.0
+  },
+  {
+    "id": "Moragaswewa",
+    "river_name": "Deduru Oya",
+    "alert_level_m": 4.75,
+    "minor_flood_level_m": 6.0,
+    "major_flood_level_m": 7.0
+  },
+  {
+    "id": "Moraketiya",
+    "river_name": "Walawe Ganga",
+    "alert_level_m": 3.0,
+    "minor_flood_level_m": 5.0,
+    "major_flood_level_m": 7.0
+  },
+  {
+    "id": "Nagalagam Street",
+    "river_name": "Kelani Ganga",
+    "alert_level_m": 1.2192,
+    "minor_flood_level_m": 1.524,
+    "major_flood_level_m": 2.1336
+  },
+  {
+    "id": "Nakkala",
+    "river_name": "Kumbukkan Oya",
+    "alert_level_m": 5.0,
+    "minor_flood_level_m": 6.0,
+    "major_flood_level_m": 7.5
+  },
+  {
+    "id": "Nawalapitiya",
+    "river_name": "Mahaweli Ganga",
+    "alert_level_m": 3.5,
+    "minor_flood_level_m": 5.0,
+    "major_flood_level_m": 6.0
+  },
+  {
+    "id": "Norwood",
+    "river_name": "Kehelgamu Oya",
+    "alert_level_m": 1.5,
+    "minor_flood_level_m": 3.0,
+    "major_flood_level_m": 4.5
+  },
+  {
+    "id": "Padiyathalawa",
+    "river_name": "Maduru Oya",
+    "alert_level_m": 4.0,
+    "minor_flood_level_m": 4.5,
+    "major_flood_level_m": 6.0
+  },
+  {
+    "id": "Panadugama",
+    "river_name": "Nilwala Ganga",
+    "alert_level_m": 5.0,
+    "minor_flood_level_m": 6.0,
+    "major_flood_level_m": 7.5
+  },
+  {
+    "id": "Peradeniya",
+    "river_name": "Mahaweli Ganga",
+    "alert_level_m": 5.0,
+    "minor_flood_level_m": 7.0,
+    "major_flood_level_m": 9.0
+  },
+  {
+    "id": "Pitabeddara",
+    "river_name": "Nilwala Ganga",
+    "alert_level_m": 4.0,
+    "minor_flood_level_m": 5.0,
+    "major_flood_level_m": 6.5
+  },
+  {
+    "id": "Putupaula",
+    "river_name": "Kalu Ganga",
+    "alert_level_m": 3.0,
+    "minor_flood_level_m": 4.0,
+    "major_flood_level_m": 5.0
+  },
+  {
+    "id": "Rathnapura",
+    "river_name": "Kalu Ganga",
+    "alert_level_m": 5.2,
+    "minor_flood_level_m": 7.5,
+    "major_flood_level_m": 9.5
+  },
+  {
+    "id": "Siyambalanduwa",
+    "river_name": "Heda Oya",
+    "alert_level_m": 4.5,
+    "minor_flood_level_m": 6.0,
+    "major_flood_level_m": 7.0
+  },
+  {
+    "id": "Thaldena",
+    "river_name": "Badulu Oya",
+    "alert_level_m": 3.0,
+    "minor_flood_level_m": 4.0,
+    "major_flood_level_m": 5.0
+  },
+  {
+    "id": "Thalgahagoda",
+    "river_name": "Nilwala Ganga",
+    "alert_level_m": 1.4,
+    "minor_flood_level_m": 1.7,
+    "major_flood_level_m": 2.8
+  },
+  {
+    "id": "Thanamalwila",
+    "river_name": "Kirindi Oya",
+    "alert_level_m": 4.0,
+    "minor_flood_level_m": 5.0,
+    "major_flood_level_m": 5.5
+  },
+  {
+    "id": "Thanthirimale",
+    "river_name": "Malwathu Oya",
+    "alert_level_m": 5.0,
+    "minor_flood_level_m": 6.8,
+    "major_flood_level_m": 7.8
+  },
+  {
+    "id": "Thawalama",
+    "river_name": "Gin Ganga",
+    "alert_level_m": 4.0,
+    "minor_flood_level_m": 6.0,
+    "major_flood_level_m": 7.5
+  },
+  {
+    "id": "Urawa",
+    "river_name": "Urubokka Ganga",
+    "alert_level_m": 2.5,
+    "minor_flood_level_m": 4.0,
+    "major_flood_level_m": 6.0
+  },
+  {
+    "id": "Wellawaya",
+    "river_name": "Kirindi Oya",
+    "alert_level_m": 4.4,
+    "minor_flood_level_m": 5.4,
+    "major_flood_level_m": 5.9
+  },
+  {
+    "id": "Weraganthota",
+    "river_name": "Mahaweli Ganga",
+    "alert_level_m": 5.0,
+    "minor_flood_level_m": 6.0,
+    "major_flood_level_m": 8.0
+  },
+  {
+    "id": "Yaka Wewa",
+    "river_name": "Mukunu Oya",
+    "alert_level_m": 4.0,
+    "minor_flood_level_m": 5.0,
+    "major_flood_level_m": 6.0
+  }
+]
