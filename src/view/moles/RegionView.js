@@ -1,22 +1,11 @@
 import { Polygon } from "react-leaflet";
 import { useState, useEffect } from "react";
-
-import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import CustomDrawer from "./CustomDrawer";
 import RegionDetails from "./RegionDetails";
 
-export default function RegionView({ regionId, pathOptions }) {
-  const [region, setRegion] = useState(null);
+export default function RegionView({ region, pathOptions }) {
   const [latLngListList, setLatLngListList] = useState([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
-
-  useEffect(() => {
-    async function fetchRegion() {
-      const region2 = await DSD.fromID(regionId);
-      setRegion(region2);
-    }
-    fetchRegion();
-  }, [regionId]);
 
   useEffect(() => {
     async function fetchData() {

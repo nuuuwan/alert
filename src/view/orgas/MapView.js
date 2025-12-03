@@ -6,6 +6,7 @@ import { DB } from "../../nonview/core";
 import MapPlaceView from "../moles/MapPlaceView";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 import CircularProgress from "@mui/material/CircularProgress";
+import RegionView from "../moles/RegionView";
 
 export default function MapView() {
   const [dbResults, setDBResults] = useState(null);
@@ -22,7 +23,8 @@ export default function MapView() {
     return <CircularProgress />;
   }
 
-  const { activePlaces } = dbResults;
+  const { activePlaces, activeRegions } = dbResults;
+
   return (
     <MapContainer
       center={DEFAULT_CENTER}
@@ -35,6 +37,17 @@ export default function MapView() {
       />
 
       <MapPlaceView places={activePlaces} />
+
+      {activeRegions.map(
+        (region) =>
+          region && (
+            <RegionView
+              key={region.id}
+              region={region}
+              pathOptions={{ fill: "red" }}
+            />
+          )
+      )}
     </MapContainer>
   );
 }

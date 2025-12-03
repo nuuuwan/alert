@@ -1,10 +1,7 @@
 import Place from "./ents/Place";
 import LandslideWarning from "./events/LandslideWarning";
 import RiverWaterLevelMeasurement from "./events/RiverWaterLevelMeasurement";
-import LandslideRegionRole from "./roles/LandslideRegionRole";
-import WeatherStationPlaceRole from "./roles/WeatherStationPlaceRole";
 import WeatherReport from "./events/WeatherReport";
-import GaugingStationPlaceRole from "./roles/GaugingStationPlaceRole";
 import DSD from "./ents/regions/admin_regions/DSD";
 export default class DB {
   static getEventClasses() {
@@ -45,18 +42,22 @@ export default class DB {
     const idToEventNameToEventListMap =
       await this.getIdToEventNameToEventListMap();
     const placesIdx = await Place.idx();
-    const dsdIdx = await DSD.idx();
+    const regionIdx = await DSD.idx();
 
-    console.debug({
-      idToEventNameToEventListMap,
-      placesIdx,
-      dsdIdx,
-    });
+    const activePlaces = Object.values(placesIdx).filter(
+      (place) => idToEventNameToEventListMap[place.id]
+    );
+
+    const activeRegions = Object.values(regionIdx).filter(
+      (region) => idToEventNameToEventListMap[region.id]
+    );
 
     return {
       idToEventNameToEventListMap,
       placesIdx,
-      dsdIdx,
+      regionIdx,
+      activePlaces,
+      activeRegions,
     };
   }
 }
