@@ -93,3 +93,6 @@ Abstract parent for shared fields.
 - `warningLevel`
 - `issuedAt`
 - `expiresAt`
+
+
+#### Events

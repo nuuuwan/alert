@@ -1,7 +1,7 @@
 import Station from "./Station";
 import Location from "./Location";
 import River from "./River";
-import RiverWaterLevel from "./RiverWaterLevel";
+import RiverWaterLevel from "./events/RiverWaterLevel";
 import Weather from "./Weather";
 
 export default class DB {

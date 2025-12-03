@@ -1,6 +1,8 @@
-export default class BaseEvent {
-  constructor(entId, timeUt) {
-    this.entId = entId;
+import DataWithIDMixin from "../../base/DataWithIDMixin";
+
+class BaseEvent {
+  constructor(id, timeUt) {
+    this.id = id; // id of the Ent
     this.timeUt = timeUt;
   }
 
@@ -8,3 +10,7 @@ export default class BaseEvent {
     return new Date(this.timeUt * 1000);
   }
 }
+
+Object.assign(BaseEvent, DataWithIDMixin);
+
+export default BaseEvent;

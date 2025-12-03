@@ -1,9 +1,11 @@
-export default class BaseRole {
+import DataWithIDMixin from "../../base/DataWithIDMixin";
+
+class BaseRole {
   constructor(id) {
     this.id = id;
   }
-
-  static async listAll() {
-    throw new Error("Not implemented");
-  }
 }
+
+Object.assign(BaseRole, DataWithIDMixin);
+
+export default BaseRole;
