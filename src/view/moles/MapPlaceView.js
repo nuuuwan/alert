@@ -16,10 +16,7 @@ export default function MapPlaceView({ places, placeToWeather }) {
         fillOpacity: OPACITY.full,
       }}
       renderPopupContent={(place) => (
-        <LocationDetails
-          location={place}
-          locationToWeather={placeToWeather}
-        />
+        <LocationDetails location={place} locationToWeather={placeToWeather} />
       )}
       iconComponent={LocationIcon}
     />
