@@ -56,7 +56,9 @@ export default function RegionView({ regionId, pathOptions }) {
         open={drawerOpen}
         onClose={handleDrawerClose}
         selectedItem={region}
-        renderContent={(region) => <RegionDetails region={region} />}
+        renderContent={(region) => (
+          <RegionDetails region={region} fillColor={pathOptions.fillColor} />
+        )}
         getFileName={() => `${region?.id || "region"}.png`}
       />
     </>
