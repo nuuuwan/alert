@@ -7,6 +7,10 @@ class BaseRole {
   constructor(id) {
     this.id = id;
   }
+
+  static getUrl() {
+    return this.getEntClass().getUrl();
+  }
 }
 
 Object.assign(BaseRole, DataWithIDMixin);
