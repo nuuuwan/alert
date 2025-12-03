@@ -7,15 +7,17 @@ import MapPlaceView from "../moles/MapPlaceView";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 
 export default function MapView() {
-  const [places, setPlaces] = useState([]);
+  const [dbResults, setDBResults] = useState([]);
 
-  console.debug(places);
   useEffect(() => {
-    DB.load().then((data) => {
-      setPlaces(data.places);
-    });
+    const dbResults = async () => {
+      const results = await DB.load();
+      setDBResults(results);
+    };
+    dbResults();
   }, []);
-
+  console.debug({ dbResults });
+  const { activePlaces } = dbResults;
   return (
     <MapContainer
       center={DEFAULT_CENTER}
@@ -27,7 +29,7 @@ export default function MapView() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      <MapPlaceView places={places} />
+      <MapPlaceView places={activePlaces} />
     </MapContainer>
   );
 }
