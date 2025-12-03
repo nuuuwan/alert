@@ -21,9 +21,14 @@ export default function DetailsHeader({
           {overlineText}
         </Typography>
       )}
-      <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1 }}>
+      <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2, mb: 1 }}>
         {icon && (
           <Box
+            sx={{
+              height: iconSize,
+              width: iconSize,
+              marginTop: "4px",
+            }}
             dangerouslySetInnerHTML={{
               __html: icon({
                 size: iconSize,
@@ -33,7 +38,14 @@ export default function DetailsHeader({
             }}
           />
         )}
-        <Typography variant="h3" component="h1" color={titleColor}>
+        <Typography
+          variant="h3"
+          component="h1"
+          color={titleColor}
+          sx={{
+            lineHeight: `${iconSize}px`,
+          }}
+        >
           {title}
         </Typography>
       </Box>
