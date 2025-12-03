@@ -35,7 +35,7 @@ const DownloadableContent = forwardRef(
     }));
 
     return <Box ref={contentRef}>{children}</Box>;
-  }
+  },
 );
 
 DownloadableContent.displayName = "DownloadableContent";

@@ -28,7 +28,7 @@ export default function WaterLevelChart({ station }) {
           cutoffDate.setDate(cutoffDate.getDate() - CHART_WINDOW_DAYS);
 
           const recentMeasurements = measurements.filter(
-            (m) => m.date >= cutoffDate
+            (m) => m.date >= cutoffDate,
           );
 
           const chartData = recentMeasurements.map((m) => ({
