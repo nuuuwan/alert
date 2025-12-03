@@ -6,7 +6,6 @@ import Divider from "@mui/material/Divider";
 import { TimeAgoView } from "../atoms";
 import LandslideWarning from "../../nonview/core/events/LandslideWarning";
 import LandslideThreatLevel from "../../nonview/core/events/LandslideThreatLevel";
-import { COLORS } from "../_cons/StyleConstants";
 
 export default function LandslideRegionDetails({ region }) {
   const [loading, setLoading] = useState(true);
