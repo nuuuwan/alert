@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { LandslideWarning, LandslideWarningLevel } from "../../nonview/core";
 import RegionView from "./RegionView";
 import { OPACITY } from "../_cons/StyleConstants";
-import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 
 export default function LandslideWarningView() {
   const [dsds, setDSDs] = useState([]);
