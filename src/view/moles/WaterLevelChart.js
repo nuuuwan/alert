@@ -69,7 +69,6 @@ export default function WaterLevelChart({ station }) {
   const dates = data.map((d) => d.date);
   const waterLevels = data.map((d) => d.waterLevel);
 
-  // Create reference lines for flood levels
   const series = [
     {
       id: "waterLevel",
@@ -80,34 +79,30 @@ export default function WaterLevelChart({ station }) {
     },
   ];
 
-  // Add alert level reference lines
   const alertLevels = [
     {
       id: "majorFlood",
       levelM: station.majorFloodLevelM,
       alert: Alert.MAJOR,
-      label: "Major Flood",
     },
     {
       id: "minorFlood",
       levelM: station.minorFloodLevelM,
       alert: Alert.MINOR,
-      label: "Minor Flood",
     },
     {
       id: "alert",
       levelM: station.alertLevelM,
       alert: Alert.ALERT,
-      label: "Alert",
     },
   ];
 
-  alertLevels.forEach(({ id, levelM, alert, label }) => {
+  alertLevels.forEach(({ id, levelM, alert }) => {
     if (levelM && levelM > 0) {
       series.push({
         id,
         data: dates.map(() => levelM),
-        label,
+        label: alert.label,
         color: alert.colorRgb,
         showMark: false,
         curve: "linear",
