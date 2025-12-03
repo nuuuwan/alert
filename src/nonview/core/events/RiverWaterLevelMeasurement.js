@@ -4,14 +4,19 @@ import Place from "../ents/Place.js";
 class RiverWaterLevelMeasurement extends BaseEvent {
   constructor(data) {
     super({
-      id: data.stationName || data.station_name,
+      id: data.id || data.station_name,
       timeUt: data.timeUt || data.time_ut,
     });
     this.waterLevelM = data.waterLevelM || data.water_level_m;
   }
 
   static getUrl() {
-    return "https://raw.githubusercontent.com/nuuuwan/lk_water_level/refs/heads/main/data/latest.json";
+    // {
+    //   "station_name": "Thanthirimale",
+    //   "time_ut": 1764754996,
+    //   "water_level_m": 7.11
+    // },
+    return "https://raw.githubusercontent.com/nuuuwan/lk_irrigation/refs/heads/main/data/all.json";
   }
 
   static async placeToLatestMeasurement() {
