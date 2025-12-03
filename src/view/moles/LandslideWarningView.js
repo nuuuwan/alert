@@ -5,6 +5,7 @@ import {
   Ent,
 } from "../../nonview/core";
 import EntView from "./EntView";
+import { OPACITY } from "../_cons/StyleConstants";
 
 export default function LandslideWarningView() {
   const [dsdEnts, setDsdEnts] = useState([]);
@@ -48,7 +49,7 @@ export default function LandslideWarningView() {
             pathOptions={{
               color: null,
               fillColor: warningLevel.colorRgb,
-              fillOpacity: 0.3,
+              fillOpacity: OPACITY.low,
               weight: 0,
             }}
           />

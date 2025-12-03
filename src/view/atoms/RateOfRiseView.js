@@ -1,4 +1,5 @@
 import MetricView from "./MetricView";
+import { COLORS } from "../_cons/StyleConstants";
 
 export default function RateOfRiseView({ waterLevelDiff, timeDiffHours }) {
   if (timeDiffHours === undefined || timeDiffHours <= 0) return null;
@@ -10,13 +11,13 @@ export default function RateOfRiseView({ waterLevelDiff, timeDiffHours }) {
 
   if (rateOfChangeCmPerHr > 0.01) {
     label = "Rising";
-    color = "rgb(211, 47, 47)"; // red
+    color = COLORS.redAlert;
   } else if (rateOfChangeCmPerHr < -0.01) {
     label = "Falling";
-    color = "rgb(46, 125, 50)"; // green
+    color = COLORS.greenDark;
   } else {
     label = "Steady";
-    color = "rgb(117, 117, 117)"; // grey
+    color = COLORS.gray;
   }
 
   const formattedValue = `${

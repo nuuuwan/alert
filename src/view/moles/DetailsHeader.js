@@ -1,6 +1,7 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { TimeAgoView } from "../atoms";
+import { COLORS } from "../_cons/StyleConstants";
 
 export default function DetailsHeader({
   overlineText,
@@ -11,7 +12,7 @@ export default function DetailsHeader({
   icon,
   iconSize = 48,
   iconColor,
-  iconStrokeColor = "white",
+  iconStrokeColor = COLORS.white,
 }) {
   return (
     <Box sx={{ mb: 2 }}>

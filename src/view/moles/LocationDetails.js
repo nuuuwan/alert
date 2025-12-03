@@ -8,6 +8,7 @@ import {
   RainfallView,
   TemperatureView,
 } from "../atoms";
+import { COLORS } from "../_cons/StyleConstants";
 
 export default function LocationDetails({ location, locationToWeather }) {
   const weather = locationToWeather[location.name];
@@ -19,7 +20,7 @@ export default function LocationDetails({ location, locationToWeather }) {
           title={location.name}
           subtitle="Location"
           icon={LocationIcon}
-          iconColor="#888888"
+          iconColor={COLORS.gray}
         />
         <Typography variant="body2" color="text.secondary">
           No weather data available
@@ -37,7 +38,7 @@ export default function LocationDetails({ location, locationToWeather }) {
         subtitle="Location"
         date={date}
         icon={LocationIcon}
-        iconColor="#888888"
+        iconColor={COLORS.gray}
       />
 
       <Box

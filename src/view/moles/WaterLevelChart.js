@@ -8,6 +8,7 @@ import {
   DATE_TIME_FORMAT,
   SHORT_DATE_TIME_FORMAT,
 } from "../_cons/FormatConstants";
+import { CHART_COLORS } from "../_cons/StyleConstants";
 
 const CHART_WINDOW_DAYS = 7;
 
@@ -74,7 +75,7 @@ export default function WaterLevelChart({ station }) {
       id: "waterLevel",
       data: waterLevels,
       label: "Water Level (m)",
-      color: "#1976d2",
+      color: CHART_COLORS.waterLevel,
       showMark: false,
     },
   ];

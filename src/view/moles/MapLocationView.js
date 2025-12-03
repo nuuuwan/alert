@@ -2,6 +2,7 @@ import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import MapMarkerView from "./MapMarkerView";
 import LocationDetails from "./LocationDetails";
 import { LocationIcon } from "../atoms";
+import { COLORS, OPACITY } from "../_cons/StyleConstants";
 
 export default function MapLocationView({ locations, locationToWeather }) {
   return (
@@ -9,8 +10,12 @@ export default function MapLocationView({ locations, locationToWeather }) {
       items={locations}
       markerType="location"
       radius={LOCATION_MARKER_RADIUS}
-      pathOptions={{ color: "gray", fillColor: "white", fillOpacity: 1 }}
-      labelStyle="color: #666;"
+      pathOptions={{
+        color: COLORS.markerGray,
+        fillColor: COLORS.markerWhite,
+        fillOpacity: OPACITY.full,
+      }}
+      labelStyle={`color: ${COLORS.markerLabel};`}
       renderPopupContent={(location) => (
         <LocationDetails
           location={location}

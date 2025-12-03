@@ -1,6 +1,7 @@
 import { useRef, forwardRef, useImperativeHandle } from "react";
 import Box from "@mui/material/Box";
 import html2canvas from "html2canvas";
+import { COLORS } from "../_cons/StyleConstants";
 
 const DownloadableContent = forwardRef(
   ({ children, getFileName, selectedItem }, ref) => {
@@ -12,7 +13,7 @@ const DownloadableContent = forwardRef(
 
         try {
           const canvas = await html2canvas(contentRef.current, {
-            backgroundColor: "#ffffff",
+            backgroundColor: COLORS.white,
             scale: 2,
             useCORS: true,
             allowTaint: true,
@@ -34,7 +35,7 @@ const DownloadableContent = forwardRef(
     }));
 
     return <Box ref={contentRef}>{children}</Box>;
-  },
+  }
 );
 
 DownloadableContent.displayName = "DownloadableContent";

@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import WaterLevelChart from "./WaterLevelChart";
 import DetailsHeader from "./DetailsHeader";
+import { COLORS } from "../_cons/StyleConstants";
 
 import {
   WaterLevelView,
@@ -47,7 +48,7 @@ export default function StationDetails({
         subtitle="Gauging Station"
         date={date}
         icon={GaugeStationIcon}
-        iconColor={alert ? alert.colorRgb : "#888888"}
+        iconColor={alert ? alert.colorRgb : COLORS.gray}
       />
 
       <Box

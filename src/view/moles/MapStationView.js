@@ -2,6 +2,7 @@ import { STATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import MapMarkerView from "./MapMarkerView";
 import StationDetails from "./StationDetails";
 import { GaugeStationIcon } from "../atoms";
+import { COLORS, OPACITY } from "../_cons/StyleConstants";
 
 export default function MapStationView({
   stations,
@@ -29,7 +30,7 @@ export default function MapStationView({
     <>
       {stations.map((station, index) => {
         const alert = stationToAlert[station.name];
-        const fillColor = alert ? alert.colorRgb : "white";
+        const fillColor = alert ? alert.colorRgb : COLORS.markerWhite;
         return (
           <MapMarkerView
             key={`station-group-${index}`}
@@ -38,10 +39,10 @@ export default function MapStationView({
             radius={STATION_MARKER_RADIUS}
             pathOptions={{
               color: fillColor,
-              fillColor: "white",
-              fillOpacity: 1.0,
+              fillColor: COLORS.markerWhite,
+              fillOpacity: OPACITY.full,
             }}
-            labelStyle="color: #333; font-weight: 500;"
+            labelStyle={`color: ${COLORS.markerLabelDark}; font-weight: 500;`}
             formatLabel={(station) => `${station.name} Station`}
             renderPopupContent={(station) => (
               <StationDetails

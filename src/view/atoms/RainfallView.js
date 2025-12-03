@@ -1,4 +1,5 @@
 import MetricView from "./MetricView";
+import { WEATHER_COLORS } from "../_cons/StyleConstants";
 
 export default function RainfallView({ rainMM }) {
   if (rainMM === null || rainMM === undefined) {
@@ -9,19 +10,19 @@ export default function RainfallView({ rainMM }) {
   let color;
   let label;
   if (rainMM === 0) {
-    color = "#9e9e9e"; // Gray - No rain
+    color = WEATHER_COLORS.rain.none;
     label = "No Rain";
   } else if (rainMM < 50) {
-    color = "#90caf9"; // Light blue - Light rain
+    color = WEATHER_COLORS.rain.light;
     label = "Light Rain";
   } else if (rainMM < 100) {
-    color = "#42a5f5"; // Blue - Moderate rain
+    color = WEATHER_COLORS.rain.moderate;
     label = "Moderate Rain";
   } else if (rainMM < 200) {
-    color = "#1976d2"; // Dark blue - Heavy rain
+    color = WEATHER_COLORS.rain.heavy;
     label = "Heavy Rain";
   } else {
-    color = "#7b1fa2"; // Purple - Very heavy rain
+    color = WEATHER_COLORS.rain.veryHeavy;
     label = "Very Heavy Rain";
   }
 

@@ -1,6 +1,7 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { DATE_TIME_FORMAT } from "../_cons/FormatConstants";
+import { STALE_DATA_BADGE } from "../_cons/StyleConstants";
 
 export default function TimeAgoView({ date, variant = "body1", color }) {
   const formattedDate = date.toLocaleString("en-US", DATE_TIME_FORMAT);
@@ -41,10 +42,7 @@ export default function TimeAgoView({ date, variant = "body1", color }) {
             px: 1,
             py: 0.5,
             borderRadius: "12px",
-            backgroundColor: "#888888",
-            color: "white",
-            fontSize: "0.75rem",
-            fontWeight: 500,
+            ...STALE_DATA_BADGE,
           }}
         >
           Stale Data
