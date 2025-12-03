@@ -4,28 +4,10 @@ class BaseAdminRegion extends BaseRegion {
   }
 
   async getPolygon() {
-    const url =
+    return await WWW.fetchJSON(
       "https://raw.githubusercontent.com" +
-      "/nuuuwan/gig-data/refs/heads/master" +
-      `/geo/${this.constructor.getAdminRegionType()}/${this.id}.json`;
-
-    try {
-      const response = await fetch(url);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const geoData = await response.json();
-      return geoData;
-    } catch (error) {
-      console.error(
-        `Error loading polygon for ${this.constructor.getAdminRegionType()} ID ${
-          this.id
-        }:`,
-        error
-      );
-      return null;
-    }
+        "/nuuuwan/gig-data/refs/heads/master" +
+        `/geo/${this.constructor.getAdminRegionType()}/${this.id}.json`
+    );
   }
 }
