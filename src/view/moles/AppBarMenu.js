@@ -8,7 +8,7 @@ import Divider from "@mui/material/Divider";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import BugReportIcon from "@mui/icons-material/BugReport";
-import RefreshIcon from "@mui/icons-material/Refresh";
+import UpdateIcon from "@mui/icons-material/Update";
 import { useState } from "react";
 import { VERSION } from "../../nonview/cons";
 
@@ -79,9 +79,9 @@ export default function AppBarMenu() {
         </MenuItem>
         <MenuItem onClick={handleRefresh}>
           <ListItemIcon>
-            <RefreshIcon fontSize="small" />
+            <UpdateIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText>Refresh</ListItemText>
+          <ListItemText>Update Version</ListItemText>
         </MenuItem>
         <Divider />
         <MenuItem disabled>
