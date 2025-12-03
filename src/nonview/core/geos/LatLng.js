@@ -3,4 +3,8 @@ export default class LatLng {
     this.lat = lat;
     this.lng = lng;
   }
+
+  get lngLat() {
+    return [this.lng, this.lat];
+  }
 }

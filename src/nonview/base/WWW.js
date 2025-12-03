@@ -1,7 +1,9 @@
-class WWW {
+import Cache from "./Cache";
+
+export default class WWW {
   static async fetchJSON(url) {
     const key = `WWW.fetchJSON:${url}`;
-    return Cache.length(key, async () => {
+    return Cache.get(key, async () => {
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

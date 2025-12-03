@@ -6,7 +6,6 @@ import { DB } from "../../nonview/core";
 import MapLocationView from "../moles/MapLocationView";
 import MapStationView from "../moles/MapStationView";
 import LandslideWarningView from "../moles/LandslideWarningView";
-import Ent from "../../nonview/core/Ent";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 
 export default function MapView() {
@@ -28,11 +27,6 @@ export default function MapView() {
     });
   }, []);
 
-  const ent = new Ent("LK-1", "province", "Western");
-
-  if (!ent) {
-    return null;
-  }
   return (
     <MapContainer
       center={DEFAULT_CENTER}

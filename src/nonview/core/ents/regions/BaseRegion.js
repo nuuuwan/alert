@@ -1,10 +1,10 @@
 export default class BaseRegion {
-  constructor(id, name, polygons) {
+  constructor(id, name) {
     this.id = id;
     this.name = name;
   }
 
-  async getPolygons() {
+  async getLngLatListList() {
     return [];
   }
 }

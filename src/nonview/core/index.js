@@ -2,7 +2,6 @@
 import Alert from "./Alert";
 import Basin from "./Basin";
 import DB from "./DB";
-import Ent from "./Ent";
 import LandslideWarning from "./LandslideWarning";
 import LandslideWarningLevel from "./LandslideWarningLevel";
 import Location from "./Location";
@@ -15,7 +14,6 @@ export {
   Alert,
   Basin,
   DB,
-  Ent,
   LandslideWarning,
   LandslideWarningLevel,
   Location,

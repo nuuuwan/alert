@@ -3,13 +3,13 @@ import AppBarMenu from "./AppBarMenu";
 import CustomAppBar from "./CustomAppBar";
 import DetailsHeader from "./DetailsHeader";
 import DownloadableContent from "./DownloadableContent";
-import EntView from "./EntView";
 import LandslideWarningView from "./LandslideWarningView";
 import LocationDetails from "./LocationDetails";
 import MapLocationView from "./MapLocationView";
 import MapMarkerView from "./MapMarkerView";
 import MapStationView from "./MapStationView";
 import MarkerDrawer from "./MarkerDrawer";
+import RegionView from "./RegionView";
 import StationDetails from "./StationDetails";
 import WaterLevelChart from "./WaterLevelChart";
 
@@ -18,13 +18,13 @@ export {
   CustomAppBar,
   DetailsHeader,
   DownloadableContent,
-  EntView,
   LandslideWarningView,
   LocationDetails,
   MapLocationView,
   MapMarkerView,
   MapStationView,
   MarkerDrawer,
+  RegionView,
   StationDetails,
   WaterLevelChart,
 };

@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
-import {
-  LandslideWarning,
-  LandslideWarningLevel,
-  Ent,
-} from "../../nonview/core";
-import EntView from "./EntView";
+import { LandslideWarning, LandslideWarningLevel } from "../../nonview/core";
+import RegionView from "./RegionView";
 import { OPACITY } from "../_cons/StyleConstants";
+import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 
 export default function LandslideWarningView() {
-  const [dsdEnts, setDsdEnts] = useState([]);
+  const [dsds, setDSDs] = useState([]);
 
   useEffect(() => {
     LandslideWarning.getLatest().then((warning) => {
@@ -16,7 +13,7 @@ export default function LandslideWarningView() {
         return;
       }
 
-      const ents = [];
+      const dsds = [];
       const levelToDistrictToDSD = warning.levelToDistrictToDSD;
 
       Object.keys(levelToDistrictToDSD).forEach((level) => {
@@ -26,26 +23,26 @@ export default function LandslideWarningView() {
           const dsdList = districtToDSD[district];
 
           dsdList.forEach((dsdId) => {
-            ents.push({
-              ent: new Ent(dsdId, "dsd", dsdId),
+            dsds.push({
+              dsd: new DSD(dsdId, dsdId),
               level: parseInt(level),
             });
           });
         });
       });
 
-      setDsdEnts(ents);
+      setDSDs(dsds);
     });
   }, []);
 
   return (
     <>
-      {dsdEnts.map(({ ent, level }, index) => {
+      {dsds.map(({ dsd, level }, index) => {
         const warningLevel = LandslideWarningLevel.fromLevel(level);
         return (
-          <EntView
-            key={`landslide-dsd-${ent.id}-${index}`}
-            ent={ent}
+          <RegionView
+            key={`landslide-dsd-${dsd.id}-${index}`}
+            region={dsd}
             pathOptions={{
               color: null,
               fillColor: warningLevel.colorRgb,
