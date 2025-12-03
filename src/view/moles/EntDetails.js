@@ -22,8 +22,6 @@ export default function EntDetails({
   const overlineText = ent.id !== ent.name ? ent.id : undefined;
   const subtitle = ent.constructor.getEntTypeTitle() || "Entity";
 
-  console.debug(eventClassNameToEventList);
-
   return (
     <Box>
       <DetailsHeader
