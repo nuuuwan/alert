@@ -9,6 +9,7 @@ import SatelliteImageView from "./SatelliteImageView";
 import TemperatureView from "./TemperatureView";
 import TimeAgoView from "./TimeAgoView";
 import WaterLevelView from "./WaterLevelView";
+import WeatherStationIcon from "./WeatherStationIcon";
 
 export {
   AdminRegionIcon,
@@ -21,4 +22,5 @@ export {
   TemperatureView,
   TimeAgoView,
   WaterLevelView,
+  WeatherStationIcon,
 };
