@@ -22,6 +22,11 @@ const DataWithIDMixin = {
     const index = await this.idx();
     return index[id] || null;
   },
+
+  async listFromIds(idList) {
+    const index = await this.idx();
+    return idList.map((id) => index[id]).filter((item) => item !== undefined);
+  },
 };
 
 export default DataWithIDMixin;
