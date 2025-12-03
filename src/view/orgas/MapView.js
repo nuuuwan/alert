@@ -49,13 +49,18 @@ export default function MapView() {
         );
       })}
 
-      {activeRegions.map((region) => (
-        <MapRegionView
-          key={region.id}
-          region={region}
-          pathOptions={{ fill: "red" }}
-        />
-      ))}
+      {activeRegions.map(function (region) {
+        const eventClassNameToEventList =
+          idToEventNameToEventListMap[region.id];
+        return (
+          <MapRegionView
+            key={region.id}
+            region={region}
+            eventClassNameToEventList={eventClassNameToEventList}
+            pathOptions={{ fill: "red" }}
+          />
+        );
+      })}
     </MapContainer>
   );
 }

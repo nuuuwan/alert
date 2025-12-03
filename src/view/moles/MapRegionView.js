@@ -3,7 +3,11 @@ import { useState, useEffect } from "react";
 import CustomDrawer from "./CustomDrawer";
 import EntDetails from "./EntDetails";
 
-export default function MapRegionView({ region, pathOptions }) {
+export default function MapRegionView({
+  region,
+  pathOptions,
+  eventClassNameToEventList,
+}) {
   const [latLngListList, setLatLngListList] = useState([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -46,7 +50,11 @@ export default function MapRegionView({ region, pathOptions }) {
         onClose={handleDrawerClose}
         selectedItem={region}
         renderContent={(region) => (
-          <EntDetails ent={region} fillColor={pathOptions.fillColor} />
+          <EntDetails
+            ent={region}
+            fillColor={pathOptions.fillColor}
+            eventClassNameToEventList={eventClassNameToEventList}
+          />
         )}
         getFileName={() => `${region?.id || "region"}.png`}
       />
