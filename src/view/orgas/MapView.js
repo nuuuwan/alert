@@ -6,6 +6,7 @@ import MapLocationView from "../moles/MapLocationView";
 import MapStationView from "../moles/MapStationView";
 import LandslideWarningView from "../moles/LandslideWarningView";
 import Ent from "../../nonview/core/Ent";
+import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 
 export default function MapView() {
   const [stations, setStations] = useState([]);
@@ -28,14 +29,13 @@ export default function MapView() {
 
   const ent = new Ent("LK-1", "province", "Western");
 
-  // Ensure ent is loaded before rendering
   if (!ent) {
     return null;
   }
   return (
     <MapContainer
-      center={[7.8731, 80.7718]}
-      zoom={8}
+      center={DEFAULT_CENTER}
+      zoom={DEFAULT_ZOOM}
       style={{ height: "100%", width: "100%" }}
     >
       <TileLayer
