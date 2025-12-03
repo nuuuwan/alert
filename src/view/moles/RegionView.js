@@ -3,30 +3,40 @@ import { useState, useEffect } from "react";
 
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 
-export default function RegionView({ region, pathOptions }) {
-  const [lngLatListList, setLngLatListList] = useState([]);
+export default function RegionView({ regionId, pathOptions }) {
+  const [region, setRegion] = useState(null);
+  const [latLngListList, setLatLngListList] = useState([]);
+
+  useEffect(() => {
+    async function fetchRegion() {
+      const region2 = await DSD.fromID(regionId);
+      setRegion(region2);
+    }
+    fetchRegion();
+  }, [regionId]);
 
   useEffect(() => {
     async function fetchData() {
       if (region) {
-        const lngLatListList2 = await region.getLngLatListList();
-        setLngLatListList(lngLatListList2);
+        const latLngListList2 = await region.getLatLngListList();
+        setLatLngListList(latLngListList2);
       }
     }
     fetchData();
   }, [region]);
 
-  if (!lngLatListList || lngLatListList.length === 0) {
+  if (!latLngListList || latLngListList.length === 0) {
     return null;
   }
 
   return (
     <>
-      {lngLatListList.map((lngLatList, index) => (
+      {latLngListList.map((latLngList, index) => (
         <Polygon
-          key={`${region.id}-lngLatList-${index}`}
-          positions={lngLatList}
+          key={`${region.id}-latLngList-${index}`}
+          positions={latLngList}
           pathOptions={pathOptions}
         >
           <Popup>

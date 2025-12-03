@@ -11,19 +11,23 @@ export default class BaseAdminRegion extends BaseRegion {
     this.population2012 = population2012;
   }
 
-  async getLngLatListList() {
-    return await WWW.fetchJSON(
+  async getLatLngListList() {
+    const url =
       "https://raw.githubusercontent.com" +
-        "/nuuuwan/gig-data/refs/heads/master" +
-        `/geo/${this.constructor.getAdminRegionType()}/${this.id}.json`
+      "/nuuuwan/gig-data/refs/heads/master" +
+      `/geo/${this.constructor.getAdminRegionType()}/${this.id}.json`;
+    const lngLatListList = await WWW.fetchJSON(url);
+    const latLngListList = lngLatListList.map((lngLatList) =>
+      lngLatList.map(([lng, lat]) => [lat, lng])
     );
+    return latLngListList;
   }
 
   static async listAll() {
     const url =
       "https://raw.githubusercontent.com" +
       "/nuuuwan/gig-data/refs/heads/master" +
-      `/ents/${this.constructor.getAdminRegionType()}.tsv`;
+      `/ents/${this.getAdminRegionType()}.tsv`;
     const dList = await WWW.fetchTSV(url);
     return dList.map(
       (d) =>

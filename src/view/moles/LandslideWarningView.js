@@ -13,36 +13,33 @@ export default function LandslideWarningView() {
         return;
       }
 
-      const dsds = [];
+      const dsdAndLevelList = [];
       const levelToDistrictToDSD = warning.levelToDistrictToDSD;
-
       Object.keys(levelToDistrictToDSD).forEach((level) => {
         const districtToDSD = levelToDistrictToDSD[level];
-
-        Object.keys(districtToDSD).forEach((district) => {
-          const dsdList = districtToDSD[district];
-
-          dsdList.forEach((dsdId) => {
-            dsds.push({
-              dsd: new DSD(dsdId, dsdId),
-              level: parseInt(level),
+        Object.keys(districtToDSD).forEach((districtId) => {
+          const dsdIdList = districtToDSD[districtId];
+          dsdIdList.forEach((dsdId) => {
+            dsdAndLevelList.push({
+              dsdId,
+              level,
             });
           });
         });
       });
 
-      setDSDs(dsds);
+      setDSDs(dsdAndLevelList);
     });
   }, []);
 
   return (
     <>
-      {dsds.map(({ dsd, level }, index) => {
+      {dsds.map(({ dsdId, level }, index) => {
         const warningLevel = LandslideWarningLevel.fromLevel(level);
         return (
           <RegionView
-            key={`landslide-dsd-${dsd.id}-${index}`}
-            region={dsd}
+            key={`landslide-dsd-${dsdId}-${index}`}
+            regionId={dsdId}
             pathOptions={{
               color: null,
               fillColor: warningLevel.colorRgb,

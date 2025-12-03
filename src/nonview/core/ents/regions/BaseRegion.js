@@ -4,7 +4,7 @@ export default class BaseRegion {
     this.name = name;
   }
 
-  async getLngLatListList() {
+  async getLatLngListList() {
     return [];
   }
 }
