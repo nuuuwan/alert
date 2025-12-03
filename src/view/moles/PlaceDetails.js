@@ -29,7 +29,7 @@ export default function PlaceDetails({ place }) {
       <Divider sx={{ my: 3 }} />
 
       <Typography variant="caption" color="text.secondary">
-        Geographic Location
+        Satellite Imagery: European Space Agency Sentinel-1
       </Typography>
     </Box>
   );
