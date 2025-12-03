@@ -38,15 +38,13 @@ export default function MapView() {
       />
 
       {activePlaces.map(function (place) {
-        const eventClassNames = Object.keys(
-          idToEventNameToEventListMap[place.id] || {},
-        );
+        const eventClassNameToEventList = idToEventNameToEventListMap[place.id];
 
         return (
           <MapPlaceView
             key={place.id}
             place={place}
-            eventClassNames={eventClassNames}
+            eventClassNameToEventList={eventClassNameToEventList}
           />
         );
       })}

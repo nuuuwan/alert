@@ -5,10 +5,11 @@ import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import CustomDrawer from "./CustomDrawer";
 import EntDetails from "./EntDetails";
 import { GaugeStationIcon, LocationIcon, WeatherStationIcon } from "../atoms";
-import { COLORS } from "../_cons/StyleConstants";
 
-export default function MapPlaceView({ place, eventClassNames }) {
+export default function MapPlaceView({ place, eventClassNameToEventList }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const eventClassNames = Object.keys(eventClassNameToEventList);
 
   const handleMarkerClick = () => {
     setDrawerOpen(true);
@@ -49,7 +50,12 @@ export default function MapPlaceView({ place, eventClassNames }) {
         open={drawerOpen}
         onClose={handleDrawerClose}
         selectedItem={place}
-        renderContent={(place) => <EntDetails ent={place} />}
+        renderContent={(place) => (
+          <EntDetails
+            ent={place}
+            eventClassNameToEventList={eventClassNameToEventList}
+          />
+        )}
         getFileName={defaultGetFileName}
       />
     </>

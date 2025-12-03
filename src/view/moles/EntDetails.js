@@ -1,11 +1,14 @@
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
 import DetailsHeader from "./DetailsHeader";
+import GaugingStationDetails from "./GaugingStationDetails";
 import { SatelliteImageView, LocationIcon, AdminRegionIcon } from "../atoms";
 import { COLORS } from "../_cons/StyleConstants";
 
-export default function EntDetails({ ent, fillColor }) {
+export default function EntDetails({
+  ent,
+  fillColor,
+  eventClassNameToEventList,
+}) {
   if (!ent) {
     return null;
   }
@@ -18,6 +21,8 @@ export default function EntDetails({ ent, fillColor }) {
   const overlineText = ent.id !== ent.name ? ent.id : undefined;
   const subtitle = ent.constructor.getEntTypeTitle() || "Entity";
 
+  console.debug(eventClassNameToEventList);
+
   return (
     <Box>
       <DetailsHeader
@@ -28,6 +33,17 @@ export default function EntDetails({ ent, fillColor }) {
         icon={icon}
         iconColor={iconColor}
       />
+
+      {Object.entries(eventClassNameToEventList).map(function ([
+        eventClassName,
+        eventList,
+      ]) {
+        if (eventClassName === "RiverWaterLevelMeasurement") {
+          return <GaugingStationDetails key={eventClassName} place={ent} />;
+        }
+
+        return null;
+      })}
 
       {hasLatLng && (
         <Box
@@ -41,8 +57,6 @@ export default function EntDetails({ ent, fillColor }) {
           <SatelliteImageView latLng={ent.latLng} name={ent.name} />
         </Box>
       )}
-
-      <Divider sx={{ my: 3 }} />
     </Box>
   );
 }

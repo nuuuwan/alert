@@ -32,6 +32,11 @@ const DataWithIDMixin = {
     return idList.map((id) => idx[id]);
   },
 
+  async listForId(id) {
+    const list = await this.listAll();
+    return list.filter((d) => d.id === id);
+  },
+
   uniqueIdsFromList(dataList) {
     const idList = dataList.filter((d) => d).map((d) => d.id);
     return [...new Set(idList)];

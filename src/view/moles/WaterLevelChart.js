@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
 import { LineChart, lineElementClasses } from "@mui/x-charts/LineChart";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "../../nonview/core/Alert";
-import RiverWaterLevelMeasurement from "../../nonview/core/events/RiverWaterLevelMeasurement";
+
 import {
   DATE_TIME_FORMAT,
   SHORT_DATE_TIME_FORMAT,
@@ -13,52 +11,8 @@ import { CHART_COLORS } from "../_cons/StyleConstants";
 
 const CHART_WINDOW_DAYS = 7;
 
-export default function WaterLevelChart({ station }) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function loadData() {
-      setLoading(true);
-      try {
-        const idx = await RiverWaterLevelMeasurement.idx();
-        const measurements = idx[station.name] || [];
-
-        if (measurements.length > 0) {
-          const cutoffDate = new Date();
-          cutoffDate.setDate(cutoffDate.getDate() - CHART_WINDOW_DAYS);
-
-          const recentMeasurements = measurements.filter(
-            (m) => m.date >= cutoffDate,
-          );
-
-          const chartData = recentMeasurements.map((m) => ({
-            date: m.date,
-            waterLevel: m.waterLevelM,
-          }));
-          setData(chartData);
-        } else {
-          setData([]);
-        }
-      } catch (error) {
-        console.error("Error loading water level history:", error);
-        setData([]);
-      }
-      setLoading(false);
-    }
-
-    loadData();
-  }, [station.name]);
-
-  if (loading) {
-    return (
-      <Box sx={{ display: "flex", justifyContent: "center", py: 4 }}>
-        <CircularProgress />
-      </Box>
-    );
-  }
-
-  if (!data || data.length === 0) {
+export default function WaterLevelChart({ station, measurements }) {
+  if (!measurements || measurements.length === 0) {
     return (
       <Box sx={{ py: 2 }}>
         <Typography variant="body2" color="text.secondary">
@@ -68,8 +22,8 @@ export default function WaterLevelChart({ station }) {
     );
   }
 
-  const dates = data.map((d) => d.date);
-  const waterLevels = data.map((d) => d.waterLevel);
+  const dates = measurements.map((d) => d.getDate());
+  const waterLevels = measurements.map((d) => d.waterLevelM);
 
   const series = [
     {

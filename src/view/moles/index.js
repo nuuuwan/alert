@@ -5,6 +5,7 @@ import CustomDrawer from "./CustomDrawer";
 import DetailsHeader from "./DetailsHeader";
 import DownloadableContent from "./DownloadableContent";
 import EntDetails from "./EntDetails";
+import GaugingStationDetails from "./GaugingStationDetails";
 import LandslideWarningView from "./LandslideWarningView";
 import LocationDetails from "./LocationDetails";
 import MapPlaceView from "./MapPlaceView";
@@ -18,6 +19,7 @@ export {
   DetailsHeader,
   DownloadableContent,
   EntDetails,
+  GaugingStationDetails,
   LandslideWarningView,
   LocationDetails,
   MapPlaceView,
