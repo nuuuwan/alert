@@ -1,98 +1,97 @@
 # ALERT Data Model
 
-ALERT is a map-centred platform for presenting Awareness, Logistics, Evacuation, Recovery and Tracking information for disaster management, prevention and recovery.  
-Version 0 works with two types of mappable entities: **Places** and **Regions**.  
-Places represent individual points, such as weather stations or police stations.  
-Regions represent geographical areas, such as DSDs or GNDs, defined by one or more polygons.
+ALERT is a map-centred platform for presenting Awareness, Logistics, Evacuation, Recovery and Tracking information for disaster management, prevention and recovery.
 
-Roles describe what a Place or Region represents, or what condition applies to it.  
-Each role is modelled as its own class and links back to either a Place or a Region through their primary keys.
+The data model consists of three main layers:
 
-## Core Classes
+- **Entities (ents)**: Geographic entities like Places and Regions
+- **Roles**: Functional roles that entities can have (e.g., GaugingStationPlace)
+- **Events**: Time-based data associated with entities (e.g., RiverWaterLevelMeasurement)
 
-### Map Entities
+## Entities
 
-#### Place
+### Place
 
-Represents a single point on the map.
+Represents a single point on the map (e.g., weather stations, police stations).
 
-- `id`
-- `name`
-- `latLng`
+- `id`: Unique identifier
+- `name`: Name of the place
+- `latLng`: Geographic coordinates (latitude, longitude pair)
 
-#### Region
+### BaseRegion
 
-Represents an area defined by polygons.
+Abstract base class for all regions. A region is an area or collection of areas on a map.
 
-- `id`
-- `name`
-- `polygons`: list of `Polygon`
+- `id`: Unique identifier
+- `name`: Name of the region
+- `async getLatLngListList()`: Returns list of polygon coordinates
 
-Region can be extended for specific types of regions, like Province, DSD, GND, Country etc
+### BaseAdminRegion
 
-### Geo Entities
+Extends `BaseRegion` for administrative regions (Province, District, DSD, GND etc).
 
-#### LatLng
+- `id`: Region identifier
+- `name`: Region name
+- `population2012`: Population count from the 2012 census
+- `static getAdminRegionType()`:
 
-A coordinate pair.
+#### Province
 
-- `lat`
-- `lng`
+Administrative region type: `"province"`
 
-#### Polygon
+#### District
 
-A polygon forming part of a Region.
+Administrative region type: `"district"`
 
-- `coordinates`: list of `LatLng`
+#### DSD
 
-### Roles
+Administrative region type: `"dsd"` (Divisional Secretariat Division)
 
-Roles capture the functional meaning or status of a Place or Region.  
-Each specific role is its own class and contains a foreign key to either a Place or a Region.
+#### GND
 
-#### BaseRole
+Administrative region type: `"gnd"` (Grama Niladhari Division)
 
-Abstract parent for shared fields.
+## Roles
 
-- `id`
-- `appliesTo`: enum(`place`, `region`)
-- `placeId` (nullable)
-- `regionId` (nullable)
-- `validFrom`
-- `validTo`
-- `status`
-- `metadata`
+Roles describe the functional purpose of a Place or Region.
 
-### WaterGaugingStationRole
+### BaseRole
 
-- `stationCode`
-- `riverName`
-- `currentLevel`
-- `thresholds`
+Abstract base class for all roles.
 
-#### WeatherStationRole
+- `id`: Unique identifier (references a Place or Region)
+- `static getEntClass`: The Ent which is allowed to play that role
 
-- `stationCode`
-- `temperature`
-- `rainfall`
-- `wind`
+### GaugingStationPlace
 
-#### PoliceStationRole
+Role for river water level monitoring stations.
 
-- `stationCode`
-- `contact`
-- `jurisdiction`
+- `riverName`: Name of the river being monitored
+- `alertLevelM`: Alert threshold in meters
+- `minorFloodLevelM`: Minor flood threshold in meters
+- `majorFloodLevelM`: Major flood threshold in meters
 
-#### DSDOfficeRole
+## Events
 
-- `officeCode`
-- `contact`
+Events are time-based events associated with a particular Ent in a particular Role
 
-#### LandslideWarningRole
+### BaseEvent
 
-- `warningLevel`
-- `issuedAt`
-- `expiresAt`
+Abstract base class for all events.
 
+**Properties:**
 
-#### Events
+- `id`: Entity ID this event relates to
+- `timeUt`: Unix timestamp
+- `static getRoleClass`: The Role which has that type of event
+
+### RiverWaterLevelMeasurement
+
+Water level measurements from gauging stations.
+
+- `waterLevelM`: Water level in meters
+
+### LandslideWarning
+
+- `threatLevel`
+
