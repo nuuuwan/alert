@@ -3,7 +3,8 @@ import { LineChart, lineElementClasses } from "@mui/x-charts/LineChart";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
-import { RiverWaterLevel, Alert } from "../../nonview/core";
+import Alert from "../../nonview/core/Alert";
+import RiverWaterLevelMeasurement from "../../nonview/core/events/RiverWaterLevelMeasurement";
 import {
   DATE_TIME_FORMAT,
   SHORT_DATE_TIME_FORMAT,
@@ -20,7 +21,7 @@ export default function WaterLevelChart({ station }) {
     async function loadData() {
       setLoading(true);
       try {
-        const idx = await RiverWaterLevel.idx();
+        const idx = await RiverWaterLevelMeasurement.idx();
         const measurements = idx[station.name] || [];
 
         if (measurements.length > 0) {
@@ -28,7 +29,7 @@ export default function WaterLevelChart({ station }) {
           cutoffDate.setDate(cutoffDate.getDate() - CHART_WINDOW_DAYS);
 
           const recentMeasurements = measurements.filter(
-            (m) => m.date >= cutoffDate,
+            (m) => m.date >= cutoffDate
           );
 
           const chartData = recentMeasurements.map((m) => ({

@@ -1,6 +1,8 @@
 import Alert from "../../core/Alert";
+import BaseRole from "./BaseRole";
+import { DataWithIDMixin } from "../../base";
 
-export default class GaugingStationPlace {
+class GaugingStationPlace extends BaseRole {
   constructor(data) {
     super(data);
     this.riverName = data.riverName || data.river_name;
@@ -9,10 +11,8 @@ export default class GaugingStationPlace {
     this.majorFloodLevelM = data.majorFloodLevelM || data.major_flood_level_m;
   }
 
-  static async listAll() {
-    const url = process.env.PUBLIC_URL + `/data/static/gauging_stations.json`;
-    const rawDataList = await WWW.fetchJSON(url);
-    return rawDataList.map((rawData) => new this(rawData));
+  static getUrl() {
+    return process.env.PUBLIC_URL + `/data/static/gauging_stations.json`;
   }
 
   getAlert(waterLevelM) {
@@ -31,3 +31,7 @@ export default class GaugingStationPlace {
     return Alert.NORMAL;
   }
 }
+
+Object.assign(GaugingStationPlace.prototype, DataWithIDMixin);
+
+export default GaugingStationPlace;

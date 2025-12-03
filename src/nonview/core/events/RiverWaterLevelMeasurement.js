@@ -1,6 +1,6 @@
 import BaseEvent from "./BaseEvent.js";
-import DataWithIDMixin from "../../base/DataWithIDMixin";
-
+import GaugingStationPlace from "../roles/GaugingStationPlace.js";
+import Place from "../ents/Place.js";
 class RiverWaterLevelMeasurement extends BaseEvent {
   constructor(data) {
     super({
@@ -28,15 +28,15 @@ class RiverWaterLevelMeasurement extends BaseEvent {
     return latestMap;
   }
 
-  async station() {
-    const place = await Places.fromID(this.entId);
-    const station = await Station.fromID(place.id);
-    return station;
+  async gaugingStation() {
+    const place = await Place.fromID(this.entId);
+    const gaugingStation = await GaugingStationPlace.fromID(place.id);
+    return gaugingStation;
   }
 
   async alert() {
-    const station = await this.station();
-    return station.getAlert(this.waterLevelM);
+    const gaugingStation = await this.gaugingStation();
+    return gaugingStation.getAlert(this.waterLevelM);
   }
 }
 
