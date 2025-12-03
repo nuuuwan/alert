@@ -1,6 +1,10 @@
 import DataWithIDMixin from "../../base/DataWithIDMixin";
 
 class BaseEvent {
+  static getRoleClass() {
+    throw new Error("Not implemented");
+  }
+
   constructor(id, timeUt) {
     this.id = id; // id of the Ent
     this.timeUt = timeUt;
