@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import "./MapView.css";
 import { DB } from "../../nonview/core";
-import MapLocationView from "../moles/MapLocationView";
+import MapPlaceView from "../moles/MapPlaceView";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 
 export default function MapView() {
@@ -27,7 +27,7 @@ export default function MapView() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      <MapLocationView locations={places} />
+      <MapPlaceView places={places} />
     </MapContainer>
   );
 }

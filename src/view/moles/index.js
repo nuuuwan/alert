@@ -6,7 +6,7 @@ import DetailsHeader from "./DetailsHeader";
 import DownloadableContent from "./DownloadableContent";
 import LandslideWarningView from "./LandslideWarningView";
 import LocationDetails from "./LocationDetails";
-import MapLocationView from "./MapLocationView";
+import MapPlaceView from "./MapPlaceView";
 import MapMarkerView from "./MapMarkerView";
 import MapStationView from "./MapStationView";
 import RegionDetails from "./RegionDetails";
@@ -22,7 +22,7 @@ export {
   DownloadableContent,
   LandslideWarningView,
   LocationDetails,
-  MapLocationView,
+  MapPlaceView,
   MapMarkerView,
   MapStationView,
   RegionDetails,
