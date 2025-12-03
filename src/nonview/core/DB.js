@@ -1,58 +1,48 @@
-import Station from "./Station";
-import Location from "./Location";
-import River from "./River";
-import RiverWaterLevel from "./events/RiverWaterLevel";
+import GaugingStationPlace from "./roles/GaugingStationPlace.js";
+import Place from "./ents/Place";
+import RiverWaterLevelMeasurement from "./events/RiverWaterLevelMeasurement";
 import Weather from "./Weather";
 
 export default class DB {
   static async load() {
     const [
-      stations,
-      locations,
-      rivers,
-      stationToLatest,
-      riverWaterLevelIdx,
+      gaugingStationPlaces,
+      places,
+      placeToLatestMeasurement,
+      RiverWaterLevelMeasurementIdx,
       weatherList,
       locationToWeather,
     ] = await Promise.all([
-      Station.listAll(),
-      Location.listAll(),
-      River.listAll(),
-      RiverWaterLevel.stationToLatest(),
-      RiverWaterLevel.idx(),
+      GaugingStationPlace.listAll(),
+      Place.listAll(),
+      RiverWaterLevelMeasurement.placeToLatestMeasurement(),
+      RiverWaterLevelMeasurement.idx(),
       Weather.listAll(),
       Weather.idx(),
     ]);
 
     // Build location map
-    const locationMap = {};
-    stations.forEach((station) => {
-      locationMap[station.name] = station.latLng;
-    });
-    locations.forEach((location) => {
-      locationMap[location.name] = location.latLng;
-    });
+    const placeIdx = await Place.idx();
 
     // Build station alert map
-    const stationToAlert = {};
+    const gaugingStationToAlert = {};
 
-    stations.forEach((station) => {
-      const latestLevel = stationToLatest[station.name];
+    gaugingStationPlaces.forEach((gaugingStationPlace) => {
+      const latestLevel = placeToLatestMeasurement[gaugingStationPlace.id];
       if (latestLevel) {
         const waterLevelM = latestLevel.waterLevelM;
-        const alert = station.getAlert(waterLevelM);
-        stationToAlert[station.name] = alert;
+        const alert = gaugingStationPlace.getAlert(waterLevelM);
+        gaugingStationToAlert[gaugingStationPlace.name] = alert;
       }
     });
 
     return {
-      stations,
-      locations,
-      rivers,
-      locationMap,
-      stationToLatest,
-      stationToAlert,
-      riverWaterLevelIdx,
+      gaugingStationPlaces,
+      places,
+      placeIdx,
+      placeToLatestMeasurement,
+      gaugingStationToAlert,
+      RiverWaterLevelMeasurementIdx,
       weatherList,
       locationToWeather,
     };
