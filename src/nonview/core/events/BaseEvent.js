@@ -1,5 +1,6 @@
 export default class BaseEvent {
-  constructor(timeUt) {
+  constructor(entId, timeUt) {
+    this.entId = entId;
     this.timeUt = timeUt;
   }
 
