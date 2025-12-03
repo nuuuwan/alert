@@ -6,7 +6,7 @@ import { DB } from "../../nonview/core";
 import MapPlaceView from "../moles/MapPlaceView";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 import CircularProgress from "@mui/material/CircularProgress";
-import RegionView from "../moles/RegionView";
+import MapRegionView from "../moles/MapRegionView";
 
 export default function MapView() {
   const [dbResults, setDBResults] = useState(null);
@@ -36,18 +36,17 @@ export default function MapView() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      <MapPlaceView places={activePlaces} />
+      {activePlaces.map((place) => (
+        <MapPlaceView key={place.id} place={place} />
+      ))}
 
-      {activeRegions.map(
-        (region) =>
-          region && (
-            <RegionView
-              key={region.id}
-              region={region}
-              pathOptions={{ fill: "red" }}
-            />
-          )
-      )}
+      {activeRegions.map((region) => (
+        <MapRegionView
+          key={region.id}
+          region={region}
+          pathOptions={{ fill: "red" }}
+        />
+      ))}
     </MapContainer>
   );
 }

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import CustomDrawer from "./CustomDrawer";
 import RegionDetails from "./RegionDetails";
 
-export default function RegionView({ region, pathOptions }) {
+export default function MapRegionView({ region, pathOptions }) {
   const [latLngListList, setLatLngListList] = useState([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
 

@@ -6,12 +6,10 @@ import DetailsHeader from "./DetailsHeader";
 import DownloadableContent from "./DownloadableContent";
 import LandslideWarningView from "./LandslideWarningView";
 import LocationDetails from "./LocationDetails";
-import MapMarkerView from "./MapMarkerView";
 import MapPlaceView from "./MapPlaceView";
-import MapStationView from "./MapStationView";
 import PlaceDetails from "./PlaceDetails";
 import RegionDetails from "./RegionDetails";
-import RegionView from "./RegionView";
+import MapRegionView from "./MapRegionView";
 import StationDetails from "./StationDetails";
 import WaterLevelChart from "./WaterLevelChart";
 
@@ -23,12 +21,10 @@ export {
   DownloadableContent,
   LandslideWarningView,
   LocationDetails,
-  MapMarkerView,
   MapPlaceView,
-  MapStationView,
   PlaceDetails,
   RegionDetails,
-  RegionView,
+  MapRegionView,
   StationDetails,
   WaterLevelChart,
 };

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { LandslideWarning, LandslideThreatLevel } from "../../nonview/core";
-import RegionView from "./RegionView";
+import MapRegionView from "./MapRegionView";
 import { OPACITY } from "../_cons/StyleConstants";
 
 export default function LandslideWarningView() {
@@ -36,7 +36,7 @@ export default function LandslideWarningView() {
       {dsds.map(({ dsdId, level }, index) => {
         const warningLevel = LandslideThreatLevel.fromLevel(level);
         return (
-          <RegionView
+          <MapRegionView
             key={`landslide-dsd-${dsdId}-${index}`}
             regionId={dsdId}
             pathOptions={{
