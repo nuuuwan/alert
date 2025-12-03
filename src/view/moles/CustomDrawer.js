@@ -7,7 +7,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import { useRef } from "react";
 import DownloadableContent from "./DownloadableContent";
 
-export default function MarkerDrawer({
+export default function CustomDrawer({
   open,
   onClose,
   selectedItem,

@@ -1,7 +1,7 @@
 import { Marker } from "react-leaflet";
 import { useState } from "react";
 import L from "leaflet";
-import MarkerDrawer from "./MarkerDrawer";
+import CustomDrawer from "./CustomDrawer";
 
 export default function MapMarkerView({
   items,
@@ -45,7 +45,7 @@ export default function MapMarkerView({
           }}
         />
       ))}
-      <MarkerDrawer
+      <CustomDrawer
         open={drawerOpen}
         onClose={handleDrawerClose}
         selectedItem={selectedItem}

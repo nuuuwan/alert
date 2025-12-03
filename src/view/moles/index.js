@@ -8,7 +8,7 @@ import LocationDetails from "./LocationDetails";
 import MapLocationView from "./MapLocationView";
 import MapMarkerView from "./MapMarkerView";
 import MapStationView from "./MapStationView";
-import MarkerDrawer from "./MarkerDrawer";
+import CustomDrawer from "./CustomDrawer";
 import RegionView from "./RegionView";
 import StationDetails from "./StationDetails";
 import WaterLevelChart from "./WaterLevelChart";
@@ -23,7 +23,7 @@ export {
   MapLocationView,
   MapMarkerView,
   MapStationView,
-  MarkerDrawer,
+  CustomDrawer,
   RegionView,
   StationDetails,
   WaterLevelChart,
