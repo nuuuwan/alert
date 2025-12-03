@@ -5,14 +5,15 @@ export default function RateOfRiseView({ waterLevelDiff, timeDiffHours }) {
   if (timeDiffHours === undefined || timeDiffHours <= 0) return null;
 
   const rateOfChangeCmPerHr = (waterLevelDiff / timeDiffHours) * 100;
+  const EPSILON = 0.1;
 
   let label = null;
   let color = null;
 
-  if (rateOfChangeCmPerHr > 0.01) {
+  if (rateOfChangeCmPerHr > EPSILON) {
     label = "Rising";
     color = COLORS.redAlert;
-  } else if (rateOfChangeCmPerHr < -0.01) {
+  } else if (rateOfChangeCmPerHr < -EPSILON) {
     label = "Falling";
     color = COLORS.greenDark;
   } else {
