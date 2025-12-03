@@ -7,12 +7,3 @@ body,
   width: 100%;
   overflow: hidden;
 }
-
-.leaflet-container {
-  height: 100%;
-  width: 100%;
-}
-
-.leaflet-tile-pane {
-  filter: grayscale(100%);
-}

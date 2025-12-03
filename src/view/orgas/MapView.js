@@ -1,6 +1,7 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
+import "./MapView.css";
 import { DB } from "../../nonview/core";
 import MapLocationView from "../moles/MapLocationView";
 import MapStationView from "../moles/MapStationView";
