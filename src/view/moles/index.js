@@ -5,10 +5,11 @@ import CustomDrawer from "./CustomDrawer";
 import DetailsHeader from "./DetailsHeader";
 import DownloadableContent from "./DownloadableContent";
 import LandslideWarningView from "./LandslideWarningView";
-import PlaceDetails from "./PlaceDetails";
-import MapPlaceView from "./MapPlaceView";
+import LocationDetails from "./LocationDetails";
 import MapMarkerView from "./MapMarkerView";
+import MapPlaceView from "./MapPlaceView";
 import MapStationView from "./MapStationView";
+import PlaceDetails from "./PlaceDetails";
 import RegionDetails from "./RegionDetails";
 import RegionView from "./RegionView";
 import StationDetails from "./StationDetails";
@@ -21,10 +22,11 @@ export {
   DetailsHeader,
   DownloadableContent,
   LandslideWarningView,
-  PlaceDetails,
-  MapPlaceView,
+  LocationDetails,
   MapMarkerView,
+  MapPlaceView,
   MapStationView,
+  PlaceDetails,
   RegionDetails,
   RegionView,
   StationDetails,

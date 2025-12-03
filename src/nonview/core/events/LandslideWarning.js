@@ -1,5 +1,7 @@
 import { Cache } from "../../base/index.js";
 import LandslideRegionRole from "../roles/LandslideRegionRole.js";
+import BaseEvent from "./BaseEvent.js";
+
 export default class LandslideWarning extends BaseEvent {
   static getRoleClass() {
     return LandslideRegionRole;
@@ -14,7 +16,7 @@ export default class LandslideWarning extends BaseEvent {
     const cachedData = await Cache.get("landslideWarning.listAll", async () => {
       try {
         const response = await fetch(
-          "https://raw.githubusercontent.com/nuuuwan/lk_dmc_landslides/refs/heads/main/data/latest.json"
+          "https://raw.githubusercontent.com/nuuuwan/lk_dmc_landslides/refs/heads/main/data/latest.json",
         );
 
         if (!response.ok) {

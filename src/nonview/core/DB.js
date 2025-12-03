@@ -3,7 +3,9 @@ import LandslideWarning from "./events/LandslideWarning";
 import RiverWaterLevelMeasurement from "./events/RiverWaterLevelMeasurement";
 import LandslideRegionRole from "./roles/LandslideRegionRole";
 import WeatherStationPlaceRole from "./roles/WeatherStationPlaceRole";
-
+import WeatherReport from "./events/WeatherReport";
+import GaugingStationPlaceRole from "./roles/GaugingStationPlaceRole";
+import DSD from "./ents/regions/admin_regions/DSD";
 export default class DB {
   constructor() {}
   static async load() {
@@ -29,7 +31,7 @@ export default class DB {
       ...activeWeatherStationPlaces.map((p) => p.id),
     ]);
 
-    const activeRegions = await Region.listFromIds([
+    const activeRegions = await DSD.listFromIds([
       ...activeLandslideRegions.map((r) => r.id),
     ]);
 

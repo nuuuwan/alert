@@ -1,5 +1,6 @@
 import Alert from "../Alert";
 import BaseRole from "./BaseRole";
+import Place from "../ents/Place";
 import { DataWithIDMixin } from "../../base";
 
 class GaugingStationPlaceRole extends BaseRole {
