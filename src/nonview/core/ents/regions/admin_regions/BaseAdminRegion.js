@@ -18,7 +18,7 @@ export default class BaseAdminRegion extends BaseRegion {
       `/geo/${this.constructor.getAdminRegionType()}/${this.id}.json`;
     const lngLatListList = await WWW.fetchJSON(url);
     const latLngListList = lngLatListList.map((lngLatList) =>
-      lngLatList.map(([lng, lat]) => [lat, lng])
+      lngLatList.map(([lng, lat]) => [lat, lng]),
     );
     return latLngListList;
   }
@@ -34,8 +34,8 @@ export default class BaseAdminRegion extends BaseRegion {
         new this(
           d.id,
           d.name,
-          d.population_2012 ? parseInt(d.population_2012) : null
-        )
+          d.population_2012 ? parseInt(d.population_2012) : null,
+        ),
     );
   }
 
