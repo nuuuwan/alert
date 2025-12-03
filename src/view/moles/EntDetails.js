@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import DetailsHeader from "./DetailsHeader";
 import GaugingStationDetails from "./GaugingStationDetails";
+import WeatherStationDetails from "./WeatherStationDetails";
 import { SatelliteImageView, LocationIcon, AdminRegionIcon } from "../atoms";
 import { COLORS } from "../_cons/StyleConstants";
 
@@ -40,6 +41,9 @@ export default function EntDetails({
       ]) {
         if (eventClassName === "RiverWaterLevelMeasurement") {
           return <GaugingStationDetails key={eventClassName} place={ent} />;
+        }
+        if (eventClassName === "WeatherReport") {
+          return <WeatherStationDetails key={eventClassName} place={ent} />;
         }
 
         return null;

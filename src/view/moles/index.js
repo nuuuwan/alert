@@ -11,6 +11,7 @@ import LocationDetails from "./LocationDetails";
 import MapPlaceView from "./MapPlaceView";
 import MapRegionView from "./MapRegionView";
 import WaterLevelChart from "./WaterLevelChart";
+import WeatherStationDetails from "./WeatherStationDetails";
 
 export {
   AppBarMenu,
@@ -25,4 +26,5 @@ export {
   MapPlaceView,
   MapRegionView,
   WaterLevelChart,
+  WeatherStationDetails,
 };
