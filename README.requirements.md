@@ -1,4 +1,4 @@
-# ALERT Platform - Requirements
+# ALERT - Requirements
 
 *ALERT = Awareness, Logistics, Evacuation, Recovery and Tracking Platform*
 
@@ -17,7 +17,7 @@
 
 ## v1 – Structured disaster response
 
-1. Automated data feeds from meteorology, disaster management, and police APIs   
+1. Automated data feeds from meteorology, disaster management, and police APIs
 2. Dynamic routing that avoids flooded or blocked roads and directs to the nearest safe location.  
 3. Shelter capacity indicators where data is available, or manual update interface.  
 4. User alerts: geofenced push notifications when entering a high-risk or restricted area.  
