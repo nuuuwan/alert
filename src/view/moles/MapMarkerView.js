@@ -3,6 +3,7 @@ import { useState } from "react";
 import L from "leaflet";
 import MarkerDrawer from "./MarkerDrawer";
 import Box from "@mui/material/Box";
+import { FONT_FAMILY } from "../_cons/StyleConstants";
 
 export default function MapMarkerView({
   items,
@@ -53,11 +54,11 @@ export default function MapMarkerView({
             position={item.latLng}
             icon={L.divIcon({
               className: `${markerType}-label`,
-              html: `<div style="font-family: 'Ubuntu Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: ${
+              html: `<div style="font-family: ${FONT_FAMILY}; font-size: ${
                 radius * 2
               }px; ${labelStyle} white-space: nowrap; 
               line-height: 1; transform: translateY(-50%);">${formatLabel(
-                item,
+                item
               )}</div>`,
               iconSize: [0, 0],
               iconAnchor: [-radius * 2, radius / 2],

@@ -41,14 +41,7 @@ export const COLORS = {
 };
 
 // Typography
-export const FONT_FAMILY = [
-  '"Ubuntu Sans"',
-  "-apple-system",
-  "BlinkMacSystemFont",
-  '"Segoe UI"',
-  "Roboto",
-  "sans-serif",
-].join(", ");
+export const FONT_FAMILY = ['"Ubuntu Sans"', "sans-serif"].join(", ");
 
 export const FONT_SIZES = {
   xsmall: "0.75rem",

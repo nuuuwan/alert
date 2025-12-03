@@ -4,19 +4,11 @@ import CustomAppBar from "./view/moles/CustomAppBar";
 import Box from "@mui/material/Box";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { FONT_FAMILY } from "./view/_cons/StyleConstants";
 
 const theme = createTheme({
   typography: {
-    fontFamily: [
-      '"Ubuntu Sans"',
-      "-apple-system",
-      "BlinkMacSystemFont",
-      '"Segoe UI"',
-      "Roboto",
-      '"Helvetica Neue"',
-      "Arial",
-      "sans-serif",
-    ].join(","),
+    fontFamily: FONT_FAMILY,
   },
 });
 
