@@ -5,9 +5,10 @@ import "./MapView.css";
 import { DB } from "../../nonview/core";
 import MapPlaceView from "../moles/MapPlaceView";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function MapView() {
-  const [dbResults, setDBResults] = useState([]);
+  const [dbResults, setDBResults] = useState(null);
 
   useEffect(() => {
     const dbResults = async () => {
@@ -16,7 +17,11 @@ export default function MapView() {
     };
     dbResults();
   }, []);
-  console.debug({ dbResults });
+
+  if (!dbResults) {
+    return <CircularProgress />;
+  }
+
   const { activePlaces } = dbResults;
   return (
     <MapContainer

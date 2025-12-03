@@ -1,5 +1,5 @@
 const DataWithTimeMixin = {
-  get date() {
+  getDate() {
     return new Date(this.timeUt * 1000);
   },
 };

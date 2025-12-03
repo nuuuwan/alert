@@ -37,6 +37,6 @@ class GaugingStationPlaceRole extends BaseRole {
   }
 }
 
-Object.assign(GaugingStationPlaceRole.prototype, DataWithIDMixin);
+Object.assign(GaugingStationPlaceRole, DataWithIDMixin);
 
 export default GaugingStationPlaceRole;

@@ -4,7 +4,7 @@ class BaseRole {
   static getEntClass() {
     throw new Error("Not implemented");
   }
-  constructor(id) {
+  constructor({ id }) {
     this.id = id;
   }
 

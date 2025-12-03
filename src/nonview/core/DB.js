@@ -15,24 +15,26 @@ export default class DB {
 
     const activeGaugingStationPlaces =
       await GaugingStationPlaceRole.listFromIds(
-        riverWaterLevelMeasurements.map((m) => m.id)
+        RiverWaterLevelMeasurement.uniqueIdsFromList(
+          riverWaterLevelMeasurements
+        )
       );
     const activeWeatherStationPlaces =
       await WeatherStationPlaceRole.listFromIds(
-        weatherReports.map((w) => w.id)
+        WeatherReport.uniqueIdsFromList(weatherReports)
       );
     const activeLandslideRegions = await LandslideRegionRole.listFromIds(
-      landslideWarnings.map((w) => w.id)
+      LandslideWarning.uniqueIdsFromList(landslideWarnings)
     );
 
     const activePlaces = await Place.listFromIds([
-      ...activeGaugingStationPlaces.map((p) => p.id),
-      ...activeWeatherStationPlaces.map((p) => p.id),
+      ...GaugingStationPlaceRole.uniqueIdsFromList(activeGaugingStationPlaces),
+      ...WeatherStationPlaceRole.uniqueIdsFromList(activeWeatherStationPlaces),
     ]);
 
-    const activeRegions = await DSD.listFromIds([
-      ...activeLandslideRegions.map((r) => r.id),
-    ]);
+    const activeRegions = await DSD.listFromIds(
+      LandslideRegionRole.uniqueIdsFromList(activeLandslideRegions)
+    );
 
     return {
       riverWaterLevelMeasurements,

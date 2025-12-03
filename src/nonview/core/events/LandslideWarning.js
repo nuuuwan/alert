@@ -10,7 +10,7 @@ export default class LandslideWarning extends BaseEvent {
       id: data.id,
       timeUt: data.timeUt || data.time_ut,
     });
-    this.threatLevel = data.threatLevel || data.threat_level;
+    this.threatLevel = parseInt(data.threatLevel || data.threat_level);
   }
 
   static getUrl() {

@@ -1,5 +1,5 @@
 export default class Alert {
-  constructor(level, name, color, emoji) {
+  constructor({ level, name, color, emoji }) {
     this.level = level;
     this.name = name;
     this.color = color;
@@ -28,12 +28,36 @@ export default class Alert {
   }
 }
 
-Alert.MAJOR = new Alert(4, "Major Flood", [0.8, 0.0, 0.0], "🔴");
-Alert.MINOR = new Alert(3, "Minor Flood", [1.0, 0.4, 0.0], "🟠");
-Alert.ALERT = new Alert(2, "Alert", [0.8, 0.8, 0.0], "🟡");
-Alert.NORMAL = new Alert(1, "Normal", [0.0, 0.8, 0.0], "🟢");
-Alert.NO_DATA = new Alert(0, "No Data", [0.5, 0.5, 0.5], "⚪");
-
+Alert.MAJOR = new Alert({
+  level: 4,
+  name: "Major Flood",
+  color: [0.8, 0.0, 0.0],
+  emoji: "🔴",
+});
+Alert.MINOR = new Alert({
+  level: 3,
+  name: "Minor Flood",
+  color: [1.0, 0.4, 0.0],
+  emoji: "🟠",
+});
+Alert.ALERT = new Alert({
+  level: 2,
+  name: "Alert",
+  color: [0.8, 0.8, 0.0],
+  emoji: "🟡",
+});
+Alert.NORMAL = new Alert({
+  level: 1,
+  name: "Normal",
+  color: [0.0, 0.8, 0.0],
+  emoji: "🟢",
+});
+Alert.NO_DATA = new Alert({
+  level: 0,
+  name: "No Data",
+  color: [0.5, 0.5, 0.5],
+  emoji: "⚪",
+});
 Alert.listAll = () => [
   Alert.MAJOR,
   Alert.MINOR,

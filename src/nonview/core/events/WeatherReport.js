@@ -10,7 +10,7 @@ class WeatherReport extends BaseEvent {
 
   constructor(data) {
     super({ id: data.id, timeUt: data.timeUt || data.time_ut });
-    this.rainMM = data.rainMM || data.rain_MM;
+    this.rainMM = data.rainMM || data.rain_mm;
     this.tempMinC = data.tempMinC || data.temp_min_c;
     this.tempMaxC = data.tempMaxC || data.temp_max_c;
   }
@@ -20,7 +20,7 @@ class WeatherReport extends BaseEvent {
   }
 }
 
-Object.assign(WeatherReport.prototype, DataWithIDMixin);
-Object.assign(WeatherReport, DataWithTimeMixin);
+Object.assign(WeatherReport, DataWithIDMixin);
+Object.assign(WeatherReport.prototype, DataWithTimeMixin);
 
 export default WeatherReport;
