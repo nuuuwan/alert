@@ -1,4 +1,4 @@
-export default class LandslideWarningLevel {
+export default class LandslideThreatLevel {
   constructor({ level, color, description, emoji = "" }) {
     this.level = level;
     this.color = color;
@@ -8,7 +8,7 @@ export default class LandslideWarningLevel {
 
   static fromLevel(level) {
     const threatLevel = this.listAll().find(
-      (tl) => tl.level === parseInt(level),
+      (tl) => tl.level === parseInt(level)
     );
     if (!threatLevel) {
       throw new Error(`Invalid threat level: ${level}`);
@@ -18,10 +18,10 @@ export default class LandslideWarningLevel {
 
   static listAll() {
     return [
-      LandslideWarningLevel.LEVEL_0,
-      LandslideWarningLevel.LEVEL_1,
-      LandslideWarningLevel.LEVEL_2,
-      LandslideWarningLevel.LEVEL_3,
+      LandslideThreatLevel.LEVEL_0,
+      LandslideThreatLevel.LEVEL_1,
+      LandslideThreatLevel.LEVEL_2,
+      LandslideThreatLevel.LEVEL_3,
     ];
   }
 
@@ -37,28 +37,28 @@ export default class LandslideWarningLevel {
 }
 
 // Define static threat levels
-LandslideWarningLevel.LEVEL_0 = new LandslideWarningLevel({
+LandslideThreatLevel.LEVEL_0 = new LandslideThreatLevel({
   level: 0,
   color: "white",
   description: "🟩",
   emoji: "🟩",
 });
 
-LandslideWarningLevel.LEVEL_1 = new LandslideWarningLevel({
+LandslideThreatLevel.LEVEL_1 = new LandslideThreatLevel({
   level: 1,
   color: "yellow",
   description: "watch",
   emoji: "🟡",
 });
 
-LandslideWarningLevel.LEVEL_2 = new LandslideWarningLevel({
+LandslideThreatLevel.LEVEL_2 = new LandslideThreatLevel({
   level: 2,
   color: "orange",
   description: "alert",
   emoji: "🟠",
 });
 
-LandslideWarningLevel.LEVEL_3 = new LandslideWarningLevel({
+LandslideThreatLevel.LEVEL_3 = new LandslideThreatLevel({
   level: 3,
   color: "red",
   description: "evacuate",
