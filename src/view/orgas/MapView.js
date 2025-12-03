@@ -39,7 +39,7 @@ export default function MapView() {
 
       {activePlaces.map(function (place) {
         const eventClassNames = Object.keys(
-          idToEventNameToEventListMap[place.id] || {}
+          idToEventNameToEventListMap[place.id] || {},
         );
 
         return (

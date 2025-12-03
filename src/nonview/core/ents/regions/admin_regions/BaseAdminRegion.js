@@ -33,7 +33,7 @@ class BaseAdminRegion extends BaseRegion {
       `/geo/${this.constructor.getAdminRegionType()}/${this.id}.json`;
     const lngLatListList = await WWW.fetchJSON(url);
     const latLngListList = lngLatListList.map((lngLatList) =>
-      lngLatList.map(([lng, lat]) => [lat, lng])
+      lngLatList.map(([lng, lat]) => [lat, lng]),
     );
     return latLngListList;
   }

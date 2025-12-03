@@ -4,9 +4,8 @@ import L from "leaflet";
 import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import CustomDrawer from "./CustomDrawer";
 import EntDetails from "./EntDetails";
-import { GaugeStationIcon, LocationIcon } from "../atoms";
+import { GaugeStationIcon, LocationIcon, WeatherStationIcon } from "../atoms";
 import { COLORS } from "../_cons/StyleConstants";
-import { Gauge } from "@mui/x-charts";
 
 export default function MapPlaceView({ place, eventClassNames }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -25,6 +24,8 @@ export default function MapPlaceView({ place, eventClassNames }) {
   let Icon = LocationIcon;
   if (firstClassName === "RiverWaterLevelMeasurement") {
     Icon = GaugeStationIcon;
+  } else if (firstClassName === "WeatherReport") {
+    Icon = WeatherStationIcon;
   }
   return (
     <>
@@ -34,8 +35,8 @@ export default function MapPlaceView({ place, eventClassNames }) {
           className: "place-icon",
           html: Icon({
             size: LOCATION_MARKER_RADIUS * 8,
-            color: COLORS.markerGray,
-            strokeColor: COLORS.markerWhite,
+            color: "black",
+            strokeColor: "black",
           }),
           iconSize: [LOCATION_MARKER_RADIUS * 8, LOCATION_MARKER_RADIUS * 8],
           iconAnchor: [LOCATION_MARKER_RADIUS * 4, LOCATION_MARKER_RADIUS * 8],
