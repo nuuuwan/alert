@@ -1,8 +1,8 @@
-import Alert from "../../core/Alert";
+import Alert from "../Alert";
 import BaseRole from "./BaseRole";
 import { DataWithIDMixin } from "../../base";
 
-class GaugingStationPlace extends BaseRole {
+class GaugingStationPlaceRole extends BaseRole {
   constructor(data) {
     super(data);
     this.riverName = data.riverName || data.river_name;
@@ -32,6 +32,6 @@ class GaugingStationPlace extends BaseRole {
   }
 }
 
-Object.assign(GaugingStationPlace.prototype, DataWithIDMixin);
+Object.assign(GaugingStationPlaceRole.prototype, DataWithIDMixin);
 
-export default GaugingStationPlace;
+export default GaugingStationPlaceRole;

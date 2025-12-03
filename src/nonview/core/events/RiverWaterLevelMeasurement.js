@@ -1,5 +1,5 @@
 import BaseEvent from "./BaseEvent.js";
-import GaugingStationPlace from "../roles/GaugingStationPlace.js";
+import GaugingStationPlaceRole from "../roles/GaugingStationPlaceRole.js";
 import Place from "../ents/Place.js";
 class RiverWaterLevelMeasurement extends BaseEvent {
   constructor(data) {
@@ -30,7 +30,7 @@ class RiverWaterLevelMeasurement extends BaseEvent {
 
   async gaugingStation() {
     const place = await Place.fromID(this.entId);
-    const gaugingStation = await GaugingStationPlace.fromID(place.id);
+    const gaugingStation = await GaugingStationPlaceRole.fromID(place.id);
     return gaugingStation;
   }
 

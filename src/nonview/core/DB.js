@@ -1,7 +1,7 @@
 import Place from "./ents/Place";
 
 export default class DB {
-  static placeRoleClasses = [GaugingStationPlace];
+  static placeRoleClasses = [GaugingStationPlaceRole];
   static regionRoleClasses = [];
   constructor() {}
   static async load() {
