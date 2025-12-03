@@ -4,7 +4,6 @@ import DB from "./DB";
 import LandslideWarning from "./LandslideWarning";
 import LandslideWarningLevel from "./LandslideWarningLevel";
 import Location from "./Location";
-import RiverWaterLevel from "./events/RiverWaterLevel";
 import Weather from "./Weather";
 
 export {
@@ -13,6 +12,5 @@ export {
   LandslideWarning,
   LandslideWarningLevel,
   Location,
-  RiverWaterLevel,
   Weather,
 };

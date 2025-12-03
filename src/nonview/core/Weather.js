@@ -1,6 +1,6 @@
-import { Cache } from "../base";
+import { Cache, DataWithTimeMixin } from "../base";
 
-export default class Weather {
+class Weather {
   constructor(data) {
     this.locationName = data.locationName || data.place;
     this.timeUt = data.timeUt;
@@ -13,7 +13,7 @@ export default class Weather {
     const latest = await Cache.get("weather.listAll", async () => {
       try {
         const response = await fetch(
-          "https://raw.githubusercontent.com/nuuuwan/weather_lk/refs/heads/data/list_all.json",
+          "https://raw.githubusercontent.com/nuuuwan/weather_lk/refs/heads/data/list_all.json"
         );
 
         if (!response.ok) {
@@ -31,18 +31,18 @@ export default class Weather {
     const weatherList = latest.weather_list;
     const timeUt = latest.date_ut + 8 * 3_600;
     return weatherList.map(
-      (weatherData) => new Weather({ ...weatherData, timeUt }),
+      (weatherData) => new Weather({ ...weatherData, timeUt })
     );
   }
 
   static async idx() {
     const list = await this.listAll();
     return Object.fromEntries(
-      list.map((weather) => [weather.locationName, weather]),
+      list.map((weather) => [weather.locationName, weather])
     );
   }
-
-  get date() {
-    return new Date(this.timeUt * 1000);
-  }
 }
+
+Object.assign(Weather.prototype, DataWithTimeMixin);
+
+export default Weather;
