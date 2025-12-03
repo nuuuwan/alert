@@ -7,7 +7,6 @@ import WeatherReport from "./events/WeatherReport";
 import GaugingStationPlaceRole from "./roles/GaugingStationPlaceRole";
 import DSD from "./ents/regions/admin_regions/DSD";
 export default class DB {
-  constructor() {}
   static async load() {
     const riverWaterLevelMeasurements =
       await RiverWaterLevelMeasurement.listAll();
