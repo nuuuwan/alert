@@ -1,10 +1,9 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
 import WaterIcon from "@mui/icons-material/Water";
-import InfoIcon from "@mui/icons-material/Info";
 import Box from "@mui/material/Box";
+import AppBarMenu from "./AppBarMenu";
 
 export default function CustomAppBar() {
   return (
@@ -22,16 +21,7 @@ export default function CustomAppBar() {
           ALERT
         </Typography>
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <IconButton
-            color="inherit"
-            size="small"
-            aria-label="info"
-            onClick={() =>
-              window.open("https://github.com/nuuuwan/alert", "_blank")
-            }
-          >
-            <InfoIcon />
-          </IconButton>
+          <AppBarMenu />
         </Box>
       </Toolbar>
     </AppBar>
