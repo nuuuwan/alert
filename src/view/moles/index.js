@@ -5,7 +5,7 @@ import CustomDrawer from "./CustomDrawer";
 import DetailsHeader from "./DetailsHeader";
 import DownloadableContent from "./DownloadableContent";
 import LandslideWarningView from "./LandslideWarningView";
-import LocationDetails from "./LocationDetails";
+import PlaceDetails from "./PlaceDetails";
 import MapPlaceView from "./MapPlaceView";
 import MapMarkerView from "./MapMarkerView";
 import MapStationView from "./MapStationView";
@@ -21,7 +21,7 @@ export {
   DetailsHeader,
   DownloadableContent,
   LandslideWarningView,
-  LocationDetails,
+  PlaceDetails,
   MapPlaceView,
   MapMarkerView,
   MapStationView,

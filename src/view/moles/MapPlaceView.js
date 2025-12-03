@@ -1,10 +1,10 @@
 import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import MapMarkerView from "./MapMarkerView";
-import LocationDetails from "./LocationDetails";
+import PlaceDetails from "./PlaceDetails";
 import { LocationIcon } from "../atoms";
 import { COLORS, OPACITY } from "../_cons/StyleConstants";
 
-export default function MapPlaceView({ places, placeToWeather }) {
+export default function MapPlaceView({ places }) {
   return (
     <MapMarkerView
       items={places}
@@ -15,9 +15,7 @@ export default function MapPlaceView({ places, placeToWeather }) {
         fillColor: COLORS.markerWhite,
         fillOpacity: OPACITY.full,
       }}
-      renderPopupContent={(place) => (
-        <LocationDetails location={place} locationToWeather={placeToWeather} />
-      )}
+      renderPopupContent={(place) => <PlaceDetails place={place} />}
       iconComponent={LocationIcon}
     />
   );
