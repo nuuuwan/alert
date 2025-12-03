@@ -4,10 +4,11 @@ import L from "leaflet";
 import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import CustomDrawer from "./CustomDrawer";
 import EntDetails from "./EntDetails";
-import { LocationIcon } from "../atoms";
+import { GaugeStationIcon, LocationIcon } from "../atoms";
 import { COLORS } from "../_cons/StyleConstants";
+import { Gauge } from "@mui/x-charts";
 
-export default function MapPlaceView({ place, getFileName }) {
+export default function MapPlaceView({ place, eventClassNames }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleMarkerClick = () => {
@@ -18,15 +19,20 @@ export default function MapPlaceView({ place, getFileName }) {
     setDrawerOpen(false);
   };
 
-  const defaultGetFileName = () => `${place.name || place.id}.png`;
+  const defaultGetFileName = () => `${place.id}.png`;
 
+  const firstClassName = eventClassNames[0];
+  let Icon = LocationIcon;
+  if (firstClassName === "RiverWaterLevelMeasurement") {
+    Icon = GaugeStationIcon;
+  }
   return (
     <>
       <Marker
         position={place.latLng}
         icon={L.divIcon({
           className: "place-icon",
-          html: LocationIcon({
+          html: Icon({
             size: LOCATION_MARKER_RADIUS * 8,
             color: COLORS.markerGray,
             strokeColor: COLORS.markerWhite,
@@ -43,7 +49,7 @@ export default function MapPlaceView({ place, getFileName }) {
         onClose={handleDrawerClose}
         selectedItem={place}
         renderContent={(place) => <EntDetails ent={place} />}
-        getFileName={getFileName || defaultGetFileName}
+        getFileName={defaultGetFileName}
       />
     </>
   );

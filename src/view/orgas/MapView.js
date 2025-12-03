@@ -23,7 +23,8 @@ export default function MapView() {
     return <CircularProgress />;
   }
 
-  const { activePlaces, activeRegions } = dbResults;
+  const { activePlaces, activeRegions, idToEventNameToEventListMap } =
+    dbResults;
 
   return (
     <MapContainer
@@ -36,9 +37,19 @@ export default function MapView() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {activePlaces.map((place) => (
-        <MapPlaceView key={place.id} place={place} />
-      ))}
+      {activePlaces.map(function (place) {
+        const eventClassNames = Object.keys(
+          idToEventNameToEventListMap[place.id] || {}
+        );
+
+        return (
+          <MapPlaceView
+            key={place.id}
+            place={place}
+            eventClassNames={eventClassNames}
+          />
+        );
+      })}
 
       {activeRegions.map((region) => (
         <MapRegionView
