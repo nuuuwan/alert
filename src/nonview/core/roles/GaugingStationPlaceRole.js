@@ -3,6 +3,10 @@ import BaseRole from "./BaseRole";
 import { DataWithIDMixin } from "../../base";
 
 class GaugingStationPlaceRole extends BaseRole {
+  static getEntClass() {
+    return Place;
+  }
+
   constructor(data) {
     super(data);
     this.riverName = data.riverName || data.river_name;
