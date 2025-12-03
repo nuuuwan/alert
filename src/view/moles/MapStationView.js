@@ -42,8 +42,6 @@ export default function MapStationView({
               fillColor: COLORS.markerWhite,
               fillOpacity: OPACITY.full,
             }}
-            labelStyle={`color: ${COLORS.markerLabelDark}; font-weight: 500;`}
-            formatLabel={(station) => `${station.name} Station`}
             renderPopupContent={(station) => (
               <StationDetails
                 station={station}

@@ -15,14 +15,12 @@ export default function MapLocationView({ locations, locationToWeather }) {
         fillColor: COLORS.markerWhite,
         fillOpacity: OPACITY.full,
       }}
-      labelStyle={`color: ${COLORS.markerLabel};`}
       renderPopupContent={(location) => (
         <LocationDetails
           location={location}
           locationToWeather={locationToWeather}
         />
       )}
-      formatLabel={(location) => location.name}
       iconComponent={LocationIcon}
     />
   );

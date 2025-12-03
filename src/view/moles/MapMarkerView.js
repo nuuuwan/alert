@@ -2,17 +2,13 @@ import { Marker } from "react-leaflet";
 import { useState } from "react";
 import L from "leaflet";
 import MarkerDrawer from "./MarkerDrawer";
-import Box from "@mui/material/Box";
-import { FONT_FAMILY } from "../_cons/StyleConstants";
 
 export default function MapMarkerView({
   items,
   markerType,
   radius,
   pathOptions,
-  labelStyle,
   renderPopupContent,
-  formatLabel = (item) => item.name,
   getFileName,
   iconComponent,
 }) {
@@ -31,41 +27,23 @@ export default function MapMarkerView({
   return (
     <>
       {items.map((item, index) => (
-        <Box key={`${markerType}-box-${index}`}>
-          <Marker
-            key={`${markerType}-${index}`}
-            position={item.latLng}
-            icon={L.divIcon({
-              className: `${markerType}-icon`,
-              html: iconComponent({
-                size: radius * 8,
-                color: pathOptions.color,
-                strokeColor: pathOptions.fillColor,
-              }),
-              iconSize: [radius * 8, radius * 8],
-              iconAnchor: [radius * 4, radius * 8],
-            })}
-            eventHandlers={{
-              click: () => handleMarkerClick(item),
-            }}
-          />
-          <Marker
-            key={`${markerType}-label-${index}`}
-            position={item.latLng}
-            icon={L.divIcon({
-              className: `${markerType}-label`,
-              html: `<div style="font-family: ${FONT_FAMILY}; font-size: ${
-                radius * 2
-              }px; ${labelStyle} white-space: nowrap; 
-              line-height: 1; transform: translateY(-50%);">${formatLabel(
-                item
-              )}</div>`,
-              iconSize: [0, 0],
-              iconAnchor: [-radius * 2, radius / 2],
-            })}
-            interactive={false}
-          />
-        </Box>
+        <Marker
+          key={`${markerType}-${index}`}
+          position={item.latLng}
+          icon={L.divIcon({
+            className: `${markerType}-icon`,
+            html: iconComponent({
+              size: radius * 8,
+              color: pathOptions.color,
+              strokeColor: pathOptions.fillColor,
+            }),
+            iconSize: [radius * 8, radius * 8],
+            iconAnchor: [radius * 4, radius * 8],
+          })}
+          eventHandlers={{
+            click: () => handleMarkerClick(item),
+          }}
+        />
       ))}
       <MarkerDrawer
         open={drawerOpen}
