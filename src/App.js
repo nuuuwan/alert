@@ -1,6 +1,6 @@
 import "./App.css";
 import MapView from "./view/orgas/MapView";
-import Header from "./view/moles/Header";
+import CustomAppBar from "./view/moles/CustomAppBar";
 import Box from "@mui/material/Box";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -25,7 +25,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
-        <Header />
+        <CustomAppBar />
         <Box sx={{ flexGrow: 1, marginTop: "48px" }}>
           <MapView />
         </Box>

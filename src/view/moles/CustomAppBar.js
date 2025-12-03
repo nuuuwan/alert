@@ -6,7 +6,7 @@ import WaterIcon from "@mui/icons-material/Water";
 import InfoIcon from "@mui/icons-material/Info";
 import Box from "@mui/material/Box";
 
-export default function Header() {
+export default function CustomAppBar() {
   return (
     <AppBar
       position="fixed"
