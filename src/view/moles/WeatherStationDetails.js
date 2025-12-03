@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import Divider from "@mui/material/Divider";
-import { RainfallView, TemperatureView } from "../atoms";
+import { RainfallView, TemperatureView, TimeAgoView } from "../atoms";
 import WeatherReport from "../../nonview/core/events/WeatherReport";
 
 export default function WeatherStationDetails({ place }) {
@@ -15,7 +15,7 @@ export default function WeatherStationDetails({ place }) {
       try {
         // Load weather reports
         const reports = (await WeatherReport.listForId(place.id)).sort(
-          (a, b) => a.timeUt - b.timeUt,
+          (a, b) => a.timeUt - b.timeUt
         );
 
         if (reports.length > 0) {
@@ -58,6 +58,10 @@ export default function WeatherStationDetails({ place }) {
           tempMin={latestReport.tempMinC}
           tempMax={latestReport.tempMaxC}
         />
+      </Box>
+
+      <Box sx={{ mt: 2, mb: 2 }}>
+        <TimeAgoView date={latestReport.getDate()} variant="body2" />
       </Box>
 
       <Divider sx={{ my: 3 }} />

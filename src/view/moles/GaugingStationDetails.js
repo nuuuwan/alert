@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import Divider from "@mui/material/Divider";
-import { WaterLevelView, RateOfRiseView } from "../atoms";
+import { WaterLevelView, RateOfRiseView, TimeAgoView } from "../atoms";
 import WaterLevelChart from "./WaterLevelChart";
 import GaugingStationPlaceRole from "../../nonview/core/roles/GaugingStationPlaceRole";
 import RiverWaterLevelMeasurement from "../../nonview/core/events/RiverWaterLevelMeasurement";
@@ -83,6 +83,10 @@ export default function GaugingStationDetails({ place }) {
             timeDiffHours={timeDiffHours}
           />
         )}
+      </Box>
+
+      <Box sx={{ mt: 2, mb: 2 }}>
+        <TimeAgoView date={latestMeasurement.getDate()} variant="body2" />
       </Box>
 
       <Divider sx={{ my: 3 }} />
