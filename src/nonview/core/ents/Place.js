@@ -1,5 +1,8 @@
 import DataWithIDMixin from "../../base/DataWithIDMixin.js";
 class Place {
+  static getEntTypeTitle() {
+    return "Place";
+  }
   constructor(data) {
     this.id = data.id;
     this.name = data.name;

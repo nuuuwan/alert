@@ -46,6 +46,9 @@ export default function SatelliteImageView({ latLng, name }) {
           borderColor: "divider",
         }}
       />
+      <Typography variant="caption" color="text.secondary">
+        Source: European Space Agency (ESA) Sentinel-1
+      </Typography>
     </Box>
   );
 }

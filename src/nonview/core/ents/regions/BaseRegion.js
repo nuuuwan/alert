@@ -7,8 +7,4 @@ export default class BaseRegion {
   async getLatLngListList() {
     return [];
   }
-
-  static getRegionTypeTitle() {
-    throw new Error("Not implemented");
-  }
 }

@@ -1,7 +1,7 @@
 import { Polygon } from "react-leaflet";
 import { useState, useEffect } from "react";
 import CustomDrawer from "./CustomDrawer";
-import RegionDetails from "./RegionDetails";
+import EntDetails from "./EntDetails";
 
 export default function MapRegionView({ region, pathOptions }) {
   const [latLngListList, setLatLngListList] = useState([]);
@@ -46,7 +46,7 @@ export default function MapRegionView({ region, pathOptions }) {
         onClose={handleDrawerClose}
         selectedItem={region}
         renderContent={(region) => (
-          <RegionDetails region={region} fillColor={pathOptions.fillColor} />
+          <EntDetails ent={region} fillColor={pathOptions.fillColor} />
         )}
         getFileName={() => `${region?.id || "region"}.png`}
       />

@@ -4,12 +4,11 @@ import CustomAppBar from "./CustomAppBar";
 import CustomDrawer from "./CustomDrawer";
 import DetailsHeader from "./DetailsHeader";
 import DownloadableContent from "./DownloadableContent";
+import EntDetails from "./EntDetails";
 import LandslideWarningView from "./LandslideWarningView";
 import LocationDetails from "./LocationDetails";
 import MapPlaceView from "./MapPlaceView";
 import MapRegionView from "./MapRegionView";
-import PlaceDetails from "./PlaceDetails";
-import RegionDetails from "./RegionDetails";
 import WaterLevelChart from "./WaterLevelChart";
 
 export {
@@ -18,11 +17,10 @@ export {
   CustomDrawer,
   DetailsHeader,
   DownloadableContent,
+  EntDetails,
   LandslideWarningView,
   LocationDetails,
   MapPlaceView,
   MapRegionView,
-  PlaceDetails,
-  RegionDetails,
   WaterLevelChart,
 };

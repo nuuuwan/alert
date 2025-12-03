@@ -3,7 +3,7 @@ import { useState } from "react";
 import L from "leaflet";
 import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import CustomDrawer from "./CustomDrawer";
-import PlaceDetails from "./PlaceDetails";
+import EntDetails from "./EntDetails";
 import { LocationIcon } from "../atoms";
 import { COLORS } from "../_cons/StyleConstants";
 
@@ -42,7 +42,7 @@ export default function MapPlaceView({ place, getFileName }) {
         open={drawerOpen}
         onClose={handleDrawerClose}
         selectedItem={place}
-        renderContent={(place) => <PlaceDetails place={place} />}
+        renderContent={(place) => <EntDetails ent={place} />}
         getFileName={getFileName || defaultGetFileName}
       />
     </>

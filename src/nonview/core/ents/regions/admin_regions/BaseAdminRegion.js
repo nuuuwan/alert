@@ -6,7 +6,7 @@ class BaseAdminRegion extends BaseRegion {
     throw new Error("Not Implemented");
   }
 
-  static getRegionTypeTitle() {
+  static getEntTypeTitle() {
     return this.getAdminRegionType().toUpperCase();
   }
 
