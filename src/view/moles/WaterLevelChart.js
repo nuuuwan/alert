@@ -9,6 +9,8 @@ import {
   SHORT_DATE_TIME_FORMAT,
 } from "../_cons/FormatConstants";
 
+const CHART_WINDOW_DAYS = 7;
+
 export default function WaterLevelChart({ station }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -21,7 +23,14 @@ export default function WaterLevelChart({ station }) {
         const measurements = idx[station.name] || [];
 
         if (measurements.length > 0) {
-          const chartData = measurements.map((m) => ({
+          const cutoffDate = new Date();
+          cutoffDate.setDate(cutoffDate.getDate() - CHART_WINDOW_DAYS);
+
+          const recentMeasurements = measurements.filter(
+            (m) => m.date >= cutoffDate
+          );
+
+          const chartData = recentMeasurements.map((m) => ({
             date: m.date,
             waterLevel: m.waterLevelM,
           }));
@@ -109,7 +118,7 @@ export default function WaterLevelChart({ station }) {
   return (
     <Box sx={{ mt: 3, mb: 2 }}>
       <Typography variant="h6" gutterBottom>
-        Water Level History
+        Water Level History (Last {CHART_WINDOW_DAYS} Days)
       </Typography>
       <LineChart
         xAxis={[
