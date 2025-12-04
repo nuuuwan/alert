@@ -12,26 +12,38 @@ export default class DB {
     const places = await Place.listAll();
     const dsds = await DSD.listAll();
 
-    const weatherStationIdx = await WeatherStation.idx();
-    const gaugingStationIdx = await GaugingStation.idx();
-    const landslideAreaIdx = await LandslideArea.idx();
+    const roleClasses = [WeatherStation, GaugingStation, LandslideArea];
+    const roleIdxIdx = Object.fromEntries(
+      await Promise.all(
+        roleClasses.map(async function (RoleClass) {
+          const roles = await RoleClass.listAll();
+          return [RoleClass.getRoleTypeName(), roles];
+        })
+      )
+    );
 
-    const riverWaterLevelTdx = await RiverWaterLevelMeasurement.tdx();
-    const weatherReportTdx = await WeatherReport.tdx();
-    const landslideWarningTdx = await LandslideWarning.tdx();
+    const eventClasses = [
+      RiverWaterLevelMeasurement,
+      WeatherReport,
+      LandslideWarning,
+    ];
+    const eventTdxIdx = Object.fromEntries(
+      await Promise.all(
+        eventClasses.map(async function (EventClass) {
+          const events = await EventClass.listAll();
+          return [EventClass.getEventTypeName(), events];
+        })
+      )
+    );
 
     return {
       // Ents
       places,
       dsds,
       // Roles
-      weatherStationIdx,
-      gaugingStationIdx,
-      landslideAreaIdx,
+      roleIdxIdx,
       // Events
-      riverWaterLevelTdx,
-      weatherReportTdx,
-      landslideWarningTdx,
+      eventTdxIdx,
     };
   }
 }

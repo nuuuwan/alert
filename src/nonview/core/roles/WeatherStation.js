@@ -5,6 +5,10 @@ class WeatherStation extends Role {
   static getEntClass() {
     return Place;
   }
+
+  static getRoleTypeName() {
+    return "WeatherStation";
+  }
 }
 
 export default WeatherStation;

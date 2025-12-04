@@ -4,4 +4,8 @@ export default class LandslideArea extends Role {
   static getEntClass() {
     return DSD;
   }
+
+  static getRoleTypeName() {
+    return "LandslideArea";
+  }
 }

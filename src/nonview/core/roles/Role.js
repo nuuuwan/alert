@@ -4,12 +4,17 @@ class Role {
   static getEntClass() {
     throw new Error("Not implemented");
   }
-  constructor({ id }) {
-    this.id = id;
-  }
 
   static getUrl() {
     return this.getEntClass().getUrl();
+  }
+
+  static getRoleTypeName() {
+    throw new Error("Not implemented");
+  }
+
+  constructor({ id }) {
+    this.id = id;
   }
 }
 
