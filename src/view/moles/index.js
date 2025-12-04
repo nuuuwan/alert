@@ -5,6 +5,7 @@ import CustomDrawer from "./CustomDrawer";
 import DetailsHeader from "./DetailsHeader";
 import DownloadableContent from "./DownloadableContent";
 import EntDetails from "./EntDetails";
+import MapEntView from "./MapEntView";
 import MapPlaceView from "./MapPlaceView";
 import MapRegionView from "./MapRegionView";
 
@@ -15,6 +16,7 @@ export {
   DetailsHeader,
   DownloadableContent,
   EntDetails,
+  MapEntView,
   MapPlaceView,
   MapRegionView,
 };
