@@ -22,26 +22,7 @@ export default function RoleDetails({
   eventList,
   isStale,
 }) {
-  const [loading, setLoading] = useState(true);
-  const [latestEvent, setLatestEvent] = useState(null);
-
-  useEffect(() => {
-    setLatestEvent(eventList[eventList.length - 1]);
-    setLoading(false);
-  }, [eventList]);
-
-  if (loading) {
-    return (
-      <Box sx={{ display: "flex", justifyContent: "center", py: 4 }}>
-        <CircularProgress />
-      </Box>
-    );
-  }
-
-  if (!latestEvent) {
-    return null;
-  }
-
+  const latestEvent = eventList[0];
   const RoleDetailsComponent = getRoleDetailsComponent(eventClassName);
 
   return (
