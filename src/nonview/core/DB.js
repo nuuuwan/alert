@@ -37,6 +37,19 @@ export default class DB {
         })
       )
     );
+    const roleIdxNdx = Object.entries(roleNdxIdx).reduce(function (
+      roleIdxNdx,
+      [name, roleIdx]
+    ) {
+      return Object.entries(roleIdx).reduce(function (roleIdxNdx, [id, role]) {
+        if (!roleIdxNdx[id]) {
+          roleIdxNdx[id] = {};
+        }
+        roleIdxNdx[id][name] = role;
+        return roleIdxNdx;
+      }, roleIdxNdx);
+    },
+    {});
 
     // Events
     const eventClasses = [
@@ -52,6 +65,28 @@ export default class DB {
         })
       )
     );
+
+    const eventIdxNdxTdx = Object.entries(eventNdxIdxTdx).reduce(function (
+      eventIdxNdxTdx,
+      [name, eventNdxIdxTdx]
+    ) {
+      const eventIdxNdx = Object.entries(eventNdxIdxTdx).reduce(function (
+        eventIdxNdx,
+        [ndx, eventIdxTdx]
+      ) {
+        if (!eventIdxNdx[ndx]) {
+          eventIdxNdx[ndx] = {};
+        }
+        Object.entries(eventIdxTdx).forEach(function ([tdx, event]) {
+          eventIdxNdx[ndx][tdx] = event;
+        });
+        return eventIdxNdx;
+      },
+      {});
+      eventIdxNdxTdx[name] = eventIdxNdx;
+      return eventIdxNdxTdx;
+    },
+    {});
 
     // Alerts
     const alertClasses = [
@@ -108,16 +143,38 @@ export default class DB {
       )
     );
 
+    const alertIdxNdxTdx = Object.entries(alertNdxIdxTdx).reduce(function (
+      alertIdxNdxTdx,
+      [name, alertNdxIdxTdx]
+    ) {
+      const alertIdxNdx = Object.entries(alertNdxIdxTdx).reduce(function (
+        alertIdxNdx,
+        [ndx, alertIdxTdx]
+      ) {
+        if (!alertIdxNdx[ndx]) {
+          alertIdxNdx[ndx] = {};
+        }
+        Object.entries(alertIdxTdx).forEach(function ([tdx, alert]) {
+          alertIdxNdx[ndx][tdx] = alert;
+        });
+        return alertIdxNdx;
+      },
+      {});
+      alertIdxNdxTdx[name] = alertIdxNdx;
+      return alertIdxNdxTdx;
+    },
+    {});
+
     return {
       // Ents
       places,
       dsds,
       // Roles
-      roleNdxIdx,
+      roleIdxNdx,
       // Events
-      eventNdxIdxTdx,
+      eventIdxNdxTdx,
       // Alerts
-      alertNdxIdxTdx,
+      alertIdxNdxTdx,
     };
   }
 }
