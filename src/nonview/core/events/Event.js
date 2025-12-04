@@ -18,9 +18,6 @@ class Event {
     this.timeUt = parseInt(timeUt);
   }
 
-  async getColor() {
-    return "cyan";
-  }
   isStale() {
     const currentTimeUt = Math.floor(Date.now() / 1000);
     const validityWindowSeconds =
