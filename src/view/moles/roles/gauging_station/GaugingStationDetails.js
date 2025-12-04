@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import Divider from "@mui/material/Divider";
-import { WaterLevelView, RateOfRiseView, TimeAgoView } from "../atoms";
+import { WaterLevelView, RateOfRiseView, TimeAgoView } from "../../../atoms";
 import WaterLevelChart from "./WaterLevelChart";
-import GaugingStation from "../../nonview/core/roles/GaugingStation";
-import RiverWaterLevelMeasurement from "../../nonview/core/events/RiverWaterLevelMeasurement";
+import GaugingStation from "../../../../nonview/core/roles/GaugingStation";
+import RiverWaterLevelMeasurement from "../../../../nonview/core/events/RiverWaterLevelMeasurement";
 
 export default function GaugingStationDetails({ place }) {
   const [loading, setLoading] = useState(true);

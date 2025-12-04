@@ -3,9 +3,9 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
 import Divider from "@mui/material/Divider";
-import { TimeAgoView } from "../atoms";
-import LandslideWarning from "../../nonview/core/events/LandslideWarning";
-import LandslideThreatLevel from "../../nonview/core/events/LandslideThreatLevel";
+import { TimeAgoView } from "../../../atoms";
+import LandslideWarning from "../../../../nonview/core/events/LandslideWarning";
+import LandslideThreatLevel from "../../../../nonview/core/events/LandslideThreatLevel";
 
 export default function LandslideRegionDetails({ region }) {
   const [loading, setLoading] = useState(true);

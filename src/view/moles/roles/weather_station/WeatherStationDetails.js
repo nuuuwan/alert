@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import Divider from "@mui/material/Divider";
-import { RainfallView, TemperatureView, TimeAgoView } from "../atoms";
-import WeatherReport from "../../nonview/core/events/WeatherReport";
+import { RainfallView, TemperatureView, TimeAgoView } from "../../../atoms";
+import WeatherReport from "../../../../nonview/core/events/WeatherReport";
 
 export default function WeatherStationDetails({ place }) {
   const [loading, setLoading] = useState(true);

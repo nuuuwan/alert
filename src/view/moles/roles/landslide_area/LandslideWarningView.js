@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
-import { LandslideWarning, LandslideThreatLevel } from "../../nonview/core";
-import MapRegionView from "./MapRegionView";
-import { OPACITY } from "../_cons/StyleConstants";
+import {
+  LandslideWarning,
+  LandslideThreatLevel,
+} from "../../../../nonview/core";
+import MapRegionView from "../../MapRegionView";
+import { OPACITY } from "../../../_cons/StyleConstants";
 
 export default function LandslideWarningView() {
   const [dsds, setDSDs] = useState([]);
