@@ -5,6 +5,9 @@ export default class LandslideWarning extends BaseEvent {
   static getRoleClass() {
     return LandslideRegionRole;
   }
+  static getEventTypeName() {
+    return "LandslideWarning";
+  }
   constructor(data) {
     super({
       id: data.id,

@@ -6,6 +6,10 @@ class BaseEvent {
     throw new Error("Not implemented");
   }
 
+  static getEventTypeName() {
+    throw new Error("Not implemented");
+  }
+
   constructor({ id, timeUt }) {
     this.id = id; // id of the Ent
     this.timeUt = parseInt(timeUt);

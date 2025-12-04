@@ -10,6 +10,10 @@ class RiverWaterLevelMeasurement extends BaseEvent {
     this.waterLevelM = data.waterLevelM || data.water_level_m;
   }
 
+  static getEventTypeName() {
+    return "RiverWaterLevelMeasurement";
+  }
+
   static getUrl() {
     // {
     //   "station_name": "Thanthirimale",

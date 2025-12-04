@@ -8,6 +8,10 @@ class WeatherReport extends BaseEvent {
     return WeatherStationPlaceRole;
   }
 
+  static getEventTypeName() {
+    return "WeatherReport";
+  }
+
   constructor(data) {
     super({ id: data.id, timeUt: data.timeUt || data.time_ut });
     this.rainMM = data.rainMM || data.rain_mm;
