@@ -4,7 +4,7 @@ import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import RoleIcon from "../atoms/icons/RoleIcon";
 
 export default function MapPlaceView({
-  place,
+  ent,
   eventClassNameToEventList,
   onClick,
   entColor,
@@ -16,7 +16,7 @@ export default function MapPlaceView({
   return (
     <>
       <Marker
-        position={place.latLng}
+        position={ent.latLng}
         icon={L.divIcon({
           className: "place-icon",
           html: Icon({

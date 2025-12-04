@@ -33,7 +33,7 @@ export default function MapEntView({ ent, eventClassNameToEventList }) {
   return (
     <>
       <MapEntViewInner
-        place={ent}
+        ent={ent}
         eventClassNameToEventList={eventClassNameToEventList}
         onClick={handleClick}
         entColor={entColor}
