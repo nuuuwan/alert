@@ -12,8 +12,10 @@ function getRoleDetailsComponent(eventClassName) {
 
 export default function RoleDetails({ eventClassName, ent, eventList }) {
   const RoleDetailsComponent = getRoleDetailsComponent(eventClassName);
-  if (RoleDetailsComponent) {
-    return <RoleDetailsComponent ent={ent} eventList={eventList} />;
-  }
-  throw new Error(`Unknown role details for event class: ${eventClassName}`);
+  const mostRecentEvent = eventList[eventList.length - 1];
+  const isStale = !mostRecentEvent.isWithinValidityWindow();
+
+  return (
+    <RoleDetailsComponent ent={ent} eventList={eventList} isStale={isStale} />
+  );
 }
