@@ -19,6 +19,10 @@ class RiverWaterLevelMeasurement extends Event {
     return "https://raw.githubusercontent.com/nuuuwan/lk_irrigation/refs/heads/main/data/alert_data.json";
   }
 
+  static getValidityWindowHours() {
+    return 1;
+  }
+
   static rawDataToRawDataList(rawData) {
     const minTimeUt = Math.floor(Date.now() / 1000) - 7 * 24 * 3600;
     return Object.entries(rawData["event_data"]).reduce(function (

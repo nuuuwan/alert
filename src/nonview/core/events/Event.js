@@ -9,6 +9,10 @@ class Event {
     throw new Error("Not implemented");
   }
 
+  static getValidityWindowHours() {
+    return 24;
+  }
+
   constructor({ id, timeUt }) {
     this.id = id; // id of the Ent
     this.timeUt = parseInt(timeUt);
