@@ -22,7 +22,7 @@ export default function GaugingStationDetails({
         const gaugingStation = await GaugingStation.fromID(place.id);
         setStation(gaugingStation);
         const measurements = await RiverWaterLevelMeasurement.listForId(
-          place.id,
+          place.id
         );
         setMeasurements(measurements);
       } catch (error) {
@@ -47,8 +47,6 @@ export default function GaugingStationDetails({
   if (!station || !latestMeasurement || !previousMeasurement) {
     return null;
   }
-
-  const alert = station.getAlert(latestMeasurement.waterLevelM);
 
   const waterLevelDiff =
     latestMeasurement.waterLevelM - previousMeasurement.waterLevelM;
