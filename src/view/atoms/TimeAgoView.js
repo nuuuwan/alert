@@ -2,6 +2,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { DATE_TIME_FORMAT } from "../_cons/FormatConstants";
 import { STALE_DATA_BADGE } from "../_cons/StyleConstants";
+import TimeUtils from "../../nonview/core/TimeUtils";
 
 export default function TimeAgoView({
   date,
@@ -11,25 +12,8 @@ export default function TimeAgoView({
 }) {
   const formattedDate = date.toLocaleString("en-US", DATE_TIME_FORMAT);
 
-  // Calculate time difference
-  const now = new Date();
-  const diffMs = now - date;
-  const diffSeconds = Math.floor(diffMs / 1000);
-  const diffMinutes = Math.floor(diffSeconds / 60);
-  const diffHours = Math.floor(diffMinutes / 60);
-  const diffDays = Math.floor(diffHours / 24);
-
-  // Humanize the time difference
-  let timeAgo;
-  if (diffDays > 0) {
-    timeAgo = `${diffDays} day${diffDays === 1 ? "" : "s"} ago`;
-  } else if (diffHours > 0) {
-    timeAgo = `${diffHours} hour${diffHours === 1 ? "" : "s"} ago`;
-  } else if (diffMinutes > 0) {
-    timeAgo = `${diffMinutes} minute${diffMinutes === 1 ? "" : "s"} ago`;
-  } else {
-    timeAgo = `${diffSeconds} second${diffSeconds === 1 ? "" : "s"} ago`;
-  }
+  // Get humanized time difference
+  const timeAgo = TimeUtils.getTimeAgoString(date);
 
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
