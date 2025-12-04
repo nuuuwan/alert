@@ -1,15 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CustomDrawer from "./CustomDrawer";
 import EntDetails from "./EntDetails";
 import MapPlaceView from "./MapPlaceView";
 import MapRegionView from "./MapRegionView";
 import Place from "../../nonview/core/ents/Place";
+import RiverWaterLevelMeasurement from "../../nonview/core/events/RiverWaterLevelMeasurement";
+import LandslideWarning from "../../nonview/core/events/LandslideWarning";
+import WeatherReport from "../../nonview/core/events/WeatherReport";
 
-export default function MapEntView({ ent, eventClassNameToEventList }) {
+export default function MapEntView({ ent }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [eventClassNameToEventList, setEventClassNameToEventList] = useState(
+    {},
+  );
+  const [loaded, setLoaded] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      const eventClasses = [
+        RiverWaterLevelMeasurement,
+        LandslideWarning,
+        WeatherReport,
+      ];
+
+      const eventClassNameToEventList2 = Object.fromEntries(
+        await Promise.all(
+          eventClasses.map(async (EventClass) => {
+            const eventList = await EventClass.listForId(ent.id);
+            return [EventClass.getEventTypeName(), eventList];
+          }),
+        ),
+      );
+      setEventClassNameToEventList(eventClassNameToEventList2);
+      setLoaded(true);
+    }
+
+    fetchData();
+  }, [ent.id]);
+
+  if (!loaded) {
+    return null;
+  }
+
   const entColor = "black";
-  const firstEvent = Object.values(eventClassNameToEventList)[0][0];
-  const isStale = firstEvent.isStale();
 
   const handleClick = () => {
     setDrawerOpen(true);
@@ -22,6 +55,8 @@ export default function MapEntView({ ent, eventClassNameToEventList }) {
   const getFileName = () => `${ent.id}.png`;
 
   const MapEntViewInner = ent instanceof Place ? MapPlaceView : MapRegionView;
+
+  const isStale = false;
 
   return (
     <>

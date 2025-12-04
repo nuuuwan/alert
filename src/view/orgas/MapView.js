@@ -2,28 +2,31 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import "./MapView.css";
-import { DB } from "../../nonview/core";
 import MapEntView from "../moles/MapEntView";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 import CircularProgress from "@mui/material/CircularProgress";
+import Place from "../../nonview/core/ents/Place";
+import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 
 export default function MapView() {
-  const [dbResults, setDBResults] = useState(null);
+  const [places, setPlaces] = useState([]);
+  const [dsds, setDSDs] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const dbResults = async () => {
-      const results = await DB.load();
-      setDBResults(results);
-    };
-    dbResults();
+    async function fetchData() {
+      const places = (await Place.listAll()).slice(0, 10);
+      const dsds = (await DSD.listAll()).slice(0, 10);
+      setPlaces(places);
+      setDSDs(dsds);
+      setLoaded(true);
+    }
+    fetchData();
   }, []);
 
-  if (!dbResults) {
+  if (!loaded) {
     return <CircularProgress />;
   }
-
-  const { activePlaces, activeRegions, idToEventNameToEventListMap } =
-    dbResults;
 
   return (
     <MapContainer
@@ -36,28 +39,12 @@ export default function MapView() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {activePlaces.map(function (place) {
-        const eventClassNameToEventList = idToEventNameToEventListMap[place.id];
-
-        return (
-          <MapEntView
-            key={place.id}
-            ent={place}
-            eventClassNameToEventList={eventClassNameToEventList}
-          />
-        );
+      {places.map(function (place) {
+        return <MapEntView key={place.id} ent={place} />;
       })}
 
-      {activeRegions.map(function (region) {
-        const eventClassNameToEventList =
-          idToEventNameToEventListMap[region.id];
-        return (
-          <MapEntView
-            key={region.id}
-            ent={region}
-            eventClassNameToEventList={eventClassNameToEventList}
-          />
-        );
+      {dsds.map(function (region) {
+        return <MapEntView key={region.id} ent={region} />;
       })}
     </MapContainer>
   );
