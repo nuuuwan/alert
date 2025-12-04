@@ -13,13 +13,15 @@ const DataWithIDMixin = {
           : this.rawDataToRawDataList(rawData);
 
         return rawDataList;
-      },
+      }
     );
     return this.listFromRawDataList(rawDataList);
   },
 
   listFromRawDataList(rawDataList) {
-    return rawDataList.map((rawData) => new this(rawData));
+    const oList = rawDataList.map((rawData) => new this(rawData));
+    const sortedOList = oList.sort((a, b) => b.timeUt - a.timeUt);
+    return sortedOList;
   },
 
   async idx() {
