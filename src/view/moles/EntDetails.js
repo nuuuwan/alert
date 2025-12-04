@@ -3,11 +3,10 @@ import DetailsHeader from "./DetailsHeader";
 import RoleDetails from "./roles/RoleDetails";
 import { SatelliteImageView } from "../atoms";
 import RoleIcon from "../atoms/icons/RoleIcon";
-import { COLORS } from "../_cons/StyleConstants";
 
 export default function EntDetails({
   ent,
-  fillColor,
+  entColor,
   eventClassNameToEventList,
 }) {
   if (!ent) {
@@ -20,7 +19,6 @@ export default function EntDetails({
   const eventClassName = eventClassNames[0];
 
   const Icon = RoleIcon.get(eventClassName);
-  const iconColor = fillColor || COLORS.gray;
 
   const overlineText = ent.id !== ent.name ? ent.id : undefined;
   const subtitle = ent.constructor.getEntTypeTitle() || "Entity";
@@ -30,10 +28,10 @@ export default function EntDetails({
       <DetailsHeader
         overlineText={overlineText}
         title={ent.name}
-        titleColor={fillColor}
+        titleColor={entColor}
         subtitle={subtitle}
         Icon={Icon}
-        iconColor={iconColor}
+        iconColor={entColor}
       />
 
       {Object.entries(eventClassNameToEventList).map(function ([
