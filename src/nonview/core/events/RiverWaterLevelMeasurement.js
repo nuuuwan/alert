@@ -38,7 +38,10 @@ class RiverWaterLevelMeasurement extends BaseEvent {
   }
 
   async gaugingStation() {
-    const place = await Place.fromID(this.entId);
+    const place = await Place.fromID(this.id);
+    if (!place) {
+      throw new Error(`No Place found for id: ${this.id}`);
+    }
     const gaugingStation = await GaugingStation.fromID(place.id);
     return gaugingStation;
   }
