@@ -26,13 +26,27 @@ export default function MapEntView({ ent, dbResultsForEnt }) {
     return null;
   }
 
-  const alerts = Object.values(alertNdxTdx).reduce(function (alerts, alertTdx) {
-    return alerts.concat(Object.values(alertTdx));
-  }, []);
+  const sortedEvents = Object.values(eventNdxTdx)
+    .reduce(function (events, eventTdx) {
+      return events.concat(Object.values(eventTdx));
+    }, [])
+    .sort((a, b) => b.timeUt - a.timeUt);
 
-  const sortedAlerts = alerts.sort((a, b) => b.timeUt - a.timeUt);
-  const alert = alerts.length > 0 ? sortedAlerts[0] : null;
-  const entColor = alert ? alert.constructor.getColor() : "gray";
+  const lastEvent = sortedEvents[0];
+
+  let entColor = "grey";
+  if (!lastEvent.isStale()) {
+    const alerts = Object.values(alertNdxTdx).reduce(function (
+      alerts,
+      alertTdx
+    ) {
+      return alerts.concat(Object.values(alertTdx));
+    },
+    []);
+    const lastAlerts = alerts.filter((alert) => alert.event === lastEvent);
+    const lastAlert = lastAlerts.length > 0 ? lastAlerts[0] : null;
+    entColor = lastAlert ? lastAlert.constructor.getColor() : "gray";
+  }
 
   const handleClick = () => {
     setDrawerOpen(true);
@@ -46,7 +60,7 @@ export default function MapEntView({ ent, dbResultsForEnt }) {
 
   const MapEntViewInner = ent instanceof Place ? MapPlaceView : MapRegionView;
 
-  const isStale = false;
+  const isStale = lastEvent.isStale();
 
   return (
     <>

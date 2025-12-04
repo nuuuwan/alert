@@ -24,6 +24,7 @@ export default function RoleDetails({
     throw new Error("eventList cannot be empty");
   }
   const RoleDetailsComponent = getRoleDetailsComponent(eventClassName);
+  eventList = eventList.sort((a, b) => b.timeUt - a.timeUt);
   const latestEvent = eventList[0];
 
   return (
