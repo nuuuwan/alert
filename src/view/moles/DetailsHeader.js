@@ -55,7 +55,7 @@ export default function DetailsHeader({
           {subtitle}
         </Typography>
       )}
-      {date && <TimeAgoView date={date} />}
+      <TimeAgoView date={date} />
     </Box>
   );
 }
