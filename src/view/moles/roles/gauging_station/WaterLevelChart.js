@@ -103,7 +103,6 @@ export default function WaterLevelChart({ station, measurements }) {
           ".MuiLineElement-series-alert": {
             strokeDasharray: "3 3",
           },
-          "& .MuiChartsAxis-tickLabel": { fill: "currentColor" },
         }}
       />
     </Box>
