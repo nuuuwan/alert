@@ -15,7 +15,7 @@ export default class LandslideWarning extends BaseEvent {
   }
 
   static rawDataToRawDataList(rawData) {
-    const minTimeUt = Math.floor(Date.now() / 1000) - 2 * 24 * 3600;
+    const minTimeUt = Math.floor(Date.now() / 1000) - 7 * 24 * 3600;
     return Object.entries(rawData["event_data"]).reduce(function (
       rawDataList,
       [id, datePartToLevel]
