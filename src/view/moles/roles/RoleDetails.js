@@ -20,7 +20,7 @@ export default function RoleDetails({
   eventClassName,
   ent,
   eventList,
-  isWithinValidityWindow,
+  isStale,
 }) {
   const [loading, setLoading] = useState(true);
   const [latestEvent, setLatestEvent] = useState(null);
@@ -53,7 +53,7 @@ export default function RoleDetails({
         <TimeAgoView
           date={latestEvent.getDate()}
           variant="body2"
-          isWithinValidityWindow={isWithinValidityWindow}
+          isStale={isStale}
         />
       </Box>
       <RoleDetailsComponent

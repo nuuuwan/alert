@@ -11,17 +11,17 @@ export default function MapEntView({ ent, eventClassNameToEventList }) {
   const [entColor, setEntColor] = useState(null);
 
   const firstEvent = Object.values(eventClassNameToEventList)[0][0];
-  const isWithinValidityWindow = firstEvent.isWithinValidityWindow();
+  const isStale = firstEvent.isStale();
 
   useEffect(() => {
     async function fetchColor() {
-      const color = isWithinValidityWindow
-        ? await firstEvent.getColor(firstEvent)
-        : COLORS.gray;
+      const color = isStale
+        ? COLORS.gray
+        : await firstEvent.getColor(firstEvent);
       setEntColor(color);
     }
     fetchColor();
-  }, [firstEvent, isWithinValidityWindow]);
+  }, [firstEvent, isStale]);
 
   const handleClick = () => {
     setDrawerOpen(true);
@@ -52,7 +52,7 @@ export default function MapEntView({ ent, eventClassNameToEventList }) {
             ent={ent}
             entColor={entColor}
             eventClassNameToEventList={eventClassNameToEventList}
-            isWithinValidityWindow={isWithinValidityWindow}
+            isStale={isStale}
           />
         )}
         getFileName={getFileName}

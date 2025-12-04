@@ -12,7 +12,7 @@ export default function DetailsHeader({
   iconSize = 48,
   iconColor,
   iconStrokeColor = COLORS.white,
-  isWithinValidityWindow,
+  isStale,
 }) {
   return (
     <Box sx={{ mb: 2 }}>

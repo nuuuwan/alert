@@ -8,7 +8,7 @@ export default function EntDetails({
   ent,
   entColor,
   eventClassNameToEventList,
-  isWithinValidityWindow,
+  isStale,
 }) {
   if (!ent) {
     return null;
@@ -33,7 +33,7 @@ export default function EntDetails({
         subtitle={subtitle}
         Icon={Icon}
         iconColor={entColor}
-        isWithinValidityWindow={isWithinValidityWindow}
+        isStale={isStale}
       />
 
       {Object.entries(eventClassNameToEventList).map(function ([
@@ -46,7 +46,7 @@ export default function EntDetails({
             eventClassName={eventClassName}
             ent={ent}
             eventList={eventList}
-            isWithinValidityWindow={isWithinValidityWindow}
+            isStale={isStale}
           />
         );
       })}

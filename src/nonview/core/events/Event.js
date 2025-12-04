@@ -24,11 +24,11 @@ class Event {
   async getColor() {
     return "cyan";
   }
-  isWithinValidityWindow() {
+  isStale() {
     const currentTimeUt = Math.floor(Date.now() / 1000);
     const validityWindowSeconds =
       this.constructor.getValidityWindowHours() * 3600;
-    return currentTimeUt - this.timeUt <= validityWindowSeconds;
+    return currentTimeUt - this.timeUt > validityWindowSeconds;
   }
 }
 

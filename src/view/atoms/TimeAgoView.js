@@ -8,7 +8,7 @@ export default function TimeAgoView({
   date,
   variant = "body1",
   color,
-  isWithinValidityWindow = true,
+  isStale = false,
 }) {
   const formattedDate = date.toLocaleString("en-US", DATE_TIME_FORMAT);
   const timeAgo = TimeUtils.getTimeAgoString(date);
@@ -18,7 +18,7 @@ export default function TimeAgoView({
       <Typography variant={variant} color={color}>
         {formattedDate} ({timeAgo})
       </Typography>
-      <Stale isStale={!isWithinValidityWindow} />
+      <Stale isStale={isStale} />
     </Box>
   );
 }
