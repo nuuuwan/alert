@@ -10,7 +10,7 @@ class Event {
   }
 
   static getValidityWindowHours() {
-    return 24;
+    return 48;
   }
 
   constructor({ id, timeUt }) {
