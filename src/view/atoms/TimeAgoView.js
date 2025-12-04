@@ -1,7 +1,6 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { DATE_TIME_FORMAT } from "../_cons/FormatConstants";
-import { STALE_DATA_BADGE } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/core/TimeUtils";
 
 export default function TimeAgoView({ date, variant = "body1", color }) {

@@ -13,7 +13,5 @@ function getRoleDetailsComponent(eventClassName) {
 export default function RoleDetails({ eventClassName, ent, eventList }) {
   const RoleDetailsComponent = getRoleDetailsComponent(eventClassName);
 
-  return (
-    <RoleDetailsComponent ent={ent} eventList={eventList} isStale={isStale} />
-  );
+  return <RoleDetailsComponent ent={ent} eventList={eventList} />;
 }

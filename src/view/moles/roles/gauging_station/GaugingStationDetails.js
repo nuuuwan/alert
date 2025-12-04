@@ -63,8 +63,6 @@ export default function GaugingStationDetails({ ent: place }) {
       (latestMeasurement.timeUt - previousMeasurement.timeUt) / 3_600;
   }
 
-  const isStale = !latestMeasurement.isWithinValidityWindow();
-
   return (
     <Box>
       <Box
