@@ -20,22 +20,22 @@ class RiverWaterLevelMeasurement extends Event {
   }
 
   static getValidityWindowHours() {
-    return 1;
+    return 3;
   }
 
   static rawDataToRawDataList(rawData) {
     const minTimeUt = Math.floor(Date.now() / 1000) - 7 * 24 * 3600;
     return Object.entries(rawData["event_data"]).reduce(function (
       rawDataList,
-      [id, datePartToTimePartToWaterLevel],
+      [id, datePartToTimePartToWaterLevel]
     ) {
       return Object.entries(datePartToTimePartToWaterLevel).reduce(function (
         rawDataList,
-        [datePart, timePartToWaterLevel],
+        [datePart, timePartToWaterLevel]
       ) {
         return Object.entries(timePartToWaterLevel).reduce(function (
           rawDataList,
-          [timePart, waterLevel],
+          [timePart, waterLevel]
         ) {
           const timeUt = TimeUtils.parseYYYYMMDDHHHMMSS(datePart + timePart);
 
@@ -47,9 +47,12 @@ class RiverWaterLevelMeasurement extends Event {
             });
           }
           return rawDataList;
-        }, rawDataList);
-      }, rawDataList);
-    }, []);
+        },
+        rawDataList);
+      },
+      rawDataList);
+    },
+    []);
   }
 
   static async placeToLatestMeasurement() {
