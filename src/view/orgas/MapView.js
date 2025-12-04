@@ -56,7 +56,6 @@ export default function MapView() {
             key={region.id}
             ent={region}
             eventClassNameToEventList={eventClassNameToEventList}
-            pathOptions={{ fill: "red" }}
           />
         );
       })}

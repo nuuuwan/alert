@@ -5,11 +5,7 @@ import MapPlaceView from "./MapPlaceView";
 import MapRegionView from "./MapRegionView";
 import Place from "../../nonview/core/ents/Place";
 
-export default function MapEntView({
-  ent,
-  eventClassNameToEventList,
-  pathOptions,
-}) {
+export default function MapEntView({ ent, eventClassNameToEventList }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [entColor, setEntColor] = useState(null);
 
@@ -22,8 +18,6 @@ export default function MapEntView({
     fetchColor();
   }, [eventClassNameToEventList]);
 
-  console.debug("entColor", entColor);
-
   const handleClick = () => {
     setDrawerOpen(true);
   };
@@ -34,22 +28,16 @@ export default function MapEntView({
 
   const getFileName = () => `${ent.id}.png`;
 
+  const MapEntViewInner = ent instanceof Place ? MapPlaceView : MapRegionView;
+
   return (
     <>
-      {ent instanceof Place ? (
-        <MapPlaceView
-          place={ent}
-          eventClassNameToEventList={eventClassNameToEventList}
-          onClick={handleClick}
-        />
-      ) : (
-        <MapRegionView
-          region={ent}
-          pathOptions={pathOptions}
-          eventClassNameToEventList={eventClassNameToEventList}
-          onClick={handleClick}
-        />
-      )}
+      <MapEntViewInner
+        place={ent}
+        eventClassNameToEventList={eventClassNameToEventList}
+        onClick={handleClick}
+        entColor={entColor}
+      />
       <CustomDrawer
         open={drawerOpen}
         onClose={handleDrawerClose}
