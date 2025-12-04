@@ -1,25 +1,14 @@
 import { Marker } from "react-leaflet";
-import { useState } from "react";
 import L from "leaflet";
 import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
-import CustomDrawer from "./CustomDrawer";
-import EntDetails from "./EntDetails";
 import RoleIcon from "../atoms/icons/RoleIcon";
 
-export default function MapPlaceView({ place, eventClassNameToEventList }) {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-
+export default function MapPlaceView({
+  place,
+  eventClassNameToEventList,
+  onClick,
+}) {
   const eventClassNames = Object.keys(eventClassNameToEventList);
-
-  const handleMarkerClick = () => {
-    setDrawerOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setDrawerOpen(false);
-  };
-
-  const defaultGetFileName = () => `${place.id}.png`;
 
   const firstClassName = eventClassNames[0];
   const Icon = RoleIcon.get(firstClassName);
@@ -38,20 +27,8 @@ export default function MapPlaceView({ place, eventClassNameToEventList }) {
           iconAnchor: [LOCATION_MARKER_RADIUS * 4, LOCATION_MARKER_RADIUS * 8],
         })}
         eventHandlers={{
-          click: handleMarkerClick,
+          click: onClick,
         }}
-      />
-      <CustomDrawer
-        open={drawerOpen}
-        onClose={handleDrawerClose}
-        selectedItem={place}
-        renderContent={(place) => (
-          <EntDetails
-            ent={place}
-            eventClassNameToEventList={eventClassNameToEventList}
-          />
-        )}
-        getFileName={defaultGetFileName}
       />
     </>
   );

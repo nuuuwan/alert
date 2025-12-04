@@ -3,10 +3,9 @@ import { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import "./MapView.css";
 import { DB } from "../../nonview/core";
-import MapPlaceView from "../moles/MapPlaceView";
+import MapEntView from "../moles/MapEntView";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 import CircularProgress from "@mui/material/CircularProgress";
-import MapRegionView from "../moles/MapRegionView";
 
 export default function MapView() {
   const [dbResults, setDBResults] = useState(null);
@@ -41,9 +40,9 @@ export default function MapView() {
         const eventClassNameToEventList = idToEventNameToEventListMap[place.id];
 
         return (
-          <MapPlaceView
+          <MapEntView
             key={place.id}
-            place={place}
+            ent={place}
             eventClassNameToEventList={eventClassNameToEventList}
           />
         );
@@ -53,9 +52,9 @@ export default function MapView() {
         const eventClassNameToEventList =
           idToEventNameToEventListMap[region.id];
         return (
-          <MapRegionView
+          <MapEntView
             key={region.id}
-            region={region}
+            ent={region}
             eventClassNameToEventList={eventClassNameToEventList}
             pathOptions={{ fill: "red" }}
           />

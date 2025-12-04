@@ -1,15 +1,8 @@
 import { Polygon } from "react-leaflet";
 import { useState, useEffect } from "react";
-import CustomDrawer from "./CustomDrawer";
-import EntDetails from "./EntDetails";
 
-export default function MapRegionView({
-  region,
-  pathOptions,
-  eventClassNameToEventList,
-}) {
+export default function MapRegionView({ region, pathOptions, onClick }) {
   const [latLngListList, setLatLngListList] = useState([]);
-  const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -20,14 +13,6 @@ export default function MapRegionView({
     }
     fetchData();
   }, [region]);
-
-  const handlePolygonClick = () => {
-    setDrawerOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setDrawerOpen(false);
-  };
 
   if (!latLngListList || latLngListList.length === 0) {
     return null;
@@ -41,23 +26,10 @@ export default function MapRegionView({
           positions={latLngList}
           pathOptions={pathOptions}
           eventHandlers={{
-            click: handlePolygonClick,
+            click: onClick,
           }}
         />
       ))}
-      <CustomDrawer
-        open={drawerOpen}
-        onClose={handleDrawerClose}
-        selectedItem={region}
-        renderContent={(region) => (
-          <EntDetails
-            ent={region}
-            fillColor={pathOptions.fillColor}
-            eventClassNameToEventList={eventClassNameToEventList}
-          />
-        )}
-        getFileName={() => `${region?.id || "region"}.png`}
-      />
     </>
   );
 }
