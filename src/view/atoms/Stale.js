@@ -10,12 +10,12 @@ export default function Stale({ isStale }) {
   return (
     <Box
       sx={{
-        display: "inline-block",
+        display: "inline-flex",
+        alignItems: "center",
         px: 1,
         py: 0.5,
         borderRadius: "12px",
         ...STALE_DATA_BADGE,
-        mt: 1,
       }}
     >
       <Typography variant="caption">Stale Data</Typography>

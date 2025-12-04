@@ -14,12 +14,10 @@ export default function TimeAgoView({
   const timeAgo = TimeUtils.getTimeAgoString(date);
 
   return (
-    <Box>
-      <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-        <Typography variant={variant} color={color}>
-          {formattedDate} ({timeAgo})
-        </Typography>
-      </Box>
+    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+      <Typography variant={variant} color={color}>
+        {formattedDate} ({timeAgo})
+      </Typography>
       <Stale isStale={!isWithinValidityWindow} />
     </Box>
   );
