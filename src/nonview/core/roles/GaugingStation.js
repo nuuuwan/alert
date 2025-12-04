@@ -1,4 +1,3 @@
-import Alert from "../Alert";
 import Role from "./Role";
 import Place from "../ents/Place";
 
@@ -17,22 +16,6 @@ class GaugingStation extends Role {
 
   static getUrl() {
     return process.env.PUBLIC_URL + `/data/static/gauging_stations.json`;
-  }
-
-  getAlert(waterLevelM) {
-    if (waterLevelM === null || waterLevelM === undefined) {
-      return Alert.NO_DATA;
-    }
-    if (waterLevelM >= this.majorFloodLevelM) {
-      return Alert.MAJOR;
-    }
-    if (waterLevelM >= this.minorFloodLevelM) {
-      return Alert.MINOR;
-    }
-    if (waterLevelM >= this.alertLevelM) {
-      return Alert.ALERT;
-    }
-    return Alert.NORMAL;
   }
 }
 
