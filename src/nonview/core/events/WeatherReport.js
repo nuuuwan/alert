@@ -12,7 +12,41 @@ class WeatherReport extends BaseEvent {
   }
 
   static getUrl() {
-    return "https://raw.githubusercontent.com/nuuuwan/weather_lk/refs/heads/data/latest_flat.json";
+    return "https://raw.githubusercontent.com/nuuuwan/weather_lk/refs/heads/data/alert_data.json";
+  }
+
+  static parseDatePart(datePart) {
+    const year = Number(datePart.slice(0, 4));
+    const month = Number(datePart.slice(4, 6)) - 1;
+    const day = Number(datePart.slice(6, 8));
+    return Date.UTC(year, month, day) / 1000;
+  }
+
+  static rawDataToRawDataList(rawData) {
+    const minTimeUt = Math.floor(Date.now() / 1000) - 2 * 24 * 3600;
+    return Object.entries(rawData["event_data"]).reduce(function (
+      rawDataList,
+      [id, datePartToMeasurementMap]
+    ) {
+      return Object.entries(datePartToMeasurementMap).reduce(function (
+        rawDataList,
+        [datePart, measurementMap]
+      ) {
+        const timeUt = WeatherReport.parseDatePart(datePart);
+        if (timeUt >= minTimeUt) {
+          rawDataList.push({
+            id: id,
+            time_ut: timeUt,
+            rain_mm: measurementMap["rain_mm"],
+            temp_min_c: measurementMap["temp_min_c"],
+            temp_max_c: measurementMap["temp_max_c"],
+          });
+        }
+        return rawDataList;
+      },
+      rawDataList);
+    },
+    []);
   }
 
   constructor(data) {
