@@ -74,7 +74,6 @@ export default function WaterLevelChart({ station, measurements }) {
       <LineChart
         xAxis={[
           {
-            label: "Time",
             data: dates,
             dataKey: "timeAxis",
             scaleType: "time",
