@@ -29,8 +29,10 @@ export default function MapEntView({ ent, dbResultsForEnt }) {
   const alerts = Object.values(alertNdxTdx).reduce(function (alerts, alertTdx) {
     return alerts.concat(Object.values(alertTdx));
   }, []);
-  const alert = alerts ? alerts[0] : null;
-  const entColor = alert ? alert.color : "gray";
+  const alert = alerts.length > 0 ? alerts[0] : null;
+  const entColor = alert ? alert.constructor.getColor() : "gray";
+
+  console.debug(alert, entColor);
 
   const handleClick = () => {
     setDrawerOpen(true);

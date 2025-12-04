@@ -10,7 +10,7 @@ export default class ExtremeHeat extends Alert {
     return "Extreme Heat";
   }
 
-  static color() {
+  static getColor() {
     return "red";
   }
 

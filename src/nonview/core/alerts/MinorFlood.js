@@ -10,7 +10,7 @@ export default class MinorFlood extends Alert {
     return "Minor Flood";
   }
 
-  static color() {
+  static getColor() {
     return "orange";
   }
 

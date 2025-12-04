@@ -7,7 +7,7 @@ export default class Alert {
     throw new Error("Not implemented");
   }
 
-  static color() {
+  static getColor() {
     throw new Error("Not implemented");
   }
 

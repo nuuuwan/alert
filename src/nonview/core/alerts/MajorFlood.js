@@ -10,7 +10,7 @@ export default class MajorFlood extends Alert {
     return "Major Flood";
   }
 
-  static color() {
+  static getColor() {
     return "red";
   }
 

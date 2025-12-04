@@ -10,7 +10,7 @@ export default class ExtremeRain extends Alert {
     return "Extreme Rain";
   }
 
-  static color() {
+  static getColor() {
     return "purple";
   }
 
