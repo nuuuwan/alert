@@ -2,6 +2,13 @@
 import AdminRegionIcon from "./AdminRegionIcon";
 import GaugeStationIcon from "./GaugeStationIcon";
 import LocationIcon from "./LocationIcon";
+import RoleIcon from "./RoleIcon";
 import WeatherStationIcon from "./WeatherStationIcon";
 
-export { AdminRegionIcon, GaugeStationIcon, LocationIcon, WeatherStationIcon };
+export {
+  AdminRegionIcon,
+  GaugeStationIcon,
+  LocationIcon,
+  RoleIcon,
+  WeatherStationIcon,
+};
