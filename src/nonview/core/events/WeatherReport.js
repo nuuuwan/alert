@@ -1,10 +1,10 @@
 import BaseEvent from "./BaseEvent";
-import WeatherStationPlaceRole from "../roles/WeatherStationPlaceRole";
+import WeatherStation from "../roles/WeatherStation";
 import DataWithTimeMixin from "../../base/mixins/DataWithTimeMixin";
 
 class WeatherReport extends BaseEvent {
   static getRoleClass() {
-    return WeatherStationPlaceRole;
+    return WeatherStation;
   }
 
   static getEventTypeName() {

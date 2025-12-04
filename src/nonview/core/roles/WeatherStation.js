@@ -1,10 +1,10 @@
 import BaseRole from "./BaseRole";
 import Place from "../ents/Place";
 
-class WeatherStationPlaceRole extends BaseRole {
+class WeatherStation extends BaseRole {
   static getEntClass() {
     return Place;
   }
 }
 
-export default WeatherStationPlaceRole;
+export default WeatherStation;

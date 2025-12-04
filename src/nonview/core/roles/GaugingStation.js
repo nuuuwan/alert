@@ -2,7 +2,7 @@ import Alert from "../Alert";
 import BaseRole from "./BaseRole";
 import Place from "../ents/Place";
 
-class GaugingStationPlaceRole extends BaseRole {
+class GaugingStation extends BaseRole {
   static getEntClass() {
     return Place;
   }
@@ -36,4 +36,4 @@ class GaugingStationPlaceRole extends BaseRole {
   }
 }
 
-export default GaugingStationPlaceRole;
+export default GaugingStation;

@@ -1,9 +1,9 @@
-import LandslideRegionRole from "../roles/LandslideRegionRole.js";
+import LandslideArea from "../roles/LandslideArea.js";
 import BaseEvent from "./BaseEvent.js";
 
 export default class LandslideWarning extends BaseEvent {
   static getRoleClass() {
-    return LandslideRegionRole;
+    return LandslideArea;
   }
   static getEventTypeName() {
     return "LandslideWarning";

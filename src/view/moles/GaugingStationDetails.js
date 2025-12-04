@@ -4,7 +4,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Divider from "@mui/material/Divider";
 import { WaterLevelView, RateOfRiseView, TimeAgoView } from "../atoms";
 import WaterLevelChart from "./WaterLevelChart";
-import GaugingStationPlaceRole from "../../nonview/core/roles/GaugingStationPlaceRole";
+import GaugingStation from "../../nonview/core/roles/GaugingStation";
 import RiverWaterLevelMeasurement from "../../nonview/core/events/RiverWaterLevelMeasurement";
 
 export default function GaugingStationDetails({ place }) {
@@ -17,7 +17,7 @@ export default function GaugingStationDetails({ place }) {
       setLoading(true);
       try {
         // Load the gauging station role
-        const gaugingStation = await GaugingStationPlaceRole.fromID(place.id);
+        const gaugingStation = await GaugingStation.fromID(place.id);
         setStation(gaugingStation);
 
         // Load measurements

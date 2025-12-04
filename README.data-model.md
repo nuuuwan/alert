@@ -5,7 +5,7 @@ ALERT is a map-centred platform for presenting Awareness, Logistics, Evacuation,
 The data model consists of three main layers:
 
 - **Entities (ents)**: Geographic entities like Places and Regions
-- **Roles**: Functional roles that entities can have (e.g., GaugingStationPlaceRole)
+- **Roles**: Functional roles that entities can have (e.g., GaugingStation)
 - **Events**: Time-based data associated with entities (e.g., RiverWaterLevelMeasurement)
 
 ## Entities
@@ -62,7 +62,7 @@ Abstract base class for all roles.
 - `id`: Unique identifier (references a Place or Region)
 - `static getEntClass`: The Ent which is allowed to play that role
 
-### GaugingStationPlaceRole
+### GaugingStation
 
 Role for river water level monitoring stations.
 
@@ -94,4 +94,3 @@ Water level measurements from gauging stations.
 ### LandslideWarning
 
 - `threatLevel`
-
