@@ -1,53 +1,14 @@
-import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import CircularProgress from "@mui/material/CircularProgress";
-import Divider from "@mui/material/Divider";
-import { TimeAgoView } from "../../../atoms";
-import LandslideWarning from "../../../../nonview/core/events/LandslideWarning";
 import LandslideThreatLevel from "../../../../nonview/core/events/LandslideThreatLevel";
 
-export default function LandslideRegionDetails({ ent: region }) {
-  const [loading, setLoading] = useState(true);
-  const [latestWarning, setLatestWarning] = useState(null);
-  const [threatLevel, setThreatLevel] = useState(null);
-
-  useEffect(() => {
-    async function loadData() {
-      setLoading(true);
-      try {
-        // Load landslide warnings
-        const warnings = (await LandslideWarning.listForId(region.id)).sort(
-          (a, b) => a.timeUt - b.timeUt,
-        );
-
-        if (warnings.length > 0) {
-          const latest = warnings[warnings.length - 1];
-          setLatestWarning(latest);
-
-          const level = LandslideThreatLevel.fromLevel(latest.threatLevel);
-          setThreatLevel(level);
-        }
-      } catch (error) {
-        console.error("Error loading landslide warning data:", error);
-      }
-      setLoading(false);
-    }
-
-    loadData();
-  }, [region.id]);
-
-  if (loading) {
-    return (
-      <Box sx={{ display: "flex", justifyContent: "center", py: 4 }}>
-        <CircularProgress />
-      </Box>
-    );
-  }
-
-  if (!latestWarning || !threatLevel) {
+export default function LandslideRegionDetails({ latestEvent }) {
+  if (!latestEvent) {
     return null;
   }
+
+  const latestWarning = latestEvent;
+  const threatLevel = LandslideThreatLevel.fromLevel(latestWarning.threatLevel);
 
   return (
     <Box>
@@ -72,12 +33,6 @@ export default function LandslideRegionDetails({ ent: region }) {
           </Box>
         </Box>
       </Box>
-
-      <Box sx={{ mt: 2, mb: 2 }}>
-        <TimeAgoView date={latestWarning.getDate()} variant="body2" />
-      </Box>
-
-      <Divider sx={{ my: 3 }} />
     </Box>
   );
 }

@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
-import Divider from "@mui/material/Divider";
-import { WaterLevelView, RateOfRiseView, TimeAgoView } from "../../../atoms";
+import { WaterLevelView, RateOfRiseView } from "../../../atoms";
 import WaterLevelChart from "./WaterLevelChart";
 import GaugingStation from "../../../../nonview/core/roles/GaugingStation";
 import RiverWaterLevelMeasurement from "../../../../nonview/core/events/RiverWaterLevelMeasurement";
 
-export default function GaugingStationDetails({ ent: place }) {
+export default function GaugingStationDetails({ ent: place, latestEvent }) {
   const [loading, setLoading] = useState(true);
   const [station, setStation] = useState(null);
   const [measurements, setMeasurements] = useState([]);
@@ -43,7 +42,8 @@ export default function GaugingStationDetails({ ent: place }) {
     );
   }
 
-  const latestMeasurement = measurements[measurements.length - 1];
+  const latestMeasurement =
+    latestEvent || measurements[measurements.length - 1];
   const previousMeasurement = measurements[measurements.length - 2];
 
   if (!station || !latestMeasurement) {
@@ -84,12 +84,6 @@ export default function GaugingStationDetails({ ent: place }) {
           />
         )}
       </Box>
-
-      <Box sx={{ mt: 2, mb: 2 }}>
-        <TimeAgoView date={latestMeasurement.getDate()} variant="body2" />
-      </Box>
-
-      <Divider sx={{ my: 3 }} />
 
       <WaterLevelChart station={station} measurements={measurements} />
     </Box>

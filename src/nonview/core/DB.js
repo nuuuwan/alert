@@ -12,9 +12,11 @@ export default class DB {
     const classList = this.getEventClasses();
     const EventNameAndEventListList = await Promise.all(
       classList.map(async (EventClass) => {
-        const eventList = await EventClass.listAll();
+        const eventList = (await EventClass.listAll()).sort(
+          (a, b) => b.timeUt - a.timeUt
+        );
         return [EventClass.getEventTypeName(), eventList];
-      }),
+      })
     );
     return Object.fromEntries(EventNameAndEventListList);
   }
@@ -23,7 +25,7 @@ export default class DB {
     const eventNameToEventListMap = await this.getEventNameToEventListMap();
     const idToEventNameToEventListMap = {};
     for (const [eventName, eventList] of Object.entries(
-      eventNameToEventListMap,
+      eventNameToEventListMap
     )) {
       eventList.forEach((event) => {
         if (!idToEventNameToEventListMap[event.id]) {
@@ -45,11 +47,11 @@ export default class DB {
     const regionIdx = await DSD.idx();
 
     const activePlaces = Object.values(placesIdx).filter(
-      (place) => idToEventNameToEventListMap[place.id],
+      (place) => idToEventNameToEventListMap[place.id]
     );
 
     const activeRegions = Object.values(regionIdx).filter(
-      (region) => idToEventNameToEventListMap[region.id],
+      (region) => idToEventNameToEventListMap[region.id]
     );
 
     return {
