@@ -20,81 +20,36 @@ def places_check_very_close():
                 log.warning(f"Places very close: {p1} and {p2} (dist={dist})")
 
 
-def build(intput_file_id, output_file_id, func_mapper):
-    input_json_file = JSONFile(
-        os.path.join(DIR_DATA_STATIC, f"{intput_file_id}.json")
-    )
-    input_d_list = input_json_file.read()
-    log.debug(f"Read {len(input_d_list):,} items from {input_json_file}")
+def build_places_from_place_to_lat_lng():
+    place_to_lat_lng = JSONFile(
+        os.path.join(DIR_DATA_STATIC, "_place_to_latlng.json")
+    ).read()
+    places_from_place_to_latlng = []
+    for place, lat_lng in place_to_lat_lng.items():
+        if "(" in place:
+            continue
+        places_from_place_to_latlng.append(
+            dict(
+                id=place,
+                name=place,
+                lat_lng=lat_lng,
+            )
+        )
 
-    output_d_list = [func_mapper(d) for d in input_d_list]
-    output_d_list.sort(key=lambda d: d["id"])
-    output_json_file = JSONFile(
-        os.path.join(DIR_DATA_STATIC, f"{output_file_id}.json")
-    )
-    output_json_file.write(output_d_list)
-    log.info(f"Wrote {len(output_d_list):,} items to {output_json_file}")
+    places_validate = JSONFile(
+        os.path.join(DIR_DATA_STATIC, "_places_validated.json")
+    ).read()
 
+    places = places_from_place_to_latlng + places_validate
 
-def merge(file_id1, file_id2, file_id_merged):
-    json_file1 = JSONFile(os.path.join(DIR_DATA_STATIC, f"{file_id1}.json"))
-    d_list1 = json_file1.read()
-    log.debug(f"Read {len(d_list1):,} items from {json_file1}")
+    places = list({place["id"]: place for place in places}.values())
+    places.sort(key=lambda x: x["id"])
 
-    json_file2 = JSONFile(os.path.join(DIR_DATA_STATIC, f"{file_id2}.json"))
-    d_list2 = json_file2.read()
-    log.debug(f"Read {len(d_list2):,} items from {json_file2}")
-
-    d_map = {d["id"]: d for d in d_list1}
-    for d in d_list2:
-        d_map[d["id"]] = d
-
-    merged_d_list = list(d_map.values())
-    merged_d_list.sort(key=lambda d: d["id"])
-    output_json_file = JSONFile(
-        os.path.join(DIR_DATA_STATIC, f"{file_id_merged}.json")
-    )
-    output_json_file.write(merged_d_list)
-    log.info(f"Wrote {len(merged_d_list):,} items to {output_json_file}")
+    json_file = JSONFile(os.path.join(DIR_DATA_STATIC, "places.json"))
+    json_file.write(places)
+    log.info(f"Wrote {len(places):,} places to {json_file}")
 
 
 if __name__ == "__main__":
-    build(
-        "_old_stations",
-        "gauging_stations",
-        lambda d: {
-            "id": d["name"],
-            "river_name": d["river_name"],
-            "alert_level_m": d["alert_level_m"],
-            "minor_flood_level_m": d["minor_flood_level_m"],
-            "major_flood_level_m": d["major_flood_level_m"],
-        },
-    )
-
-    build(
-        "_old_locations",
-        "_places_from_old_locations",
-        lambda d: {
-            "id": d["name"],
-            "name": d["name"],
-            "lat_lng": d["lat_lng"],
-        },
-    )
-
-    build(
-        "_old_stations",
-        "_places_from_old_stations",
-        lambda d: {
-            "id": d["name"],
-            "name": d["name"],
-            "lat_lng": d["lat_lng"],
-        },
-    )
-
-    merge(
-        "_places_from_old_locations",
-        "_places_from_old_stations",
-        "places",
-    )
-
+    build_places_from_place_to_lat_lng()
     places_check_very_close()
