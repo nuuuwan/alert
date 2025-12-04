@@ -2,3449 +2,2161 @@
   {
     "id": "A12-Mee Oya Bridge",
     "name": "A12-Mee Oya Bridge",
-    "lat_lng": [
-      8.045235,
-      79.922093
-    ]
+    "lat_lng": [8.045235, 79.922093]
   },
   {
     "id": "Achchuveli",
     "name": "Achchuveli",
-    "lat_lng": [
-      9.766633,
-      80.100002
-    ]
+    "lat_lng": [9.766633, 80.100002]
   },
   {
     "id": "Agalawaththa",
     "name": "Agalawaththa",
-    "lat_lng": [
-      7.478731,
-      80.605205
-    ]
+    "lat_lng": [7.478731, 80.605205]
   },
   {
     "id": "Agunakolapelessa",
     "name": "Agunakolapelessa",
-    "lat_lng": [
-      6.165569,
-      80.903117
-    ]
+    "lat_lng": [6.165569, 80.903117]
   },
   {
     "id": "Akkaraipattu Irrigation",
     "name": "Akkaraipattu Irrigation",
-    "lat_lng": [
-      7.219392,
-      81.849757
-    ]
+    "lat_lng": [7.219392, 81.849757]
   },
   {
     "id": "Akkarayan",
     "name": "Akkarayan",
-    "lat_lng": [
-      9.326145,
-      80.301811
-    ]
+    "lat_lng": [9.326145, 80.301811]
   },
   {
     "id": "Akuressa",
     "name": "Akuressa",
-    "lat_lng": [
-      6.100139,
-      80.475957
-    ]
+    "lat_lng": [6.100139, 80.475957]
   },
   {
     "id": "Alampil",
     "name": "Alampil",
-    "lat_lng": [
-      9.18158,
-      80.846082
-    ]
+    "lat_lng": [9.18158, 80.846082]
   },
   {
     "id": "Algama",
     "name": "Algama",
-    "lat_lng": [
-      7.156325,
-      80.165883
-    ]
+    "lat_lng": [7.156325, 80.165883]
   },
   {
     "id": "Algoda Bridge",
     "name": "Algoda Bridge",
-    "lat_lng": [
-      6.952097,
-      80.267632
-    ]
+    "lat_lng": [6.952097, 80.267632]
   },
   {
     "id": "Allai - Kantalai Mahaveli Bridge",
     "name": "Allai - Kantalai Mahaveli Bridge",
-    "lat_lng": [
-      8.312469,
-      81.171178
-    ]
+    "lat_lng": [8.312469, 81.171178]
   },
   {
     "id": "Aludeniya Estate",
     "name": "Aludeniya Estate",
-    "lat_lng": [
-      7.516667,
-      80.233333
-    ]
+    "lat_lng": [7.516667, 80.233333]
   },
   {
     "id": "Aluthwewa",
     "name": "Aluthwewa",
-    "lat_lng": [
-      8.271819,
-      80.374216
-    ]
+    "lat_lng": [8.271819, 80.374216]
   },
   {
     "id": "Ambalantota",
     "name": "Ambalantota",
-    "lat_lng": [
-      6.107605,
-      81.050147
-    ]
+    "lat_lng": [6.107605, 81.050147]
   },
   {
     "id": "Ambatale",
     "name": "Ambatale",
-    "lat_lng": [
-      6.938014,
-      79.945834
-    ]
+    "lat_lng": [6.938014, 79.945834]
   },
   {
     "id": "Ambepussa",
     "name": "Ambepussa",
-    "lat_lng": [
-      7.241776,
-      80.211216
-    ]
+    "lat_lng": [7.241776, 80.211216]
   },
   {
     "id": "Ambewela",
     "name": "Ambewela",
-    "lat_lng": [
-      6.878719,
-      80.813556
-    ]
+    "lat_lng": [6.878719, 80.813556]
   },
   {
     "id": "Ampan",
     "name": "Ampan",
-    "lat_lng": [
-      9.735262,
-      80.293452
-    ]
+    "lat_lng": [9.735262, 80.293452]
   },
   {
     "id": "Ampara",
     "name": "Ampara",
-    "lat_lng": [
-      7.301756,
-      81.674729
-    ]
+    "lat_lng": [7.301756, 81.674729]
   },
   {
     "id": "Anamaduwa",
     "name": "Anamaduwa",
-    "lat_lng": [
-      7.87777,
-      80.011116
-    ]
+    "lat_lng": [7.87777, 80.011116]
   },
   {
     "id": "Andigama",
     "name": "Andigama",
-    "lat_lng": [
-      7.778289,
-      79.948649
-    ]
+    "lat_lng": [7.778289, 79.948649]
   },
   {
     "id": "Angamedilla",
     "name": "Angamedilla",
-    "lat_lng": [
-      7.863731,
-      80.930809
-    ]
+    "lat_lng": [7.863731, 80.930809]
   },
   {
     "id": "Angoda",
     "name": "Angoda",
-    "lat_lng": [
-      6.936741,
-      79.927036
-    ]
+    "lat_lng": [6.936741, 79.927036]
   },
   {
     "id": "Anhetigama",
     "name": "Anhetigama",
-    "lat_lng": [
-      6.924996,
-      80.371433
-    ]
+    "lat_lng": [6.924996, 80.371433]
   },
   {
     "id": "Anuradhapura",
     "name": "Anuradhapura",
-    "lat_lng": [
-      8.337102,
-      80.404725
-    ]
+    "lat_lng": [8.337102, 80.404725]
   },
   {
     "id": "Arakawila",
     "name": "Arakawila",
-    "lat_lng": [
-      6.814724,
-      80.140754
-    ]
+    "lat_lng": [6.814724, 80.140754]
   },
   {
     "id": "Aralaganwila",
     "name": "Aralaganwila",
-    "lat_lng": [
-      7.769349,
-      81.17475
-    ]
+    "lat_lng": [7.769349, 81.17475]
   },
   {
     "id": "Aranayeka",
     "name": "Aranayeka",
-    "lat_lng": [
-      7.149665,
-      80.464983
-    ]
+    "lat_lng": [7.149665, 80.464983]
   },
   {
     "id": "Arugam Bay",
     "name": "Arugam Bay",
-    "lat_lng": [
-      6.811025,
-      81.822455
-    ]
+    "lat_lng": [6.811025, 81.822455]
   },
   {
     "id": "Atchuvely",
     "name": "Atchuvely",
-    "lat_lng": [
-      9.77864,
-      80.116065
-    ]
+    "lat_lng": [9.77864, 80.116065]
   },
   {
     "id": "Atharagalla Tank",
     "name": "Atharagalla Tank",
-    "lat_lng": [
-      7.926604,
-      80.287183
-    ]
+    "lat_lng": [7.926604, 80.287183]
   },
   {
     "id": "Athuraliya",
     "name": "Athuraliya",
-    "lat_lng": [
-      6.102019,
-      80.512314
-    ]
+    "lat_lng": [6.102019, 80.512314]
   },
   {
     "id": "Awissawella",
     "name": "Awissawella",
-    "lat_lng": [
-      6.954329,
-      80.204577
-    ]
+    "lat_lng": [6.954329, 80.204577]
   },
   {
     "id": "Ayagama",
     "name": "Ayagama",
-    "lat_lng": [
-      6.63556,
-      80.312954
-    ]
+    "lat_lng": [6.63556, 80.312954]
   },
   {
     "id": "Badalgama",
     "name": "Badalgama",
-    "lat_lng": [
-      7.293128,
-      79.977679
-    ]
+    "lat_lng": [7.293128, 79.977679]
   },
   {
     "id": "Baddegama",
     "name": "Baddegama",
-    "lat_lng": [
-      6.177477,
-      80.180518
-    ]
+    "lat_lng": [6.177477, 80.180518]
   },
   {
     "id": "Baddegama ",
     "name": "Baddegama ",
-    "lat_lng": [
-      6.168829,
-      80.179398
-    ]
+    "lat_lng": [6.168829, 80.179398]
   },
   {
     "id": "Badulla",
     "name": "Badulla",
-    "lat_lng": [
-      6.980742,
-      81.064636
-    ]
+    "lat_lng": [6.980742, 81.064636]
   },
   {
     "id": "Bakamuna",
     "name": "Bakamuna",
-    "lat_lng": [
-      7.780602,
-      80.818401
-    ]
+    "lat_lng": [7.780602, 80.818401]
   },
   {
     "id": "Baker's Falls",
     "name": "Baker's Falls",
-    "lat_lng": [
-      6.79322,
-      80.789347
-    ]
+    "lat_lng": [6.79322, 80.789347]
   },
   {
     "id": "Balangoda",
     "name": "Balangoda",
-    "lat_lng": [
-      6.667062,
-      80.703414
-    ]
+    "lat_lng": [6.667062, 80.703414]
   },
   {
     "id": "Balapitiya",
     "name": "Balapitiya",
-    "lat_lng": [
-      6.278355,
-      80.040305
-    ]
+    "lat_lng": [6.278355, 80.040305]
   },
   {
     "id": "Bandaragama",
     "name": "Bandaragama",
-    "lat_lng": [
-      6.714407,
-      79.98906
-    ]
+    "lat_lng": [6.714407, 79.98906]
   },
   {
     "id": "Bandarawela",
     "name": "Bandarawela",
-    "lat_lng": [
-      6.825878,
-      80.998158
-    ]
+    "lat_lng": [6.825878, 80.998158]
   },
   {
     "id": "Barricaloa",
     "name": "Barricaloa",
-    "lat_lng": [
-      7.724915,
-      81.696691
-    ]
+    "lat_lng": [7.724915, 81.696691]
   },
   {
     "id": "Bata Atha",
     "name": "Bata Atha",
-    "lat_lng": [
-      6.109917,
-      80.901416
-    ]
+    "lat_lng": [6.109917, 80.901416]
   },
   {
     "id": "Batalagoda",
     "name": "Batalagoda",
-    "lat_lng": [
-      7.599531,
-      80.101852
-    ]
+    "lat_lng": [7.599531, 80.101852]
   },
   {
     "id": "Battaramulla",
     "name": "Battaramulla",
-    "lat_lng": [
-      6.897994,
-      79.922287
-    ]
+    "lat_lng": [6.897994, 79.922287]
   },
   {
     "id": "Batticaloa",
     "name": "Batticaloa",
-    "lat_lng": [
-      7.718064,
-      81.698909
-    ]
+    "lat_lng": [7.718064, 81.698909]
   },
   {
     "id": "Batuwangala",
     "name": "Batuwangala",
-    "lat_lng": [
-      6.380116,
-      80.381175
-    ]
+    "lat_lng": [6.380116, 80.381175]
   },
   {
     "id": "Belihul Oya",
     "name": "Belihul Oya",
-    "lat_lng": [
-      6.716913,
-      80.769939
-    ]
+    "lat_lng": [6.716913, 80.769939]
   },
   {
     "id": "Beralapanathara",
     "name": "Beralapanathara",
-    "lat_lng": [
-      6.323037,
-      80.60403
-    ]
+    "lat_lng": [6.323037, 80.60403]
   },
   {
     "id": "Bibila",
     "name": "Bibila",
-    "lat_lng": [
-      7.162409,
-      81.22159
-    ]
+    "lat_lng": [7.162409, 81.22159]
   },
   {
     "id": "Bogawanthalawa",
     "name": "Bogawanthalawa",
-    "lat_lng": [
-      6.797234,
-      80.675692
-    ]
+    "lat_lng": [6.797234, 80.675692]
   },
   {
     "id": "Bogoda TF",
     "name": "Bogoda TF",
-    "lat_lng": [
-      7.003573,
-      80.98987
-    ]
+    "lat_lng": [7.003573, 80.98987]
   },
   {
     "id": "Boossa",
     "name": "Boossa",
-    "lat_lng": [
-      6.088949,
-      80.156065
-    ]
+    "lat_lng": [6.088949, 80.156065]
   },
   {
     "id": "Bowatenna",
     "name": "Bowatenna",
-    "lat_lng": [
-      7.671017,
-      80.656275
-    ]
+    "lat_lng": [7.671017, 80.656275]
   },
   {
     "id": "Bowatenna Dam",
     "name": "Bowatenna Dam",
-    "lat_lng": [
-      7.66651,
-      80.666963
-    ]
+    "lat_lng": [7.66651, 80.666963]
   },
   {
     "id": "Broadlands Dam",
     "name": "Broadlands Dam",
-    "lat_lng": [
-      6.978869,
-      80.454355
-    ]
+    "lat_lng": [6.978869, 80.454355]
   },
   {
     "id": "Canyon",
     "name": "Canyon",
-    "lat_lng": [
-      6.86973,
-      80.525235
-    ]
+    "lat_lng": [6.86973, 80.525235]
   },
   {
     "id": "Castlereagh Dam",
     "name": "Castlereagh Dam",
-    "lat_lng": [
-      6.873804,
-      80.566615
-    ]
+    "lat_lng": [6.873804, 80.566615]
   },
   {
     "id": "Castlereigh",
     "name": "Castlereigh",
-    "lat_lng": [
-      6.857719,
-      80.585504
-    ]
+    "lat_lng": [6.857719, 80.585504]
   },
   {
     "id": "Chavakachcheri",
     "name": "Chavakachcheri",
-    "lat_lng": [
-      9.66646,
-      80.132092
-    ]
+    "lat_lng": [9.66646, 80.132092]
   },
   {
     "id": "Cheddikulam",
     "name": "Cheddikulam",
-    "lat_lng": [
-      8.665596,
-      80.296239
-    ]
+    "lat_lng": [8.665596, 80.296239]
   },
   {
     "id": "Chilaw",
     "name": "Chilaw",
-    "lat_lng": [
-      7.611112,
-      79.796423
-    ]
+    "lat_lng": [7.611112, 79.796423]
   },
   {
     "id": "Chilaw R.D",
     "name": "Chilaw R.D",
-    "lat_lng": [
-      7.862412,
-      79.998848
-    ]
+    "lat_lng": [7.862412, 79.998848]
   },
   {
     "id": "Chilawathurai",
     "name": "Chilawathurai",
-    "lat_lng": [
-      8.747651,
-      79.951446
-    ]
+    "lat_lng": [8.747651, 79.951446]
   },
   {
     "id": "Colombo",
     "name": "Colombo",
-    "lat_lng": [
-      6.917276,
-      79.864819
-    ]
+    "lat_lng": [6.917276, 79.864819]
   },
   {
     "id": "Colombo Fort",
     "name": "Colombo Fort",
-    "lat_lng": [
-      6.93607,
-      79.84505
-    ]
+    "lat_lng": [6.93607, 79.84505]
   },
   {
     "id": "Damana",
     "name": "Damana",
-    "lat_lng": [
-      7.194471,
-      81.652822
-    ]
+    "lat_lng": [7.194471, 81.652822]
   },
   {
     "id": "Dambulla Tec.",
     "name": "Dambulla Tec.",
-    "lat_lng": [
-      7.874217,
-      80.651129
-    ]
+    "lat_lng": [7.874217, 80.651129]
   },
   {
     "id": "Deegavapi",
     "name": "Deegavapi",
-    "lat_lng": [
-      7.284743,
-      81.785789
-    ]
+    "lat_lng": [7.284743, 81.785789]
   },
   {
     "id": "Dehiowita",
     "name": "Dehiowita",
-    "lat_lng": [
-      6.963895,
-      80.264191
-    ]
+    "lat_lng": [6.963895, 80.264191]
   },
   {
     "id": "Dehiwala",
     "name": "Dehiwala",
-    "lat_lng": [
-      6.855948,
-      79.862968
-    ]
+    "lat_lng": [6.855948, 79.862968]
   },
   {
     "id": "Delft",
     "name": "Delft",
-    "lat_lng": [
-      9.516667,
-      79.683333
-    ]
+    "lat_lng": [9.516667, 79.683333]
   },
   {
     "id": "Dellawa TF",
     "name": "Dellawa TF",
-    "lat_lng": [
-      6.324896,
-      80.44934
-    ]
+    "lat_lng": [6.324896, 80.44934]
   },
   {
     "id": "Delwala Tea",
     "name": "Delwala Tea",
-    "lat_lng": [
-      6.516667,
-      80.466667
-    ]
+    "lat_lng": [6.516667, 80.466667]
   },
   {
     "id": "Deniyaya",
     "name": "Deniyaya",
-    "lat_lng": [
-      6.342485,
-      80.559658
-    ]
+    "lat_lng": [6.342485, 80.559658]
   },
   {
     "id": "Deniyaya Tea Estate",
     "name": "Deniyaya Tea Estate",
-    "lat_lng": [
-      6.34246,
-      80.559617
-    ]
+    "lat_lng": [6.34246, 80.559617]
   },
   {
     "id": "Derangala TF",
     "name": "Derangala TF",
-    "lat_lng": [
-      6.227749,
-      80.446559
-    ]
+    "lat_lng": [6.227749, 80.446559]
   },
   {
     "id": "Deraniyagala",
     "name": "Deraniyagala",
-    "lat_lng": [
-      6.925763,
-      80.339224
-    ]
+    "lat_lng": [6.925763, 80.339224]
   },
   {
     "id": "Diddenipotha TF",
     "name": "Diddenipotha TF",
-    "lat_lng": [
-      6.161555,
-      80.561016
-    ]
+    "lat_lng": [6.161555, 80.561016]
   },
   {
     "id": "Diganwewa",
     "name": "Diganwewa",
-    "lat_lng": [
-      7.646274,
-      79.860483
-    ]
+    "lat_lng": [7.646274, 79.860483]
   },
   {
     "id": "Dikoya",
     "name": "Dikoya",
-    "lat_lng": [
-      6.875298,
-      80.603549
-    ]
+    "lat_lng": [6.875298, 80.603549]
   },
   {
     "id": "Divulapitiya",
     "name": "Divulapitiya",
-    "lat_lng": [
-      7.230314,
-      80.016474
-    ]
+    "lat_lng": [7.230314, 80.016474]
   },
   {
     "id": "Diyabeduma",
     "name": "Diyabeduma",
-    "lat_lng": [
-      7.929743,
-      80.870987
-    ]
+    "lat_lng": [7.929743, 80.870987]
   },
   {
     "id": "Dodangaslanda",
     "name": "Dodangaslanda",
-    "lat_lng": [
-      7.575677,
-      80.524397
-    ]
+    "lat_lng": [7.575677, 80.524397]
   },
   {
     "id": "Dummalasooriya",
     "name": "Dummalasooriya",
-    "lat_lng": [
-      7.4924,
-      79.910874
-    ]
+    "lat_lng": [7.4924, 79.910874]
   },
   {
     "id": "Dunamale",
     "name": "Dunamale",
-    "lat_lng": [
-      7.113033,
-      80.079001
-    ]
+    "lat_lng": [7.113033, 80.079001]
   },
   {
     "id": "Dunumale Estate",
     "name": "Dunumale Estate",
-    "lat_lng": [
-      7.147352,
-      80.212611
-    ]
+    "lat_lng": [7.147352, 80.212611]
   },
   {
     "id": "Dyraba Estate",
     "name": "Dyraba Estate",
-    "lat_lng": [
-      6.883391,
-      80.937339
-    ]
+    "lat_lng": [6.883391, 80.937339]
   },
   {
     "id": "Eheliyagoda",
     "name": "Eheliyagoda",
-    "lat_lng": [
-      6.848564,
-      80.26001
-    ]
+    "lat_lng": [6.848564, 80.26001]
   },
   {
     "id": "Elahara",
     "name": "Elahara",
-    "lat_lng": [
-      7.734387,
-      80.79348
-    ]
+    "lat_lng": [7.734387, 80.79348]
   },
   {
     "id": "Elephant Pass",
     "name": "Elephant Pass",
-    "lat_lng": [
-      9.504499,
-      80.402048
-    ]
+    "lat_lng": [9.504499, 80.402048]
   },
   {
     "id": "Eliya",
     "name": "Eliya",
-    "lat_lng": [
-      6.960689,
-      80.769296
-    ]
+    "lat_lng": [6.960689, 80.769296]
   },
   {
     "id": "Elkaduwa",
     "name": "Elkaduwa",
-    "lat_lng": [
-      7.417238,
-      80.684012
-    ]
+    "lat_lng": [7.417238, 80.684012]
   },
   {
     "id": "Ellagawa",
     "name": "Ellagawa",
-    "lat_lng": [
-      6.730399,
-      80.21307
-    ]
+    "lat_lng": [6.730399, 80.21307]
   },
   {
     "id": "Ellakanda Watta",
     "name": "Ellakanda Watta",
-    "lat_lng": [
-      6.450216,
-      80.117042
-    ]
+    "lat_lng": [6.450216, 80.117042]
   },
   {
     "id": "Ellapothana Anicut",
     "name": "Ellapothana Anicut",
-    "lat_lng": [
-      8.437502,
-      80.764432
-    ]
+    "lat_lng": [8.437502, 80.764432]
   },
   {
     "id": "Embilipitiya",
     "name": "Embilipitiya",
-    "lat_lng": [
-      6.316232,
-      80.843315
-    ]
+    "lat_lng": [6.316232, 80.843315]
   },
   {
     "id": "Galenbindunawawa",
     "name": "Galenbindunawawa",
-    "lat_lng": [
-      8.292134,
-      80.717284
-    ]
+    "lat_lng": [8.292134, 80.717284]
   },
   {
     "id": "Galgamuwa",
     "name": "Galgamuwa",
-    "lat_lng": [
-      7.968418,
-      80.261393
-    ]
+    "lat_lng": [7.968418, 80.261393]
   },
   {
     "id": "Galigamuwa",
     "name": "Galigamuwa",
-    "lat_lng": [
-      7.235281,
-      80.310177
-    ]
+    "lat_lng": [7.235281, 80.310177]
   },
   {
     "id": "Galkadawala Anicut",
     "name": "Galkadawala Anicut",
-    "lat_lng": [
-      8.422191,
-      80.391393
-    ]
+    "lat_lng": [8.422191, 80.391393]
   },
   {
     "id": "Galle",
     "name": "Galle",
-    "lat_lng": [
-      6.030646,
-      80.216049
-    ]
+    "lat_lng": [6.030646, 80.216049]
   },
   {
     "id": "Gampaha",
     "name": "Gampaha",
-    "lat_lng": [
-      7.091212,
-      79.991877
-    ]
+    "lat_lng": [7.091212, 79.991877]
   },
   {
     "id": "Gampaha TC",
     "name": "Gampaha TC",
-    "lat_lng": [
-      7.084048,
-      80.009831
-    ]
+    "lat_lng": [7.084048, 80.009831]
   },
   {
     "id": "Gileemale",
     "name": "Gileemale",
-    "lat_lng": [
-      6.744909,
-      80.440396
-    ]
+    "lat_lng": [6.744909, 80.440396]
   },
   {
     "id": "Gilimale",
     "name": "Gilimale",
-    "lat_lng": [
-      6.751939,
-      80.426704
-    ]
+    "lat_lng": [6.751939, 80.426704]
   },
   {
     "id": "Ginigathhena",
     "name": "Ginigathhena",
-    "lat_lng": [
-      6.989317,
-      80.492693
-    ]
+    "lat_lng": [6.989317, 80.492693]
   },
   {
     "id": "Gintota",
     "name": "Gintota",
-    "lat_lng": [
-      6.0534,
-      80.194
-    ]
+    "lat_lng": [6.0534, 80.194]
   },
   {
     "id": "Girandurukotte",
     "name": "Girandurukotte",
-    "lat_lng": [
-      7.462917,
-      81.017492
-    ]
+    "lat_lng": [7.462917, 81.017492]
   },
   {
     "id": "Giriulla",
     "name": "Giriulla",
-    "lat_lng": [
-      7.330309,
-      80.124321
-    ]
+    "lat_lng": [7.330309, 80.124321]
   },
   {
     "id": "Glencourse",
     "name": "Glencourse",
-    "lat_lng": [
-      6.975737,
-      80.186607
-    ]
+    "lat_lng": [6.975737, 80.186607]
   },
   {
     "id": "Gomarankadawal",
     "name": "Gomarankadawal",
-    "lat_lng": [
-      8.675038,
-      80.963242
-    ]
+    "lat_lng": [8.675038, 80.963242]
   },
   {
     "id": "Gomarankadawala",
     "name": "Gomarankadawala",
-    "lat_lng": [
-      8.675038,
-      80.963242
-    ]
+    "lat_lng": [8.675038, 80.963242]
   },
   {
     "id": "Gonapitiya Merigold",
     "name": "Gonapitiya Merigold",
-    "lat_lng": [
-      7.042666,
-      80.812864
-    ]
+    "lat_lng": [7.042666, 80.812864]
   },
   {
     "id": "Gongala",
     "name": "Gongala",
-    "lat_lng": [
-      6.373256,
-      80.650406
-    ]
+    "lat_lng": [6.373256, 80.650406]
   },
   {
     "id": "Guruluwana",
     "name": "Guruluwana",
-    "lat_lng": [
-      6.791215,
-      80.435434
-    ]
+    "lat_lng": [6.791215, 80.435434]
   },
   {
     "id": "Habarana Lodge",
     "name": "Habarana Lodge",
-    "lat_lng": [
-      8.032215,
-      80.751927
-    ]
+    "lat_lng": [8.032215, 80.751927]
   },
   {
     "id": "Habarana Wewa",
     "name": "Habarana Wewa",
-    "lat_lng": [
-      8.03963,
-      80.740749
-    ]
+    "lat_lng": [8.03963, 80.740749]
   },
   {
     "id": "Halgolla TF",
     "name": "Halgolla TF",
-    "lat_lng": [
-      7.048653,
-      80.57995
-    ]
+    "lat_lng": [7.048653, 80.57995]
   },
   {
     "id": "Halwathura Estate",
     "name": "Halwathura Estate",
-    "lat_lng": [
-      6.715001,
-      80.183888
-    ]
+    "lat_lng": [6.715001, 80.183888]
   },
   {
     "id": "Hambanthota",
     "name": "Hambanthota",
-    "lat_lng": [
-      6.142883,
-      81.121231
-    ]
+    "lat_lng": [6.142883, 81.121231]
   },
   {
     "id": "Hambantota",
     "name": "Hambantota",
-    "lat_lng": [
-      6.124867,
-      81.12607
-    ]
+    "lat_lng": [6.124867, 81.12607]
   },
   {
     "id": "Handapanagala",
     "name": "Handapanagala",
-    "lat_lng": [
-      6.657036,
-      81.122021
-    ]
+    "lat_lng": [6.657036, 81.122021]
   },
   {
     "id": "Handessa",
     "name": "Handessa",
-    "lat_lng": [
-      7.230305,
-      80.582033
-    ]
+    "lat_lng": [7.230305, 80.582033]
   },
   {
     "id": "Handungamuwa",
     "name": "Handungamuwa",
-    "lat_lng": [
-      7.637723,
-      80.918009
-    ]
+    "lat_lng": [7.637723, 80.918009]
   },
   {
     "id": "Hanwella",
     "name": "Hanwella",
-    "lat_lng": [
-      6.910489,
-      80.08134
-    ]
+    "lat_lng": [6.910489, 80.08134]
   },
   {
     "id": "Hapugastenna Estate",
     "name": "Hapugastenna Estate",
-    "lat_lng": [
-      6.872524,
-      80.530569
-    ]
+    "lat_lng": [6.872524, 80.530569]
   },
   {
     "id": "Helboda North",
     "name": "Helboda North",
-    "lat_lng": [
-      8.885503,
-      80.276733
-    ]
+    "lat_lng": [8.885503, 80.276733]
   },
   {
     "id": "Hettipola",
     "name": "Hettipola",
-    "lat_lng": [
-      7.533112,
-      80.915243
-    ]
+    "lat_lng": [7.533112, 80.915243]
   },
   {
     "id": "Hindawa",
     "name": "Hindawa",
-    "lat_lng": [
-      7.513648,
-      80.140067
-    ]
+    "lat_lng": [7.513648, 80.140067]
   },
   {
     "id": "Hiniduma",
     "name": "Hiniduma",
-    "lat_lng": [
-      6.309448,
-      80.324096
-    ]
+    "lat_lng": [6.309448, 80.324096]
   },
   {
     "id": "Holombuwa",
     "name": "Holombuwa",
-    "lat_lng": [
-      7.188612,
-      80.27381
-    ]
+    "lat_lng": [7.188612, 80.27381]
   },
   {
     "id": "Horana",
     "name": "Horana",
-    "lat_lng": [
-      6.722981,
-      80.064668
-    ]
+    "lat_lng": [6.722981, 80.064668]
   },
   {
     "id": "Horowpothana",
     "name": "Horowpothana",
-    "lat_lng": [
-      8.577144,
-      80.881203
-    ]
+    "lat_lng": [8.577144, 80.881203]
   },
   {
     "id": "Huruluwewa",
     "name": "Huruluwewa",
-    "lat_lng": [
-      8.224424,
-      80.711327
-    ]
+    "lat_lng": [8.224424, 80.711327]
   },
   {
     "id": "Ilukwewa Anicut",
     "name": "Ilukwewa Anicut",
-    "lat_lng": [
-      8.33233,
-      80.733993
-    ]
+    "lat_lng": [8.33233, 80.733993]
   },
   {
     "id": "Inamaluwa",
     "name": "Inamaluwa",
-    "lat_lng": [
-      7.953137,
-      80.655043
-    ]
+    "lat_lng": [7.953137, 80.655043]
   },
   {
     "id": "Inginiyagala",
     "name": "Inginiyagala",
-    "lat_lng": [
-      7.213816,
-      81.543187
-    ]
+    "lat_lng": [7.213816, 81.543187]
   },
   {
     "id": "Iranamadu",
     "name": "Iranamadu",
-    "lat_lng": [
-      9.333392,
-      80.400002
-    ]
+    "lat_lng": [9.333392, 80.400002]
   },
   {
     "id": "Jaffna",
     "name": "Jaffna",
-    "lat_lng": [
-      9.660734,
-      80.012204
-    ]
+    "lat_lng": [9.660734, 80.012204]
   },
   {
     "id": "Jaffna Irrigation",
     "name": "Jaffna Irrigation",
-    "lat_lng": [
-      9.661498,
-      80.025546
-    ]
+    "lat_lng": [9.661498, 80.025546]
   },
   {
     "id": "Kadduwa",
     "name": "Kadduwa",
-    "lat_lng": [
-      6.039088,
-      80.511892
-    ]
+    "lat_lng": [6.039088, 80.511892]
   },
   {
     "id": "Kaduwela Bridge",
     "name": "Kaduwela Bridge",
-    "lat_lng": [
-      6.936369,
-      79.985393
-    ]
+    "lat_lng": [6.936369, 79.985393]
   },
   {
     "id": "Kahagolla Estate",
     "name": "Kahagolla Estate",
-    "lat_lng": [
-      6.816058,
-      80.969147
-    ]
+    "lat_lng": [6.816058, 80.969147]
   },
   {
     "id": "Kalatuwawa",
     "name": "Kalatuwawa",
-    "lat_lng": [
-      6.85,
-      80.2
-    ]
+    "lat_lng": [6.85, 80.2]
   },
   {
     "id": "Kalavedi Ulpotha",
     "name": "Kalavedi Ulpotha",
-    "lat_lng": [
-      7.906018,
-      80.36672
-    ]
+    "lat_lng": [7.906018, 80.36672]
   },
   {
     "id": "Kalawana",
     "name": "Kalawana",
-    "lat_lng": [
-      6.531124,
-      80.396495
-    ]
+    "lat_lng": [6.531124, 80.396495]
   },
   {
     "id": "Kalkudah",
     "name": "Kalkudah",
-    "lat_lng": [
-      7.933126,
-      81.544038
-    ]
+    "lat_lng": [7.933126, 81.544038]
   },
   {
     "id": "Kalmunai",
     "name": "Kalmunai",
-    "lat_lng": [
-      7.414383,
-      81.830633
-    ]
+    "lat_lng": [7.414383, 81.830633]
   },
   {
     "id": "Kalupahana Estate",
     "name": "Kalupahana Estate",
-    "lat_lng": [
-      7.085946,
-      80.383358
-    ]
+    "lat_lng": [7.085946, 80.383358]
   },
   {
     "id": "Kalutara",
     "name": "Kalutara",
-    "lat_lng": [
-      6.5854,
-      79.9607
-    ]
+    "lat_lng": [6.5854, 79.9607]
   },
   {
     "id": "Kaluthara",
     "name": "Kaluthara",
-    "lat_lng": [
-      6.585395,
-      79.96074
-    ]
+    "lat_lng": [6.585395, 79.96074]
   },
   {
     "id": "Kamandaluwa",
     "name": "Kamandaluwa",
-    "lat_lng": [
-      7.776111,
-      79.994722
-    ]
+    "lat_lng": [7.776111, 79.994722]
   },
   {
     "id": "Kandaketiya",
     "name": "Kandaketiya",
-    "lat_lng": [
-      7.21005,
-      81.013611
-    ]
+    "lat_lng": [7.21005, 81.013611]
   },
   {
     "id": "Kandalama",
     "name": "Kandalama",
-    "lat_lng": [
-      7.888498,
-      80.710353
-    ]
+    "lat_lng": [7.888498, 80.710353]
   },
   {
     "id": "Kandy",
     "name": "Kandy",
-    "lat_lng": [
-      7.29316,
-      80.635021
-    ]
+    "lat_lng": [7.29316, 80.635021]
   },
   {
     "id": "Kanneliya",
     "name": "Kanneliya",
-    "lat_lng": [
-      6.243056,
-      80.351944
-    ]
+    "lat_lng": [6.243056, 80.351944]
   },
   {
     "id": "Kannimaduwa Bridge",
     "name": "Kannimaduwa Bridge",
-    "lat_lng": [
-      8.287619,
-      80.732367
-    ]
+    "lat_lng": [8.287619, 80.732367]
   },
   {
     "id": "Kanthale Tank",
     "name": "Kanthale Tank",
-    "lat_lng": [
-      8.36737,
-      80.984345
-    ]
+    "lat_lng": [8.36737, 80.984345]
   },
   {
     "id": "Kapugollewa",
     "name": "Kapugollewa",
-    "lat_lng": [
-      8.654519,
-      80.837779
-    ]
+    "lat_lng": [8.654519, 80.837779]
   },
   {
     "id": "Kapugpllawa",
     "name": "Kapugpllawa",
-    "lat_lng": [
-      8.654519,
-      80.837779
-    ]
+    "lat_lng": [8.654519, 80.837779]
   },
   {
     "id": "Karagala",
     "name": "Karagala",
-    "lat_lng": [
-      7.133617,
-      80.509113
-    ]
+    "lat_lng": [7.133617, 80.509113]
   },
   {
     "id": "Karukkuwa",
     "name": "Karukkuwa",
-    "lat_lng": [
-      7.50687,
-      79.84368
-    ]
+    "lat_lng": [7.50687, 79.84368]
   },
   {
     "id": "Katagamuwa Wild",
     "name": "Katagamuwa Wild",
-    "lat_lng": [
-      7.728261,
-      80.167377
-    ]
+    "lat_lng": [7.728261, 80.167377]
   },
   {
     "id": "Katandola",
     "name": "Katandola",
-    "lat_lng": [
-      6.301797,
-      80.195875
-    ]
+    "lat_lng": [6.301797, 80.195875]
   },
   {
     "id": "Katharagama",
     "name": "Katharagama",
-    "lat_lng": [
-      6.41835,
-      81.331624
-    ]
+    "lat_lng": [6.41835, 81.331624]
   },
   {
     "id": "Kathiraveli",
     "name": "Kathiraveli",
-    "lat_lng": [
-      8.222881,
-      81.403858
-    ]
+    "lat_lng": [8.222881, 81.403858]
   },
   {
     "id": "Katugasthota",
     "name": "Katugasthota",
-    "lat_lng": [
-      7.325156,
-      80.622979
-    ]
+    "lat_lng": [7.325156, 80.622979]
   },
   {
     "id": "Katugastota",
     "name": "Katugastota",
-    "lat_lng": [
-      7.33599,
-      80.6214
-    ]
+    "lat_lng": [7.33599, 80.6214]
   },
   {
     "id": "Katunayake",
     "name": "Katunayake",
-    "lat_lng": [
-      7.172485,
-      79.885348
-    ]
+    "lat_lng": [7.172485, 79.885348]
   },
   {
     "id": "Keenagahawila",
     "name": "Keenagahawila",
-    "lat_lng": [
-      6.790468,
-      80.20006
-    ]
+    "lat_lng": [6.790468, 80.20006]
   },
   {
     "id": "Kegalle",
     "name": "Kegalle",
-    "lat_lng": [
-      7.252938,
-      80.343161
-    ]
+    "lat_lng": [7.252938, 80.343161]
   },
   {
     "id": "Kekirawa",
     "name": "Kekirawa",
-    "lat_lng": [
-      8.042103,
-      80.593833
-    ]
+    "lat_lng": [8.042103, 80.593833]
   },
   {
     "id": "Kelepitimulla",
     "name": "Kelepitimulla",
-    "lat_lng": [
-      7.234364,
-      79.993398
-    ]
+    "lat_lng": [7.234364, 79.993398]
   },
   {
     "id": "Keppitigala",
     "name": "Keppitigala",
-    "lat_lng": [
-      7.437633,
-      80.529825
-    ]
+    "lat_lng": [7.437633, 80.529825]
   },
   {
     "id": "Kesbewa",
     "name": "Kesbewa",
-    "lat_lng": [
-      6.77867,
-      79.94725
-    ]
+    "lat_lng": [6.77867, 79.94725]
   },
   {
     "id": "Keselhenawa",
     "name": "Keselhenawa",
-    "lat_lng": [
-      6.652964,
-      80.060477
-    ]
+    "lat_lng": [6.652964, 80.060477]
   },
   {
     "id": "Kilinochchi Agriculture",
     "name": "Kilinochchi Agriculture",
-    "lat_lng": [
-      9.380289,
-      80.377
-    ]
+    "lat_lng": [9.380289, 80.377]
   },
   {
     "id": "Killinochchi",
     "name": "Killinochchi",
-    "lat_lng": [
-      9.383583,
-      80.408503
-    ]
+    "lat_lng": [9.383583, 80.408503]
   },
   {
     "id": "Kirama",
     "name": "Kirama",
-    "lat_lng": [
-      6.206692,
-      80.661823
-    ]
+    "lat_lng": [6.206692, 80.661823]
   },
   {
     "id": "Kiran",
     "name": "Kiran",
-    "lat_lng": [
-      7.86778,
-      81.510266
-    ]
+    "lat_lng": [7.86778, 81.510266]
   },
   {
     "id": "Kiriella",
     "name": "Kiriella",
-    "lat_lng": [
-      6.73985,
-      80.273702
-    ]
+    "lat_lng": [6.73985, 80.273702]
   },
   {
     "id": "Kirinda",
     "name": "Kirinda",
-    "lat_lng": [
-      6.194824,
-      81.29417
-    ]
+    "lat_lng": [6.194824, 81.29417]
   },
   {
     "id": "Kirindiwela",
     "name": "Kirindiwela",
-    "lat_lng": [
-      7.041182,
-      80.128932
-    ]
+    "lat_lng": [7.041182, 80.128932]
   },
   {
     "id": "Kithulgala",
     "name": "Kithulgala",
-    "lat_lng": [
-      6.985284,
-      80.425449
-    ]
+    "lat_lng": [6.985284, 80.425449]
   },
   {
     "id": "Kochchikade",
     "name": "Kochchikade",
-    "lat_lng": [
-      7.273302,
-      79.84235
-    ]
+    "lat_lng": [7.273302, 79.84235]
   },
   {
     "id": "Kokkilai",
     "name": "Kokkilai",
-    "lat_lng": [
-      9.000459,
-      80.949616
-    ]
+    "lat_lng": [9.000459, 80.949616]
   },
   {
     "id": "Konwewa",
     "name": "Konwewa",
-    "lat_lng": [
-      7.850937,
-      80.357513
-    ]
+    "lat_lng": [7.850937, 80.357513]
   },
   {
     "id": "Kotagala Rosita",
     "name": "Kotagala Rosita",
-    "lat_lng": [
-      6.929681,
-      80.604937
-    ]
+    "lat_lng": [6.929681, 80.604937]
   },
   {
     "id": "Kotapola",
     "name": "Kotapola",
-    "lat_lng": [
-      6.319794,
-      80.553987
-    ]
+    "lat_lng": [6.319794, 80.553987]
   },
   {
     "id": "Kotmale",
     "name": "Kotmale",
-    "lat_lng": [
-      7.022309,
-      80.591057
-    ]
+    "lat_lng": [7.022309, 80.591057]
   },
   {
     "id": "Kotmale Dam",
     "name": "Kotmale Dam",
-    "lat_lng": [
-      7.060794,
-      80.596956
-    ]
+    "lat_lng": [7.060794, 80.596956]
   },
   {
     "id": "Kottukachchiya",
     "name": "Kottukachchiya",
-    "lat_lng": [
-      7.940278,
-      79.947552
-    ]
+    "lat_lng": [7.940278, 79.947552]
   },
   {
     "id": "Kuchchaveli",
     "name": "Kuchchaveli",
-    "lat_lng": [
-      8.821385,
-      81.094781
-    ]
+    "lat_lng": [8.821385, 81.094781]
   },
   {
     "id": "Kuda Oya",
     "name": "Kuda Oya",
-    "lat_lng": [
-      6.5313,
-      81.119313
-    ]
+    "lat_lng": [6.5313, 81.119313]
   },
   {
     "id": "Kudawa",
     "name": "Kudawa",
-    "lat_lng": [
-      8.224728,
-      79.730172
-    ]
+    "lat_lng": [8.224728, 79.730172]
   },
   {
     "id": "Kudawe",
     "name": "Kudawe",
-    "lat_lng": [
-      6.434358,
-      80.399265
-    ]
+    "lat_lng": [6.434358, 80.399265]
   },
   {
     "id": "Kukule Ganga Dam",
     "name": "Kukule Ganga Dam",
-    "lat_lng": [
-      6.580657,
-      80.326646
-    ]
+    "lat_lng": [6.580657, 80.326646]
   },
   {
     "id": "Kukuleganaga",
     "name": "Kukuleganaga",
-    "lat_lng": [
-      6.582781,
-      80.234232
-    ]
+    "lat_lng": [6.582781, 80.234232]
   },
   {
     "id": "Kuliyapitiya",
     "name": "Kuliyapitiya",
-    "lat_lng": [
-      7.472123,
-      80.044622
-    ]
+    "lat_lng": [7.472123, 80.044622]
   },
   {
     "id": "Kumana",
     "name": "Kumana",
-    "lat_lng": [
-      6.511528,
-      81.706399
-    ]
+    "lat_lng": [6.511528, 81.706399]
   },
   {
     "id": "Kundasale",
     "name": "Kundasale",
-    "lat_lng": [
-      7.309624,
-      80.710353
-    ]
+    "lat_lng": [7.309624, 80.710353]
   },
   {
     "id": "Kurunagala",
     "name": "Kurunagala",
-    "lat_lng": [
-      7.48177,
-      80.360888
-    ]
+    "lat_lng": [7.48177, 80.360888]
   },
   {
     "id": "Kurunduoya",
     "name": "Kurunduoya",
-    "lat_lng": [
-      7.083049,
-      80.837779
-    ]
+    "lat_lng": [7.083049, 80.837779]
   },
   {
     "id": "Kurunegala",
     "name": "Kurunegala",
-    "lat_lng": [
-      7.487022,
-      80.364976
-    ]
+    "lat_lng": [7.487022, 80.364976]
   },
   {
     "id": "Kuruvita",
     "name": "Kuruvita",
-    "lat_lng": [
-      6.77701,
-      80.366344
-    ]
+    "lat_lng": [6.77701, 80.366344]
   },
   {
     "id": "Kuttapitiya Tea",
     "name": "Kuttapitiya Tea",
-    "lat_lng": [
-      6.653552,
-      80.560511
-    ]
+    "lat_lng": [6.653552, 80.560511]
   },
   {
     "id": "Labugama",
     "name": "Labugama",
-    "lat_lng": [
-      6.861855,
-      80.169131
-    ]
+    "lat_lng": [6.861855, 80.169131]
   },
   {
     "id": "Lahugala",
     "name": "Lahugala",
-    "lat_lng": [
-      6.872087,
-      81.72263
-    ]
+    "lat_lng": [6.872087, 81.72263]
   },
   {
     "id": "Lahugala Tank",
     "name": "Lahugala Tank",
-    "lat_lng": [
-      6.898284,
-      81.700736
-    ]
+    "lat_lng": [6.898284, 81.700736]
   },
   {
     "id": "Lakshapana",
     "name": "Lakshapana",
-    "lat_lng": [
-      6.924758,
-      80.491047
-    ]
+    "lat_lng": [6.924758, 80.491047]
   },
   {
     "id": "Laxapana Dam",
     "name": "Laxapana Dam",
-    "lat_lng": [
-      6.918792,
-      80.489395
-    ]
+    "lat_lng": [6.918792, 80.489395]
   },
   {
     "id": "Laxapana TF",
     "name": "Laxapana TF",
-    "lat_lng": [
-      6.924758,
-      80.491047
-    ]
+    "lat_lng": [6.924758, 80.491047]
   },
   {
     "id": "Liyangastota",
     "name": "Liyangastota",
-    "lat_lng": [
-      6.213466,
-      80.976056
-    ]
+    "lat_lng": [6.213466, 80.976056]
   },
   {
     "id": "Loolkandura",
     "name": "Loolkandura",
-    "lat_lng": [
-      7.127232,
-      80.71029
-    ]
+    "lat_lng": [7.127232, 80.71029]
   },
   {
     "id": "Lunugala",
     "name": "Lunugala",
-    "lat_lng": [
-      7.040236,
-      81.201842
-    ]
+    "lat_lng": [7.040236, 81.201842]
   },
   {
     "id": "Lunugam Vehera",
     "name": "Lunugam Vehera",
-    "lat_lng": [
-      6.34682,
-      81.196851
-    ]
+    "lat_lng": [6.34682, 81.196851]
   },
   {
     "id": "MEDIYAWA",
     "name": "MEDIYAWA",
-    "lat_lng": [
-      8.137171,
-      80.390916
-    ]
+    "lat_lng": [8.137171, 80.390916]
   },
   {
     "id": "Madampe",
     "name": "Madampe",
-    "lat_lng": [
-      7.497234,
-      79.841332
-    ]
+    "lat_lng": [7.497234, 79.841332]
   },
   {
     "id": "Madatugama",
     "name": "Madatugama",
-    "lat_lng": [
-      7.945858,
-      80.627141
-    ]
+    "lat_lng": [7.945858, 80.627141]
   },
   {
     "id": "Madolthenna Estate",
     "name": "Madolthenna Estate",
-    "lat_lng": [
-      7.078812,
-      80.184062
-    ]
+    "lat_lng": [7.078812, 80.184062]
   },
   {
     "id": "Madu",
     "name": "Madu",
-    "lat_lng": [
-      8.856361,
-      80.204244
-    ]
+    "lat_lng": [8.856361, 80.204244]
   },
   {
     "id": "Madulkale",
     "name": "Madulkale",
-    "lat_lng": [
-      7.399153,
-      80.733455
-    ]
+    "lat_lng": [7.399153, 80.733455]
   },
   {
     "id": "Magura",
     "name": "Magura",
-    "lat_lng": [
-      6.513716,
-      80.243992
-    ]
+    "lat_lng": [6.513716, 80.243992]
   },
   {
     "id": "Maha Illuppallama",
     "name": "Maha Illuppallama",
-    "lat_lng": [
-      8.103736,
-      80.460464
-    ]
+    "lat_lng": [8.103736, 80.460464]
   },
   {
     "id": "Maha Illuppallama36.2",
     "name": "Maha Illuppallama36.2",
-    "lat_lng": [
-      8.103736,
-      80.460464
-    ]
+    "lat_lng": [8.103736, 80.460464]
   },
   {
     "id": "Mahadowa",
     "name": "Mahadowa",
-    "lat_lng": [
-      7.017567,
-      81.166481
-    ]
+    "lat_lng": [7.017567, 81.166481]
   },
   {
     "id": "Mahailluppallama",
     "name": "Mahailluppallama",
-    "lat_lng": [
-      8.103736,
-      80.460464
-    ]
+    "lat_lng": [8.103736, 80.460464]
   },
   {
     "id": "Mahaoya",
     "name": "Mahaoya",
-    "lat_lng": [
-      7.531216,
-      81.356095
-    ]
+    "lat_lng": [7.531216, 81.356095]
   },
   {
     "id": "Mahiyanganaya",
     "name": "Mahiyanganaya",
-    "lat_lng": [
-      7.33161,
-      81.003682
-    ]
+    "lat_lng": [7.33161, 81.003682]
   },
   {
     "id": "Makandura TF",
     "name": "Makandura TF",
-    "lat_lng": [
-      7.322534,
-      79.977319
-    ]
+    "lat_lng": [7.322534, 79.977319]
   },
   {
     "id": "Maliboda",
     "name": "Maliboda",
-    "lat_lng": [
-      6.890592,
-      80.439606
-    ]
+    "lat_lng": [6.890592, 80.439606]
   },
   {
     "id": "Manampitiya",
     "name": "Manampitiya",
-    "lat_lng": [
-      7.913306,
-      81.089042
-    ]
+    "lat_lng": [7.913306, 81.089042]
   },
   {
     "id": "Mannar",
     "name": "Mannar",
-    "lat_lng": [
-      8.981134,
-      79.905023
-    ]
+    "lat_lng": [8.981134, 79.905023]
   },
   {
     "id": "Mapalana",
     "name": "Mapalana",
-    "lat_lng": [
-      6.768119,
-      80.471587
-    ]
+    "lat_lng": [6.768119, 80.471587]
   },
   {
     "id": "Maradankadawala",
     "name": "Maradankadawala",
-    "lat_lng": [
-      8.127441,
-      80.562699
-    ]
+    "lat_lng": [8.127441, 80.562699]
   },
   {
     "id": "Marawila",
     "name": "Marawila",
-    "lat_lng": [
-      7.423943,
-      79.835277
-    ]
+    "lat_lng": [7.423943, 79.835277]
   },
   {
     "id": "Marichchukaddi",
     "name": "Marichchukaddi",
-    "lat_lng": [
-      8.57098,
-      79.943054
-    ]
+    "lat_lng": [8.57098, 79.943054]
   },
   {
     "id": "Maskeliya",
     "name": "Maskeliya",
-    "lat_lng": [
-      6.832929,
-      80.570926
-    ]
+    "lat_lng": [6.832929, 80.570926]
   },
   {
     "id": "Matale",
     "name": "Matale",
-    "lat_lng": [
-      7.466945,
-      80.623312
-    ]
+    "lat_lng": [7.466945, 80.623312]
   },
   {
     "id": "Matara",
     "name": "Matara",
-    "lat_lng": [
-      5.941179,
-      80.538278
-    ]
+    "lat_lng": [5.941179, 80.538278]
   },
   {
     "id": "Mathale-PWD",
     "name": "Mathale-PWD",
-    "lat_lng": [
-      7.467465,
-      80.623416
-    ]
+    "lat_lng": [7.467465, 80.623416]
   },
   {
     "id": "Mathugama",
     "name": "Mathugama",
-    "lat_lng": [
-      6.521943,
-      80.113685
-    ]
+    "lat_lng": [6.521943, 80.113685]
   },
   {
     "id": "Mattala",
     "name": "Mattala",
-    "lat_lng": [
-      6.305154,
-      81.114091
-    ]
+    "lat_lng": [6.305154, 81.114091]
   },
   {
     "id": "Mattla",
     "name": "Mattla",
-    "lat_lng": [
-      6.28878,
-      81.124601
-    ]
+    "lat_lng": [6.28878, 81.124601]
   },
   {
     "id": "Maussakele",
     "name": "Maussakele",
-    "lat_lng": [
-      6.864516,
-      80.527176
-    ]
+    "lat_lng": [6.864516, 80.527176]
   },
   {
     "id": "Maussakelle",
     "name": "Maussakelle",
-    "lat_lng": [
-      6.831301,
-      80.552343
-    ]
+    "lat_lng": [6.831301, 80.552343]
   },
   {
     "id": "Mawanella",
     "name": "Mawanella",
-    "lat_lng": [
-      7.253313,
-      80.4392
-    ]
+    "lat_lng": [7.253313, 80.4392]
   },
   {
     "id": "Medawachchiya",
     "name": "Medawachchiya",
-    "lat_lng": [
-      8.537481,
-      80.490981
-    ]
+    "lat_lng": [8.537481, 80.490981]
   },
   {
     "id": "Mediyawa",
     "name": "Mediyawa",
-    "lat_lng": [
-      7.884139,
-      80.282306
-    ]
+    "lat_lng": [7.884139, 80.282306]
   },
   {
     "id": "Meegahatenna",
     "name": "Meegahatenna",
-    "lat_lng": [
-      7.011518,
-      81.092711
-    ]
+    "lat_lng": [7.011518, 81.092711]
   },
   {
     "id": "Meesalai",
     "name": "Meesalai",
-    "lat_lng": [
-      9.674666,
-      80.195875
-    ]
+    "lat_lng": [9.674666, 80.195875]
   },
   {
     "id": "Mellawa",
     "name": "Mellawa",
-    "lat_lng": [
-      7.338072,
-      79.927665
-    ]
+    "lat_lng": [7.338072, 79.927665]
   },
   {
     "id": "Middeniya Farm",
     "name": "Middeniya Farm",
-    "lat_lng": [
-      6.251358,
-      80.764165
-    ]
+    "lat_lng": [6.251358, 80.764165]
   },
   {
     "id": "Mihinthale",
     "name": "Mihinthale",
-    "lat_lng": [
-      8.358458,
-      80.511702
-    ]
+    "lat_lng": [8.358458, 80.511702]
   },
   {
     "id": "Minipe",
     "name": "Minipe",
-    "lat_lng": [
-      7.213405,
-      80.998919
-    ]
+    "lat_lng": [7.213405, 80.998919]
   },
   {
     "id": "Minneriya",
     "name": "Minneriya",
-    "lat_lng": [
-      8.038671,
-      80.906392
-    ]
+    "lat_lng": [8.038671, 80.906392]
   },
   {
     "id": "Monaragala",
     "name": "Monaragala",
-    "lat_lng": [
-      6.890645,
-      81.345442
-    ]
+    "lat_lng": [6.890645, 81.345442]
   },
   {
     "id": "Monaragala Water",
     "name": "Monaragala Water",
-    "lat_lng": [
-      6.890645,
-      81.345442
-    ]
+    "lat_lng": [6.890645, 81.345442]
   },
   {
     "id": "Monaragala Water Supply",
     "name": "Monaragala Water Supply",
-    "lat_lng": [
-      6.872842,
-      81.350619
-    ]
+    "lat_lng": [6.872842, 81.350619]
   },
   {
     "id": "Moneragala",
     "name": "Moneragala",
-    "lat_lng": [
-      6.872756,
-      81.350664
-    ]
+    "lat_lng": [6.872756, 81.350664]
   },
   {
     "id": "Moragaswewa",
     "name": "Moragaswewa",
-    "lat_lng": [
-      7.731868,
-      80.242963
-    ]
+    "lat_lng": [7.731868, 80.242963]
   },
   {
     "id": "Moraketiya",
     "name": "Moraketiya",
-    "lat_lng": [
-      6.34505,
-      80.901954
-    ]
+    "lat_lng": [6.34505, 80.901954]
   },
   {
     "id": "Moraliya-Oya",
     "name": "Moraliya-Oya",
-    "lat_lng": [
-      7.025512,
-      80.229343
-    ]
+    "lat_lng": [7.025512, 80.229343]
   },
   {
     "id": "Morapitiya",
     "name": "Morapitiya",
-    "lat_lng": [
-      6.53935,
-      80.246072
-    ]
+    "lat_lng": [6.53935, 80.246072]
   },
   {
     "id": "Mullaithivu",
     "name": "Mullaithivu",
-    "lat_lng": [
-      9.267091,
-      80.814248
-    ]
+    "lat_lng": [9.267091, 80.814248]
   },
   {
     "id": "Mullaitivu",
     "name": "Mullaitivu",
-    "lat_lng": [
-      9.267617,
-      80.812887
-    ]
+    "lat_lng": [9.267617, 80.812887]
   },
   {
     "id": "Mullativu",
     "name": "Mullativu",
-    "lat_lng": [
-      9.267091,
-      80.814248
-    ]
+    "lat_lng": [9.267091, 80.814248]
   },
   {
     "id": "Musali",
     "name": "Musali",
-    "lat_lng": [
-      8.729037,
-      79.962478
-    ]
+    "lat_lng": [8.729037, 79.962478]
   },
   {
     "id": "Muttur Base Hospital",
     "name": "Muttur Base Hospital",
-    "lat_lng": [
-      8.454534,
-      81.263018
-    ]
+    "lat_lng": [8.454534, 81.263018]
   },
   {
     "id": "Nachchaduwa Tank",
     "name": "Nachchaduwa Tank",
-    "lat_lng": [
-      8.265884,
-      80.475176
-    ]
+    "lat_lng": [8.265884, 80.475176]
   },
   {
     "id": "Nagalagam Street",
     "name": "Nagalagam Street",
-    "lat_lng": [
-      6.960272,
-      79.878583
-    ]
+    "lat_lng": [6.960272, 79.878583]
   },
   {
     "id": "Nainathive",
     "name": "Nainathive",
-    "lat_lng": [
-      9.607127,
-      79.765221
-    ]
+    "lat_lng": [9.607127, 79.765221]
   },
   {
     "id": "Nainathivu",
     "name": "Nainathivu",
-    "lat_lng": [
-      9.607127,
-      79.765221
-    ]
+    "lat_lng": [9.607127, 79.765221]
   },
   {
     "id": "Nakkala",
     "name": "Nakkala",
-    "lat_lng": [
-      6.890291,
-      81.297893
-    ]
+    "lat_lng": [6.890291, 81.297893]
   },
   {
     "id": "Namunukula",
     "name": "Namunukula",
-    "lat_lng": [
-      6.932938,
-      81.114167
-    ]
+    "lat_lng": [6.932938, 81.114167]
   },
   {
     "id": "Nanattan",
     "name": "Nanattan",
-    "lat_lng": [
-      8.837099,
-      79.96911
-    ]
+    "lat_lng": [8.837099, 79.96911]
   },
   {
     "id": "Nawagattegama",
     "name": "Nawagattegama",
-    "lat_lng": [
-      8.00654,
-      80.112149
-    ]
+    "lat_lng": [8.00654, 80.112149]
   },
   {
     "id": "Nawalapitiya",
     "name": "Nawalapitiya",
-    "lat_lng": [
-      7.046039,
-      80.526247
-    ]
+    "lat_lng": [7.046039, 80.526247]
   },
   {
     "id": "Neboda",
     "name": "Neboda",
-    "lat_lng": [
-      6.591655,
-      80.092601
-    ]
+    "lat_lng": [6.591655, 80.092601]
   },
   {
     "id": "Nedunkerni",
     "name": "Nedunkerni",
-    "lat_lng": [
-      9.053719,
-      80.660436
-    ]
+    "lat_lng": [9.053719, 80.660436]
   },
   {
     "id": "Nedunkerni ",
     "name": "Nedunkerni ",
-    "lat_lng": [
-      9.053719,
-      80.660436
-    ]
+    "lat_lng": [9.053719, 80.660436]
   },
   {
     "id": "Negombo",
     "name": "Negombo",
-    "lat_lng": [
-      7.154893,
-      79.849928
-    ]
+    "lat_lng": [7.154893, 79.849928]
   },
   {
     "id": "Nikaweratiya",
     "name": "Nikaweratiya",
-    "lat_lng": [
-      7.746386,
-      80.131693
-    ]
+    "lat_lng": [7.746386, 80.131693]
   },
   {
     "id": "Niriella",
     "name": "Niriella",
-    "lat_lng": [
-      6.62857,
-      80.360297
-    ]
+    "lat_lng": [6.62857, 80.360297]
   },
   {
     "id": "Nittambuwa",
     "name": "Nittambuwa",
-    "lat_lng": [
-      7.142364,
-      80.103772
-    ]
+    "lat_lng": [7.142364, 80.103772]
   },
   {
     "id": "Niwithigala Tea",
     "name": "Niwithigala Tea",
-    "lat_lng": [
-      6.595885,
-      80.457767
-    ]
+    "lat_lng": [6.595885, 80.457767]
   },
   {
     "id": "Nochchiyagama",
     "name": "Nochchiyagama",
-    "lat_lng": [
-      8.29255,
-      80.226554
-    ]
+    "lat_lng": [8.29255, 80.226554]
   },
   {
     "id": "Norochcholai",
     "name": "Norochcholai",
-    "lat_lng": [
-      8.034866,
-      79.731575
-    ]
+    "lat_lng": [8.034866, 79.731575]
   },
   {
     "id": "Northcove Riverside",
     "name": "Northcove Riverside",
-    "lat_lng": [
-      6.7719,
-      80.733524
-    ]
+    "lat_lng": [6.7719, 80.733524]
   },
   {
     "id": "Norton",
     "name": "Norton",
-    "lat_lng": [
-      6.91688,
-      80.517174
-    ]
+    "lat_lng": [6.91688, 80.517174]
   },
   {
     "id": "Norton Bridge Dam",
     "name": "Norton Bridge Dam",
-    "lat_lng": [
-      6.913982,
-      80.52161
-    ]
+    "lat_lng": [6.913982, 80.52161]
   },
   {
     "id": "Norwood",
     "name": "Norwood",
-    "lat_lng": [
-      6.839557,
-      80.612396
-    ]
+    "lat_lng": [6.839557, 80.612396]
   },
   {
     "id": "Nuwara Eliya",
     "name": "Nuwara Eliya",
-    "lat_lng": [
-      6.9497,
-      80.7891
-    ]
+    "lat_lng": [6.9497, 80.7891]
   },
   {
     "id": "Oddusudan",
     "name": "Oddusudan",
-    "lat_lng": [
-      9.153868,
-      80.649731
-    ]
+    "lat_lng": [9.153868, 80.649731]
   },
   {
     "id": "Oddusuddan",
     "name": "Oddusuddan",
-    "lat_lng": [
-      9.153868,
-      80.649731
-    ]
+    "lat_lng": [9.153868, 80.649731]
   },
   {
     "id": "Omanthai",
     "name": "Omanthai",
-    "lat_lng": [
-      8.872387,
-      80.507724
-    ]
+    "lat_lng": [8.872387, 80.507724]
   },
   {
     "id": "Opanayake",
     "name": "Opanayake",
-    "lat_lng": [
-      6.608484,
-      80.620203
-    ]
+    "lat_lng": [6.608484, 80.620203]
   },
   {
     "id": "Padiyathalawa",
     "name": "Padiyathalawa",
-    "lat_lng": [
-      7.382715,
-      81.19477
-    ]
+    "lat_lng": [7.382715, 81.19477]
   },
   {
     "id": "Padukka Estate",
     "name": "Padukka Estate",
-    "lat_lng": [
-      6.824363,
-      80.119188
-    ]
+    "lat_lng": [6.824363, 80.119188]
   },
   {
     "id": "Palavi",
     "name": "Palavi",
-    "lat_lng": [
-      9.653294,
-      80.218189
-    ]
+    "lat_lng": [9.653294, 80.218189]
   },
   {
     "id": "Pallegama",
     "name": "Pallegama",
-    "lat_lng": [
-      7.165628,
-      80.72456
-    ]
+    "lat_lng": [7.165628, 80.72456]
   },
   {
     "id": "Palugasdamana",
     "name": "Palugasdamana",
-    "lat_lng": [
-      7.96546,
-      81.025776
-    ]
+    "lat_lng": [7.96546, 81.025776]
   },
   {
     "id": "Palugaswewa",
     "name": "Palugaswewa",
-    "lat_lng": [
-      8.060441,
-      80.688172
-    ]
+    "lat_lng": [8.060441, 80.688172]
   },
   {
     "id": "Palugaswewa Estate",
     "name": "Palugaswewa Estate",
-    "lat_lng": [
-      7.64586,
-      79.862088
-    ]
+    "lat_lng": [7.64586, 79.862088]
   },
   {
     "id": "Pambegama TF",
     "name": "Pambegama TF",
-    "lat_lng": [
-      7.479698,
-      80.239373
-    ]
+    "lat_lng": [7.479698, 80.239373]
   },
   {
     "id": "Panadugama",
     "name": "Panadugama",
-    "lat_lng": [
-      6.110055,
-      80.480651
-    ]
+    "lat_lng": [6.110055, 80.480651]
   },
   {
     "id": "Panama Tank",
     "name": "Panama Tank",
-    "lat_lng": [
-      6.754508,
-      81.773372
-    ]
+    "lat_lng": [6.754508, 81.773372]
   },
   {
     "id": "Pannalgama",
     "name": "Pannalgama",
-    "lat_lng": [
-      7.092797,
-      81.636387
-    ]
+    "lat_lng": [7.092797, 81.636387]
   },
   {
     "id": "Parangiyawadiya",
     "name": "Parangiyawadiya",
-    "lat_lng": [
-      8.487985,
-      80.920774
-    ]
+    "lat_lng": [8.487985, 80.920774]
   },
   {
     "id": "Passikuda Eatste",
     "name": "Passikuda Eatste",
-    "lat_lng": [
-      7.922823,
-      81.565127
-    ]
+    "lat_lng": [7.922823, 81.565127]
   },
   {
     "id": "Pasyala",
     "name": "Pasyala",
-    "lat_lng": [
-      7.16671,
-      80.123317
-    ]
+    "lat_lng": [7.16671, 80.123317]
   },
   {
     "id": "Pelwehera",
     "name": "Pelwehera",
-    "lat_lng": [
-      7.903092,
-      80.670838
-    ]
+    "lat_lng": [7.903092, 80.670838]
   },
   {
     "id": "Penrith Estate",
     "name": "Penrith Estate",
-    "lat_lng": [
-      6.955736,
-      80.190296
-    ]
+    "lat_lng": [6.955736, 80.190296]
   },
   {
     "id": "Peradeniya",
     "name": "Peradeniya",
-    "lat_lng": [
-      7.264171,
-      80.593624
-    ]
+    "lat_lng": [7.264171, 80.593624]
   },
   {
     "id": "Perimiyankulama Bridge",
     "name": "Perimiyankulama Bridge",
-    "lat_lng": [
-      8.399041,
-      80.406235
-    ]
+    "lat_lng": [8.399041, 80.406235]
   },
   {
     "id": "Pimbura",
     "name": "Pimbura",
-    "lat_lng": [
-      6.558676,
-      80.156813
-    ]
+    "lat_lng": [6.558676, 80.156813]
   },
   {
     "id": "Pitabeddara",
     "name": "Pitabeddara",
-    "lat_lng": [
-      6.20713,
-      80.450443
-    ]
+    "lat_lng": [6.20713, 80.450443]
   },
   {
     "id": "Poddiwela Farm",
     "name": "Poddiwela Farm",
-    "lat_lng": [
-      6.766339,
-      79.889201
-    ]
+    "lat_lng": [6.766339, 79.889201]
   },
   {
     "id": "Point Pedro",
     "name": "Point Pedro",
-    "lat_lng": [
-      9.793788,
-      80.220977
-    ]
+    "lat_lng": [9.793788, 80.220977]
   },
   {
     "id": "Polonnaruva",
     "name": "Polonnaruva",
-    "lat_lng": [
-      7.914703,
-      81.000118
-    ]
+    "lat_lng": [7.914703, 81.000118]
   },
   {
     "id": "Polonnaruwa",
     "name": "Polonnaruwa",
-    "lat_lng": [
-      7.929983,
-      81.033243
-    ]
+    "lat_lng": [7.929983, 81.033243]
   },
   {
     "id": "Polontalawa",
     "name": "Polontalawa",
-    "lat_lng": [
-      7.940338,
-      81.018798
-    ]
+    "lat_lng": [7.940338, 81.018798]
   },
   {
     "id": "Poonagalla Group",
     "name": "Poonagalla Group",
-    "lat_lng": [
-      6.776502,
-      81.050625
-    ]
+    "lat_lng": [6.776502, 81.050625]
   },
   {
     "id": "Poonarin",
     "name": "Poonarin",
-    "lat_lng": [
-      9.503311,
-      80.211216
-    ]
+    "lat_lng": [9.503311, 80.211216]
   },
   {
     "id": "Pothuvil",
     "name": "Pothuvil",
-    "lat_lng": [
-      6.875271,
-      81.830633
-    ]
+    "lat_lng": [6.875271, 81.830633]
   },
   {
     "id": "Pottuvil",
     "name": "Pottuvil",
-    "lat_lng": [
-      6.875271,
-      81.830633
-    ]
+    "lat_lng": [6.875271, 81.830633]
   },
   {
     "id": "Pugoda-Kosgama Bridge",
     "name": "Pugoda-Kosgama Bridge",
-    "lat_lng": [
-      6.973443,
-      80.123296
-    ]
+    "lat_lng": [6.973443, 80.123296]
   },
   {
     "id": "Puliyam Pokkanai",
     "name": "Puliyam Pokkanai",
-    "lat_lng": [
-      9.450383,
-      80.532732
-    ]
+    "lat_lng": [9.450383, 80.532732]
   },
   {
     "id": "Pulmoddai",
     "name": "Pulmoddai",
-    "lat_lng": [
-      8.908636,
-      81.012716
-    ]
+    "lat_lng": [8.908636, 81.012716]
   },
   {
     "id": "Pulmudai",
     "name": "Pulmudai",
-    "lat_lng": [
-      8.944552,
-      80.982672
-    ]
+    "lat_lng": [8.944552, 80.982672]
   },
   {
     "id": "Puttalam",
     "name": "Puttalam",
-    "lat_lng": [
-      8.101878,
-      79.815567
-    ]
+    "lat_lng": [8.101878, 79.815567]
   },
   {
     "id": "Putupaula",
     "name": "Putupaula",
-    "lat_lng": [
-      6.611562,
-      80.059749
-    ]
+    "lat_lng": [6.611562, 80.059749]
   },
   {
     "id": "Rakshawa Mountains",
     "name": "Rakshawa Mountains",
-    "lat_lng": [
-      7.075929,
-      80.493999
-    ]
+    "lat_lng": [7.075929, 80.493999]
   },
   {
     "id": "Randenigala",
     "name": "Randenigala",
-    "lat_lng": [
-      7.188889,
-      80.925
-    ]
+    "lat_lng": [7.188889, 80.925]
   },
   {
     "id": "Randenigala Dam",
     "name": "Randenigala Dam",
-    "lat_lng": [
-      7.201778,
-      80.925236
-    ]
+    "lat_lng": [7.201778, 80.925236]
   },
   {
     "id": "Rantambe",
     "name": "Rantambe",
-    "lat_lng": [
-      7.191044,
-      80.946346
-    ]
+    "lat_lng": [7.191044, 80.946346]
   },
   {
     "id": "Rantambe Dam",
     "name": "Rantambe Dam",
-    "lat_lng": [
-      7.199712,
-      80.949661
-    ]
+    "lat_lng": [7.199712, 80.949661]
   },
   {
     "id": "Rathmalana",
     "name": "Rathmalana",
-    "lat_lng": [
-      6.819545,
-      79.880083
-    ]
+    "lat_lng": [6.819545, 79.880083]
   },
   {
     "id": "Rathmalgahawewa",
     "name": "Rathmalgahawewa",
-    "lat_lng": [
-      8.523399,
-      80.69649
-    ]
+    "lat_lng": [8.523399, 80.69649]
   },
   {
     "id": "Rathnapura",
     "name": "Rathnapura",
-    "lat_lng": [
-      6.68986,
-      80.380276
-    ]
+    "lat_lng": [6.68986, 80.380276]
   },
   {
     "id": "Ratmalana",
     "name": "Ratmalana",
-    "lat_lng": [
-      6.819545,
-      79.880083
-    ]
+    "lat_lng": [6.819545, 79.880083]
   },
   {
     "id": "Ratnapura",
     "name": "Ratnapura",
-    "lat_lng": [
-      6.705574,
-      80.384734
-    ]
+    "lat_lng": [6.705574, 80.384734]
   },
   {
     "id": "Ritigala",
     "name": "Ritigala",
-    "lat_lng": [
-      8.109892,
-      80.656236
-    ]
+    "lat_lng": [8.109892, 80.656236]
   },
   {
     "id": "Rufuskulam",
     "name": "Rufuskulam",
-    "lat_lng": [
-      7.085982,
-      81.777335
-    ]
+    "lat_lng": [7.085982, 81.777335]
   },
   {
     "id": "Rugam",
     "name": "Rugam",
-    "lat_lng": [
-      7.679028,
-      81.493799
-    ]
+    "lat_lng": [7.679028, 81.493799]
   },
   {
     "id": "Ruwanwella",
     "name": "Ruwanwella",
-    "lat_lng": [
-      7.044878,
-      80.250621
-    ]
+    "lat_lng": [7.044878, 80.250621]
   },
   {
     "id": "Salawa Estate",
     "name": "Salawa Estate",
-    "lat_lng": [
-      6.932787,
-      80.109101
-    ]
+    "lat_lng": [6.932787, 80.109101]
   },
   {
     "id": "Samanala Wawa",
     "name": "Samanala Wawa",
-    "lat_lng": [
-      6.678879,
-      80.799365
-    ]
+    "lat_lng": [6.678879, 80.799365]
   },
   {
     "id": "Samanalawewa Dam",
     "name": "Samanalawewa Dam",
-    "lat_lng": [
-      6.679007,
-      80.799365
-    ]
+    "lat_lng": [6.679007, 80.799365]
   },
   {
     "id": "Seeppukulama",
     "name": "Seeppukulama",
-    "lat_lng": [
-      8.388053,
-      80.593833
-    ]
+    "lat_lng": [8.388053, 80.593833]
   },
   {
     "id": "Seethawaka Bridge",
     "name": "Seethawaka Bridge",
-    "lat_lng": [
-      6.954084,
-      80.220158
-    ]
+    "lat_lng": [6.954084, 80.220158]
   },
   {
     "id": "Shettikulam",
     "name": "Shettikulam",
-    "lat_lng": [
-      8.665596,
-      80.296239
-    ]
+    "lat_lng": [8.665596, 80.296239]
   },
   {
     "id": "Sirikandura Estate",
     "name": "Sirikandura Estate",
-    "lat_lng": [
-      6.509835,
-      80.135693
-    ]
+    "lat_lng": [6.509835, 80.135693]
   },
   {
     "id": "Siyambalanduwa",
     "name": "Siyambalanduwa",
-    "lat_lng": [
-      6.905509,
-      81.545377
-    ]
+    "lat_lng": [6.905509, 81.545377]
   },
   {
     "id": "Siyambalangamuwa",
     "name": "Siyambalangamuwa",
-    "lat_lng": [
-      7.528824,
-      80.340806
-    ]
+    "lat_lng": [7.528824, 80.340806]
   },
   {
     "id": "Somawathiya Bridge",
     "name": "Somawathiya Bridge",
-    "lat_lng": [
-      8.099192,
-      81.174957
-    ]
+    "lat_lng": [8.099192, 81.174957]
   },
   {
     "id": "Spring Valley",
     "name": "Spring Valley",
-    "lat_lng": [
-      6.92781,
-      81.092711
-    ]
+    "lat_lng": [6.92781, 81.092711]
   },
   {
     "id": "Sri Pada",
     "name": "Sri Pada",
-    "lat_lng": [
-      6.809396,
-      80.499345
-    ]
+    "lat_lng": [6.809396, 80.499345]
   },
   {
     "id": "Sri Palabaddala",
     "name": "Sri Palabaddala",
-    "lat_lng": [
-      6.789064,
-      80.460464
-    ]
+    "lat_lng": [6.789064, 80.460464]
   },
   {
     "id": "Suriyawawa",
     "name": "Suriyawawa",
-    "lat_lng": [
-      6.319364,
-      81.002363
-    ]
+    "lat_lng": [6.319364, 81.002363]
   },
   {
     "id": "Tabbowa",
     "name": "Tabbowa",
-    "lat_lng": [
-      8.072732,
-      79.955642
-    ]
+    "lat_lng": [8.072732, 79.955642]
   },
   {
     "id": "Tampana",
     "name": "Tampana",
-    "lat_lng": [
-      7.447529,
-      80.405352
-    ]
+    "lat_lng": [7.447529, 80.405352]
   },
   {
     "id": "Thabuttegama",
     "name": "Thabuttegama",
-    "lat_lng": [
-      8.161297,
-      80.300054
-    ]
+    "lat_lng": [8.161297, 80.300054]
   },
   {
     "id": "Thalangaha Estate",
     "name": "Thalangaha Estate",
-    "lat_lng": [
-      6.146766,
-      80.3438
-    ]
+    "lat_lng": [6.146766, 80.3438]
   },
   {
     "id": "Thaldena",
     "name": "Thaldena",
-    "lat_lng": [
-      7.092703,
-      81.048654
-    ]
+    "lat_lng": [7.092703, 81.048654]
   },
   {
     "id": "Thalduwa Estate",
     "name": "Thalduwa Estate",
-    "lat_lng": [
-      6.965634,
-      80.231729
-    ]
+    "lat_lng": [6.965634, 80.231729]
   },
   {
     "id": "Thalgahagoda",
     "name": "Thalgahagoda",
-    "lat_lng": [
-      6.01233,
-      80.534797
-    ]
+    "lat_lng": [6.01233, 80.534797]
   },
   {
     "id": "Thamankaduwa",
     "name": "Thamankaduwa",
-    "lat_lng": [
-      7.939573,
-      81.000275
-    ]
+    "lat_lng": [7.939573, 81.000275]
   },
   {
     "id": "Thanamalwila",
     "name": "Thanamalwila",
-    "lat_lng": [
-      6.44281,
-      81.138893
-    ]
+    "lat_lng": [6.44281, 81.138893]
   },
   {
     "id": "Thangalle Water",
     "name": "Thangalle Water",
-    "lat_lng": [
-      6.024338,
-      80.794073
-    ]
+    "lat_lng": [6.024338, 80.794073]
   },
   {
     "id": "Thanthirimale",
     "name": "Thanthirimale",
-    "lat_lng": [
-      8.580763,
-      80.284006
-    ]
+    "lat_lng": [8.580763, 80.284006]
   },
   {
     "id": "Thawalama",
     "name": "Thawalama",
-    "lat_lng": [
-      6.342938,
-      80.331859
-    ]
+    "lat_lng": [6.342938, 80.331859]
   },
   {
     "id": "Thellippallei",
     "name": "Thellippallei",
-    "lat_lng": [
-      9.791087,
-      80.033931
-    ]
+    "lat_lng": [9.791087, 80.033931]
   },
   {
     "id": "Theppanawa",
     "name": "Theppanawa",
-    "lat_lng": [
-      6.767621,
-      80.312954
-    ]
+    "lat_lng": [6.767621, 80.312954]
   },
   {
     "id": "Thihagoda",
     "name": "Thihagoda",
-    "lat_lng": [
-      6.013339,
-      80.566004
-    ]
+    "lat_lng": [6.013339, 80.566004]
   },
   {
     "id": "Tholpuram",
     "name": "Tholpuram",
-    "lat_lng": [
-      9.756239,
-      79.949348
-    ]
+    "lat_lng": [9.756239, 79.949348]
   },
   {
     "id": "Thunukkai",
     "name": "Thunukkai",
-    "lat_lng": [
-      9.134049,
-      80.286264
-    ]
+    "lat_lng": [9.134049, 80.286264]
   },
   {
     "id": "Tientsin Bangalow",
     "name": "Tientsin Bangalow",
-    "lat_lng": [
-      6.813442,
-      80.657479
-    ]
+    "lat_lng": [6.813442, 80.657479]
   },
   {
     "id": "Tientsin Junction",
     "name": "Tientsin Junction",
-    "lat_lng": [
-      6.814296,
-      80.658218
-    ]
+    "lat_lng": [6.814296, 80.658218]
   },
   {
     "id": "Tissamaharamaya",
     "name": "Tissamaharamaya",
-    "lat_lng": [
-      6.279154,
-      81.287669
-    ]
+    "lat_lng": [6.279154, 81.287669]
   },
   {
     "id": "Trincomalee",
     "name": "Trincomalee",
-    "lat_lng": [
-      8.5874,
-      81.2152
-    ]
+    "lat_lng": [8.5874, 81.2152]
   },
   {
     "id": "Udaiyaarkaddu",
     "name": "Udaiyaarkaddu",
-    "lat_lng": [
-      9.356467,
-      80.613265
-    ]
+    "lat_lng": [9.356467, 80.613265]
   },
   {
     "id": "Udaradella",
     "name": "Udaradella",
-    "lat_lng": [
-      6.940316,
-      80.740843
-    ]
+    "lat_lng": [6.940316, 80.740843]
   },
   {
     "id": "Udugama",
     "name": "Udugama",
-    "lat_lng": [
-      6.217905,
-      80.338021
-    ]
+    "lat_lng": [6.217905, 80.338021]
   },
   {
     "id": "Uhana",
     "name": "Uhana",
-    "lat_lng": [
-      7.363036,
-      81.635277
-    ]
+    "lat_lng": [7.363036, 81.635277]
   },
   {
     "id": "Ukuwela",
     "name": "Ukuwela",
-    "lat_lng": [
-      7.423462,
-      80.63061
-    ]
+    "lat_lng": [7.423462, 80.63061]
   },
   {
     "id": "Ulhitiya",
     "name": "Ulhitiya",
-    "lat_lng": [
-      7.516698,
-      81.028538
-    ]
+    "lat_lng": [7.516698, 81.028538]
   },
   {
     "id": "Ulukkulam",
     "name": "Ulukkulam",
-    "lat_lng": [
-      8.688611,
-      80.423333
-    ]
+    "lat_lng": [8.688611, 80.423333]
   },
   {
     "id": "Uma Oya Dam",
     "name": "Uma Oya Dam",
-    "lat_lng": [
-      6.914126,
-      80.933339
-    ]
+    "lat_lng": [6.914126, 80.933339]
   },
   {
     "id": "Undugoda",
     "name": "Undugoda",
-    "lat_lng": [
-      7.139777,
-      80.357513
-    ]
+    "lat_lng": [7.139777, 80.357513]
   },
   {
     "id": "Unnichchai",
     "name": "Unnichchai",
-    "lat_lng": [
-      7.619725,
-      81.549469
-    ]
+    "lat_lng": [7.619725, 81.549469]
   },
   {
     "id": "Upper Aberdeen Falls",
     "name": "Upper Aberdeen Falls",
-    "lat_lng": [
-      6.946972,
-      80.501948
-    ]
+    "lat_lng": [6.946972, 80.501948]
   },
   {
     "id": "Upper Kotmale",
     "name": "Upper Kotmale",
-    "lat_lng": [
-      6.938954,
-      80.663037
-    ]
+    "lat_lng": [6.938954, 80.663037]
   },
   {
     "id": "Upper Kotmale Dam",
     "name": "Upper Kotmale Dam",
-    "lat_lng": [
-      6.946785,
-      80.657982
-    ]
+    "lat_lng": [6.946785, 80.657982]
   },
   {
     "id": "Urawa",
     "name": "Urawa",
-    "lat_lng": [
-      6.236507,
-      80.566338
-    ]
+    "lat_lng": [6.236507, 80.566338]
   },
   {
     "id": "Vakarai Kaddumurivu",
     "name": "Vakarai Kaddumurivu",
-    "lat_lng": [
-      8.13691,
-      81.434079
-    ]
+    "lat_lng": [8.13691, 81.434079]
   },
   {
     "id": "Vankalai",
     "name": "Vankalai",
-    "lat_lng": [
-      8.802658,
-      79.918568
-    ]
+    "lat_lng": [8.802658, 79.918568]
   },
   {
     "id": "Vavunikulam",
     "name": "Vavunikulam",
-    "lat_lng": [
-      9.102501,
-      80.335938
-    ]
+    "lat_lng": [9.102501, 80.335938]
   },
   {
     "id": "Vavuniya",
     "name": "Vavuniya",
-    "lat_lng": [
-      8.760441,
-      80.499711
-    ]
+    "lat_lng": [8.760441, 80.499711]
   },
   {
     "id": "Veppankulam Bridge",
     "name": "Veppankulam Bridge",
-    "lat_lng": [
-      8.799785,
-      80.015904
-    ]
+    "lat_lng": [8.799785, 80.015904]
   },
   {
     "id": "Victoria Dam",
     "name": "Victoria Dam",
-    "lat_lng": [
-      7.24144,
-      80.784702
-    ]
+    "lat_lng": [7.24144, 80.784702]
   },
   {
     "id": "Vogan Estate",
     "name": "Vogan Estate",
-    "lat_lng": [
-      6.54704,
-      80.10098
-    ]
+    "lat_lng": [6.54704, 80.10098]
   },
   {
     "id": "Vweyangoda",
     "name": "Vweyangoda",
-    "lat_lng": [
-      7.154055,
-      80.059375
-    ]
+    "lat_lng": [7.154055, 80.059375]
   },
   {
     "id": "Wadakada",
     "name": "Wadakada",
-    "lat_lng": [
-      7.397541,
-      80.268734
-    ]
+    "lat_lng": [7.397541, 80.268734]
   },
   {
     "id": "Wagolla",
     "name": "Wagolla",
-    "lat_lng": [
-      7.293142,
-      80.385698
-    ]
+    "lat_lng": [7.293142, 80.385698]
   },
   {
     "id": "Wallipuram",
     "name": "Wallipuram",
-    "lat_lng": [
-      9.790259,
-      80.24189
-    ]
+    "lat_lng": [9.790259, 80.24189]
   },
   {
     "id": "Warakapola",
     "name": "Warakapola",
-    "lat_lng": [
-      7.226803,
-      80.195875
-    ]
+    "lat_lng": [7.226803, 80.195875]
   },
   {
     "id": "Waralla",
     "name": "Waralla",
-    "lat_lng": [
-      6.276383,
-      80.524397
-    ]
+    "lat_lng": [6.276383, 80.524397]
   },
   {
     "id": "Wariyapola",
     "name": "Wariyapola",
-    "lat_lng": [
-      7.623914,
-      80.243314
-    ]
+    "lat_lng": [7.623914, 80.243314]
   },
   {
     "id": "Watapotha",
     "name": "Watapotha",
-    "lat_lng": [
-      6.587801,
-      80.503555
-    ]
+    "lat_lng": [6.587801, 80.503555]
   },
   {
     "id": "Watawala",
     "name": "Watawala",
-    "lat_lng": [
-      6.944947,
-      80.538983
-    ]
+    "lat_lng": [6.944947, 80.538983]
   },
   {
     "id": "Wathupitiwala",
     "name": "Wathupitiwala",
-    "lat_lng": [
-      7.13152,
-      80.121223
-    ]
+    "lat_lng": [7.13152, 80.121223]
   },
   {
     "id": "Weeraketiya Irrigation",
     "name": "Weeraketiya Irrigation",
-    "lat_lng": [
-      6.147608,
-      80.763374
-    ]
+    "lat_lng": [6.147608, 80.763374]
   },
   {
     "id": "Weheragala Irrigation",
     "name": "Weheragala Irrigation",
-    "lat_lng": [
-      6.547492,
-      81.260143
-    ]
+    "lat_lng": [6.547492, 81.260143]
   },
   {
     "id": "Welimda Malwatta",
     "name": "Welimda Malwatta",
-    "lat_lng": [
-      6.901907,
-      80.907924
-    ]
+    "lat_lng": [6.901907, 80.907924]
   },
   {
     "id": "Welioya",
     "name": "Welioya",
-    "lat_lng": [
-      8.964041,
-      80.787941
-    ]
+    "lat_lng": [8.964041, 80.787941]
   },
   {
     "id": "Wellawa",
     "name": "Wellawa",
-    "lat_lng": [
-      7.561547,
-      80.368649
-    ]
+    "lat_lng": [7.561547, 80.368649]
   },
   {
     "id": "Wellawaya",
     "name": "Wellawaya",
-    "lat_lng": [
-      6.733186,
-      81.109872
-    ]
+    "lat_lng": [6.733186, 81.109872]
   },
   {
     "id": "Weraganthota",
     "name": "Weraganthota",
-    "lat_lng": [
-      7.329959,
-      80.987896
-    ]
+    "lat_lng": [7.329959, 80.987896]
   },
   {
     "id": "Wewessa Estate",
     "name": "Wewessa Estate",
-    "lat_lng": [
-      6.961952,
-      81.107195
-    ]
+    "lat_lng": [6.961952, 81.107195]
   },
   {
     "id": "Wilgamuwa Bridge",
     "name": "Wilgamuwa Bridge",
-    "lat_lng": [
-      7.522707,
-      80.972192
-    ]
+    "lat_lng": [7.522707, 80.972192]
   },
   {
     "id": "Wilpita Estate",
     "name": "Wilpita Estate",
-    "lat_lng": [
-      6.103847,
-      80.521073
-    ]
+    "lat_lng": [6.103847, 80.521073]
   },
   {
     "id": "Yaka Wewa",
     "name": "Yaka Wewa",
-    "lat_lng": [
-      8.726532,
-      80.675054
-    ]
+    "lat_lng": [8.726532, 80.675054]
   },
   {
     "id": "Yala",
     "name": "Yala",
-    "lat_lng": [
-      6.364917,
-      81.538004
-    ]
+    "lat_lng": [6.364917, 81.538004]
   },
   {
     "id": "Yatiyanthota",
     "name": "Yatiyanthota",
-    "lat_lng": [
-      7.028882,
-      80.295542
-    ]
+    "lat_lng": [7.028882, 80.295542]
   },
   {
     "id": "Yatiyantota",
     "name": "Yatiyantota",
-    "lat_lng": [
-      7.028882,
-      80.295542
-    ]
+    "lat_lng": [7.028882, 80.295542]
   },
   {
     "id": "Yattapatha",
     "name": "Yattapatha",
-    "lat_lng": [
-      6.408532,
-      80.285093
-    ]
+    "lat_lng": [6.408532, 80.285093]
+  },
+  {
+    "id": "Kalawellawa (Millakanda)",
+    "name": "Kalawellawa (Millakanda)",
+    "lat_lng": [6.6315078194386246, 80.16073462916866]
   }
 ]
