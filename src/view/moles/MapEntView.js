@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import CustomDrawer from "../moles/CustomDrawer";
-import EntDetails from "../moles/EntDetails";
-import MapPlaceView from "../moles/MapPlaceView";
-import MapRegionView from "../moles/MapRegionView";
+import CustomDrawer from "./CustomDrawer";
+import EntDetails from "./EntDetails";
+import MapPlaceView from "./MapPlaceView";
+import MapRegionView from "./MapRegionView";
 import Place from "../../nonview/core/ents/Place";
 import RiverWaterLevelMeasurement from "../../nonview/core/events/RiverWaterLevelMeasurement";
 import LandslideWarning from "../../nonview/core/events/LandslideWarning";

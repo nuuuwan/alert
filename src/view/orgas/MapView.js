@@ -2,7 +2,7 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import "./MapView.css";
-import MapEntView from "./MapEntView";
+import MapEntView from "../moles/MapEntView";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 import CircularProgress from "@mui/material/CircularProgress";
 import DB from "../../nonview/core/DB";
