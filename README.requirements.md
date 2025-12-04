@@ -2,15 +2,18 @@
 
 *ALERT = Awareness, Logistics, Evacuation, Recovery and Tracking Platform*
 
+(✅ = DONE)
+
 # Functionality Requirements
 
 ## v0 – Immediate usefulness during a crisis
 
-1. Live weather alerts  
-2. Active disaster layer on the map, showing floods, landslides, storms, road closures, power outages, where data is available.  
+1. Live weather alerts ✅
+2. Active disaster layer on the map, showing floods ✅, landslides ✅, storms, road closures, power outages, where data is available.  
 3. Emergency contacts widget pinned on the map edge, offering tap-to-call for police, ambulance, fire, local authorities.  
 4. Safe places: manually curated list of hospitals, police stations, fire stations, DSDs, GNDs, and known evacuation centres.  
-5. Neighbourhood risk overlays: Flood risk zones, landslide risk zones, tsunami zones.  
+5. Neighbourhood risk overlays: Flood risk zones, landslide risk zones ✅, tsunami zones.  
+
 6. Offline mode (basic): Cached map tiles for user’s home area and stored emergency numbers.  
 7. Location sharing (opt-in): Simple “I’m safe” or “I need assistance” pin that users can send via WhatsApp or SMS.  
 8. Minimal admin dashboard for authorities to add or update shelters and notices.
