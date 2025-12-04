@@ -74,8 +74,14 @@ export default function WaterLevelChart({ station, measurements }) {
       <LineChart
         xAxis={[
           {
+            label: "Time",
             data: dates,
+            dataKey: "timeAxis",
             scaleType: "time",
+            tickLabelStyle: {
+              fontSize: 12,
+            },
+            tickNumber: 6,
             valueFormatter: (date, context) => {
               if (context?.location === "tooltip") {
                 return date.toLocaleString("en-US", DATE_TIME_FORMAT);
@@ -84,20 +90,16 @@ export default function WaterLevelChart({ station, measurements }) {
             },
           },
         ]}
+        yAxis={[
+          {
+            label: "Water Level (m)",
+            valueFormatter: (value) => `${value.toFixed(1)}m`,
+          },
+        ]}
         series={series}
-        height={375}
-        margin={20}
+        height={450}
         grid={{ vertical: true, horizontal: true }}
         sx={{
-          [`.${lineElementClasses.root}[data-series="majorFlood"]`]: {
-            strokeDasharray: "3 3",
-          },
-          [`.${lineElementClasses.root}[data-series="minorFlood"]`]: {
-            strokeDasharray: "3 3",
-          },
-          [`.${lineElementClasses.root}[data-series="alert"]`]: {
-            strokeDasharray: "3 3",
-          },
           ".MuiLineElement-series-majorFlood": {
             strokeDasharray: "3 3",
           },
@@ -107,6 +109,7 @@ export default function WaterLevelChart({ station, measurements }) {
           ".MuiLineElement-series-alert": {
             strokeDasharray: "3 3",
           },
+          "& .MuiChartsAxis-tickLabel": { fill: "currentColor" },
         }}
       />
     </Box>
