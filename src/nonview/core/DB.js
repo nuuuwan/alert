@@ -142,23 +142,19 @@ export default class DB {
 
     const alertIdxNdxTdx = Object.entries(alertNdxIdxTdx).reduce(function (
       alertIdxNdxTdx,
-      [name, alertNdxIdxTdx]
+      [name, alertIdxTdx]
     ) {
-      const alertIdxNdx = Object.entries(alertNdxIdxTdx).reduce(function (
-        alertIdxNdx,
-        [ndx, alertIdxTdx]
+      return Object.entries(alertIdxTdx).reduce(function (
+        alertIdxNdxTdx,
+        [id, alertTdx]
       ) {
-        if (!alertIdxNdx[ndx]) {
-          alertIdxNdx[ndx] = {};
+        if (!alertIdxNdxTdx[id]) {
+          alertIdxNdxTdx[id] = {};
         }
-        Object.entries(alertIdxTdx).forEach(function ([tdx, alert]) {
-          alertIdxNdx[ndx][tdx] = alert;
-        });
-        return alertIdxNdx;
+        alertIdxNdxTdx[id][name] = alertTdx;
+        return alertIdxNdxTdx;
       },
-      {});
-      alertIdxNdxTdx[name] = alertIdxNdx;
-      return alertIdxNdxTdx;
+      alertIdxNdxTdx);
     },
     {});
 
