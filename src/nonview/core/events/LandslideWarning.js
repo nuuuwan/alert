@@ -1,5 +1,6 @@
 import LandslideArea from "../roles/LandslideArea.js";
 import BaseEvent from "./BaseEvent.js";
+import LandslideThreatLevel from "./LandslideThreatLevel.js";
 
 export default class LandslideWarning extends BaseEvent {
   static getRoleClass() {
@@ -22,7 +23,7 @@ export default class LandslideWarning extends BaseEvent {
   }
 
   get landslideThreatLevel() {
-    return this.landslideThreatLevel.fromLevel(this.threatLevel);
+    return LandslideThreatLevel.fromLevel(this.threatLevel);
   }
 
   get priority() {
