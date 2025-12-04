@@ -24,7 +24,8 @@ export default class LandslideWarning extends Event {
         rawDataList,
         [datePart, level]
       ) {
-        const timeUt = TimeUtils.parseYYYYMMDD(datePart);
+        // Warnings are issued from 4pm to 4pm next day;
+        const timeUt = TimeUtils.parseYYYYMMDD(datePart) + 16 * 3_600;
         if (timeUt >= minTimeUt) {
           rawDataList.push({
             id: id,
