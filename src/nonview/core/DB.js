@@ -35,12 +35,12 @@ export default class DB {
         roleClasses.map(async function (RoleClass) {
           const roles = await RoleClass.idx();
           return [RoleClass.getRoleTypeName(), roles];
-        })
-      )
+        }),
+      ),
     );
     const roleIdxNdx = Object.entries(roleNdxIdx).reduce(function (
       roleIdxNdx,
-      [name, roleIdx]
+      [name, roleIdx],
     ) {
       return Object.entries(roleIdx).reduce(function (roleIdxNdx, [id, role]) {
         if (!roleIdxNdx[id]) {
@@ -49,8 +49,7 @@ export default class DB {
         roleIdxNdx[id][name] = role;
         return roleIdxNdx;
       }, roleIdxNdx);
-    },
-    {});
+    }, {});
 
     // Events
     const eventClasses = [
@@ -63,27 +62,25 @@ export default class DB {
         eventClasses.map(async function (EventClass) {
           const events = await EventClass.idxTdx();
           return [EventClass.getEventTypeName(), events];
-        })
-      )
+        }),
+      ),
     );
 
     const eventIdxNdxTdx = Object.entries(eventNdxIdxTdx).reduce(function (
       eventIdxNdxTdx,
-      [name, eventIdxTdx]
+      [name, eventIdxTdx],
     ) {
       return Object.entries(eventIdxTdx).reduce(function (
         eventIdxNdxTdx,
-        [id, eventTdx]
+        [id, eventTdx],
       ) {
         if (!eventIdxNdxTdx[id]) {
           eventIdxNdxTdx[id] = {};
         }
         eventIdxNdxTdx[id][name] = eventTdx;
         return eventIdxNdxTdx;
-      },
-      eventIdxNdxTdx);
-    },
-    {});
+      }, eventIdxNdxTdx);
+    }, {});
 
     // Alerts
     const alertClasses = [
@@ -107,11 +104,10 @@ export default class DB {
 
           const events = Object.values(eventIdxTdx).reduce(function (
             events,
-            eventTdx
+            eventTdx,
           ) {
             return events.concat(Object.values(eventTdx));
-          },
-          []);
+          }, []);
 
           const alertsIdxTdx = events.reduce((idxTdx, event) => {
             const role =
@@ -136,27 +132,25 @@ export default class DB {
           }, {});
 
           return [AlertClass.getAlertName(), alertsIdxTdx];
-        })
-      )
+        }),
+      ),
     );
 
     const alertIdxNdxTdx = Object.entries(alertNdxIdxTdx).reduce(function (
       alertIdxNdxTdx,
-      [name, alertIdxTdx]
+      [name, alertIdxTdx],
     ) {
       return Object.entries(alertIdxTdx).reduce(function (
         alertIdxNdxTdx,
-        [id, alertTdx]
+        [id, alertTdx],
       ) {
         if (!alertIdxNdxTdx[id]) {
           alertIdxNdxTdx[id] = {};
         }
         alertIdxNdxTdx[id][name] = alertTdx;
         return alertIdxNdxTdx;
-      },
-      alertIdxNdxTdx);
-    },
-    {});
+      }, alertIdxNdxTdx);
+    }, {});
 
     return {
       // Ents
