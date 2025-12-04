@@ -12,8 +12,6 @@ function getRoleDetailsComponent(eventClassName) {
 
 export default function RoleDetails({ eventClassName, ent, eventList }) {
   const RoleDetailsComponent = getRoleDetailsComponent(eventClassName);
-  const mostRecentEvent = eventList[eventList.length - 1];
-  const isStale = !mostRecentEvent.isWithinValidityWindow();
 
   return (
     <RoleDetailsComponent ent={ent} eventList={eventList} isStale={isStale} />
