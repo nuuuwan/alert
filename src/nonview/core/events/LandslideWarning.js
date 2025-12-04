@@ -18,11 +18,11 @@ export default class LandslideWarning extends Event {
     const minTimeUt = Math.floor(Date.now() / 1000) - 7 * 24 * 3600;
     return Object.entries(rawData["event_data"]).reduce(function (
       rawDataList,
-      [id, datePartToLevel]
+      [id, datePartToLevel],
     ) {
       return Object.entries(datePartToLevel).reduce(function (
         rawDataList,
-        [datePart, level]
+        [datePart, level],
       ) {
         // Warnings are issued from 4pm to 4pm next day;
         const timeUt = TimeUtils.parseYYYYMMDD(datePart) + 16 * 3_600;
@@ -34,10 +34,8 @@ export default class LandslideWarning extends Event {
           });
         }
         return rawDataList;
-      },
-      rawDataList);
-    },
-    []);
+      }, rawDataList);
+    }, []);
   }
 
   constructor(data) {

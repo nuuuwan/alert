@@ -20,11 +20,11 @@ class WeatherReport extends Event {
     const minTimeUt = Math.floor(Date.now() / 1000) - 52 * 24 * 3600;
     return Object.entries(rawData["event_data"]).reduce(function (
       rawDataList,
-      [id, datePartToMeasurementMap]
+      [id, datePartToMeasurementMap],
     ) {
       return Object.entries(datePartToMeasurementMap).reduce(function (
         rawDataList,
-        [datePart, measurementMap]
+        [datePart, measurementMap],
       ) {
         // Weather reports are for the 24 hours ending at 8am
         const timeUt = TimeUtils.parseYYYYMMDD(datePart) + 8 * 3_600;
@@ -39,10 +39,8 @@ class WeatherReport extends Event {
           });
         }
         return rawDataList;
-      },
-      rawDataList);
-    },
-    []);
+      }, rawDataList);
+    }, []);
   }
 
   constructor(data) {

@@ -15,7 +15,7 @@ export default function WeatherStationDetails({ ent: place }) {
       try {
         // Load weather reports
         const reports = (await WeatherReport.listForId(place.id)).sort(
-          (a, b) => a.timeUt - b.timeUt
+          (a, b) => a.timeUt - b.timeUt,
         );
 
         if (reports.length > 0) {

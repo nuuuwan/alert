@@ -1,6 +1,6 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { TimeAgoView } from "../atoms";
+import { Stale } from "../atoms";
 import { COLORS } from "../_cons/StyleConstants";
 
 export default function DetailsHeader({
@@ -55,7 +55,7 @@ export default function DetailsHeader({
           {subtitle}
         </Typography>
       )}
-      <TimeAgoView date={date} />
+      <Stale isStale={!isWithinValidityWindow} />
     </Box>
   );
 }

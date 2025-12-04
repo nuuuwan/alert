@@ -18,7 +18,7 @@ export default function LandslideRegionDetails({ ent: region }) {
       try {
         // Load landslide warnings
         const warnings = (await LandslideWarning.listForId(region.id)).sort(
-          (a, b) => a.timeUt - b.timeUt
+          (a, b) => a.timeUt - b.timeUt,
         );
 
         if (warnings.length > 0) {
