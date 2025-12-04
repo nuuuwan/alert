@@ -63,6 +63,8 @@ export default function GaugingStationDetails({ ent: place }) {
       (latestMeasurement.timeUt - previousMeasurement.timeUt) / 3_600;
   }
 
+  const isStale = !latestMeasurement.isWithinValidityWindow();
+
   return (
     <Box>
       <Box
@@ -86,7 +88,11 @@ export default function GaugingStationDetails({ ent: place }) {
       </Box>
 
       <Box sx={{ mt: 2, mb: 2 }}>
-        <TimeAgoView date={latestMeasurement.getDate()} variant="body2" />
+        <TimeAgoView
+          date={latestMeasurement.getDate()}
+          variant="body2"
+          isStale={isStale}
+        />
       </Box>
 
       <Divider sx={{ my: 3 }} />

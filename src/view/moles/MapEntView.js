@@ -4,6 +4,7 @@ import EntDetails from "./EntDetails";
 import MapPlaceView from "./MapPlaceView";
 import MapRegionView from "./MapRegionView";
 import Place from "../../nonview/core/ents/Place";
+import { COLORS } from "../_cons/StyleConstants";
 
 export default function MapEntView({ ent, eventClassNameToEventList }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -12,7 +13,10 @@ export default function MapEntView({ ent, eventClassNameToEventList }) {
   useEffect(() => {
     async function fetchColor() {
       const firstEvent = Object.values(eventClassNameToEventList)[0][0];
-      const color = await firstEvent.getColor(firstEvent);
+      const isWithinValidityWindow = firstEvent.isWithinValidityWindow();
+      const color = isWithinValidityWindow
+        ? await firstEvent.getColor(firstEvent)
+        : COLORS.gray;
       setEntColor(color);
     }
     fetchColor();

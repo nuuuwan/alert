@@ -15,7 +15,7 @@ export default function WeatherStationDetails({ ent: place }) {
       try {
         // Load weather reports
         const reports = (await WeatherReport.listForId(place.id)).sort(
-          (a, b) => a.timeUt - b.timeUt,
+          (a, b) => a.timeUt - b.timeUt
         );
 
         if (reports.length > 0) {
@@ -43,6 +43,8 @@ export default function WeatherStationDetails({ ent: place }) {
     return null;
   }
 
+  const isStale = !latestReport.isWithinValidityWindow();
+
   return (
     <Box>
       <Box
@@ -61,7 +63,11 @@ export default function WeatherStationDetails({ ent: place }) {
       </Box>
 
       <Box sx={{ mt: 2, mb: 2 }}>
-        <TimeAgoView date={latestReport.getDate()} variant="body2" />
+        <TimeAgoView
+          date={latestReport.getDate()}
+          variant="body2"
+          isStale={isStale}
+        />
       </Box>
 
       <Divider sx={{ my: 3 }} />

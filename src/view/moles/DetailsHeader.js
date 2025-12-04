@@ -13,6 +13,7 @@ export default function DetailsHeader({
   iconSize = 48,
   iconColor,
   iconStrokeColor = COLORS.white,
+  isStale,
 }) {
   return (
     <Box sx={{ mb: 2 }}>
@@ -54,7 +55,7 @@ export default function DetailsHeader({
           {subtitle}
         </Typography>
       )}
-      {date && <TimeAgoView date={date} />}
+      {date && <TimeAgoView date={date} isStale={isStale} />}
     </Box>
   );
 }

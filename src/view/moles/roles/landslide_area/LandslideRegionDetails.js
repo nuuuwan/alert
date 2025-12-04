@@ -18,7 +18,7 @@ export default function LandslideRegionDetails({ ent: region }) {
       try {
         // Load landslide warnings
         const warnings = (await LandslideWarning.listForId(region.id)).sort(
-          (a, b) => a.timeUt - b.timeUt,
+          (a, b) => a.timeUt - b.timeUt
         );
 
         if (warnings.length > 0) {
@@ -49,6 +49,8 @@ export default function LandslideRegionDetails({ ent: region }) {
     return null;
   }
 
+  const isStale = !latestWarning.isWithinValidityWindow();
+
   return (
     <Box>
       <Box
@@ -74,7 +76,11 @@ export default function LandslideRegionDetails({ ent: region }) {
       </Box>
 
       <Box sx={{ mt: 2, mb: 2 }}>
-        <TimeAgoView date={latestWarning.getDate()} variant="body2" />
+        <TimeAgoView
+          date={latestWarning.getDate()}
+          variant="body2"
+          isStale={isStale}
+        />
       </Box>
 
       <Divider sx={{ my: 3 }} />
