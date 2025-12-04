@@ -1,8 +1,8 @@
-import BaseEvent from "./BaseEvent.js";
+import Event from "./Event.js";
 import GaugingStation from "../roles/GaugingStation.js";
 import Place from "../ents/Place.js";
 import TimeUtils from "../TimeUtils.js";
-class RiverWaterLevelMeasurement extends BaseEvent {
+class RiverWaterLevelMeasurement extends Event {
   constructor(data) {
     super({
       id: data.id || data.station_name,
@@ -23,15 +23,15 @@ class RiverWaterLevelMeasurement extends BaseEvent {
     const minTimeUt = Math.floor(Date.now() / 1000) - 7 * 24 * 3600;
     return Object.entries(rawData["event_data"]).reduce(function (
       rawDataList,
-      [id, datePartToTimePartToWaterLevel],
+      [id, datePartToTimePartToWaterLevel]
     ) {
       return Object.entries(datePartToTimePartToWaterLevel).reduce(function (
         rawDataList,
-        [datePart, timePartToWaterLevel],
+        [datePart, timePartToWaterLevel]
       ) {
         return Object.entries(timePartToWaterLevel).reduce(function (
           rawDataList,
-          [timePart, waterLevel],
+          [timePart, waterLevel]
         ) {
           const timeUt = TimeUtils.parseYYYYMMDDHHHMMSS(datePart + timePart);
 
@@ -43,9 +43,12 @@ class RiverWaterLevelMeasurement extends BaseEvent {
             });
           }
           return rawDataList;
-        }, rawDataList);
-      }, rawDataList);
-    }, []);
+        },
+        rawDataList);
+      },
+      rawDataList);
+    },
+    []);
   }
 
   static async placeToLatestMeasurement() {

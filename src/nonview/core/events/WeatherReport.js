@@ -1,9 +1,9 @@
-import BaseEvent from "./BaseEvent";
+import Event from "./Event";
 import WeatherStation from "../roles/WeatherStation";
 import DataWithTimeMixin from "../../base/mixins/DataWithTimeMixin";
 import TimeUtils from "../TimeUtils";
 
-class WeatherReport extends BaseEvent {
+class WeatherReport extends Event {
   static getRoleClass() {
     return WeatherStation;
   }
@@ -20,11 +20,11 @@ class WeatherReport extends BaseEvent {
     const minTimeUt = Math.floor(Date.now() / 1000) - 1 * 24 * 3600;
     return Object.entries(rawData["event_data"]).reduce(function (
       rawDataList,
-      [id, datePartToMeasurementMap],
+      [id, datePartToMeasurementMap]
     ) {
       return Object.entries(datePartToMeasurementMap).reduce(function (
         rawDataList,
-        [datePart, measurementMap],
+        [datePart, measurementMap]
       ) {
         const timeUt = TimeUtils.parseYYYYMMDD(datePart);
 
@@ -38,8 +38,10 @@ class WeatherReport extends BaseEvent {
           });
         }
         return rawDataList;
-      }, rawDataList);
-    }, []);
+      },
+      rawDataList);
+    },
+    []);
   }
 
   constructor(data) {

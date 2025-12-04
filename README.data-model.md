@@ -75,7 +75,7 @@ Role for river water level monitoring stations.
 
 Events are time-based events associated with a particular Ent in a particular Role
 
-### BaseEvent
+### Event
 
 Abstract base class for all events.
 

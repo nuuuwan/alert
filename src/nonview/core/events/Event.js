@@ -1,6 +1,6 @@
 import { DataWithIDMixin, DataWithTimeMixin } from "../../base/mixins";
 
-class BaseEvent {
+class Event {
   static getRoleClass() {
     throw new Error("Not implemented");
   }
@@ -22,7 +22,7 @@ class BaseEvent {
   }
 }
 
-Object.assign(BaseEvent, DataWithIDMixin);
-Object.assign(BaseEvent.prototype, DataWithTimeMixin);
+Object.assign(Event, DataWithIDMixin);
+Object.assign(Event.prototype, DataWithTimeMixin);
 
-export default BaseEvent;
+export default Event;
