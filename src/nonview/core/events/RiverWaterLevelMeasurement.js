@@ -56,7 +56,7 @@ class RiverWaterLevelMeasurement extends BaseEvent {
   }
 
   async getColor() {
-    return (await this.alert()).color;
+    return (await this.alert()).colorRgb;
   }
 }
 
