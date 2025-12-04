@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import DetailsHeader from "./DetailsHeader";
 import RoleDetails from "./roles/RoleDetails";
 import { SatelliteImageView } from "../atoms";
-import { LocationIcon, AdminRegionIcon } from "../atoms/icons";
+import RoleIcon from "../atoms/icons/RoleIcon";
 import { COLORS } from "../_cons/StyleConstants";
 
 export default function EntDetails({
@@ -16,7 +16,10 @@ export default function EntDetails({
 
   const hasLatLng = !!ent.latLng;
 
-  const icon = hasLatLng ? LocationIcon : AdminRegionIcon;
+  const eventClassNames = Object.keys(eventClassNameToEventList);
+  const eventClassName = eventClassNames[0];
+
+  const Icon = RoleIcon.get(eventClassName);
   const iconColor = fillColor || COLORS.gray;
 
   const overlineText = ent.id !== ent.name ? ent.id : undefined;
@@ -29,7 +32,7 @@ export default function EntDetails({
         title={ent.name}
         titleColor={fillColor}
         subtitle={subtitle}
-        icon={icon}
+        icon={Icon}
         iconColor={iconColor}
       />
 

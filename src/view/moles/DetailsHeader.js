@@ -9,7 +9,7 @@ export default function DetailsHeader({
   titleColor,
   subtitle,
   date,
-  icon,
+  Icon,
   iconSize = 48,
   iconColor,
   iconStrokeColor = COLORS.white,
@@ -22,7 +22,7 @@ export default function DetailsHeader({
         </Typography>
       )}
       <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2, mb: 1 }}>
-        {icon && (
+        {Icon && (
           <Box
             sx={{
               height: iconSize,
@@ -30,7 +30,7 @@ export default function DetailsHeader({
               marginTop: "4px",
             }}
             dangerouslySetInnerHTML={{
-              __html: icon({
+              __html: Icon({
                 size: iconSize,
                 color: iconColor,
                 strokeColor: iconStrokeColor,

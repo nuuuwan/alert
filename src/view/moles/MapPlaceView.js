@@ -4,11 +4,7 @@ import L from "leaflet";
 import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import CustomDrawer from "./CustomDrawer";
 import EntDetails from "./EntDetails";
-import {
-  GaugeStationIcon,
-  LocationIcon,
-  WeatherStationIcon,
-} from "../atoms/icons";
+import RoleIcon from "../atoms/icons/RoleIcon";
 
 export default function MapPlaceView({ place, eventClassNameToEventList }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -26,12 +22,7 @@ export default function MapPlaceView({ place, eventClassNameToEventList }) {
   const defaultGetFileName = () => `${place.id}.png`;
 
   const firstClassName = eventClassNames[0];
-  let Icon = LocationIcon;
-  if (firstClassName === "RiverWaterLevelMeasurement") {
-    Icon = GaugeStationIcon;
-  } else if (firstClassName === "WeatherReport") {
-    Icon = WeatherStationIcon;
-  }
+  const Icon = RoleIcon.get(firstClassName);
   return (
     <>
       <Marker
