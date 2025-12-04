@@ -22,7 +22,7 @@ export default function MapView() {
     return <CircularProgress />;
   }
 
-  const { ents } = dbResults;
+  const { ents, roleIdxNdx, eventIdxNdxTdx, alertIdxNdxTdx } = dbResults;
 
   return (
     <MapContainer
@@ -36,7 +36,21 @@ export default function MapView() {
       />
 
       {ents.map(function (place) {
-        return <MapEntView key={place.id} ent={place} />;
+        const roleNdx = roleIdxNdx[place.id] || {};
+        const eventNdxIdx = eventIdxNdxTdx[place.id] || {};
+        const alertNdxIdx = alertIdxNdxTdx[place.id] || {};
+        const dbResultsForEnt = {
+          roleNdx,
+          eventNdxIdx,
+          alertNdxIdx,
+        };
+        return (
+          <MapEntView
+            key={place.id}
+            ent={place}
+            dbResultsForEnt={dbResultsForEnt}
+          />
+        );
       })}
     </MapContainer>
   );
