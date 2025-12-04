@@ -22,7 +22,16 @@ class Event {
     return 0;
   }
   async getColor() {
+    if (!this.isWithinValidityWindow) {
+      return "gray";
+    }
     return "cyan";
+  }
+  get isWithinValidityWindow() {
+    const currentTimeUt = Math.floor(Date.now() / 1000);
+    const validityWindowSeconds =
+      this.constructor.getValidityWindowHours() * 3600;
+    return currentTimeUt - this.timeUt <= validityWindowSeconds;
   }
 }
 
