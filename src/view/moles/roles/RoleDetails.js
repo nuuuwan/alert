@@ -16,7 +16,12 @@ function getRoleDetailsComponent(eventClassName) {
   }[eventClassName];
 }
 
-export default function RoleDetails({ eventClassName, ent, eventList, isWithinValidityWindow }) {
+export default function RoleDetails({
+  eventClassName,
+  ent,
+  eventList,
+  isWithinValidityWindow,
+}) {
   const [loading, setLoading] = useState(true);
   const [latestEvent, setLatestEvent] = useState(null);
 
@@ -45,8 +50,8 @@ export default function RoleDetails({ eventClassName, ent, eventList, isWithinVa
   return (
     <Paper sx={{ p: 2, m: 2 }}>
       <Box sx={{ mt: 2, mb: 2 }}>
-        <TimeAgoView 
-          date={latestEvent.getDate()} 
+        <TimeAgoView
+          date={latestEvent.getDate()}
           variant="body2"
           isWithinValidityWindow={isWithinValidityWindow}
         />
