@@ -27,9 +27,12 @@ export default function MapEntView({ ent }) {
         await Promise.all(
           eventClasses.map(async (EventClass) => {
             const eventList = await EventClass.listForId(ent.id);
+            if (!eventList || eventList.length === 0) {
+              return null;
+            }
             return [EventClass.getEventTypeName(), eventList];
           })
-        )
+        ).then((results) => results.filter((item) => item !== null))
       );
       setEventClassNameToEventList(eventClassNameToEventList2);
       setLoaded(true);

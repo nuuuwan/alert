@@ -11,7 +11,6 @@ export default function MapPlaceView({
   isStale,
 }) {
   const eventClassNames = Object.keys(eventClassNameToEventList);
-
   const firstClassName = eventClassNames[0];
   const Icon = RoleIcon.get(firstClassName);
   const iconSize = LOCATION_MARKER_RADIUS * 8;
