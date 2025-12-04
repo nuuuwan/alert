@@ -13,19 +13,29 @@ export default function MapPlaceView({
 
   const firstClassName = eventClassNames[0];
   const Icon = RoleIcon.get(firstClassName);
+  const iconSize = LOCATION_MARKER_RADIUS * 8;
+  const circleSize = iconSize * 1.1;
+
   return (
     <>
       <Marker
         position={ent.latLng}
         icon={L.divIcon({
           className: "place-icon",
-          html: Icon({
-            size: LOCATION_MARKER_RADIUS * 8,
-            color: entColor,
-            strokeColor: entColor,
-          }),
-          iconSize: [LOCATION_MARKER_RADIUS * 8, LOCATION_MARKER_RADIUS * 8],
-          iconAnchor: [LOCATION_MARKER_RADIUS * 4, LOCATION_MARKER_RADIUS * 8],
+          html: `
+            <div style="position: relative; width: ${iconSize}px; height: ${iconSize}px; display: flex; align-items: center; justify-content: center;">
+              <div style="position: absolute; width: ${circleSize}px; height: ${circleSize}px; background-color: white; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"></div>
+              <div style="position: relative; z-index: 1;">
+                ${Icon({
+                  size: iconSize,
+                  color: entColor,
+                  strokeColor: entColor,
+                })}
+              </div>
+            </div>
+          `,
+          iconSize: [iconSize, iconSize],
+          iconAnchor: [iconSize / 2, iconSize],
         })}
         eventHandlers={{
           click: onClick,
