@@ -22,6 +22,7 @@ export default class DB {
     // Ents
     const places = await Place.listAll();
     const dsds = await DSD.listAll();
+    const ents = [...places, ...dsds];
 
     const placeIdx = await Place.idx();
     const dsdIdx = await DSD.idx();
@@ -34,12 +35,12 @@ export default class DB {
         roleClasses.map(async function (RoleClass) {
           const roles = await RoleClass.idx();
           return [RoleClass.getRoleTypeName(), roles];
-        }),
-      ),
+        })
+      )
     );
     const roleIdxNdx = Object.entries(roleNdxIdx).reduce(function (
       roleIdxNdx,
-      [name, roleIdx],
+      [name, roleIdx]
     ) {
       return Object.entries(roleIdx).reduce(function (roleIdxNdx, [id, role]) {
         if (!roleIdxNdx[id]) {
@@ -48,7 +49,8 @@ export default class DB {
         roleIdxNdx[id][name] = role;
         return roleIdxNdx;
       }, roleIdxNdx);
-    }, {});
+    },
+    {});
 
     // Events
     const eventClasses = [
@@ -61,17 +63,17 @@ export default class DB {
         eventClasses.map(async function (EventClass) {
           const events = await EventClass.idxTdx();
           return [EventClass.getEventTypeName(), events];
-        }),
-      ),
+        })
+      )
     );
 
     const eventIdxNdxTdx = Object.entries(eventNdxIdxTdx).reduce(function (
       eventIdxNdxTdx,
-      [name, eventNdxIdxTdx],
+      [name, eventNdxIdxTdx]
     ) {
       const eventIdxNdx = Object.entries(eventNdxIdxTdx).reduce(function (
         eventIdxNdx,
-        [ndx, eventIdxTdx],
+        [ndx, eventIdxTdx]
       ) {
         if (!eventIdxNdx[ndx]) {
           eventIdxNdx[ndx] = {};
@@ -80,10 +82,12 @@ export default class DB {
           eventIdxNdx[ndx][tdx] = event;
         });
         return eventIdxNdx;
-      }, {});
+      },
+      {});
       eventIdxNdxTdx[name] = eventIdxNdx;
       return eventIdxNdxTdx;
-    }, {});
+    },
+    {});
 
     // Alerts
     const alertClasses = [
@@ -107,10 +111,11 @@ export default class DB {
 
           const events = Object.values(eventIdxTdx).reduce(function (
             events,
-            eventTdx,
+            eventTdx
           ) {
             return events.concat(Object.values(eventTdx));
-          }, []);
+          },
+          []);
 
           const alertsIdxTdx = events.reduce((idxTdx, event) => {
             const role =
@@ -135,17 +140,17 @@ export default class DB {
           }, {});
 
           return [AlertClass.getAlertName(), alertsIdxTdx];
-        }),
-      ),
+        })
+      )
     );
 
     const alertIdxNdxTdx = Object.entries(alertNdxIdxTdx).reduce(function (
       alertIdxNdxTdx,
-      [name, alertNdxIdxTdx],
+      [name, alertNdxIdxTdx]
     ) {
       const alertIdxNdx = Object.entries(alertNdxIdxTdx).reduce(function (
         alertIdxNdx,
-        [ndx, alertIdxTdx],
+        [ndx, alertIdxTdx]
       ) {
         if (!alertIdxNdx[ndx]) {
           alertIdxNdx[ndx] = {};
@@ -154,13 +159,16 @@ export default class DB {
           alertIdxNdx[ndx][tdx] = alert;
         });
         return alertIdxNdx;
-      }, {});
+      },
+      {});
       alertIdxNdxTdx[name] = alertIdxNdx;
       return alertIdxNdxTdx;
-    }, {});
+    },
+    {});
 
     return {
       // Ents
+      ents,
       places,
       dsds,
       // Roles

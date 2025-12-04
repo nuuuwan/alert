@@ -22,7 +22,7 @@ export default function MapView() {
     return <CircularProgress />;
   }
 
-  const { places, dsds } = dbResults;
+  const { ents } = dbResults;
 
   return (
     <MapContainer
@@ -35,12 +35,8 @@ export default function MapView() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {places.map(function (place) {
+      {ents.map(function (place) {
         return <MapEntView key={place.id} ent={place} />;
-      })}
-
-      {dsds.map(function (region) {
-        return <MapEntView key={region.id} ent={region} />;
       })}
     </MapContainer>
   );
