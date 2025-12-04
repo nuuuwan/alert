@@ -23,7 +23,7 @@ export default function MapEntView({ ent }) {
         WeatherReport,
       ];
 
-      const eventClassNameToEventList2 = Object.fromEntries(
+      const eventClassNameToEventList = Object.fromEntries(
         await Promise.all(
           eventClasses.map(async (EventClass) => {
             const eventList = await EventClass.listForId(ent.id);
@@ -34,7 +34,7 @@ export default function MapEntView({ ent }) {
           })
         ).then((results) => results.filter((item) => item !== null))
       );
-      setEventClassNameToEventList(eventClassNameToEventList2);
+      setEventClassNameToEventList(eventClassNameToEventList);
       setLoaded(true);
     }
 
