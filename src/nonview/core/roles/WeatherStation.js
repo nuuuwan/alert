@@ -1,7 +1,7 @@
-import BaseRole from "./BaseRole";
+import Role from "./Role";
 import Place from "../ents/Place";
 
-class WeatherStation extends BaseRole {
+class WeatherStation extends Role {
   static getEntClass() {
     return Place;
   }

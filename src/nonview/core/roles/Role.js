@@ -1,6 +1,6 @@
 import DataWithIDMixin from "../../base/mixins/DataWithIDMixin";
 
-class BaseRole {
+class Role {
   static getEntClass() {
     throw new Error("Not implemented");
   }
@@ -13,6 +13,6 @@ class BaseRole {
   }
 }
 
-Object.assign(BaseRole, DataWithIDMixin);
+Object.assign(Role, DataWithIDMixin);
 
-export default BaseRole;
+export default Role;

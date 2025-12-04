@@ -55,7 +55,7 @@ Administrative region type: `"gnd"` (Grama Niladhari Division)
 
 Roles describe the functional purpose of a Place or Region.
 
-### BaseRole
+### Role
 
 Abstract base class for all roles.
 

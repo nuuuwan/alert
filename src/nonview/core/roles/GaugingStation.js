@@ -1,8 +1,8 @@
 import Alert from "../Alert";
-import BaseRole from "./BaseRole";
+import Role from "./Role";
 import Place from "../ents/Place";
 
-class GaugingStation extends BaseRole {
+class GaugingStation extends Role {
   static getEntClass() {
     return Place;
   }
