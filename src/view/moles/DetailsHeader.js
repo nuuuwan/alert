@@ -1,6 +1,5 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { Stale } from "../atoms";
 import { COLORS } from "../_cons/StyleConstants";
 
 export default function DetailsHeader({
@@ -55,7 +54,6 @@ export default function DetailsHeader({
           {subtitle}
         </Typography>
       )}
-      <Stale isStale={!isWithinValidityWindow} />
     </Box>
   );
 }
