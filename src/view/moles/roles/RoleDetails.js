@@ -20,8 +20,11 @@ export default function RoleDetails({
   eventList,
   isStale,
 }) {
-  const latestEvent = eventList[0];
+  if (eventList.length === 0) {
+    throw new Error("eventList cannot be empty");
+  }
   const RoleDetailsComponent = getRoleDetailsComponent(eventClassName);
+  const latestEvent = eventList[0];
 
   return (
     <Paper sx={{ p: 2, m: 2 }}>

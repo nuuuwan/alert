@@ -40,6 +40,9 @@ export default function EntDetails({
         eventClassName,
         eventList,
       ]) {
+        if (eventList.length === 0) {
+          return null;
+        }
         return (
           <RoleDetails
             key={eventClassName}
