@@ -46,6 +46,7 @@ export default function EntDetails({
             eventClassName={eventClassName}
             ent={ent}
             eventList={eventList}
+            isWithinValidityWindow={isWithinValidityWindow}
           />
         );
       })}
