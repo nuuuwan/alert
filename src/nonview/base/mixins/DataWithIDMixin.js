@@ -4,12 +4,17 @@ import Cache from "../Cache";
 const DataWithIDMixin = {
   async listAll() {
     const url = this.getUrl();
-    const cacheKey = `${this.name}.listAll.${url}`;
+    const rawDataList = await Cache.get(
+      `DataWithIDMixin.listAll:${url}`,
+      async () => {
+        const rawData = await WWW.fetch(url);
+        const rawDataList = Array.isArray(rawData)
+          ? rawData
+          : this.rawDataToRawDataList(rawData);
 
-    const rawDataList = await Cache.get(cacheKey, async () => {
-      return await WWW.fetch(url);
-    });
-
+        return rawDataList;
+      }
+    );
     return this.listFromRawDataList(rawDataList);
   },
 
