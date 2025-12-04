@@ -25,6 +25,10 @@ class WeatherReport extends BaseEvent {
   get priority() {
     return 0; // FUTURE: Could be higher for heavy rain etc
   }
+
+  get color() {
+    return "black";
+  }
 }
 
 Object.assign(WeatherReport.prototype, DataWithTimeMixin);
