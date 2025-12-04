@@ -9,8 +9,6 @@ import {
 } from "../../../_cons/FormatConstants";
 import { CHART_COLORS } from "../../../_cons/StyleConstants";
 
-const CHART_WINDOW_DAYS = 7;
-
 export default function WaterLevelChart({ station, measurements }) {
   if (!measurements || measurements.length === 0) {
     return (
@@ -69,7 +67,7 @@ export default function WaterLevelChart({ station, measurements }) {
   return (
     <Box sx={{ mt: 3, mb: 2 }}>
       <Typography variant="h6" gutterBottom>
-        Water Level History (Last {CHART_WINDOW_DAYS} Days)
+        Water Level History
       </Typography>
       <LineChart
         xAxis={[
