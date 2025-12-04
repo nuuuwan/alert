@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import CustomDrawer from "./CustomDrawer";
-import EntDetails from "./EntDetails";
-import MapPlaceView from "./MapPlaceView";
-import MapRegionView from "./MapRegionView";
+import CustomDrawer from "../moles/CustomDrawer";
+import EntDetails from "../moles/EntDetails";
+import MapPlaceView from "../moles/MapPlaceView";
+import MapRegionView from "../moles/MapRegionView";
 import Place from "../../nonview/core/ents/Place";
 import RiverWaterLevelMeasurement from "../../nonview/core/events/RiverWaterLevelMeasurement";
 import LandslideWarning from "../../nonview/core/events/LandslideWarning";
@@ -11,7 +11,7 @@ import WeatherReport from "../../nonview/core/events/WeatherReport";
 export default function MapEntView({ ent }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [eventClassNameToEventList, setEventClassNameToEventList] = useState(
-    {}
+    {},
   );
   const [loaded, setLoaded] = useState(true);
 
@@ -28,8 +28,8 @@ export default function MapEntView({ ent }) {
           eventClasses.map(async (EventClass) => {
             const eventList = await EventClass.listForId(ent.id);
             return [EventClass.getEventTypeName(), eventList];
-          })
-        )
+          }),
+        ),
       );
       setEventClassNameToEventList(eventClassNameToEventList2);
       setLoaded(true);
