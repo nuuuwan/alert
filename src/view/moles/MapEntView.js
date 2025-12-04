@@ -45,7 +45,7 @@ export default function MapEntView({ ent, eventClassNameToEventList }) {
         renderContent={(ent) => (
           <EntDetails
             ent={ent}
-            fillColor={pathOptions?.fillColor}
+            entColor={entColor}
             eventClassNameToEventList={eventClassNameToEventList}
           />
         )}

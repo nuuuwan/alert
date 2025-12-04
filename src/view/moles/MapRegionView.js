@@ -1,7 +1,7 @@
 import { Polygon } from "react-leaflet";
 import { useState, useEffect } from "react";
 
-export default function MapRegionView({ region, pathOptions, onClick }) {
+export default function MapRegionView({ region, onClick, entColor }) {
   const [latLngListList, setLatLngListList] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function MapRegionView({ region, pathOptions, onClick }) {
         <Polygon
           key={`${region.id}-latLngList-${index}`}
           positions={latLngList}
-          pathOptions={pathOptions}
+          pathOptions={{ fill: entColor }}
           eventHandlers={{
             click: onClick,
           }}

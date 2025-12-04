@@ -7,6 +7,7 @@ export default function MapPlaceView({
   place,
   eventClassNameToEventList,
   onClick,
+  entColor,
 }) {
   const eventClassNames = Object.keys(eventClassNameToEventList);
 
@@ -20,8 +21,8 @@ export default function MapPlaceView({
           className: "place-icon",
           html: Icon({
             size: LOCATION_MARKER_RADIUS * 8,
-            color: "black",
-            strokeColor: "black",
+            color: entColor,
+            strokeColor: entColor,
           }),
           iconSize: [LOCATION_MARKER_RADIUS * 8, LOCATION_MARKER_RADIUS * 8],
           iconAnchor: [LOCATION_MARKER_RADIUS * 4, LOCATION_MARKER_RADIUS * 8],
