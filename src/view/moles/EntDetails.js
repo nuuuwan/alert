@@ -1,8 +1,6 @@
 import Box from "@mui/material/Box";
 import DetailsHeader from "./DetailsHeader";
-import GaugingStationDetails from "./roles/gauging_station/GaugingStationDetails";
-import WeatherStationDetails from "./roles/weather_station/WeatherStationDetails";
-import LandslideRegionDetails from "./roles/landslide_area/LandslideRegionDetails";
+import RoleDetails from "./roles/RoleDetails";
 import { SatelliteImageView } from "../atoms";
 import { LocationIcon, AdminRegionIcon } from "../atoms/icons";
 import { COLORS } from "../_cons/StyleConstants";
