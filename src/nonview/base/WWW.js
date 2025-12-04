@@ -3,7 +3,7 @@ import Cache from "./Cache";
 export default class WWW {
   static async fetchJSON(url) {
     const key = `WWW.fetchJSON:${url}`;
-    return Cache.get(key, async () => {
+    return await Cache.get(key, async () => {
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -14,7 +14,7 @@ export default class WWW {
 
   static async fetchTSV(url) {
     const key = `WWW.fetchTSV:${url}`;
-    return Cache.get(key, async () => {
+    return await Cache.get(key, async () => {
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -37,10 +37,10 @@ export default class WWW {
 
   static async fetch(url) {
     if (url.endsWith(".json")) {
-      return this.fetchJSON(url);
+      return await this.fetchJSON(url);
     }
     if (url.endsWith(".tsv")) {
-      return this.fetchTSV(url);
+      return await this.fetchTSV(url);
     }
     throw new Error(`Unsupported file format for URL: ${url}`);
   }
