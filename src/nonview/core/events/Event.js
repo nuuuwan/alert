@@ -18,9 +18,6 @@ class Event {
     this.timeUt = parseInt(timeUt);
   }
 
-  get priority() {
-    return 0;
-  }
   async getColor() {
     return "cyan";
   }
