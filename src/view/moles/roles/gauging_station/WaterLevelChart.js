@@ -59,7 +59,7 @@ export default function WaterLevelChart({ station, measurements }) {
         id,
         data: dates.map(() => levelM),
         label: alertClass.getAlertName(),
-        color: alertClass.color(),
+        color: alertClass.getColor(),
         showMark: false,
         curve: "linear",
       });
