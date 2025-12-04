@@ -1,7 +1,10 @@
 import Box from "@mui/material/Box";
 import { RainfallView, TemperatureView } from "../../../atoms";
 
-export default function WeatherStationDetails({ latestEvent, isStale = false }) {
+export default function WeatherStationDetails({
+  latestEvent,
+  isStale = false,
+}) {
   if (!latestEvent) {
     return null;
   }

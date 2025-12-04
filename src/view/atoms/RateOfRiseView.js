@@ -1,7 +1,11 @@
 import MetricView from "./MetricView";
 import { COLORS } from "../_cons/StyleConstants";
 
-export default function RateOfRiseView({ waterLevelDiff, timeDiffHours, isStale = false }) {
+export default function RateOfRiseView({
+  waterLevelDiff,
+  timeDiffHours,
+  isStale = false,
+}) {
   if (timeDiffHours === undefined || timeDiffHours <= 0) return null;
 
   const rateOfChangeCmPerHr = (waterLevelDiff / timeDiffHours) * 100;

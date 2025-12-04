@@ -1,6 +1,10 @@
 import MetricView from "./MetricView";
 
-export default function WaterLevelView({ waterLevelM, alert, isStale = false }) {
+export default function WaterLevelView({
+  waterLevelM,
+  alert,
+  isStale = false,
+}) {
   return (
     <MetricView
       label="Water Level"
