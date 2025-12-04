@@ -17,7 +17,7 @@ def places_check_very_close():
             dLng2 = (p1["lat_lng"][1] - p2["lat_lng"][1]) ** 2
             dist = (dLat2 + dLng2) ** 0.5
             if dist < 0.01:
-                log.warning(f"Places very close: {p1} and {p2} (dist={dist})")
+                log.warning(f"\"{p1['id']}\" and \"{p2['id']}\"")
 
 
 def build_places_from_place_to_lat_lng():
@@ -26,8 +26,6 @@ def build_places_from_place_to_lat_lng():
     ).read()
     places_from_place_to_latlng = []
     for place, lat_lng in place_to_lat_lng.items():
-        if "(" in place:
-            continue
         places_from_place_to_latlng.append(
             dict(
                 id=place,
@@ -41,13 +39,34 @@ def build_places_from_place_to_lat_lng():
     ).read()
 
     places = places_from_place_to_latlng + places_validate
-
     places = list({place["id"]: place for place in places}.values())
-    places.sort(key=lambda x: x["id"])
+
+    cleaned_places = []
+    for place in places:
+        if "(" in place["id"]:
+            continue
+
+        if "rainfall" in place["id"].lower():
+            continue
+
+        if "station" in place["id"].lower():
+            continue
+
+        place["lat_lng"][0] = round(place["lat_lng"][0], 6)
+        place["lat_lng"][1] = round(place["lat_lng"][1], 6)
+        if (
+            abs(place["lat_lng"][0] - 7.873054) < 0.00001
+            and abs(place["lat_lng"][1] - 80.771797) < 0.00001
+        ):
+            continue
+
+        cleaned_places.append(place)
+
+    cleaned_places.sort(key=lambda x: x["id"])
 
     json_file = JSONFile(os.path.join(DIR_DATA_STATIC, "places.json"))
-    json_file.write(places)
-    log.info(f"Wrote {len(places):,} places to {json_file}")
+    json_file.write(cleaned_places)
+    log.info(f"Wrote {len(cleaned_places):,} places to {json_file}")
 
 
 if __name__ == "__main__":
