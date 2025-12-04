@@ -5,7 +5,7 @@ import Divider from "@mui/material/Divider";
 import { RainfallView, TemperatureView, TimeAgoView } from "../../../atoms";
 import WeatherReport from "../../../../nonview/core/events/WeatherReport";
 
-export default function WeatherStationDetails({ place }) {
+export default function WeatherStationDetails({ ent: place }) {
   const [loading, setLoading] = useState(true);
   const [latestReport, setLatestReport] = useState(null);
 

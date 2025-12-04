@@ -7,7 +7,7 @@ import WaterLevelChart from "./WaterLevelChart";
 import GaugingStation from "../../../../nonview/core/roles/GaugingStation";
 import RiverWaterLevelMeasurement from "../../../../nonview/core/events/RiverWaterLevelMeasurement";
 
-export default function GaugingStationDetails({ place }) {
+export default function GaugingStationDetails({ ent: place }) {
   const [loading, setLoading] = useState(true);
   const [station, setStation] = useState(null);
   const [measurements, setMeasurements] = useState([]);

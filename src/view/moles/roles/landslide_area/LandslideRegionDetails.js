@@ -7,7 +7,7 @@ import { TimeAgoView } from "../../../atoms";
 import LandslideWarning from "../../../../nonview/core/events/LandslideWarning";
 import LandslideThreatLevel from "../../../../nonview/core/events/LandslideThreatLevel";
 
-export default function LandslideRegionDetails({ region }) {
+export default function LandslideRegionDetails({ ent: region }) {
   const [loading, setLoading] = useState(true);
   const [latestWarning, setLatestWarning] = useState(null);
   const [threatLevel, setThreatLevel] = useState(null);

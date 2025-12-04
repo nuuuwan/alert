@@ -41,17 +41,14 @@ export default function EntDetails({
         eventClassName,
         eventList,
       ]) {
-        if (eventClassName === "RiverWaterLevelMeasurement") {
-          return <GaugingStationDetails key={eventClassName} place={ent} />;
-        }
-        if (eventClassName === "WeatherReport") {
-          return <WeatherStationDetails key={eventClassName} place={ent} />;
-        }
-        if (eventClassName === "LandslideWarning") {
-          return <LandslideRegionDetails key={eventClassName} region={ent} />;
-        }
-
-        return null;
+        return (
+          <RoleDetails
+            key={eventClassName}
+            eventClassName={eventClassName}
+            ent={ent}
+            eventList={eventList}
+          />
+        );
       })}
 
       {hasLatLng && (
