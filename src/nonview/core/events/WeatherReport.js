@@ -27,7 +27,19 @@ class WeatherReport extends BaseEvent {
   }
 
   async getColor() {
-    return "black";
+    if (this.tempMaxC >= 35) {
+      return "red";
+    }
+    if (this.rainMM >= 200) {
+      return "violet";
+    }
+    if (this.rainMM >= 100) {
+      return "darkblue";
+    }
+    if (this.rainMM > 0) {
+      return "blue";
+    }
+    return "grey";
   }
 }
 
