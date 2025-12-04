@@ -5,7 +5,7 @@ import WeatherReport from "./events/WeatherReport";
 import DSD from "./ents/regions/admin_regions/DSD";
 export default class DB {
   static getEventClasses() {
-    return [RiverWaterLevelMeasurement, WeatherReport, LandslideWarning];
+    return [WeatherReport, RiverWaterLevelMeasurement, LandslideWarning];
   }
 
   static async getEventNameToEventListMap() {
@@ -14,7 +14,7 @@ export default class DB {
       classList.map(async (EventClass) => {
         const eventList = await EventClass.listAll();
         return [EventClass.getEventTypeName(), eventList];
-      }),
+      })
     );
     return Object.fromEntries(EventNameAndEventListList);
   }
@@ -23,7 +23,7 @@ export default class DB {
     const eventNameToEventListMap = await this.getEventNameToEventListMap();
     const idToEventNameToEventListMap = {};
     for (const [eventName, eventList] of Object.entries(
-      eventNameToEventListMap,
+      eventNameToEventListMap
     )) {
       eventList.forEach((event) => {
         if (!idToEventNameToEventListMap[event.id]) {
@@ -45,11 +45,11 @@ export default class DB {
     const regionIdx = await DSD.idx();
 
     const activePlaces = Object.values(placesIdx).filter(
-      (place) => idToEventNameToEventListMap[place.id],
+      (place) => idToEventNameToEventListMap[place.id]
     );
 
     const activeRegions = Object.values(regionIdx).filter(
-      (region) => idToEventNameToEventListMap[region.id],
+      (region) => idToEventNameToEventListMap[region.id]
     );
 
     return {

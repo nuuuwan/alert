@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import CircularProgress from "@mui/material/CircularProgress";
 import Divider from "@mui/material/Divider";
 import { TimeAgoView } from "../../atoms";
 import GaugingStationDetails from "./gauging_station/GaugingStationDetails";
