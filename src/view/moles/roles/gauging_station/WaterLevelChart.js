@@ -75,12 +75,7 @@ export default function WaterLevelChart({ station, measurements }) {
         xAxis={[
           {
             data: dates,
-            dataKey: "timeAxis",
             scaleType: "time",
-            tickLabelStyle: {
-              fontSize: 12,
-            },
-            tickNumber: 6,
             valueFormatter: (date, context) => {
               if (context?.location === "tooltip") {
                 return date.toLocaleString("en-US", DATE_TIME_FORMAT);
