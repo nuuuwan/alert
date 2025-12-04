@@ -1,6 +1,7 @@
 import BaseEvent from "./BaseEvent.js";
 import GaugingStation from "../roles/GaugingStation.js";
 import Place from "../ents/Place.js";
+import TimeUtils from "../TimeUtils.js";
 class RiverWaterLevelMeasurement extends BaseEvent {
   constructor(data) {
     super({
@@ -15,12 +16,36 @@ class RiverWaterLevelMeasurement extends BaseEvent {
   }
 
   static getUrl() {
-    // {
-    //   "station_name": "Thanthirimale",
-    //   "time_ut": 1764754996,
-    //   "water_level_m": 7.11
-    // },
-    return "https://raw.githubusercontent.com/nuuuwan/lk_irrigation/refs/heads/main/data/all.json";
+    return "https://raw.githubusercontent.com/nuuuwan/lk_irrigation/refs/heads/main/data/alert_data.json";
+  }
+
+  static rawDataToRawDataList(rawData) {
+    const minTimeUt = Math.floor(Date.now() / 1000) - 7 * 24 * 3600;
+    return Object.entries(rawData["event_data"]).reduce(function (
+      rawDataList,
+      [id, datePartToTimePartToWaterLevel],
+    ) {
+      return Object.entries(datePartToTimePartToWaterLevel).reduce(function (
+        rawDataList,
+        [datePart, timePartToWaterLevel],
+      ) {
+        return Object.entries(timePartToWaterLevel).reduce(function (
+          rawDataList,
+          [timePart, waterLevel],
+        ) {
+          const timeUt = TimeUtils.parseYYYYMMDDHHHMMSS(datePart + timePart);
+
+          if (timeUt >= minTimeUt) {
+            rawDataList.push({
+              id: id,
+              time_ut: timeUt,
+              water_level_m: waterLevel,
+            });
+          }
+          return rawDataList;
+        }, rawDataList);
+      }, rawDataList);
+    }, []);
   }
 
   static async placeToLatestMeasurement() {
