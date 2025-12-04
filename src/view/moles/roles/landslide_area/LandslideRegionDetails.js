@@ -22,7 +22,6 @@ export default function LandslideRegionDetails({ latestEvent }) {
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1 }}>
-          <Typography variant="h2">{threatLevel.emoji}</Typography>
           <Box>
             <Typography variant="h5" sx={{ fontWeight: "bold" }}>
               Landslide Threat Level {threatLevel.level}
