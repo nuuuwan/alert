@@ -42,6 +42,7 @@ export default function MapEntView({ ent, eventClassNameToEventList }) {
         eventClassNameToEventList={eventClassNameToEventList}
         onClick={handleClick}
         entColor={entColor}
+        isStale={isStale}
       />
       <CustomDrawer
         open={drawerOpen}
