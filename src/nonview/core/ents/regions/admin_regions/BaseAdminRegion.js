@@ -1,8 +1,8 @@
 import { WWW } from "../../../../base";
 import DataWithIDMixin from "../../../../base/mixins/DataWithIDMixin";
-import BaseRegion from "../BaseRegion";
+import Region from "../Region";
 
-class BaseAdminRegion extends BaseRegion {
+class BaseAdminRegion extends Region {
   static getAdminRegionType() {
     throw new Error("Not Implemented");
   }
@@ -34,7 +34,7 @@ class BaseAdminRegion extends BaseRegion {
       `/geo/${this.constructor.getAdminRegionType()}/${this.id}.json`;
     const lngLatListList = await WWW.fetchJSON(url);
     const latLngListList = lngLatListList.map((lngLatList) =>
-      lngLatList.map(([lng, lat]) => [lat, lng]),
+      lngLatList.map(([lng, lat]) => [lat, lng])
     );
     return latLngListList;
   }

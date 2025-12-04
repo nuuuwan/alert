@@ -18,7 +18,7 @@ Represents a single point on the map (e.g., weather stations, police stations).
 - `name`: Name of the place
 - `latLng`: Geographic coordinates (latitude, longitude pair)
 
-### BaseRegion
+### Region
 
 Abstract base class for all regions. A region is an area or collection of areas on a map.
 
@@ -28,7 +28,7 @@ Abstract base class for all regions. A region is an area or collection of areas 
 
 ### BaseAdminRegion
 
-Extends `BaseRegion` for administrative regions (Province, District, DSD, GND etc).
+Extends `Region` for administrative regions (Province, District, DSD, GND etc).
 
 - `id`: Region identifier
 - `name`: Region name
