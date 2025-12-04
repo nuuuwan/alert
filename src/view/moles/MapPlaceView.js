@@ -4,7 +4,11 @@ import L from "leaflet";
 import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import CustomDrawer from "./CustomDrawer";
 import EntDetails from "./EntDetails";
-import { GaugeStationIcon, LocationIcon, WeatherStationIcon } from "../atoms";
+import {
+  GaugeStationIcon,
+  LocationIcon,
+  WeatherStationIcon,
+} from "../atoms/icons";
 
 export default function MapPlaceView({ place, eventClassNameToEventList }) {
   const [drawerOpen, setDrawerOpen] = useState(false);

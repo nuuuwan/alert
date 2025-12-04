@@ -3,7 +3,8 @@ import DetailsHeader from "./DetailsHeader";
 import GaugingStationDetails from "./GaugingStationDetails";
 import WeatherStationDetails from "./WeatherStationDetails";
 import LandslideRegionDetails from "./LandslideRegionDetails";
-import { SatelliteImageView, LocationIcon, AdminRegionIcon } from "../atoms";
+import { SatelliteImageView } from "../atoms";
+import { LocationIcon, AdminRegionIcon } from "../atoms/icons";
 import { COLORS } from "../_cons/StyleConstants";
 
 export default function EntDetails({
