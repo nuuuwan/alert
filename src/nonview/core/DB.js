@@ -34,8 +34,8 @@ export default class DB {
         roleClasses.map(async function (RoleClass) {
           const roles = await RoleClass.idx();
           return [RoleClass.getRoleTypeName(), roles];
-        }),
-      ),
+        })
+      )
     );
 
     // Events
@@ -49,8 +49,8 @@ export default class DB {
         eventClasses.map(async function (EventClass) {
           const events = await EventClass.idxTdx();
           return [EventClass.getEventTypeName(), events];
-        }),
-      ),
+        })
+      )
     );
 
     // Alerts
@@ -75,10 +75,11 @@ export default class DB {
 
           const events = Object.values(eventIdxTdx).reduce(function (
             events,
-            eventTdx,
+            eventTdx
           ) {
             return events.concat(Object.values(eventTdx));
-          }, []);
+          },
+          []);
 
           const alertsIdxTdx = events.reduce((idxTdx, event) => {
             const role =
@@ -103,8 +104,8 @@ export default class DB {
           }, {});
 
           return [AlertClass.getAlertName(), alertsIdxTdx];
-        }),
-      ),
+        })
+      )
     );
 
     return {
