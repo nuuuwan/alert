@@ -5,44 +5,24 @@ import "./MapView.css";
 import MapEntView from "./MapEntView";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 import CircularProgress from "@mui/material/CircularProgress";
-import Place from "../../nonview/core/ents/Place";
-import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
-import WeatherStation from "../../nonview/core/roles/WeatherStation";
-import GaugingStation from "../../nonview/core/roles/GaugingStation";
-import LandslideArea from "../../nonview/core/roles/LandslideArea";
-import WeatherReport from "../../nonview/core/events/WeatherReport";
-import RiverWaterLevelMeasurement from "../../nonview/core/events/RiverWaterLevelMeasurement";
-import LandslideWarning from "../../nonview/core/events/LandslideWarning";
+import DB from "../../nonview/core/DB";
 
 export default function MapView() {
-  const [places, setPlaces] = useState([]);
-  const [dsds, setDSDs] = useState([]);
-  const [loaded, setLoaded] = useState(false);
+  const [dbResults, setDbResults] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
-      const places = await Place.listAll();
-      const dsds = await DSD.listAll();
-
-      // front load
-      await WeatherStation.listAll();
-      await GaugingStation.listAll();
-      await LandslideArea.listAll();
-
-      await WeatherReport.listAll();
-      await RiverWaterLevelMeasurement.listAll();
-      await LandslideWarning.listAll();
-
-      setPlaces(places);
-      setDSDs(dsds);
-      setLoaded(true);
+      const dbResults = await DB.load();
+      setDbResults(dbResults);
     }
     fetchData();
   }, []);
 
-  if (!loaded) {
+  if (!dbResults) {
     return <CircularProgress />;
   }
+
+  const { places, dsds } = dbResults;
 
   return (
     <MapContainer

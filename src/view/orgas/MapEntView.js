@@ -11,7 +11,7 @@ import WeatherReport from "../../nonview/core/events/WeatherReport";
 export default function MapEntView({ ent }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [eventClassNameToEventList, setEventClassNameToEventList] = useState(
-    {}
+    {},
   );
   const [loaded, setLoaded] = useState(true);
 
@@ -31,8 +31,8 @@ export default function MapEntView({ ent }) {
               return null;
             }
             return [EventClass.getEventTypeName(), eventList];
-          })
-        ).then((results) => results.filter((item) => item !== null))
+          }),
+        ).then((results) => results.filter((item) => item !== null)),
       );
       setEventClassNameToEventList(eventClassNameToEventList);
       setLoaded(true);
@@ -47,7 +47,7 @@ export default function MapEntView({ ent }) {
 
   const nEvents = Object.values(eventClassNameToEventList).reduce(
     (sum, eventList) => sum + eventList.length,
-    0
+    0,
   );
   if (nEvents === 0) {
     return null;
