@@ -43,8 +43,6 @@ export default function WeatherStationDetails({ ent: place }) {
     return null;
   }
 
-  const isStale = !latestReport.isWithinValidityWindow();
-
   return (
     <Box>
       <Box
@@ -63,11 +61,7 @@ export default function WeatherStationDetails({ ent: place }) {
       </Box>
 
       <Box sx={{ mt: 2, mb: 2 }}>
-        <TimeAgoView
-          date={latestReport.getDate()}
-          variant="body2"
-          isStale={isStale}
-        />
+        <TimeAgoView date={latestReport.getDate()} variant="body2" />
       </Box>
 
       <Divider sx={{ my: 3 }} />

@@ -88,11 +88,7 @@ export default function GaugingStationDetails({ ent: place }) {
       </Box>
 
       <Box sx={{ mt: 2, mb: 2 }}>
-        <TimeAgoView
-          date={latestMeasurement.getDate()}
-          variant="body2"
-          isStale={isStale}
-        />
+        <TimeAgoView date={latestMeasurement.getDate()} variant="body2" />
       </Box>
 
       <Divider sx={{ my: 3 }} />

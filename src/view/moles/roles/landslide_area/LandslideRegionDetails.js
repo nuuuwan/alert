@@ -49,8 +49,6 @@ export default function LandslideRegionDetails({ ent: region }) {
     return null;
   }
 
-  const isStale = !latestWarning.isWithinValidityWindow();
-
   return (
     <Box>
       <Box
@@ -76,11 +74,7 @@ export default function LandslideRegionDetails({ ent: region }) {
       </Box>
 
       <Box sx={{ mt: 2, mb: 2 }}>
-        <TimeAgoView
-          date={latestWarning.getDate()}
-          variant="body2"
-          isStale={isStale}
-        />
+        <TimeAgoView date={latestWarning.getDate()} variant="body2" />
       </Box>
 
       <Divider sx={{ my: 3 }} />
