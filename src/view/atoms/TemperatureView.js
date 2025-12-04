@@ -1,7 +1,7 @@
 import MetricView from "./MetricView";
 import { WEATHER_COLORS, COLORS } from "../_cons/StyleConstants";
 
-export default function TemperatureView({ tempMin, tempMax }) {
+export default function TemperatureView({ tempMin, tempMax, isStale = false }) {
   if (
     (tempMin === null || tempMin === undefined) &&
     (tempMax === null || tempMax === undefined)
@@ -58,6 +58,7 @@ export default function TemperatureView({ tempMin, tempMax }) {
       badgeColor={maxColor}
       valueVariant="h4"
       unitVariant="h6"
+      isStale={isStale}
     />
   );
 }

@@ -60,6 +60,7 @@ export default function RoleDetails({
         ent={ent}
         eventList={eventList}
         latestEvent={latestEvent}
+        isStale={isStale}
       />
       <Divider sx={{ my: 3 }} />
     </Paper>

@@ -1,7 +1,7 @@
 import MetricView from "./MetricView";
 import { WEATHER_COLORS } from "../_cons/StyleConstants";
 
-export default function RainfallView({ rainMM }) {
+export default function RainfallView({ rainMM, isStale = false }) {
   if (rainMM === null || rainMM === undefined) {
     return null;
   }
@@ -35,6 +35,7 @@ export default function RainfallView({ rainMM }) {
       badgeColor={color}
       valueVariant="h3"
       unitVariant="h6"
+      isStale={isStale}
     />
   );
 }

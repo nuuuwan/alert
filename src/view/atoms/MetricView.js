@@ -10,7 +10,10 @@ export default function MetricView({
   badgeColor,
   valueVariant = "h3",
   unitVariant = "h6",
+  isStale = false,
 }) {
+  const displayColor = isStale ? COLORS.gray : badgeColor;
+
   return (
     <Box>
       <Typography
@@ -22,7 +25,11 @@ export default function MetricView({
         {label}
       </Typography>
       <Box sx={{ display: "flex", alignItems: "baseline", gap: 0.5, mb: 1 }}>
-        <Typography variant={valueVariant} component="span" color={badgeColor}>
+        <Typography
+          variant={valueVariant}
+          component="span"
+          color={displayColor}
+        >
           {value}
         </Typography>
         <Typography
@@ -37,7 +44,7 @@ export default function MetricView({
         <Box
           sx={{
             display: "inline-block",
-            backgroundColor: badgeColor,
+            backgroundColor: displayColor,
             color: COLORS.white,
             fontWeight: "bold",
             ...(valueVariant === "h3"

@@ -1,7 +1,7 @@
 import MetricView from "./MetricView";
 import { COLORS } from "../_cons/StyleConstants";
 
-export default function RateOfRiseView({ waterLevelDiff, timeDiffHours }) {
+export default function RateOfRiseView({ waterLevelDiff, timeDiffHours, isStale = false }) {
   if (timeDiffHours === undefined || timeDiffHours <= 0) return null;
 
   const rateOfChangeCmPerHr = (waterLevelDiff / timeDiffHours) * 100;
@@ -34,6 +34,7 @@ export default function RateOfRiseView({ waterLevelDiff, timeDiffHours }) {
       badgeColor={color}
       valueVariant="h5"
       unitVariant="body2"
+      isStale={isStale}
     />
   );
 }

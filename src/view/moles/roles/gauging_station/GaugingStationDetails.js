@@ -6,7 +6,7 @@ import WaterLevelChart from "./WaterLevelChart";
 import GaugingStation from "../../../../nonview/core/roles/GaugingStation";
 import RiverWaterLevelMeasurement from "../../../../nonview/core/events/RiverWaterLevelMeasurement";
 
-export default function GaugingStationDetails({ ent: place, latestEvent }) {
+export default function GaugingStationDetails({ ent: place, latestEvent, isStale = false }) {
   const [loading, setLoading] = useState(true);
   const [station, setStation] = useState(null);
   const [measurements, setMeasurements] = useState([]);
@@ -75,11 +75,13 @@ export default function GaugingStationDetails({ ent: place, latestEvent }) {
         <WaterLevelView
           waterLevelM={latestMeasurement.waterLevelM}
           alert={alert}
+          isStale={isStale}
         />
         {waterLevelDiff !== null && timeDiffHours !== null && (
           <RateOfRiseView
             waterLevelDiff={waterLevelDiff}
             timeDiffHours={timeDiffHours}
+            isStale={isStale}
           />
         )}
       </Box>

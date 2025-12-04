@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import { RainfallView, TemperatureView } from "../../../atoms";
 
-export default function WeatherStationDetails({ latestEvent }) {
+export default function WeatherStationDetails({ latestEvent, isStale = false }) {
   if (!latestEvent) {
     return null;
   }
@@ -18,10 +18,11 @@ export default function WeatherStationDetails({ latestEvent }) {
           mb: 2,
         }}
       >
-        <RainfallView rainMM={latestReport.rainMM} />
+        <RainfallView rainMM={latestReport.rainMM} isStale={isStale} />
         <TemperatureView
           tempMin={latestReport.tempMinC}
           tempMax={latestReport.tempMaxC}
+          isStale={isStale}
         />
       </Box>
     </Box>
