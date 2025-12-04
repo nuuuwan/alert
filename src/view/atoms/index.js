@@ -3,6 +3,7 @@ import MetricView from "./MetricView";
 import RainfallView from "./RainfallView";
 import RateOfRiseView from "./RateOfRiseView";
 import SatelliteImageView from "./SatelliteImageView";
+import Stale from "./Stale";
 import TemperatureView from "./TemperatureView";
 import TimeAgoView from "./TimeAgoView";
 import WaterLevelView from "./WaterLevelView";
@@ -12,6 +13,7 @@ export {
   RainfallView,
   RateOfRiseView,
   SatelliteImageView,
+  Stale,
   TemperatureView,
   TimeAgoView,
   WaterLevelView,
