@@ -1,6 +1,5 @@
 import LandslideArea from "../roles/LandslideArea.js";
 import Event from "./Event.js";
-import LandslideThreatLevel from "./LandslideThreatLevel.js";
 import TimeUtils from "../TimeUtils.js";
 export default class LandslideWarning extends Event {
   static getRoleClass() {
@@ -44,14 +43,6 @@ export default class LandslideWarning extends Event {
       timeUt: data.timeUt || data.time_ut,
     });
     this.threatLevel = parseInt(data.threatLevel || data.threat_level);
-  }
-
-  get landslideThreatLevel() {
-    return LandslideThreatLevel.fromLevel(this.threatLevel);
-  }
-
-  get priority() {
-    return ((this.threatLevel - 1) * 100) / 3;
   }
 
   async getColor() {

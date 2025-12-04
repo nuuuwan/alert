@@ -7,7 +7,7 @@ export default class LandslideWarningLevel2 extends Alert {
   }
 
   static getAlertName() {
-    return "Landslide Warning Level 2";
+    return "Landslide Warning Level 2 - Alert";
   }
 
   static color() {
