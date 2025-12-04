@@ -8,7 +8,7 @@ import Place from "../../nonview/core/ents/Place";
 export default function MapEntView({ ent, dbResultsForEnt }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const { roleNdx, eventNdxTdx, alertNdxTdx } = dbResultsForEnt;
+  const { eventNdxTdx, alertNdxTdx } = dbResultsForEnt;
 
   const eventClassNameToEventList = Object.entries(eventNdxTdx).reduce(
     (acc, [eventClassName, eventTdx]) => {
