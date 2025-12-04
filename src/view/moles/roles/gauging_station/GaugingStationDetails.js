@@ -19,15 +19,11 @@ export default function GaugingStationDetails({
     async function loadData() {
       setLoading(true);
       try {
-        // Load the gauging station role
         const gaugingStation = await GaugingStation.fromID(place.id);
         setStation(gaugingStation);
-
-        // Load measurements
-        const measurements = (
-          await RiverWaterLevelMeasurement.listForId(place.id)
-        ).sort((a, b) => a.timeUt - b.timeUt);
-
+        const measurements = await RiverWaterLevelMeasurement.listForId(
+          place.id,
+        );
         setMeasurements(measurements);
       } catch (error) {
         console.error("Error loading gauging station data:", error);
@@ -48,22 +44,19 @@ export default function GaugingStationDetails({
 
   const latestMeasurement = measurements[0];
   const previousMeasurement = measurements[1];
-
-  if (!station || !latestMeasurement) {
+  if (!station || !latestMeasurement || !previousMeasurement) {
     return null;
   }
 
   const alert = station.getAlert(latestMeasurement.waterLevelM);
 
-  // Calculate rate of rise
-  let waterLevelDiff = null;
-  let timeDiffHours = null;
+  const waterLevelDiff =
+    latestMeasurement.waterLevelM - previousMeasurement.waterLevelM;
+  const timeDiffHours =
+    (latestMeasurement.timeUt - previousMeasurement.timeUt) / 3_600;
 
-  if (previousMeasurement) {
-    waterLevelDiff =
-      latestMeasurement.waterLevelM - previousMeasurement.waterLevelM;
-    timeDiffHours =
-      (latestMeasurement.timeUt - previousMeasurement.timeUt) / 3_600;
+  if (timeDiffHours < 0) {
+    throw new Error("Negative timeDiffHours.");
   }
 
   return (
@@ -81,13 +74,11 @@ export default function GaugingStationDetails({
           alert={alert}
           isStale={isStale}
         />
-        {waterLevelDiff !== null && timeDiffHours !== null && (
-          <RateOfRiseView
-            waterLevelDiff={waterLevelDiff}
-            timeDiffHours={timeDiffHours}
-            isStale={isStale}
-          />
-        )}
+        <RateOfRiseView
+          waterLevelDiff={waterLevelDiff}
+          timeDiffHours={timeDiffHours}
+          isStale={isStale}
+        />
       </Box>
 
       <WaterLevelChart station={station} measurements={measurements} />

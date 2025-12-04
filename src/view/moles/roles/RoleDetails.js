@@ -26,10 +26,7 @@ export default function RoleDetails({
   const [latestEvent, setLatestEvent] = useState(null);
 
   useEffect(() => {
-    if (eventList && eventList.length > 0) {
-      const sorted = [...eventList].sort((a, b) => a.timeUt - b.timeUt);
-      setLatestEvent(sorted[sorted.length - 1]);
-    }
+    setLatestEvent(eventList[eventList.length - 1]);
     setLoading(false);
   }, [eventList]);
 
