@@ -22,7 +22,7 @@ export default function RoleDetails({ eventClassName, ent, eventList }) {
 
   useEffect(() => {
     if (eventList && eventList.length > 0) {
-      const sorted = [...eventList].sort((a, b) => b.timeUt - b.timeUt);
+      const sorted = [...eventList].sort((a, b) => a.timeUt - b.timeUt);
       setLatestEvent(sorted[sorted.length - 1]);
     }
     setLoading(false);

@@ -12,9 +12,7 @@ export default class DB {
     const classList = this.getEventClasses();
     const EventNameAndEventListList = await Promise.all(
       classList.map(async (EventClass) => {
-        const eventList = (await EventClass.listAll()).sort(
-          (a, b) => b.timeUt - a.timeUt
-        );
+        const eventList = await EventClass.listAll();
         return [EventClass.getEventTypeName(), eventList];
       })
     );
