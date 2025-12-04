@@ -1,5 +1,5 @@
-import BaseAdminRegion from "./BaseAdminRegion";
-export default class DSD extends BaseAdminRegion {
+import AdminRegion from "./AdminRegion";
+export default class DSD extends AdminRegion {
   static getAdminRegionType() {
     return "dsd";
   }

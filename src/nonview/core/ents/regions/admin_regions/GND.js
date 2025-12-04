@@ -1,5 +1,5 @@
-import BaseAdminRegion from "../BaseAdminRegion";
-export default class GND extends BaseAdminRegion {
+import AdminRegion from "../AdminRegion";
+export default class GND extends AdminRegion {
   static getAdminRegionType() {
     return "gnd";
   }

@@ -2,7 +2,7 @@ import { WWW } from "../../../../base";
 import DataWithIDMixin from "../../../../base/mixins/DataWithIDMixin";
 import Region from "../Region";
 
-class BaseAdminRegion extends Region {
+class AdminRegion extends Region {
   static getAdminRegionType() {
     throw new Error("Not Implemented");
   }
@@ -40,6 +40,6 @@ class BaseAdminRegion extends Region {
   }
 }
 
-Object.assign(BaseAdminRegion, DataWithIDMixin);
+Object.assign(AdminRegion, DataWithIDMixin);
 
-export default BaseAdminRegion;
+export default AdminRegion;

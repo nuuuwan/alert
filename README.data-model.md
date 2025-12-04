@@ -26,7 +26,7 @@ Abstract base class for all regions. A region is an area or collection of areas 
 - `name`: Name of the region
 - `async getLatLngListList()`: Returns list of polygon coordinates
 
-### BaseAdminRegion
+### AdminRegion
 
 Extends `Region` for administrative regions (Province, District, DSD, GND etc).
 

@@ -1,5 +1,5 @@
-import BaseAdminRegion from "../BaseAdminRegion";
-export default class District extends BaseAdminRegion {
+import AdminRegion from "../AdminRegion";
+export default class District extends AdminRegion {
   static getAdminRegionType() {
     return "district";
   }
