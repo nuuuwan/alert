@@ -17,7 +17,7 @@ class WeatherReport extends BaseEvent {
   }
 
   static rawDataToRawDataList(rawData) {
-    const minTimeUt = Math.floor(Date.now() / 1000) - 7 * 24 * 3600;
+    const minTimeUt = Math.floor(Date.now() / 1000) - 1 * 24 * 3600;
     return Object.entries(rawData["event_data"]).reduce(function (
       rawDataList,
       [id, datePartToMeasurementMap]
@@ -27,6 +27,7 @@ class WeatherReport extends BaseEvent {
         [datePart, measurementMap]
       ) {
         const timeUt = TimeUtils.parseYYYYMMDD(datePart);
+
         if (timeUt >= minTimeUt) {
           rawDataList.push({
             id: id,

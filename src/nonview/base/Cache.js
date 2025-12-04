@@ -18,7 +18,12 @@ export default class Cache {
     const value = await callback();
 
     try {
-      localStorage.setItem(cacheKey, JSON.stringify(value));
+      const payload = JSON.stringify(value);
+      const payloadSizeK = payload.length / 1_000;
+      if (payloadSizeK > 100) {
+        console.warn(`⚠️ [Cache] ${payloadSizeK}KB: "${cacheKey}"`);
+      }
+      localStorage.setItem(cacheKey, payload);
     } catch (error) {
       console.error(`Error writing to cache for key "${cacheKey}":`, error);
       localStorage.clear();
