@@ -3,6 +3,7 @@ import CustomDrawer from "./CustomDrawer";
 import EntDetails from "./EntDetails";
 import MapPlaceView from "./MapPlaceView";
 import MapRegionView from "./MapRegionView";
+import Place from "../../nonview/core/ents/Place";
 
 export default function MapEntView({
   ent,
@@ -21,12 +22,9 @@ export default function MapEntView({
 
   const getFileName = () => `${ent.id}.png`;
 
-  // Determine if it's a place (has latLng) or region
-  const isPlace = !!ent.latLng;
-
   return (
     <>
-      {isPlace ? (
+      {ent instanceof Place ? (
         <MapPlaceView
           place={ent}
           eventClassNameToEventList={eventClassNameToEventList}
