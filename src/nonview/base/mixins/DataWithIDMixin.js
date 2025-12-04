@@ -1,5 +1,5 @@
-import WWW from "./WWW";
-import Cache from "./Cache";
+import WWW from "../WWW";
+import Cache from "../Cache";
 
 const DataWithIDMixin = {
   async listAll() {

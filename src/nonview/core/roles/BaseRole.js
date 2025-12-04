@@ -1,4 +1,4 @@
-import DataWithIDMixin from "../../base/DataWithIDMixin";
+import DataWithIDMixin from "../../base/mixins/DataWithIDMixin";
 
 class BaseRole {
   static getEntClass() {

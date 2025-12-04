@@ -1,4 +1,4 @@
-import DataWithIDMixin from "../../base/DataWithIDMixin.js";
+import DataWithIDMixin from "../../base/mixins/DataWithIDMixin.js";
 class Place {
   static getEntTypeTitle() {
     return "Place";

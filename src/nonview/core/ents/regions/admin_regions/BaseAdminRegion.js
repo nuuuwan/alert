@@ -1,4 +1,5 @@
-import { DataWithIDMixin, WWW } from "../../../../base";
+import { WWW } from "../../../../base";
+import DataWithIDMixin from "../../../../base/mixins/DataWithIDMixin";
 import BaseRegion from "../BaseRegion";
 
 class BaseAdminRegion extends BaseRegion {

@@ -1,7 +1,6 @@
-import BaseEvent from "./BaseEvent.js";
-import WeatherStationPlaceRole from "../roles/WeatherStationPlaceRole.js";
-import DataWithIDMixin from "../../base/DataWithIDMixin.js";
-import DataWithTimeMixin from "../../base/DataWithTimeMixin.js";
+import BaseEvent from "./BaseEvent";
+import WeatherStationPlaceRole from "../roles/WeatherStationPlaceRole";
+import DataWithTimeMixin from "../../base/mixins/DataWithTimeMixin";
 
 class WeatherReport extends BaseEvent {
   static getRoleClass() {
@@ -24,7 +23,6 @@ class WeatherReport extends BaseEvent {
   }
 }
 
-Object.assign(WeatherReport, DataWithIDMixin);
 Object.assign(WeatherReport.prototype, DataWithTimeMixin);
 
 export default WeatherReport;

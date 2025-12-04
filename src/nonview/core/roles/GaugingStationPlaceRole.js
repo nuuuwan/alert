@@ -1,7 +1,6 @@
 import Alert from "../Alert";
 import BaseRole from "./BaseRole";
 import Place from "../ents/Place";
-import { DataWithIDMixin } from "../../base";
 
 class GaugingStationPlaceRole extends BaseRole {
   static getEntClass() {
@@ -36,7 +35,5 @@ class GaugingStationPlaceRole extends BaseRole {
     return Alert.NORMAL;
   }
 }
-
-Object.assign(GaugingStationPlaceRole, DataWithIDMixin);
 
 export default GaugingStationPlaceRole;

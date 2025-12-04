@@ -1,5 +1,4 @@
-import DataWithIDMixin from "../../base/DataWithIDMixin";
-import DataWithTimeMixin from "../../base/DataWithTimeMixin";
+import { DataWithIDMixin, DataWithTimeMixin } from "../../base/mixins";
 
 class BaseEvent {
   static getRoleClass() {
