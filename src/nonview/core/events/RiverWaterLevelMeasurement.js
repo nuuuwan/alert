@@ -27,15 +27,15 @@ class RiverWaterLevelMeasurement extends Event {
     const minTimeUt = Math.floor(Date.now() / 1000) - 7 * 24 * 3600;
     return Object.entries(rawData["event_data"]).reduce(function (
       rawDataList,
-      [id, datePartToTimePartToWaterLevel],
+      [id, datePartToTimePartToWaterLevel]
     ) {
       return Object.entries(datePartToTimePartToWaterLevel).reduce(function (
         rawDataList,
-        [datePart, timePartToWaterLevel],
+        [datePart, timePartToWaterLevel]
       ) {
         return Object.entries(timePartToWaterLevel).reduce(function (
           rawDataList,
-          [timePart, waterLevel],
+          [timePart, waterLevel]
         ) {
           const timeUt = TimeUtils.parseYYYYMMDDHHHMMSS(datePart + timePart);
 
@@ -47,23 +47,12 @@ class RiverWaterLevelMeasurement extends Event {
             });
           }
           return rawDataList;
-        }, rawDataList);
-      }, rawDataList);
-    }, []);
-  }
-
-  static async placeToLatestMeasurement() {
-    const index = await this.idx();
-    const latestMap = {};
-
-    for (const stationName in index) {
-      const levels = index[stationName];
-      if (levels.length > 0) {
-        latestMap[stationName] = levels[levels.length - 1];
-      }
-    }
-
-    return latestMap;
+        },
+        rawDataList);
+      },
+      rawDataList);
+    },
+    []);
   }
 
   async gaugingStation() {
@@ -73,19 +62,6 @@ class RiverWaterLevelMeasurement extends Event {
     }
     const gaugingStation = await GaugingStation.fromID(place.id);
     return gaugingStation;
-  }
-
-  async alert() {
-    const gaugingStation = await this.gaugingStation();
-    return gaugingStation.getAlert(this.waterLevelM);
-  }
-
-  get priority() {
-    return 50; // FIX! Must be a function of alert
-  }
-
-  async getColor() {
-    return (await this.alert()).colorRgb;
   }
 }
 

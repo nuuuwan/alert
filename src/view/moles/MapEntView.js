@@ -1,27 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CustomDrawer from "./CustomDrawer";
 import EntDetails from "./EntDetails";
 import MapPlaceView from "./MapPlaceView";
 import MapRegionView from "./MapRegionView";
 import Place from "../../nonview/core/ents/Place";
-import { COLORS } from "../_cons/StyleConstants";
 
 export default function MapEntView({ ent, eventClassNameToEventList }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [entColor, setEntColor] = useState(null);
-
+  const entColor = "black";
   const firstEvent = Object.values(eventClassNameToEventList)[0][0];
   const isStale = firstEvent.isStale();
-
-  useEffect(() => {
-    async function fetchColor() {
-      const color = isStale
-        ? COLORS.gray
-        : await firstEvent.getColor(firstEvent);
-      setEntColor(color);
-    }
-    fetchColor();
-  }, [firstEvent, isStale]);
 
   const handleClick = () => {
     setDrawerOpen(true);
