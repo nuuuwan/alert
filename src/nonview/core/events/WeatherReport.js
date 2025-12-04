@@ -26,11 +26,11 @@ class WeatherReport extends BaseEvent {
     const minTimeUt = Math.floor(Date.now() / 1000) - 2 * 24 * 3600;
     return Object.entries(rawData["event_data"]).reduce(function (
       rawDataList,
-      [id, datePartToMeasurementMap]
+      [id, datePartToMeasurementMap],
     ) {
       return Object.entries(datePartToMeasurementMap).reduce(function (
         rawDataList,
-        [datePart, measurementMap]
+        [datePart, measurementMap],
       ) {
         const timeUt = WeatherReport.parseDatePart(datePart);
         if (timeUt >= minTimeUt) {
@@ -43,10 +43,8 @@ class WeatherReport extends BaseEvent {
           });
         }
         return rawDataList;
-      },
-      rawDataList);
-    },
-    []);
+      }, rawDataList);
+    }, []);
   }
 
   constructor(data) {

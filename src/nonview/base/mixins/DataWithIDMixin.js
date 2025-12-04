@@ -13,7 +13,7 @@ const DataWithIDMixin = {
           : this.rawDataToRawDataList(rawData);
 
         return rawDataList;
-      }
+      },
     );
     return this.listFromRawDataList(rawDataList);
   },

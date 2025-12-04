@@ -1,4 +1,4 @@
-import { LineChart, lineElementClasses } from "@mui/x-charts/LineChart";
+import { LineChart } from "@mui/x-charts/LineChart";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Alert from "../../../../nonview/core/Alert";
