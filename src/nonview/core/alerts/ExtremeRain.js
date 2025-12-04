@@ -14,7 +14,7 @@ export default class ExtremeRain extends Alert {
     return "purple";
   }
 
-  async isTrue() {
+  isTrue() {
     return this.event.rainMM >= 200;
   }
 }

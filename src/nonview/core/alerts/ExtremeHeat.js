@@ -14,7 +14,7 @@ export default class ExtremeHeat extends Alert {
     return "red";
   }
 
-  async isTrue() {
+  isTrue() {
     return this.event.tempMaxC > 35;
   }
 }

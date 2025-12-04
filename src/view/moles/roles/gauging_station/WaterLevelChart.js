@@ -1,13 +1,15 @@
 import { LineChart } from "@mui/x-charts/LineChart";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Alert from "../../../../nonview/core/Alert";
 
 import {
   DATE_TIME_FORMAT,
   SHORT_DATE_TIME_FORMAT,
 } from "../../../_cons/FormatConstants";
 import { CHART_COLORS } from "../../../_cons/StyleConstants";
+import MajorFlood from "../../../../nonview/core/alerts/MajorFlood";
+import MinorFlood from "../../../../nonview/core/alerts/MinorFlood";
+import AlertFlood from "../../../../nonview/core/alerts/AlertFlood";
 
 export default function WaterLevelChart({ station, measurements }) {
   if (!measurements || measurements.length === 0) {
@@ -37,27 +39,27 @@ export default function WaterLevelChart({ station, measurements }) {
     {
       id: "majorFlood",
       levelM: station.majorFloodLevelM,
-      alert: Alert.MAJOR,
+      alertClass: MajorFlood,
     },
     {
       id: "minorFlood",
       levelM: station.minorFloodLevelM,
-      alert: Alert.MINOR,
+      alertClass: MinorFlood,
     },
     {
       id: "alert",
       levelM: station.alertLevelM,
-      alert: Alert.ALERT,
+      alertClass: AlertFlood,
     },
   ];
 
-  alertLevels.forEach(({ id, levelM, alert }) => {
+  alertLevels.forEach(({ id, levelM, alertClass }) => {
     if (levelM && levelM > 0) {
       series.push({
         id,
         data: dates.map(() => levelM),
-        label: alert.label,
-        color: alert.colorRgb,
+        label: alertClass.getAlertName(),
+        color: alertClass.color(),
         showMark: false,
         curve: "linear",
       });

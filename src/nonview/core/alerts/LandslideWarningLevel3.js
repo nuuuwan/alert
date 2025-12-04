@@ -14,7 +14,7 @@ export default class LandslideWarningLevel3 extends Alert {
     return "red";
   }
 
-  async isTrue() {
+  isTrue() {
     return this.event.threatLevel === 3;
   }
 }

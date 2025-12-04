@@ -14,8 +14,8 @@ export default class MajorFlood extends Alert {
     return "red";
   }
 
-  async isTrue() {
-    const gaugingStation = await this.gaugingStation();
+  isTrue() {
+    const gaugingStation = this.role;
     const majorFloodLevelM = gaugingStation.majorFloodLevelM;
     return this.event.waterLevelM >= majorFloodLevelM;
   }

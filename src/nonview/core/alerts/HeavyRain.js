@@ -14,7 +14,7 @@ export default class HeavyRain extends Alert {
     return "blue";
   }
 
-  async isTrue() {
+  isTrue() {
     return this.event.rainMM >= 50 && this.event.rainMM < 100;
   }
 }

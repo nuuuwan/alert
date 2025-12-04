@@ -29,13 +29,13 @@ const DataWithIDMixin = {
     return Object.fromEntries(list.map((d) => [d.id, d]));
   },
 
-  async tdx() {
+  async idxTdx() {
     const list = await this.listAll();
     return list.reduce(function (tdx, d) {
       const id = d.id;
       const timeUt = d.timeUt;
       if (!tdx[id]) {
-        tdx[id] = [];
+        tdx[id] = {};
       }
       tdx[id][timeUt] = d;
       return tdx;

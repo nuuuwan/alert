@@ -1,6 +1,5 @@
 import Event from "./Event.js";
 import GaugingStation from "../roles/GaugingStation.js";
-import Place from "../ents/Place.js";
 import TimeUtils from "../TimeUtils.js";
 class RiverWaterLevelMeasurement extends Event {
   constructor(data) {
@@ -9,6 +8,10 @@ class RiverWaterLevelMeasurement extends Event {
       timeUt: data.timeUt || data.time_ut,
     });
     this.waterLevelM = data.waterLevelM || data.water_level_m;
+  }
+
+  static getRoleClass() {
+    return GaugingStation;
   }
 
   static getEventTypeName() {
@@ -50,15 +53,6 @@ class RiverWaterLevelMeasurement extends Event {
         }, rawDataList);
       }, rawDataList);
     }, []);
-  }
-
-  async gaugingStation() {
-    const place = await Place.fromID(this.id);
-    if (!place) {
-      throw new Error(`No Place found for id: ${this.id}`);
-    }
-    const gaugingStation = await GaugingStation.fromID(place.id);
-    return gaugingStation;
   }
 }
 
