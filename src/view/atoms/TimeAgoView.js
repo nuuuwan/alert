@@ -3,7 +3,12 @@ import Box from "@mui/material/Box";
 import { DATE_TIME_FORMAT } from "../_cons/FormatConstants";
 import { STALE_DATA_BADGE } from "../_cons/StyleConstants";
 
-export default function TimeAgoView({ date, variant = "body1", color }) {
+export default function TimeAgoView({
+  date,
+  variant = "body1",
+  color,
+  isStale,
+}) {
   const formattedDate = date.toLocaleString("en-US", DATE_TIME_FORMAT);
 
   // Calculate time difference
@@ -13,10 +18,6 @@ export default function TimeAgoView({ date, variant = "body1", color }) {
   const diffMinutes = Math.floor(diffSeconds / 60);
   const diffHours = Math.floor(diffMinutes / 60);
   const diffDays = Math.floor(diffHours / 24);
-
-  // Check if data is stale (older than 24 hours)
-  const hoursSinceUpdate = diffMs / (1000 * 60 * 60);
-  const isStale = hoursSinceUpdate > 24;
 
   // Humanize the time difference
   let timeAgo;
