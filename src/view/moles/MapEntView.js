@@ -1,53 +1,26 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CustomDrawer from "./CustomDrawer";
 import EntDetails from "./EntDetails";
 import MapPlaceView from "./MapPlaceView";
 import MapRegionView from "./MapRegionView";
 import Place from "../../nonview/core/ents/Place";
-import RiverWaterLevelMeasurement from "../../nonview/core/events/RiverWaterLevelMeasurement";
-import LandslideWarning from "../../nonview/core/events/LandslideWarning";
-import WeatherReport from "../../nonview/core/events/WeatherReport";
 
-export default function MapEntView({ ent }) {
+export default function MapEntView({ ent, dbResultsForEnt }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [eventClassNameToEventList, setEventClassNameToEventList] = useState(
-    {},
+
+  const { roleNdx, eventNdxTdx, alertNdxTdx } = dbResultsForEnt;
+
+  const eventClassNameToEventList = Object.entries(eventNdxTdx).reduce(
+    (acc, [eventClassName, eventTdx]) => {
+      acc[eventClassName] = Object.values(eventTdx);
+      return acc;
+    },
+    {}
   );
-  const [loaded, setLoaded] = useState(true);
-
-  useEffect(() => {
-    async function fetchData() {
-      const eventClasses = [
-        RiverWaterLevelMeasurement,
-        LandslideWarning,
-        WeatherReport,
-      ];
-
-      const eventClassNameToEventList = Object.fromEntries(
-        await Promise.all(
-          eventClasses.map(async (EventClass) => {
-            const eventList = await EventClass.listForId(ent.id);
-            if (!eventList || eventList.length === 0) {
-              return null;
-            }
-            return [EventClass.getEventTypeName(), eventList];
-          }),
-        ).then((results) => results.filter((item) => item !== null)),
-      );
-      setEventClassNameToEventList(eventClassNameToEventList);
-      setLoaded(true);
-    }
-
-    fetchData();
-  }, [ent.id]);
-
-  if (!loaded) {
-    return null;
-  }
 
   const nEvents = Object.values(eventClassNameToEventList).reduce(
     (sum, eventList) => sum + eventList.length,
-    0,
+    0
   );
   if (nEvents === 0) {
     return null;

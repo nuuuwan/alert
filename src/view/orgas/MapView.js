@@ -37,12 +37,12 @@ export default function MapView() {
 
       {ents.map(function (place) {
         const roleNdx = roleIdxNdx[place.id] || {};
-        const eventNdxIdx = eventIdxNdxTdx[place.id] || {};
-        const alertNdxIdx = alertIdxNdxTdx[place.id] || {};
+        const eventNdxTdx = eventIdxNdxTdx[place.id] || {};
+        const alertNdxTdx = alertIdxNdxTdx[place.id] || {};
         const dbResultsForEnt = {
           roleNdx,
-          eventNdxIdx,
-          alertNdxIdx,
+          eventNdxTdx,
+          alertNdxTdx,
         };
         return (
           <MapEntView

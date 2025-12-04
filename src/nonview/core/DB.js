@@ -69,23 +69,19 @@ export default class DB {
 
     const eventIdxNdxTdx = Object.entries(eventNdxIdxTdx).reduce(function (
       eventIdxNdxTdx,
-      [name, eventNdxIdxTdx]
+      [name, eventIdxTdx]
     ) {
-      const eventIdxNdx = Object.entries(eventNdxIdxTdx).reduce(function (
-        eventIdxNdx,
-        [ndx, eventIdxTdx]
+      return Object.entries(eventIdxTdx).reduce(function (
+        eventIdxNdxTdx,
+        [id, eventTdx]
       ) {
-        if (!eventIdxNdx[ndx]) {
-          eventIdxNdx[ndx] = {};
+        if (!eventIdxNdxTdx[id]) {
+          eventIdxNdxTdx[id] = {};
         }
-        Object.entries(eventIdxTdx).forEach(function ([tdx, event]) {
-          eventIdxNdx[ndx][tdx] = event;
-        });
-        return eventIdxNdx;
+        eventIdxNdxTdx[id][name] = eventTdx;
+        return eventIdxNdxTdx;
       },
-      {});
-      eventIdxNdxTdx[name] = eventIdxNdx;
-      return eventIdxNdxTdx;
+      eventIdxNdxTdx);
     },
     {});
 
