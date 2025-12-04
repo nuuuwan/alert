@@ -47,6 +47,10 @@ class RiverWaterLevelMeasurement extends BaseEvent {
     const gaugingStation = await this.gaugingStation();
     return gaugingStation.getAlert(this.waterLevelM);
   }
+
+  get priority() {
+    return 50; // FIX! Must be a function of alert
+  }
 }
 
 export default RiverWaterLevelMeasurement;

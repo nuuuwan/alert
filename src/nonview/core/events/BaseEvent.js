@@ -9,6 +9,10 @@ class BaseEvent {
     throw new Error("Not implemented");
   }
 
+  get priority() {
+    return 0;
+  }
+
   constructor({ id, timeUt }) {
     this.id = id; // id of the Ent
     this.timeUt = parseInt(timeUt);

@@ -11,6 +11,10 @@ class WeatherReport extends BaseEvent {
     return "WeatherReport";
   }
 
+  static getUrl() {
+    return "https://raw.githubusercontent.com/nuuuwan/weather_lk/refs/heads/data/latest_flat.json";
+  }
+
   constructor(data) {
     super({ id: data.id, timeUt: data.timeUt || data.time_ut });
     this.rainMM = data.rainMM || data.rain_mm;
@@ -18,8 +22,8 @@ class WeatherReport extends BaseEvent {
     this.tempMaxC = data.tempMaxC || data.temp_max_c;
   }
 
-  static getUrl() {
-    return "https://raw.githubusercontent.com/nuuuwan/weather_lk/refs/heads/data/latest_flat.json";
+  get priority() {
+    return 0; // FUTURE: Could be higher for heavy rain etc
   }
 }
 
