@@ -9,7 +9,7 @@ export default class RoleIcon {
       {
         RiverWaterLevelMeasurement: GaugingStationIcon,
         WeatherReport: WeatherStationIcon,
-        LandslideRegionAlert: AdminRegionIcon,
+        LandslideWarning: AdminRegionIcon,
       }[eventClassName] || LocationIcon
     );
   }

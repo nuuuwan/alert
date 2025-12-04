@@ -32,7 +32,7 @@ export default function EntDetails({
         title={ent.name}
         titleColor={fillColor}
         subtitle={subtitle}
-        icon={Icon}
+        Icon={Icon}
         iconColor={iconColor}
       />
 
