@@ -26,7 +26,7 @@ class WeatherReport extends BaseEvent {
     return 0; // FUTURE: Could be higher for heavy rain etc
   }
 
-  get color() {
+  async getColor() {
     return "black";
   }
 }

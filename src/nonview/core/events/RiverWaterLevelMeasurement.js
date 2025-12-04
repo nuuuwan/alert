@@ -51,6 +51,10 @@ class RiverWaterLevelMeasurement extends BaseEvent {
   get priority() {
     return 50; // FIX! Must be a function of alert
   }
+
+  async getColor() {
+    return (await this.alert()).color;
+  }
 }
 
 export default RiverWaterLevelMeasurement;

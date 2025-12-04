@@ -17,7 +17,7 @@ class BaseEvent {
   get priority() {
     return 0;
   }
-  get color() {
+  async getColor() {
     return "cyan";
   }
 }

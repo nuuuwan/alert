@@ -21,7 +21,15 @@ export default class LandslideWarning extends BaseEvent {
     this.threatLevel = parseInt(data.threatLevel || data.threat_level);
   }
 
+  get landslideThreatLevel() {
+    return this.landslideThreatLevel.fromLevel(this.threatLevel);
+  }
+
   get priority() {
     return ((this.threatLevel - 1) * 100) / 3;
+  }
+
+  async getColor() {
+    return this.landslideThreatLevel.colorRgb;
   }
 }
