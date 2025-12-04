@@ -17,7 +17,7 @@ class WeatherReport extends Event {
   }
 
   static rawDataToRawDataList(rawData) {
-    const minTimeUt = Math.floor(Date.now() / 1000) - 1 * 24 * 3600;
+    const minTimeUt = Math.floor(Date.now() / 1000) - 52 * 24 * 3600;
     return Object.entries(rawData["event_data"]).reduce(function (
       rawDataList,
       [id, datePartToMeasurementMap]
@@ -26,7 +26,8 @@ class WeatherReport extends Event {
         rawDataList,
         [datePart, measurementMap]
       ) {
-        const timeUt = TimeUtils.parseYYYYMMDD(datePart);
+        // Weather reports are for the 24 hours ending at 8am
+        const timeUt = TimeUtils.parseYYYYMMDD(datePart) + 8 * 3_600;
 
         if (timeUt >= minTimeUt) {
           rawDataList.push({
