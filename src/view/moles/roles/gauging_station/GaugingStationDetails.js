@@ -42,9 +42,8 @@ export default function GaugingStationDetails({ ent: place, latestEvent }) {
     );
   }
 
-  const latestMeasurement =
-    latestEvent || measurements[measurements.length - 1];
-  const previousMeasurement = measurements[measurements.length - 2];
+  const latestMeasurement = measurements[0];
+  const previousMeasurement = measurements[1];
 
   if (!station || !latestMeasurement) {
     return null;
