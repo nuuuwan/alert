@@ -2,7 +2,7 @@
 
 The View Model defines how the UI presents Ents, Alerts and Observations, and how user interactions operate on the map. It describes visible behaviour and layout rules, not business logic.
 
-## Map Behaviour
+## 1. Map Behaviour
 
 ### Default State
 
@@ -28,7 +28,7 @@ The View Model defines how the UI presents Ents, Alerts and Observations, and ho
 - Regions of the same type never overlap, so there is no ambiguity.  
 - Nested regions and Places never conflict.
 
-## EntView Structure
+## 2. EntView Structure
 
 The EntView opens when the user selects an Ent. Sections appear when data is available, and may collapse if space is limited.
 
@@ -68,13 +68,13 @@ The EntView opens when the user selects an Ent. Sections appear when data is ava
 - Stale observations are marked, with thresholds defined per observation type.  
 - Users can expand collapsed sections for additional detail.
 
-## Related Ents
+### Related Ents
 
 - A Place belongs to exactly one Region at each administrative level.  
 - Regions form a strict containment hierarchy (GND → DSD → District → Province).  
 - Nearby Places or Regions may be shown if relevant.
 
-## State Handling
+## 3. State Handling
 
 ### Loading
 
