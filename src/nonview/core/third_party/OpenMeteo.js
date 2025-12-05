@@ -1,3 +1,4 @@
+import { fetchWeatherApi } from "openmeteo";
 export default class OpenMeteo {
   static async getData({ latLng }) {
     const params = {

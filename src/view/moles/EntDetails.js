@@ -1,7 +1,7 @@
+import Place from "../../nonview/core/ents/Place";
 import Box from "@mui/material/Box";
 import DetailsHeader from "./DetailsHeader";
-import RoleDetails from "./roles/RoleDetails";
-import { SatelliteImageView } from "../atoms";
+import PlaceDetails from "./PlaceDetails";
 import RoleIcon from "../atoms/icons/RoleIcon";
 
 export default function EntDetails({
@@ -13,8 +13,6 @@ export default function EntDetails({
   if (!ent) {
     return null;
   }
-
-  const hasLatLng = !!ent.latLng;
 
   const eventClassNames = Object.keys(eventClassNameToEventList);
   const eventClassName = eventClassNames[0];
@@ -36,36 +34,13 @@ export default function EntDetails({
         isStale={isStale}
       />
 
-      {Object.entries(eventClassNameToEventList).map(function ([
-        eventClassName,
-        eventList,
-      ]) {
-        if (eventList.length === 0) {
-          return null;
-        }
-        return (
-          <RoleDetails
-            key={eventClassName}
-            eventClassName={eventClassName}
-            ent={ent}
-            eventList={eventList}
-            isStale={isStale}
-          />
-        );
-      })}
-
-      {hasLatLng && (
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: 1,
-            mb: 1,
-          }}
-        >
-          <SatelliteImageView latLng={ent.latLng} name={ent.name} />
-        </Box>
-      )}
+      {ent instanceof Place ? (
+        <PlaceDetails
+          place={ent}
+          eventClassNameToEventList={eventClassNameToEventList}
+          isStale={isStale}
+        />
+      ) : null}
     </Box>
   );
 }
