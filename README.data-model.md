@@ -1,96 +1,74 @@
 # ALERT Data Model
 
-ALERT is a map-centred platform for presenting Awareness, Logistics, Evacuation, Recovery and Tracking information for disaster management, prevention and recovery.
+## 1. Ents
 
-The data model consists of three main layers:
+An **Ent** is any geographic entity used by the system. There are two forms:
 
-- **Entities (ents)**: Geographic entities like Places and Regions
-- **Roles**: Functional roles that entities can have (e.g., GaugingStation)
-- **Events**: Time-based data associated with entities (e.g., RiverWaterLevelMeasurement)
+### Places
 
-## Entities
+A **Place** is a point defined by latitude and longitude. Coordinates are stored to four decimal places, giving roughly ten metres of precision. A Place is uniquely identified by its coordinates.
 
-### Place
+Places have constant attributes, such as name or elevation, and time-varying attributes accessed through Observations.
 
-Represents a single point on the map (e.g., weather stations, police stations).
+```javascript
+place = await Place.load([6.9157, 79.8636])
 
-- `id`: Unique identifier
-- `name`: Name of the place
-- `latLng`: Geographic coordinates (latitude, longitude pair)
+gaugingStation = await GaugingStation.load([6.9579, 79.8788])
+gaugingStation = await GaugingStation.loadFromName("Nagalagam Street")
 
-### Region
+elev = place.elevation
+```
 
-Abstract base class for all regions. A region is an area or collection of areas on a map.
+### Regions
 
-- `id`: Unique identifier
-- `name`: Name of the region
-- `async getLatLngListList()`: Returns list of polygon coordinates
+A **Region** is one or more non-overlapping polygons. Each polygon is a list of latitude–longitude pairs. Administrative areas such as provinces, districts, DSDs and GNDs are Region subtypes.
 
-### AdminRegion
+```javascript
+dsdColombo = await DSD.fromMultiPolygon(multiPolygon)
+dsdColombo = await DSD.fromID("LK-1103")
+```
 
-Extends `Region` for administrative regions (Province, District, DSD, GND etc).
+### Attributes
 
-- `id`: Region identifier
-- `name`: Region name
-- `population2012`: Population count from the 2012 census
-- `static getAdminRegionType()`:
+All Ents have two classes of attributes:
 
-#### Province
+- **Constant attributes**. Fixed at creation. Sourced from external APIs or hardcoded data. Examples: name, elevation, administrative codes.
+- **Time-varying attributes**. Accessed via Observations. Immutable once created.
 
-Administrative region type: `"province"`
+Ents themselves are **immutable**. After creation, neither geometry nor attributes can be modified. Any missing information must be resolved before instantiation.
 
-#### District
+---
 
-Administrative region type: `"district"`
+## 2. Observations
 
-#### DSD
+An **Observation** is a triple:
 
-Administrative region type: `"dsd"` (Divisional Secretariat Division)
+- an **Ent**
+- a **timestamp** (Unix time, rendered in Sri Lanka time)
+- an **observed value**
 
-#### GND
+Observed values are usually numeric, but may be boolean or categorical. Each observation type is a subclass of the base Observation class. Units are standardised.
 
-Administrative region type: `"gnd"` (Grama Niladhari Division)
+```javascript
+// Single timestamp
+r = place.rainfall(t = 1764953258)
 
-## Roles
+// Multiple timestamps
+rList = place.rainfall(tList = [1764953258, 1764953259, 1764953260])
+```
 
-Roles describe the functional purpose of a Place or Region.
+Observations are immutable. All observations for an Ent must be present at the moment the Ent is created or loaded.
 
-### Role
+---
 
-Abstract base class for all roles.
+## 3. Alerts
 
-- `id`: Unique identifier (references a Place or Region)
-- `static getEntClass`: The Ent which is allowed to play that role
+An **Alert** defines a boolean condition on an Ent. The condition is evaluated whenever the application loads. If the condition is true, the alert is active.
 
-### GaugingStation
+An Alert does not modify underlying data; it only queries it.
 
-Role for river water level monitoring stations.
+```javascript
+isMajor = gaugingStation.isMajorFlood()
+```
 
-- `riverName`: Name of the river being monitored
-- `alertLevelM`: Alert threshold in meters
-- `minorFloodLevelM`: Minor flood threshold in meters
-- `majorFloodLevelM`: Major flood threshold in meters
-
-## Events
-
-Events are time-based events associated with a particular Ent in a particular Role
-
-### Event
-
-Abstract base class for all events.
-
-**Properties:**
-
-- `id`: Entity ID this event relates to
-- `timeUt`: Unix timestamp
-- `static getRoleClass`: The Role which has that type of event
-
-### RiverWaterLevelMeasurement
-
-Water level measurements from gauging stations.
-
-- `waterLevelM`: Water level in meters
-
-### LandslideWarning
-
-- `threatLevel`
+A typical pattern is threshold comparison, for example water level exceeding minor or major flood levels. More complex conditions are supported so long as they can be expressed in terms of Ent attributes and Observations.
