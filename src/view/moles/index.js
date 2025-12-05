@@ -8,6 +8,7 @@ import EntDetails from "./EntDetails";
 import MapEntView from "./MapEntView";
 import MapPlaceView from "./MapPlaceView";
 import MapRegionView from "./MapRegionView";
+import PlaceDetails from "./PlaceDetails";
 
 export {
   AppBarMenu,
@@ -19,4 +20,5 @@ export {
   MapEntView,
   MapPlaceView,
   MapRegionView,
+  PlaceDetails,
 };
