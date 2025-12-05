@@ -18,3 +18,4 @@ It will grow into a predictive ecosystem. It will warn early using local data an
 
 - [Requirements](README-requirements.md)
 - [Data Model](README.data-model.md)
+- [View Model](README.view-model.md)
