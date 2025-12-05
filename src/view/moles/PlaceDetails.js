@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import RoleDetails from "./roles/RoleDetails";
 import { SatelliteImageView } from "../atoms";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
+import Typography from "@mui/material/Typography";
 
 export default function PlaceDetails({
   place,
@@ -20,6 +21,7 @@ export default function PlaceDetails({
 
   return (
     <Box>
+      <Typography variant="body1">{JSON.stringify(openMeteoData)}</Typography>
       {Object.entries(eventClassNameToEventList).map(function ([
         eventClassName,
         eventList,
@@ -37,7 +39,7 @@ export default function PlaceDetails({
           />
         );
       })}
-      {JSON.stringify(openMeteoData)}
+
       <Box
         sx={{
           display: "grid",
