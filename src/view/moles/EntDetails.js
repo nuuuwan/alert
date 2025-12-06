@@ -1,5 +1,4 @@
 import DetailsHeader from "./DetailsHeader";
-import LocationIcon from "../atoms/icons/LocationIcon";
 import PlaceDetails from "../orgas/PlaceDetails";
 import Place from "../../nonview/core/ents/places/Place";
 import Region from "../../nonview/core/ents/regions/Region";
@@ -20,21 +19,9 @@ export default function EntDetails({ ent }) {
     return null;
   }
 
-  const entColor = "black";
-  const isStale = false;
-  const Icon = LocationIcon;
-
   return (
     <Box>
-      <DetailsHeader
-        overlineText={ent.supertitle}
-        title={ent.title}
-        subtitle={ent.subtitle}
-        titleColor={entColor}
-        Icon={Icon}
-        iconColor={entColor}
-        isStale={isStale}
-      />
+      <DetailsHeader ent={ent} />
       <EntChildDetails ent={ent} />
     </Box>
   );

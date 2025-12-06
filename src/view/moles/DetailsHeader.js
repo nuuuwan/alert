@@ -1,58 +1,38 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import EntIcon from "../atoms/EntIcon";
 
-export default function DetailsHeader({
-  overlineText,
-  title,
-  titleColor,
-  subtitle,
-  date,
-  Icon,
-  iconSize = 48,
-  iconColor,
-  iconStrokeColor = "white",
-  isStale,
-}) {
+export default function DetailsHeader({ ent }) {
+  const iconSize = 48;
   return (
     <Box sx={{ mb: 2 }}>
-      {overlineText && (
-        <Typography variant="overline" color="text.secondary">
-          {overlineText}
-        </Typography>
-      )}
+      <Typography variant="overline" color="text.secondary">
+        {ent.supertitle}
+      </Typography>
       <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2, mb: 1 }}>
-        {Icon && (
-          <Box
-            sx={{
-              height: iconSize,
-              width: iconSize,
-              marginTop: "4px",
-            }}
-            dangerouslySetInnerHTML={{
-              __html: Icon({
-                size: iconSize,
-                color: iconColor,
-                strokeColor: iconStrokeColor,
-              }),
-            }}
-          />
-        )}
+        <Box
+          sx={{
+            height: iconSize,
+            width: iconSize,
+            marginTop: "4px",
+          }}
+        >
+          <EntIcon ent={ent} iconSize={iconSize} />
+        </Box>
+
         <Typography
           variant="h3"
           component="h1"
-          color={titleColor}
           sx={{
             lineHeight: `${iconSize}px`,
           }}
         >
-          {title}
+          {ent.title}
         </Typography>
       </Box>
-      {subtitle && (
-        <Typography variant="body2" color="text.secondary" gutterBottom>
-          {subtitle}
-        </Typography>
-      )}
+      <Typography variant="body2" color="text.secondary" gutterBottom>
+        {ent.subtitle}
+      </Typography>
     </Box>
   );
 }
