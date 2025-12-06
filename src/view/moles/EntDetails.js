@@ -9,7 +9,6 @@ export default function EntDetails({ ent }) {
   const entColor = "black";
   const isStale = false;
   const Icon = LocationIcon;
-  const overlineText = "";
 
   return (
     <DetailsHeader
