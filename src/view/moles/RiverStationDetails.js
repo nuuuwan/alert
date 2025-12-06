@@ -107,7 +107,10 @@ export default function RiverStationDetails({ place }) {
       </Box>
 
       <Box sx={{ mt: 3 }}>
-        <WaterLevelChart waterLevelHistory={waterLevelHistory} />
+        <WaterLevelChart
+          waterLevelHistory={waterLevelHistory}
+          riverStation={place}
+        />
       </Box>
     </Box>
   );
