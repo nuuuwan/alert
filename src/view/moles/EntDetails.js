@@ -10,14 +10,13 @@ export default function EntDetails({ ent }) {
   const isStale = false;
   const Icon = LocationIcon;
   const overlineText = "";
-  const subtitle = "Entity";
 
   return (
     <DetailsHeader
-      overlineText={overlineText}
+      overlineText={ent.supertitle}
       title={ent.title}
+      subtitle={ent.subtitle}
       titleColor={entColor}
-      subtitle={subtitle}
       Icon={Icon}
       iconColor={entColor}
       isStale={isStale}

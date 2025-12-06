@@ -44,7 +44,7 @@ export default function OpenMeteoView({ openMeteoData }) {
   return (
     <Box sx={{ p: 2 }}>
       <Typography variant="h6" gutterBottom>
-        Weather Forecast
+        Weather
       </Typography>
 
       <Divider sx={{ my: 2 }} />
