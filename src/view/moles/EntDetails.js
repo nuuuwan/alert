@@ -1,5 +1,6 @@
 import DetailsHeader from "./DetailsHeader";
 import PlaceDetails from "../orgas/PlaceDetails";
+import RegionDetails from "../orgas/RegionDetails";
 import Place from "../../nonview/core/ents/places/Place";
 import Region from "../../nonview/core/ents/regions/Region";
 import Box from "@mui/material/Box";
@@ -11,7 +12,7 @@ function EntChildDetails({ ent }) {
     return <PlaceDetails place={ent} />;
   }
   if (ent instanceof Region) {
-    return null;
+    return <RegionDetails region={ent} />;
   }
   throw new Error("Unknown ent class: " + ent.constructor.name);
 }
