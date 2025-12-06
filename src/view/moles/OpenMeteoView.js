@@ -3,6 +3,13 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
 import Divider from "@mui/material/Divider";
+import ThermostatIcon from "@mui/icons-material/Thermostat";
+import OpacityIcon from "@mui/icons-material/Opacity";
+import WaterDropIcon from "@mui/icons-material/WaterDrop";
+import AirIcon from "@mui/icons-material/Air";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import GrassIcon from "@mui/icons-material/Grass";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 import { COLORS } from "../_cons/StyleConstants";
 
@@ -63,7 +70,7 @@ export default function OpenMeteoView({ latLng }) {
   const currentSoilMoisture = hourly.soil_moisture_0_to_1cm[0]?.toFixed(2);
   const uvIndexMax = daily.uv_index_max[0]?.toFixed(1);
 
-  const MetricCard = ({ label, value, unit, icon }) => (
+  const MetricCard = ({ label, value, unit, icon: Icon }) => (
     <Box
       sx={{
         p: 2,
@@ -73,10 +80,20 @@ export default function OpenMeteoView({ latLng }) {
         textAlign: "center",
       }}
     >
-      <Typography variant="caption" color="text.secondary" display="block">
-        {icon && <span style={{ marginRight: 4 }}>{icon}</span>}
-        {label}
-      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 0.5,
+          mb: 0.5,
+        }}
+      >
+        {Icon && <Icon fontSize="small" color="action" />}
+        <Typography variant="caption" color="text.secondary">
+          {label}
+        </Typography>
+      </Box>
       <Typography variant="h5" sx={{ fontWeight: "bold", my: 0.5 }}>
         {value}
       </Typography>
@@ -103,20 +120,25 @@ export default function OpenMeteoView({ latLng }) {
         }}
       >
         <MetricCard
-          icon="🌡️"
+          icon={ThermostatIcon}
           label="Temperature"
           value={currentTemp}
           unit="°C"
         />
         <MetricCard
-          icon="💧"
+          icon={OpacityIcon}
           label="Humidity"
           value={currentHumidity}
           unit="%"
         />
-        <MetricCard icon="🌧️" label="Rain" value={currentRain} unit="mm" />
         <MetricCard
-          icon="💨"
+          icon={WaterDropIcon}
+          label="Rain"
+          value={currentRain}
+          unit="mm"
+        />
+        <MetricCard
+          icon={AirIcon}
           label="Wind Speed"
           value={currentWindSpeed}
           unit="km/h"
@@ -131,14 +153,19 @@ export default function OpenMeteoView({ latLng }) {
         }}
       >
         <MetricCard
-          icon="👁️"
+          icon={VisibilityIcon}
           label="Visibility"
           value={currentVisibility}
           unit="km"
         />
-        <MetricCard icon="☀️" label="UV Index Max" value={uvIndexMax} unit="" />
         <MetricCard
-          icon="🌱"
+          icon={WbSunnyIcon}
+          label="UV Index Max"
+          value={uvIndexMax}
+          unit=""
+        />
+        <MetricCard
+          icon={GrassIcon}
           label="Soil Moisture"
           value={currentSoilMoisture}
           unit="m³/m³"
