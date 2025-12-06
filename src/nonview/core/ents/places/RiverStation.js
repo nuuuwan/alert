@@ -29,8 +29,6 @@ class RiverStation extends Place {
         const placeData = await Place.loadData({
           latLng,
         });
-        console.debug("placeData", placeData);
-        console.debug("rawData", rawData);
         return new RiverStation({ ...rawData, ...placeData });
       })
     );
