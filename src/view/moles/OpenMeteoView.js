@@ -6,16 +6,8 @@ import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import { COLORS } from "../_cons/StyleConstants";
 
 export default function OpenMeteoView({ openMeteoData }) {
-  console.debug("openMeteoData", openMeteoData);
-  const { hourly } = openMeteoData;
-
-  if (!hourly.rain) {
-    return null;
-  }
-
-  const currentTemp = hourly.temperature_2m[0].toFixed(1);
-  const currentRain = hourly.rain[0].toFixed(1);
-
+  const currentTemp = openMeteoData.temp_2m_c[0].toFixed(1);
+  const currentRain = openMeteoData.rain_mm[0].toFixed(1);
   const MetricCard = ({ label, value, unit, icon: Icon }) => (
     <Box
       sx={{

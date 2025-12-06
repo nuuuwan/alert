@@ -15,10 +15,9 @@ export default class OpenMeteo {
     const hourly = response.hourly();
 
     const weatherData = {
-      hourly: {
-        temperature_2m: hourly.variables(0).valuesArray(),
-        rain: hourly.variables(1).valuesArray(),
-      },
+      elevation_m: response.elevation(),
+      temp_2m_c: hourly.variables(0).valuesArray(),
+      rain_mm: hourly.variables(1).valuesArray(),
     };
     return weatherData;
   }

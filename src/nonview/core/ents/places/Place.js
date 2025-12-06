@@ -9,6 +9,10 @@ class Place {
     return this.latLng.title;
   }
 
+  get elevation_m() {
+    return this.openMeteoData.elevation_m;
+  }
+
   static async load({ latLng }) {
     const openMeteoData = await OpenMeteo.getData({ latLng });
 
