@@ -10,7 +10,7 @@ export default function SatelliteImageView({ latLng, name }) {
     return { x, y };
   };
 
-  const [lat, lng] = latLng;
+  const [lat, lng] = latLng.toArray();
   const center = latLngToWebMercator(lat, lng);
 
   const bufferMeters = 2000;
