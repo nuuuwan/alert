@@ -4,8 +4,11 @@ import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
 import Divider from "@mui/material/Divider";
 import { LineChart } from "@mui/x-charts/LineChart";
-import WaterLevelView from "../atoms/WaterLevelView";
-import RateOfRiseView from "../atoms/RateOfRiseView";
+import WavesIcon from "@mui/icons-material/Waves";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import TrendingDownIcon from "@mui/icons-material/TrendingDown";
+import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
+import MetricCard from "../atoms/MetricCard";
 import { COLORS, CHART_COLORS } from "../_cons/StyleConstants";
 
 export default function RiverStationDetails({ place }) {
@@ -60,12 +63,35 @@ export default function RiverStationDetails({ place }) {
   const alert = getAlert(latestReading.waterLevelM);
 
   // Calculate rate of rise
-  let waterLevelDiff = null;
-  let timeDiffHours = null;
+  let rateOfChangeData = null;
 
   if (previousReading) {
-    waterLevelDiff = latestReading.waterLevelM - previousReading.waterLevelM;
-    timeDiffHours = (latestReading.timeUt - previousReading.timeUt) / 3600;
+    const waterLevelDiff =
+      latestReading.waterLevelM - previousReading.waterLevelM;
+    const timeDiffHours =
+      (latestReading.timeUt - previousReading.timeUt) / 3600;
+    const rateOfChangeCmPerHr = (waterLevelDiff / timeDiffHours) * 100;
+    const EPSILON = 0.1;
+
+    let label, color, icon;
+    if (rateOfChangeCmPerHr > EPSILON) {
+      label = "Rising";
+      color = COLORS.redAlert;
+      icon = TrendingUpIcon;
+    } else if (rateOfChangeCmPerHr < -EPSILON) {
+      label = "Falling";
+      color = COLORS.greenDark;
+      icon = TrendingDownIcon;
+    } else {
+      label = "Steady";
+      color = COLORS.gray;
+      icon = TrendingFlatIcon;
+    }
+
+    const formattedValue = `${
+      rateOfChangeCmPerHr > 0 ? "+" : ""
+    }${rateOfChangeCmPerHr.toFixed(1)}`;
+    rateOfChangeData = { value: formattedValue, label, color, icon };
   }
 
   // Prepare chart data (reverse to show oldest to newest)
@@ -89,11 +115,18 @@ export default function RiverStationDetails({ place }) {
           mb: 2,
         }}
       >
-        <WaterLevelView waterLevelM={latestReading.waterLevelM} alert={alert} />
-        {waterLevelDiff !== null && timeDiffHours !== null && (
-          <RateOfRiseView
-            waterLevelDiff={waterLevelDiff}
-            timeDiffHours={timeDiffHours}
+        <MetricCard
+          icon={WavesIcon}
+          label="Water Level"
+          value={latestReading.waterLevelM.toFixed(2)}
+          unit="m"
+        />
+        {rateOfChangeData && (
+          <MetricCard
+            icon={rateOfChangeData.icon}
+            label="Rate of Change"
+            value={rateOfChangeData.value}
+            unit="cm/hr"
           />
         )}
       </Box>
