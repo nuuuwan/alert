@@ -21,9 +21,6 @@ class Place {
   }
 
   get subtitle() {
-    if (!this.openMeteoData) {
-      return "";
-    }
     return `${this.openMeteoData.elevationM}m AMSL`;
   }
 

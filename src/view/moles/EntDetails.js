@@ -3,6 +3,8 @@ import PlaceDetails from "../orgas/PlaceDetails";
 import Place from "../../nonview/core/ents/places/Place";
 import Region from "../../nonview/core/ents/regions/Region";
 import Box from "@mui/material/Box";
+import { useState, useEffect } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function EntChildDetails({ ent }) {
   if (ent instanceof Place) {
@@ -15,14 +17,27 @@ function EntChildDetails({ ent }) {
 }
 
 export default function EntDetails({ ent }) {
-  if (!ent) {
-    return null;
+  const [entWithDetails, setEntWithDetails] = useState(null);
+  useEffect(() => {
+    async function fetchDetails() {
+      if (ent && typeof ent.loadDetails === "function") {
+        const loadedEnt = await ent.loadDetails();
+        setEntWithDetails(loadedEnt);
+      } else {
+        setEntWithDetails(ent);
+      }
+    }
+    fetchDetails();
+  }, [ent]);
+
+  if (!entWithDetails) {
+    return <CircularProgress />;
   }
 
   return (
     <Box>
-      <DetailsHeader ent={ent} />
-      <EntChildDetails ent={ent} />
+      <DetailsHeader ent={entWithDetails} />
+      <EntChildDetails ent={entWithDetails} />
     </Box>
   );
 }
