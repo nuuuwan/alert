@@ -1,6 +1,8 @@
+import OpenMeteo from "../../third_party/OpenMeteo.js";
 class Place {
-  constructor({ latLng }) {
+  constructor({ latLng, openMeteoData }) {
     this.latLng = latLng;
+    this.openMeteoData = openMeteoData;
   }
 
   get title() {
@@ -8,7 +10,9 @@ class Place {
   }
 
   static async load({ latLng }) {
-    return new Place({ latLng });
+    const openMeteoData = await OpenMeteo.getData({ latLng });
+
+    return new Place({ latLng, openMeteoData });
   }
 }
 
