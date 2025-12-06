@@ -14,8 +14,9 @@ export default function MapPlaceView({ place, onClick }) {
   const opacity = 0.5;
   const placeColor = "cyan";
 
-  const onClickInner = () => {
-    onClick(place);
+  const onClickInner = (e) => {
+    L.DomEvent.stopPropagation(e);
+    onClick(place, e);
   };
 
   return (

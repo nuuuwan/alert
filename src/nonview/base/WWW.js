@@ -13,7 +13,9 @@ export default class WWW {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const text = await response.text();
-    const lines = text.trim().split("\n");
+
+    const lines = text.replaceAll("\r", "").trim().split("\n");
+
     if (lines.length === 0) {
       return [];
     }

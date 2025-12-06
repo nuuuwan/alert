@@ -3,6 +3,7 @@ import DataWithIDMixin from "../../../../base/mixins/DataWithIDMixin";
 import Region from "../Region";
 import MultiPolygon from "../../../../base/geos/MultiPolygon";
 import Cache from "../../../../base/Cache";
+import Format from "../../../../base/Format";
 
 class AdminRegion extends Region {
   static getAdminRegionType() {
@@ -14,6 +15,18 @@ class AdminRegion extends Region {
       "/nuuuwan/gig-data/refs/heads/master" +
       `/ents/${this.getAdminRegionType()}.tsv`
     );
+  }
+
+  get supertitle() {
+    return this.constructor.getEntTypeTitle();
+  }
+
+  get title() {
+    return this.name;
+  }
+
+  get subtitle() {
+    return `Population(2012): ${Format.numberWithCommas(this.population2012)}`;
   }
 
   constructor(data) {
@@ -62,7 +75,7 @@ class AdminRegion extends Region {
         this.loadFromData({
           id: rawData.id,
           name: rawData.name,
-          population2012: rawData.population2012,
+          population2012: rawData.population,
         })
       )
     );
@@ -70,6 +83,7 @@ class AdminRegion extends Region {
 
   static async loadFromIds(ids) {
     const rawDataList = await this.getRawDataList();
+    console.debug(Object.keys(rawDataList[0]));
     const filteredRawDataList = rawDataList.filter((rawData) =>
       ids.includes(rawData.id)
     );

@@ -1,4 +1,5 @@
 import { Polygon } from "react-leaflet";
+import L from "leaflet";
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 
 export default function MapRegionView({ region, onClick }) {
@@ -14,6 +15,11 @@ export default function MapRegionView({ region, onClick }) {
       }[latestWarningLevel] || "lightgray";
   }
 
+  const onClickInner = (e) => {
+    L.DomEvent.stopPropagation(e);
+    onClick(region, e);
+  };
+
   return (
     <>
       {region.multiPolygon.raw().map((rawPolygon, index) => (
@@ -26,8 +32,8 @@ export default function MapRegionView({ region, onClick }) {
             color: "white",
             weight: 2,
           }}
-          evregionHandlers={{
-            click: onClick,
+          eventHandlers={{
+            click: onClickInner,
           }}
         />
       ))}
