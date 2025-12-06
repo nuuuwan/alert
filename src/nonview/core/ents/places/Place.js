@@ -8,6 +8,10 @@ class Place {
     this.openMeteoData = openMeteoData;
   }
 
+  get id() {
+    return `place-${this.latLng.lat}-${this.latLng.lng}`;
+  }
+
   get supertitle() {
     return "Place";
   }

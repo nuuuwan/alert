@@ -8,6 +8,7 @@ import PlaceDetails from "../orgas/PlaceDetails";
 import Place from "../../nonview/core/ents/places/Place";
 import LatLng from "../../nonview/base/geos/LatLng";
 import RiverStation from "../../nonview/core/ents/places/RiverStation";
+import MapPlaceView from "../moles/MapPlaceView";
 
 function MapClickHandler({ onMapClick }) {
   useMapEvents({
@@ -30,10 +31,6 @@ export default function MapView() {
     }
     fetch();
   }, []);
-
-  if (riverStations) {
-    console.debug({ riverStations });
-  }
 
   const handleMapClick = async (latLng) => {
     const place = await Place.load({ latLng: LatLng.fromLatLngFloats(latLng) });
@@ -64,6 +61,10 @@ export default function MapView() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <MapClickHandler onMapClick={handleMapClick} />
+
+        {riverStations.map((station) => (
+          <MapPlaceView key={station.id} place={station} />
+        ))}
       </MapContainer>
 
       <CustomDrawer
