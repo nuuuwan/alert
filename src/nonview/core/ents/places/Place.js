@@ -24,10 +24,14 @@ class Place {
     return this.openMeteoData.elevation_m;
   }
 
-  static async load({ latLng }) {
+  static async loadData({ latLng }) {
     const openMeteoData = await OpenMeteo.getData({ latLng });
+    return { latLng, openMeteoData };
+  }
 
-    return new Place({ latLng, openMeteoData });
+  static async load({ latLng }) {
+    const data = await this.loadData({ latLng });
+    return new Place(data);
   }
 }
 

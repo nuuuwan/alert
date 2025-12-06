@@ -1,5 +1,8 @@
 export default class LatLng {
   constructor(lat, lng) {
+    if (typeof lat !== "number" || typeof lng !== "number") {
+      throw new Error("LatLng constructor requires numeric lat and lng");
+    }
     this.lat = lat;
     this.lng = lng;
   }
