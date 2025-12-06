@@ -8,6 +8,7 @@ import EntDetails from "./EntDetails";
 import MapEntView from "./MapEntView";
 import MapPlaceView from "./MapPlaceView";
 import MapRegionView from "./MapRegionView";
+import OpenMeteoView from "./OpenMeteoView";
 import PlaceDetails from "./PlaceDetails";
 
 export {
@@ -20,5 +21,6 @@ export {
   MapEntView,
   MapPlaceView,
   MapRegionView,
+  OpenMeteoView,
   PlaceDetails,
 };
