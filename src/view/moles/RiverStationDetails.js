@@ -42,13 +42,9 @@ export default function RiverStationDetails({ place }) {
     return null;
   }
 
-  // Latest is first (descending order)
   const latestReading = waterLevelHistory[0];
   const previousReading = waterLevelHistory[10];
-
-  // Calculate rate of rise
   let rateOfChangeData = null;
-
   if (previousReading) {
     const waterLevelDiff =
       latestReading.waterLevelM - previousReading.waterLevelM;
@@ -78,7 +74,6 @@ export default function RiverStationDetails({ place }) {
     rateOfChangeData = { value: formattedValue, label, color, icon };
   }
 
-  // Prepare chart data (reverse to show oldest to newest)
   const chartData = [...waterLevelHistory].reverse().slice(-168); // Last 7 days
   const xAxisData = chartData.map((d) => new Date(d.timeUt * 1000));
   const yAxisData = chartData.map((d) => d.waterLevelM);

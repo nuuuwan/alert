@@ -23,6 +23,10 @@ class AdminRegion extends Region {
     this.population2012 = data.population2012 || data.population;
   }
 
+  async loadDetails() {
+    return this;
+  }
+
   static async getGeoForId(id) {
     const revFloatPairListList = await Cache.get(
       `AdminRegion:getGeoForId:${this.getAdminRegionType()}:${id}`,
@@ -32,7 +36,7 @@ class AdminRegion extends Region {
           "/nuuuwan/gig-data/refs/heads/master" +
           `/geo/${this.getAdminRegionType()}/${id}.json`;
         return await WWW.fetch(url);
-      },
+      }
     );
 
     return MultiPolygon.fromReverseRaw(revFloatPairListList);
@@ -48,22 +52,33 @@ class AdminRegion extends Region {
       `AdminRegion:getRawDataList:${this.getAdminRegionType()}`,
       async () => {
         return await WWW.fetch(this.getUrl());
-      },
+      }
     );
   }
 
-  static async loadAll() {
-    const rawDataList = await this.getRawDataList();
-    const adminRegionList = await Promise.all(
-      rawDataList.slice(0, 5).map((rawData) =>
+  static async loadFromRawDataList(rawDataList) {
+    return await Promise.all(
+      rawDataList.map((rawData) =>
         this.loadFromData({
           id: rawData.id,
           name: rawData.name,
           population2012: rawData.population2012,
-        }),
-      ),
+        })
+      )
     );
-    return adminRegionList;
+  }
+
+  static async loadFromIds(ids) {
+    const rawDataList = await this.getRawDataList();
+    const filteredRawDataList = rawDataList.filter((rawData) =>
+      ids.includes(rawData.id)
+    );
+    return await this.loadFromRawDataList(filteredRawDataList);
+  }
+
+  static async loadAll() {
+    const rawDataList = await this.getRawDataList();
+    return await this.loadFromRawDataList(rawDataList);
   }
 }
 
