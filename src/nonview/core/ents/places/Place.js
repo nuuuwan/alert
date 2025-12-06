@@ -6,6 +6,10 @@ class Place {
   get title() {
     return this.latLng.title;
   }
+
+  static async load({ latLng }) {
+    return new Place({ latLng });
+  }
 }
 
 export default Place;

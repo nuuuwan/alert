@@ -21,8 +21,8 @@ export default function MapView() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedPlace, setSelectedPlace] = useState(null);
 
-  const handleMapClick = (latLng) => {
-    const place = new Place({ latLng: LatLng.fromLatLngFloats(latLng) });
+  const handleMapClick = async (latLng) => {
+    const place = await Place.load({ latLng: LatLng.fromLatLngFloats(latLng) });
     setSelectedPlace(place);
     setDrawerOpen(true);
   };
