@@ -1,6 +1,6 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { COLORS, BADGE_STYLES } from "../_cons/StyleConstants";
+import { COLORS } from "../_cons/StyleConstants";
 
 export default function MetricView({
   label,
@@ -12,7 +12,7 @@ export default function MetricView({
   unitVariant = "h6",
   isStale = false,
 }) {
-  const displayColor = isStale ? COLORS.gray : badgeColor;
+  const displayColor = isStale ? COLORS.neutral : badgeColor;
 
   return (
     <Box>
@@ -45,11 +45,12 @@ export default function MetricView({
           sx={{
             display: "inline-block",
             backgroundColor: displayColor,
-            color: COLORS.white,
+            color: "white",
             fontWeight: "bold",
-            ...(valueVariant === "h3"
-              ? BADGE_STYLES.medium
-              : BADGE_STYLES.small),
+            fontSize: valueVariant === "h3" ? "0.8125rem" : "0.75rem",
+            px: valueVariant === "h3" ? 1.5 : 1.25,
+            py: valueVariant === "h3" ? 0.5 : 0.375,
+            borderRadius: valueVariant === "h3" ? "16px" : "12px",
           }}
         >
           {badge}

@@ -1,5 +1,5 @@
 import MetricView from "./MetricView";
-import { WEATHER_COLORS, COLORS } from "../_cons/StyleConstants";
+import { COLORS } from "../_cons/StyleConstants";
 
 export default function TemperatureView({ tempMin, tempMax, isStale = false }) {
   if (
@@ -11,14 +11,12 @@ export default function TemperatureView({ tempMin, tempMax, isStale = false }) {
 
   // Determine color based on max temperature
   const getColor = (temp) => {
-    if (temp === null || temp === undefined) return COLORS.grayMedium;
-    if (temp >= 35) return WEATHER_COLORS.temperature.extremeHot;
-    if (temp >= 30) return WEATHER_COLORS.temperature.veryHot;
-    if (temp >= 25) return WEATHER_COLORS.temperature.hot;
-    if (temp >= 20) return WEATHER_COLORS.temperature.warm;
-    if (temp >= 15) return WEATHER_COLORS.temperature.pleasant;
-    if (temp >= 10) return WEATHER_COLORS.temperature.cool;
-    return WEATHER_COLORS.temperature.cold;
+    if (temp === null || temp === undefined) return COLORS.neutral;
+    if (temp >= 35) return COLORS.highAlert;
+    if (temp >= 30) return COLORS.highAlert;
+    if (temp >= 25) return COLORS.mediumAlert;
+    if (temp >= 20) return COLORS.lowAlert;
+    return COLORS.neutral;
   };
 
   // Determine label based on max temperature

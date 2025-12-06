@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { STALE_DATA_BADGE } from "../_cons/StyleConstants";
+import { COLORS } from "../_cons/StyleConstants";
 
 export default function Stale({ isStale }) {
   if (!isStale) {
@@ -15,7 +15,10 @@ export default function Stale({ isStale }) {
         px: 1,
         py: 0.5,
         borderRadius: "12px",
-        ...STALE_DATA_BADGE,
+        backgroundColor: COLORS.neutral,
+        color: "white",
+        fontSize: "0.75rem",
+        fontWeight: 500,
       }}
     >
       <Typography variant="caption">Stale Data</Typography>

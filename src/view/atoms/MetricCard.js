@@ -1,6 +1,5 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { COLORS } from "../_cons/StyleConstants";
 
 export default function MetricCard({ label, value, unit, icon: Icon }) {
   return (
@@ -8,8 +7,8 @@ export default function MetricCard({ label, value, unit, icon: Icon }) {
       sx={{
         p: 2,
         borderRadius: 2,
-        backgroundColor: COLORS.white,
-        border: `1px solid ${COLORS.grayLight}`,
+        backgroundColor: "white",
+        border: "1px solid #e0e0e0",
         textAlign: "center",
       }}
     >

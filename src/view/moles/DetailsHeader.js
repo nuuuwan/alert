@@ -1,6 +1,5 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { COLORS } from "../_cons/StyleConstants";
 
 export default function DetailsHeader({
   overlineText,
@@ -11,7 +10,7 @@ export default function DetailsHeader({
   Icon,
   iconSize = 48,
   iconColor,
-  iconStrokeColor = COLORS.white,
+  iconStrokeColor = "white",
   isStale,
 }) {
   return (

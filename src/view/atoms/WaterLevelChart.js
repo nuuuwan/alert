@@ -1,5 +1,5 @@
 import { LineChart } from "@mui/x-charts/LineChart";
-import { CHART_COLORS, COLORS } from "../_cons/StyleConstants";
+import { COLORS } from "../_cons/StyleConstants";
 
 const DASHED_STYLE = {
   strokeDasharray: "5 5",
@@ -14,7 +14,7 @@ export default function WaterLevelChart({ waterLevelHistory, riverStation }) {
     {
       data: yAxisData,
       label: "Water Level",
-      color: CHART_COLORS.waterLevel,
+      color: COLORS.neutral,
       showMark: false,
     },
   ];
@@ -24,7 +24,7 @@ export default function WaterLevelChart({ waterLevelHistory, riverStation }) {
     series.push({
       data: Array(xAxisData.length).fill(riverStation.alertLevelM),
       label: "Alert Level",
-      color: COLORS.orange,
+      color: COLORS.lowAlert,
       showMark: false,
       style: DASHED_STYLE,
     });
@@ -34,7 +34,7 @@ export default function WaterLevelChart({ waterLevelHistory, riverStation }) {
     series.push({
       data: Array(xAxisData.length).fill(riverStation.minorFloodLevelM),
       label: "Minor Flood Level",
-      color: COLORS.redAlert,
+      color: COLORS.mediumAlert,
       showMark: false,
       style: DASHED_STYLE,
     });
@@ -44,7 +44,7 @@ export default function WaterLevelChart({ waterLevelHistory, riverStation }) {
     series.push({
       data: Array(xAxisData.length).fill(riverStation.majorFloodLevelM),
       label: "Major Flood Level",
-      color: COLORS.redDark,
+      color: COLORS.highAlert,
       showMark: false,
       style: DASHED_STYLE,
     });

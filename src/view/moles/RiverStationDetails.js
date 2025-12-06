@@ -56,15 +56,15 @@ export default function RiverStationDetails({ place }) {
     let label, color, icon;
     if (rateOfChangeCmPerHr > EPSILON) {
       label = "Rising";
-      color = COLORS.redAlert;
+      color = COLORS.highAlert;
       icon = TrendingUpIcon;
     } else if (rateOfChangeCmPerHr < -EPSILON) {
       label = "Falling";
-      color = COLORS.greenDark;
+      color = COLORS.neutral;
       icon = TrendingDownIcon;
     } else {
       label = "Steady";
-      color = COLORS.gray;
+      color = COLORS.neutral;
       icon = TrendingFlatIcon;
     }
 
