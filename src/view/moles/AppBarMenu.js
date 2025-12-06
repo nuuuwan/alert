@@ -10,7 +10,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import BugReportIcon from "@mui/icons-material/BugReport";
 import UpdateIcon from "@mui/icons-material/Update";
 import { useState } from "react";
-import { VERSION } from "../../nonview/cons";
+import VERSION from "../../nonview/cons/VERSION";
 
 export default function AppBarMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
