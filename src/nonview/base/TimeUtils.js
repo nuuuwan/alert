@@ -43,6 +43,6 @@ export default class TimeUtils {
   }
 
   static compareTimeUtDescending(a, b) {
-    return b.ut - a.ut;
+    return b.timeUt - a.timeUt;
   }
 }
