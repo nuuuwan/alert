@@ -36,14 +36,18 @@ class RiverStation extends Place {
     return Promise.all(
       rawDataList.map(async (rawData) => {
         const latLng = LatLng.fromLatLngFloats(
-          rawData.latLng || rawData.lat_lng,
+          rawData.latLng || rawData.lat_lng
         );
         const placeData = await Place.loadData({
           latLng,
         });
         return new RiverStation({ ...rawData, ...placeData });
-      }),
+      })
     );
+  }
+
+  async loadDetails() {
+    return await super.loadDetails();
   }
 }
 
