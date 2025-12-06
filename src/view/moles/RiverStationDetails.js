@@ -19,7 +19,7 @@ export default function RiverStationDetails({ place }) {
     async function loadData() {
       setLoading(true);
       try {
-        await place.loadWaterLevelHistory();
+        await place.loadDetails();
         setWaterLevelHistory(place.waterLevelHistory || []);
       } catch (error) {
         console.error("Error loading water level history:", error);
