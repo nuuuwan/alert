@@ -45,4 +45,22 @@ export default class TimeUtils {
   static compareTimeUtDescending(a, b) {
     return b.timeUt - a.timeUt;
   }
+
+  static getUnixTime() {
+    return Math.floor(Date.now() / 1000);
+  }
+
+  static formatISO8601(ut) {
+    // yyyy-mm-ddThh:mm
+    // E.g.: 2023-10-05T14:30
+    const date = new Date(ut * 1000);
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+  }
 }

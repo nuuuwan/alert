@@ -8,8 +8,8 @@ import SourceView from "../atoms/SourceView";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
-  const currentTemp = openMeteoData.temp_2m_c[0].toFixed(1);
-  const currentRain = openMeteoData.rain_mm[0].toFixed(1);
+  const temp2mC = openMeteoData.temp2mC.toFixed(1);
+  const rain24hMM = openMeteoData.rain24hMM.toFixed(1);
 
   const [latitude, longitude] = latLng.toArray();
   return (
@@ -30,15 +30,15 @@ export default function OpenMeteoView({ place }) {
       >
         <MetricCard
           icon={ThermostatIcon}
-          label="Temperature"
-          value={currentTemp}
+          label="Temperature (Current)"
+          value={temp2mC}
           unit="°C"
         />
 
         <MetricCard
           icon={WaterDropIcon}
-          label="Rain"
-          value={currentRain}
+          label="Rain (Last 24 hours)"
+          value={rain24hMM}
           unit="mm"
         />
       </Box>

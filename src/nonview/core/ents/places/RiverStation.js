@@ -40,13 +40,13 @@ class RiverStation extends Place {
     return Promise.all(
       rawDataList.map(async (rawData) => {
         const latLng = LatLng.fromLatLngFloats(
-          rawData.latLng || rawData.lat_lng
+          rawData.latLng || rawData.lat_lng,
         );
         const placeData = await Place.loadData({
           latLng,
         });
         return new RiverStation({ ...rawData, ...placeData });
-      })
+      }),
     );
   }
 
@@ -58,15 +58,14 @@ class RiverStation extends Place {
       .reduce(function (waterLevelHistory, [dateId, timeOnlyIdToWaterLevelM]) {
         return Object.entries(timeOnlyIdToWaterLevelM).reduce(function (
           waterLevelHistory,
-          [timeOnlyId, waterLevelM]
+          [timeOnlyId, waterLevelM],
         ) {
           const timeUt = TimeUtils.parseYYYYMMDDHHHMMSS(
-            `${dateId}${timeOnlyId}`
+            `${dateId}${timeOnlyId}`,
           );
           waterLevelHistory.push({ timeUt, waterLevelM });
           return waterLevelHistory;
-        },
-        waterLevelHistory);
+        }, waterLevelHistory);
       }, [])
       .sort(TimeUtils.compareTimeUtDescending);
     this.waterLevelHistory = waterLevelHistory;
