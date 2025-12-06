@@ -91,14 +91,6 @@ export default function OpenMeteoView({ latLng }) {
       <Typography variant="h6" gutterBottom>
         Weather Forecast
       </Typography>
-      <Typography
-        variant="caption"
-        color="text.secondary"
-        display="block"
-        sx={{ mb: 2 }}
-      >
-        Powered by Open-Meteo
-      </Typography>
 
       <Divider sx={{ my: 2 }} />
 
@@ -152,6 +144,15 @@ export default function OpenMeteoView({ latLng }) {
           unit="m³/m³"
         />
       </Box>
+
+      <Typography
+        variant="caption"
+        color="text.secondary"
+        display="block"
+        sx={{ mb: 2 }}
+      >
+        Source: Open-Meteo (Real-Time Weather API)
+      </Typography>
     </Box>
   );
 }
