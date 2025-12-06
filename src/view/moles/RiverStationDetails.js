@@ -108,7 +108,7 @@ export default function RiverStationDetails({ place }) {
         {rateOfChangeData && (
           <MetricCard
             icon={rateOfChangeData.icon}
-            label="Rate of Change"
+            label="Rate of Rise/Drop"
             value={rateOfChangeData.value}
             unit="cm/hr"
           />
