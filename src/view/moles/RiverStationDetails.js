@@ -46,22 +46,6 @@ export default function RiverStationDetails({ place }) {
   const latestReading = waterLevelHistory[0];
   const previousReading = waterLevelHistory[1];
 
-  // Calculate alert level
-  const getAlert = (waterLevelM) => {
-    if (waterLevelM >= place.majorFloodLevelM) {
-      return { label: "Major Flood", colorRgb: COLORS.red };
-    }
-    if (waterLevelM >= place.minorFloodLevelM) {
-      return { label: "Minor Flood", colorRgb: COLORS.orange };
-    }
-    if (waterLevelM >= place.alertLevelM) {
-      return { label: "Alert", colorRgb: COLORS.orangeLight };
-    }
-    return { label: "Normal", colorRgb: COLORS.green };
-  };
-
-  const alert = getAlert(latestReading.waterLevelM);
-
   // Calculate rate of rise
   let rateOfChangeData = null;
 
