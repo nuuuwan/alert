@@ -6,13 +6,13 @@ export default function MapRegionView({ region, onClick }) {
   let regionColor = "lightgray";
   if (region instanceof DSD) {
     const dsd = region;
-    const latestWarningLevel = dsd.latestWarningLevel;
+    const latestLandslideWarningLevel = dsd.latestLandslideWarningLevel;
     regionColor =
       {
         1: "yellow",
         2: "orange",
         3: "red",
-      }[latestWarningLevel] || "lightgray";
+      }[latestLandslideWarningLevel] || "lightgray";
   }
 
   const onClickInner = (e) => {

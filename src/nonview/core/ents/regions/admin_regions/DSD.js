@@ -31,7 +31,7 @@ export default class DSD extends AdminRegion {
         maxDateStr);
       },
       "00000000");
-      const dsdIDToLatestLevel = Object.fromEntries(
+      const dsdIDToLatestLandslideWarning = Object.fromEntries(
         Object.entries(dsdIDToDateStrToLevel)
           .map(([dsdID, dateStrToLevel]) => [
             dsdID,
@@ -42,15 +42,17 @@ export default class DSD extends AdminRegion {
       const timeUt = TimeUtils.parseYYYYMMDD(maxDateStr);
       return {
         timeUt,
-        dsdIDToLatestLevel,
+        dsdIDToLatestLandslideWarning,
       };
     });
   }
 
   async loadDetails() {
-    const { timeUt, dsdIDToLatestLevel } = await DSD.loadAllWarningData();
-    this.latestWarningLevel = dsdIDToLatestLevel[this.id] || 0;
-    this.latestWarningTimeUt = timeUt;
+    const { timeUt, dsdIDToLatestLandslideWarning } =
+      await DSD.loadAllWarningData();
+    this.latestLandslideWarningLevel =
+      dsdIDToLatestLandslideWarning[this.id] || 0;
+    this.latestLandslideWarningTimeUt = timeUt;
     return this;
   }
 }
