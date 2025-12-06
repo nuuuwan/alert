@@ -32,7 +32,7 @@ class AdminRegion extends Region {
           "/nuuuwan/gig-data/refs/heads/master" +
           `/geo/${this.getAdminRegionType()}/${id}.json`;
         return await WWW.fetch(url);
-      }
+      },
     );
 
     return MultiPolygon.fromReverseRaw(revFloatPairListList);
@@ -48,7 +48,7 @@ class AdminRegion extends Region {
       `AdminRegion:getRawDataList:${this.getAdminRegionType()}`,
       async () => {
         return await WWW.fetch(this.getUrl());
-      }
+      },
     );
   }
 
@@ -60,8 +60,8 @@ class AdminRegion extends Region {
           id: rawData.id,
           name: rawData.name,
           population2012: rawData.population2012,
-        })
-      )
+        }),
+      ),
     );
     return adminRegionList;
   }

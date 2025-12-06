@@ -11,13 +11,13 @@ export default class Polygon {
 
   static fromRaw(floatPairList) {
     return new Polygon(
-      floatPairList.map((floatPair) => LatLng.fromRaw(floatPair))
+      floatPairList.map((floatPair) => LatLng.fromRaw(floatPair)),
     );
   }
 
   static fromReverseRaw(floatPairList) {
     return new Polygon(
-      floatPairList.map((floatPair) => LatLng.fromReverseRaw(floatPair))
+      floatPairList.map((floatPair) => LatLng.fromReverseRaw(floatPair)),
     );
   }
 }
