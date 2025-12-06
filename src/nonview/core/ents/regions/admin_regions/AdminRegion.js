@@ -83,7 +83,6 @@ class AdminRegion extends Region {
 
   static async loadFromIds(ids) {
     const rawDataList = await this.getRawDataList();
-    console.debug(Object.keys(rawDataList[0]));
     const filteredRawDataList = rawDataList.filter((rawData) =>
       ids.includes(rawData.id)
     );
