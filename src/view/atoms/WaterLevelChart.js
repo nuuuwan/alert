@@ -1,6 +1,10 @@
 import { LineChart } from "@mui/x-charts/LineChart";
 import { CHART_COLORS, COLORS } from "../_cons/StyleConstants";
 
+const DASHED_STYLE = {
+  strokeDasharray: "5 5",
+};
+
 export default function WaterLevelChart({ waterLevelHistory, riverStation }) {
   const chartData = [...waterLevelHistory].reverse().slice(-168); // Last 7 days
   const xAxisData = chartData.map((d) => new Date(d.timeUt * 1000));
@@ -22,6 +26,7 @@ export default function WaterLevelChart({ waterLevelHistory, riverStation }) {
       label: "Alert Level",
       color: COLORS.orange,
       showMark: false,
+      style: DASHED_STYLE,
     });
   }
 
@@ -31,6 +36,7 @@ export default function WaterLevelChart({ waterLevelHistory, riverStation }) {
       label: "Minor Flood Level",
       color: COLORS.redAlert,
       showMark: false,
+      style: DASHED_STYLE,
     });
   }
 
@@ -40,6 +46,7 @@ export default function WaterLevelChart({ waterLevelHistory, riverStation }) {
       label: "Major Flood Level",
       color: COLORS.redDark,
       showMark: false,
+      style: DASHED_STYLE,
     });
   }
 
@@ -65,6 +72,18 @@ export default function WaterLevelChart({ waterLevelHistory, riverStation }) {
       series={series}
       height={480}
       margin={5}
+      grid={{ vertical: true, horizontal: true }}
+      sx={{
+        "& .MuiLineElement-series-auto-generated-id-1": {
+          strokeDasharray: "5 5",
+        },
+        "& .MuiLineElement-series-auto-generated-id-2": {
+          strokeDasharray: "5 5",
+        },
+        "& .MuiLineElement-series-auto-generated-id-3": {
+          strokeDasharray: "5 5",
+        },
+      }}
     />
   );
 }
