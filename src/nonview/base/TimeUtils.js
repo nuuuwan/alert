@@ -2,6 +2,13 @@ export default class TimeUtils {
   // Sri Lanka timezone offset: UTC+5:30 (19800 seconds)
   static SRI_LANKA_OFFSET_SECONDS = 5.5 * 3600;
 
+  static SECONDS_IN = {
+    MINUTE: 60,
+    HOUR: 60 * 60,
+    DAY: 60 * 60 * 24,
+    WEEK: 60 * 60 * 24 * 7,
+  };
+
   static parseYYYYMMDD(datePart) {
     const year = Number(datePart.slice(0, 4));
     const month = Number(datePart.slice(4, 6)) - 1;

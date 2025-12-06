@@ -40,7 +40,7 @@ class RiverStation extends Place {
           latLng,
         });
         return new RiverStation({ ...rawData, ...placeData });
-      }),
+      })
     );
   }
 
@@ -48,18 +48,22 @@ class RiverStation extends Place {
     const rawAlertData = await RiverStation.getRawAlertData();
     const eventData = rawAlertData["event_data"];
     const eventDataForThisStation = eventData[this.name];
+    const minTimeUt = TimeUtils.getUnixTime() - TimeUtils.SECONDS_IN.WEEK;
     const waterLevelHistory = Object.entries(eventDataForThisStation)
       .reduce(function (waterLevelHistory, [dateId, timeOnlyIdToWaterLevelM]) {
         return Object.entries(timeOnlyIdToWaterLevelM).reduce(function (
           waterLevelHistory,
-          [timeOnlyId, waterLevelM],
+          [timeOnlyId, waterLevelM]
         ) {
           const timeUt = TimeUtils.parseYYYYMMDDHHHMMSS(
-            `${dateId}${timeOnlyId}`,
+            `${dateId}${timeOnlyId}`
           );
-          waterLevelHistory.push({ timeUt, waterLevelM });
+          if (timeUt > minTimeUt) {
+            waterLevelHistory.push({ timeUt, waterLevelM });
+          }
           return waterLevelHistory;
-        }, waterLevelHistory);
+        },
+        waterLevelHistory);
       }, [])
       .sort(TimeUtils.compareTimeUtDescending);
     this.waterLevelHistory = waterLevelHistory;
