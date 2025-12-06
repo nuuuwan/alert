@@ -7,11 +7,17 @@ export default function MapPlaceView({ place, onClick }) {
   if (!place) {
     throw new Error("MapPlaceView requires a place prop");
   }
+
   const Icon = GaugingStationIcon;
   const iconSize = LOCATION_MARKER_RADIUS * 8;
   const circleSize = iconSize * 1.1;
   const opacity = 0.5;
   const placeColor = "cyan";
+
+  const onClickInner = () => {
+    console.debug("onClickInner called");
+    onClick(place);
+  };
 
   return (
     <>
@@ -34,8 +40,8 @@ export default function MapPlaceView({ place, onClick }) {
           iconSize: [iconSize, iconSize],
           iconAnchor: [iconSize / 2, iconSize],
         })}
-        evplaceHandlers={{
-          click: onClick,
+        eventHandlers={{
+          click: onClickInner,
         }}
       />
     </>

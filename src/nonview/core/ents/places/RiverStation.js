@@ -6,6 +6,18 @@ class RiverStation extends Place {
     return "River Station";
   }
 
+  get title() {
+    return this.name;
+  }
+
+  get subtitle() {
+    return `${this.riverName} · ` + super.subtitle;
+  }
+
+  get elevation_m() {
+    return this.openMeteoData.elevation_m;
+  }
+
   static getStaticDataID() {
     return "river_stations";
   }
@@ -22,7 +34,7 @@ class RiverStation extends Place {
   static async loadAll() {
     const rawDataList = await this.getRawDataList();
     return Promise.all(
-      rawDataList.slice(0, 1).map(async (rawData) => {
+      rawDataList.map(async (rawData) => {
         const latLng = LatLng.fromLatLngFloats(
           rawData.latLng || rawData.lat_lng
         );

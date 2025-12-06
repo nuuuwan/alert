@@ -13,7 +13,7 @@ class Place {
   }
 
   get supertitle() {
-    return "Place";
+    return this.constructor.getEntityTypeName();
   }
 
   get title() {
@@ -21,7 +21,7 @@ class Place {
   }
 
   get subtitle() {
-    return `${this.elevation_m}m`;
+    return `${this.elevation_m}m AMSL`;
   }
 
   get elevation_m() {

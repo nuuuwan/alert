@@ -38,6 +38,11 @@ export default function MapView() {
     setDrawerOpen(true);
   };
 
+  const handlePlaceClick = (place) => {
+    setSelectedPlace(place);
+    setDrawerOpen(true);
+  };
+
   const handleDrawerClose = () => {
     setDrawerOpen(false);
   };
@@ -63,7 +68,11 @@ export default function MapView() {
         <MapClickHandler onMapClick={handleMapClick} />
 
         {riverStations.map((station) => (
-          <MapPlaceView key={station.id} place={station} />
+          <MapPlaceView
+            key={station.id}
+            place={station}
+            onClick={handlePlaceClick}
+          />
         ))}
       </MapContainer>
 
