@@ -3,13 +3,13 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
 import Divider from "@mui/material/Divider";
-import { LineChart } from "@mui/x-charts/LineChart";
 import WavesIcon from "@mui/icons-material/Waves";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import MetricCard from "../atoms/MetricCard";
-import { COLORS, CHART_COLORS } from "../_cons/StyleConstants";
+import WaterLevelChart from "../atoms/WaterLevelChart";
+import { COLORS } from "../_cons/StyleConstants";
 
 export default function RiverStationDetails({ place }) {
   const [loading, setLoading] = useState(true);
@@ -74,10 +74,6 @@ export default function RiverStationDetails({ place }) {
     rateOfChangeData = { value: formattedValue, label, color, icon };
   }
 
-  const chartData = [...waterLevelHistory].reverse().slice(-168); // Last 7 days
-  const xAxisData = chartData.map((d) => new Date(d.timeUt * 1000));
-  const yAxisData = chartData.map((d) => d.waterLevelM);
-
   return (
     <Box sx={{ p: 2 }}>
       <Typography variant="h6" gutterBottom>
@@ -111,35 +107,7 @@ export default function RiverStationDetails({ place }) {
       </Box>
 
       <Box sx={{ mt: 3 }}>
-        <LineChart
-          xAxis={[
-            {
-              data: xAxisData,
-              scaleType: "time",
-              tickLabelStyle: {
-                angle: 45,
-                textAnchor: "start",
-                fontSize: 10,
-              },
-            },
-          ]}
-          yAxis={[
-            {
-              label: "Water Level (m)",
-              valueFormatter: (value) => `${value.toFixed(2)}m`,
-            },
-          ]}
-          series={[
-            {
-              data: yAxisData,
-              label: "Water Level",
-              color: CHART_COLORS.waterLevel,
-              showMark: false,
-            },
-          ]}
-          height={480}
-          margin={5}
-        />
+        <WaterLevelChart waterLevelHistory={waterLevelHistory} />
       </Box>
     </Box>
   );
