@@ -44,7 +44,7 @@ export default function RiverStationDetails({ place }) {
 
   // Latest is first (descending order)
   const latestReading = waterLevelHistory[0];
-  const previousReading = waterLevelHistory[1];
+  const previousReading = waterLevelHistory[10];
 
   // Calculate rate of rise
   let rateOfChangeData = null;
