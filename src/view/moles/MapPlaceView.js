@@ -15,7 +15,6 @@ export default function MapPlaceView({ place, onClick }) {
   const placeColor = "cyan";
 
   const onClickInner = () => {
-    console.debug("onClickInner called");
     onClick(place);
   };
 
