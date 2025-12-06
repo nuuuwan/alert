@@ -1,13 +1,9 @@
 import Box from "@mui/material/Box";
 import RoleDetails from "./roles/RoleDetails";
 import { SatelliteImageView } from "../atoms";
-import OpenMeteoView from "./OpenMeteoView";
+import OpenMeteoView from "../moles/OpenMeteoView";
 
-export default function PlaceDetails({
-  place,
-  eventClassNameToEventList,
-  isStale,
-}) {
+export default function PlaceDetails({ place }) {
   return (
     <Box>
       {Object.entries(eventClassNameToEventList).map(function ([

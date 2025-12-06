@@ -1,7 +1,7 @@
 import Place from "../../nonview/core/ents/Place";
 import Box from "@mui/material/Box";
 import DetailsHeader from "./DetailsHeader";
-import PlaceDetails from "./PlaceDetails";
+import PlaceDetails from "../orgas/PlaceDetails";
 import RoleIcon from "../atoms/icons/RoleIcon";
 
 export default function EntDetails({
