@@ -116,9 +116,6 @@ export default function RiverStationDetails({ place }) {
       </Box>
 
       <Box sx={{ mt: 3 }}>
-        <Typography variant="subtitle2" gutterBottom>
-          7-Day History
-        </Typography>
         <LineChart
           xAxis={[
             {
@@ -145,8 +142,8 @@ export default function RiverStationDetails({ place }) {
               showMark: false,
             },
           ]}
-          height={450}
-          margin={{ top: 20, right: 20, bottom: 100, left: 80 }}
+          height={480}
+          margin={5}
         />
       </Box>
     </Box>
