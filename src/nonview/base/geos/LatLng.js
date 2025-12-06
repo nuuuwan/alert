@@ -1,17 +1,19 @@
 export default class LatLng {
-  constructor(lat, lng) {
-    if (typeof lat !== "number" || typeof lng !== "number") {
-      throw new Error("LatLng constructor requires numeric lat and lng");
-    }
+  constructor(floatPair) {
+    const [lat, lng] = floatPair;
     this.lat = lat;
     this.lng = lng;
   }
 
-  static fromLatLngFloats([lat, lng]) {
-    return new LatLng(lat, lng);
+  static fromRaw(floatPair) {
+    return new LatLng([floatPair[0], floatPair[1]]);
   }
 
-  toArray() {
+  static fromReverseRaw(floatPair) {
+    return new LatLng([floatPair[1], floatPair[0]]);
+  }
+
+  raw() {
     return [this.lat, this.lng];
   }
 

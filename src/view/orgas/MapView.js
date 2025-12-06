@@ -4,12 +4,13 @@ import "leaflet/dist/leaflet.css";
 import "./MapView.css";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 import CustomDrawer from "../moles/CustomDrawer";
-import PlaceDetails from "../orgas/PlaceDetails";
 import Place from "../../nonview/core/ents/places/Place";
 import LatLng from "../../nonview/base/geos/LatLng";
 import RiverStation from "../../nonview/core/ents/places/RiverStation";
 import MapPlaceView from "../moles/MapPlaceView";
-
+import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
+import MapRegionView from "../moles/MapRegionView";
+import EntDetails from "../moles/EntDetails";
 function MapClickHandler({ onMapClick }) {
   useMapEvents({
     click: (e) => {
@@ -23,6 +24,7 @@ export default function MapView() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [riverStations, setRiverStations] = useState([]);
+  const [dsdEnts, setDsdEnts] = useState([]);
 
   useEffect(() => {
     async function fetch() {
@@ -32,14 +34,22 @@ export default function MapView() {
     fetch();
   }, []);
 
+  useEffect(() => {
+    async function fetchDsdEnts() {
+      const dsdEnts = await DSD.loadAll();
+      setDsdEnts(dsdEnts);
+    }
+    fetchDsdEnts();
+  }, []);
+
   const handleMapClick = async (latLng) => {
-    const place = await Place.load({ latLng: LatLng.fromLatLngFloats(latLng) });
+    const place = await Place.load({ latLng: LatLng.fromRaw(latLng) });
     setSelectedPlace(place);
     setDrawerOpen(true);
   };
 
-  const handlePlaceClick = (place) => {
-    setSelectedPlace(place);
+  const handleEntClick = (ent) => {
+    setSelectedPlace(ent);
     setDrawerOpen(true);
   };
 
@@ -71,16 +81,21 @@ export default function MapView() {
           <MapPlaceView
             key={station.id}
             place={station}
-            onClick={handlePlaceClick}
+            onClick={handleEntClick}
           />
         ))}
+
+        {dsdEnts &&
+          dsdEnts.map((dsd) => (
+            <MapRegionView key={dsd.id} region={dsd} onClick={handleEntClick} />
+          ))}
       </MapContainer>
 
       <CustomDrawer
         open={drawerOpen}
         onClose={handleDrawerClose}
         selectedItem={selectedPlace}
-        renderContent={(place) => <PlaceDetails place={place} />}
+        renderContent={(ent) => <EntDetails ent={ent} />}
         getFileName={getFileName}
       />
     </>

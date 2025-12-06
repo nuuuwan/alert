@@ -43,13 +43,14 @@ export default class OpenMeteo {
               hourly.interval(),
           },
           (_, i) =>
-            new Date((Number(hourly.time()) + i * hourly.interval()) * 1000),
+            new Date((Number(hourly.time()) + i * hourly.interval()) * 1000)
         ),
         temperature_2m: hourly.variables(0).valuesArray(),
         precipitation: hourly.variables(1).valuesArray(),
       },
     };
     const weatherData = {
+      elevationM: response.elevation(),
       temp2mC: weatherDataRaw.current.temperature_2m,
       rain24hMM: ArrayUtils.sum(weatherDataRaw.hourly.precipitation),
     };

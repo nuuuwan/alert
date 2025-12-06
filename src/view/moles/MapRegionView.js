@@ -1,36 +1,19 @@
 import { Polygon } from "react-leaflet";
-import { useState, useEffect } from "react";
 
-export default function MapRegionView({ ent, onClick, entColor }) {
-  const [latLngListList, setLatLngListList] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      if (ent) {
-        const latLngListList2 = await ent.getLatLngListList();
-        setLatLngListList(latLngListList2);
-      }
-    }
-    fetchData();
-  }, [ent]);
-
-  if (!latLngListList || latLngListList.length === 0) {
-    return null;
-  }
-
+export default function MapRegionView({ region, onClick, regionColor }) {
   return (
     <>
-      {latLngListList.map((latLngList, index) => (
+      {region.multiPolygon.raw().map((rawPolygon, index) => (
         <Polygon
-          key={`${ent.id}-latLngList-${index}`}
-          positions={latLngList}
+          key={`${region.id}-latLngList-${index}`}
+          positions={rawPolygon}
           pathOptions={{
             fill: true,
-            fillColor: entColor,
+            fillColor: regionColor || "lightgrey",
             color: "white",
             weight: 2,
           }}
-          eventHandlers={{
+          evregionHandlers={{
             click: onClick,
           }}
         />

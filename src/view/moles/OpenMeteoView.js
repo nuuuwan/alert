@@ -11,7 +11,7 @@ export default function OpenMeteoView({ place }) {
   const temp2mC = openMeteoData.temp2mC.toFixed(1);
   const rain24hMM = openMeteoData.rain24hMM.toFixed(1);
 
-  const [latitude, longitude] = latLng.toArray();
+  const [latitude, longitude] = latLng.raw();
   return (
     <Box sx={{ p: 2 }}>
       <Typography variant="h6" gutterBottom>

@@ -19,12 +19,11 @@ export default function MapPlaceView({ place, onClick }) {
   };
 
   return (
-    <>
-      <Marker
-        position={place.latLng}
-        icon={L.divIcon({
-          className: "place-icon",
-          html: `
+    <Marker
+      position={place.latLng}
+      icon={L.divIcon({
+        className: "place-icon",
+        html: `
             <div style="position: relative; width: ${iconSize}px; height: ${iconSize}px; display: flex; align-items: cplaceer; justify-contplace: cplaceer; opacity: ${opacity};">
               <div style="position: absolute; width: ${circleSize}px; height: ${circleSize}px; background-color: white; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"></div>
               <div style="position: relative; z-index: 1;">
@@ -36,13 +35,12 @@ export default function MapPlaceView({ place, onClick }) {
               </div>
             </div>
           `,
-          iconSize: [iconSize, iconSize],
-          iconAnchor: [iconSize / 2, iconSize],
-        })}
-        eventHandlers={{
-          click: onClickInner,
-        }}
-      />
-    </>
+        iconSize: [iconSize, iconSize],
+        iconAnchor: [iconSize / 2, iconSize],
+      })}
+      eventHandlers={{
+        click: onClickInner,
+      }}
+    />
   );
 }

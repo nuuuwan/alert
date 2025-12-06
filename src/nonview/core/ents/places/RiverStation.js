@@ -18,10 +18,6 @@ class RiverStation extends Place {
     return `${this.riverName} · ` + super.subtitle;
   }
 
-  get elevation_m() {
-    return this.openMeteoData.elevation_m;
-  }
-
   static getStaticDataID() {
     return "river_stations";
   }
@@ -39,14 +35,12 @@ class RiverStation extends Place {
     const rawDataList = await this.getRawDataList();
     return Promise.all(
       rawDataList.map(async (rawData) => {
-        const latLng = LatLng.fromLatLngFloats(
-          rawData.latLng || rawData.lat_lng,
-        );
+        const latLng = LatLng.fromRaw(rawData.latLng || rawData.lat_lng);
         const placeData = await Place.loadData({
           latLng,
         });
         return new RiverStation({ ...rawData, ...placeData });
-      }),
+      })
     );
   }
 
@@ -58,14 +52,15 @@ class RiverStation extends Place {
       .reduce(function (waterLevelHistory, [dateId, timeOnlyIdToWaterLevelM]) {
         return Object.entries(timeOnlyIdToWaterLevelM).reduce(function (
           waterLevelHistory,
-          [timeOnlyId, waterLevelM],
+          [timeOnlyId, waterLevelM]
         ) {
           const timeUt = TimeUtils.parseYYYYMMDDHHHMMSS(
-            `${dateId}${timeOnlyId}`,
+            `${dateId}${timeOnlyId}`
           );
           waterLevelHistory.push({ timeUt, waterLevelM });
           return waterLevelHistory;
-        }, waterLevelHistory);
+        },
+        waterLevelHistory);
       }, [])
       .sort(TimeUtils.compareTimeUtDescending);
     this.waterLevelHistory = waterLevelHistory;

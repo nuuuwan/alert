@@ -21,11 +21,10 @@ class Place {
   }
 
   get subtitle() {
-    return `${this.elevation_m}m AMSL`;
-  }
-
-  get elevation_m() {
-    return this.openMeteoData.elevation_m;
+    if (!this.openMeteoData) {
+      return "";
+    }
+    return `${this.openMeteoData.elevationM}m AMSL`;
   }
 
   async loadDetails() {
