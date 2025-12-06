@@ -2,8 +2,8 @@ import { fetchWeatherApi } from "openmeteo";
 export default class OpenMeteo {
   static async getData({ latLng }) {
     const params = {
-      latitude: latLng[0],
-      longitude: latLng[1],
+      latitude: latLng.lat,
+      longitude: latLng.lng,
       daily: "uv_index_max",
       hourly: [
         "temperature_2m",

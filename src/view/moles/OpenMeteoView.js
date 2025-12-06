@@ -6,7 +6,7 @@ import Divider from "@mui/material/Divider";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 import { COLORS } from "../_cons/StyleConstants";
 
-export default function OpenMeteoView({ latLng, name }) {
+export default function OpenMeteoView({ latLng }) {
   const [loading, setLoading] = useState(true);
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(null);
