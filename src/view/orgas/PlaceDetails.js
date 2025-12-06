@@ -24,8 +24,8 @@ export default function PlaceDetails({ place }) {
   return (
     <Box>
       <EntDetails ent={place} />
-      <OpenMeteoView openMeteoData={place.openMeteoData} />
-      <SatelliteImageView latLng={place.latLng} name={place.name} />
+      <OpenMeteoView place={place} />
+      <SatelliteImageView place={place} />
     </Box>
   );
 }

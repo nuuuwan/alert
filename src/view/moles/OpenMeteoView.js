@@ -4,11 +4,14 @@ import Divider from "@mui/material/Divider";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import MetricCard from "../atoms/MetricCard";
+import SourceView from "../atoms/SourceView";
 
-export default function OpenMeteoView({ openMeteoData }) {
+export default function OpenMeteoView({ place }) {
+  const { openMeteoData, latLng } = place;
   const currentTemp = openMeteoData.temp_2m_c[0].toFixed(1);
   const currentRain = openMeteoData.rain_mm[0].toFixed(1);
 
+  const [latitude, longitude] = latLng.toArray();
   return (
     <Box sx={{ p: 2 }}>
       <Typography variant="h6" gutterBottom>
@@ -40,14 +43,10 @@ export default function OpenMeteoView({ openMeteoData }) {
         />
       </Box>
 
-      <Typography
-        variant="caption"
-        color="text.secondary"
-        display="block"
-        sx={{ mb: 2 }}
-      >
-        Source: Open-Meteo (Real-Time Weather API)
-      </Typography>
+      <SourceView
+        label="Open-Meteo (Real-Time Weather API)"
+        url={`https://open-meteo.com/en/docs?latitude=${latitude}&longitude=${longitude}`}
+      />
     </Box>
   );
 }

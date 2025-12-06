@@ -1,7 +1,9 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import SourceView from "./SourceView";
 
-export default function SatelliteImageView({ latLng, name }) {
+export default function SatelliteImageView({ place }) {
+  const { latLng, name } = place;
   const latLngToWebMercator = (lat, lng) => {
     const x = (lng * 20037508.34) / 180;
     const y =
@@ -46,9 +48,10 @@ export default function SatelliteImageView({ latLng, name }) {
           borderColor: "divider",
         }}
       />
-      <Typography variant="caption" color="text.secondary">
-        Source: European Space Agency (ESA) Sentinel-1
-      </Typography>
+      <SourceView
+        label="European Space Agency (ESA) Sentinel-2"
+        url="https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2"
+      />
     </Box>
   );
 }
