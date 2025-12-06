@@ -41,4 +41,8 @@ export default class TimeUtils {
       return `${diffSeconds} second${diffSeconds === 1 ? "" : "s"} ago`;
     }
   }
+
+  static compareTimeUtDescending(a, b) {
+    return b.ut - a.ut;
+  }
 }

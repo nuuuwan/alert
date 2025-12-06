@@ -1,6 +1,10 @@
 import Place from "./Place.js";
 import WithDataStaticMixin from "../../../base/mixins/WithDataStaticMixin.js";
 import LatLng from "../../../base/geos/LatLng.js";
+import WWW from "../../../base/WWW.js";
+import Cache from "../../../base/Cache.js";
+import TimeUtils from "../../../base/TimeUtils.js";
+
 class RiverStation extends Place {
   static getEntityTypeName() {
     return "River Station";
@@ -46,8 +50,41 @@ class RiverStation extends Place {
     );
   }
 
+  async loadWaterLevelHistory() {
+    const rawAlertData = await RiverStation.getRawAlertData();
+    const eventData = rawAlertData["event_data"];
+    const eventDataForThisStation = eventData[this.name];
+    const waterLevelHistory = Object.entries(eventDataForThisStation)
+      .reduce(function (waterLevelHistory, [dateId, timeOnlyIdToWaterLevelM]) {
+        return Object.entries(timeOnlyIdToWaterLevelM).reduce(function (
+          waterLevelHistory,
+          [timeOnlyId, waterLevelM]
+        ) {
+          const timeUt = TimeUtils.parseYYYYMMDDHHHMMSS(
+            `${dateId}${timeOnlyId}`
+          );
+          waterLevelHistory.push({ timeUt, waterLevelM });
+          return waterLevelHistory;
+        },
+        waterLevelHistory);
+      }, [])
+      .sort(TimeUtils.compareTimeUtDescending);
+    this.waterLevelHistory = waterLevelHistory;
+    return this;
+  }
+
   async loadDetails() {
-    return await super.loadDetails();
+    await this.loadWaterLevelHistory();
+    await super.loadDetails();
+    return this;
+  }
+
+  static async getRawAlertData() {
+    const url =
+      "https://raw.githubusercontent.com/nuuuwan/lk_irrigation/refs/heads/main/data/alert_data.json";
+    return await Cache.get("RiverStation.getRawAlertData", async () => {
+      return await WWW.fetchJSON(url);
+    });
   }
 }
 
