@@ -13,8 +13,8 @@ Places have constant attributes, such as name or elevation, and time-varying att
 ```javascript
 place = await Place.load([6.9157, 79.8636])
 
-gaugingStation = await GaugingStation.load([6.9579, 79.8788])
-gaugingStation = await GaugingStation.loadFromName("Nagalagam Street")
+riverStation = await RiverStation.load([6.9579, 79.8788])
+riverStation = await RiverStation.loadFromName("Nagalagam Street")
 
 elev = place.elevation
 ```
@@ -68,7 +68,7 @@ An **Alert** defines a boolean condition on an Ent. The condition is evaluated w
 An Alert does not modify underlying data; it only queries it.
 
 ```javascript
-isMajor = gaugingStation.isMajorFlood()
+isMajor = riverStation.isMajorFlood()
 ```
 
 A typical pattern is threshold comparison, for example water level exceeding minor or major flood levels. More complex conditions are supported so long as they can be expressed in terms of Ent attributes and Observations.

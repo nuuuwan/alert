@@ -1,14 +1,14 @@
 import { Marker } from "react-leaflet";
 import L from "leaflet";
 import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
-import GaugingStationIcon from "../atoms/icons/GaugingStationIcon";
+import RiverStationIcon from "../atoms/icons/RiverStationIcon";
 
 export default function MapPlaceView({ place, onClick }) {
   if (!place) {
     throw new Error("MapPlaceView requires a place prop");
   }
 
-  const Icon = GaugingStationIcon;
+  const Icon = RiverStationIcon;
   const iconSize = LOCATION_MARKER_RADIUS * 8;
   const circleSize = iconSize * 1.1;
   const opacity = 0.5;

@@ -1,4 +1,4 @@
-export default function GaugingStationIcon({ size, color, strokeColor }) {
+export default function RiverStationIcon({ size, color, strokeColor }) {
   const strokeWidth = 24;
   return `
   
