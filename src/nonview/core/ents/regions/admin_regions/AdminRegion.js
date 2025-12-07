@@ -3,7 +3,6 @@ import DataWithIDMixin from "../../../../base/mixins/DataWithIDMixin";
 import Region from "../Region";
 import MultiPolygon from "../../../../base/geos/MultiPolygon";
 import Cache from "../../../../base/Cache";
-import Format from "../../../../base/Format";
 
 class AdminRegion extends Region {
   static getAdminRegionType() {
@@ -12,8 +11,8 @@ class AdminRegion extends Region {
   static getUrl() {
     return (
       "https://raw.githubusercontent.com" +
-      "/nuuuwan/gig-data/refs/heads/master" +
-      `/ents/${this.getAdminRegionType()}.tsv`
+      "/nuuuwan/lk_admin_regions/refs/heads/main" +
+      `/data/ents/${this.getAdminRegionType()}s.tsv`
     );
   }
 
@@ -26,14 +25,14 @@ class AdminRegion extends Region {
   }
 
   get subtitle() {
-    return `Population(2012): ${Format.numberWithCommas(this.population2012)}`;
+    return `${this.areaSqKm.toFixed(0)} km²`;
   }
 
   constructor(data) {
     super(data);
     this.id = data.id;
     this.name = data.name;
-    this.population2012 = data.population2012 || data.population;
+    this.areaSqKm = data.areaSqKm;
   }
 
   async loadDetails() {
@@ -46,18 +45,18 @@ class AdminRegion extends Region {
       async () => {
         const url =
           "https://raw.githubusercontent.com" +
-          "/nuuuwan/gig-data/refs/heads/master" +
-          `/geo/${this.getAdminRegionType()}/${id}.json`;
+          "/nuuuwan/lk_admin_regions/refs/heads/main" +
+          `/data/geo/json/smaller/${this.getAdminRegionType()}s.json/${id}.json`;
         return await WWW.fetch(url);
-      }
+      },
     );
 
     return MultiPolygon.fromReverseRaw(revFloatPairListList);
   }
 
-  static async loadFromData({ id, name, population2012 }) {
+  static async loadFromData({ id, name, areaSqKm }) {
     const multiPolygon = await this.getGeoForId(id);
-    return new this({ multiPolygon, id, name, population2012 });
+    return new this({ multiPolygon, id, name, areaSqKm });
   }
 
   static async getRawDataList() {
@@ -65,7 +64,7 @@ class AdminRegion extends Region {
       `AdminRegion:getRawDataList:${this.getAdminRegionType()}`,
       async () => {
         return await WWW.fetch(this.getUrl());
-      }
+      },
     );
   }
 
@@ -75,16 +74,16 @@ class AdminRegion extends Region {
         this.loadFromData({
           id: rawData.id,
           name: rawData.name,
-          population2012: rawData.population,
-        })
-      )
+          areaSqKm: parseFloat(rawData.area_sqkm),
+        }),
+      ),
     );
   }
 
   static async loadFromIds(ids) {
     const rawDataList = await this.getRawDataList();
     const filteredRawDataList = rawDataList.filter((rawData) =>
-      ids.includes(rawData.id)
+      ids.includes(rawData.id),
     );
     return await this.loadFromRawDataList(filteredRawDataList);
   }
