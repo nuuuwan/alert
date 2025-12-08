@@ -34,7 +34,7 @@ export default function OpenMeteoView({ place }) {
           label="Rain"
           value={openMeteoData.rainMMSum24h.toFixed(0)}
           unit="mm"
-          timeLabel="Total (Last 24 hours)"
+          timeLabel="24 Hour Total"
         />
         <MetricCard
           icon={ThermostatIcon}
