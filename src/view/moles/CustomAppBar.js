@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import WaterIcon from "@mui/icons-material/Water";
 import Box from "@mui/material/Box";
 import AppBarMenu from "./AppBarMenu";
+import { COLORS } from "../_cons/StyleConstants";
 
 export default function CustomAppBar() {
   return (
@@ -11,8 +12,7 @@ export default function CustomAppBar() {
       position="fixed"
       sx={{
         zIndex: 1000,
-        backgroundColor: "rgba(25, 118, 210, 0.95)",
-        backdropFilter: "blur(10px)",
+        backgroundColor: COLORS.neutral,
       }}
     >
       <Toolbar variant="dense">
