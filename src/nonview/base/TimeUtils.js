@@ -68,8 +68,12 @@ export default class TimeUtils {
     return b.timeUt - a.timeUt;
   }
 
+  static getUnixTimeFromDate(date) {
+    return Math.floor(date.getTime() / 1000);
+  }
+
   static getUnixTime() {
-    return Math.floor(Date.now() / 1000);
+    return this.getUnixTimeFromDate(new Date());
   }
 
   static formatISO8601(ut) {

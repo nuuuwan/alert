@@ -53,8 +53,15 @@ export default class OpenMeteo {
       elevationM: response.elevation(),
       temp2mCNow: weatherDataRaw.current.temperature_2m,
       temp2mCNowTimeUt: Number(current.time()),
+      rainMM24h: weatherDataRaw.hourly.precipitation,
+      rainMM24hTimeUt: weatherDataRaw.hourly.time.map(
+        TimeUtils.getUnixTimeFromDate
+      ),
+      temp2mC: weatherDataRaw.hourly.temperature_2m.slice(-1)[0],
       rainMMMean24h: ArrayUtils.sum(weatherDataRaw.hourly.precipitation),
     };
+
+    console.debug(weatherData);
 
     return weatherData;
   }
