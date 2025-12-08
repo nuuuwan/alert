@@ -32,9 +32,9 @@ export default function OpenMeteoView({ place }) {
         <MetricCard
           icon={WaterDropIcon}
           label="Rain"
-          value={openMeteoData.rainMMMean24h.toFixed(0)}
+          value={openMeteoData.rainMMSum24h.toFixed(0)}
           unit="mm"
-          timeLabel="Mean (Last 24 hours)"
+          timeLabel="Total (Last 24 hours)"
         />
         <MetricCard
           icon={ThermostatIcon}
