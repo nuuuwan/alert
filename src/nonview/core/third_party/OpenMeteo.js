@@ -64,8 +64,6 @@ export default class OpenMeteo {
       temp2mC24h: weatherDataRaw.hourly.temperature_2m,
     };
 
-    console.debug(weatherData);
-
     return weatherData;
   }
 }
