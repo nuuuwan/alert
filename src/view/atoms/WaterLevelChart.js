@@ -1,6 +1,7 @@
 import { LineChart } from "@mui/x-charts/LineChart";
 import { COLORS } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
+import SourceView from "./SourceView";
 
 const DASHED_STYLE = {
   strokeDasharray: "5 5",
@@ -51,45 +52,51 @@ export default function WaterLevelChart({ waterLevelHistory, riverStation }) {
   });
 
   return (
-    <LineChart
-      xAxis={[
-        {
-          data: xAxisData,
-          scaleType: "time",
-          tickLabelStyle: {
-            fontSize: 10,
-          },
+    <>
+      <LineChart
+        xAxis={[
+          {
+            data: xAxisData,
+            scaleType: "time",
+            tickLabelStyle: {
+              fontSize: 10,
+            },
 
-          valueFormatter: (date, context) => {
-            if (context.location === "tick") {
-              return TimeUtils.formatMMMDD(date);
-            } else {
-              return TimeUtils.formatMMMDDIImmp(date);
-            }
+            valueFormatter: (date, context) => {
+              if (context.location === "tick") {
+                return TimeUtils.formatMMMDD(date);
+              } else {
+                return TimeUtils.formatMMMDDIImmp(date);
+              }
+            },
           },
-        },
-      ]}
-      yAxis={[
-        {
-          label: "Water Level (m)",
-          valueFormatter: (value) => `${value.toFixed(0)}m`,
-        },
-      ]}
-      series={series}
-      height={360}
-      margin={5}
-      grid={{ vertical: true, horizontal: true }}
-      sx={{
-        "& .MuiLineElement-series-auto-generated-id-1": {
-          strokeDasharray: "5 5",
-        },
-        "& .MuiLineElement-series-auto-generated-id-2": {
-          strokeDasharray: "5 5",
-        },
-        "& .MuiLineElement-series-auto-generated-id-3": {
-          strokeDasharray: "5 5",
-        },
-      }}
-    />
+        ]}
+        yAxis={[
+          {
+            label: "Water Level (m)",
+            valueFormatter: (value) => `${value.toFixed(0)}m`,
+          },
+        ]}
+        series={series}
+        height={360}
+        margin={5}
+        grid={{ vertical: true, horizontal: true }}
+        sx={{
+          "& .MuiLineElement-series-auto-generated-id-1": {
+            strokeDasharray: "5 5",
+          },
+          "& .MuiLineElement-series-auto-generated-id-2": {
+            strokeDasharray: "5 5",
+          },
+          "& .MuiLineElement-series-auto-generated-id-3": {
+            strokeDasharray: "5 5",
+          },
+        }}
+      />
+      <SourceView
+        label="Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka"
+        url="https://github.com/nuuuwan/lk_irrigation"
+      />
+    </>
   );
 }
