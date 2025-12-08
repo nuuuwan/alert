@@ -38,6 +38,7 @@ export default function EntDetails({ ent, supertitleOverride }) {
   return (
     <Box>
       <DetailsHeader ent={ent} supertitleOverride={supertitleOverride} />
+      <Divider sx={{ my: 2 }} />
       {<EntChildDetails ent={entWithDetails} />}
     </Box>
   );
