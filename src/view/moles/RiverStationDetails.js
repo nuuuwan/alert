@@ -11,6 +11,7 @@ import MetricCard from "../atoms/MetricCard";
 import WaterLevelChart from "../atoms/WaterLevelChart";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
+import MetricCardCollection from "../atoms/MetricCardCollection";
 
 export default function RiverStationDetails({ place }) {
   const [loading, setLoading] = useState(true);
@@ -88,15 +89,7 @@ export default function RiverStationDetails({ place }) {
 
       <Divider sx={{ my: 2 }} />
 
-      <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 2,
-          mb: 2,
-        }}
-        r
-      >
+      <MetricCardCollection>
         <MetricCard
           Icon={WavesIcon}
           label="Water Level"
@@ -114,7 +107,7 @@ export default function RiverStationDetails({ place }) {
             timeLabel={rateOfRiseTimeLabel}
           />
         )}
-      </Box>
+      </MetricCardCollection>
 
       <Box sx={{ mt: 3 }}>
         <WaterLevelChart

@@ -4,6 +4,7 @@ import Divider from "@mui/material/Divider";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import MetricCard from "../atoms/MetricCard";
+import MetricCardCollection from "../atoms/MetricCardCollection";
 import SourceView from "../atoms/SourceView";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import RainChart from "../atoms/RainChart";
@@ -23,14 +24,7 @@ export default function OpenMeteoView({ place }) {
 
       <Divider sx={{ my: 2 }} />
 
-      <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
-          gap: 2,
-          mb: 3,
-        }}
-      >
+      <MetricCardCollection>
         <MetricCard
           Icon={WaterDropIcon}
           label="Rain"
@@ -45,7 +39,7 @@ export default function OpenMeteoView({ place }) {
           unit="°C"
           timeLabel={TimeUtils.getTimeAgoString(openMeteoData.temp2mCNowTimeUt)}
         />
-      </Box>
+      </MetricCardCollection>
 
       <RainChart
         rainMM24h={openMeteoData.rainMM24h}
