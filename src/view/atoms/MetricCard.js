@@ -26,6 +26,11 @@ export default function MetricCard({
         border: "1px solid",
         borderColor: foreColor,
         textAlign: "center",
+        width: 200,
+        height: 200,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
       }}
     >
       <Box
