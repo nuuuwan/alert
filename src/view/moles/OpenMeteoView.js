@@ -7,6 +7,7 @@ import MetricCard from "../atoms/MetricCard";
 import SourceView from "../atoms/SourceView";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import RainChart from "../atoms/RainChart";
+import TempChart from "../atoms/TempChart";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
@@ -29,25 +30,28 @@ export default function OpenMeteoView({ place }) {
         }}
       >
         <MetricCard
-          icon={ThermostatIcon}
-          label="Temperature"
-          value={openMeteoData.temp2mCNow.toFixed(1)}
-          unit="°C"
-          timeLabel={TimeUtils.getTimeAgoString(openMeteoData.temp2mCNowTimeUt)}
-        />
-
-        <MetricCard
           icon={WaterDropIcon}
           label="Rain"
           value={openMeteoData.rainMMMean24h.toFixed(0)}
           unit="mm"
           timeLabel="Mean (Last 24 hours)"
         />
+        <MetricCard
+          icon={ThermostatIcon}
+          label="Temperature"
+          value={openMeteoData.temp2mCNow.toFixed(1)}
+          unit="°C"
+          timeLabel={TimeUtils.getTimeAgoString(openMeteoData.temp2mCNowTimeUt)}
+        />
       </Box>
 
       <RainChart
         rainMM24h={openMeteoData.rainMM24h}
-        rainMM24hTimeUt={openMeteoData.rainMM24hTimeUt}
+        hourlyTimeUt={openMeteoData.hourlyTimeUt}
+      />
+      <TempChart
+        temp2mC24h={openMeteoData.temp2mC24h}
+        hourlyTimeUt={openMeteoData.hourlyTimeUt}
       />
 
       <SourceView

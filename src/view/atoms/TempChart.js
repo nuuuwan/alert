@@ -2,15 +2,15 @@ import { LineChart } from "@mui/x-charts/LineChart";
 import { COLORS } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 
-export default function RainChart({ rainMM24h, hourlyTimeUt }) {
+export default function TempChart({ temp2mC24h, hourlyTimeUt }) {
   const xAxisData = hourlyTimeUt.map((time) => new Date(time * 1000));
-  const yAxisData = rainMM24h;
+  const yAxisData = temp2mC24h;
 
   const series = [
     {
       data: yAxisData,
-      label: "Rainfall (mm)",
-      color: COLORS.water,
+      label: "Temperature (°C)",
+      color: COLORS.air,
       showMark: false,
     },
   ];
@@ -35,8 +35,8 @@ export default function RainChart({ rainMM24h, hourlyTimeUt }) {
       ]}
       yAxis={[
         {
-          label: "Rainfall (mm)",
-          valueFormatter: (value) => `${value.toFixed(1)} mm`,
+          label: "Temperature (°C)",
+          valueFormatter: (value) => `${value.toFixed(1)} °C`,
           tickLabelStyle: {
             fontSize: 10,
           },
@@ -44,7 +44,7 @@ export default function RainChart({ rainMM24h, hourlyTimeUt }) {
       ]}
       series={series}
       height={360}
-      margin={10}
+      margin={5}
       grid={{ vertical: true, horizontal: true }}
     />
   );

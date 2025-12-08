@@ -25,6 +25,15 @@ export default class TimeUtils {
     return date.toLocaleDateString("en-US", options);
   }
 
+  static formatIImmp(date) {
+    const options = {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    };
+    return date.toLocaleTimeString("en-US", options);
+  }
+
   static parseYYYYMMDD(datePart) {
     const year = Number(datePart.slice(0, 4));
     const month = Number(datePart.slice(4, 6)) - 1;

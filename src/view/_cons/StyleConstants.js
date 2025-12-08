@@ -6,7 +6,8 @@ export const COLORS = {
   lowAlert: "#d4a500",
 
   // entities
-  water: "#1976d2",
+  water: "#00ccff",
+  air: "#ffcc00",
 };
 
 // Typography

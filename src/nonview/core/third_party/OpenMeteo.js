@@ -51,14 +51,17 @@ export default class OpenMeteo {
     };
     const weatherData = {
       elevationM: response.elevation(),
+      // current
       temp2mCNow: weatherDataRaw.current.temperature_2m,
       temp2mCNowTimeUt: Number(current.time()),
-      rainMM24h: weatherDataRaw.hourly.precipitation,
-      rainMM24hTimeUt: weatherDataRaw.hourly.time.map(
+
+      // hourly
+      hourlyTimeUt: weatherDataRaw.hourly.time.map(
         TimeUtils.getUnixTimeFromDate
       ),
-      temp2mC: weatherDataRaw.hourly.temperature_2m.slice(-1)[0],
+      rainMM24h: weatherDataRaw.hourly.precipitation,
       rainMMMean24h: ArrayUtils.sum(weatherDataRaw.hourly.precipitation),
+      temp2mC24h: weatherDataRaw.hourly.temperature_2m,
     };
 
     console.debug(weatherData);
