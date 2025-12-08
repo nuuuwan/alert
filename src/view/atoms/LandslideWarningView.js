@@ -1,5 +1,7 @@
 import MetricCard from "./MetricCard";
 import TimeUtils from "../../nonview/base/TimeUtils";
+import WarningIcon from "@mui/icons-material/Warning";
+
 export default function LandslideWarningView({ level, timeUt }) {
   if (level == null) return null;
 
@@ -20,6 +22,7 @@ export default function LandslideWarningView({ level, timeUt }) {
 
   return (
     <MetricCard
+      Icon={WarningIcon}
       label={title}
       value={value}
       unit={""}

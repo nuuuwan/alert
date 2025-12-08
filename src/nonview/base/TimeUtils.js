@@ -62,15 +62,18 @@ export default class TimeUtils {
     const diffHours = Math.floor(diffMinutes / 60);
     const diffDays = Math.floor(diffHours / 24);
 
-    if (diffDays > 0) {
-      return `${diffDays} day${diffDays === 1 ? "" : "s"} ago`;
-    } else if (diffHours > 0) {
-      return `${diffHours} hour${diffHours === 1 ? "" : "s"} ago`;
-    } else if (diffMinutes > 0) {
-      return `${diffMinutes} minute${diffMinutes === 1 ? "" : "s"} ago`;
-    } else {
-      return `${diffSeconds} second${diffSeconds === 1 ? "" : "s"} ago`;
-    }
+    const days =
+      diffDays > 0 ? `${diffDays} day${diffDays === 1 ? "" : "s"}` : "";
+    const hours =
+      diffHours % 24 > 0
+        ? `${diffHours % 24} hour${diffHours % 24 === 1 ? "" : "s"}`
+        : "";
+    const minutes =
+      diffMinutes % 60 > 0
+        ? `${diffMinutes % 60} minute${diffMinutes % 60 === 1 ? "" : "s"}`
+        : "";
+
+    return [days, hours, minutes].filter(Boolean).join(", ") + " ago";
   }
 
   static compareTimeUtDescending(a, b) {
