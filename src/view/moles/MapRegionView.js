@@ -1,18 +1,14 @@
 import { Polygon } from "react-leaflet";
 import L from "leaflet";
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
+import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 
 export default function MapRegionView({ region, onClick }) {
-  let regionColor = "lightgray";
+  let color = COLORS.neutral;
   if (region instanceof DSD) {
     const dsd = region;
-    const latestLandslideWarningLevel = dsd.latestLandslideWarningLevel;
-    regionColor =
-      {
-        1: "yellow",
-        2: "orange",
-        3: "red",
-      }[latestLandslideWarningLevel] || "lightgray";
+
+    color = getAlertColor(dsd.latestLandslideWarningLevel);
   }
 
   const onClickInner = (e) => {
@@ -27,7 +23,7 @@ export default function MapRegionView({ region, onClick }) {
           key={`${region.id}-latLngList-${index}`}
           positions={rawPolygon}
           pathOptions={{
-            fillColor: regionColor,
+            fillColor: color,
             color: "white",
             weight: 0.5,
             fillOpacity: 0.667,
