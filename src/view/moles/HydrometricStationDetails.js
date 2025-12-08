@@ -77,7 +77,7 @@ export default function HydrometricStationDetails({ place }) {
     rateOfChangeData = { value: formattedValue, label, color, icon };
 
     rateOfRiseTimeLabel = `${timeDiffHours.toFixed(
-      0
+      0,
     )} hour mean · Last ${nObservations} readings`;
   }
 
