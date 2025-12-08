@@ -3,14 +3,27 @@ import { COLORS } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 
 export default function RainChart({ rainMM24h, hourlyTimeUt }) {
+  const currentTime = Date.now();
   const xAxisData = hourlyTimeUt.map((time) => new Date(time * 1000));
-  const yAxisData = rainMM24h;
+
+  const observedData = hourlyTimeUt.map((time, index) =>
+    time * 1000 <= currentTime ? rainMM24h[index] : null
+  );
+  const predictedData = hourlyTimeUt.map((time, index) =>
+    time * 1000 > currentTime ? rainMM24h[index] : null
+  );
 
   const series = [
     {
-      data: yAxisData,
-      label: "Rainfall (mm)",
+      data: observedData,
+      label: "Observed Rainfall (mm)",
       color: COLORS.neutral,
+      showMark: false,
+    },
+    {
+      data: predictedData,
+      label: "Predicted Rainfall (mm)",
+      color: COLORS.neutralLight,
       showMark: false,
     },
   ];
@@ -46,6 +59,15 @@ export default function RainChart({ rainMM24h, hourlyTimeUt }) {
       height={360}
       margin={10}
       grid={{ vertical: true, horizontal: true }}
+      sx={{
+        "& .MuiLineElement-series-auto-generated-id-1": {
+          strokeDasharray: "5 5",
+        },
+        "& .MuiLegendItem-root[data-series='Predicted Rainfall (mm)'] .MuiLegendItem-label":
+          {
+            strokeDasharray: "5 5",
+          },
+      }}
     />
   );
 }
