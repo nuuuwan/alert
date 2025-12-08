@@ -31,7 +31,13 @@ export default function DSDDetails({ region }) {
         timeUt={region.latestLandslideWarningTimeUt}
       />
       <Divider sx={{ my: 2 }} />
-      {centroidPlace && <PlaceLink place={centroidPlace} distanceM={0} />}
+      {centroidPlace && (
+        <PlaceLink
+          place={centroidPlace}
+          distanceM={0}
+          nameOverride="Center of Region"
+        />
+      )}
     </Box>
   );
 }
