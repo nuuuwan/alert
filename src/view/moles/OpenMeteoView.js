@@ -10,6 +10,7 @@ import TimeUtils from "../../nonview/base/TimeUtils";
 import RainChart from "../atoms/RainChart";
 import TempChart from "../atoms/TempChart";
 import ElevationWidget from "../atoms/ElevationWidget";
+import OpacityIcon from "@mui/icons-material/Opacity";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
@@ -37,7 +38,14 @@ export default function OpenMeteoView({ place }) {
           label="Temperature"
           value={openMeteoData.temp2mCNow.toFixed(1)}
           unit="°C"
-          timeLabel={TimeUtils.getTimeAgoString(openMeteoData.temp2mCNowTimeUt)}
+          timeLabel={TimeUtils.getTimeAgoString(openMeteoData.currentTimeUt)}
+        />
+        <MetricCard
+          Icon={OpacityIcon}
+          label="Relative Humadity"
+          value={openMeteoData.relativeHumadityNow.toFixed(0)}
+          unit="%"
+          timeLabel={TimeUtils.getTimeAgoString(openMeteoData.currentTimeUt)}
         />
       </MetricCardCollection>
 

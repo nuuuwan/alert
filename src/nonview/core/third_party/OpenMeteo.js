@@ -11,7 +11,7 @@ export default class OpenMeteo {
       latitude: latLng.lat,
       longitude: latLng.lng,
 
-      current: ["temperature_2m", "precipitation"],
+      current: ["temperature_2m", "precipitation", "relative_humidity_2m"],
       hourly: ["temperature_2m", "precipitation"],
 
       start_hour: startHour,
@@ -34,6 +34,7 @@ export default class OpenMeteo {
         time: new Date(Number(current.time()) * 1000),
         temperature_2m: current.variables(0).value(),
         precipitation: current.variables(1).value(),
+        relative_humidity_2m: current.variables(2).value(),
       },
       hourly: {
         time: Array.from(
@@ -43,7 +44,7 @@ export default class OpenMeteo {
               hourly.interval(),
           },
           (_, i) =>
-            new Date((Number(hourly.time()) + i * hourly.interval()) * 1000),
+            new Date((Number(hourly.time()) + i * hourly.interval()) * 1000)
         ),
         temperature_2m: hourly.variables(0).valuesArray(),
         precipitation: hourly.variables(1).valuesArray(),
@@ -53,11 +54,12 @@ export default class OpenMeteo {
       elevationM: response.elevation(),
       // current
       temp2mCNow: weatherDataRaw.current.temperature_2m,
-      temp2mCNowTimeUt: Number(current.time()),
+      relativeHumadityNow: weatherDataRaw.current.relative_humidity_2m,
+      currentTimeUt: Number(current.time()),
 
       // hourly
       hourlyTimeUt: weatherDataRaw.hourly.time.map(
-        TimeUtils.getUnixTimeFromDate,
+        TimeUtils.getUnixTimeFromDate
       ),
       rainMM24h: weatherDataRaw.hourly.precipitation,
       rainMMSum24h: ArrayUtils.sum(weatherDataRaw.hourly.precipitation),
