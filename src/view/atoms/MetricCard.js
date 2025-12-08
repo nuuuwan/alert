@@ -32,12 +32,20 @@ export default function MetricCard({
           {label}
         </Typography>
       </Box>
-      <Typography variant="h5" sx={{ fontWeight: "bold", my: 0.5 }}>
-        {value}
-      </Typography>
-      <Typography variant="caption" color="text.secondary">
-        {unit}
-      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "flex-end",
+          justifyContent: "center",
+        }}
+      >
+        <Typography variant="h4">{value}</Typography>
+        <Typography
+          variant="caption"
+          color="text.secondary"
+          sx={{ ml: 0.5, position: "relative", bottom: "2px" }}
+        >{`${unit}`}</Typography>
+      </Box>
       <Box>
         <Typography variant="caption" color="text.secondary">
           {timeLabel}
