@@ -1,29 +1,25 @@
 import MetricCard from "./MetricCard";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import WarningIcon from "@mui/icons-material/Warning";
+import { getAlertColor } from "../_cons/StyleConstants";
 
 export default function LandslideWarningView({ level, timeUt }) {
   if (level == null) return null;
 
-  let title = "Landslide Warning";
   let value = "No Warning";
-  let color = "default";
-
   if (level === 1) {
     value = "Level 1: Watch";
-    color = "low";
   } else if (level === 2) {
     value = "Level 2: Alert";
-    color = "medium";
   } else if (level === 3) {
     value = "Level 3: Evacuate";
-    color = "high";
   }
+  const color = getAlertColor(level);
 
   return (
     <MetricCard
       Icon={WarningIcon}
-      label={title}
+      label="Landslide Warning"
       value={value}
       unit={""}
       color={color}

@@ -1,14 +1,22 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-export default function MetricCard({ label, value, unit, Icon, timeLabel }) {
+export default function MetricCard({
+  label,
+  value,
+  unit,
+  Icon,
+  timeLabel,
+  color,
+}) {
   return (
     <Box
       sx={{
         p: 2,
         borderRadius: 2,
         backgroundColor: "white",
-        border: "1px solid #e0e0e0",
+        border: "1px solid",
+        borderColor: color,
         textAlign: "center",
       }}
     >
@@ -21,8 +29,8 @@ export default function MetricCard({ label, value, unit, Icon, timeLabel }) {
           mb: 0.5,
         }}
       >
-        {Icon && <Icon fontSize="small" color="action" />}
-        <Typography variant="caption" color="text.secondary">
+        {Icon && <Icon fontSize="small" sx={{ color: color }} />}
+        <Typography variant="caption" color={color}>
           {label}
         </Typography>
       </Box>
@@ -33,7 +41,9 @@ export default function MetricCard({ label, value, unit, Icon, timeLabel }) {
           justifyContent: "center",
         }}
       >
-        <Typography variant="h4">{value}</Typography>
+        <Typography variant="h4" color={color}>
+          {value}
+        </Typography>
         <Typography
           variant="caption"
           color="text.secondary"
@@ -41,7 +51,7 @@ export default function MetricCard({ label, value, unit, Icon, timeLabel }) {
         >{`${unit}`}</Typography>
       </Box>
       <Box>
-        <Typography variant="caption" color="text.secondary">
+        <Typography variant="caption" color={color}>
           {timeLabel}
         </Typography>
       </Box>
