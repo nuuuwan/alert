@@ -21,7 +21,7 @@ class Place {
   }
 
   get subtitle() {
-    return `${this.openMeteoData.elevationM}m AMSL`;
+    return "";
   }
 
   async loadDetails() {
