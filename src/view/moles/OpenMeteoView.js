@@ -3,11 +3,13 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
+import TerrainIcon from "@mui/icons-material/Terrain";
 import MetricCard from "../atoms/MetricCard";
 import SourceView from "../atoms/SourceView";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import RainChart from "../atoms/RainChart";
 import TempChart from "../atoms/TempChart";
+import ElevationWidget from "../atoms/ElevationWidget";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
@@ -15,6 +17,7 @@ export default function OpenMeteoView({ place }) {
   const [latitude, longitude] = latLng.raw();
   return (
     <Box sx={{ p: 2 }}>
+      <ElevationWidget elevationM={openMeteoData.elevationM} />
       <Typography variant="h6" gutterBottom>
         Weather
       </Typography>
