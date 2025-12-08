@@ -2,9 +2,8 @@ import LandslideWarningView from "../atoms/LandslideWarningView";
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import Box from "@mui/material/Box";
 import { useEffect, useState } from "react";
-
+import PlaceLink from "../atoms/PlaceLink";
 import Divider from "@mui/material/Divider";
-import EntDetails from "../moles/EntDetails";
 import SexAgeView from "../moles/SexAgeView";
 
 export default function DSDDetails({ region }) {
@@ -32,12 +31,7 @@ export default function DSDDetails({ region }) {
         timeUt={region.latestLandslideWarningTimeUt}
       />
       <Divider sx={{ my: 2 }} />
-      {centroidPlace && (
-        <EntDetails
-          ent={centroidPlace}
-          supertitleOverride={"Center of Region"}
-        />
-      )}
+      {centroidPlace && <PlaceLink place={centroidPlace} distanceM={0} />}
     </Box>
   );
 }

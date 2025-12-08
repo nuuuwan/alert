@@ -28,7 +28,7 @@ function PlaceLink({ place, distanceM }) {
     >
       <EntIcon ent={place} size={18} />
       <Link href={href} underline="hover" sx={{ color: COLORS.neutral }}>
-        {place.name}
+        {place.title}
       </Link>
       <Typography variant="body2" color="text.secondary">
         {(distanceM / 1000).toFixed(1)}km
