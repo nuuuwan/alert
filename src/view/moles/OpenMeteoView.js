@@ -5,11 +5,10 @@ import ThermostatIcon from "@mui/icons-material/Thermostat";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import MetricCard from "../atoms/MetricCard";
 import SourceView from "../atoms/SourceView";
+import TimeUtils from "../../nonview/base/TimeUtils";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
-  const temp2mC = openMeteoData.temp2mC.toFixed(1);
-  const rain24hMM = openMeteoData.rain24hMM.toFixed(1);
 
   const [latitude, longitude] = latLng.raw();
   return (
@@ -31,15 +30,15 @@ export default function OpenMeteoView({ place }) {
         <MetricCard
           icon={ThermostatIcon}
           label="Temperature"
-          value={temp2mC}
+          value={openMeteoData.temp2mC.toFixed(1)}
           unit="°C"
-          timeLabel="Now"
+          timeLabel={TimeUtils.getTimeAgoString(openMeteoData.temp2mCTimeUt)}
         />
 
         <MetricCard
           icon={WaterDropIcon}
           label="Rain"
-          value={rain24hMM}
+          value={openMeteoData.rain24hMM.toFixed(0)}
           unit="mm"
           timeLabel="Mean (Last 24 hours)"
         />
