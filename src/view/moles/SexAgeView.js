@@ -1,11 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import PeopleIcon from "@mui/icons-material/PeopleOutline";
 import ChildCareIcon from "@mui/icons-material/ChildCareOutlined";
 import ElderlyIcon from "@mui/icons-material/ElderlyOutlined";
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
+import Tooltip from "@mui/material/Tooltip";
 
 const dataConfig = [
   { label: "Area", key: "areaSqKm", Icon: CropOriginalIcon },
@@ -23,13 +22,15 @@ function SexAgeView({ sexAgeData, areaSqKm }) {
 
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-      {dataConfig.map(({ key, Icon }) => (
-        <Box key={key} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <Icon fontSize="smaller" />
-          <Typography variant="body2" component="span">
-            {allData[key].toLocaleString()}
-          </Typography>
-        </Box>
+      {dataConfig.map(({ key, Icon, label }) => (
+        <Tooltip key={key} title={label} arrow>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Icon fontSize="small" />
+            <Typography variant="body2" component="span">
+              {allData[key].toLocaleString()}
+            </Typography>
+          </Box>
+        </Tooltip>
       ))}
     </Box>
   );
