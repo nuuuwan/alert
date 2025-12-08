@@ -6,6 +6,7 @@ import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import MetricCard from "../atoms/MetricCard";
 import SourceView from "../atoms/SourceView";
 import TimeUtils from "../../nonview/base/TimeUtils";
+import RainChart from "../atoms/RainChart";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
@@ -43,6 +44,11 @@ export default function OpenMeteoView({ place }) {
           timeLabel="Mean (Last 24 hours)"
         />
       </Box>
+
+      <RainChart
+        rainMM24h={openMeteoData.rainMM24h}
+        rainMM24hTimeUt={openMeteoData.rainMM24hTimeUt}
+      />
 
       <SourceView
         label="Open-Meteo (Real-Time Weather API)"
