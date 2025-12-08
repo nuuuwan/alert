@@ -5,24 +5,22 @@ import EntIcon from "../atoms/EntIcon";
 export default function DetailsHeader({ ent }) {
   const iconSize = 48;
   return (
-    <Box sx={{ mb: 2 }}>
+    <Box>
       <Typography variant="overline" color="text.secondary">
         {ent.supertitle}
       </Typography>
-      <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2, mb: 1 }}>
+      <Box sx={{ display: "flex", alignItems: "flex-start" }}>
         <Box
           sx={{
             height: iconSize,
             width: iconSize,
-            marginTop: "4px",
           }}
         >
           <EntIcon ent={ent} iconSize={iconSize} />
         </Box>
 
         <Typography
-          variant="h3"
-          component="h1"
+          variant="h5"
           sx={{
             lineHeight: `${iconSize}px`,
           }}
