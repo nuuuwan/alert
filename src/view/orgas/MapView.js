@@ -11,16 +11,22 @@ import MapPlaceView from "../moles/MapPlaceView";
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import MapRegionView from "../moles/MapRegionView";
 import EntDetails from "../moles/EntDetails";
+import { useNavigate } from "react-router-dom";
 function MapClickHandler({ onMapClick }) {
   useMapEvents({
     click: (e) => {
-      onMapClick([e.latlng.lat, e.latlng.lng]);
+      onMapClick([e.latlng.lat.toFixed(4), e.latlng.lng.toFixed(4)]);
     },
   });
   return null;
 }
 
-export default function MapView({ dsdName, hydrometricStationName }) {
+export default function MapView({
+  dsdName,
+  hydrometricStationName,
+  placeLatLng,
+}) {
+  const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedEnt, setSelectedEnt] = useState(null);
   const [HydrometricStations, setHydrometricStations] = useState([]);
@@ -73,10 +79,23 @@ export default function MapView({ dsdName, hydrometricStationName }) {
     fetchHydrometricStation();
   }, [hydrometricStationName]);
 
+  useEffect(() => {
+    async function fetchPlace() {
+      if (placeLatLng) {
+        const [lat, lng] = placeLatLng.split(",").map(Number);
+        const place = await Place.load({ latLng: LatLng.fromRaw([lat, lng]) });
+        if (place) {
+          await place.loadDetails();
+          setSelectedEnt(place);
+          setDrawerOpen(true);
+        }
+      }
+    }
+    fetchPlace();
+  }, [placeLatLng]);
+
   const handleMapClick = async (latLng) => {
-    const place = await Place.load({ latLng: LatLng.fromRaw(latLng) });
-    setSelectedEnt(place);
-    setDrawerOpen(true);
+    navigate(`/Place/${latLng[0]},${latLng[1]}`);
   };
 
   const handleDrawerClose = () => {

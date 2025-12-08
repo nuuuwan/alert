@@ -16,6 +16,7 @@ const theme = createTheme({
 function App() {
   const dsdName = useParams().dsdName || null;
   const hydrometricStationName = useParams().hydrometricStationName || null;
+  const placeLatLng = useParams().placeLatLng || null;
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -25,6 +26,7 @@ function App() {
           <MapView
             dsdName={dsdName}
             hydrometricStationName={hydrometricStationName}
+            placeLatLng={placeLatLng}
           />
         </Box>
       </Box>

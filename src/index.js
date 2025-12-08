@@ -14,6 +14,7 @@ root.render(
         path="/HydrometricStation/:hydrometricStationName"
         element={<App />}
       />
+      <Route path="/Place/:placeLatLng" element={<App />} />
     </Routes>
   </BrowserRouter>
 );
