@@ -51,9 +51,9 @@ export default class OpenMeteo {
     };
     const weatherData = {
       elevationM: response.elevation(),
-      temp2mC: weatherDataRaw.current.temperature_2m,
-      temp2mCTimeUt: Number(current.time()),
-      rain24hMM: ArrayUtils.sum(weatherDataRaw.hourly.precipitation),
+      temp2mCNow: weatherDataRaw.current.temperature_2m,
+      temp2mCNowTimeUt: Number(current.time()),
+      rainMMMean24h: ArrayUtils.sum(weatherDataRaw.hourly.precipitation),
     };
 
     return weatherData;

@@ -30,15 +30,15 @@ export default function OpenMeteoView({ place }) {
         <MetricCard
           icon={ThermostatIcon}
           label="Temperature"
-          value={openMeteoData.temp2mC.toFixed(1)}
+          value={openMeteoData.temp2mCNow.toFixed(1)}
           unit="°C"
-          timeLabel={TimeUtils.getTimeAgoString(openMeteoData.temp2mCTimeUt)}
+          timeLabel={TimeUtils.getTimeAgoString(openMeteoData.temp2mCNowTimeUt)}
         />
 
         <MetricCard
           icon={WaterDropIcon}
           label="Rain"
-          value={openMeteoData.rain24hMM.toFixed(0)}
+          value={openMeteoData.rainMMMean24h.toFixed(0)}
           unit="mm"
           timeLabel="Mean (Last 24 hours)"
         />
