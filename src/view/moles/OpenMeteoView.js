@@ -30,16 +30,18 @@ export default function OpenMeteoView({ place }) {
       >
         <MetricCard
           icon={ThermostatIcon}
-          label="Temperature (Current)"
+          label="Temperature"
           value={temp2mC}
           unit="°C"
+          timeLabel="Now"
         />
 
         <MetricCard
           icon={WaterDropIcon}
-          label="Rain (Last 24 hours)"
+          label="Rain"
           value={rain24hMM}
           unit="mm"
+          timeLabel="Mean (Last 24 hours)"
         />
       </Box>
 

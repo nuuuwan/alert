@@ -31,9 +31,8 @@ export default class TimeUtils {
     );
   }
 
-  static getTimeAgoString(date, now = new Date()) {
-    const diffMs = now - date;
-    const diffSeconds = Math.floor(diffMs / 1000);
+  static getTimeAgoString(ut, utNow = null) {
+    const diffSeconds = Math.floor((utNow || TimeUtils.getUnixTime()) - ut);
     const diffMinutes = Math.floor(diffSeconds / 60);
     const diffHours = Math.floor(diffMinutes / 60);
     const diffDays = Math.floor(diffHours / 24);

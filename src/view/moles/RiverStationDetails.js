@@ -10,6 +10,7 @@ import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import MetricCard from "../atoms/MetricCard";
 import WaterLevelChart from "../atoms/WaterLevelChart";
 import { COLORS } from "../_cons/StyleConstants";
+import TimeUtils from "../../nonview/base/TimeUtils";
 
 export default function RiverStationDetails({ place }) {
   const [loading, setLoading] = useState(true);
@@ -89,12 +90,14 @@ export default function RiverStationDetails({ place }) {
           gap: 2,
           mb: 2,
         }}
+        r
       >
         <MetricCard
           icon={WavesIcon}
           label="Water Level"
           value={latestReading.waterLevelM.toFixed(2)}
           unit="m"
+          timeLabel={TimeUtils.getTimeAgoString(latestReading.timeUt)}
         />
         {rateOfChangeData && (
           <MetricCard
@@ -102,6 +105,7 @@ export default function RiverStationDetails({ place }) {
             label="Rate of Rise/Drop"
             value={rateOfChangeData.value}
             unit="cm/hr"
+            timeLabel=""
           />
         )}
       </Box>
