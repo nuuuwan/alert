@@ -43,8 +43,10 @@ export default function RiverStationDetails({ place }) {
     return null;
   }
 
+  const nObservations = 10;
   const latestReading = waterLevelHistory[0];
-  const previousReading = waterLevelHistory[10];
+  const previousReading = waterLevelHistory[nObservations];
+  let rateOfRiseTimeLabel = "";
   let rateOfChangeData = null;
   if (previousReading) {
     const waterLevelDiff =
@@ -52,7 +54,7 @@ export default function RiverStationDetails({ place }) {
     const timeDiffHours =
       (latestReading.timeUt - previousReading.timeUt) / 3600;
     const rateOfChangeCmPerHr = (waterLevelDiff / timeDiffHours) * 100;
-    const EPSILON = 0.1;
+    const EPSILON = 1;
 
     let label, color, icon;
     if (rateOfChangeCmPerHr > EPSILON) {
@@ -73,6 +75,10 @@ export default function RiverStationDetails({ place }) {
       rateOfChangeCmPerHr > 0 ? "+" : ""
     }${rateOfChangeCmPerHr.toFixed(1)}`;
     rateOfChangeData = { value: formattedValue, label, color, icon };
+
+    rateOfRiseTimeLabel = `${timeDiffHours.toFixed(
+      0
+    )} hour mean · Last ${nObservations} readings`;
   }
 
   return (
@@ -93,7 +99,7 @@ export default function RiverStationDetails({ place }) {
         r
       >
         <MetricCard
-          icon={WavesIcon}
+          Icon={WavesIcon}
           label="Water Level"
           value={latestReading.waterLevelM.toFixed(2)}
           unit="m"
@@ -101,11 +107,11 @@ export default function RiverStationDetails({ place }) {
         />
         {rateOfChangeData && (
           <MetricCard
-            icon={rateOfChangeData.icon}
+            Icon={rateOfChangeData.icon}
             label="Rate of Rise/Drop"
             value={rateOfChangeData.value}
             unit="cm/hr"
-            timeLabel=""
+            timeLabel={rateOfRiseTimeLabel}
           />
         )}
       </Box>

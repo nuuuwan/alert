@@ -27,10 +27,10 @@ export default function MapRegionView({ region, onClick }) {
           key={`${region.id}-latLngList-${index}`}
           positions={rawPolygon}
           pathOptions={{
-            fill: true,
             fillColor: regionColor,
             color: "white",
-            weight: 2,
+            weight: 0.5,
+            fillOpacity: 0.667,
           }}
           eventHandlers={{
             click: onClickInner,
