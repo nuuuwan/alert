@@ -3,6 +3,7 @@ import L from "leaflet";
 import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import ReactDOMServer from "react-dom/server";
 import EntIcon from "../atoms/EntIcon";
+import { getAlertColor } from "../_cons/StyleConstants";
 
 export default function MapPlaceView({ place, onClick }) {
   if (!place) {
@@ -12,7 +13,7 @@ export default function MapPlaceView({ place, onClick }) {
   const iconSize = LOCATION_MARKER_RADIUS * 8;
   const circleSize = iconSize * 1.1;
   const opacity = 0.5;
-  const placeColor = "cyan";
+  const placeColor = getAlertColor(place.alertLevel);
 
   const onClickInner = (e) => {
     L.DomEvent.stopPropagation(e);
