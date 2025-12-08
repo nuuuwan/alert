@@ -8,7 +8,7 @@ export default class DSD extends AdminRegion {
     return "dsd";
   }
 
-  static getEntTypeTitle() {
+  static getEntTypeName() {
     return "Divisional Secretariat Division";
   }
 

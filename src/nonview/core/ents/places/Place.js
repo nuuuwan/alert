@@ -1,6 +1,6 @@
 import OpenMeteo from "../../third_party/OpenMeteo.js";
 class Place {
-  static getEntityTypeName() {
+  static getEntTypeName() {
     return "Place";
   }
   constructor({ latLng, openMeteoData }) {
@@ -13,7 +13,7 @@ class Place {
   }
 
   get supertitle() {
-    return this.constructor.getEntityTypeName();
+    return this.constructor.getEntTypeName();
   }
 
   get title() {

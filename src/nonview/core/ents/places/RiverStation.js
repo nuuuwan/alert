@@ -6,7 +6,7 @@ import Cache from "../../../base/Cache.js";
 import TimeUtils from "../../../base/TimeUtils.js";
 
 class RiverStation extends Place {
-  static getEntityTypeName() {
+  static getEntTypeName() {
     return "River Station";
   }
 

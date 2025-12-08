@@ -3,7 +3,7 @@ export default class GND extends AdminRegion {
   static getAdminRegionType() {
     return "gnd";
   }
-  static getEntTypeTitle() {
+  static getEntTypeName() {
     return "Grama Niladhari Division";
   }
 }

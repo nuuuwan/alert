@@ -7,18 +7,18 @@ import AdminRegionIcon from "./icons/AdminRegionIcon";
 import { COLORS } from "../_cons/StyleConstants";
 
 export default function EntIcon({ ent, ...props }) {
-  const entityTypeName = ent.constructor.getEntityTypeName();
+  const entityTypeName = ent.constructor.getEntTypeName();
   const color =
     ["grey", COLORS.lowAlert, COLORS.mediumAlert, COLORS.highAlert][
       ent.alertLevel
     ] || "gray";
 
   switch (entityTypeName) {
-    case RiverStation.getEntityTypeName():
+    case RiverStation.getEntTypeName():
       return <RiverStationIcon {...props} color={color} />;
-    case Place.getEntityTypeName():
+    case Place.getEntTypeName():
       return <LocationIcon {...props} />;
-    case AdminRegion.getEntityTypeName():
+    case AdminRegion.getEntTypeName():
       return <AdminRegionIcon {...props} />;
     default:
       return null;

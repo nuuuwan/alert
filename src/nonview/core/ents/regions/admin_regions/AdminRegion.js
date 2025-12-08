@@ -5,6 +5,9 @@ import MultiPolygon from "../../../../base/geos/MultiPolygon";
 import Cache from "../../../../base/Cache";
 
 class AdminRegion extends Region {
+  static getEntTypeName() {
+    return "Admin Region";
+  }
   static getAdminRegionType() {
     throw new Error("Not implemented");
   }
@@ -17,7 +20,7 @@ class AdminRegion extends Region {
   }
 
   get supertitle() {
-    return this.constructor.getEntTypeTitle();
+    return this.constructor.getEntTypeName();
   }
 
   get title() {
@@ -48,7 +51,7 @@ class AdminRegion extends Region {
           "/nuuuwan/lk_admin_regions/refs/heads/main" +
           `/data/geo/json/smaller/${this.getAdminRegionType()}s.json/${id}.json`;
         return await WWW.fetch(url);
-      },
+      }
     );
 
     return MultiPolygon.fromReverseRaw(revFloatPairListList);
@@ -56,7 +59,10 @@ class AdminRegion extends Region {
 
   static async loadFromData({ id, name, areaSqKm }) {
     const multiPolygon = await this.getGeoForId(id);
-    return new this({ multiPolygon, id, name, areaSqKm });
+    const o = new this({ multiPolygon, id, name, areaSqKm });
+    console.debug({ o });
+    console.debug(o.constructor.getEntTypeName());
+    return o;
   }
 
   static async getRawDataList() {
@@ -64,7 +70,7 @@ class AdminRegion extends Region {
       `AdminRegion:getRawDataList:${this.getAdminRegionType()}`,
       async () => {
         return await WWW.fetch(this.getUrl());
-      },
+      }
     );
   }
 
@@ -75,15 +81,15 @@ class AdminRegion extends Region {
           id: rawData.id,
           name: rawData.name,
           areaSqKm: parseFloat(rawData.area_sqkm),
-        }),
-      ),
+        })
+      )
     );
   }
 
   static async loadFromIds(ids) {
     const rawDataList = await this.getRawDataList();
     const filteredRawDataList = rawDataList.filter((rawData) =>
-      ids.includes(rawData.id),
+      ids.includes(rawData.id)
     );
     return await this.loadFromRawDataList(filteredRawDataList);
   }
