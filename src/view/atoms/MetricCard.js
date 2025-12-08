@@ -1,7 +1,13 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-export default function MetricCard({ label, value, unit, icon: Icon }) {
+export default function MetricCard({
+  label,
+  value,
+  unit,
+  icon: Icon,
+  timeLabel,
+}) {
   return (
     <Box
       sx={{
@@ -32,6 +38,11 @@ export default function MetricCard({ label, value, unit, icon: Icon }) {
       <Typography variant="caption" color="text.secondary">
         {unit}
       </Typography>
+      <Box>
+        <Typography variant="caption" color="text.secondary">
+          {timeLabel}
+        </Typography>
+      </Box>
     </Box>
   );
 }
