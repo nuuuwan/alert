@@ -5,7 +5,7 @@ export default class OpenMeteo {
   static async getData({ latLng }) {
     const utNow = TimeUtils.getUnixTime();
     const startHour = TimeUtils.formatISO8601(utNow - 86400);
-    const endHour = TimeUtils.formatISO8601(utNow);
+    const endHour = TimeUtils.formatISO8601(utNow + 86400);
 
     const params = {
       latitude: latLng.lat,
