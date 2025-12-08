@@ -55,4 +55,10 @@ export default class DSD extends AdminRegion {
     this.latestLandslideWarningTimeUt = timeUt;
     return this;
   }
+
+  static async loadWithWarnings() {
+    const warningsData = await DSD.loadAllWarningData();
+    const dsdIds = Object.keys(warningsData.dsdIDToLatestLandslideWarning);
+    return await DSD.loadFromIds(dsdIds);
+  }
 }
