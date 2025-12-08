@@ -20,9 +20,9 @@ function MapClickHandler({ onMapClick }) {
   return null;
 }
 
-export default function MapView() {
+export default function MapView({ dsdName }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [selectedPlace, setSelectedPlace] = useState(null);
+  const [selectedEnt, setSelectedEnt] = useState(null);
   const [HydrometricStations, setHydrometricStations] = useState([]);
   const [dsdEnts, setDsdEnts] = useState([]);
 
@@ -43,14 +43,28 @@ export default function MapView() {
     fetchDsdEnts();
   }, []);
 
+  useEffect(() => {
+    async function fetchSelectedDsd() {
+      if (dsdName) {
+        const dsd = await DSD.loadFromName(dsdName);
+        if (dsd) {
+          await dsd.loadDetails();
+          setSelectedEnt(dsd);
+          setDrawerOpen(true);
+        }
+      }
+    }
+    fetchSelectedDsd();
+  }, [dsdName]);
+
   const handleMapClick = async (latLng) => {
     const place = await Place.load({ latLng: LatLng.fromRaw(latLng) });
-    setSelectedPlace(place);
+    setSelectedEnt(place);
     setDrawerOpen(true);
   };
 
   const handleEntClick = (ent) => {
-    setSelectedPlace(ent);
+    setSelectedEnt(ent);
     setDrawerOpen(true);
   };
 
@@ -59,8 +73,8 @@ export default function MapView() {
   };
 
   const getFileName = () => {
-    if (selectedPlace) {
-      return `${selectedPlace.id}.png`;
+    if (selectedEnt) {
+      return `${selectedEnt.id}.png`;
     }
     return "location.png";
   };
@@ -88,15 +102,13 @@ export default function MapView() {
           ))}
 
         {dsdEnts &&
-          dsdEnts.map((dsd) => (
-            <MapRegionView key={dsd.id} region={dsd} onClick={handleEntClick} />
-          ))}
+          dsdEnts.map((dsd) => <MapRegionView key={dsd.id} region={dsd} />)}
       </MapContainer>
 
       <CustomDrawer
         open={drawerOpen}
         onClose={handleDrawerClose}
-        selectedItem={selectedPlace}
+        selectedItem={selectedEnt}
         renderContent={(ent) => <EntDetails ent={ent} />}
         getFileName={getFileName}
       />

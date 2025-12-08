@@ -2,8 +2,10 @@ import { Polygon } from "react-leaflet";
 import L from "leaflet";
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
+import { useNavigate } from "react-router-dom";
 
 export default function MapRegionView({ region, onClick }) {
+  const navigate = useNavigate();
   let color = COLORS.neutral;
   if (region instanceof DSD) {
     const dsd = region;
@@ -13,7 +15,7 @@ export default function MapRegionView({ region, onClick }) {
 
   const onClickInner = (e) => {
     L.DomEvent.stopPropagation(e);
-    onClick(region, e);
+    navigate(`/DSD/${region.id}`);
   };
 
   return (
@@ -26,7 +28,7 @@ export default function MapRegionView({ region, onClick }) {
             fillColor: color,
             color: "white",
             weight: 0.5,
-            fillOpacity: 0.333,
+            fillOpacity: 0.667,
           }}
           eventHandlers={{
             click: onClickInner,
