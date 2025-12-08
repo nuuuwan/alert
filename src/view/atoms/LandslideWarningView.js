@@ -23,7 +23,7 @@ export default function LandslideWarningView({ level, timeUt }) {
   return (
     <MetricCard
       Icon={WarningIcon}
-      label="Landslide Warning"
+      label="Landslide Alert"
       value={value}
       unit={unit}
       color={color}

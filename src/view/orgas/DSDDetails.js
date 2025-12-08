@@ -30,7 +30,7 @@ export default function DSDDetails({ region }) {
       {centroidPlace && (
         <EntDetails
           ent={centroidPlace}
-          supertitleOverride={"Region Centroid"}
+          supertitleOverride={"Center of Region"}
         />
       )}
     </Box>
