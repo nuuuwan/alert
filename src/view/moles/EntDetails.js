@@ -20,7 +20,7 @@ function EntChildDetails({ ent }) {
   throw new Error("Unknown ent class: " + ent.constructor.name);
 }
 
-export default function EntDetails({ ent }) {
+export default function EntDetails({ ent, supertitleOverride }) {
   const [entWithDetails, setEntWithDetails] = useState(null);
   useEffect(() => {
     async function fetchDetails() {
@@ -36,7 +36,7 @@ export default function EntDetails({ ent }) {
 
   return (
     <Box>
-      <DetailsHeader ent={ent} />
+      <DetailsHeader ent={ent} supertitleOverride={supertitleOverride} />
       {<EntChildDetails ent={entWithDetails} />}
     </Box>
   );

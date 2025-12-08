@@ -2,12 +2,12 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import EntIcon from "../atoms/EntIcon";
 
-export default function DetailsHeader({ ent }) {
+export default function DetailsHeader({ ent, supertitleOverride }) {
   const iconSize = 48;
   return (
     <Box>
       <Typography variant="overline" color="text.secondary">
-        {ent.supertitle}
+        {supertitleOverride ? supertitleOverride : ent.supertitle}
       </Typography>
       <Box sx={{ display: "flex", alignItems: "flex-start" }}>
         <Box

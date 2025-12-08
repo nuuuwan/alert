@@ -2,9 +2,9 @@ import LandslideWarningView from "../atoms/LandslideWarningView";
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import Box from "@mui/material/Box";
 import { useEffect, useState } from "react";
-import PlaceDetails from "../orgas/PlaceDetails";
-import Typography from "@mui/material/Typography";
+
 import Divider from "@mui/material/Divider";
+import EntDetails from "../moles/EntDetails";
 
 export default function DSDDetails({ region }) {
   if (!(region instanceof DSD)) {
@@ -27,10 +27,12 @@ export default function DSDDetails({ region }) {
         timeUt={region.latestLandslideWarningTimeUt}
       />
       <Divider sx={{ my: 2 }} />
-      <Typography variant="caption" display="block" gutterBottom>
-        The details below are rendered for the centroid of the region.
-      </Typography>
-      {centroidPlace && <PlaceDetails place={centroidPlace} />}
+      {centroidPlace && (
+        <EntDetails
+          ent={centroidPlace}
+          supertitleOverride={"Region Centroid"}
+        />
+      )}
     </Box>
   );
 }
