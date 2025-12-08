@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import CircularProgress from "@mui/material/CircularProgress";
 import SourceView from "./SourceView";
 
 export default function SatelliteImageView({ place }) {
@@ -23,6 +25,8 @@ export default function SatelliteImageView({ place }) {
 
   const satelliteImageUrl = `https://sentinel.arcgis.com/arcgis/rest/services/Sentinel2/ImageServer/exportImage?f=image&bbox=${minX},${minY},${maxX},${maxY}&bboxSR=102100&imageSR=102100&size=400,400&compressionQuality=75&format=jpgpng`;
 
+  const [loading, setLoading] = useState(true);
+
   return (
     <Box>
       <Typography
@@ -33,12 +37,36 @@ export default function SatelliteImageView({ place }) {
       >
         Satellite View
       </Typography>
+      {loading && (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            height: 0,
+            paddingTop: "100%" /* Maintain aspect ratio */,
+            position: "relative",
+          }}
+        >
+          <CircularProgress
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          />
+        </Box>
+      )}
       <Box
         component="img"
         src={satelliteImageUrl}
         alt={`Satellite view of ${name}`}
         crossOrigin="anonymous"
+        onLoad={() => setLoading(false)}
         sx={{
+          display: loading ? "none" : "block",
           width: "100%",
           height: "auto",
           aspectRatio: "1",
