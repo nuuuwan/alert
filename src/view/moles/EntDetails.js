@@ -8,6 +8,9 @@ import { useState, useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 
 function EntChildDetails({ ent }) {
+  if (!ent) {
+    return <CircularProgress />;
+  }
   if (ent instanceof Place) {
     return <PlaceDetails place={ent} />;
   }
@@ -31,14 +34,10 @@ export default function EntDetails({ ent }) {
     fetchDetails();
   }, [ent]);
 
-  if (!entWithDetails) {
-    return <CircularProgress />;
-  }
-
   return (
     <Box>
-      <DetailsHeader ent={entWithDetails} />
-      <EntChildDetails ent={entWithDetails} />
+      <DetailsHeader ent={ent} />
+      {<EntChildDetails ent={entWithDetails} />}
     </Box>
   );
 }
