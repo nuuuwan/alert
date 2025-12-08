@@ -26,7 +26,7 @@ export default function MapRegionView({ region, onClick }) {
             fillColor: color,
             color: "white",
             weight: 0.5,
-            fillOpacity: 0.667,
+            fillOpacity: 0.333,
           }}
           eventHandlers={{
             click: onClickInner,
