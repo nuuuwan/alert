@@ -56,7 +56,7 @@ export default class DSD extends AdminRegion {
     return this;
   }
 
-  static async loadWithWarnings() {
+  static async loadWithAlerts() {
     const warningsData = await DSD.loadAllWarningData();
     const dsdIds = Object.keys(warningsData.dsdIDToLatestLandslideWarning);
     return await DSD.loadFromIds(dsdIds);

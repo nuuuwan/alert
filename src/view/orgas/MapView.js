@@ -36,7 +36,7 @@ export default function MapView() {
 
   useEffect(() => {
     async function fetchDsdEnts() {
-      const dsdEnts = await DSD.loadWithWarnings();
+      const dsdEnts = await DSD.loadWithAlerts();
       await Promise.all(dsdEnts.map((dsd) => dsd.loadDetails()));
       setDsdEnts(dsdEnts);
     }
