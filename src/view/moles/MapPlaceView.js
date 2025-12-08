@@ -12,7 +12,7 @@ export default function MapPlaceView({ place, onClick }) {
 
   const iconSize = LOCATION_MARKER_RADIUS * 8;
   const circleSize = iconSize * 1.1;
-  const opacity = 0.5;
+  const opacity = 1;
   const placeColor = getAlertColor(place.alertLevel);
 
   const onClickInner = (e) => {
