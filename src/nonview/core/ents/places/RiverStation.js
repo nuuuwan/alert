@@ -78,7 +78,7 @@ class RiverStation extends Place {
         alertLevel = 3;
       } else if (this.latestWaterLevelM >= this.minorFloodLevelM) {
         alertLevel = 2;
-      } else if (this.latestWaterLevelM >= this.alertLevelM) {
+      } else if (this.latestWaterLevelM >= this.alertLevelM / 2) {
         alertLevel = 1;
       }
     }
