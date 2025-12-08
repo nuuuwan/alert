@@ -7,10 +7,10 @@ export default function TempChart({ temp2mC24h, hourlyTimeUt }) {
   const xAxisData = hourlyTimeUt.map((time) => new Date(time * 1000));
 
   const observedData = hourlyTimeUt.map((time, index) =>
-    time * 1000 <= currentTime ? temp2mC24h[index] : null
+    time * 1000 <= currentTime ? temp2mC24h[index] : null,
   );
   const predictedData = hourlyTimeUt.map((time, index) =>
-    time * 1000 > currentTime ? temp2mC24h[index] : null
+    time * 1000 > currentTime ? temp2mC24h[index] : null,
   );
 
   const series = [

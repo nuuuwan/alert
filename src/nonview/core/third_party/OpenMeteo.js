@@ -44,7 +44,7 @@ export default class OpenMeteo {
               hourly.interval(),
           },
           (_, i) =>
-            new Date((Number(hourly.time()) + i * hourly.interval()) * 1000)
+            new Date((Number(hourly.time()) + i * hourly.interval()) * 1000),
         ),
         temperature_2m: hourly.variables(0).valuesArray(),
         precipitation: hourly.variables(1).valuesArray(),
@@ -59,16 +59,16 @@ export default class OpenMeteo {
 
       // hourly
       hourlyTimeUt: weatherDataRaw.hourly.time.map(
-        TimeUtils.getUnixTimeFromDate
+        TimeUtils.getUnixTimeFromDate,
       ),
       rainMM24h: weatherDataRaw.hourly.precipitation,
       temp2mC24h: weatherDataRaw.hourly.temperature_2m,
 
       rainMMSumActualPrevious24h: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(0, 24)
+        weatherDataRaw.hourly.precipitation.slice(0, 24),
       ),
       rainMMSumPredictedNext24h: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(24, 48)
+        weatherDataRaw.hourly.precipitation.slice(24, 48),
       ),
     };
 

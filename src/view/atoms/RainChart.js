@@ -7,10 +7,10 @@ export default function RainChart({ rainMM24h, hourlyTimeUt }) {
   const xAxisData = hourlyTimeUt.map((time) => new Date(time * 1000));
 
   const observedData = hourlyTimeUt.map((time, index) =>
-    time * 1000 <= currentTime ? rainMM24h[index] : null
+    time * 1000 <= currentTime ? rainMM24h[index] : null,
   );
   const predictedData = hourlyTimeUt.map((time, index) =>
-    time * 1000 > currentTime ? rainMM24h[index] : null
+    time * 1000 > currentTime ? rainMM24h[index] : null,
   );
 
   const series = [
