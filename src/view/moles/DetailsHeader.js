@@ -1,9 +1,11 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import EntIcon from "../atoms/EntIcon";
+import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 
 export default function DetailsHeader({ ent, supertitleOverride }) {
   const iconSize = 48;
+  const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
   return (
     <Box>
       <Typography variant="overline" color="text.secondary">
@@ -24,6 +26,7 @@ export default function DetailsHeader({ ent, supertitleOverride }) {
           sx={{
             lineHeight: `${iconSize}px`,
           }}
+          color={color}
         >
           {ent.title}
         </Typography>

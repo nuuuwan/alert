@@ -8,6 +8,7 @@ import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 
 export default function EntIcon({ ent, ...props }) {
   const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
+
   if (ent instanceof HydrometricStation) {
     return <HydrometricStationIcon color={color} {...props} />;
   }
