@@ -81,9 +81,7 @@ export default class DSD extends AdminRegion {
     const dList = await Cache.get("DSD.loadAllSexAgeData", async () => {
       return await WWW.fetch(url);
     });
-    const idx = Object.fromEntries(dList.map((d) => [d["region_id"], d]));
-    console.debug(idx);
-    return idx;
+    return Object.fromEntries(dList.map((d) => [d["region_id"], d]));
   }
 
   async loadSexAgeData() {

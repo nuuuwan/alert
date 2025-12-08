@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import Divider from "@mui/material/Divider";
 import EntDetails from "../moles/EntDetails";
+import SexAgeView from "../moles/SexAgeView";
 
 export default function DSDDetails({ region }) {
   if (!(region instanceof DSD)) {
@@ -22,6 +23,10 @@ export default function DSDDetails({ region }) {
 
   return (
     <Box>
+      <SexAgeView
+        sexAgeData={region.sexAgeData}
+        areaSqKm={`${region.areaSqKm.toFixed(0)} km²`}
+      />
       <LandslideWarningView
         level={region.latestLandslideWarningLevel}
         timeUt={region.latestLandslideWarningTimeUt}
