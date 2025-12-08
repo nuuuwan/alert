@@ -3,7 +3,6 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
-import TerrainIcon from "@mui/icons-material/Terrain";
 import MetricCard from "../atoms/MetricCard";
 import SourceView from "../atoms/SourceView";
 import TimeUtils from "../../nonview/base/TimeUtils";
