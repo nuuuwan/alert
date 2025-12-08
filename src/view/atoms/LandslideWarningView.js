@@ -7,12 +7,16 @@ export default function LandslideWarningView({ level, timeUt }) {
   if (level == null) return null;
 
   let value = "No Warning";
+  let unit = "";
   if (level === 1) {
-    value = "Level 1: Watch";
+    value = "Watch";
+    unit = "Level 1";
   } else if (level === 2) {
-    value = "Level 2: Alert";
+    value = "Alert";
+    unit = "Level 2";
   } else if (level === 3) {
-    value = "Level 3: Evacuate";
+    value = "Evacuate";
+    unit = "Level 3";
   }
   const color = getAlertColor(level);
 
@@ -21,7 +25,7 @@ export default function LandslideWarningView({ level, timeUt }) {
       Icon={WarningIcon}
       label="Landslide Warning"
       value={value}
-      unit={""}
+      unit={unit}
       color={color}
       timeLabel={TimeUtils.getTimeAgoString(timeUt)}
     />
