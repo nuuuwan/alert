@@ -29,23 +29,31 @@ export default function OpenMeteoView({ place }) {
         <MetricCard
           Icon={WaterDropIcon}
           label="Rain"
-          value={openMeteoData.rainMMSum24h.toFixed(0)}
+          value={openMeteoData.rainMMSumActualPrevious24h.toFixed(0)}
           unit="mm"
-          timeLabel="24 Hour sum"
+          timeLabel="24h total"
         />
         <MetricCard
           Icon={ThermostatIcon}
-          label="Temperature"
+          label="Temp"
           value={openMeteoData.temp2mCNow.toFixed(1)}
           unit="°C"
           timeLabel={TimeUtils.getTimeAgoString(openMeteoData.currentTimeUt)}
         />
         <MetricCard
           Icon={OpacityIcon}
-          label="Relative Humadity"
+          label="RH"
           value={openMeteoData.relativeHumadityNow.toFixed(0)}
           unit="%"
           timeLabel={TimeUtils.getTimeAgoString(openMeteoData.currentTimeUt)}
+        />
+        <MetricCard
+          Icon={WaterDropIcon}
+          label="For. Rain"
+          value={openMeteoData.rainMMSumPredictedNext24h.toFixed(0)}
+          unit="mm"
+          timeLabel="Next 24h total"
+          isPrediction
         />
       </MetricCardCollection>
 

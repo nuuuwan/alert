@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { COLORS } from "../_cons/StyleConstants";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 
 export default function MetricCard({
   label,
@@ -10,6 +11,7 @@ export default function MetricCard({
   timeLabel,
   alertLabel,
   color,
+  isPrediction,
 }) {
   let foreColor = COLORS.neutral;
   let backColor = "white";
@@ -21,15 +23,15 @@ export default function MetricCard({
   return (
     <Box
       sx={{
-        p: 0,
-        m: 0,
+        p: 1,
+        m: 1,
         borderRadius: 2,
         backgroundColor: backColor,
         border: "3px solid",
         borderColor: foreColor,
         textAlign: "center",
         width: 200,
-        height: 200,
+        height: 150,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -52,6 +54,9 @@ export default function MetricCard({
         <Typography variant="caption" color={foreColor}>
           {label}
         </Typography>
+        {isPrediction && (
+          <AutoAwesomeIcon fontSize="small" sx={{ color: foreColor }} />
+        )}
       </Box>
       <Box
         sx={{
@@ -60,7 +65,7 @@ export default function MetricCard({
           justifyContent: "center",
         }}
       >
-        <Typography variant="h4" color={foreColor} fontWeight={"bold"}>
+        <Typography variant="h5" color={foreColor} fontWeight={"bold"}>
           {value}
         </Typography>
         <Typography
@@ -71,7 +76,7 @@ export default function MetricCard({
       </Box>
 
       <Box>
-        <Typography variant="caption" color={foreColor}>
+        <Typography variant="caption" color={foreColor} sx={{ opacity: 0.6 }}>
           {timeLabel}
         </Typography>
       </Box>

@@ -62,8 +62,14 @@ export default class OpenMeteo {
         TimeUtils.getUnixTimeFromDate
       ),
       rainMM24h: weatherDataRaw.hourly.precipitation,
-      rainMMSum24h: ArrayUtils.sum(weatherDataRaw.hourly.precipitation),
       temp2mC24h: weatherDataRaw.hourly.temperature_2m,
+
+      rainMMSumActualPrevious24h: ArrayUtils.sum(
+        weatherDataRaw.hourly.precipitation.slice(0, 24)
+      ),
+      rainMMSumPredictedNext24h: ArrayUtils.sum(
+        weatherDataRaw.hourly.precipitation.slice(24, 48)
+      ),
     };
 
     return weatherData;
