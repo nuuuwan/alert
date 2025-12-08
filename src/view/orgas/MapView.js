@@ -28,7 +28,7 @@ export default function MapView() {
 
   useEffect(() => {
     async function fetch() {
-      const riverStations = await RiverStation.loadAll();
+      const riverStations = await RiverStation.loadWithAlerts();
       setRiverStations(riverStations);
     }
     fetch();
@@ -78,13 +78,14 @@ export default function MapView() {
         />
         <MapClickHandler onMapClick={handleMapClick} />
 
-        {riverStations.map((station) => (
-          <MapPlaceView
-            key={station.id}
-            place={station}
-            onClick={handleEntClick}
-          />
-        ))}
+        {riverStations &&
+          riverStations.map((station) => (
+            <MapPlaceView
+              key={station.id}
+              place={station}
+              onClick={handleEntClick}
+            />
+          ))}
 
         {dsdEnts &&
           dsdEnts.map((dsd) => (

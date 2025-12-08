@@ -4,16 +4,23 @@ import AdminRegion from "../../nonview/core/ents/regions/admin_regions/AdminRegi
 import LocationIcon from "./icons/LocationIcon";
 import RiverStationIcon from "./icons/RiverStationIcon";
 import AdminRegionIcon from "./icons/AdminRegionIcon";
+import { COLORS } from "../_cons/StyleConstants";
 
 export default function EntIcon({ ent, ...props }) {
-  if (ent instanceof RiverStation) {
-    return <RiverStationIcon {...props} />;
+  const entityTypeName = ent.constructor.getEntityTypeName();
+  const color =
+    ["grey", COLORS.lowAlert, COLORS.mediumAlert, COLORS.highAlert][
+      ent.alertLevel
+    ] || "gray";
+
+  switch (entityTypeName) {
+    case RiverStation.getEntityTypeName():
+      return <RiverStationIcon {...props} color={color} />;
+    case Place.getEntityTypeName():
+      return <LocationIcon {...props} />;
+    case AdminRegion.getEntityTypeName():
+      return <AdminRegionIcon {...props} />;
+    default:
+      return null;
   }
-  if (ent instanceof AdminRegion) {
-    return <AdminRegionIcon {...props} />;
-  }
-  if (ent instanceof Place) {
-    return <LocationIcon {...props} />;
-  }
-  return <LocationIcon {...props} />;
 }

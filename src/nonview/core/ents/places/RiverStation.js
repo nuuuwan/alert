@@ -33,7 +33,7 @@ class RiverStation extends Place {
 
   static async loadAll() {
     const rawDataList = await this.getRawDataList();
-    return Promise.all(
+    return await Promise.all(
       rawDataList.map(async (rawData) => {
         const latLng = LatLng.fromRaw(rawData.latLng || rawData.lat_lng);
         const placeData = await Place.loadData({
@@ -78,7 +78,7 @@ class RiverStation extends Place {
         alertLevel = 3;
       } else if (this.latestWaterLevelM >= this.minorFloodLevelM) {
         alertLevel = 2;
-      } else if (this.latestWaterLevelM >= this.alertLevelM / 2) {
+      } else if (this.latestWaterLevelM >= this.alertLevelM) {
         alertLevel = 1;
       }
     }
