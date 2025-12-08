@@ -8,9 +8,6 @@ export default function DetailsHeader({ ent, supertitleOverride }) {
   const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
   return (
     <Box>
-      <Typography variant="overline" color="text.secondary">
-        {supertitleOverride ? supertitleOverride : ent.supertitle}
-      </Typography>
       <Box sx={{ display: "flex", alignItems: "flex-start" }}>
         <Box
           sx={{
@@ -31,6 +28,9 @@ export default function DetailsHeader({ ent, supertitleOverride }) {
           {ent.title}
         </Typography>
       </Box>
+      <Typography variant="overline" color="text.secondary">
+        {supertitleOverride ? supertitleOverride : ent.supertitle}
+      </Typography>
       <Typography variant="body2" color="text.secondary" gutterBottom>
         {ent.subtitle}
       </Typography>

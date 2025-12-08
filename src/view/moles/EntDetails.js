@@ -6,6 +6,7 @@ import Region from "../../nonview/core/ents/regions/Region";
 import Box from "@mui/material/Box";
 import { useState, useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
+import Divider from "@mui/material/Divider";
 
 function EntChildDetails({ ent }) {
   if (!ent) {
