@@ -20,10 +20,11 @@ export default function MetricCard({
   return (
     <Box
       sx={{
-        p: 2,
+        p: 0,
+        m: 0,
         borderRadius: 2,
         backgroundColor: backColor,
-        border: "1px solid",
+        border: "3px solid",
         borderColor: foreColor,
         textAlign: "center",
         width: 200,
@@ -39,7 +40,6 @@ export default function MetricCard({
           alignItems: "center",
           justifyContent: "center",
           gap: 0.5,
-          mb: 0.5,
         }}
       >
         {Icon && <Icon fontSize="small" sx={{ color: foreColor }} />}
@@ -60,7 +60,7 @@ export default function MetricCard({
         <Typography
           variant="caption"
           color={foreColor}
-          sx={{ ml: 0.5, position: "relative", bottom: "2px" }}
+          sx={{ ml: 0.5, position: "relative", bottom: "4px" }}
         >{`${unit}`}</Typography>
       </Box>
       <Box>
