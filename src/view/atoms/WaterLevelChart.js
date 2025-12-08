@@ -7,7 +7,10 @@ const DASHED_STYLE = {
   strokeDasharray: "5 5",
 };
 
-export default function WaterLevelChart({ waterLevelHistory, riverStation }) {
+export default function WaterLevelChart({
+  waterLevelHistory,
+  HydrometricStation,
+}) {
   const chartData = [...waterLevelHistory].reverse().slice(-168); // Last 7 days
   const xAxisData = chartData.map((d) => new Date(d.timeUt * 1000));
   const yAxisData = chartData.map((d) => d.waterLevelM);
@@ -23,17 +26,17 @@ export default function WaterLevelChart({ waterLevelHistory, riverStation }) {
 
   const floodLevels = [
     {
-      level: riverStation.alertLevelM,
+      level: HydrometricStation.alertLevelM,
       label: "Alert Level",
       color: COLORS.lowAlert,
     },
     {
-      level: riverStation.minorFloodLevelM,
+      level: HydrometricStation.minorFloodLevelM,
       label: "Minor Flood Level",
       color: COLORS.mediumAlert,
     },
     {
-      level: riverStation.majorFloodLevelM,
+      level: HydrometricStation.majorFloodLevelM,
       label: "Major Flood Level",
       color: COLORS.highAlert,
     },

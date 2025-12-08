@@ -6,7 +6,7 @@ import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 import CustomDrawer from "../moles/CustomDrawer";
 import Place from "../../nonview/core/ents/places/Place";
 import LatLng from "../../nonview/base/geos/LatLng";
-import RiverStation from "../../nonview/core/ents/places/RiverStation";
+import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import MapPlaceView from "../moles/MapPlaceView";
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import MapRegionView from "../moles/MapRegionView";
@@ -23,13 +23,13 @@ function MapClickHandler({ onMapClick }) {
 export default function MapView() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedPlace, setSelectedPlace] = useState(null);
-  const [riverStations, setRiverStations] = useState([]);
+  const [HydrometricStations, setHydrometricStations] = useState([]);
   const [dsdEnts, setDsdEnts] = useState([]);
 
   useEffect(() => {
     async function fetch() {
-      const riverStations = await RiverStation.loadWithAlerts();
-      setRiverStations(riverStations);
+      const HydrometricStations = await HydrometricStation.loadWithAlerts();
+      setHydrometricStations(HydrometricStations);
     }
     fetch();
   }, []);
@@ -78,8 +78,8 @@ export default function MapView() {
         />
         <MapClickHandler onMapClick={handleMapClick} />
 
-        {riverStations &&
-          riverStations.map((station) => (
+        {HydrometricStations &&
+          HydrometricStations.map((station) => (
             <MapPlaceView
               key={station.id}
               place={station}

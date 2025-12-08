@@ -11,12 +11,12 @@ A **Place** is a point defined by latitude and longitude. Coordinates are stored
 Places have constant attributes, such as name or elevation, and time-varying attributes accessed through Observations.
 
 ```javascript
-place = await Place.load([6.9157, 79.8636])
+place = await Place.load([6.9157, 79.8636]);
 
-riverStation = await RiverStation.load([6.9579, 79.8788])
-riverStation = await RiverStation.loadFromName("Nagalagam Street")
+HydrometricStation = await HydrometricStation.load([6.9579, 79.8788]);
+HydrometricStation = await HydrometricStation.loadFromName("Nagalagam Street");
 
-elev = place.elevation
+elev = place.elevation;
 ```
 
 ### Regions
@@ -24,8 +24,8 @@ elev = place.elevation
 A **Region** is one or more non-overlapping polygons. Each polygon is a list of latitude–longitude pairs. Administrative areas such as provinces, districts, DSDs and GNDs are Region subtypes.
 
 ```javascript
-dsdColombo = await DSD.fromMultiPolygon(multiPolygon)
-dsdColombo = await DSD.fromID("LK-1103")
+dsdColombo = await DSD.fromMultiPolygon(multiPolygon);
+dsdColombo = await DSD.fromID("LK-1103");
 ```
 
 ### Attributes
@@ -51,10 +51,10 @@ Observed values are usually numeric, but may be boolean or categorical. Each obs
 
 ```javascript
 // Single timestamp
-r = place.rainfall(t = 1764953258)
+r = place.rainfall((t = 1764953258));
 
 // Multiple timestamps
-rList = place.rainfall(tList = [1764953258, 1764953259, 1764953260])
+rList = place.rainfall((tList = [1764953258, 1764953259, 1764953260]));
 ```
 
 Observations are immutable. All observations for an Ent must be present at the moment the Ent is created or loaded.
@@ -68,7 +68,7 @@ An **Alert** defines a boolean condition on an Ent. The condition is evaluated w
 An Alert does not modify underlying data; it only queries it.
 
 ```javascript
-isMajor = riverStation.isMajorFlood()
+isMajor = HydrometricStation.isMajorFlood();
 ```
 
 A typical pattern is threshold comparison, for example water level exceeding minor or major flood levels. More complex conditions are supported so long as they can be expressed in terms of Ent attributes and Observations.

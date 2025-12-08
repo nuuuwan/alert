@@ -5,9 +5,9 @@ import WWW from "../../../base/WWW.js";
 import Cache from "../../../base/Cache.js";
 import TimeUtils from "../../../base/TimeUtils.js";
 
-class RiverStation extends Place {
+class HydrometricStation extends Place {
   static getEntTypeName() {
-    return "River Station";
+    return "Hydrometric Station";
   }
 
   get title() {
@@ -19,7 +19,7 @@ class RiverStation extends Place {
   }
 
   static getStaticDataID() {
-    return "river_stations";
+    return "hydrometric_stations";
   }
 
   constructor(data) {
@@ -39,13 +39,13 @@ class RiverStation extends Place {
         const placeData = await Place.loadData({
           latLng,
         });
-        return new RiverStation({ ...rawData, ...placeData });
+        return new HydrometricStation({ ...rawData, ...placeData });
       })
     );
   }
 
   async loadWaterLevelHistory() {
-    const rawAlertData = await RiverStation.getRawAlertData();
+    const rawAlertData = await HydrometricStation.getRawAlertData();
     const eventData = rawAlertData["event_data"];
     const eventDataForThisStation = eventData[this.name];
     const minTimeUt = TimeUtils.getUnixTime() - TimeUtils.SECONDS_IN.WEEK;
@@ -95,29 +95,29 @@ class RiverStation extends Place {
   static async getRawAlertData() {
     const url =
       "https://raw.githubusercontent.com/nuuuwan/lk_irrigation/refs/heads/main/data/alert_data.json";
-    return await Cache.get("RiverStation.getRawAlertData", async () => {
+    return await Cache.get("HydrometricStation.getRawAlertData", async () => {
       return await WWW.fetchJSON(url);
     });
   }
 
   static async loadWithAlerts() {
-    const riverStations = await RiverStation.loadAll();
-    const riverStationsWithAlerts = (
+    const HydrometricStations = await HydrometricStation.loadAll();
+    const HydrometricStationsWithAlerts = (
       await Promise.all(
-        riverStations.map(async (riverStation) => {
-          await riverStation.loadWaterLevelHistory();
-          const alertLevel = riverStation.alertLevel;
+        HydrometricStations.map(async (HydrometricStation) => {
+          await HydrometricStation.loadWaterLevelHistory();
+          const alertLevel = HydrometricStation.alertLevel;
           if (alertLevel > 0) {
-            return riverStation;
+            return HydrometricStation;
           }
           return null;
         })
       )
-    ).filter((riverStation) => riverStation !== null);
-    return riverStationsWithAlerts;
+    ).filter((HydrometricStation) => HydrometricStation !== null);
+    return HydrometricStationsWithAlerts;
   }
 }
 
-Object.assign(RiverStation, WithDataStaticMixin);
+Object.assign(HydrometricStation, WithDataStaticMixin);
 
-export default RiverStation;
+export default HydrometricStation;

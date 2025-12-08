@@ -1,4 +1,4 @@
-export default function RiverStationIcon({ size, color, strokeColor }) {
+export default function HydrometricStationIcon({ size, color, strokeColor }) {
   const strokeWidth = 24;
   return (
     <svg

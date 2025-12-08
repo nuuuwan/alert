@@ -13,7 +13,7 @@ import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import MetricCardCollection from "../atoms/MetricCardCollection";
 
-export default function RiverStationDetails({ place }) {
+export default function HydrometricStationDetails({ place }) {
   const [loading, setLoading] = useState(true);
   const [waterLevelHistory, setWaterLevelHistory] = useState([]);
 
@@ -112,7 +112,7 @@ export default function RiverStationDetails({ place }) {
       <Box sx={{ mt: 3 }}>
         <WaterLevelChart
           waterLevelHistory={waterLevelHistory}
-          riverStation={place}
+          HydrometricStation={place}
         />
       </Box>
     </Box>

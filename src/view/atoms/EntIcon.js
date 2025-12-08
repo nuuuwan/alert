@@ -1,15 +1,15 @@
 import Place from "../../nonview/core/ents/places/Place";
-import RiverStation from "../../nonview/core/ents/places/RiverStation";
+import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import AdminRegion from "../../nonview/core/ents/regions/admin_regions/AdminRegion";
 import LocationIcon from "./icons/LocationIcon";
-import RiverStationIcon from "./icons/RiverStationIcon";
+import HydrometricStationIcon from "./icons/HydrometricStationIcon";
 import AdminRegionIcon from "./icons/AdminRegionIcon";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 
 export default function EntIcon({ ent, ...props }) {
   const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
-  if (ent instanceof RiverStation) {
-    return <RiverStationIcon color={color} {...props} />;
+  if (ent instanceof HydrometricStation) {
+    return <HydrometricStationIcon color={color} {...props} />;
   }
   if (ent instanceof Place) {
     return <LocationIcon color={color} {...props} />;
