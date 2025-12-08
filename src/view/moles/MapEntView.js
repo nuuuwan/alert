@@ -15,12 +15,12 @@ export default function MapEntView({ ent, dbResultsForEnt }) {
       acc[eventClassName] = Object.values(eventTdx);
       return acc;
     },
-    {},
+    {}
   );
 
   const nEvents = Object.values(eventClassNameToEventList).reduce(
     (sum, eventList) => sum + eventList.length,
-    0,
+    0
   );
   if (nEvents === 0) {
     return null;
@@ -34,17 +34,18 @@ export default function MapEntView({ ent, dbResultsForEnt }) {
 
   const lastEvent = sortedEvents[0];
 
-  let entColor = "grey";
+  let entColor = COLORS.neutral;
   if (!lastEvent.isStale()) {
     const alerts = Object.values(alertNdxTdx).reduce(function (
       alerts,
-      alertTdx,
+      alertTdx
     ) {
       return alerts.concat(Object.values(alertTdx));
-    }, []);
+    },
+    []);
     const lastAlerts = alerts.filter((alert) => alert.event === lastEvent);
     const lastAlert = lastAlerts.length > 0 ? lastAlerts[0] : null;
-    entColor = lastAlert ? lastAlert.constructor.getColor() : "gray";
+    entColor = lastAlert ? lastAlert.constructor.getColor() : COLORS.neutral;
   }
 
   const handleClick = () => {

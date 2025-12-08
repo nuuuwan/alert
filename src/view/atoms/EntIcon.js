@@ -4,14 +4,10 @@ import AdminRegion from "../../nonview/core/ents/regions/admin_regions/AdminRegi
 import LocationIcon from "./icons/LocationIcon";
 import RiverStationIcon from "./icons/RiverStationIcon";
 import AdminRegionIcon from "./icons/AdminRegionIcon";
-import { COLORS } from "../_cons/StyleConstants";
+import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 
 export default function EntIcon({ ent, ...props }) {
-  const color =
-    ["grey", COLORS.lowAlert, COLORS.mediumAlert, COLORS.highAlert][
-      ent.alertLevel
-    ] || "gray";
-
+  const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
   if (ent instanceof RiverStation) {
     return <RiverStationIcon color={color} {...props} />;
   }
