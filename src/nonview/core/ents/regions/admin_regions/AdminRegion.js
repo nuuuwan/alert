@@ -59,10 +59,7 @@ class AdminRegion extends Region {
 
   static async loadFromData({ id, name, areaSqKm }) {
     const multiPolygon = await this.getGeoForId(id);
-    const o = new this({ multiPolygon, id, name, areaSqKm });
-    console.debug({ o });
-    console.debug(o.constructor.getEntTypeName());
-    return o;
+    return new this({ multiPolygon, id, name, areaSqKm });
   }
 
   static async getRawDataList() {
