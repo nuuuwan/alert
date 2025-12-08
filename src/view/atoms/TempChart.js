@@ -10,7 +10,7 @@ export default function TempChart({ temp2mC24h, hourlyTimeUt }) {
     {
       data: yAxisData,
       label: "Temperature (°C)",
-      color: COLORS.air,
+      color: COLORS.neutral,
       showMark: false,
     },
   ];

@@ -10,7 +10,7 @@ export default function RainChart({ rainMM24h, hourlyTimeUt }) {
     {
       data: yAxisData,
       label: "Rainfall (mm)",
-      color: COLORS.water,
+      color: COLORS.neutral,
       showMark: false,
     },
   ];
