@@ -1,41 +1,30 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Alert from "@mui/material/Alert";
-import { COLORS } from "../_cons/StyleConstants";
-
-export default function LandslideWarningView({ level }) {
+import MetricCard from "./MetricCard";
+import TimeUtils from "../../nonview/base/TimeUtils";
+export default function LandslideWarningView({ level, timeUt }) {
   if (level == null) return null;
-  let severity = "info";
-  let text = "No Warning";
-  let bgColor = COLORS.neutral;
-  if (level === 1) {
-    severity = "warning";
-    text = "Level 1: Watch";
-    bgColor = COLORS.lowAlert;
-  } else if (level === 2) {
-    severity = "warning";
-    text = "Level 2: Alert";
-    bgColor = COLORS.mediumAlert;
-  } else if (level === 3) {
-    severity = "error";
-    text = "Level 3: Evacuate";
-    bgColor = COLORS.highAlert;
-  }
-  return (
-    <Box>
-      <Typography variant="h6" gutterBottom>
-        Landslide Warning
-      </Typography>
 
-      <Alert
-        severity={severity}
-        variant="filled"
-        sx={{ backgroundColor: bgColor }}
-      >
-        <Typography variant="subtitle1" fontWeight="bold">
-          {text}
-        </Typography>
-      </Alert>
-    </Box>
+  let title = "Landslide Warning";
+  let value = "No Warning";
+  let color = "default";
+
+  if (level === 1) {
+    value = "Level 1: Watch";
+    color = "low";
+  } else if (level === 2) {
+    value = "Level 2: Alert";
+    color = "medium";
+  } else if (level === 3) {
+    value = "Level 3: Evacuate";
+    color = "high";
+  }
+
+  return (
+    <MetricCard
+      label={title}
+      value={value}
+      unit={""}
+      color={color}
+      timeLabel={TimeUtils.getTimeAgoString(timeUt)}
+    />
   );
 }

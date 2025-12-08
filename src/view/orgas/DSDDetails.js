@@ -6,7 +6,10 @@ export default function DSDDetails({ region }) {
   if (!(region instanceof DSD)) return null;
   return (
     <Box>
-      <LandslideWarningView level={region.latestLandslideWarningLevel} />
+      <LandslideWarningView
+        level={region.latestLandslideWarningLevel}
+        timeUt={region.latestLandslideWarningTimeUt}
+      />
     </Box>
   );
 }
