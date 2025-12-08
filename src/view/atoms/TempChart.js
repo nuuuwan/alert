@@ -63,9 +63,10 @@ export default function TempChart({ temp2mC24h, hourlyTimeUt }) {
         "& .MuiLineElement-series-auto-generated-id-1": {
           strokeDasharray: "5 5",
         },
-        "& .MuiLegendItem-root[data-series='Predicted Temperature (°C)'] .MuiLegendItem-label": {
-          strokeDasharray: "5 5",
-        },
+        "& .MuiLegendItem-root[data-series='Predicted Temperature (°C)'] .MuiLegendItem-label":
+          {
+            strokeDasharray: "5 5",
+          },
       }}
     />
   );
