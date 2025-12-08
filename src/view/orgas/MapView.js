@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
+import { MapContainer, TileLayer, useMapEvents, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./MapView.css";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
@@ -18,6 +18,14 @@ function MapClickHandler({ onMapClick }) {
       onMapClick([e.latlng.lat.toFixed(4), e.latlng.lng.toFixed(4)]);
     },
   });
+  return null;
+}
+
+function MapCenterUpdater({ center }) {
+  const map = useMap();
+  useEffect(() => {
+    map.setView(center);
+  }, [center, map]);
   return null;
 }
 
@@ -67,7 +75,7 @@ export default function MapView({
     async function fetchHydrometricStation() {
       if (hydrometricStationName) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationName,
+          hydrometricStationName
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
@@ -109,13 +117,24 @@ export default function MapView({
     return "location.png";
   };
 
+  let center = DEFAULT_CENTER;
+  let zoom = DEFAULT_ZOOM;
+
+  if (selectedEnt && selectedEnt.latLng) {
+    center = [selectedEnt.latLng.lat, selectedEnt.latLng.lng];
+    zoom = 16;
+  }
+
+  console.debug({ center, zoom });
+
   return (
     <>
       <MapContainer
-        center={DEFAULT_CENTER}
-        zoom={DEFAULT_ZOOM}
+        center={center}
+        zoom={zoom}
         style={{ height: "100%", width: "100%" }}
       >
+        <MapCenterUpdater center={center} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
