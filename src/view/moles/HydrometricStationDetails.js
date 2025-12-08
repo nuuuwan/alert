@@ -77,9 +77,13 @@ export default function HydrometricStationDetails({ place }) {
     rateOfChangeData = { value: formattedValue, label, color, icon };
 
     rateOfRiseTimeLabel = `${timeDiffHours.toFixed(
-      0,
+      0
     )} hour mean · Last ${nObservations} readings`;
   }
+
+  const alertLevel =
+    ["", "Flood Alert", "Minor Flood", "Major Flood"][place.alertLevel] ||
+    "No Alert";
 
   return (
     <Box sx={{ p: 2 }}>
@@ -96,6 +100,7 @@ export default function HydrometricStationDetails({ place }) {
           value={latestReading.waterLevelM.toFixed(2)}
           unit="m"
           timeLabel={TimeUtils.getTimeAgoString(latestReading.timeUt)}
+          alertLabel={alertLevel}
           color={color}
         />
         {rateOfChangeData && (

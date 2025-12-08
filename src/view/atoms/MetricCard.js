@@ -8,6 +8,7 @@ export default function MetricCard({
   unit,
   Icon,
   timeLabel,
+  alertLabel,
   color,
 }) {
   let foreColor = COLORS.neutral;
@@ -34,6 +35,11 @@ export default function MetricCard({
         justifyContent: "center",
       }}
     >
+      <Box>
+        <Typography variant="h6" color={foreColor}>
+          {alertLabel}
+        </Typography>
+      </Box>
       <Box
         sx={{
           display: "flex",
@@ -54,7 +60,7 @@ export default function MetricCard({
           justifyContent: "center",
         }}
       >
-        <Typography variant="h4" color={foreColor}>
+        <Typography variant="h4" color={foreColor} fontWeight={"bold"}>
           {value}
         </Typography>
         <Typography
@@ -63,6 +69,7 @@ export default function MetricCard({
           sx={{ ml: 0.5, position: "relative", bottom: "4px" }}
         >{`${unit}`}</Typography>
       </Box>
+
       <Box>
         <Typography variant="caption" color={foreColor}>
           {timeLabel}
