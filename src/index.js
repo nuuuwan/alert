@@ -8,6 +8,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Routes>
+      <Route path="/" element={<App />} />
       <Route path="/alert" element={<App />} />
       <Route path="/alert/DSD/:dsdName" element={<App />} />
       <Route
@@ -16,7 +17,7 @@ root.render(
       />
       <Route path="/alert/Place/:placeLatLng" element={<App />} />
     </Routes>
-  </BrowserRouter>,
+  </BrowserRouter>
 );
 
 reportWebVitals();

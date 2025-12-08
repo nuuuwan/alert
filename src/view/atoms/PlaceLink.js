@@ -9,9 +9,9 @@ import HydrometricStation from "../../nonview/core/ents/places/HydrometricStatio
 function PlaceLink({ place, distanceM, nameOverride }) {
   let href = "";
   if (place instanceof HydrometricStation) {
-    href = `/HydrometricStation/${place.name}`;
+    href = `/alert/HydrometricStation/${place.name}`;
   } else if (place instanceof Place) {
-    href = `/Place/${place.latLng.lat},${place.latLng.lng}`;
+    href = `/alert/Place/${place.latLng.lat},${place.latLng.lng}`;
   }
 
   const color = COLORS.neutral;

@@ -28,6 +28,13 @@ function MapCenterUpdater({ center }) {
   }, [center, map]);
   return null;
 }
+function MapZoomUpdater({ zoom }) {
+  const map = useMap();
+  useEffect(() => {
+    map.setZoom(zoom);
+  }, [zoom, map]);
+  return null;
+}
 
 export default function MapView({
   dsdName,
@@ -75,7 +82,7 @@ export default function MapView({
     async function fetchHydrometricStation() {
       if (hydrometricStationName) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationName,
+          hydrometricStationName
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
@@ -122,7 +129,7 @@ export default function MapView({
 
   if (selectedEnt && selectedEnt.latLng) {
     center = [selectedEnt.latLng.lat, selectedEnt.latLng.lng];
-    zoom = 16;
+    zoom = 14;
   }
 
   console.debug({ center, zoom });
@@ -135,6 +142,7 @@ export default function MapView({
         style={{ height: "100%", width: "100%" }}
       >
         <MapCenterUpdater center={center} />
+        <MapZoomUpdater zoom={zoom} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
