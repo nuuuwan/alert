@@ -15,7 +15,7 @@ export default function MapRegionView({ region, onClick }) {
 
   const onClickInner = (e) => {
     L.DomEvent.stopPropagation(e);
-    navigate(`/DSD/${region.name}`);
+    navigate(`/alert/DSD/${region.name}`);
   };
 
   return (

@@ -19,7 +19,7 @@ export default function MapPlaceView({ place }) {
 
   const onClickInner = (e) => {
     L.DomEvent.stopPropagation(e);
-    navigate(`/HydrometricStation/${place.name}`);
+    navigate(`/alert/HydrometricStation/${place.name}`);
   };
 
   const entIconSvg = ReactDOMServer.renderToStaticMarkup(
@@ -28,7 +28,7 @@ export default function MapPlaceView({ place }) {
       size={iconSize}
       color={placeColor}
       strokeColor={placeColor}
-    />,
+    />
   );
 
   return (
