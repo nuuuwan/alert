@@ -9,7 +9,7 @@ import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import MetricCard from "../atoms/MetricCard";
 import WaterLevelChart from "../atoms/WaterLevelChart";
-import { COLORS } from "../_cons/StyleConstants";
+import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 
 export default function RiverStationDetails({ place }) {
@@ -48,6 +48,7 @@ export default function RiverStationDetails({ place }) {
   const previousReading = waterLevelHistory[nObservations];
   let rateOfRiseTimeLabel = "";
   let rateOfChangeData = null;
+  let color = COLORS.neutral;
   if (previousReading) {
     const waterLevelDiff =
       latestReading.waterLevelM - previousReading.waterLevelM;
@@ -56,20 +57,18 @@ export default function RiverStationDetails({ place }) {
     const rateOfChangeCmPerHr = (waterLevelDiff / timeDiffHours) * 100;
     const EPSILON = 1;
 
-    let label, color, icon;
+    let label, icon;
     if (rateOfChangeCmPerHr > EPSILON) {
       label = "Rising";
-      color = COLORS.highAlert;
       icon = TrendingUpIcon;
     } else if (rateOfChangeCmPerHr < -EPSILON) {
       label = "Falling";
-      color = COLORS.neutral;
       icon = TrendingDownIcon;
     } else {
       label = "Steady";
-      color = COLORS.neutral;
       icon = TrendingFlatIcon;
     }
+    color = getAlertColor(place.alertLevel);
 
     const formattedValue = `${
       rateOfChangeCmPerHr > 0 ? "+" : ""
@@ -104,6 +103,7 @@ export default function RiverStationDetails({ place }) {
           value={latestReading.waterLevelM.toFixed(2)}
           unit="m"
           timeLabel={TimeUtils.getTimeAgoString(latestReading.timeUt)}
+          color={color}
         />
         {rateOfChangeData && (
           <MetricCard
