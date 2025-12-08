@@ -19,36 +19,35 @@ export default function WaterLevelChart({ waterLevelHistory, riverStation }) {
     },
   ];
 
-  // Add reference lines for flood levels
-  if (riverStation.alertLevelM) {
-    series.push({
-      data: Array(xAxisData.length).fill(riverStation.alertLevelM),
+  const floodLevels = [
+    {
+      level: riverStation.alertLevelM,
       label: "Alert Level",
       color: COLORS.lowAlert,
-      showMark: false,
-      style: DASHED_STYLE,
-    });
-  }
-
-  if (riverStation.minorFloodLevelM) {
-    series.push({
-      data: Array(xAxisData.length).fill(riverStation.minorFloodLevelM),
+    },
+    {
+      level: riverStation.minorFloodLevelM,
       label: "Minor Flood Level",
       color: COLORS.mediumAlert,
-      showMark: false,
-      style: DASHED_STYLE,
-    });
-  }
-
-  if (riverStation.majorFloodLevelM) {
-    series.push({
-      data: Array(xAxisData.length).fill(riverStation.majorFloodLevelM),
+    },
+    {
+      level: riverStation.majorFloodLevelM,
       label: "Major Flood Level",
       color: COLORS.highAlert,
-      showMark: false,
-      style: DASHED_STYLE,
-    });
-  }
+    },
+  ];
+
+  floodLevels.forEach(({ level, label, color }) => {
+    if (level) {
+      series.push({
+        data: Array(xAxisData.length).fill(level),
+        label,
+        color,
+        showMark: false,
+        style: DASHED_STYLE,
+      });
+    }
+  });
 
   return (
     <LineChart
