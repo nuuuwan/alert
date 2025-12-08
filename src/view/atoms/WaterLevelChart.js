@@ -1,5 +1,6 @@
 import { LineChart } from "@mui/x-charts/LineChart";
 import { COLORS } from "../_cons/StyleConstants";
+import TimeUtils from "../../nonview/base/TimeUtils";
 
 const DASHED_STYLE = {
   strokeDasharray: "5 5",
@@ -56,20 +57,26 @@ export default function WaterLevelChart({ waterLevelHistory, riverStation }) {
           data: xAxisData,
           scaleType: "time",
           tickLabelStyle: {
-            angle: 45,
-            textAnchor: "start",
             fontSize: 10,
+          },
+
+          valueFormatter: (date, context) => {
+            if (context.location === "tick") {
+              return TimeUtils.formatMMMDD(date);
+            } else {
+              return TimeUtils.formatMMMDDIImmp(date);
+            }
           },
         },
       ]}
       yAxis={[
         {
           label: "Water Level (m)",
-          valueFormatter: (value) => `${value.toFixed(2)}m`,
+          valueFormatter: (value) => `${value.toFixed(0)}m`,
         },
       ]}
       series={series}
-      height={480}
+      height={360}
       margin={5}
       grid={{ vertical: true, horizontal: true }}
       sx={{
