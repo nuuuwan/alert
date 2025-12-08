@@ -40,7 +40,7 @@ class RiverStation extends Place {
           latLng,
         });
         return new RiverStation({ ...rawData, ...placeData });
-      }),
+      })
     );
   }
 
@@ -53,19 +53,36 @@ class RiverStation extends Place {
       .reduce(function (waterLevelHistory, [dateId, timeOnlyIdToWaterLevelM]) {
         return Object.entries(timeOnlyIdToWaterLevelM).reduce(function (
           waterLevelHistory,
-          [timeOnlyId, waterLevelM],
+          [timeOnlyId, waterLevelM]
         ) {
           const timeUt = TimeUtils.parseYYYYMMDDHHHMMSS(
-            `${dateId}${timeOnlyId}`,
+            `${dateId}${timeOnlyId}`
           );
           if (timeUt > minTimeUt) {
             waterLevelHistory.push({ timeUt, waterLevelM });
           }
           return waterLevelHistory;
-        }, waterLevelHistory);
+        },
+        waterLevelHistory);
       }, [])
       .sort(TimeUtils.compareTimeUtDescending);
     this.waterLevelHistory = waterLevelHistory;
+
+    let alertLevel = 0;
+
+    if (waterLevelHistory.length > 0) {
+      this.latestWaterLevelM = waterLevelHistory[0].waterLevelM;
+      this.latestWaterLevelTimeUt = waterLevelHistory[0].timeUt;
+
+      if (this.latestWaterLevelM >= this.majorFloodLevelM) {
+        alertLevel = 3;
+      } else if (this.latestWaterLevelM >= this.minorFloodLevelM) {
+        alertLevel = 2;
+      } else if (this.latestWaterLevelM >= this.alertLevelM / 2) {
+        alertLevel = 1;
+      }
+    }
+    this.alertLevel = alertLevel;
     return this;
   }
 
@@ -81,6 +98,23 @@ class RiverStation extends Place {
     return await Cache.get("RiverStation.getRawAlertData", async () => {
       return await WWW.fetchJSON(url);
     });
+  }
+
+  static async loadWithAlerts() {
+    const riverStations = await RiverStation.loadAll();
+    const riverStationsWithAlerts = (
+      await Promise.all(
+        riverStations.map(async (riverStation) => {
+          await riverStation.loadWaterLevelHistory();
+          const alertLevel = riverStation.alertLevel;
+          if (alertLevel > 0) {
+            return riverStation;
+          }
+          return null;
+        })
+      )
+    ).filter((riverStation) => riverStation !== null);
+    return riverStationsWithAlerts;
   }
 }
 
