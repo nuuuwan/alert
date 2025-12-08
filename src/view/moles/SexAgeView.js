@@ -5,10 +5,12 @@ import ChildCareIcon from "@mui/icons-material/ChildCareOutlined";
 import ElderlyIcon from "@mui/icons-material/ElderlyOutlined";
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
 import Tooltip from "@mui/material/Tooltip";
+import FemaleIcon from "@mui/icons-material/Female";
 
 const dataConfig = [
   { label: "Area", key: "areaSqKm", Icon: CropOriginalIcon },
   { label: "Population", key: "population", Icon: PeopleIcon },
+  { label: "Female Population", key: "femalePopulation", Icon: FemaleIcon },
   { label: "Under 15", key: "ageUnder15", Icon: ChildCareIcon },
   { label: "Over 65", key: "age65andOver", Icon: ElderlyIcon },
 ];
