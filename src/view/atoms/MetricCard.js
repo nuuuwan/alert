@@ -54,7 +54,7 @@ export default function MetricCard({
         </Typography>
         <Typography
           variant="caption"
-          color="text.secondary"
+          color={foreColor}
           sx={{ ml: 0.5, position: "relative", bottom: "2px" }}
         >{`${unit}`}</Typography>
       </Box>
