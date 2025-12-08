@@ -1,5 +1,5 @@
 import WWW from "../../../../base/WWW";
-import DataWithIDMixin from "../../../../base/mixins/DataWithIDMixin";
+import DataWithLoadAllStaticMixin from "../../../../base/mixins/DataWithLoadAllStaticMixin";
 import Region from "../Region";
 import MultiPolygon from "../../../../base/geos/MultiPolygon";
 import Cache from "../../../../base/Cache";
@@ -87,35 +87,8 @@ class AdminRegion extends Region {
     const rawDataList = await this.getRawDataList();
     return await this.loadFromRawDataList(rawDataList);
   }
-
-  static async loadIdx() {
-    const list = await this.loadAll();
-    return Object.fromEntries(list.map((ent) => [ent.id, ent]));
-  }
-
-  static async loadFromIds(ids) {
-    const idx = await this.loadIdx();
-    return ids.map((id) => {
-      return idx[id];
-    });
-  }
-
-  static async loadFromId(id) {
-    const list = await this.loadFromIds([id]);
-    return list[0];
-  }
-
-  static async loadIdxByName() {
-    const list = await this.loadAll();
-    return Object.fromEntries(list.map((ent) => [ent.name, ent]));
-  }
-
-  static async loadFromName(name) {
-    const idx = await this.loadIdxByName();
-    return idx[name];
-  }
 }
 
-Object.assign(AdminRegion, DataWithIDMixin);
+Object.assign(AdminRegion, DataWithLoadAllStaticMixin);
 
 export default AdminRegion;
