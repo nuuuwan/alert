@@ -4,8 +4,10 @@ import { LOCATION_MARKER_RADIUS } from "../_cons/MapConstants";
 import ReactDOMServer from "react-dom/server";
 import EntIcon from "../atoms/EntIcon";
 import { getAlertColor } from "../_cons/StyleConstants";
+import { useNavigate } from "react-router-dom";
 
-export default function MapPlaceView({ place, onClick }) {
+export default function MapPlaceView({ place }) {
+  const navigate = useNavigate();
   if (!place) {
     throw new Error("MapPlaceView requires a place prop");
   }
@@ -17,7 +19,7 @@ export default function MapPlaceView({ place, onClick }) {
 
   const onClickInner = (e) => {
     L.DomEvent.stopPropagation(e);
-    onClick(place, e);
+    navigate(`/HydrometricStation/${place.name}`);
   };
 
   const entIconSvg = ReactDOMServer.renderToStaticMarkup(
@@ -26,7 +28,7 @@ export default function MapPlaceView({ place, onClick }) {
       size={iconSize}
       color={placeColor}
       strokeColor={placeColor}
-    />,
+    />
   );
 
   return (

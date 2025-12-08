@@ -1,4 +1,4 @@
-const DataWithLoadAllStaticMixin = {
+const WithLoadAllStaticMixin = {
   async loadIdx() {
     const list = await this.loadAll();
     return Object.fromEntries(list.map((ent) => [ent.id, ent]));
@@ -27,4 +27,4 @@ const DataWithLoadAllStaticMixin = {
   },
 };
 
-export default DataWithLoadAllStaticMixin;
+export default WithLoadAllStaticMixin;

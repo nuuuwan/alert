@@ -20,7 +20,7 @@ function MapClickHandler({ onMapClick }) {
   return null;
 }
 
-export default function MapView({ dsdName }) {
+export default function MapView({ dsdName, hydrometricStationName }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedEnt, setSelectedEnt] = useState(null);
   const [HydrometricStations, setHydrometricStations] = useState([]);
@@ -57,14 +57,25 @@ export default function MapView({ dsdName }) {
     fetchSelectedDsd();
   }, [dsdName]);
 
+  useEffect(() => {
+    async function fetchHydrometricStation() {
+      if (hydrometricStationName) {
+        const hydrometricStation = await HydrometricStation.loadFromName(
+          hydrometricStationName
+        );
+        if (hydrometricStation) {
+          await hydrometricStation.loadDetails();
+          setSelectedEnt(hydrometricStation);
+          setDrawerOpen(true);
+        }
+      }
+    }
+    fetchHydrometricStation();
+  }, [hydrometricStationName]);
+
   const handleMapClick = async (latLng) => {
     const place = await Place.load({ latLng: LatLng.fromRaw(latLng) });
     setSelectedEnt(place);
-    setDrawerOpen(true);
-  };
-
-  const handleEntClick = (ent) => {
-    setSelectedEnt(ent);
     setDrawerOpen(true);
   };
 
@@ -94,11 +105,7 @@ export default function MapView({ dsdName }) {
 
         {HydrometricStations &&
           HydrometricStations.map((station) => (
-            <MapPlaceView
-              key={station.id}
-              place={station}
-              onClick={handleEntClick}
-            />
+            <MapPlaceView key={station.id} place={station} />
           ))}
 
         {dsdEnts &&

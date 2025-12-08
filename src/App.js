@@ -15,14 +15,17 @@ const theme = createTheme({
 
 function App() {
   const dsdName = useParams().dsdName || null;
-  console.debug({ dsdName });
+  const hydrometricStationName = useParams().hydrometricStationName || null;
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
         <CustomAppBar />
         <Box sx={{ flexGrow: 1, marginTop: "48px" }}>
-          <MapView dsdName={dsdName} />
+          <MapView
+            dsdName={dsdName}
+            hydrometricStationName={hydrometricStationName}
+          />
         </Box>
       </Box>
     </ThemeProvider>

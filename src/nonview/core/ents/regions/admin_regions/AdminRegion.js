@@ -1,5 +1,5 @@
 import WWW from "../../../../base/WWW";
-import DataWithLoadAllStaticMixin from "../../../../base/mixins/DataWithLoadAllStaticMixin";
+import WithLoadAllStaticMixin from "../../../../base/mixins/WithLoadAllStaticMixin";
 import Region from "../Region";
 import MultiPolygon from "../../../../base/geos/MultiPolygon";
 import Cache from "../../../../base/Cache";
@@ -89,6 +89,6 @@ class AdminRegion extends Region {
   }
 }
 
-Object.assign(AdminRegion, DataWithLoadAllStaticMixin);
+Object.assign(AdminRegion, WithLoadAllStaticMixin);
 
 export default AdminRegion;

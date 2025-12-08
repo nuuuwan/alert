@@ -1,5 +1,6 @@
 import Place from "./Place.js";
-import WithDataStaticMixin from "../../../base/mixins/WithDataStaticMixin.js";
+import WithLoadAllStaticMixin from "../../../base/mixins/WithLoadAllStaticMixin.js";
+import WithDataStaticStaticMixin from "../../../base/mixins/WithDataStaticStaticMixin.js";
 import LatLng from "../../../base/geos/LatLng.js";
 import WWW from "../../../base/WWW.js";
 import Cache from "../../../base/Cache.js";
@@ -118,6 +119,7 @@ class HydrometricStation extends Place {
   }
 }
 
-Object.assign(HydrometricStation, WithDataStaticMixin);
+Object.assign(HydrometricStation, WithDataStaticStaticMixin);
+Object.assign(HydrometricStation, WithLoadAllStaticMixin);
 
 export default HydrometricStation;
