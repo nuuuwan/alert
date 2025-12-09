@@ -6,7 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/alert">
+    >
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/alert" element={<App />} />
