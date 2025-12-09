@@ -7,12 +7,14 @@ import CustomDrawer from "../moles/CustomDrawer";
 import Place from "../../nonview/core/ents/places/Place";
 import LatLng from "../../nonview/base/geos/LatLng";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
+import City from "../../nonview/core/ents/places/City";
 import MapPlaceView from "../moles/MapPlaceView";
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import MapRegionView from "../moles/MapRegionView";
 import EntDetails from "../moles/EntDetails";
 import { useNavigate } from "react-router-dom";
 import GeoLocation from "../../nonview/base/GeoLocation";
+
 function MapClickHandler({ onMapClick }) {
   useMapEvents({
     click: (e) => {
@@ -29,12 +31,13 @@ function MapClickHandler({ onMapClick }) {
 export default function MapView({
   dsdNameId,
   hydrometricStationNameId,
+  cityNameId,
   placeLatLngId,
 }) {
   const navigate = useNavigate();
-  const [drawerOpen, setDrawerOpen] = useState(
-    dsdNameId || hydrometricStationNameId || placeLatLngId ? true : false
-  );
+  const hasSomeEntParam =
+    dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
+  const [drawerOpen, setDrawerOpen] = useState(hasSomeEntParam ? true : false);
   const [selectedEnt, setSelectedEnt] = useState(null);
   const [HydrometricStations, setHydrometricStations] = useState([]);
   const [dsdEnts, setDsdEnts] = useState([]);
@@ -89,6 +92,20 @@ export default function MapView({
   }, [hydrometricStationNameId]);
 
   useEffect(() => {
+    async function fetchCity() {
+      if (cityNameId) {
+        const city = await City.loadFromName(cityNameId);
+        if (city) {
+          await city.loadDetails();
+          setSelectedEnt(city);
+          setDrawerOpen(true);
+        }
+      }
+    }
+    fetchCity();
+  }, [cityNameId]);
+
+  useEffect(() => {
     async function fetchPlace() {
       if (placeLatLngId) {
         const latLng = LatLng.fromId(placeLatLngId);
@@ -107,7 +124,7 @@ export default function MapView({
     async function fetchBrowserLocation() {
       const latLng = await GeoLocation.getCurrentLatLng();
       setBrowserLatLng(latLng);
-      if (!placeLatLngId && !dsdNameId && !hydrometricStationNameId && latLng) {
+      if (!hasSomeEntParam && latLng) {
         const place = await Place.load({ latLng });
         await place.loadDetails();
         setSelectedEnt(place);
@@ -115,7 +132,7 @@ export default function MapView({
       }
     }
     fetchBrowserLocation();
-  }, [placeLatLngId, dsdNameId, hydrometricStationNameId]);
+  }, [hasSomeEntParam]);
 
   const handleMapClick = async (latLng) => {
     navigate(`/Place/${latLng.id}`);

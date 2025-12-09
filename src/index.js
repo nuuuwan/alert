@@ -14,6 +14,7 @@ root.render(
         path="/HydrometricStation/:hydrometricStationNameId"
         element={<App />}
       />
+      <Route path="/City/:cityNameId" element={<App />} />
       <Route path="/Place/:placeLatLngId" element={<App />} />
     </Routes>
   </BrowserRouter>

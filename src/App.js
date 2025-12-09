@@ -15,7 +15,8 @@ const theme = createTheme({
 });
 
 function App() {
-  const { dsdNameId, hydrometricStationNameId, placeLatLngId } = useParams();
+  const { dsdNameId, hydrometricStationNameId, cityNameId, placeLatLngId } =
+    useParams();
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -27,6 +28,7 @@ function App() {
               dsdNameId={dsdNameId}
               hydrometricStationNameId={hydrometricStationNameId}
               placeLatLngId={placeLatLngId}
+              cityNameId={cityNameId}
             />
           </DataProvider>
         </Box>

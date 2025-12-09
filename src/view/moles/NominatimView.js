@@ -4,8 +4,6 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import { COLORS } from "../_cons/StyleConstants";
-import MapIcon from "@mui/icons-material/Map";
-import IconButton from "@mui/material/IconButton";
 
 function NominatimView({ latlng }) {
   const [data, setData] = useState(null);
