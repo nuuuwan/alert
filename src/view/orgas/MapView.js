@@ -114,7 +114,7 @@ export default function MapView({
   }, [placeLatLngId]);
 
   const handleMapClick = async (latLng) => {
-    navigate(`/alert/Place/${latLng.id}`);
+    navigate(`/Place/${latLng.id}`);
   };
 
   const handleDrawerClose = () => {
