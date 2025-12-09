@@ -11,10 +11,10 @@ export default function Chart({ data, timeData, yAxisLabel, chartType }) {
   const xAxisData = timeData.map((time) => new Date(time * 1000));
 
   const observedData = timeData.map((time, index) =>
-    time * 1000 <= currentTime ? data[index] : null,
+    time * 1000 <= currentTime ? data[index] : null
   );
   const predictedData = timeData.map((time, index) =>
-    time * 1000 > currentTime ? data[index] : null,
+    time * 1000 > currentTime ? data[index] : null
   );
 
   const nowPoint =
@@ -67,7 +67,8 @@ export default function Chart({ data, timeData, yAxisLabel, chartType }) {
       ]}
       series={series}
       grid={{ vertical: true, horizontal: true }}
-      height={320}
+      height={240}
+      margin={10}
     >
       <Plot />
       <ChartsReferenceLine
