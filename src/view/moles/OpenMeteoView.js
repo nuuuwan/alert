@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import MetricCard from "../atoms/MetricCard";
@@ -16,11 +15,7 @@ export default function OpenMeteoView({ place }) {
   const [latitude, longitude] = latLng.raw();
   return (
     <Box sx={{ p: 2 }}>
-      <Typography variant="h6" gutterBottom>
-        Weather
-      </Typography>
-
-      <MetricCardCollection>
+      <MetricCardCollection title="Weather">
         <MetricCard
           Icon={WaterDropIcon}
           label="Rain"
