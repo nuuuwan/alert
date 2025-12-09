@@ -4,8 +4,10 @@ import { ChartContainer } from "@mui/x-charts/ChartContainer";
 import { LinePlot } from "@mui/x-charts/LineChart";
 import { ChartsXAxis, ChartsYAxis } from "@mui/x-charts";
 import { ChartsReferenceLine } from "@mui/x-charts/ChartsReferenceLine";
+import { BarPlot } from "@mui/x-charts/BarChart";
+import { ChartsLegend } from "@mui/x-charts";
 
-export default function Chart({ data, timeData, yAxisLabel }) {
+export default function Chart({ data, timeData, yAxisLabel, chartType }) {
   const currentTime = Date.now();
   const xAxisData = timeData.map((time) => new Date(time * 1000));
 
@@ -26,16 +28,18 @@ export default function Chart({ data, timeData, yAxisLabel }) {
       label: "Past (Observed)",
       color: COLORS.neutral,
       showMark: false,
-      type: "line",
+      type: chartType,
     },
     {
       data: predictedData,
       label: "Future (Predicted)",
       color: COLORS.neutralLight,
       showMark: false,
-      type: "line",
+      type: chartType,
     },
   ];
+
+  const Plot = chartType === "line" ? LinePlot : BarPlot;
 
   return (
     <ChartContainer
@@ -49,7 +53,7 @@ export default function Chart({ data, timeData, yAxisLabel }) {
             fontSize: 10,
           },
           valueFormatter: (date, context) => {
-            return TimeUtils.formatMMMDDIImmp(date);
+            return TimeUtils.formatIImmp(date);
           },
         },
       ]}
@@ -63,15 +67,14 @@ export default function Chart({ data, timeData, yAxisLabel }) {
         },
       ]}
       series={series}
-      height={360}
-      margin={10}
       grid={{ vertical: true, horizontal: true }}
+      height={320}
     >
-      <LinePlot />
+      <Plot />
       <ChartsReferenceLine
         x={nowPoint}
-        label="Now"
-        lineStyle={{ stroke: "red", strokeDasharray: "4 4" }}
+        label={TimeUtils.formatMMMDDIImmp(nowPoint)}
+        lineStyle={{ stroke: COLORS.neutral, strokeDasharray: "4 4" }}
       />
 
       <ChartsXAxis />

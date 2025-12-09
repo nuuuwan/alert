@@ -6,6 +6,7 @@ export default function RainChart({ rainMM24h, hourlyTimeUt }) {
       data={rainMM24h}
       timeData={hourlyTimeUt}
       yAxisLabel="Rainfall (mm)"
+      chartType="bar"
     />
   );
 }

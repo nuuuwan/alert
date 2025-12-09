@@ -6,6 +6,7 @@ export default function TempChart({ temp2mC24h, hourlyTimeUt }) {
       data={temp2mC24h}
       timeData={hourlyTimeUt}
       yAxisLabel="Temperature (°C)"
+      chartType="line"
     />
   );
 }
