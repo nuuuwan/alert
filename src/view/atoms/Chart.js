@@ -1,8 +1,11 @@
-import { LineChart } from "@mui/x-charts/LineChart";
 import { COLORS } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
+import { ChartContainer } from "@mui/x-charts/ChartContainer";
+import { LinePlot } from "@mui/x-charts/LineChart";
+import { ChartsXAxis, ChartsYAxis } from "@mui/x-charts";
+import { ChartsReferenceLine } from "@mui/x-charts/ChartsReferenceLine";
 
-export default function Chart({ Chart, data, timeData, yAxisLabel }) {
+export default function Chart({ data, timeData, yAxisLabel }) {
   const currentTime = Date.now();
   const xAxisData = timeData.map((time) => new Date(time * 1000));
 
@@ -13,28 +16,35 @@ export default function Chart({ Chart, data, timeData, yAxisLabel }) {
     time * 1000 > currentTime ? data[index] : null
   );
 
+  const nowPoint =
+    xAxisData.find((date) => date.getTime() >= currentTime) ||
+    new Date(currentTime);
+
   const series = [
     {
       data: observedData,
       label: "Past (Observed)",
       color: COLORS.neutral,
       showMark: false,
+      type: "line",
     },
     {
       data: predictedData,
       label: "Future (Predicted)",
       color: COLORS.neutralLight,
       showMark: false,
+      type: "line",
     },
   ];
 
   return (
-    <Chart
+    <ChartContainer
       xAxis={[
         {
           data: xAxisData,
           scaleType: "band",
-          min: xAxisData[0], // Ensure the chart starts at the first data point
+          min: xAxisData[0],
+          max: xAxisData[xAxisData.length - 1],
           tickLabelStyle: {
             fontSize: 10,
           },
@@ -56,6 +66,16 @@ export default function Chart({ Chart, data, timeData, yAxisLabel }) {
       height={360}
       margin={10}
       grid={{ vertical: true, horizontal: true }}
-    />
+    >
+      <LinePlot />
+      <ChartsReferenceLine
+        x={nowPoint}
+        label="Now"
+        lineStyle={{ stroke: "red", strokeDasharray: "4 4" }}
+      />
+
+      <ChartsXAxis />
+      <ChartsYAxis />
+    </ChartContainer>
   );
 }
