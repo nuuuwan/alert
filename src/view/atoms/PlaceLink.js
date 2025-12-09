@@ -1,31 +1,37 @@
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import EntIcon from "../atoms/EntIcon";
 import { COLORS } from "../_cons/StyleConstants";
 import Place from "../../nonview/core/ents/places/Place";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
+import { Link } from "react-router-dom";
 
 function PlaceLink({ place, distanceM, nameOverride }) {
-  let href = "";
+  let to = "";
   if (place instanceof HydrometricStation) {
-    href = `/alert/HydrometricStation/${place.name}`;
+    to = `/alert/HydrometricStation/${place.name}`;
   } else if (place instanceof Place) {
-    href = `/alert/Place/${place.latLng.lat},${place.latLng.lng}`;
+    to = `/alert/Place/${place.latLng.lat},${place.latLng.lng}`;
   }
 
   const color = COLORS.neutral;
   return (
-    <Button href={href} underline="hover" sx={{ color: color }}>
+    <Link to={to} style={{ textDecoration: "none", color: color }}>
       <Box
         sx={{
           display: "flex",
           alignItems: "center",
           gap: 1,
-          border: "1px solid",
-          borderColor: color,
-          borderRadius: 2,
-          padding: 0.6,
+          borderRadius: 3,
+          padding: 1,
+          margin: 1,
+          transition: "all 0.3s ease",
+          "&:hover": {
+            backgroundColor: COLORS.primary,
+            color: COLORS.white,
+            transform: "scale(1.05)",
+            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
+          },
         }}
       >
         <EntIcon ent={place} size={18} />
@@ -38,7 +44,7 @@ function PlaceLink({ place, distanceM, nameOverride }) {
           </Typography>
         )}
       </Box>
-    </Button>
+    </Link>
   );
 }
 
