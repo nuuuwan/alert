@@ -4,6 +4,8 @@ import Region from "../Region";
 import MultiPolygon from "../../../../base/geos/MultiPolygon";
 import Cache from "../../../../base/Cache";
 
+import WithNameMixin from "../../../../base/mixins/WithNameMixin.js";
+
 class AdminRegion extends Region {
   static getEntTypeName() {
     return "Admin Region";
@@ -90,5 +92,6 @@ class AdminRegion extends Region {
 }
 
 Object.assign(AdminRegion, WithLoadAllStaticMixin);
+Object.assign(AdminRegion.prototype, WithNameMixin);
 
 export default AdminRegion;

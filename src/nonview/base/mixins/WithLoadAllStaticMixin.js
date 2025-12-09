@@ -1,4 +1,10 @@
 const WithLoadAllStaticMixin = {
+  nameToNameId(name) {
+    return name.replace(/[^a-zA-Z0-9]/g, "_");
+  },
+
+  // Index
+
   async loadIdx() {
     const list = await this.loadAll();
     return Object.fromEntries(list.map((ent) => [ent.id, ent]));
@@ -16,14 +22,19 @@ const WithLoadAllStaticMixin = {
     return list[0];
   },
 
+  // Name Index
+
   async loadIdxByName() {
     const list = await this.loadAll();
-    return Object.fromEntries(list.map((ent) => [ent.name, ent]));
+    return Object.fromEntries(
+      list.map((ent) => [this.nameToNameId(ent.name), ent]),
+    );
   },
 
   async loadFromName(name) {
     const idx = await this.loadIdxByName();
-    return idx[name];
+    const nameId = this.nameToNameId(name);
+    return idx[nameId];
   },
 };
 

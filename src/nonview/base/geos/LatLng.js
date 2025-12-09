@@ -13,12 +13,21 @@ export default class LatLng {
     return new LatLng([floatPair[1], floatPair[0]]);
   }
 
+  static fromId(id) {
+    const [latStr, lngStr] = id.split("N").map((part) => part.replace("E", ""));
+    return new LatLng([parseFloat(latStr), parseFloat(lngStr)]);
+  }
+
   raw() {
     return [this.lat, this.lng];
   }
 
   get title() {
     return `${this.lat.toFixed(4)}°N, ${this.lng.toFixed(4)}°E`;
+  }
+
+  get id() {
+    return `${this.lat.toFixed(4)}N${this.lng.toFixed(4)}E`;
   }
 
   distanceTo(otherLatLng) {

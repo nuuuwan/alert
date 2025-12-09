@@ -9,9 +9,9 @@ import { Link } from "react-router-dom";
 function PlaceLink({ place, distanceM, nameOverride }) {
   let to = "";
   if (place instanceof HydrometricStation) {
-    to = `/alert/HydrometricStation/${place.name}`;
+    to = `/alert/HydrometricStation/${place.getNameId()}`;
   } else if (place instanceof Place) {
-    to = `/alert/Place/${place.latLng.lat},${place.latLng.lng}`;
+    to = `/alert/Place/${place.latLng.id}`;
   }
 
   const color = COLORS.neutral;

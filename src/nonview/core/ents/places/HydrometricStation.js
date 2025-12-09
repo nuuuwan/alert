@@ -5,6 +5,7 @@ import LatLng from "../../../base/geos/LatLng.js";
 import WWW from "../../../base/WWW.js";
 import Cache from "../../../base/Cache.js";
 import TimeUtils from "../../../base/TimeUtils.js";
+import WithNameMixin from "../../../base/mixins/WithNameMixin.js";
 
 class HydrometricStation extends Place {
   static getEntTypeName() {
@@ -120,5 +121,6 @@ class HydrometricStation extends Place {
 
 Object.assign(HydrometricStation, WithDataStaticStaticMixin);
 Object.assign(HydrometricStation, WithLoadAllStaticMixin);
+Object.assign(HydrometricStation.prototype, WithNameMixin);
 
 export default HydrometricStation;

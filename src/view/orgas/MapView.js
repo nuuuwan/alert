@@ -15,7 +15,13 @@ import { useNavigate } from "react-router-dom";
 function MapClickHandler({ onMapClick }) {
   useMapEvents({
     click: (e) => {
-      onMapClick([e.latlng.lat.toFixed(4), e.latlng.lng.toFixed(4)]);
+      console.debug(e, e.latlng);
+      const latLng = LatLng.fromRaw([
+        parseFloat(e.latlng.lat),
+        parseFloat(e.latlng.lng),
+      ]);
+      console.debug("MapClickHandler click", { latLng, id: latLng.id });
+      onMapClick(latLng);
     },
   });
   return null;
@@ -35,13 +41,13 @@ function MapCenterZoomUpdater({ center, zoom }) {
 }
 
 export default function MapView({
-  dsdName,
-  hydrometricStationName,
-  placeLatLng,
+  dsdNameId,
+  hydrometricStationNameId,
+  placeLatLngId,
 }) {
   const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(
-    dsdName || hydrometricStationName || placeLatLng ? true : false
+    dsdNameId || hydrometricStationNameId || placeLatLngId ? true : false,
   );
   const [selectedEnt, setSelectedEnt] = useState(null);
   const [HydrometricStations, setHydrometricStations] = useState([]);
@@ -66,8 +72,8 @@ export default function MapView({
 
   useEffect(() => {
     async function fetchSelectedDsd() {
-      if (dsdName) {
-        const dsd = await DSD.loadFromName(dsdName);
+      if (dsdNameId) {
+        const dsd = await DSD.loadFromName(dsdNameId);
         if (dsd) {
           await dsd.loadDetails();
           setSelectedEnt(dsd);
@@ -76,13 +82,13 @@ export default function MapView({
       }
     }
     fetchSelectedDsd();
-  }, [dsdName]);
+  }, [dsdNameId]);
 
   useEffect(() => {
     async function fetchHydrometricStation() {
-      if (hydrometricStationName) {
+      if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationName
+          hydrometricStationNameId,
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
@@ -92,13 +98,14 @@ export default function MapView({
       }
     }
     fetchHydrometricStation();
-  }, [hydrometricStationName]);
+  }, [hydrometricStationNameId]);
 
   useEffect(() => {
     async function fetchPlace() {
-      if (placeLatLng) {
-        const [lat, lng] = placeLatLng.split(",").map(Number);
-        const place = await Place.load({ latLng: LatLng.fromRaw([lat, lng]) });
+      if (placeLatLngId) {
+        const latLng = LatLng.fromId(placeLatLngId);
+        console.debug({ placeLatLngId, latLng });
+        const place = await Place.load({ latLng });
         if (place) {
           await place.loadDetails();
           setSelectedEnt(place);
@@ -107,10 +114,10 @@ export default function MapView({
       }
     }
     fetchPlace();
-  }, [placeLatLng]);
+  }, [placeLatLngId]);
 
   const handleMapClick = async (latLng) => {
-    navigate(`/alert/Place/${latLng[0]},${latLng[1]}`);
+    navigate(`/alert/Place/${latLng.id}`);
   };
 
   const handleDrawerClose = () => {
@@ -151,7 +158,7 @@ export default function MapView({
         {[selectedEnt, ...HydrometricStations].map(
           (station) =>
             station &&
-            station.latLng && <MapPlaceView key={station.id} place={station} />
+            station.latLng && <MapPlaceView key={station.id} place={station} />,
         )}
 
         {dsdEnts &&

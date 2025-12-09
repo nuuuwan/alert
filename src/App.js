@@ -14,9 +14,7 @@ const theme = createTheme({
 });
 
 function App() {
-  const dsdName = useParams().dsdName || null;
-  const hydrometricStationName = useParams().hydrometricStationName || null;
-  const placeLatLng = useParams().placeLatLng || null;
+  const { dsdNameId, hydrometricStationNameId, placeLatLngId } = useParams();
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -24,9 +22,9 @@ function App() {
         <CustomAppBar />
         <Box sx={{ flexGrow: 1, marginTop: "48px" }}>
           <MapView
-            dsdName={dsdName}
-            hydrometricStationName={hydrometricStationName}
-            placeLatLng={placeLatLng}
+            dsdNameId={dsdNameId}
+            hydrometricStationNameId={hydrometricStationNameId}
+            placeLatLngId={placeLatLngId}
           />
         </Box>
       </Box>
