@@ -40,7 +40,7 @@ export default function MapPlaceView({ place }) {
         color={placeColor}
         strokeColor={placeColor}
       />
-    </div>
+    </div>,
   );
 
   console.debug("Generated entIconSvg:", entIconSvg);

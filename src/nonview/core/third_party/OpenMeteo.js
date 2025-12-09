@@ -50,7 +50,7 @@ export default class OpenMeteo {
               hourly.interval(),
           },
           (_, i) =>
-            new Date((Number(hourly.time()) + i * hourly.interval()) * 1000)
+            new Date((Number(hourly.time()) + i * hourly.interval()) * 1000),
         ),
         temperature_2m: hourly.variables(0).valuesArray(),
         precipitation: hourly.variables(1).valuesArray(),
@@ -68,37 +68,37 @@ export default class OpenMeteo {
 
       // hourly
       hourlyTimeUt: weatherDataRaw.hourly.time.map(
-        TimeUtils.getUnixTimeFromDate
+        TimeUtils.getUnixTimeFromDate,
       ),
 
       temp2mC24h: weatherDataRaw.hourly.temperature_2m,
 
       rainMM24h: weatherDataRaw.hourly.precipitation,
       rainMMSumActualPrevious24h: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(0, 24)
+        weatherDataRaw.hourly.precipitation.slice(0, 24),
       ),
       rainMMSumPredictedNext24h: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(24, 48)
+        weatherDataRaw.hourly.precipitation.slice(24, 48),
       ),
 
       rainHoursNext24h: ArrayUtils.sum(
         weatherDataRaw.hourly.precipitation
           .slice(24, 48)
-          .map((v) => (v > 0 ? 1 : 0))
+          .map((v) => (v > 0 ? 1 : 0)),
       ),
       rainProbNext24h: weatherDataRaw.hourly.precipitation_probability.slice(
         24,
-        48
+        48,
       ),
       rainProbNext24hMax: ArrayUtils.max(
-        weatherDataRaw.hourly.precipitation_probability.slice(24, 48)
+        weatherDataRaw.hourly.precipitation_probability.slice(24, 48),
       ),
 
       soilMoisture01Next24HrMean: ArrayUtils.mean(
-        weatherDataRaw.hourly.soil_moisture_0_to_1cm.slice(24, 48)
+        weatherDataRaw.hourly.soil_moisture_0_to_1cm.slice(24, 48),
       ),
       soilMoisture2781Next24HrMean: ArrayUtils.mean(
-        weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(24, 48)
+        weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(24, 48),
       ),
     };
 

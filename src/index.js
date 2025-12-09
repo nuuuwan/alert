@@ -17,7 +17,7 @@ root.render(
       <Route path="/City/:cityNameId" element={<App />} />
       <Route path="/Place/:placeLatLngId" element={<App />} />
     </Routes>
-  </BrowserRouter>
+  </BrowserRouter>,
 );
 
 reportWebVitals();

@@ -79,7 +79,7 @@ export default function MapView({
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId
+          hydrometricStationNameId,
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
@@ -183,7 +183,7 @@ export default function MapView({
         {[selectedEnt, ...HydrometricStations].map(
           (station) =>
             station &&
-            station.latLng && <MapPlaceView key={station.id} place={station} />
+            station.latLng && <MapPlaceView key={station.id} place={station} />,
         )}
 
         {dsdEnts &&

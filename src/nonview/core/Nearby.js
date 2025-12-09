@@ -5,7 +5,7 @@ export default class Nearby {
   static async findNearbyHydrometricStations(
     latLng,
     radius = 500_000,
-    limit = 3
+    limit = 3,
   ) {
     const allHydrometricStations = await HydrometricStation.loadAll();
     const allCities = await City.loadAll();

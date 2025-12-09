@@ -15,7 +15,7 @@ export default class GeoLocation {
         (error) => {
           console.error("Error getting geolocation:", error);
           reject(null);
-        }
+        },
       );
     });
   }
