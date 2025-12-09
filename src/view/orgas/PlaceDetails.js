@@ -17,9 +17,8 @@ export default function PlaceDetails({ place }) {
         <HydrometricStationDetails place={place} />
       )}
       <NaturalDisasterRisk place={place} />
-      <OpenMeteoView place={place} />
       <OpenElevationView place={place} />
-
+      <OpenMeteoView place={place} />
       <SatelliteImageView place={place} />
     </Box>
   );
