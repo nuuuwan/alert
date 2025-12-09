@@ -127,8 +127,11 @@ export default function MapView({
   let center = DEFAULT_CENTER;
   const zoom = DEFAULT_ZOOM;
 
-  if (selectedEnt && selectedEnt.latLng) {
-    center = [selectedEnt.latLng.lat, selectedEnt.latLng.lng];
+  if (selectedEnt) {
+    if (selectedEnt.latLng) {
+      center = [selectedEnt.latLng.lat, selectedEnt.latLng.lng];
+    }
+    window.document.title = `ALERT - ${selectedEnt.title}`;
   }
 
   return (
