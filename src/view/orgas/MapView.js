@@ -15,12 +15,10 @@ import { useNavigate } from "react-router-dom";
 function MapClickHandler({ onMapClick }) {
   useMapEvents({
     click: (e) => {
-      console.debug(e, e.latlng);
       const latLng = LatLng.fromRaw([
         parseFloat(e.latlng.lat),
         parseFloat(e.latlng.lng),
       ]);
-      console.debug("MapClickHandler click", { latLng, id: latLng.id });
       onMapClick(latLng);
     },
   });
@@ -47,7 +45,7 @@ export default function MapView({
 }) {
   const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(
-    dsdNameId || hydrometricStationNameId || placeLatLngId ? true : false,
+    dsdNameId || hydrometricStationNameId || placeLatLngId ? true : false
   );
   const [selectedEnt, setSelectedEnt] = useState(null);
   const [HydrometricStations, setHydrometricStations] = useState([]);
@@ -88,7 +86,7 @@ export default function MapView({
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId,
+          hydrometricStationNameId
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
@@ -104,7 +102,6 @@ export default function MapView({
     async function fetchPlace() {
       if (placeLatLngId) {
         const latLng = LatLng.fromId(placeLatLngId);
-        console.debug({ placeLatLngId, latLng });
         const place = await Place.load({ latLng });
         if (place) {
           await place.loadDetails();
@@ -158,7 +155,7 @@ export default function MapView({
         {[selectedEnt, ...HydrometricStations].map(
           (station) =>
             station &&
-            station.latLng && <MapPlaceView key={station.id} place={station} />,
+            station.latLng && <MapPlaceView key={station.id} place={station} />
         )}
 
         {dsdEnts &&
