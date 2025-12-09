@@ -33,11 +33,11 @@ function PlaceLink({ place, distanceM, nameOverride }) {
           {nameOverride || place.title}
         </Typography>
 
-        {distanceM > 1000 && (
-          <Typography variant="caption" color="text.secondary">
-            {(distanceM / 1000).toFixed(0)}km
-          </Typography>
-        )}
+        <Typography variant="caption" color="text.secondary">
+          {distanceM > 1000
+            ? (distanceM / 1000).toFixed(0) + "km"
+            : distanceM.toFixed(0) + "m"}
+        </Typography>
       </Box>
     </Link>
   );
