@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { MapContainer, TileLayer, useMapEvents, useMap } from "react-leaflet";
+import { useEffect, useState, useRef } from "react";
+import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./MapView.css";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
@@ -26,19 +26,6 @@ function MapClickHandler({ onMapClick }) {
   return null;
 }
 
-function MapCenterZoomUpdater({ center, zoom }) {
-  const map = useMap();
-  useEffect(() => {
-    if (center) {
-      map.setView(center);
-    }
-    if (zoom) {
-      map.setZoom(zoom);
-    }
-  }, [center, zoom, map]);
-  return null;
-}
-
 export default function MapView({
   dsdNameId,
   hydrometricStationNameId,
@@ -52,6 +39,7 @@ export default function MapView({
   const [HydrometricStations, setHydrometricStations] = useState([]);
   const [dsdEnts, setDsdEnts] = useState([]);
   const [browserLatLng, setBrowserLatLng] = useState(null);
+  const mapRef = useRef();
 
   useEffect(() => {
     async function fetch() {
@@ -145,14 +133,21 @@ export default function MapView({
   };
 
   let center = DEFAULT_CENTER;
-  const zoom = DEFAULT_ZOOM;
-
+  let zoom = DEFAULT_ZOOM;
   if (selectedEnt) {
     if (selectedEnt.latLng) {
       center = [selectedEnt.latLng.lat, selectedEnt.latLng.lng];
+      zoom = DEFAULT_ZOOM + 4;
     }
     window.document.title = `ALERT - ${selectedEnt.title}`;
   }
+
+  useEffect(() => {
+    if (mapRef.current) {
+      const map = mapRef.current;
+      map.setView(center, zoom);
+    }
+  }, [center, zoom]);
 
   return (
     <>
@@ -160,8 +155,8 @@ export default function MapView({
         center={center}
         zoom={zoom}
         style={{ height: "100%", width: "100%" }}
+        ref={mapRef}
       >
-        <MapCenterZoomUpdater center={center} zoom={zoom} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
