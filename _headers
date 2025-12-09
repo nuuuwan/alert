@@ -1,0 +1,9 @@
+/*
+  Content-Security-Policy: default-src 'self';
+  img-src 'self' data: https://nuuuwan.github.io https://*.tile.openstreetmap.org https://sentinel.arcgis.com;
+  font-src 'self' https://fonts.gstatic.com;
+  script-src 'self';
+  style-src 'self' 'unsafe-inline';
+  connect-src 'self' https://api.open-meteo.com https://raw.githubusercontent.com;
+
+...
