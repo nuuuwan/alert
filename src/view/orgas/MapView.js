@@ -21,18 +21,16 @@ function MapClickHandler({ onMapClick }) {
   return null;
 }
 
-function MapCenterUpdater({ center }) {
+function MapCenterZoomUpdater({ center, zoom }) {
   const map = useMap();
   useEffect(() => {
-    map.setView(center);
-  }, [center, map]);
-  return null;
-}
-function MapZoomUpdater({ zoom }) {
-  const map = useMap();
-  useEffect(() => {
-    map.setZoom(zoom);
-  }, [zoom, map]);
+    if (center) {
+      map.setView(center);
+    }
+    if (zoom) {
+      map.setZoom(zoom);
+    }
+  }, [center, zoom, map]);
   return null;
 }
 
@@ -132,8 +130,6 @@ export default function MapView({
     zoom = 14;
   }
 
-  console.debug({ center, zoom });
-
   return (
     <>
       <MapContainer
@@ -141,8 +137,7 @@ export default function MapView({
         zoom={zoom}
         style={{ height: "100%", width: "100%" }}
       >
-        <MapCenterUpdater center={center} />
-        <MapZoomUpdater zoom={zoom} />
+        <MapCenterZoomUpdater center={center} zoom={zoom} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
