@@ -2,11 +2,7 @@ import HydrometricStation from "./ents/places/HydrometricStation";
 import City from "./ents/places/City";
 
 export default class Nearby {
-  static async findNearbyHydrometricStations(
-    latLng,
-    radius = 500_000,
-    limit = 3,
-  ) {
+  static async findNearbyPlaces(latLng, radius = 500_000, limit = 5) {
     const allHydrometricStations = await HydrometricStation.loadAll();
     const allCities = await City.loadAll();
     const allPlaces = [...allHydrometricStations, ...allCities];

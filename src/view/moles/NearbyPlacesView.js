@@ -8,7 +8,7 @@ export default function NearbyPlacesView({ latLng }) {
 
   useEffect(() => {
     const fetchNearbyPlaces = async () => {
-      const nearby = await Nearby.findNearbyHydrometricStations(latLng);
+      const nearby = await Nearby.findNearbyPlaces(latLng);
       setNearbyPlaces(nearby);
     };
 
