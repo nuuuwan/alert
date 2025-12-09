@@ -35,10 +35,11 @@ export default function MetricCard({
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        overflow: "hidden", // Ensure content does not overflow
       }}
     >
       <Box>
-        <Typography variant="h6" color={foreColor}>
+        <Typography variant="h6" color={foreColor} noWrap>
           {alertLabel}
         </Typography>
       </Box>
@@ -48,10 +49,11 @@ export default function MetricCard({
           alignItems: "center",
           justifyContent: "center",
           gap: 0.5,
+          overflow: "hidden", // Prevent overflow in this section
         }}
       >
         {Icon && <Icon fontSize="small" sx={{ color: foreColor }} />}
-        <Typography variant="caption" color={foreColor}>
+        <Typography variant="caption" color={foreColor} noWrap>
           {label}
         </Typography>
         {isPrediction && (
@@ -63,20 +65,27 @@ export default function MetricCard({
           display: "flex",
           alignItems: "flex-end",
           justifyContent: "center",
+          overflow: "hidden", // Prevent overflow in this section
         }}
       >
-        <Typography variant="h5" color={foreColor} fontWeight={"bold"}>
+        <Typography variant="h5" color={foreColor} fontWeight={"bold"} noWrap>
           {value}
         </Typography>
         <Typography
           variant="caption"
           color={foreColor}
           sx={{ ml: 0.5, position: "relative", bottom: "4px" }}
+          noWrap
         >{`${unit}`}</Typography>
       </Box>
 
       <Box>
-        <Typography variant="caption" color={foreColor} sx={{ opacity: 0.6 }}>
+        <Typography
+          variant="caption"
+          color={foreColor}
+          sx={{ opacity: 0.6 }}
+          noWrap
+        >
           {timeLabel}
         </Typography>
       </Box>
