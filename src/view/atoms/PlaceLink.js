@@ -2,20 +2,10 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import EntIcon from "../atoms/EntIcon";
 import { COLORS } from "../_cons/StyleConstants";
-import Place from "../../nonview/core/ents/places/Place";
-import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
-import City from "../../nonview/core/ents/places/City";
 import { Link } from "react-router-dom";
 
 function PlaceLink({ place, distanceM, nameOverride }) {
-  let to = "";
-  if (place instanceof HydrometricStation) {
-    to = `/HydrometricStation/${place.getNameId()}`;
-  } else if (place instanceof City) {
-    to = `/City/${place.getNameId()}`;
-  } else if (place instanceof Place) {
-    to = `/Place/${place.latLng.id}`;
-  }
+  let to = place.url;
 
   const color = COLORS.neutral;
   return (

@@ -17,6 +17,10 @@ class City extends Place {
     return "";
   }
 
+  get url() {
+    return `/City/${this.getNameId()}`;
+  }
+
   static getStaticDataID() {
     return "cities";
   }

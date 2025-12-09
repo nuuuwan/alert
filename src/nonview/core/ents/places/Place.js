@@ -24,6 +24,10 @@ class Place {
     return "";
   }
 
+  get url() {
+    return `/Place/${this.latLng.id}`;
+  }
+
   async loadDetails() {
     this.openMeteoData = await OpenMeteo.getData({ latLng: this.latLng });
     return this;

@@ -19,7 +19,7 @@ export default function MapPlaceView({ place }) {
 
   const onClickInner = (e) => {
     L.DomEvent.stopPropagation(e);
-    navigate(`/HydrometricStation/${place.getNameId()}`);
+    navigate(place.url);
   };
 
   const entIconSvg = ReactDOMServer.renderToStaticMarkup(

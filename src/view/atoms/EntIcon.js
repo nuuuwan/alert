@@ -29,6 +29,6 @@ export default function EntIcon({ ent, ...props }) {
   if (ent instanceof AdminRegion) {
     return <AdminRegionIcon color={color} {...props} />;
   }
-  console.error("EntIcon: Unknown ent type", ent);
+  console.error("EntIcon: Unknown ent type", ent, typeof ent);
   return null;
 }

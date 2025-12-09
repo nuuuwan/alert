@@ -20,6 +20,10 @@ class HydrometricStation extends Place {
     return `${this.riverName}`;
   }
 
+  get url() {
+    return `/HydrometricStation/${this.getNameId()}`;
+  }
+
   static getStaticDataID() {
     return "hydrometric_stations";
   }
@@ -42,7 +46,7 @@ class HydrometricStation extends Place {
           latLng,
         });
         return new HydrometricStation({ ...rawData, ...placeData });
-      }),
+      })
     );
   }
 
@@ -55,16 +59,17 @@ class HydrometricStation extends Place {
       .reduce(function (waterLevelHistory, [dateId, timeOnlyIdToWaterLevelM]) {
         return Object.entries(timeOnlyIdToWaterLevelM).reduce(function (
           waterLevelHistory,
-          [timeOnlyId, waterLevelM],
+          [timeOnlyId, waterLevelM]
         ) {
           const timeUt = TimeUtils.parseYYYYMMDDHHHMMSS(
-            `${dateId}${timeOnlyId}`,
+            `${dateId}${timeOnlyId}`
           );
           if (timeUt > minTimeUt) {
             waterLevelHistory.push({ timeUt, waterLevelM });
           }
           return waterLevelHistory;
-        }, waterLevelHistory);
+        },
+        waterLevelHistory);
       }, [])
       .sort(TimeUtils.compareTimeUtDescending);
     this.waterLevelHistory = waterLevelHistory;
@@ -112,7 +117,7 @@ class HydrometricStation extends Place {
             return HydrometricStation;
           }
           return null;
-        }),
+        })
       )
     ).filter((HydrometricStation) => HydrometricStation !== null);
     return HydrometricStationsWithAlerts;
