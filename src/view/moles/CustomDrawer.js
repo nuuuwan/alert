@@ -30,8 +30,8 @@ export default function CustomDrawer({
       sx={{
         "& .MuiDrawer-paper": {
           width: { xs: "100%", sm: 320, md: 480 },
-          marginTop: "24px",
-          height: "calc(100% - 24px)",
+          marginTop: "48px",
+          height: "calc(100% - 48px)",
         },
       }}
     >
@@ -49,7 +49,7 @@ export default function CustomDrawer({
           getFileName={getFileName}
           selectedItem={selectedItem}
         >
-          <Paper sx={{ m: 1, p: 3 }}>{renderContent(selectedItem)}</Paper>
+          <Box sx={{ m: 1, p: 3 }}>{renderContent(selectedItem)}</Box>
         </DownloadableContent>
       </Box>
     </Drawer>
