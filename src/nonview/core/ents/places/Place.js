@@ -1,4 +1,5 @@
 import OpenMeteo from "../../third_party/OpenMeteo.js";
+import OpenElevation from "../../third_party/OpenElevation.js";
 class Place {
   static getEntTypeName() {
     return "Place";
@@ -30,6 +31,9 @@ class Place {
 
   async loadDetails() {
     this.openMeteoData = await OpenMeteo.getData({ latLng: this.latLng });
+    this.openElevationData = await OpenElevation.getData(this.latLng);
+
+    console.debug("OpenElevation data:", this.openElevationData);
     return this;
   }
 
