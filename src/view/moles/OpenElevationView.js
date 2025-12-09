@@ -3,11 +3,11 @@ import Typography from "@mui/material/Typography";
 import MetricCard from "../atoms/MetricCard";
 import MetricCardCollection from "../atoms/MetricCardCollection";
 import TerrainIcon from "@mui/icons-material/Terrain";
-import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import { getAlertColor } from "../_cons/StyleConstants";
 
 export default function OpenElevationView({ place }) {
   const { openElevationData } = place;
+  console.debug({ openElevationData });
   return (
     <Box sx={{ p: 2 }}>
       <Typography variant="h6" gutterBottom>
@@ -34,7 +34,7 @@ export default function OpenElevationView({ place }) {
           color={getAlertColor(openElevationData.slopeData.slopeDangerLevel)}
         />
         <MetricCard
-          Icon={TrendingDownIcon}
+          Icon={TerrainIcon}
           label="Relative Elevation"
           value={
             (openElevationData.relativeElevationData.relativeElevation > 0

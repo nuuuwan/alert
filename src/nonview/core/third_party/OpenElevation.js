@@ -1,15 +1,20 @@
 import WWW from "../../base/WWW";
 
 export default class OpenElevation {
-  static async getData(latLng) {
-    const elevationM = (await this.getElevationList([latLng]))[0];
-    const relativeElevationData = await this.getRelativeElevationData(latLng);
-    const slopeData = await this.getSlopeData(latLng);
+  static async getData(latLng, neighbourDistanceM = 100) {
+    const e = (0.0001 * neighbourDistanceM) / 11.1;
+    const pts = this._buildNeighbourhood(latLng, e);
+    const elevations = await this.getElevationList(pts);
+
+    const relativeElevationData = this.getRelativeElevationData(elevations);
+    const slopeData = this.getSlopeData(pts, elevations);
 
     return {
-      elevationM,
+      elevationM: elevations[4],
       relativeElevationData,
       slopeData,
+      pts,
+      elevations,
     };
   }
   static async getElevationList(latLngList) {
@@ -52,11 +57,7 @@ export default class OpenElevation {
     return 2 * R * Math.asin(Math.sqrt(h));
   }
 
-  static async getSlopeData(latLng, deltaM = 20) {
-    const e = (0.0001 * deltaM) / 11.1;
-    const pts = this._buildNeighbourhood(latLng, e);
-    const elevations = await this.getElevationList(pts);
-
+  static getSlopeData(pts, elevations) {
     const centreIndex = 4;
     const h0 = elevations[centreIndex];
     let maxSlope = 0;
@@ -90,11 +91,7 @@ export default class OpenElevation {
     };
   }
 
-  static async getRelativeElevationData(latLng, deltaM = 20) {
-    const e = (0.0001 * deltaM) / 11.1;
-    const pts = this._buildNeighbourhood(latLng, e);
-    const elevations = await this.getElevationList(pts);
-
+  static getRelativeElevationData(elevations) {
     const centreIndex = 4;
     const h0 = elevations[centreIndex];
 
