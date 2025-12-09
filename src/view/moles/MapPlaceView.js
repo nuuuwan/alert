@@ -22,14 +22,28 @@ export default function MapPlaceView({ place }) {
     navigate(place.url);
   };
 
+  // Ensure MUI icons render correctly by wrapping them in a div with proper styling.
+  // Added debugging to log the generated SVG markup and ensure styles are applied correctly.
   const entIconSvg = ReactDOMServer.renderToStaticMarkup(
-    <EntIcon
-      ent={place}
-      size={iconSize}
-      color={placeColor}
-      strokeColor={placeColor}
-    />
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: iconSize,
+        height: iconSize,
+      }}
+    >
+      <EntIcon
+        ent={place}
+        size={iconSize}
+        color={placeColor}
+        strokeColor={placeColor}
+      />
+    </div>
   );
+
+  console.debug("Generated entIconSvg:", entIconSvg);
 
   return (
     <Marker
