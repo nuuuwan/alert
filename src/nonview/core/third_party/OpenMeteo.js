@@ -12,7 +12,7 @@ export default class OpenMeteo {
       longitude: latLng.lng,
 
       current: ["temperature_2m", "precipitation", "relative_humidity_2m"],
-      hourly: ["temperature_2m", "precipitation"],
+      hourly: ["temperature_2m", "precipitation", "precipitation_probability"],
 
       start_hour: startHour,
       end_hour: endHour,
@@ -44,10 +44,11 @@ export default class OpenMeteo {
               hourly.interval(),
           },
           (_, i) =>
-            new Date((Number(hourly.time()) + i * hourly.interval()) * 1000),
+            new Date((Number(hourly.time()) + i * hourly.interval()) * 1000)
         ),
         temperature_2m: hourly.variables(0).valuesArray(),
         precipitation: hourly.variables(1).valuesArray(),
+        precipitation_probability: hourly.variables(2).valuesArray(),
       },
     };
     const weatherData = {
@@ -59,18 +60,34 @@ export default class OpenMeteo {
 
       // hourly
       hourlyTimeUt: weatherDataRaw.hourly.time.map(
-        TimeUtils.getUnixTimeFromDate,
+        TimeUtils.getUnixTimeFromDate
       ),
-      rainMM24h: weatherDataRaw.hourly.precipitation,
+
       temp2mC24h: weatherDataRaw.hourly.temperature_2m,
 
+      rainMM24h: weatherDataRaw.hourly.precipitation,
       rainMMSumActualPrevious24h: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(0, 24),
+        weatherDataRaw.hourly.precipitation.slice(0, 24)
       ),
       rainMMSumPredictedNext24h: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(24, 48),
+        weatherDataRaw.hourly.precipitation.slice(24, 48)
+      ),
+
+      rainHoursNext24h: ArrayUtils.sum(
+        weatherDataRaw.hourly.precipitation
+          .slice(24, 48)
+          .map((v) => (v > 0 ? 1 : 0))
+      ),
+      rainProbNext24h: weatherDataRaw.hourly.precipitation_probability.slice(
+        24,
+        48
+      ),
+      rainProbNext24hMax: Math.max(
+        ...weatherDataRaw.hourly.precipitation_probability.slice(24, 48)
       ),
     };
+
+    console.debug(weatherData);
 
     return weatherData;
   }
