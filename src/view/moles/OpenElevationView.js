@@ -5,7 +5,7 @@ import { getAlertColor } from "../_cons/StyleConstants";
 
 export default function OpenElevationView({ place }) {
   const { openElevationData } = place;
-  console.debug({ openElevationData });
+
   return (
     <MetricCardCollection title="Terrain Metrics">
       <MetricCard
