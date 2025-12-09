@@ -2,7 +2,7 @@ import { fetchWeatherApi } from "openmeteo";
 import TimeUtils from "../../base/TimeUtils";
 import ArrayUtils from "../../base/ArrayUtils";
 export default class OpenMeteo {
-  static async getData({ latLng }) {
+  static async getRawData({ latLng }) {
     const utNow = TimeUtils.getUnixTime();
     const startHour = TimeUtils.formatISO8601(utNow - 86400);
     const endHour = TimeUtils.formatISO8601(utNow + 86400);
@@ -38,6 +38,8 @@ export default class OpenMeteo {
     const current = response.current();
 
     const weatherDataRaw = {
+      elevation: response.elevation(),
+      current_time_ut: Number(current.time()),
       current: {
         time: new Date(Number(current.time()) * 1000),
         temperature_2m: current.variables(0).value(),
@@ -63,12 +65,17 @@ export default class OpenMeteo {
         wind_gusts_10m: hourly.variables(6).valuesArray(),
       },
     };
+    return weatherDataRaw;
+  }
+
+  static async getData({ latLng }) {
+    const weatherDataRaw = await OpenMeteo.getRawData({ latLng });
     let weatherData = {
-      elevationM: response.elevation(),
+      elevationM: weatherDataRaw.elevation,
       // current
       currentTempCelsius: weatherDataRaw.current.temperature_2m,
       currentRH: weatherDataRaw.current.relative_humidity_2m,
-      currentTimeUt: Number(current.time()),
+      currentTimeUt: weatherDataRaw.current_time_ut,
 
       // hourly
       hourlyTimeUt: weatherDataRaw.hourly.time.map(
