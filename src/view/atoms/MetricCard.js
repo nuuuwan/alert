@@ -30,7 +30,7 @@ export default function MetricCard({
         border: "3px solid",
         borderColor: foreColor,
         textAlign: "center",
-        width: 200,
+        width: 150,
         height: 150,
         display: "flex",
         flexDirection: "column",
