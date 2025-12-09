@@ -24,6 +24,18 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Add custom headers
+        run: |
+          cat > build/_headers << 'EOF'
+/*
+  Content-Security-Policy: default-src 'self';
+  img-src 'self' data: https://nuuuwan.github.io https://*.tile.openstreetmap.org https://sentinel.arcgis.com;
+  font-src 'self' https://fonts.gstatic.com;
+  script-src 'self';
+  style-src 'self' 'unsafe-inline';
+  connect-src 'self' https://api.open-meteo.com https://raw.githubusercontent.com;
+EOF        
+
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v4
         with:
