@@ -1,5 +1,5 @@
 import WWW from "../../base/WWW";
-
+import Cache from "../../base/Cache";
 export default class OpenElevation {
   static async getData(latLng, neighbourDistanceM = 100) {
     const e = (0.0001 * neighbourDistanceM) / 11.1;

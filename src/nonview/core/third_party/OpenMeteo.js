@@ -1,6 +1,7 @@
 import { fetchWeatherApi } from "openmeteo";
 import TimeUtils from "../../base/TimeUtils";
 import ArrayUtils from "../../base/ArrayUtils";
+import Cache from "../../base/Cache";
 export default class OpenMeteo {
   static computeLandslideRisk(weatherData) {
     const R_MAX = 200; // mm, strong 24 h rainfall
@@ -88,7 +89,12 @@ export default class OpenMeteo {
       temperature_unit: "celsius",
     };
     const url = "https://api.open-meteo.com/v1/forecast";
-    const responses = await fetchWeatherApi(url, params);
+    const responses = await Cache.get(
+      `OpenMeteo:${JSON.stringify(params)}`,
+      async () => {
+        await fetchWeatherApi(url, params);
+      }
+    );
     const response = responses[0];
 
     const hourly = response.hourly();
