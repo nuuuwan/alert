@@ -27,28 +27,30 @@ export default function OpenMeteoView({ place }) {
         <MetricCard
           Icon={WaterDropIcon}
           label="Rain"
-          value={openMeteoData.rainMMSumActualPrevious24h.toFixed(0)}
+          value={openMeteoData.hourlyPrecipitationMMSumLast24Hours.toFixed(0)}
           unit="mm"
           timeLabel="24h total"
         />
         <MetricCard
           Icon={ThermostatIcon}
           label="Temp"
-          value={openMeteoData.temp2mCNow.toFixed(1)}
+          value={openMeteoData.currentTempCelsius.toFixed(1)}
           unit="°C"
           timeLabel={TimeUtils.getTimeAgoString(openMeteoData.currentTimeUt)}
         />
         <MetricCard
           Icon={OpacityIcon}
           label="RH"
-          value={openMeteoData.relativeHumadityNow.toFixed(0)}
+          value={openMeteoData.currentRH.toFixed(0)}
           unit="%"
           timeLabel={TimeUtils.getTimeAgoString(openMeteoData.currentTimeUt)}
         />
         <MetricCard
           Icon={WaterDropIcon}
           label="For. Rain"
-          value={openMeteoData.rainMMSumPredictedNext24h.toFixed(0)}
+          value={openMeteoData.hourlyPrecipitationMMHourCountNext24Hours.toFixed(
+            0
+          )}
           unit="mm"
           timeLabel="Next 24h total"
           isPrediction
@@ -70,11 +72,11 @@ export default function OpenMeteoView({ place }) {
       </MetricCardCollection>
 
       <RainChart
-        rainMM24h={openMeteoData.rainMM24h}
+        hourlyPrecipitationMM={openMeteoData.hourlyPrecipitationMM}
         hourlyTimeUt={openMeteoData.hourlyTimeUt}
       />
       <TempChart
-        temp2mC24h={openMeteoData.temp2mC24h}
+        hourlyTempCelsius={openMeteoData.hourlyTempCelsius}
         hourlyTimeUt={openMeteoData.hourlyTimeUt}
       />
 

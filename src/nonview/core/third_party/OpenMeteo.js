@@ -50,7 +50,7 @@ export default class OpenMeteo {
               hourly.interval(),
           },
           (_, i) =>
-            new Date((Number(hourly.time()) + i * hourly.interval()) * 1000),
+            new Date((Number(hourly.time()) + i * hourly.interval()) * 1000)
         ),
         temperature_2m: hourly.variables(0).valuesArray(),
         precipitation: hourly.variables(1).valuesArray(),
@@ -62,54 +62,52 @@ export default class OpenMeteo {
     let weatherData = {
       elevationM: response.elevation(),
       // current
-      temp2mCNow: weatherDataRaw.current.temperature_2m,
-      relativeHumadityNow: weatherDataRaw.current.relative_humidity_2m,
+      currentTempCelsius: weatherDataRaw.current.temperature_2m,
+      currentRH: weatherDataRaw.current.relative_humidity_2m,
       currentTimeUt: Number(current.time()),
 
       // hourly
       hourlyTimeUt: weatherDataRaw.hourly.time.map(
-        TimeUtils.getUnixTimeFromDate,
+        TimeUtils.getUnixTimeFromDate
       ),
 
-      temp2mC24h: weatherDataRaw.hourly.temperature_2m,
+      hourlyTempCelsius: weatherDataRaw.hourly.temperature_2m,
 
-      rainMM24h: weatherDataRaw.hourly.precipitation,
-      rainMMSumActualPrevious24h: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(0, 24),
+      hourlyPrecipitationMM: weatherDataRaw.hourly.precipitation,
+      hourlyPrecipitationMMSumLast24Hours: ArrayUtils.sum(
+        weatherDataRaw.hourly.precipitation.slice(0, 24)
       ),
-      rainMMSumPredictedNext24h: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(24, 48),
+      hourlyPrecipitationMMSumNext24Hours: ArrayUtils.sum(
+        weatherDataRaw.hourly.precipitation.slice(24, 48)
       ),
 
-      rainHoursNext24h: ArrayUtils.sum(
+      hourlyPrecipitationMMHourCountNext24Hours: ArrayUtils.sum(
         weatherDataRaw.hourly.precipitation
           .slice(24, 48)
-          .map((v) => (v > 0 ? 1 : 0)),
+          .map((v) => (v > 0 ? 1 : 0))
       ),
-      rainProbNext24h: weatherDataRaw.hourly.precipitation_probability.slice(
-        24,
-        48,
-      ),
-      rainProbNext24hMax: ArrayUtils.max(
+      hourlyPrecipitationProb:
         weatherDataRaw.hourly.precipitation_probability.slice(24, 48),
+      maxHourlyPrecipitationProb: ArrayUtils.max(
+        weatherDataRaw.hourly.precipitation_probability.slice(24, 48)
       ),
 
-      soilMoisture01Next24HrMean: ArrayUtils.mean(
-        weatherDataRaw.hourly.soil_moisture_0_to_1cm.slice(24, 48),
+      meanSoilMoistureTopLayerNext24h: ArrayUtils.mean(
+        weatherDataRaw.hourly.soil_moisture_0_to_1cm.slice(24, 48)
       ),
-      soilMoisture2781Next24HrMean: ArrayUtils.mean(
-        weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(24, 48),
+      meanSoilMoistureDeepLayerNext24h: ArrayUtils.mean(
+        weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(24, 48)
       ),
     };
 
     weatherData.floodRiskScore =
-      weatherData.rainMMSumPredictedNext24h *
-        (weatherData.soilMoisture01Next24HrMean +
-          weatherData.soilMoisture2781Next24HrMean * 0.5) +
+      weatherData.hourlyPrecipitationMMSumNext24Hours *
+        (weatherData.meanSoilMoistureTopLayerNext24h +
+          weatherData.meanSoilMoistureDeepLayerNext24h * 0.5) +
       0.2 *
-        weatherData.rainHoursNext24h *
-        weatherData.soilMoisture01Next24HrMean +
-      0.1 * weatherData.rainProbNext24hMax;
+        weatherData.hourlyPrecipitationMMHourCountNext24Hours *
+        weatherData.meanSoilMoistureTopLayerNext24h +
+      0.1 * weatherData.maxHourlyPrecipitationProb;
 
     weatherData.floodRiskAlertLevel = 0;
     if (weatherData.floodRiskScore >= 75) {

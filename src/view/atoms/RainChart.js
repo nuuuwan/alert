@@ -1,9 +1,9 @@
 import Chart from "./Chart";
 
-export default function RainChart({ rainMM24h, hourlyTimeUt }) {
+export default function RainChart({ hourlyPrecipitationMM, hourlyTimeUt }) {
   return (
     <Chart
-      data={rainMM24h}
+      data={hourlyPrecipitationMM}
       timeData={hourlyTimeUt}
       yAxisLabel="Rainfall (mm)"
       chartType="bar"
