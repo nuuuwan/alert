@@ -1,7 +1,8 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { COLORS } from "../_cons/StyleConstants";
-import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+
+import MoreTimeIcon from "@mui/icons-material/MoreTime";
 
 export default function MetricCard({
   label,
@@ -56,9 +57,6 @@ export default function MetricCard({
         <Typography variant="caption" color={foreColor} noWrap>
           {label}
         </Typography>
-        {isPrediction && (
-          <AutoAwesomeIcon fontSize="small" sx={{ color: foreColor }} />
-        )}
       </Box>
       <Box
         sx={{
@@ -79,7 +77,13 @@ export default function MetricCard({
         >{`${unit}`}</Typography>
       </Box>
 
-      <Box>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Typography
           variant="caption"
           color={foreColor}
@@ -88,6 +92,9 @@ export default function MetricCard({
         >
           {timeLabel}
         </Typography>
+        {isPrediction && (
+          <MoreTimeIcon fontSize="small" sx={{ color: foreColor, ml: 0.5 }} />
+        )}
       </Box>
     </Box>
   );
