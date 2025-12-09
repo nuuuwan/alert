@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Nominatim from "../../nonview/core/third_party/Nominatim";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import AdminRegionView from "../atoms/AdminRegionView";
+import District from "../../nonview/core/ents/regions/admin_regions/District";
+import Province from "../../nonview/core/ents/regions/admin_regions/Province";
 
 function NominatimView({ latlng }) {
   const [data, setData] = useState(null);
@@ -30,6 +33,8 @@ function NominatimView({ latlng }) {
 
   const address = data.address;
   const { amenity, house_number, road, suburb, city, village } = address;
+  const districtId = address["ISO3166-2-lvl5"];
+  const provinceId = address["ISO3166-2-lvl4"];
 
   return (
     <Box>
@@ -39,6 +44,10 @@ function NominatimView({ latlng }) {
       <Typography variant="caption" color="textSecondary">
         {[suburb, city || village].filter(Boolean).join(", ")}
       </Typography>
+      <Box>
+        <AdminRegionView AdminRegionClass={District} id={districtId} />
+        <AdminRegionView AdminRegionClass={Province} id={provinceId} />
+      </Box>
     </Box>
   );
 }

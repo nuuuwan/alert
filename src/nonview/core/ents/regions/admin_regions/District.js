@@ -1,6 +1,10 @@
-import AdminRegion from "../AdminRegion";
+import AdminRegion from "./AdminRegion";
 export default class District extends AdminRegion {
   static getAdminRegionType() {
     return "district";
+  }
+
+  static getEntTypeName() {
+    return "District";
   }
 }
