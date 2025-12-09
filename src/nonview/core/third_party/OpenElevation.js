@@ -23,10 +23,14 @@ export default class OpenElevation {
       .join("|");
 
     const url = `https://api.open-elevation.com/api/v1/lookup?locations=${locations}`;
-    const response = await Cache.get(`OpenElevation:${locations}`, async () => {
-      await WWW.fetchJSON(url);
-    });
-
+    const responseJSON = await Cache.get(
+      `OpenElevation:${locations}`,
+      async () => {
+        const response = await WWW.fetchJSON(url);
+        return JSON.stringify(response);
+      }
+    );
+    const response = JSON.parse(responseJSON);
     return response.results.map((result) => result.elevation);
   }
 
