@@ -146,10 +146,11 @@ export default function MapView({
         />
         <MapClickHandler onMapClick={handleMapClick} />
 
-        {HydrometricStations &&
-          HydrometricStations.map((station) => (
-            <MapPlaceView key={station.id} place={station} />
-          ))}
+        {[selectedEnt, ...HydrometricStations].map(
+          (station) =>
+            station &&
+            station.latLng && <MapPlaceView key={station.id} place={station} />
+        )}
 
         {dsdEnts &&
           dsdEnts.map((dsd) => <MapRegionView key={dsd.id} region={dsd} />)}
