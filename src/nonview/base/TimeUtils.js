@@ -66,7 +66,7 @@ export default class TimeUtils {
     const hours = diffHours % 24 > 0 ? `${diffHours % 24}h` : "";
     const minutes = diffMinutes % 60 > 0 ? `${diffMinutes % 60}m` : "";
 
-    return [days, hours, minutes].filter(Boolean).join(", ") + " ago";
+    return [days, hours, minutes].filter(Boolean).join("") + " ago";
   }
 
   static compareTimeUtDescending(a, b) {
