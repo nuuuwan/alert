@@ -102,11 +102,11 @@ export default class OpenElevation {
     const relativeElevation = h0 - meanNeighbours;
 
     let lowGroundDangerLevel = 0;
-    if (relativeElevation < -20) {
+    if (relativeElevation < -10) {
       lowGroundDangerLevel = 3;
-    } else if (relativeElevation < -10) {
-      lowGroundDangerLevel = 2;
     } else if (relativeElevation < -5) {
+      lowGroundDangerLevel = 2;
+    } else if (relativeElevation < -2) {
       lowGroundDangerLevel = 1;
     }
 
