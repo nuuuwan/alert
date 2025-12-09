@@ -9,9 +9,6 @@ import TimeUtils from "../../nonview/base/TimeUtils";
 import RainChart from "../atoms/RainChart";
 import TempChart from "../atoms/TempChart";
 import OpacityIcon from "@mui/icons-material/Opacity";
-import { getAlertColor } from "../_cons/StyleConstants";
-import LandslideIcon from "../atoms/icons/LandslideIcon";
-import FloodIcon from "../atoms/icons/FloodIcon";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
@@ -52,34 +49,6 @@ export default function OpenMeteoView({ place }) {
           unit="mm"
           timeLabel="Next 24h total"
           isPrediction
-        />
-        <MetricCard
-          Icon={FloodIcon}
-          label="Flood Risk"
-          value={openMeteoData.floodRiskScore.toFixed(1)}
-          unit=""
-          timeLabel="Next 24h"
-          isPrediction
-          alertLabel={
-            openMeteoData.floodRiskAlertLevel > 0
-              ? `Level ${openMeteoData.floodRiskAlertLevel}`
-              : ""
-          }
-          color={getAlertColor(openMeteoData.floodRiskAlertLevel)}
-        />
-        <MetricCard
-          Icon={LandslideIcon}
-          label="Landslide Risk"
-          value={openMeteoData.landslideRiskScore.toFixed(1)}
-          unit=""
-          timeLabel="Next 24h"
-          isPrediction
-          alertLabel={
-            openMeteoData.landslideRiskAlertLevel > 0
-              ? `Level ${openMeteoData.landslideRiskAlertLevel}`
-              : ""
-          }
-          color={getAlertColor(openMeteoData.floodRiskAlertLevel)}
         />
       </MetricCardCollection>
 
