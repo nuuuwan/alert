@@ -23,8 +23,8 @@ function PlaceLink({ place, distanceM, nameOverride }) {
           alignItems: "center",
           gap: 1,
           borderRadius: 3,
-          padding: 1,
-          margin: 1,
+          padding: 0.5,
+          margin: 0.5,
           transition: "all 0.3s ease",
           "&:hover": {
             backgroundColor: COLORS.primary,
@@ -36,10 +36,12 @@ function PlaceLink({ place, distanceM, nameOverride }) {
       >
         <EntIcon ent={place} size={18} />
 
-        {nameOverride || place.title}
+        <Typography variant="caption" noWrap>
+          {nameOverride || place.title}
+        </Typography>
 
         {distanceM > 1000 && (
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="caption" color="text.secondary">
             {(distanceM / 1000).toFixed(0)}km
           </Typography>
         )}
