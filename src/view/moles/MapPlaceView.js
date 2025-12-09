@@ -28,7 +28,7 @@ export default function MapPlaceView({ place }) {
       size={iconSize}
       color={placeColor}
       strokeColor={placeColor}
-    />,
+    />
   );
 
   return (
@@ -37,9 +37,9 @@ export default function MapPlaceView({ place }) {
       icon={L.divIcon({
         className: "place-icon",
         html: `
-            <div style="position: relative; width: ${iconSize}px; height: ${iconSize}px; display: flex; align-items: cplaceer; justify-contplace: cplaceer; opacity: ${opacity};">
+            <div style="position: relative; width: ${iconSize}px; height: ${iconSize}px; display: flex; align-items: center; justify-content: center; opacity: ${opacity};">
               <div style="position: absolute; width: ${circleSize}px; height: ${circleSize}px; background-color: white; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"></div>
-              <div style="position: relative; z-index: 1;">
+              <div style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center;">
                 ${entIconSvg}
               </div>
             </div>
