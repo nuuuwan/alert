@@ -11,6 +11,7 @@ import TempChart from "../atoms/TempChart";
 import ElevationWidget from "../atoms/ElevationWidget";
 import OpacityIcon from "@mui/icons-material/Opacity";
 import { getAlertColor } from "../_cons/StyleConstants";
+import LandslideIcon from "../atoms/icons/LandslideIcon";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
@@ -68,7 +69,8 @@ export default function OpenMeteoView({ place }) {
           color={getAlertColor(openMeteoData.floodRiskAlertLevel)}
         />
         <MetricCard
-          Icon={OpacityIcon}
+          Icon={LandslideIcon}
+          label="Landslide Risk"
           value={openMeteoData.landslideRiskScore.toFixed(1)}
           unit=""
           timeLabel="Next 24h"
