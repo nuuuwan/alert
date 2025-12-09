@@ -16,13 +16,13 @@ export default function Chart({ data, timeData, yAxisLabel }) {
   const series = [
     {
       data: observedData,
-      label: "Observed (Past)",
+      label: "Past (Observed)",
       color: COLORS.neutral,
       showMark: false,
     },
     {
       data: predictedData,
-      label: "Predicted (Future)",
+      label: "Future (Predicted)",
       color: COLORS.neutralLight,
       showMark: false,
     },
@@ -34,6 +34,7 @@ export default function Chart({ data, timeData, yAxisLabel }) {
         {
           data: xAxisData,
           scaleType: "time",
+          min: xAxisData[0], // Ensure the chart starts at the first data point
           tickLabelStyle: {
             fontSize: 10,
           },
@@ -63,7 +64,7 @@ export default function Chart({ data, timeData, yAxisLabel }) {
         "& .MuiLineElement-series-auto-generated-id-1": {
           strokeDasharray: "5 5",
         },
-        [`& .MuiLegendItem-root[data-series='Predicted (Future)'] .MuiLegendItem-label`]:
+        [`& .MuiLegendItem-root[data-series='Future (Predicted)'] .MuiLegendItem-label`]:
           {
             strokeDasharray: "5 5",
           },
