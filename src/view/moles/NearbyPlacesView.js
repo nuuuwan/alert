@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Nearby from "../../nonview/core/Nearby";
 import PlaceLink from "../atoms/PlaceLink";
-import Typography from "@mui/material/Typography";
 
 export default function NearbyPlacesView({ latLng }) {
   const [nearbyPlaces, setNearbyPlaces] = useState([]);
@@ -22,9 +21,6 @@ export default function NearbyPlacesView({ latLng }) {
 
   return (
     <Box>
-      <Typography variant="caption" color="text.secondary">
-        Nearby
-      </Typography>
       <Box
         sx={{
           display: "flex",

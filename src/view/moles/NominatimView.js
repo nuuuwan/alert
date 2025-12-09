@@ -24,14 +24,20 @@ function NominatimView({ latlng }) {
     return <div>Error: {error.message}</div>;
   }
 
-  if (!data) {
+  if (!data || !data.address) {
     return <div>Loading...</div>;
   }
 
+  const address = data.address;
+  const { amenity, house_number, road, suburb, city, village } = address;
+
   return (
     <Box>
-      <Typography variant="body2" color="textSecondary">
-        {data.display_name}
+      <Typography variant="body1" color="textSecondary">
+        {[amenity, house_number, road].filter(Boolean).join(", ")}
+      </Typography>
+      <Typography variant="caption" color="textSecondary">
+        {[suburb, city || village].filter(Boolean).join(", ")}
       </Typography>
     </Box>
   );
