@@ -10,13 +10,12 @@ root.render(
     >
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/alert" element={<App />} />
-      <Route path="/alert/DSD/:dsdNameId" element={<App />} />
+      <Route path="/DSD/:dsdNameId" element={<App />} />
       <Route
-        path="/alert/HydrometricStation/:hydrometricStationNameId"
+        path="/HydrometricStation/:hydrometricStationNameId"
         element={<App />}
       />
-      <Route path="/alert/Place/:placeLatLngId" element={<App />} />
+      <Route path="/Place/:placeLatLngId" element={<App />} />
     </Routes>
   </BrowserRouter>
 );
