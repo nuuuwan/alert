@@ -125,11 +125,10 @@ export default function MapView({
   };
 
   let center = DEFAULT_CENTER;
-  let zoom = DEFAULT_ZOOM;
+  const zoom = DEFAULT_ZOOM;
 
   if (selectedEnt && selectedEnt.latLng) {
     center = [selectedEnt.latLng.lat, selectedEnt.latLng.lng];
-    zoom = 14;
   }
 
   return (
