@@ -11,6 +11,7 @@ import RainChart from "../atoms/RainChart";
 import TempChart from "../atoms/TempChart";
 import ElevationWidget from "../atoms/ElevationWidget";
 import OpacityIcon from "@mui/icons-material/Opacity";
+import { getAlertColor } from "../_cons/StyleConstants";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
@@ -54,6 +55,20 @@ export default function OpenMeteoView({ place }) {
           unit="mm"
           timeLabel="Next 24h total"
           isPrediction
+        />
+        <MetricCard
+          Icon={WaterDropIcon}
+          label="Flood Risk"
+          value={openMeteoData.floodRiskScore.toFixed(1)}
+          unit=""
+          timeLabel="Next 24h"
+          isPrediction
+          alertLabel={
+            openMeteoData.floodRiskAlertLevel > 0
+              ? `Level ${openMeteoData.floodRiskAlertLevel}`
+              : ""
+          }
+          color={getAlertColor(openMeteoData.floodRiskAlertLevel)}
         />
       </MetricCardCollection>
 

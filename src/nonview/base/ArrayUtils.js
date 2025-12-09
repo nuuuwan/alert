@@ -6,4 +6,9 @@ export default class ArrayUtils {
   static max(arr) {
     return arr.reduce((maxVal, val) => (val > maxVal ? val : maxVal), arr[0]);
   }
+
+  static mean(arr) {
+    if (arr.length === 0) return 0;
+    return this.sum(arr) / arr.length;
+  }
 }

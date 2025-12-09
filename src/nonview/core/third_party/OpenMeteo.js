@@ -12,7 +12,13 @@ export default class OpenMeteo {
       longitude: latLng.lng,
 
       current: ["temperature_2m", "precipitation", "relative_humidity_2m"],
-      hourly: ["temperature_2m", "precipitation", "precipitation_probability"],
+      hourly: [
+        "temperature_2m",
+        "precipitation",
+        "precipitation_probability",
+        "soil_moisture_0_to_1cm",
+        "soil_moisture_27_to_81cm",
+      ],
 
       start_hour: startHour,
       end_hour: endHour,
@@ -49,9 +55,11 @@ export default class OpenMeteo {
         temperature_2m: hourly.variables(0).valuesArray(),
         precipitation: hourly.variables(1).valuesArray(),
         precipitation_probability: hourly.variables(2).valuesArray(),
+        soil_moisture_0_to_1cm: hourly.variables(3).valuesArray(),
+        soil_moisture_27_to_81cm: hourly.variables(4).valuesArray(),
       },
     };
-    const weatherData = {
+    let weatherData = {
       elevationM: response.elevation(),
       // current
       temp2mCNow: weatherDataRaw.current.temperature_2m,
@@ -82,12 +90,35 @@ export default class OpenMeteo {
         24,
         48
       ),
-      rainProbNext24hMax: Math.max(
-        ...weatherDataRaw.hourly.precipitation_probability.slice(24, 48)
+      rainProbNext24hMax: ArrayUtils.max(
+        weatherDataRaw.hourly.precipitation_probability.slice(24, 48)
+      ),
+
+      soilMoisture01Next24HrMean: ArrayUtils.mean(
+        weatherDataRaw.hourly.soil_moisture_0_to_1cm.slice(24, 48)
+      ),
+      soilMoisture2781Next24HrMean: ArrayUtils.mean(
+        weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(24, 48)
       ),
     };
 
-    console.debug(weatherData);
+    weatherData.floodRiskScore =
+      weatherData.rainMMSumPredictedNext24h *
+        (weatherData.soilMoisture01Next24HrMean +
+          weatherData.soilMoisture2781Next24HrMean * 0.5) +
+      0.2 *
+        weatherData.rainHoursNext24h *
+        weatherData.soilMoisture01Next24HrMean +
+      0.1 * weatherData.rainProbNext24hMax;
+
+    weatherData.floodRiskAlertLevel = 0;
+    if (weatherData.floodRiskScore >= 75) {
+      weatherData.floodRiskAlertLevel = 3;
+    } else if (weatherData.floodRiskScore >= 50) {
+      weatherData.floodRiskAlertLevel = 2;
+    } else if (weatherData.floodRiskScore >= 25) {
+      weatherData.floodRiskAlertLevel = 1;
+    }
 
     return weatherData;
   }
