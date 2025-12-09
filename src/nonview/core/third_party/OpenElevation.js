@@ -52,7 +52,7 @@ export default class OpenElevation {
     return 2 * R * Math.asin(Math.sqrt(h));
   }
 
-  static async getSlopeData(latLng, deltaM = 10) {
+  static async getSlopeData(latLng, deltaM = 20) {
     const e = (0.0001 * deltaM) / 11.1;
     const pts = this._buildNeighbourhood(latLng, e);
     const elevations = await this.getElevationList(pts);
@@ -90,7 +90,7 @@ export default class OpenElevation {
     };
   }
 
-  static async getRelativeElevationData(latLng, deltaM = 10) {
+  static async getRelativeElevationData(latLng, deltaM = 20) {
     const e = (0.0001 * deltaM) / 11.1;
     const pts = this._buildNeighbourhood(latLng, e);
     const elevations = await this.getElevationList(pts);
@@ -102,20 +102,20 @@ export default class OpenElevation {
     const meanNeighbours =
       neighbours.reduce((a, b) => a + b, 0) / neighbours.length;
 
-    const depth = meanNeighbours - h0;
+    const relativeElevation = h0 - meanNeighbours;
 
     let lowGroundDangerLevel = 0;
-    if (depth >= 20) {
+    if (relativeElevation < -20) {
       lowGroundDangerLevel = 3;
-    } else if (depth >= 10) {
+    } else if (relativeElevation < -10) {
       lowGroundDangerLevel = 2;
-    } else if (depth >= 5) {
+    } else if (relativeElevation < -5) {
       lowGroundDangerLevel = 1;
     }
 
     return {
       meanNeighbours,
-      depth,
+      relativeElevation,
       lowGroundDangerLevel,
     };
   }

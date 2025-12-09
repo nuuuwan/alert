@@ -5,6 +5,7 @@ import HydrometricStationDetails from "../moles/HydrometricStationDetails";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import NearbyPlacesView from "../moles/NearbyPlacesView";
 import NominatimView from "../moles/NominatimView";
+import OpenElevationView from "../moles/OpenElevationView";
 
 export default function PlaceDetails({ place }) {
   return (
@@ -15,6 +16,8 @@ export default function PlaceDetails({ place }) {
         <HydrometricStationDetails place={place} />
       )}
       <OpenMeteoView place={place} />
+      <OpenElevationView place={place} />
+
       <SatelliteImageView place={place} />
     </Box>
   );

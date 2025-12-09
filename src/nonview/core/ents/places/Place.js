@@ -32,8 +32,6 @@ class Place {
   async loadDetails() {
     this.openMeteoData = await OpenMeteo.getData({ latLng: this.latLng });
     this.openElevationData = await OpenElevation.getData(this.latLng);
-
-    console.debug("OpenElevation data:", this.openElevationData);
     return this;
   }
 

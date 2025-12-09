@@ -8,7 +8,6 @@ import SourceView from "../atoms/SourceView";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import RainChart from "../atoms/RainChart";
 import TempChart from "../atoms/TempChart";
-import ElevationWidget from "../atoms/ElevationWidget";
 import OpacityIcon from "@mui/icons-material/Opacity";
 import { getAlertColor } from "../_cons/StyleConstants";
 import LandslideIcon from "../atoms/icons/LandslideIcon";
@@ -20,7 +19,6 @@ export default function OpenMeteoView({ place }) {
   const [latitude, longitude] = latLng.raw();
   return (
     <Box sx={{ p: 2 }}>
-      <ElevationWidget elevationM={openMeteoData.elevationM} />
       <Typography variant="h6" gutterBottom>
         Weather
       </Typography>

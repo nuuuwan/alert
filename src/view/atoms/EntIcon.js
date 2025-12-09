@@ -8,33 +8,20 @@ import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import City from "../../nonview/core/ents/places/City";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
-export default function EntIcon({ ent, ...props }) {
-  const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
+export default function EntIcon({ ent, color, size }) {
+  color = color || getAlertColor(ent.alertLevel) || COLORS.neutral;
 
   if (ent instanceof HydrometricStation) {
-    return <HydrometricStationIcon color={color} {...props} />;
+    return <HydrometricStationIcon color={color} size={size} />;
   }
   if (ent instanceof City) {
-    return (
-      <LocationCityIcon
-        style={{ color }}
-        {...props}
-        sx={{ fontSize: props.size || 48 }}
-      />
-    );
+    return <LocationCityIcon style={{ color }} sx={{ fontSize: size || 48 }} />;
   }
   if (ent instanceof Place) {
-    return (
-      <LocationOnIcon
-        style={{ color }}
-        {...props}
-        sx={{ fontSize: props.size || 48 }}
-      />
-    );
+    return <LocationOnIcon style={{ color }} sx={{ fontSize: size || 48 }} />;
   }
   if (ent instanceof AdminRegion) {
-    return <AdminRegionIcon color={color} {...props} />;
+    return <AdminRegionIcon color={color} size={size} />;
   }
-  console.error("EntIcon: Unknown ent type", ent, typeof ent);
-  return null;
+  return <LocationOnIcon style={{ color }} sx={{ fontSize: size || 48 }} />;
 }
