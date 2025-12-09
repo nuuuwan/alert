@@ -6,6 +6,7 @@ export default function MetricCardCollection({ children }) {
       sx={{
         display: "flex",
         gap: 1,
+        flexWrap: "wrap", // Allow children to wrap into multiple rows
       }}
     >
       {children}
