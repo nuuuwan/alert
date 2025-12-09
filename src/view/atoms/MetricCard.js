@@ -24,15 +24,15 @@ export default function MetricCard({
   return (
     <Box
       sx={{
-        p: 1,
-        m: 1,
+        p: 0.5,
+        m: 0.5,
         borderRadius: 2,
         backgroundColor: backColor,
-        border: "3px solid",
+        border: "1px solid",
         borderColor: foreColor,
         textAlign: "center",
-        width: 150,
-        height: 150,
+        width: 120,
+        height: 120,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
