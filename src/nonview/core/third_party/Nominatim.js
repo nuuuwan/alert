@@ -4,7 +4,6 @@ export default class Nominatim {
   static async reverseGeocode(latLng) {
     const [lat, lon] = latLng.raw();
     const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`;
-    console.debug({ url });
     try {
       return await WWW.fetchJSON(url);
     } catch (error) {
