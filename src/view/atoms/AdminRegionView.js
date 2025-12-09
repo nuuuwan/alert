@@ -18,10 +18,13 @@ export default function AdminRegionView({ AdminRegionClass, id }) {
 
   return (
     <Chip
-      sx={{ m: 0.25 }}
-      label={`${
-        adminRegion.name
-      } ${adminRegion.constructor.getEntTypeName()} (${adminRegion.id})`}
+      sx={{ marginRight: 0.25 }}
+      label={
+        <span>
+          {adminRegion.name} {adminRegion.constructor.getEntTypeName()}{" "}
+          <span style={{ color: "#9e9e9e" }}>{adminRegion.id}</span>
+        </span>
+      }
     />
   );
 }

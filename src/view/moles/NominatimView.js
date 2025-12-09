@@ -32,17 +32,27 @@ function NominatimView({ latlng }) {
   }
 
   const address = data.address;
-  const { amenity, house_number, road, suburb, city, village } = address;
   const districtId = address["ISO3166-2-lvl5"];
   const provinceId = address["ISO3166-2-lvl4"];
 
+  let displayNameShorter = data.display_name;
+  displayNameShorter = displayNameShorter.replace(
+    `, ${data.address.country}`,
+    ""
+  );
+  displayNameShorter = displayNameShorter.replace(
+    `, ${data.address.state}`,
+    ""
+  );
+  displayNameShorter = displayNameShorter.replace(
+    `, ${data.address.state_district}`,
+    ""
+  );
+
   return (
     <Box>
-      <Typography variant="body1" color="textSecondary">
-        {[amenity, house_number, road].filter(Boolean).join(", ")}
-      </Typography>
       <Typography variant="caption" color="textSecondary">
-        {[suburb, city || village].filter(Boolean).join(", ")}
+        {displayNameShorter}
       </Typography>
       <Box>
         <AdminRegionView AdminRegionClass={District} id={districtId} />
