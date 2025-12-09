@@ -12,6 +12,7 @@ import ElevationWidget from "../atoms/ElevationWidget";
 import OpacityIcon from "@mui/icons-material/Opacity";
 import { getAlertColor } from "../_cons/StyleConstants";
 import LandslideIcon from "../atoms/icons/LandslideIcon";
+import FloodIcon from "../atoms/icons/FloodIcon";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
@@ -55,7 +56,7 @@ export default function OpenMeteoView({ place }) {
           isPrediction
         />
         <MetricCard
-          Icon={WaterDropIcon}
+          Icon={FloodIcon}
           label="Flood Risk"
           value={openMeteoData.floodRiskScore.toFixed(1)}
           unit=""
