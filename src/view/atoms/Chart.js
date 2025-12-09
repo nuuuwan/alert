@@ -5,7 +5,6 @@ import { LinePlot } from "@mui/x-charts/LineChart";
 import { ChartsXAxis, ChartsYAxis } from "@mui/x-charts";
 import { ChartsReferenceLine } from "@mui/x-charts/ChartsReferenceLine";
 import { BarPlot } from "@mui/x-charts/BarChart";
-import { ChartsLegend } from "@mui/x-charts";
 
 export default function Chart({ data, timeData, yAxisLabel, chartType }) {
   const currentTime = Date.now();
