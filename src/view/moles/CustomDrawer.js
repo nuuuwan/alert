@@ -29,9 +29,9 @@ export default function CustomDrawer({
       onClose={onClose}
       sx={{
         "& .MuiDrawer-paper": {
-          width: { xs: "100%", sm: 600, md: 700 },
-          marginTop: "48px",
-          height: "calc(100% - 48px)",
+          width: { xs: "100%", sm: 320, md: 480 },
+          marginTop: "24px",
+          height: "calc(100% - 24px)",
         },
       }}
     >
