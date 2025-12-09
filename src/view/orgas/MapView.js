@@ -40,7 +40,9 @@ export default function MapView({
   placeLatLng,
 }) {
   const navigate = useNavigate();
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(
+    dsdName || hydrometricStationName || placeLatLng ? true : false
+  );
   const [selectedEnt, setSelectedEnt] = useState(null);
   const [HydrometricStations, setHydrometricStations] = useState([]);
   const [dsdEnts, setDsdEnts] = useState([]);
@@ -80,7 +82,7 @@ export default function MapView({
     async function fetchHydrometricStation() {
       if (hydrometricStationName) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationName,
+          hydrometricStationName
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
