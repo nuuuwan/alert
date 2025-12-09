@@ -1,6 +1,5 @@
 import Drawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import DownloadIcon from "@mui/icons-material/Download";

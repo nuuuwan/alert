@@ -8,15 +8,12 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import BugReportIcon from "@mui/icons-material/BugReport";
 import UpdateIcon from "@mui/icons-material/Update";
-import MyLocationIcon from "@mui/icons-material/MyLocation";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import VERSION from "../../nonview/cons/VERSION";
 
 export default function AppBarMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  const navigate = useNavigate();
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -91,9 +88,6 @@ export default function AppBarMenu() {
           </Typography>
         </MenuItem>
       </Menu>
-      <IconButton color="inherit" onClick={() => navigate("/")} edge="start">
-        <MyLocationIcon />
-      </IconButton>
     </>
   );
 }
