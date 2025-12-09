@@ -1,6 +1,5 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import MetricCard from "../atoms/MetricCard";
@@ -23,8 +22,6 @@ export default function OpenMeteoView({ place }) {
       <Typography variant="h6" gutterBottom>
         Weather
       </Typography>
-
-      <Divider sx={{ my: 2 }} />
 
       <MetricCardCollection>
         <MetricCard

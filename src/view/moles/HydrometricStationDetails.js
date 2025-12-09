@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
-import Divider from "@mui/material/Divider";
 import WavesIcon from "@mui/icons-material/Waves";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
@@ -88,8 +87,6 @@ export default function HydrometricStationDetails({ place }) {
       <Typography variant="h6" gutterBottom>
         River Water Level
       </Typography>
-
-      <Divider sx={{ my: 2 }} />
 
       <MetricCardCollection>
         <MetricCard

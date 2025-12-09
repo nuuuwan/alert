@@ -3,7 +3,6 @@ import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import Box from "@mui/material/Box";
 import { useEffect, useState } from "react";
 import PlaceLink from "../atoms/PlaceLink";
-import Divider from "@mui/material/Divider";
 import SexAgeView from "../moles/SexAgeView";
 
 export default function DSDDetails({ region }) {
@@ -30,7 +29,6 @@ export default function DSDDetails({ region }) {
         level={region.latestLandslideWarningLevel}
         timeUt={region.latestLandslideWarningTimeUt}
       />
-      <Divider sx={{ my: 2 }} />
       {centroidPlace && (
         <PlaceLink
           place={centroidPlace}

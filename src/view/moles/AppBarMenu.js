@@ -4,7 +4,6 @@ import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import BugReportIcon from "@mui/icons-material/BugReport";
@@ -83,7 +82,6 @@ export default function AppBarMenu() {
           </ListItemIcon>
           <ListItemText>Update Version</ListItemText>
         </MenuItem>
-        <Divider />
         <MenuItem disabled>
           <Typography variant="body1" color="text.secondary">
             v{VERSION.DATETIME_STR}

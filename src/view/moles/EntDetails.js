@@ -6,7 +6,6 @@ import Region from "../../nonview/core/ents/regions/Region";
 import Box from "@mui/material/Box";
 import { useState, useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
-import Divider from "@mui/material/Divider";
 
 function EntChildDetails({ ent }) {
   if (ent instanceof Place) {
@@ -38,7 +37,6 @@ export default function EntDetails({ ent, supertitleOverride }) {
   return (
     <Box>
       <DetailsHeader ent={ent} supertitleOverride={supertitleOverride} />
-      <Divider sx={{ my: 2 }} />
       {<EntChildDetails ent={entWithDetails} />}
     </Box>
   );
