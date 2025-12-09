@@ -119,9 +119,15 @@ export default function MapView({
     async function fetchBrowserLocation() {
       const latLng = await GeoLocation.getCurrentLatLng();
       setBrowserLatLng(latLng);
+      if (!placeLatLngId && !dsdNameId && !hydrometricStationNameId && latLng) {
+        const place = await Place.load({ latLng });
+        await place.loadDetails();
+        setSelectedEnt(place);
+        setDrawerOpen(true);
+      }
     }
     fetchBrowserLocation();
-  }, []);
+  }, [placeLatLngId, dsdNameId, hydrometricStationNameId]);
 
   const handleMapClick = async (latLng) => {
     navigate(`/Place/${latLng.id}`);
@@ -178,6 +184,7 @@ export default function MapView({
         selectedItem={selectedEnt}
         renderContent={(ent) => <EntDetails ent={ent} />}
         getFileName={getFileName}
+        browserLatLng={browserLatLng}
       />
     </>
   );
