@@ -12,6 +12,7 @@ import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import MapRegionView from "../moles/MapRegionView";
 import EntDetails from "../moles/EntDetails";
 import { useNavigate } from "react-router-dom";
+import GeoLocation from "../../nonview/base/GeoLocation";
 function MapClickHandler({ onMapClick }) {
   useMapEvents({
     click: (e) => {
@@ -45,11 +46,12 @@ export default function MapView({
 }) {
   const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(
-    dsdNameId || hydrometricStationNameId || placeLatLngId ? true : false,
+    dsdNameId || hydrometricStationNameId || placeLatLngId ? true : false
   );
   const [selectedEnt, setSelectedEnt] = useState(null);
   const [HydrometricStations, setHydrometricStations] = useState([]);
   const [dsdEnts, setDsdEnts] = useState([]);
+  const [browserLatLng, setBrowserLatLng] = useState(null);
 
   useEffect(() => {
     async function fetch() {
@@ -86,7 +88,7 @@ export default function MapView({
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId,
+          hydrometricStationNameId
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
@@ -112,6 +114,14 @@ export default function MapView({
     }
     fetchPlace();
   }, [placeLatLngId]);
+
+  useEffect(() => {
+    async function fetchBrowserLocation() {
+      const latLng = await GeoLocation.getCurrentLatLng();
+      setBrowserLatLng(latLng);
+    }
+    fetchBrowserLocation();
+  }, []);
 
   const handleMapClick = async (latLng) => {
     navigate(`/Place/${latLng.id}`);
@@ -155,7 +165,7 @@ export default function MapView({
         {[selectedEnt, ...HydrometricStations].map(
           (station) =>
             station &&
-            station.latLng && <MapPlaceView key={station.id} place={station} />,
+            station.latLng && <MapPlaceView key={station.id} place={station} />
         )}
 
         {dsdEnts &&
