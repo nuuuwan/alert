@@ -80,7 +80,7 @@ export default function MapView({
     async function fetchHydrometricStation() {
       if (hydrometricStationName) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationName
+          hydrometricStationName,
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
