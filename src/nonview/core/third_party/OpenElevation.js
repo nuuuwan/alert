@@ -23,7 +23,9 @@ export default class OpenElevation {
       .join("|");
 
     const url = `https://api.open-elevation.com/api/v1/lookup?locations=${locations}`;
-    const response = await WWW.fetchJSON(url);
+    const response = await Cache.get(`OpenElevation:${locations}`, async () => {
+      await WWW.fetchJSON(url);
+    });
 
     return response.results.map((result) => result.elevation);
   }
