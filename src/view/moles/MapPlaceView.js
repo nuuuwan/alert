@@ -28,7 +28,7 @@ export default function MapPlaceView({ place }) {
       size={iconSize}
       color={placeColor}
       strokeColor={placeColor}
-    />,
+    />
   );
 
   return (

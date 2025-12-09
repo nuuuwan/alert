@@ -15,7 +15,13 @@ export default function EntIcon({ ent, ...props }) {
     return <HydrometricStationIcon color={color} {...props} />;
   }
   if (ent instanceof City) {
-    return <LocationCityIcon style={{ color }} {...props} />;
+    return (
+      <LocationCityIcon
+        style={{ color }}
+        {...props}
+        sx={{ fontSize: props.size || 48 }}
+      />
+    );
   }
   if (ent instanceof Place) {
     return <LocationIcon color={color} {...props} />;
