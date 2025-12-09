@@ -9,9 +9,6 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Divider from "@mui/material/Divider";
 
 function EntChildDetails({ ent }) {
-  if (!ent) {
-    return <CircularProgress />;
-  }
   if (ent instanceof Place) {
     return <PlaceDetails place={ent} />;
   }
@@ -23,17 +20,20 @@ function EntChildDetails({ ent }) {
 
 export default function EntDetails({ ent, supertitleOverride }) {
   const [entWithDetails, setEntWithDetails] = useState(null);
+
   useEffect(() => {
     async function fetchDetails() {
-      if (ent && typeof ent.loadDetails === "function") {
+      if (ent) {
         const loadedEnt = await ent.loadDetails();
         setEntWithDetails(loadedEnt);
-      } else {
-        setEntWithDetails(ent);
       }
     }
     fetchDetails();
   }, [ent]);
+
+  if (!entWithDetails) {
+    return <CircularProgress />;
+  }
 
   return (
     <Box>
