@@ -4,10 +4,12 @@ import OpenMeteoView from "../moles/OpenMeteoView";
 import HydrometricStationDetails from "../moles/HydrometricStationDetails";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import NearbyPlacesView from "../moles/NearbyPlacesView";
+import NominatimView from "../moles/NominatimView";
 
 export default function PlaceDetails({ place }) {
   return (
     <Box>
+      <NominatimView latlng={place.latLng} />
       <NearbyPlacesView latLng={place.latLng} />
       {place instanceof HydrometricStation && (
         <HydrometricStationDetails place={place} />
