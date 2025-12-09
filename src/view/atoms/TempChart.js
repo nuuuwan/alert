@@ -1,9 +1,9 @@
 import Chart from "./Chart";
 
-export default function TempChart({ hourlyTempCelsius, hourlyTimeUt }) {
+export default function TempChart({ hourlyTemp, hourlyTimeUt }) {
   return (
     <Chart
-      data={hourlyTempCelsius}
+      data={hourlyTemp}
       timeData={hourlyTimeUt}
       yAxisLabel="Temperature (°C)"
       chartType="line"

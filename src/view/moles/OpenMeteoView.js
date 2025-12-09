@@ -27,7 +27,7 @@ export default function OpenMeteoView({ place }) {
         <MetricCard
           Icon={WaterDropIcon}
           label="Rain"
-          value={openMeteoData.hourlyPrecipitationMMSumLast24Hours.toFixed(0)}
+          value={openMeteoData.hourlyRainSumLast24Hours.toFixed(0)}
           unit="mm"
           timeLabel="24h total"
         />
@@ -48,9 +48,7 @@ export default function OpenMeteoView({ place }) {
         <MetricCard
           Icon={WaterDropIcon}
           label="For. Rain"
-          value={openMeteoData.hourlyPrecipitationMMHourCountNext24Hours.toFixed(
-            0
-          )}
+          value={openMeteoData.hourlyRainHourCountNext24Hours.toFixed(0)}
           unit="mm"
           timeLabel="Next 24h total"
           isPrediction
@@ -69,14 +67,27 @@ export default function OpenMeteoView({ place }) {
           }
           color={getAlertColor(openMeteoData.floodRiskAlertLevel)}
         />
+        <MetricCard
+          Icon={OpacityIcon}
+          value={openMeteoData.landslideRiskScore.toFixed(1)}
+          unit=""
+          timeLabel="Next 24h"
+          isPrediction
+          alertLabel={
+            openMeteoData.landslideRiskAlertLevel > 0
+              ? `Level ${openMeteoData.landslideRiskAlertLevel}`
+              : ""
+          }
+          color={getAlertColor(openMeteoData.floodRiskAlertLevel)}
+        />
       </MetricCardCollection>
 
       <RainChart
-        hourlyPrecipitationMM={openMeteoData.hourlyPrecipitationMM}
+        hourlyRain={openMeteoData.hourlyRain}
         hourlyTimeUt={openMeteoData.hourlyTimeUt}
       />
       <TempChart
-        hourlyTempCelsius={openMeteoData.hourlyTempCelsius}
+        hourlyTemp={openMeteoData.hourlyTemp}
         hourlyTimeUt={openMeteoData.hourlyTimeUt}
       />
 
