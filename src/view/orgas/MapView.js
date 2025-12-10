@@ -23,14 +23,14 @@ function MapEventHandler({ onMapClickOrMoveEnd }) {
       onMapClickOrMoveEnd(latLng);
     },
 
-    moveend(e) {
-      const centre = map.getCenter();
-      const latLng = LatLng.fromRaw([
-        parseFloat(centre.lat),
-        parseFloat(centre.lng),
-      ]);
-      onMapClickOrMoveEnd(latLng);
-    },
+    // moveend(e) {
+    //   const centre = map.getCenter();
+    //   const latLng = LatLng.fromRaw([
+    //     parseFloat(centre.lat),
+    //     parseFloat(centre.lng),
+    //   ]);
+    //   onMapClickOrMoveEnd(latLng);
+    // },
   });
   return null;
 }

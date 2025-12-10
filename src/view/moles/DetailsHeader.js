@@ -4,17 +4,17 @@ import EntIcon from "../atoms/EntIcon";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 
 export default function DetailsHeader({ ent, supertitleOverride }) {
-  const iconSize = 48;
+  const size = 48;
   const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
   return (
     <Box sx={{ m: 0, p: 0 }}>
       <Box sx={{ display: "flex", alignItems: "flex-start" }}>
-        <EntIcon ent={ent} iconSize={iconSize} />
+        <EntIcon ent={ent} size={size} />
 
         <Typography
           variant="h5"
           sx={{
-            lineHeight: `${iconSize}px`,
+            lineHeight: `${size}px`,
           }}
           color={color}
         >
