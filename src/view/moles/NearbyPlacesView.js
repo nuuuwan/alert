@@ -8,8 +8,10 @@ export default function NearbyPlacesView({ latLng }) {
 
   useEffect(() => {
     const fetchNearbyPlaces = async () => {
-      const nearby = await Nearby.findNearbyPlaces(latLng);
-      setNearbyPlaces(nearby);
+      if (latLng) {
+        const nearby = await Nearby.findNearbyPlaces(latLng);
+        setNearbyPlaces(nearby);
+      }
     };
 
     fetchNearbyPlaces();
