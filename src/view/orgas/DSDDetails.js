@@ -16,7 +16,7 @@ export default function DSDDetails({ region }) {
       />
       <SexAgeView
         sexAgeData={region.sexAgeData}
-        areaSqKm={`${region.areaSqKm.toFixed(0)} km²`}
+        areaSqKm={`${region.areaSqKm.toFixed(0)}`}
       />
     </Box>
   );

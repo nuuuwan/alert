@@ -1,18 +1,24 @@
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 import PeopleIcon from "@mui/icons-material/PeopleOutline";
 import ChildCareIcon from "@mui/icons-material/ChildCareOutlined";
 import ElderlyIcon from "@mui/icons-material/ElderlyOutlined";
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
-import Tooltip from "@mui/material/Tooltip";
 import FemaleIcon from "@mui/icons-material/Female";
+import MetricCard from "../atoms/MetricCard";
+import MetricCardCollection from "../atoms/MetricCardCollection";
+import { COLORS } from "../_cons/StyleConstants";
 
 const dataConfig = [
-  { label: "Area", key: "areaSqKm", Icon: CropOriginalIcon },
-  { label: "Population", key: "population", Icon: PeopleIcon },
-  { label: "Female Population", key: "femalePopulation", Icon: FemaleIcon },
-  { label: "Under 15", key: "ageUnder15", Icon: ChildCareIcon },
-  { label: "Over 65", key: "age65andOver", Icon: ElderlyIcon },
+  { label: "Area", key: "areaSqKm", unit: "km²", Icon: CropOriginalIcon },
+  { label: "Population", key: "population", unit: "", Icon: PeopleIcon },
+  {
+    label: "Female",
+    key: "femalePopulation",
+    unit: "",
+    Icon: FemaleIcon,
+  },
+  { label: "Under 15", key: "ageUnder15", unit: "", Icon: ChildCareIcon },
+  { label: "Over 65", key: "age65andOver", unit: "", Icon: ElderlyIcon },
 ];
 
 function SexAgeView({ sexAgeData, areaSqKm }) {
@@ -23,18 +29,28 @@ function SexAgeView({ sexAgeData, areaSqKm }) {
   const allData = { ...sexAgeData, areaSqKm: areaSqKm };
 
   return (
-    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-      {dataConfig.map(({ key, Icon, label }) => (
-        <Tooltip key={key} title={label} arrow>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Icon fontSize="small" />
-            <Typography variant="body2" component="span">
-              {allData[key].toLocaleString()}
-            </Typography>
-          </Box>
-        </Tooltip>
+    <MetricCardCollection
+      title="Demographics"
+      sourceList={[
+        {
+          url: "https://github.com/nuuuwan/lk_census_2024",
+          label:
+            "Census of Population and Housing 2024, Department of Census and Statistics, Sri Lanka",
+        },
+      ]}
+    >
+      {dataConfig.map(({ key, Icon, label, unit }) => (
+        <MetricCard
+          key={key}
+          label={label}
+          value={allData[key]?.toLocaleString() || "N/A"}
+          unit={unit}
+          Icon={Icon}
+          color={COLORS.neutral}
+          timeLabel="2024"
+        />
       ))}
-    </Box>
+    </MetricCardCollection>
   );
 }
 
