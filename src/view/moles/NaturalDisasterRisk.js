@@ -9,7 +9,7 @@ import NaturalDisaster from "../../nonview/core/third_party/NaturalDisaster";
 export default function NaturalDisasterRisk({ place }) {
   const { openMeteoData, openElevationData } = place;
 
-  const { landslideRiskData } = NaturalDisaster.getData({
+  const { floodRiskData, landslideRiskData } = NaturalDisaster.getData({
     openMeteoData,
     openElevationData,
   });
@@ -19,12 +19,12 @@ export default function NaturalDisasterRisk({ place }) {
       <MetricCard
         Icon={FloodIcon}
         label="Flood Risk"
-        value={`${openMeteoData.floodRiskScore}/${openMeteoData.floodRiskScoreTotal}`}
+        value={`${floodRiskData.floodRiskScore}/${floodRiskData.floodRiskScoreTotal}`}
         unit=""
         timeLabel="Next 24h"
         isPrediction
-        alertLabel={openMeteoData.floodRiskLabel}
-        color={getAlertColor(openMeteoData.floodRiskAlertLevel)}
+        alertLabel={floodRiskData.floodRiskLabel}
+        color={getAlertColor(floodRiskData.floodRiskAlertLevel)}
       />
       <MetricCard
         Icon={LandslideIcon}

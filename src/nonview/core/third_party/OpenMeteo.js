@@ -137,14 +137,6 @@ export default class OpenMeteo {
         0.3,
     };
 
-    weatherData.floodRiskScore = Object.values(
-      weatherData.floodRiskFactors24hThresholded
-    ).filter((v) => v).length;
-    weatherData.floodRiskScoreTotal = 4;
-    weatherData.floodRiskLabel = ["Low", "Low", "Moderate", "High", "Extreme"][
-      weatherData.floodRiskScore
-    ];
-
     console.debug({ weatherData });
     return weatherData;
   }

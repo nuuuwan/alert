@@ -30,9 +30,40 @@ export default class NaturalDisaster {
     return landslideRiskData;
   }
 
+  static computeFloodRiskData({ openMeteoData, openElevationData }) {
+    let floodRiskFactors24hThresholded = {
+      ...openMeteoData.floodRiskFactors24hThresholded,
+    };
+    floodRiskFactors24hThresholded.f05RelativeElevation =
+      openElevationData.relativeElevationData.relativeElevation < -5;
+
+    const floodRiskScore = Object.values(floodRiskFactors24hThresholded).filter(
+      (v) => v
+    ).length;
+    const floodRiskScoreTotal = 5;
+    const floodRiskLabel = [
+      "Low",
+      "Low",
+      "Moderate",
+      "Moderate",
+      "High",
+      "Extreme",
+    ][floodRiskScore];
+    const floodRiskData = {
+      floodRiskScore,
+      floodRiskScoreTotal,
+      floodRiskLabel,
+    };
+    return floodRiskData;
+  }
+
   static getData({ openMeteoData, openElevationData }) {
     return {
       landslideRiskData: this.computeLandslideRiskData({
+        openMeteoData,
+        openElevationData,
+      }),
+      floodRiskData: this.computeFloodRiskData({
         openMeteoData,
         openElevationData,
       }),
