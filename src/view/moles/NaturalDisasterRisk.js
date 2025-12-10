@@ -13,7 +13,7 @@ export default function NaturalDisasterRisk({ place }) {
       <MetricCard
         Icon={FloodIcon}
         label="Flood Risk"
-        value={openMeteoData.floodRiskScore.toFixed(1)}
+        value={`${openMeteoData.floodRiskScore}/${openMeteoData.floodRiskScoreTotal}`}
         unit=""
         timeLabel="Next 24h"
         isPrediction
@@ -23,7 +23,7 @@ export default function NaturalDisasterRisk({ place }) {
       <MetricCard
         Icon={LandslideIcon}
         label="Landslide Risk"
-        value={openMeteoData.landslideRiskScore.toFixed(1)}
+        value={`${openMeteoData.landslideRiskScore}/${openMeteoData.landslideRiskScoreTotal}`}
         unit=""
         timeLabel="Next 24h"
         isPrediction

@@ -97,9 +97,14 @@ export default class OpenMeteo {
       hourlyRainSumLast24Hours: ArrayUtils.sum(
         weatherDataRaw.hourly.precipitation.slice(6 * 24, 7 * 24)
       ),
+      hourlyRainSumPrevious7Days: ArrayUtils.sum(
+        weatherDataRaw.hourly.precipitation.slice(0, 7 * 24)
+      ),
       hourlyRainSumNext24Hours: ArrayUtils.sum(
         weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24)
       ),
+
+      hourlyDeepSoilMoisture: weatherDataRaw.hourly.soil_moisture_27_to_81cm,
     };
 
     weatherData = OpenMeteo.computeFloodRisk(weatherData);
@@ -108,24 +113,79 @@ export default class OpenMeteo {
     return weatherData;
   }
 
-  static computeLandslideRisk(weatherData) {
-    weatherData.landslideRiskScore = 0;
-    weatherData.landslideRiskAlertLevel = 0;
-    weatherData.landslideRiskLabel = "TODO";
+  static computeFloodRisk(weatherData) {
+    weatherData.floodRiskFactors24h = {
+      f01PeakRainFallIntensity: Math.max(...weatherData.hourlyRain),
+      f02HourlyRainSumNext24Hours: weatherData.hourlyRainSumNext24Hours,
+      f03HoursOfRainNext24Hours: weatherData.hourlyRain.filter(
+        (rain) => rain > 0
+      ).length,
+      f04MeanDeepSoilMoistureNext24Hours: ArrayUtils.mean(
+        weatherData.hourlyDeepSoilMoisture.slice(7 * 24, 8 * 24)
+      ),
+    };
 
+    weatherData.floodRiskFactors24hThresholded = {
+      f01PeakRainFallIntensity:
+        weatherData.floodRiskFactors24h.f01PeakRainFallIntensity > 50,
+      f02HourlyRainSumNext24Hours:
+        weatherData.floodRiskFactors24h.f02HourlyRainSumNext24Hours > 100,
+      f03HoursOfRainNext24Hours:
+        weatherData.floodRiskFactors24h.f03HoursOfRainNext24Hours > 12,
+      f04MeanDeepSoilMoistureNext24Hours:
+        weatherData.floodRiskFactors24h.f04MeanDeepSoilMoistureNext24Hours >
+        0.3,
+    };
+
+    weatherData.floodRiskScore = Object.values(
+      weatherData.floodRiskFactors24hThresholded
+    ).filter((v) => v).length;
+    weatherData.floodRiskScoreTotal = 4;
+    weatherData.floodRiskLabel = ["Low", "Low", "Moderate", "High", "Extreme"][
+      weatherData.floodRiskScore
+    ];
+
+    console.debug({ weatherData });
     return weatherData;
   }
 
-  static computeFloodRisk(weatherData) {
-    weatherData.floodRiskScore = 0;
-    weatherData.floodRiskAlertLevel = 0;
-    weatherData.floodRiskLabel = "TODO";
-
-    weatherData.floodRiskFactors24h = {
-      f01PeakRainFallIntensity: Math.max(...weatherData.hourlyRain),
-      f02CumulativeRainfall24Hours: weatherData.hourlyRainSumNext24Hours,
+  static computeLandslideRisk(weatherData) {
+    weatherData.landslideRiskFactors24h = weatherData.floodRiskFactors24h;
+    weatherData.landslideRiskFactors24h = {
+      ...weatherData.landslideRiskFactors24h,
+      f05HourlyRainSumPrevious7Days: weatherData.hourlyRainSumPrevious7Days,
     };
-    console.debug(weatherData.floodRiskFactors24h);
+
+    weatherData.landslideRiskFactors24hThresholded = {
+      f01PeakRainFallIntensity:
+        weatherData.floodRiskFactors24hThresholded.f01PeakRainFallIntensity >
+        30,
+      f02HourlyRainSumNext24Hours:
+        weatherData.floodRiskFactors24hThresholded.f02HourlyRainSumNext24Hours >
+        80,
+      f03HoursOfRainNext24Hours:
+        weatherData.floodRiskFactors24hThresholded.f03HoursOfRainNext24Hours >
+        10,
+      f04MeanDeepSoilMoistureNext24Hours:
+        weatherData.floodRiskFactors24hThresholded
+          .f04MeanDeepSoilMoistureNext24Hours > 0.25,
+      f05HourlyRainSumPrevious7Days:
+        weatherData.landslideRiskFactors24h.f05HourlyRainSumPrevious7Days > 200,
+    };
+
+    weatherData.landslideRiskScore = Object.values(
+      weatherData.landslideRiskFactors24hThresholded
+    ).filter((v) => v).length;
+    weatherData.landslideRiskScoreTotal = 5;
+    weatherData.landslideRiskLabel = [
+      "Low",
+      "Low",
+      "Moderate",
+      "Moderate",
+      "High",
+      "Extreme",
+    ][weatherData.landslideRiskScore];
+
     return weatherData;
   }
 }
