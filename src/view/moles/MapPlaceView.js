@@ -57,7 +57,7 @@ export default function MapPlaceView({ place }) {
             </div>
           `,
         iconSize: [iconSize, iconSize],
-        iconAnchor: [iconSize / 2, iconSize],
+        iconAnchor: [iconSize / 2, iconSize / 2], // Center the icon on the latLng
       })}
       eventHandlers={{
         click: onClickInner,

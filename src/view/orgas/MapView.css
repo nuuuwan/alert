@@ -17,10 +17,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 20px;
-  height: 20px;
-  background: transparent;
+  width: 40px; /* Increased size for debugging */
+  height: 40px; /* Increased size for debugging */
   pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 2000; /* Increased z-index to ensure visibility */
 }
 
 #map-crosshairs::before,
@@ -28,21 +29,21 @@
   content: "";
   position: absolute;
   background: black;
-  z-index: 1000;
+  z-index: 2001; /* Ensure pseudo-elements are above other elements */
 }
 
 #map-crosshairs::before {
   width: 2px;
-  height: 200%; 
+  height: 100%;
   top: 0;
-  left: 100%;
-  transform: translateX(-100%);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #map-crosshairs::after {
-  width: 200%;
+  width: 100%;
   height: 2px;
-  top: 100%;
+  top: 50%;
   left: 0;
-  transform: translateY(-100%);
+  transform: translateY(-50%);
 }
