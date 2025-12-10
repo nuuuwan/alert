@@ -28,7 +28,7 @@ export default function OpenMeteoView({ place }) {
           label="Rain"
           value={openMeteoData.hourlyRainSumLast24Hours.toFixed(0)}
           unit="mm"
-          timeLabel="24h total"
+          timeLabel="Last 24h total"
         />
         <MetricCard
           Icon={ThermostatIcon}
@@ -46,8 +46,8 @@ export default function OpenMeteoView({ place }) {
         />
         <MetricCard
           Icon={WaterDropIcon}
-          label="For. Rain"
-          value={openMeteoData.hourlyRainHourCountNext24Hours.toFixed(0)}
+          label="Rain"
+          value={openMeteoData.hourlyRainSumNext24Hours.toFixed(0)}
           unit="mm"
           timeLabel="Next 24h total"
           isPrediction
