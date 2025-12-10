@@ -11,7 +11,7 @@ import NaturalDisasterRisk from "../moles/NaturalDisasterRisk";
 
 export default function PlaceDetails({ place }) {
   return (
-    <Box sx={{ p: 1, m: 1 }}>
+    <Box sx={{ p: 1, m: 1, mb: 10 }}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
           <NominatimView latlng={place.latLng} />
