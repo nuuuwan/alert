@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import MapPlaceView from "../moles/MapPlaceView";
 import MapRegionView from "../moles/MapRegionView";
-import CustomDrawer from "../moles/CustomDrawer";
-import EntDetails from "../moles/EntDetails";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import Box from "@mui/material/Box";
@@ -16,14 +14,11 @@ export default function MapViewInner({
   cityNameId,
   placeLatLngId,
   //
-  centerLatLng,
   setCenterLatLng,
   //
-  isDrawerOpen,
-  setDrawerOpen,
-  //
+  selectedEnt,
+  setSelectedEnt,
 }) {
-  const [selectedEnt, setSelectedEnt] = useState(null);
   const [HydrometricStations, setHydrometricStations] = useState([]);
   const [dsdEnts, setDsdEnts] = useState([]);
 
@@ -60,7 +55,7 @@ export default function MapViewInner({
       }
     }
     fetchSelectedDsd();
-  }, [dsdNameId, setCenterLatLng]);
+  }, [dsdNameId, setCenterLatLng, setSelectedEnt]);
 
   useEffect(() => {
     async function fetchHydrometricStation() {
@@ -76,7 +71,7 @@ export default function MapViewInner({
       }
     }
     fetchHydrometricStation();
-  }, [hydrometricStationNameId, setCenterLatLng]);
+  }, [hydrometricStationNameId, setCenterLatLng, setSelectedEnt]);
 
   useEffect(() => {
     async function fetchCity() {
@@ -90,7 +85,7 @@ export default function MapViewInner({
       }
     }
     fetchCity();
-  }, [cityNameId, setCenterLatLng]);
+  }, [cityNameId, setCenterLatLng, setSelectedEnt]);
 
   useEffect(() => {
     async function fetchPlace() {
@@ -105,14 +100,7 @@ export default function MapViewInner({
       }
     }
     fetchPlace();
-  }, [placeLatLngId, setCenterLatLng]);
-
-  const getFileName = () => {
-    if (selectedEnt) {
-      return `${selectedEnt.id}.png`;
-    }
-    return "location.png";
-  };
+  }, [placeLatLngId, setCenterLatLng, setSelectedEnt]);
 
   return (
     <Box>
@@ -124,12 +112,6 @@ export default function MapViewInner({
 
       {dsdEnts &&
         dsdEnts.map((dsd) => <MapRegionView key={dsd.id} region={dsd} />)}
-
-      <CustomDrawer
-        selectedEnt={selectedEnt}
-        renderContent={(ent) => <EntDetails ent={ent} />}
-        getFileName={getFileName}
-      />
     </Box>
   );
 }

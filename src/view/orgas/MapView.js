@@ -7,7 +7,10 @@ import LatLng from "../../nonview/base/geos/LatLng";
 import { useNavigate } from "react-router-dom";
 import MapViewInner from "./MapViewInner";
 import GeoLocation from "../../nonview/base/GeoLocation";
+import Box from "@mui/material/Box";
 import Place from "../../nonview/core/ents/places/Place";
+import CustomDrawer from "../moles/CustomDrawer";
+import EntDetails from "../moles/EntDetails";
 
 function MapEventHandler({ onMapClickOrMoveEnd }) {
   const map = useMapEvents({
@@ -49,6 +52,7 @@ export default function MapView({
   isDrawerOpen,
   setDrawerOpen,
 }) {
+  const [selectedEnt, setSelectedEnt] = useState(null);
   const navigate = useNavigate();
   const hasSomeEntParam =
     dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
@@ -76,14 +80,20 @@ export default function MapView({
     fetchBrowserLocation();
   }, [hasSomeEntParam, navigate]);
 
+  const getFileName = () => {
+    if (selectedEnt) {
+      return `${selectedEnt.id}.png`;
+    }
+    return "location.png";
+  };
   console.debug("center", center);
 
   return (
-    <>
+    <Box>
       <MapContainer
         center={center}
         zoom={zoom}
-        style={{ height: "100%", width: "100%" }}
+        style={{ height: "50vh", width: "100%" }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -98,15 +108,19 @@ export default function MapView({
           cityNameId={cityNameId}
           placeLatLngId={placeLatLngId}
           //
-          centerLatLng={centerLatLng}
           setCenterLatLng={setCenterLatLng}
           //
-          isDrawerOpen={isDrawerOpen}
-          setDrawerOpen={setDrawerOpen}
+          selectedEnt={selectedEnt}
+          setSelectedEnt={setSelectedEnt}
         />
 
         <div id="map-crosshairs"></div>
       </MapContainer>
-    </>
+      <CustomDrawer
+        selectedEnt={selectedEnt}
+        renderContent={(ent) => <EntDetails ent={ent} />}
+        getFileName={getFileName}
+      />
+    </Box>
   );
 }

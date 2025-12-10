@@ -17,8 +17,8 @@ export default function CustomDrawer({
   };
 
   return (
-    <Box sx={{ height: "100%" }}>
-      <Box sx={{ position: "absolute", right: 8, top: 8, zIndex: 1 }}>
+    <Box>
+      <Box>
         <IconButton onClick={handleDownload} aria-label="download">
           <DownloadIcon />
         </IconButton>
@@ -28,7 +28,7 @@ export default function CustomDrawer({
         getFileName={getFileName}
         selectedItem={selectedEnt}
       >
-        <Box sx={{ m: 1, p: 3 }}>{renderContent(selectedEnt)}</Box>
+        <Box>{renderContent(selectedEnt)}</Box>
       </DownloadableContent>
     </Box>
   );
