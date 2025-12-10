@@ -33,11 +33,12 @@ export default function MapView({
   hydrometricStationNameId,
   cityNameId,
   placeLatLngId,
+  isDrawerOpen,
+  setDrawerOpen,
 }) {
   const navigate = useNavigate();
   const hasSomeEntParam =
     dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
-  const [drawerOpen, setDrawerOpen] = useState(hasSomeEntParam ? true : false);
   const [selectedEnt, setSelectedEnt] = useState(null);
   const [HydrometricStations, setHydrometricStations] = useState([]);
   const [dsdEnts, setDsdEnts] = useState([]);
@@ -68,7 +69,6 @@ export default function MapView({
         if (dsd) {
           await dsd.loadDetails();
           setSelectedEnt(dsd);
-          setDrawerOpen(true);
         }
       }
     }
@@ -79,12 +79,11 @@ export default function MapView({
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId,
+          hydrometricStationNameId
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
           setSelectedEnt(hydrometricStation);
-          setDrawerOpen(true);
         }
       }
     }
@@ -98,7 +97,6 @@ export default function MapView({
         if (city) {
           await city.loadDetails();
           setSelectedEnt(city);
-          setDrawerOpen(true);
         }
       }
     }
@@ -113,7 +111,6 @@ export default function MapView({
         if (place) {
           await place.loadDetails();
           setSelectedEnt(place);
-          setDrawerOpen(true);
         }
       }
     }
@@ -128,7 +125,6 @@ export default function MapView({
         const place = await Place.load({ latLng });
         await place.loadDetails();
         setSelectedEnt(place);
-        setDrawerOpen(true);
       }
     }
     fetchBrowserLocation();
@@ -183,7 +179,7 @@ export default function MapView({
         {[selectedEnt, ...HydrometricStations].map(
           (station) =>
             station &&
-            station.latLng && <MapPlaceView key={station.id} place={station} />,
+            station.latLng && <MapPlaceView key={station.id} place={station} />
         )}
 
         {dsdEnts &&
@@ -191,9 +187,9 @@ export default function MapView({
       </MapContainer>
 
       <CustomDrawer
-        open={drawerOpen}
+        open={isDrawerOpen}
         onClose={handleDrawerClose}
-        selectedItem={selectedEnt}
+        selectedEnt={selectedEnt}
         renderContent={(ent) => <EntDetails ent={ent} />}
         getFileName={getFileName}
         browserLatLng={browserLatLng}

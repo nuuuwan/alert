@@ -9,11 +9,14 @@ import DownloadableContent from "./DownloadableContent";
 export default function CustomDrawer({
   open,
   onClose,
-  selectedItem,
+  selectedEnt,
   renderContent,
   getFileName,
 }) {
   const downloadRef = useRef(null);
+  if (!selectedEnt) {
+    return null;
+  }
 
   const handleDownload = () => {
     if (downloadRef.current) {
@@ -23,14 +26,13 @@ export default function CustomDrawer({
 
   return (
     <Drawer
-      anchor="right"
+      anchor="bottom"
       open={open}
       onClose={onClose}
       sx={{
         "& .MuiDrawer-paper": {
-          width: { xs: "100%", sm: 320, md: 480 },
-          marginTop: "48px",
-          height: "calc(100% - 48px)",
+          width: { xs: "100%" },
+          height: "calc(50% - 48px)",
         },
       }}
     >
@@ -46,9 +48,9 @@ export default function CustomDrawer({
         <DownloadableContent
           ref={downloadRef}
           getFileName={getFileName}
-          selectedItem={selectedItem}
+          selectedItem={selectedEnt}
         >
-          <Box sx={{ m: 1, p: 3 }}>{renderContent(selectedItem)}</Box>
+          <Box sx={{ m: 1, p: 3 }}>{renderContent(selectedEnt)}</Box>
         </DownloadableContent>
       </Box>
     </Drawer>

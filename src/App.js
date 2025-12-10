@@ -8,6 +8,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { FONT_FAMILY } from "./view/_cons/StyleConstants";
 import { useParams } from "react-router-dom";
 import { DataProvider } from "./nonview/core/DataContext";
+import { useState } from "react";
 
 const theme = createTheme({
   typography: {
@@ -18,6 +19,8 @@ const theme = createTheme({
 function App() {
   const { dsdNameId, hydrometricStationNameId, cityNameId, placeLatLngId } =
     useParams();
+  const [isDrawerOpen, setDrawerOpen] = useState(false);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -30,10 +33,15 @@ function App() {
               hydrometricStationNameId={hydrometricStationNameId}
               placeLatLngId={placeLatLngId}
               cityNameId={cityNameId}
+              isDrawerOpen={isDrawerOpen}
+              setDrawerOpen={setDrawerOpen}
             />
           </DataProvider>
         </Box>
-        <CustomBottomNavigator />
+        <CustomBottomNavigator
+          isDrawerOpen={isDrawerOpen}
+          setDrawerOpen={setDrawerOpen}
+        />
       </Box>
     </ThemeProvider>
   );
