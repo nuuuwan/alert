@@ -18,7 +18,14 @@ export default function CustomDrawer({
 
   return (
     <Box>
-      <Box>
+      <Box
+        sx={{
+          position: "absolute",
+          right: 0,
+          m: 1,
+          zIndex: 1000,
+        }}
+      >
         <IconButton onClick={handleDownload} aria-label="download">
           <DownloadIcon />
         </IconButton>

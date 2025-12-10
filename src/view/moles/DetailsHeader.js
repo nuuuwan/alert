@@ -7,16 +7,9 @@ export default function DetailsHeader({ ent, supertitleOverride }) {
   const iconSize = 48;
   const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
   return (
-    <Box>
+    <Box sx={{ m: 0, p: 0 }}>
       <Box sx={{ display: "flex", alignItems: "flex-start" }}>
-        <Box
-          sx={{
-            height: iconSize,
-            width: iconSize,
-          }}
-        >
-          <EntIcon ent={ent} iconSize={iconSize} />
-        </Box>
+        <EntIcon ent={ent} iconSize={iconSize} />
 
         <Typography
           variant="h5"
