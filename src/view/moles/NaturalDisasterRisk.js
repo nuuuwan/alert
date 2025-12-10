@@ -1,8 +1,9 @@
 import MetricCard from "../atoms/MetricCard";
 import MetricCardCollection from "../atoms/MetricCardCollection";
 import FloodIcon from "../atoms/icons/FloodIcon";
-import { getAlertColor } from "../_cons/StyleConstants";
+import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import LandslideIcon from "../atoms/icons/LandslideIcon";
+import WarningIcon from "@mui/icons-material/Warning";
 
 export default function NaturalDisasterRisk({ place }) {
   const { openMeteoData } = place;
@@ -36,6 +37,36 @@ export default function NaturalDisasterRisk({ place }) {
             : ""
         }
         color={getAlertColor(openMeteoData.landslideRiskAlertLevel)}
+      />
+      <MetricCard
+        Icon={WarningIcon}
+        label="Tsunami Risk"
+        value="TODO"
+        unit=""
+        timeLabel="Coming Soon..."
+        isPrediction
+        alertLabel={""}
+        color={COLORS.neutralLight}
+      />
+      <MetricCard
+        Icon={WarningIcon}
+        label="Extreme Heat Risk"
+        value="TODO"
+        unit=""
+        timeLabel="Coming Soon..."
+        isPrediction
+        alertLabel={""}
+        color={COLORS.neutralLight}
+      />
+      <MetricCard
+        Icon={WarningIcon}
+        label="Drought Risk"
+        value="TODO"
+        unit=""
+        timeLabel="Coming Soon..."
+        isPrediction
+        alertLabel={""}
+        color={COLORS.neutralLight}
       />
     </MetricCardCollection>
   );
