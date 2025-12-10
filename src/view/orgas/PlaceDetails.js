@@ -11,7 +11,7 @@ export default function PlaceDetails({ place }) {
   return (
     <Box sx={{ p: 1, m: 1, mb: 10 }}>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           {place instanceof HydrometricStation && (
             <HydrometricStationDetails place={place} />
           )}
@@ -20,7 +20,7 @@ export default function PlaceDetails({ place }) {
           <OpenMeteoView place={place} />
         </Grid>
 
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <SatelliteImageView place={place} />
         </Grid>
       </Grid>
