@@ -7,8 +7,12 @@ export default class Region {
     this.multiPolygon = multiPolygon;
   }
 
+  getCentroidLatLng() {
+    return this.multiPolygon.getCentroid();
+  }
+
   async loadCentroidPlace() {
-    const centroidLatLng = this.multiPolygon.getCentroid();
+    const centroidLatLng = this.getCentroidLatLng();
     const centroidPlace = await Place.load({ latLng: centroidLatLng });
     return centroidPlace;
   }

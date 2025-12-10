@@ -5,27 +5,27 @@ import CustomDrawer from "../moles/CustomDrawer";
 import EntDetails from "../moles/EntDetails";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
-import GeoLocation from "../../nonview/base/GeoLocation";
 import Box from "@mui/material/Box";
 import Place from "../../nonview/core/ents/places/Place";
 import City from "../../nonview/core/ents/places/City";
 import LatLng from "../../nonview/base/geos/LatLng";
 
 export default function MapViewInner({
-  centerLatLng,
   dsdNameId,
   hydrometricStationNameId,
   cityNameId,
   placeLatLngId,
+  //
+  centerLatLng,
+  setCenterLatLng,
+  //
   isDrawerOpen,
   setDrawerOpen,
+  //
 }) {
-  const hasSomeEntParam =
-    dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
   const [selectedEnt, setSelectedEnt] = useState(null);
   const [HydrometricStations, setHydrometricStations] = useState([]);
   const [dsdEnts, setDsdEnts] = useState([]);
-  const [browserLatLng, setBrowserLatLng] = useState(null);
 
   // Default Multiple Ent Loading
 
@@ -55,11 +55,12 @@ export default function MapViewInner({
         if (dsd) {
           await dsd.loadDetails();
           setSelectedEnt(dsd);
+          setCenterLatLng(dsd.getCentroidLatLng());
         }
       }
     }
     fetchSelectedDsd();
-  }, [dsdNameId]);
+  }, [dsdNameId, setCenterLatLng]);
 
   useEffect(() => {
     async function fetchHydrometricStation() {
@@ -70,11 +71,12 @@ export default function MapViewInner({
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
           setSelectedEnt(hydrometricStation);
+          setCenterLatLng(hydrometricStation.latLng);
         }
       }
     }
     fetchHydrometricStation();
-  }, [hydrometricStationNameId]);
+  }, [hydrometricStationNameId, setCenterLatLng]);
 
   useEffect(() => {
     async function fetchCity() {
@@ -83,11 +85,12 @@ export default function MapViewInner({
         if (city) {
           await city.loadDetails();
           setSelectedEnt(city);
+          setCenterLatLng(city.latLng);
         }
       }
     }
     fetchCity();
-  }, [cityNameId]);
+  }, [cityNameId, setCenterLatLng]);
 
   useEffect(() => {
     async function fetchPlace() {
@@ -97,24 +100,12 @@ export default function MapViewInner({
         if (place) {
           await place.loadDetails();
           setSelectedEnt(place);
+          setCenterLatLng(place.latLng);
         }
       }
     }
     fetchPlace();
-  }, [placeLatLngId]);
-
-  useEffect(() => {
-    async function fetchBrowserLocation() {
-      const latLng = await GeoLocation.getCurrentLatLng();
-      setBrowserLatLng(latLng);
-      if (!hasSomeEntParam && latLng) {
-        const place = await Place.load({ latLng });
-        await place.loadDetails();
-        setSelectedEnt(place);
-      }
-    }
-    fetchBrowserLocation();
-  }, [hasSomeEntParam]);
+  }, [placeLatLngId, setCenterLatLng]);
 
   const handleDrawerClose = () => {
     setDrawerOpen(false);
@@ -144,7 +135,6 @@ export default function MapViewInner({
         selectedEnt={selectedEnt}
         renderContent={(ent) => <EntDetails ent={ent} />}
         getFileName={getFileName}
-        browserLatLng={browserLatLng}
       />
     </Box>
   );

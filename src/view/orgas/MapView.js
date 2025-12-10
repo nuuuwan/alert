@@ -1,13 +1,15 @@
-import { useEffect, useState, useRef } from "react";
-import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
+import { useEffect, useState } from "react";
+import { MapContainer, TileLayer, useMapEvents, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./MapView.css";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 import LatLng from "../../nonview/base/geos/LatLng";
 import { useNavigate } from "react-router-dom";
-import MapViewInner from "./MapViewInner"; // Updated import
+import MapViewInner from "./MapViewInner";
+import GeoLocation from "../../nonview/base/GeoLocation";
+import Place from "../../nonview/core/ents/places/Place";
 
-function MapClickHandler({ onMapClick, setCenterLatLng }) {
+function MapEventHandler({ onMapClickOrMoveEnd }) {
   const map = useMapEvents({
     click(e) {
       const centre = e.latlng;
@@ -15,8 +17,7 @@ function MapClickHandler({ onMapClick, setCenterLatLng }) {
         parseFloat(centre.lat),
         parseFloat(centre.lng),
       ]);
-      onMapClick(latLng);
-      setCenterLatLng(latLng);
+      onMapClickOrMoveEnd(latLng);
     },
 
     moveend(e) {
@@ -25,11 +26,18 @@ function MapClickHandler({ onMapClick, setCenterLatLng }) {
         parseFloat(centre.lat),
         parseFloat(centre.lng),
       ]);
-      onMapClick(latLng);
-      setCenterLatLng(latLng);
+      onMapClickOrMoveEnd(latLng);
     },
   });
+  return null;
+}
 
+function MapCenterUpdater({ center, zoom }) {
+  const map = useMap();
+  useEffect(() => {
+    map.setView(center, zoom);
+    map.panTo(center);
+  }, [map, center, zoom]);
   return null;
 }
 
@@ -42,43 +50,47 @@ export default function MapView({
   setDrawerOpen,
 }) {
   const navigate = useNavigate();
+  const hasSomeEntParam =
+    dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
+
   const [centerLatLng, setCenterLatLng] = useState(
     LatLng.fromRaw(DEFAULT_CENTER)
   );
-  const mapRef = useRef();
 
-  const handleMapClick = async (latLng) => {
+  const onMapClickOrMoveEnd = async (latLng) => {
     navigate(`/Place/${latLng.id}`);
   };
 
-  let center = DEFAULT_CENTER;
-  let zoom = DEFAULT_ZOOM;
+  const center = centerLatLng.raw() || DEFAULT_CENTER;
+  const zoom = DEFAULT_ZOOM;
 
   useEffect(() => {
-    if (mapRef.current) {
-      const map = mapRef.current;
-      map.setView(center, zoom);
+    async function fetchBrowserLocation() {
+      const latLng = await GeoLocation.getCurrentLatLng();
+      if (!hasSomeEntParam && latLng) {
+        const place = await Place.load({ latLng });
+        setCenterLatLng(latLng);
+        navigate(place.url);
+      }
     }
-  }, [center, zoom]);
+    fetchBrowserLocation();
+  }, [hasSomeEntParam, navigate]);
+
+  console.debug("center", center);
 
   return (
     <>
       <MapContainer
-        center={DEFAULT_CENTER}
-        zoom={DEFAULT_ZOOM}
+        center={center}
+        zoom={zoom}
         style={{ height: "100%", width: "100%" }}
-        whenCreated={(mapInstance) => {
-          mapRef.current = mapInstance;
-        }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <MapClickHandler
-          onMapClick={handleMapClick}
-          setCenterLatLng={setCenterLatLng}
-        />
+        <MapCenterUpdater center={center} zoom={zoom} />
+        <MapEventHandler onMapClickOrMoveEnd={onMapClickOrMoveEnd} />
 
         <MapViewInner
           dsdNameId={dsdNameId}
@@ -87,6 +99,7 @@ export default function MapView({
           placeLatLngId={placeLatLngId}
           //
           centerLatLng={centerLatLng}
+          setCenterLatLng={setCenterLatLng}
           //
           isDrawerOpen={isDrawerOpen}
           setDrawerOpen={setDrawerOpen}
