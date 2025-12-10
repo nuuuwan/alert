@@ -17,11 +17,7 @@ export default function NaturalDisasterRisk({ place }) {
         unit=""
         timeLabel="Next 24h"
         isPrediction
-        alertLabel={
-          openMeteoData.floodRiskAlertLevel > 0
-            ? `Level ${openMeteoData.floodRiskAlertLevel}`
-            : ""
-        }
+        alertLabel={openMeteoData.floodRiskLabel}
         color={getAlertColor(openMeteoData.floodRiskAlertLevel)}
       />
       <MetricCard
@@ -31,11 +27,7 @@ export default function NaturalDisasterRisk({ place }) {
         unit=""
         timeLabel="Next 24h"
         isPrediction
-        alertLabel={
-          openMeteoData.landslideRiskAlertLevel > 0
-            ? `Level ${openMeteoData.landslideRiskAlertLevel}`
-            : ""
-        }
+        alertLabel={openMeteoData.landslideRiskLabel}
         color={getAlertColor(openMeteoData.landslideRiskAlertLevel)}
       />
       <MetricCard

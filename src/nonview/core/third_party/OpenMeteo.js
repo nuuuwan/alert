@@ -210,6 +210,13 @@ export default class OpenMeteo {
       weatherData.landslideRiskAlertLevel = 1;
     }
 
+    weatherData.landslideRiskLabel = [
+      "No Risk",
+      "Low Risk",
+      "Medium Risk",
+      "High Risk",
+    ][weatherData.landslideRiskAlertLevel];
+
     return weatherData;
   }
 
@@ -231,6 +238,13 @@ export default class OpenMeteo {
     } else if (weatherData.floodRiskScore >= 25) {
       weatherData.floodRiskAlertLevel = 1;
     }
+
+    weatherData.floodRiskLabel = [
+      "No Risk",
+      "Low Risk",
+      "Medium Risk",
+      "High Risk",
+    ][weatherData.floodRiskAlertLevel];
 
     return weatherData;
   }
