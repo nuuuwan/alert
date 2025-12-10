@@ -51,6 +51,9 @@ export default function Chart({ data, timeData, yAxisLabel, chartType }) {
           tickLabelStyle: {
             fontSize: 10,
           },
+          tickInterval: (value, index) => {
+            return index % 3 === 0;
+          },
           valueFormatter: (date, context) => {
             return TimeUtils.formatIImmp(date);
           },
