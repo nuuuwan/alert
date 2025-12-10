@@ -173,19 +173,6 @@ export default class OpenMeteo {
         weatherData.landslideRiskFactors24h.f05HourlyRainSumPrevious7Days > 200,
     };
 
-    weatherData.landslideRiskScore = Object.values(
-      weatherData.landslideRiskFactors24hThresholded
-    ).filter((v) => v).length;
-    weatherData.landslideRiskScoreTotal = 5;
-    weatherData.landslideRiskLabel = [
-      "Low",
-      "Low",
-      "Moderate",
-      "Moderate",
-      "High",
-      "Extreme",
-    ][weatherData.landslideRiskScore];
-
     return weatherData;
   }
 }

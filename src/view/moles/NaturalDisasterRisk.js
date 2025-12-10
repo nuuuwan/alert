@@ -4,9 +4,15 @@ import FloodIcon from "../atoms/icons/FloodIcon";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import LandslideIcon from "../atoms/icons/LandslideIcon";
 import WarningIcon from "@mui/icons-material/Warning";
+import NaturalDisaster from "../../nonview/core/third_party/NaturalDisaster";
 
 export default function NaturalDisasterRisk({ place }) {
-  const { openMeteoData } = place;
+  const { openMeteoData, openElevationData } = place;
+
+  const { landslideRiskData } = NaturalDisaster.getData({
+    openMeteoData,
+    openElevationData,
+  });
 
   return (
     <MetricCardCollection title="Natural Disaster Risks" sourceList={[]}>
@@ -23,12 +29,12 @@ export default function NaturalDisasterRisk({ place }) {
       <MetricCard
         Icon={LandslideIcon}
         label="Landslide Risk"
-        value={`${openMeteoData.landslideRiskScore}/${openMeteoData.landslideRiskScoreTotal}`}
+        value={`${landslideRiskData.landslideRiskScore}/${landslideRiskData.landslideRiskScoreTotal}`}
         unit=""
         timeLabel="Next 24h"
         isPrediction
-        alertLabel={openMeteoData.landslideRiskLabel}
-        color={getAlertColor(openMeteoData.landslideRiskAlertLevel)}
+        alertLabel={landslideRiskData.landslideRiskLabel}
+        color={getAlertColor(landslideRiskData.landslideRiskAlertLevel)}
       />
       <MetricCard
         Icon={WarningIcon}
