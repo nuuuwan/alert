@@ -1,5 +1,7 @@
 import WWW from "../../base/WWW";
 import Cache from "../../base/Cache";
+import SystemMode from "../../base/SystemMode";
+
 export default class OpenElevation {
   static getTestData() {
     return {
@@ -17,9 +19,9 @@ export default class OpenElevation {
     };
   }
 
-  static async getData(latLng, neighbourDistanceM = 100, isTest = true) {
-    if (isTest) {
-      console.warn("Using OpenElevation test data for: ", latLng.raw());
+  static async getData(latLng, neighbourDistanceM = 100) {
+    if (SystemMode.isTest()) {
+      console.warn("[OpenElevation] Test Mode:", latLng.raw());
       return this.getTestData();
     }
 

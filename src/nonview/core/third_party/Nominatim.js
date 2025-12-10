@@ -1,5 +1,5 @@
 import WWW from "../../base/WWW";
-
+import SystemMode from "../../base/SystemMode";
 export default class Nominatim {
   static getTestData() {
     return {
@@ -7,9 +7,9 @@ export default class Nominatim {
     };
   }
 
-  static async reverseGeocode(latLng, isTest = true) {
-    if (isTest) {
-      console.warn("Nominatim: Using test data for: ", latLng.raw());
+  static async reverseGeocode(latLng) {
+    if (SystemMode.isTest()) {
+      console.warn("[Nominatim] Test Mode:", latLng.raw());
       return this.getTestData();
     }
     const [lat, lon] = latLng.raw();

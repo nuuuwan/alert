@@ -1,6 +1,7 @@
 import { fetchWeatherApi } from "openmeteo";
 import TimeUtils from "../../base/TimeUtils";
 import ArrayUtils from "../../base/ArrayUtils";
+import SystemMode from "../../base/SystemMode";
 export default class OpenMeteo {
   static getTestData() {
     let weatherData = {
@@ -112,9 +113,9 @@ export default class OpenMeteo {
     return weatherDataRaw;
   }
 
-  static async getData({ latLng, isTest = true }) {
-    if (isTest) {
-      console.warn("Using OpenMeteo test data for: ", latLng.raw());
+  static async getData({ latLng }) {
+    if (SystemMode.isTest()) {
+      console.warn("[OpenMeteo] Test Mode:", latLng.raw());
       return this.getTestData();
     }
 
