@@ -81,11 +81,13 @@ export default function MapView({
         />
 
         <MapViewInner
-          centerLatLng={centerLatLng}
           dsdNameId={dsdNameId}
           hydrometricStationNameId={hydrometricStationNameId}
           cityNameId={cityNameId}
           placeLatLngId={placeLatLngId}
+          //
+          centerLatLng={centerLatLng}
+          //
           isDrawerOpen={isDrawerOpen}
           setDrawerOpen={setDrawerOpen}
         />
