@@ -1,7 +1,6 @@
 import { LineChart } from "@mui/x-charts/LineChart";
 import { COLORS } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
-import SourceView from "./SourceView";
 
 const DASHED_STYLE = {
   strokeDasharray: "5 5",
@@ -95,10 +94,6 @@ export default function WaterLevelChart({
             strokeDasharray: "5 5",
           },
         }}
-      />
-      <SourceView
-        label="Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka"
-        url="https://github.com/nuuuwan/lk_irrigation"
       />
     </>
   );

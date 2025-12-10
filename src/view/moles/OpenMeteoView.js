@@ -3,7 +3,6 @@ import ThermostatIcon from "@mui/icons-material/Thermostat";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import MetricCard from "../atoms/MetricCard";
 import MetricCardCollection from "../atoms/MetricCardCollection";
-import SourceView from "../atoms/SourceView";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import RainChart from "../atoms/RainChart";
 import TempChart from "../atoms/TempChart";
@@ -15,7 +14,15 @@ export default function OpenMeteoView({ place }) {
   const [latitude, longitude] = latLng.raw();
   return (
     <Box sx={{ p: 1 }}>
-      <MetricCardCollection title="Weather">
+      <MetricCardCollection
+        title="Weather"
+        sourceList={[
+          {
+            label: "Open-Meteo (Real-Time Weather API)",
+            url: `https://open-meteo.com/en/docs?latitude=${latitude}&longitude=${longitude}`,
+          },
+        ]}
+      >
         <MetricCard
           Icon={WaterDropIcon}
           label="Rain"
@@ -54,11 +61,6 @@ export default function OpenMeteoView({ place }) {
       <TempChart
         hourlyTemp={openMeteoData.hourlyTemp}
         hourlyTimeUt={openMeteoData.hourlyTimeUt}
-      />
-
-      <SourceView
-        label="Open-Meteo (Real-Time Weather API)"
-        url={`https://open-meteo.com/en/docs?latitude=${latitude}&longitude=${longitude}`}
       />
     </Box>
   );

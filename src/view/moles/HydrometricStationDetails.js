@@ -83,7 +83,16 @@ export default function HydrometricStationDetails({ place }) {
 
   return (
     <Box>
-      <MetricCardCollection title="Water Level Metrics">
+      <MetricCardCollection
+        title="Water Level Metrics"
+        sourceList={[
+          {
+            label:
+              "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
+            url: "https://github.com/nuuuwan/lk_irrigation",
+          },
+        ]}
+      >
         <MetricCard
           Icon={WavesIcon}
           label="Water Level"

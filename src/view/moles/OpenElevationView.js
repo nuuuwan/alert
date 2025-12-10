@@ -7,7 +7,15 @@ export default function OpenElevationView({ place }) {
   const { openElevationData } = place;
 
   return (
-    <MetricCardCollection title="Terrain Metrics">
+    <MetricCardCollection
+      title="Terrain Metrics"
+      sourceList={[
+        {
+          label: "Open-Elevation (Free Elevation API)",
+          url: `https://open-elevation.com/#api-docs`,
+        },
+      ]}
+    >
       <MetricCard
         Icon={TerrainIcon}
         label="Elevation"

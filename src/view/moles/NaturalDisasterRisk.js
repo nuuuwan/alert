@@ -9,7 +9,7 @@ export default function NaturalDisasterRisk({ place }) {
   const { openMeteoData } = place;
 
   return (
-    <MetricCardCollection title="Natural Disaster Risks">
+    <MetricCardCollection title="Natural Disaster Risks" sourceList={[]}>
       <MetricCard
         Icon={FloodIcon}
         label="Flood Risk"

@@ -1,7 +1,8 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import SourceView from "./SourceView";
 
-export default function MetricCardCollection({ title, children }) {
+export default function MetricCardCollection({ title, children, sourceList }) {
   return (
     <Box>
       <Typography variant="body2" gutterBottom>
@@ -16,6 +17,7 @@ export default function MetricCardCollection({ title, children }) {
       >
         {children}
       </Box>
+      <SourceView sourceList={sourceList} />
     </Box>
   );
 }

@@ -77,8 +77,12 @@ export default function SatelliteImageView({ place }) {
         }}
       />
       <SourceView
-        label="European Space Agency (ESA) Sentinel-2"
-        url="https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2"
+        sourceList={[
+          {
+            label: "European Space Agency (ESA) Sentinel-2",
+            url: "https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2",
+          },
+        ]}
       />
     </Box>
   );
