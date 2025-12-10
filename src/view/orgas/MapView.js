@@ -9,7 +9,7 @@ import MapViewInner from "./MapViewInner";
 import GeoLocation from "../../nonview/base/GeoLocation";
 import Box from "@mui/material/Box";
 import Place from "../../nonview/core/ents/places/Place";
-import CustomDrawer from "../moles/CustomDrawer";
+import DataPanel from "../moles/DataPanel";
 import EntDetails from "../moles/EntDetails";
 
 function MapEventHandler({ onMapClickOrMoveEnd }) {
@@ -116,7 +116,7 @@ export default function MapView({
 
         <div id="map-crosshairs"></div>
       </MapContainer>
-      <CustomDrawer
+      <DataPanel
         selectedEnt={selectedEnt}
         renderContent={(ent) => <EntDetails ent={ent} />}
         getFileName={getFileName}

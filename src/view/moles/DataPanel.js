@@ -4,11 +4,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import { useRef } from "react";
 import DownloadableContent from "./DownloadableContent";
 
-export default function CustomDrawer({
-  selectedEnt,
-  renderContent,
-  getFileName,
-}) {
+export default function DataPanel({ selectedEnt, renderContent, getFileName }) {
   const downloadRef = useRef(null);
   const handleDownload = () => {
     if (downloadRef.current) {
