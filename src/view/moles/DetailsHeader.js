@@ -4,6 +4,7 @@ import EntIcon from "../atoms/EntIcon";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import NominatimView from "./NominatimView";
 import Divider from "@mui/material/Divider";
+import NearbyPlacesView from "./NearbyPlacesView";
 
 export default function DetailsHeader({ ent, supertitleOverride }) {
   const size = 48;
@@ -30,6 +31,7 @@ export default function DetailsHeader({ ent, supertitleOverride }) {
         {ent.subtitle}
       </Typography>
       <NominatimView latlng={ent.latLng} />
+      <NearbyPlacesView latLng={ent.latLng} />
       <Divider sx={{ my: 1 }} />
     </Box>
   );

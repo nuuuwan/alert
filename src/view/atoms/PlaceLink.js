@@ -14,10 +14,10 @@ function PlaceLink({ place, distanceM, nameOverride }) {
         sx={{
           display: "flex",
           alignItems: "center",
-          gap: 0.25,
-          borderRadius: 3,
-          padding: 0.5,
-          margin: 0.5,
+          gap: 0.125,
+          borderRadius: 2,
+          padding: 0.25,
+          margin: 0.25,
           transition: "all 0.3s ease",
           "&:hover": {
             backgroundColor: COLORS.primary,
@@ -34,9 +34,7 @@ function PlaceLink({ place, distanceM, nameOverride }) {
         </Typography>
 
         <Typography variant="caption" color="text.secondary">
-          {distanceM > 1000
-            ? (distanceM / 1000).toFixed(0) + "km"
-            : distanceM.toFixed(0) + "m"}
+          {distanceM > 1000 ? (distanceM / 1000).toFixed(0) + "km" : "<1km"}
         </Typography>
       </Box>
     </Link>
