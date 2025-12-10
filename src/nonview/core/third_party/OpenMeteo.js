@@ -3,7 +3,7 @@ import TimeUtils from "../../base/TimeUtils";
 import ArrayUtils from "../../base/ArrayUtils";
 export default class OpenMeteo {
   static getTestData() {
-    return {
+    let weatherData = {
       elevationM: 150,
       // current
       currentTempCelsius: 28.5,
@@ -39,6 +39,11 @@ export default class OpenMeteo {
       ),
       meanHourlyWindGustsNext24h: 35,
     };
+
+    weatherData = OpenMeteo.computeFloodRisk(weatherData);
+    weatherData = OpenMeteo.computeLandslideRisk(weatherData);
+
+    return weatherData;
   }
 
   static async getRawData({ latLng }) {
