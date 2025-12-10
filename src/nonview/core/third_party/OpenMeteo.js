@@ -2,76 +2,47 @@ import { fetchWeatherApi } from "openmeteo";
 import TimeUtils from "../../base/TimeUtils";
 import ArrayUtils from "../../base/ArrayUtils";
 import SystemMode from "../../base/SystemMode";
+import WWW from "../../base/WWW";
 export default class OpenMeteo {
-  static getTestData() {
-    let weatherData = {
-      elevationM: 150,
-      // current
-      currentTempCelsius: 28.5,
-      currentRH: 75,
-      currentTimeUt: TimeUtils.getUnixTime() - 600,
-
-      // hourly
-      hourlyTimeUt: Array.from(
-        { length: 48 },
-        (_, i) => TimeUtils.getUnixTime() - 3600 * (48 - i)
-      ),
-
-      hourlyTemp: Array.from({ length: 48 }, () => 25 + Math.random() * 10),
-
-      hourlyRain: Array.from({ length: 48 }, (_, i) =>
-        i < 24 ? Math.random() * 5 : Math.random() * 20
-      ),
-      hourlyRainSumLast24Hours: 60,
-      hourlyRainSumNext24Hours: 120,
-
-      hourlyRainHourCountNext24Hours: 8,
-      hourlyRainProb: Array.from({ length: 24 }, () => Math.random() * 100),
-      maxHourlyRainProb: 85,
-
-      meanSoilMoistureTopLayerNext24h: 0.4,
-      meanSoilMoistureDeepLayerNext24h: 0.6,
-
-      meanSoilTempNext24h: 30,
-
-      hourlyWindGusts: Array.from(
-        { length: 48 },
-        () => 20 + Math.random() * 40
-      ),
-      meanHourlyWindGustsNext24h: 35,
-    };
-
-    weatherData = OpenMeteo.computeFloodRisk(weatherData);
-    weatherData = OpenMeteo.computeLandslideRisk(weatherData);
-
-    return weatherData;
-  }
-
   static async getRawData({ latLng }) {
+    if (SystemMode.isTest()) {
+      console.warn("🧪 [TestMode] OpenMeteo.getRawData", latLng.raw());
+      return await WWW.fetch(
+        process.env.PUBLIC_URL + `/test_data/open_meteo_raw_data.json`
+      );
+    }
+
     const utNow = TimeUtils.getUnixTime();
-    const startHour = TimeUtils.formatISO8601(utNow - 86400);
-    const endHour = TimeUtils.formatISO8601(utNow + 86400);
+    const spanDays = 7;
+    const startHour = TimeUtils.formatISO8601(utNow - spanDays * 86400);
+    const endHour = TimeUtils.formatISO8601(utNow + spanDays * 86400);
+
+    const currentFields = [
+      "temperature_2m",
+      "precipitation",
+      "relative_humidity_2m",
+    ];
+    const hourlyFields = [
+      "temperature_2m",
+      "precipitation",
+      "precipitation_probability",
+      "soil_moisture_0_to_1cm",
+      "soil_moisture_27_to_81cm",
+      "soil_temperature_18cm",
+      "wind_gusts_10m",
+    ];
 
     const params = {
       latitude: latLng.lat,
       longitude: latLng.lng,
 
-      current: ["temperature_2m", "precipitation", "relative_humidity_2m"],
-      hourly: [
-        "temperature_2m",
-        "precipitation",
-        "precipitation_probability",
-        "soil_moisture_0_to_1cm",
-        "soil_moisture_27_to_81cm",
-        "soil_temperature_18cm",
-        "wind_gusts_10m",
-      ],
+      current: currentFields,
+      hourly: hourlyFields,
 
       start_hour: startHour,
       end_hour: endHour,
 
       timezone: "Asia/Colombo",
-
       precipitation_unit: "mm",
       temperature_unit: "celsius",
     };
@@ -81,44 +52,37 @@ export default class OpenMeteo {
 
     const hourly = response.hourly();
     const current = response.current();
+    const elevation = response.elevation();
 
     const weatherDataRaw = {
-      elevation: response.elevation(),
+      elevation,
       current_time_ut: Number(current.time()),
-      current: {
-        time: new Date(Number(current.time()) * 1000),
-        temperature_2m: current.variables(0).value(),
-        precipitation: current.variables(1).value(),
-        relative_humidity_2m: current.variables(2).value(),
-      },
-      hourly: {
-        time: Array.from(
-          {
-            length:
-              (Number(hourly.timeEnd()) - Number(hourly.time())) /
-              hourly.interval(),
-          },
-          (_, i) =>
-            new Date((Number(hourly.time()) + i * hourly.interval()) * 1000)
-        ),
-        temperature_2m: hourly.variables(0).valuesArray(),
-        precipitation: hourly.variables(1).valuesArray(),
-        precipitation_probability: hourly.variables(2).valuesArray(),
-        soil_moisture_0_to_1cm: hourly.variables(3).valuesArray(),
-        soil_moisture_27_to_81cm: hourly.variables(4).valuesArray(),
-        soil_temperature_18cm: hourly.variables(5).valuesArray(),
-        wind_gusts_10m: hourly.variables(6).valuesArray(),
-      },
+      current: Object.fromEntries(
+        currentFields.map((field, index) => [
+          field,
+          current.variables(index).value(),
+        ])
+      ),
+      hourly_time_ut: Array.from(
+        {
+          length:
+            (Number(hourly.timeEnd()) - Number(hourly.time())) /
+            hourly.interval(),
+        },
+        (_, i) => (Number(hourly.time()) + i * hourly.interval()) * 1000
+      ),
+      hourly: Object.fromEntries(
+        hourlyFields.map((field, index) => [
+          field,
+          Object.values(hourly.variables(index).valuesArray()),
+        ])
+      ),
     };
+    console.debug(JSON.stringify(weatherDataRaw, null, 2));
     return weatherDataRaw;
   }
 
   static async getData({ latLng }) {
-    if (SystemMode.isTest()) {
-      console.warn("[OpenMeteo] Test Mode:", latLng.raw());
-      return this.getTestData();
-    }
-
     const weatherDataRaw = await OpenMeteo.getRawData({ latLng });
     let weatherData = {
       elevationM: weatherDataRaw.elevation,
@@ -128,9 +92,7 @@ export default class OpenMeteo {
       currentTimeUt: weatherDataRaw.current_time_ut,
 
       // hourly
-      hourlyTimeUt: weatherDataRaw.hourly.time.map(
-        TimeUtils.getUnixTimeFromDate
-      ),
+      hourlyTimeUt: weatherDataRaw.hourly_time_ut,
 
       hourlyTemp: weatherDataRaw.hourly.temperature_2m,
 
