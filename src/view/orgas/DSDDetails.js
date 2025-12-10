@@ -21,20 +21,14 @@ export default function DSDDetails({ region }) {
 
   return (
     <Box>
-      <SexAgeView
-        sexAgeData={region.sexAgeData}
-        areaSqKm={`${region.areaSqKm.toFixed(0)} km²`}
-      />
       <LandslideWarningView
         level={region.latestLandslideWarningLevel}
         timeUt={region.latestLandslideWarningTimeUt}
       />
-
-      {centroidPlace && (
-        <Box>
-          <NearbyPlacesView latLng={centroidPlace.latLng} />
-        </Box>
-      )}
+      <SexAgeView
+        sexAgeData={region.sexAgeData}
+        areaSqKm={`${region.areaSqKm.toFixed(0)} km²`}
+      />
     </Box>
   );
 }

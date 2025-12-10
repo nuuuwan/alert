@@ -53,7 +53,9 @@ export default function MetricCard({
           overflow: "hidden", // Prevent overflow in this section
         }}
       >
-        {Icon && <Icon fontSize="small" sx={{ color: foreColor }} />}
+        {Icon && (
+          <Icon fontSize="small" sx={{ color: foreColor }} color={foreColor} />
+        )}
         <Typography variant="caption" color={foreColor} noWrap>
           {label}
         </Typography>

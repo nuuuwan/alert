@@ -9,6 +9,7 @@ export default class Nominatim {
 
   static async reverseGeocode(latLng, isTest = true) {
     if (isTest) {
+      console.warn("Nominatim: Using test data for: ", latLng.raw());
       return this.getTestData();
     }
     const [lat, lon] = latLng.raw();

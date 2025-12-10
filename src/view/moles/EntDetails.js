@@ -39,7 +39,7 @@ export default function EntDetails({ ent, supertitleOverride }) {
       <Box sx={{ position: "relative", top: 0, left: 0, right: 0 }}>
         <DetailsHeader ent={ent} supertitleOverride={supertitleOverride} />
       </Box>
-      <Box sx={{ height: "30vh", mt: 0, mb: 10, overflowY: "auto" }}>
+      <Box sx={{ height: "67vh", mt: 0, mb: 10, overflowY: "auto" }}>
         <EntChildDetails ent={entWithDetails} />
       </Box>
     </Box>
