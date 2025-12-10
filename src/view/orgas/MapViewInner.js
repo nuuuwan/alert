@@ -107,10 +107,6 @@ export default function MapViewInner({
     fetchPlace();
   }, [placeLatLngId, setCenterLatLng]);
 
-  const handleDrawerClose = () => {
-    setDrawerOpen(false);
-  };
-
   const getFileName = () => {
     if (selectedEnt) {
       return `${selectedEnt.id}.png`;
@@ -130,8 +126,6 @@ export default function MapViewInner({
         dsdEnts.map((dsd) => <MapRegionView key={dsd.id} region={dsd} />)}
 
       <CustomDrawer
-        open={isDrawerOpen}
-        onClose={handleDrawerClose}
         selectedEnt={selectedEnt}
         renderContent={(ent) => <EntDetails ent={ent} />}
         getFileName={getFileName}
