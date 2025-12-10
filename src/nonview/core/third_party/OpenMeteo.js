@@ -246,6 +246,13 @@ export default class OpenMeteo {
       "High Risk",
     ][weatherData.floodRiskAlertLevel];
 
+    // Factors
+
+    weatherData.floodRiskFactors24h = {
+      f01PeakRainFallIntensity: Math.max(...weatherData.hourlyRain),
+      f02cumulativeRainfall: weatherData.hourlyRainSumNext24Hours,
+    };
+
     return weatherData;
   }
 }
