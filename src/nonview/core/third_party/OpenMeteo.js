@@ -107,9 +107,9 @@ export default class OpenMeteo {
     return weatherDataRaw;
   }
 
-  static async getData({ latLng, isTest = True }) {
+  static async getData({ latLng, isTest = true }) {
     if (isTest) {
-      log.warning("Using OpenMeteo test data for: ", latLng.raw());
+      console.warning("Using OpenMeteo test data for: ", latLng.raw());
       return this.getTestData();
     }
 
