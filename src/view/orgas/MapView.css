@@ -1,9 +1,6 @@
-
-
 .leaflet-tile-pane {
   filter: grayscale(100%);
 }
-
 
 #map-crosshairs {
   position: absolute;

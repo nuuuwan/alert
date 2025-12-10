@@ -9,7 +9,7 @@ export default class NaturalDisaster {
       openElevationData.slopeData.slopeAngle > 22.5;
 
     const landslideRiskScore = Object.values(
-      landslideRiskFactors24hThresholded
+      landslideRiskFactors24hThresholded,
     ).filter((v) => v).length;
     const landslideRiskScoreTotal = 6;
     const landslideRiskLabel = [
@@ -38,7 +38,7 @@ export default class NaturalDisaster {
       openElevationData.relativeElevationData.relativeElevation < -5;
 
     const floodRiskScore = Object.values(floodRiskFactors24hThresholded).filter(
-      (v) => v
+      (v) => v,
     ).length;
     const floodRiskScoreTotal = 5;
     const floodRiskLabel = [

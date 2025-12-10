@@ -51,7 +51,7 @@ export default class OpenElevation {
       async () => {
         const response = await WWW.fetchJSON(url);
         return JSON.stringify(response);
-      }
+      },
     );
     const response = JSON.parse(responseJSON);
     return response.results.map((result) => result.elevation);

@@ -60,7 +60,7 @@ export default function MapView({
     dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
 
   const [centerLatLng, setCenterLatLng] = useState(
-    LatLng.fromRaw(DEFAULT_CENTER)
+    LatLng.fromRaw(DEFAULT_CENTER),
   );
 
   const onMapClickOrMoveEnd = async (latLng) => {
