@@ -28,7 +28,7 @@ export default function MetricCard({
         m: 0.5,
         borderRadius: 2,
         backgroundColor: backColor,
-        border: "1px solid",
+        border: "2px solid",
         borderColor: foreColor,
         textAlign: "center",
         width: 120,
