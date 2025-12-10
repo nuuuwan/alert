@@ -3,14 +3,8 @@ import Typography from "@mui/material/Typography";
 
 export default function MetricCardCollection({ title, children }) {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        gap: 1,
-        flexWrap: "wrap",
-      }}
-    >
-      <Typography variant="h6" gutterBottom>
+    <Box>
+      <Typography variant="body2" gutterBottom>
         {title}
       </Typography>
       <Box
