@@ -86,7 +86,6 @@ export default function MapView({
     }
     return "location.png";
   };
-  console.debug("center", center);
 
   return (
     <Box>
