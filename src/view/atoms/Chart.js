@@ -9,12 +9,13 @@ import { BarPlot } from "@mui/x-charts/BarChart";
 export default function Chart({ data, timeData, yAxisLabel, chartType }) {
   const currentTime = Date.now();
   const xAxisData = timeData.map((time) => new Date(time * 1000));
+  console.debug(currentTime, xAxisData);
 
   const observedData = timeData.map((time, index) =>
-    time * 1000 <= currentTime ? data[index] : null,
+    time * 1000 <= currentTime ? data[index] : null
   );
   const predictedData = timeData.map((time, index) =>
-    time * 1000 > currentTime ? data[index] : null,
+    time * 1000 > currentTime ? data[index] : null
   );
 
   const nowPoint =
