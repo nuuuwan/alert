@@ -2,6 +2,45 @@ import { fetchWeatherApi } from "openmeteo";
 import TimeUtils from "../../base/TimeUtils";
 import ArrayUtils from "../../base/ArrayUtils";
 export default class OpenMeteo {
+  static getTestData() {
+    return {
+      elevationM: 150,
+      // current
+      currentTempCelsius: 28.5,
+      currentRH: 75,
+      currentTimeUt: TimeUtils.getUnixTime() - 600,
+
+      // hourly
+      hourlyTimeUt: Array.from(
+        { length: 48 },
+        (_, i) => TimeUtils.getUnixTime() - 3600 * (48 - i)
+      ),
+
+      hourlyTemp: Array.from({ length: 48 }, () => 25 + Math.random() * 10),
+
+      hourlyRain: Array.from({ length: 48 }, (_, i) =>
+        i < 24 ? Math.random() * 5 : Math.random() * 20
+      ),
+      hourlyRainSumLast24Hours: 60,
+      hourlyRainSumNext24Hours: 120,
+
+      hourlyRainHourCountNext24Hours: 8,
+      hourlyRainProb: Array.from({ length: 24 }, () => Math.random() * 100),
+      maxHourlyRainProb: 85,
+
+      meanSoilMoistureTopLayerNext24h: 0.4,
+      meanSoilMoistureDeepLayerNext24h: 0.6,
+
+      meanSoilTempNext24h: 30,
+
+      hourlyWindGusts: Array.from(
+        { length: 48 },
+        () => 20 + Math.random() * 40
+      ),
+      meanHourlyWindGustsNext24h: 35,
+    };
+  }
+
   static async getRawData({ latLng }) {
     const utNow = TimeUtils.getUnixTime();
     const startHour = TimeUtils.formatISO8601(utNow - 86400);
@@ -68,7 +107,12 @@ export default class OpenMeteo {
     return weatherDataRaw;
   }
 
-  static async getData({ latLng }) {
+  static async getData({ latLng, isTest = True }) {
+    if (isTest) {
+      log.warning("Using OpenMeteo test data for: ", latLng.raw());
+      return this.getTestData();
+    }
+
     const weatherDataRaw = await OpenMeteo.getRawData({ latLng });
     let weatherData = {
       elevationM: weatherDataRaw.elevation,
