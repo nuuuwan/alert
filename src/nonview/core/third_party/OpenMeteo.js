@@ -117,9 +117,9 @@ export default class OpenMeteo {
     weatherData.floodRiskFactors24h = {
       f01PeakRainFallIntensity: Math.max(...weatherData.hourlyRain),
       f02HourlyRainSumNext24Hours: weatherData.hourlyRainSumNext24Hours,
-      f03HoursOfRainNext24Hours: weatherData.hourlyRain.filter(
-        (rain) => rain > 0
-      ).length,
+      f03HoursOfRainNext24Hours: weatherData.hourlyRain
+        .slice(7 * 24, 8 * 24)
+        .filter((rain) => rain > 1).length,
       f04MeanDeepSoilMoistureNext24Hours: ArrayUtils.mean(
         weatherData.hourlyDeepSoilMoisture.slice(7 * 24, 8 * 24)
       ),
