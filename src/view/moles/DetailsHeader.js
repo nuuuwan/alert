@@ -2,6 +2,8 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import EntIcon from "../atoms/EntIcon";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
+import NominatimView from "./NominatimView";
+import Divider from "@mui/material/Divider";
 
 export default function DetailsHeader({ ent, supertitleOverride }) {
   const size = 48;
@@ -24,9 +26,11 @@ export default function DetailsHeader({ ent, supertitleOverride }) {
       <Typography variant="overline" color="text.secondary">
         {supertitleOverride ? supertitleOverride : ent.supertitle}
       </Typography>
-      <Typography variant="body2" color="text.secondary" gutterBottom>
+      <Typography variant="body2" color="text.secondary">
         {ent.subtitle}
       </Typography>
+      <NominatimView latlng={ent.latLng} />
+      <Divider sx={{ my: 1 }} />
     </Box>
   );
 }

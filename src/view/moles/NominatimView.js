@@ -2,32 +2,29 @@ import { useEffect, useState } from "react";
 import Nominatim from "../../nonview/core/third_party/Nominatim";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import CircularProgress from "@mui/material/CircularProgress";
 import { COLORS } from "../_cons/StyleConstants";
 
 function NominatimView({ latlng }) {
   const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
-      try {
-        const result = await Nominatim.reverseGeocode(latlng);
-        setData(result);
-      } catch (err) {
-        setError(err);
+      if (!latlng) {
+        return;
       }
+      const result = await Nominatim.reverseGeocode(latlng);
+      setData(result);
     }
 
     fetchData();
   }, [latlng]);
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
+  if (!latlng) {
+    return null;
   }
 
   if (!data) {
-    return <CircularProgress />;
+    return null;
   }
 
   return (

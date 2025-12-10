@@ -13,7 +13,7 @@ import CustomDrawer from "../moles/CustomDrawer";
 import EntDetails from "../moles/EntDetails";
 
 function MapEventHandler({ onMapClickOrMoveEnd }) {
-  const map = useMapEvents({
+  useMapEvents({
     click(e) {
       const centre = e.latlng;
       const latLng = LatLng.fromRaw([
