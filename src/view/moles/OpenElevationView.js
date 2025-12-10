@@ -17,30 +17,19 @@ export default function OpenElevationView({ place }) {
       <MetricCard
         Icon={TerrainIcon}
         label="Max Slope Angle"
-        value={openElevationData.slopeData.slopeAngle.toFixed(1)}
+        value={openElevationData.slopeData.slopeAngle.toFixed(0)}
         unit="°"
-        alertLabel={
-          openElevationData.slopeData.slopeDangerLevel > 0
-            ? `Level ${openElevationData.slopeData.slopeDangerLevel}`
-            : ""
-        }
+        alertLabel=""
         color={getAlertColor(openElevationData.slopeData.slopeDangerLevel)}
       />
       <MetricCard
         Icon={TerrainIcon}
         label="Relative Elevation"
-        value={
-          (openElevationData.relativeElevationData.relativeElevation > 0
-            ? "+"
-            : "") +
-          openElevationData.relativeElevationData.relativeElevation.toFixed(1)
-        }
+        value={openElevationData.relativeElevationData.relativeElevation.toFixed(
+          0
+        )}
         unit="m"
-        alertLabel={
-          openElevationData.relativeElevationData.lowGroundDangerLevel > 0
-            ? `Level ${openElevationData.relativeElevationData.lowGroundDangerLevel}`
-            : ""
-        }
+        alertLabel=""
         color={getAlertColor(
           openElevationData.relativeElevationData.lowGroundDangerLevel
         )}
