@@ -28,6 +28,10 @@ function MapClickHandler({ onMapClick }) {
   return null;
 }
 
+function MapViewInner({ children }) {
+  return <>{children}</>;
+}
+
 export default function MapView({
   dsdNameId,
   hydrometricStationNameId,
@@ -176,26 +180,30 @@ export default function MapView({
         />
         <MapClickHandler onMapClick={handleMapClick} />
 
-        {[selectedEnt, ...HydrometricStations].map(
-          (station) =>
-            station &&
-            station.latLng && <MapPlaceView key={station.id} place={station} />
-        )}
+        <MapViewInner>
+          {[selectedEnt, ...HydrometricStations].map(
+            (station) =>
+              station &&
+              station.latLng && (
+                <MapPlaceView key={station.id} place={station} />
+              )
+          )}
 
-        {dsdEnts &&
-          dsdEnts.map((dsd) => <MapRegionView key={dsd.id} region={dsd} />)}
+          {dsdEnts &&
+            dsdEnts.map((dsd) => <MapRegionView key={dsd.id} region={dsd} />)}
+
+          <CustomDrawer
+            open={isDrawerOpen}
+            onClose={handleDrawerClose}
+            selectedEnt={selectedEnt}
+            renderContent={(ent) => <EntDetails ent={ent} />}
+            getFileName={getFileName}
+            browserLatLng={browserLatLng}
+          />
+        </MapViewInner>
+
+        <div id="map-crosshairs"></div>
       </MapContainer>
-
-      <div id="map-crosshairs"></div>
-
-      <CustomDrawer
-        open={isDrawerOpen}
-        onClose={handleDrawerClose}
-        selectedEnt={selectedEnt}
-        renderContent={(ent) => <EntDetails ent={ent} />}
-        getFileName={getFileName}
-        browserLatLng={browserLatLng}
-      />
     </>
   );
 }
