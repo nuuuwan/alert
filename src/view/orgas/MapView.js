@@ -93,6 +93,7 @@ export default function MapView({
         center={center}
         zoom={zoom}
         style={{ height: "50vh", width: "100%" }}
+        zoomControl={false}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
