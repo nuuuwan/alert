@@ -1,7 +1,28 @@
 import WWW from "../../base/WWW";
 import Cache from "../../base/Cache";
 export default class OpenElevation {
-  static async getData(latLng, neighbourDistanceM = 100) {
+  static getTestData() {
+    return {
+      elevationM: 123,
+      relativeElevationData: {
+        meanNeighbours: 130,
+        relativeElevation: -7,
+        lowGroundDangerLevel: 2,
+      },
+      slopeData: {
+        maxSlope: 0.15,
+        slopeAngle: 8.53,
+        slopeDangerLevel: 1,
+      },
+    };
+  }
+
+  static async getData(latLng, neighbourDistanceM = 100, isTest = true) {
+    if (isTest) {
+      console.warn("Using OpenElevation test data for: ", latLng.raw());
+      return this.getTestData();
+    }
+
     const e = (0.0001 * neighbourDistanceM) / 11.1;
     const pts = this._buildNeighbourhood(latLng, e);
     const elevations = await this.getElevationList(pts);
