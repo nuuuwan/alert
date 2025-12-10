@@ -42,7 +42,7 @@ export default function NaturalDisasterRisk({ place }) {
       />
       <MetricCard
         Icon={WarningIcon}
-        label="Extreme Heat Risk"
+        label="Heat Risk"
         value="TODO"
         unit=""
         timeLabel="Coming Soon..."
