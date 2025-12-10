@@ -186,6 +186,8 @@ export default function MapView({
           dsdEnts.map((dsd) => <MapRegionView key={dsd.id} region={dsd} />)}
       </MapContainer>
 
+      <div id="map-crosshairs"></div>
+
       <CustomDrawer
         open={isDrawerOpen}
         onClose={handleDrawerClose}
