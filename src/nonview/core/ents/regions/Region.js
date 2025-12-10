@@ -16,4 +16,8 @@ export default class Region {
     const centroidPlace = await Place.load({ latLng: centroidLatLng });
     return centroidPlace;
   }
+
+  get latLng() {
+    return this.getCentroidLatLng();
+  }
 }
