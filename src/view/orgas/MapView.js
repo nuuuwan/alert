@@ -14,25 +14,36 @@ import MapRegionView from "../moles/MapRegionView";
 import EntDetails from "../moles/EntDetails";
 import { useNavigate } from "react-router-dom";
 import GeoLocation from "../../nonview/base/GeoLocation";
+import Box from "@mui/material/Box";
 
-function MapClickHandler({ onMapClick }) {
-  useMapEvents({
-    click: (e) => {
+function MapClickHandler({ onMapClick, setCenterLatLng }) {
+  const map = useMapEvents({
+    click(e) {
+      const centre = e.latlng;
       const latLng = LatLng.fromRaw([
-        parseFloat(e.latlng.lat),
-        parseFloat(e.latlng.lng),
+        parseFloat(centre.lat),
+        parseFloat(centre.lng),
       ]);
       onMapClick(latLng);
+      setCenterLatLng(latLng);
+    },
+
+    moveend(e) {
+      const centre = map.getCenter();
+      const latLng = LatLng.fromRaw([
+        parseFloat(centre.lat),
+        parseFloat(centre.lng),
+      ]);
+      onMapClick(latLng);
+      setCenterLatLng(latLng);
     },
   });
+
   return null;
 }
 
-function MapViewInner({ children }) {
-  return <>{children}</>;
-}
-
-export default function MapView({
+function MapViewInner({
+  centerLatLng,
   dsdNameId,
   hydrometricStationNameId,
   cityNameId,
@@ -40,14 +51,12 @@ export default function MapView({
   isDrawerOpen,
   setDrawerOpen,
 }) {
-  const navigate = useNavigate();
   const hasSomeEntParam =
     dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
   const [selectedEnt, setSelectedEnt] = useState(null);
   const [HydrometricStations, setHydrometricStations] = useState([]);
   const [dsdEnts, setDsdEnts] = useState([]);
   const [browserLatLng, setBrowserLatLng] = useState(null);
-  const mapRef = useRef();
 
   useEffect(() => {
     async function fetch() {
@@ -134,10 +143,6 @@ export default function MapView({
     fetchBrowserLocation();
   }, [hasSomeEntParam]);
 
-  const handleMapClick = async (latLng) => {
-    navigate(`/Place/${latLng.id}`);
-  };
-
   const handleDrawerClose = () => {
     setDrawerOpen(false);
   };
@@ -149,15 +154,57 @@ export default function MapView({
     return "location.png";
   };
 
-  let center = DEFAULT_CENTER;
-  let zoom = DEFAULT_ZOOM;
   if (selectedEnt) {
-    if (selectedEnt.latLng) {
-      center = [selectedEnt.latLng.lat, selectedEnt.latLng.lng];
-      zoom = DEFAULT_ZOOM + 4;
-    }
+    // if (selectedEnt.latLng) {
+    //   center = [selectedEnt.latLng.lat, selectedEnt.latLng.lng];
+    //   zoom = DEFAULT_ZOOM + 4;
+    // }
     window.document.title = `ALERT - ${selectedEnt.title}`;
   }
+
+  return (
+    <Box>
+      {[selectedEnt, ...HydrometricStations].map(
+        (station) =>
+          station &&
+          station.latLng && <MapPlaceView key={station.id} place={station} />
+      )}
+
+      {dsdEnts &&
+        dsdEnts.map((dsd) => <MapRegionView key={dsd.id} region={dsd} />)}
+
+      <CustomDrawer
+        open={isDrawerOpen}
+        onClose={handleDrawerClose}
+        selectedEnt={selectedEnt}
+        renderContent={(ent) => <EntDetails ent={ent} />}
+        getFileName={getFileName}
+        browserLatLng={browserLatLng}
+      />
+    </Box>
+  );
+}
+
+export default function MapView({
+  dsdNameId,
+  hydrometricStationNameId,
+  cityNameId,
+  placeLatLngId,
+  isDrawerOpen,
+  setDrawerOpen,
+}) {
+  const navigate = useNavigate();
+  const [centerLatLng, setCenterLatLng] = useState(
+    LatLng.fromRaw(DEFAULT_CENTER)
+  );
+  const mapRef = useRef();
+
+  const handleMapClick = async (latLng) => {
+    navigate(`/Place/${latLng.id}`);
+  };
+
+  let center = DEFAULT_CENTER;
+  let zoom = DEFAULT_ZOOM;
 
   useEffect(() => {
     if (mapRef.current) {
@@ -169,38 +216,31 @@ export default function MapView({
   return (
     <>
       <MapContainer
-        center={center}
-        zoom={zoom}
+        center={DEFAULT_CENTER}
+        zoom={DEFAULT_ZOOM}
         style={{ height: "100%", width: "100%" }}
-        ref={mapRef}
+        whenCreated={(mapInstance) => {
+          mapRef.current = mapInstance;
+        }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <MapClickHandler onMapClick={handleMapClick} />
+        <MapClickHandler
+          onMapClick={handleMapClick}
+          setCenterLatLng={setCenterLatLng}
+        />
 
-        <MapViewInner>
-          {[selectedEnt, ...HydrometricStations].map(
-            (station) =>
-              station &&
-              station.latLng && (
-                <MapPlaceView key={station.id} place={station} />
-              )
-          )}
-
-          {dsdEnts &&
-            dsdEnts.map((dsd) => <MapRegionView key={dsd.id} region={dsd} />)}
-
-          <CustomDrawer
-            open={isDrawerOpen}
-            onClose={handleDrawerClose}
-            selectedEnt={selectedEnt}
-            renderContent={(ent) => <EntDetails ent={ent} />}
-            getFileName={getFileName}
-            browserLatLng={browserLatLng}
-          />
-        </MapViewInner>
+        <MapViewInner
+          centerLatLng={centerLatLng}
+          dsdNameId={dsdNameId}
+          hydrometricStationNameId={hydrometricStationNameId}
+          cityNameId={cityNameId}
+          placeLatLngId={placeLatLngId}
+          isDrawerOpen={isDrawerOpen}
+          setDrawerOpen={setDrawerOpen}
+        />
 
         <div id="map-crosshairs"></div>
       </MapContainer>

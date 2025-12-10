@@ -1,4 +1,5 @@
 export default class LatLng {
+  static PRECISION = 0.0001;
   constructor(floatPair) {
     const [lat, lng] = floatPair;
     this.lat = lat;
@@ -6,11 +7,19 @@ export default class LatLng {
   }
 
   static fromRaw(floatPair) {
-    return new LatLng([floatPair[0], floatPair[1]]);
+    return new LatLng(
+      [floatPair[0], floatPair[1]].map(
+        (coord) => parseInt(coord / LatLng.PRECISION) * LatLng.PRECISION
+      )
+    );
   }
 
   static fromReverseRaw(floatPair) {
-    return new LatLng([floatPair[1], floatPair[0]]);
+    return new LatLng(
+      [floatPair[1], floatPair[0]].map(
+        (coord) => parseInt(coord / LatLng.PRECISION) * LatLng.PRECISION
+      )
+    );
   }
 
   static fromId(id) {
