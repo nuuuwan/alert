@@ -17,7 +17,7 @@ export default class OpenElevation {
     };
   }
 
-  static async getData(latLng, neighbourDistanceM = 100, isTest = true) {
+  static async getData(latLng, neighbourDistanceM = 100, isTest = false) {
     if (isTest) {
       console.warn("Using OpenElevation test data for: ", latLng.raw());
       return this.getTestData();
