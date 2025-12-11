@@ -11,17 +11,17 @@ export const COLORS = {
   neutralLighter: "#eeeeee",
 };
 
-export function getAlertColor(level) {
-  switch (level) {
-    case 3:
-      return COLORS.highAlert;
-    case 2:
-      return COLORS.mediumAlert;
-    case 1:
-      return COLORS.lowAlert;
-    default:
-      return COLORS.neutral;
+export function getAlertColor(level, maxLevel) {
+  if (level < 0 || level > maxLevel) {
+    throw new Error(`Level out of bounds: ${level} / ${maxLevel}`);
   }
+  const p = parseInt((level / maxLevel) * 3);
+  return [
+    COLORS.noAlert,
+    COLORS.lowAlert,
+    COLORS.mediumAlert,
+    COLORS.highAlert,
+  ][p];
 }
 
 // Typography
