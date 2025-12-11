@@ -13,13 +13,7 @@ export default function DetailsHeader({ ent, supertitleOverride }) {
     <Box sx={{ m: 0, p: 0 }}>
       <Box sx={{ display: "flex", alignItems: "flex-start" }}>
         <EntIcon ent={ent} size={size} />
-        <Typography
-          variant="h5"
-          sx={{
-            lineHeight: `${size}px`,
-          }}
-          color={color}
-        >
+        <Typography variant="h5" sx={{ lineHeight: `${size}px` }} color={color}>
           {ent.title}
         </Typography>
       </Box>
