@@ -9,7 +9,7 @@ import Place from "../../nonview/core/ents/places/Place";
 import { useNavigate } from "react-router-dom";
 
 function MapEventHandler({ onMapClickOrMoveEnd }) {
-  const map = useMapEvents({
+  useMapEvents({
     click: (e) => {
       onMapClickOrMoveEnd(LatLng.fromRaw([e.latlng.lat, e.latlng.lng]));
     },
