@@ -7,6 +7,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import Nominatim from "../../nonview/core/third_party/Nominatim";
 import LatLng from "../../nonview/base/geos/LatLng";
+import { useNavigate } from "react-router-dom";
 
 function PlaceSearch({ onPlaceSelect, latLng }) {
   const [open, setOpen] = useState(false);
@@ -14,6 +15,7 @@ function PlaceSearch({ onPlaceSelect, latLng }) {
   const [loading, setLoading] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [initialTextValue, setInitialTextValue] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function loadInitialPlace() {
@@ -44,11 +46,14 @@ function PlaceSearch({ onPlaceSelect, latLng }) {
       setLoading(false);
     }
   };
+  const handlePlaceSelect = (latLng) => {
+    navigate(`/Place/${latLng.id}`);
+  };
 
   const handleChange = (event, newValue) => {
     if (newValue && onPlaceSelect) {
-      onPlaceSelect(
-        LatLng.fromRaw([parseFloat(newValue.lat), parseFloat(newValue.lon)]),
+      handlePlaceSelect(
+        LatLng.fromRaw([parseFloat(newValue.lat), parseFloat(newValue.lon)])
       );
     }
   };

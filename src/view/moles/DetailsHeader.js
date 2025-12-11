@@ -4,16 +4,9 @@ import EntIcon from "../atoms/EntIcon";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import Divider from "@mui/material/Divider";
 import NearbyPlacesView from "./NearbyPlacesView";
-import PlaceSearch from "./PlaceSearch";
-import { useNavigate } from "react-router-dom";
+import NominatimView from "./NominatimView";
 
 export default function DetailsHeader({ ent, supertitleOverride }) {
-  const navigate = useNavigate();
-
-  const handlePlaceSelect = (latLng) => {
-    navigate(`/Place/${latLng.id}`);
-  };
-
   const size = 24;
   const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
   return (
@@ -30,7 +23,7 @@ export default function DetailsHeader({ ent, supertitleOverride }) {
       <Typography variant="body2" color="text.secondary">
         {ent.subtitle}
       </Typography>
-      <PlaceSearch onPlaceSelect={handlePlaceSelect} latLng={ent.latLng} />
+      <NominatimView latLng={ent.latLng} />
       <NearbyPlacesView latLng={ent.latLng} />
       <Divider sx={{ my: 1 }} />
     </Box>
