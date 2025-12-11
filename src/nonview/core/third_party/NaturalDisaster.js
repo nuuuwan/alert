@@ -9,7 +9,6 @@ export default class NaturalDisaster {
   }
 
   static computeLandslideRiskData({ openMeteoData, openElevationData }) {
-    console.debug({ openElevationData });
     let landslideRiskFactors24hThresholded = {
       ...openMeteoData.landslideRiskFactors24hThresholded,
     };

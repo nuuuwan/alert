@@ -22,7 +22,7 @@ export function getAlertColor(level, maxLevel) {
     COLORS.mediumAlert,
     COLORS.highAlert,
   ][p];
-  console.debug(level, maxLevel, p, color);
+
   return color;
 }
 

@@ -6,7 +6,6 @@ import WWW from "../../base/WWW";
 export default class OpenMeteo {
   static async getRawData({ latLng }) {
     if (SystemMode.isTest()) {
-      console.warn("🧪 [TestMode] OpenMeteo.getRawData", latLng.raw());
       return await WWW.fetch(
         process.env.PUBLIC_URL + `/test_data/open_meteo_raw_data.json`
       );
@@ -78,7 +77,7 @@ export default class OpenMeteo {
         ])
       ),
     };
-    console.debug(JSON.stringify(weatherDataRaw, null, 2));
+
     return weatherDataRaw;
   }
 
@@ -138,7 +137,6 @@ export default class OpenMeteo {
         0.3,
     };
 
-    console.debug({ weatherData });
     return weatherData;
   }
 

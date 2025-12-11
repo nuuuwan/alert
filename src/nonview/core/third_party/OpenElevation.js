@@ -21,7 +21,6 @@ export default class OpenElevation {
 
   static async getData(latLng, neighbourDistanceM = 100) {
     if (SystemMode.isTest()) {
-      console.warn("[OpenElevation] Test Mode:", latLng.raw());
       return this.getTestData();
     }
 
@@ -51,7 +50,7 @@ export default class OpenElevation {
       async () => {
         const response = await WWW.fetchJSON(url);
         return JSON.stringify(response);
-      },
+      }
     );
     const response = JSON.parse(responseJSON);
     return response.results.map((result) => result.elevation);

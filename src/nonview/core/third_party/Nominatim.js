@@ -9,7 +9,6 @@ export default class Nominatim {
 
   static async reverseGeocode(latLng) {
     if (SystemMode.isTest()) {
-      console.warn("[Nominatim] Test Mode:", latLng.raw());
       return this.getTestData();
     }
     const [lat, lon] = latLng.raw();
