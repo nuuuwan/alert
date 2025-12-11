@@ -5,6 +5,8 @@ import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import LandslideIcon from "../atoms/icons/LandslideIcon";
 import WarningIcon from "@mui/icons-material/Warning";
 import NaturalDisaster from "../../nonview/core/third_party/NaturalDisaster";
+import OpenElevation from "../../nonview/core/third_party/OpenElevation";
+import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 
 export default function NaturalDisasterRisk({ place }) {
   const { openMeteoData, openElevationData } = place;
@@ -15,7 +17,13 @@ export default function NaturalDisasterRisk({ place }) {
   });
 
   return (
-    <MetricCardCollection title="Natural Disaster Risks" sourceList={[]}>
+    <MetricCardCollection
+      title="Natural Disaster Risks"
+      sourceList={[
+        ...OpenElevation.getSourceList(),
+        ...OpenMeteo.getSourceList(place.latLng),
+      ]}
+    >
       <MetricCard
         Icon={FloodIcon}
         label="Flood Risk"
@@ -25,11 +33,11 @@ export default function NaturalDisasterRisk({ place }) {
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
           floodRiskData.floodRiskLevel,
-          floodRiskData.floodRiskMaxLevel,
+          floodRiskData.floodRiskMaxLevel
         )}
         color={getAlertColor(
           floodRiskData.floodRiskLevel,
-          floodRiskData.floodRiskMaxLevel,
+          floodRiskData.floodRiskMaxLevel
         )}
       />
       <MetricCard
@@ -41,11 +49,11 @@ export default function NaturalDisasterRisk({ place }) {
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
           landslideRiskData.landslideRiskLevel,
-          landslideRiskData.landslideRiskMaxLevel,
+          landslideRiskData.landslideRiskMaxLevel
         )}
         color={getAlertColor(
           landslideRiskData.landslideRiskLevel,
-          landslideRiskData.landslideRiskMaxLevel,
+          landslideRiskData.landslideRiskMaxLevel
         )}
       />
       <MetricCard
