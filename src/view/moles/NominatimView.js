@@ -4,22 +4,22 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { COLORS } from "../_cons/StyleConstants";
 
-function NominatimView({ latlng }) {
+function NominatimView({ latLng }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
-      if (!latlng) {
+      if (!latLng) {
         return;
       }
-      const result = await Nominatim.reverseGeocode(latlng);
+      const result = await Nominatim.reverseGeocode(latLng);
       setData(result);
     }
 
     fetchData();
-  }, [latlng]);
+  }, [latLng]);
 
-  if (!latlng) {
+  if (!latLng) {
     return null;
   }
 
