@@ -1,7 +1,7 @@
 import MetricCard from "../atoms/MetricCard";
 import MetricCardCollection from "../atoms/MetricCardCollection";
 import FloodIcon from "../atoms/icons/FloodIcon";
-import { COLORS, getAlertColor } from "../_cons/StyleConstants";
+import { getAlertColor } from "../_cons/StyleConstants";
 import LandslideIcon from "../atoms/icons/LandslideIcon";
 import WarningIcon from "@mui/icons-material/Warning";
 import NaturalDisaster from "../../nonview/core/third_party/NaturalDisaster";
@@ -9,13 +9,19 @@ import OpenElevation from "../../nonview/core/third_party/OpenElevation";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 
 export default function NaturalDisasterView({ place }) {
-  const { openMeteoData, openElevationData } = place;
+  const { openMeteoData, openElevationData, earthquakeData } = place;
 
-  const { floodRiskData, landslideRiskData, heatRiskData, droughtRiskData } =
-    NaturalDisaster.getData({
-      openMeteoData,
-      openElevationData,
-    });
+  const {
+    floodRiskData,
+    landslideRiskData,
+    heatRiskData,
+    droughtRiskData,
+    tsunamiRiskData,
+  } = NaturalDisaster.getData({
+    openMeteoData,
+    openElevationData,
+    earthquakeData,
+  });
 
   return (
     <MetricCardCollection
@@ -95,12 +101,18 @@ export default function NaturalDisasterView({ place }) {
       <MetricCard
         Icon={WarningIcon}
         label="Tsunami"
-        value="TODO"
+        value={`${tsunamiRiskData.tsunamiRiskLevel}/${tsunamiRiskData.tsunamiRiskMaxLevel}`}
         unit=""
-        timeLabel="Coming Soon..."
+        timeLabel="Next 24h"
         isPrediction
-        alertLabel={""}
-        color={COLORS.neutralLight}
+        alertLabel={NaturalDisaster.getLabel(
+          tsunamiRiskData.tsunamiRiskLevel,
+          tsunamiRiskData.tsunamiRiskMaxLevel
+        )}
+        color={getAlertColor(
+          tsunamiRiskData.tsunamiRiskLevel,
+          tsunamiRiskData.tsunamiRiskMaxLevel
+        )}
       />
     </MetricCardCollection>
   );

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   Box,
   List,
@@ -6,7 +5,6 @@ import {
   ListItemText,
   Typography,
   Chip,
-  CircularProgress,
   Link,
 } from "@mui/material";
 import Earthquake from "../../nonview/core/third_party/Earthquake";
@@ -14,22 +12,12 @@ import MetricCardCollection from "../atoms/MetricCardCollection";
 import { COLORS } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 
-export default function RecentEarthquakesView() {
-  const [earthquakes, setEarthquakes] = useState([]);
-
-  useEffect(() => {
-    const loadEarthquakes = async () => {
-      const data = await Earthquake.loadAllRecent();
-
-      const oneWeekAgo = Date.now() / 1000 - 7 * 24 * 60 * 60;
-      const recentData = data.filter(
-        (earthquake) => earthquake.timeUt >= oneWeekAgo
-      );
-
-      setEarthquakes(recentData.slice(0, 10));
-    };
-    loadEarthquakes();
-  }, []);
+export default function RecentEarthquakesView({ place }) {
+  const { earthquakeData } = place;
+  const oneWeekAgo = Date.now() / 1000 - 7 * 24 * 60 * 60;
+  const recentData = earthquakeData.filter(
+    (earthquake) => earthquake.timeUt >= oneWeekAgo
+  );
 
   const getMagnitudeColor = (magnitude) => {
     if (magnitude >= 8) return COLORS.highAlert;
@@ -38,17 +26,13 @@ export default function RecentEarthquakesView() {
     return COLORS.neutral;
   };
 
-  if (!earthquakes) {
-    return <CircularProgress />;
-  }
-
   return (
     <MetricCardCollection
       title="Recent Earthquakes"
       sourceList={Earthquake.getSourceList()}
     >
       <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-        {earthquakes.map((earthquake, index) => {
+        {recentData.map((earthquake, index) => {
           const formattedDate = TimeUtils.formatMMMDDIImmp(
             new Date(earthquake.timeUt * 1000)
           );
@@ -61,7 +45,7 @@ export default function RecentEarthquakesView() {
               alignItems="flex-start"
               sx={{
                 borderBottom:
-                  index < earthquakes.length - 1 ? "1px solid #e0e0e0" : "none",
+                  index < recentData.length - 1 ? "1px solid #e0e0e0" : "none",
                 py: 2,
               }}
             >

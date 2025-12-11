@@ -10,14 +10,14 @@ import RecentEarthquakesView from "../moles/RecentEarthquakesView";
 export default function PlaceDetails({ place }) {
   return (
     <Box sx={{ p: 1, m: 1, mb: 10 }}>
+      <NaturalDisasterView place={place} />
       {place instanceof HydrometricStation && (
         <HydrometricStationDetails place={place} />
       )}
-      <NaturalDisasterView place={place} />
       <OpenElevationView place={place} />
       <OpenMeteoView place={place} />
       <SatelliteImageView place={place} />
-      <RecentEarthquakesView />
+      <RecentEarthquakesView place={place} />
     </Box>
   );
 }

@@ -1,6 +1,7 @@
 import OpenMeteo from "../../third_party/OpenMeteo.js";
 import OpenElevation from "../../third_party/OpenElevation.js";
 import OpenMeteoFlood from "../../third_party/OpenMeteoFlood.js";
+import Earthquake from "../../third_party/Earthquake.js";
 class Place {
   static getEntTypeName() {
     return "Place";
@@ -34,6 +35,7 @@ class Place {
     this.openMeteoData = await OpenMeteo.getData({ latLng: this.latLng });
     this.openMeteoFloodData = await OpenMeteoFlood.getData(this.latLng);
     this.openElevationData = await OpenElevation.getData(this.latLng);
+    this.earthquakeData = await Earthquake.loadAllRecent();
     return this;
   }
 

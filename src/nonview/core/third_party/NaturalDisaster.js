@@ -65,7 +65,35 @@ export default class NaturalDisaster {
     return droughtRiskData;
   }
 
-  static getData({ openMeteoData, openElevationData }) {
+  static computeTsunamiRiskData({ earthquakeData }) {
+    const twentyFourHoursAgo = Date.now() / 1000 - 24 * 60 * 60;
+    const recentEarthquakes = earthquakeData.filter(
+      (eq) => eq.timeUt >= twentyFourHoursAgo
+    );
+
+    const tsunamiRiskFactors = {
+      f01EarthquakeMagnitudeLast24HoursMax: Math.max(
+        ...recentEarthquakes.map((eq) => eq.magnitude || 0)
+      ),
+    };
+
+    const tsunamiRiskFactorsThresholded = {
+      f01EarthquakeMagnitudeLast24HoursMax:
+        tsunamiRiskFactors.f01EarthquakeMagnitudeLast24HoursMax >= 6.5,
+    };
+
+    const tsunamiRiskLevel = Object.values(
+      tsunamiRiskFactorsThresholded
+    ).filter((v) => v).length;
+    const tsunamiRiskMaxLevel = 1;
+    const tsunamiRiskData = {
+      tsunamiRiskLevel,
+      tsunamiRiskMaxLevel,
+    };
+    return tsunamiRiskData;
+  }
+
+  static getData({ openMeteoData, openElevationData, earthquakeData }) {
     return {
       landslideRiskData: this.computeLandslideRiskData({
         openMeteoData,
@@ -80,6 +108,9 @@ export default class NaturalDisaster {
       }),
       droughtRiskData: this.computeDroughtRiskData({
         openMeteoData,
+      }),
+      tsunamiRiskData: this.computeTsunamiRiskData({
+        earthquakeData,
       }),
     };
   }
