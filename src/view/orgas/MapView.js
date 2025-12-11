@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
-import { MapContainer, TileLayer, useMapEvents, useMap } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import "./MapView.css";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 import LatLng from "../../nonview/base/geos/LatLng";
 import { useNavigate } from "react-router-dom";
-import MapViewInner from "./MapViewInner";
 import GeoLocation from "../../nonview/base/GeoLocation";
 import Box from "@mui/material/Box";
 import Place from "../../nonview/core/ents/places/Place";
@@ -13,46 +9,13 @@ import DataPanel from "../moles/DataPanel";
 import EntDetails from "../moles/EntDetails";
 import Typography from "@mui/material/Typography";
 import SystemMode from "../../nonview/base/SystemMode";
-
-function MapEventHandler({ onMapClickOrMoveEnd }) {
-  useMapEvents({
-    click(e) {
-      const centre = e.latlng;
-      const latLng = LatLng.fromRaw([
-        parseFloat(centre.lat),
-        parseFloat(centre.lng),
-      ]);
-      onMapClickOrMoveEnd(latLng);
-    },
-
-    // moveend(e) {
-    //   const centre = map.getCenter();
-    //   const latLng = LatLng.fromRaw([
-    //     parseFloat(centre.lat),
-    //     parseFloat(centre.lng),
-    //   ]);
-    //   onMapClickOrMoveEnd(latLng);
-    // },
-  });
-  return null;
-}
-
-function MapCenterUpdater({ center, zoom }) {
-  const map = useMap();
-  useEffect(() => {
-    map.setView(center, zoom);
-    map.panTo(center);
-  }, [map, center, zoom]);
-  return null;
-}
+import MapPanel from "./MapPanel";
 
 export default function MapView({
   dsdNameId,
   hydrometricStationNameId,
   cityNameId,
   placeLatLngId,
-  isDrawerOpen,
-  setDrawerOpen,
 }) {
   const [selectedEnt, setSelectedEnt] = useState(null);
   const navigate = useNavigate();
@@ -60,7 +23,7 @@ export default function MapView({
     dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
 
   const [centerLatLng, setCenterLatLng] = useState(
-    LatLng.fromRaw(DEFAULT_CENTER),
+    LatLng.fromRaw(DEFAULT_CENTER)
   );
 
   const onMapClickOrMoveEnd = async (latLng) => {
@@ -104,33 +67,18 @@ export default function MapView({
           </Typography>
         </Box>
       )}
-      <MapContainer
+      <MapPanel
         center={center}
         zoom={zoom}
-        style={{ height: "33vh", width: "100%" }}
-        zoomControl={false}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <MapCenterUpdater center={center} zoom={zoom} />
-        <MapEventHandler onMapClickOrMoveEnd={onMapClickOrMoveEnd} />
-
-        <MapViewInner
-          dsdNameId={dsdNameId}
-          hydrometricStationNameId={hydrometricStationNameId}
-          cityNameId={cityNameId}
-          placeLatLngId={placeLatLngId}
-          //
-          setCenterLatLng={setCenterLatLng}
-          //
-          selectedEnt={selectedEnt}
-          setSelectedEnt={setSelectedEnt}
-        />
-
-        <div id="map-crosshairs"></div>
-      </MapContainer>
+        onMapClickOrMoveEnd={onMapClickOrMoveEnd}
+        dsdNameId={dsdNameId}
+        hydrometricStationNameId={hydrometricStationNameId}
+        cityNameId={cityNameId}
+        placeLatLngId={placeLatLngId}
+        setCenterLatLng={setCenterLatLng}
+        selectedEnt={selectedEnt}
+        setSelectedEnt={setSelectedEnt}
+      />
       <DataPanel
         selectedEnt={selectedEnt}
         renderContent={(ent) => <EntDetails ent={ent} />}
