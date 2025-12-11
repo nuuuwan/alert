@@ -87,7 +87,6 @@ export default class OpenMeteo {
         ])
       ),
     };
-    console.debug(JSON.stringify(weatherDataRaw, null, 2));
     return weatherDataRaw;
   }
 
