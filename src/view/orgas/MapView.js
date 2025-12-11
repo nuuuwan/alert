@@ -44,13 +44,6 @@ export default function MapView({
     fetchBrowserLocation();
   }, [hasSomeEntParam, navigate]);
 
-  const getFileName = () => {
-    if (selectedEnt) {
-      return `${selectedEnt.id}.png`;
-    }
-    return "location.png";
-  };
-
   return (
     <Box>
       <TestModeBanner />
@@ -69,7 +62,6 @@ export default function MapView({
       <DataPanel
         selectedEnt={selectedEnt}
         renderContent={(ent) => <EntDetails ent={ent} />}
-        getFileName={getFileName}
       />
     </Box>
   );
