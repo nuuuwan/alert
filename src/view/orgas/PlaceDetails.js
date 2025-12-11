@@ -5,6 +5,7 @@ import HydrometricStationDetails from "../moles/HydrometricStationDetails";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import OpenElevationView from "../moles/OpenElevationView";
 import NaturalDisasterView from "../moles/NaturalDisasterView";
+import RecentEarthquakesView from "../moles/RecentEarthquakesView";
 
 export default function PlaceDetails({ place }) {
   return (
@@ -16,6 +17,7 @@ export default function PlaceDetails({ place }) {
       <OpenElevationView place={place} />
       <OpenMeteoView place={place} />
       <SatelliteImageView place={place} />
+      <RecentEarthquakesView />
     </Box>
   );
 }
