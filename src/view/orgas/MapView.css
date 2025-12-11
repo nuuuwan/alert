@@ -1,5 +1,5 @@
 .leaflet-tile-pane {
-  filter: grayscale(100%);
+  filter: grayscale(80%);
 }
 
 #map-crosshairs {
