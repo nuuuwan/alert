@@ -7,7 +7,7 @@ import Divider from "@mui/material/Divider";
 import NearbyPlacesView from "./NearbyPlacesView";
 
 export default function DetailsHeader({ ent, supertitleOverride }) {
-  const size = 48;
+  const size = 24;
   const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
   return (
     <Box sx={{ m: 0, p: 0 }}>
