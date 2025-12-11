@@ -65,7 +65,7 @@ export default function MapPanel({
     <MapContainer
       center={center}
       zoom={zoom}
-      style={{ height: "33vh", width: "100%" }}
+      style={{ height: "100%", width: "100%" }}
       zoomControl={false}
     >
       <TileLayer

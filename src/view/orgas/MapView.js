@@ -31,25 +31,49 @@ export default function MapView({
   return (
     <Box>
       <TestModeBanner />
-      <MapPanel
-        dsdNameId={dsdNameId}
-        hydrometricStationNameId={hydrometricStationNameId}
-        cityNameId={cityNameId}
-        placeLatLngId={placeLatLngId}
-        //
-        selectedEnt={selectedEnt}
-        setSelectedEnt={setSelectedEnt}
-        //
-        center={center}
-        zoom={zoom}
-        //
-        onMapClickOrMoveEnd={onMapClickOrMoveEnd}
-        setCenterLatLng={setCenterLatLng}
-      />
-      <DataPanel
-        selectedEnt={selectedEnt}
-        renderContent={(ent) => <EntDetails ent={ent} />}
-      />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          height: { xs: "100vh", md: "100vh" },
+        }}
+      >
+        <Box
+          sx={{
+            width: { xs: "100vw", md: "100vh" },
+            height: { xs: "100vw", md: "100vh" },
+            aspectRatio: "1 / 1",
+          }}
+        >
+          <MapPanel
+            dsdNameId={dsdNameId}
+            hydrometricStationNameId={hydrometricStationNameId}
+            cityNameId={cityNameId}
+            placeLatLngId={placeLatLngId}
+            //
+            selectedEnt={selectedEnt}
+            setSelectedEnt={setSelectedEnt}
+            //
+            center={center}
+            zoom={zoom}
+            //
+            onMapClickOrMoveEnd={onMapClickOrMoveEnd}
+            setCenterLatLng={setCenterLatLng}
+          />
+        </Box>
+        <Box
+          sx={{
+            height: { xs: "60vh", md: "100vh" },
+            width: { xs: "100%", md: "40%" },
+            overflow: "auto",
+          }}
+        >
+          <DataPanel
+            selectedEnt={selectedEnt}
+            renderContent={(ent) => <EntDetails ent={ent} />}
+          />
+        </Box>
+      </Box>
     </Box>
   );
 }
