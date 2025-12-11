@@ -70,8 +70,6 @@ export default function Chart({ data, timeData, yAxisLabel, chartType }) {
       ]}
       series={series}
       grid={{ vertical: true, horizontal: true }}
-      height={240}
-      width={400}
       margin={10}
     >
       <Plot />

@@ -80,7 +80,6 @@ export default function WaterLevelChart({
           },
         ]}
         series={series}
-        height={360}
         margin={5}
         grid={{ vertical: true, horizontal: true }}
         sx={{
