@@ -16,7 +16,7 @@ export default function MapView({
   const [selectedEnt, setSelectedEnt] = useState(null);
 
   const [centerLatLng, setCenterLatLng] = useState(
-    LatLng.fromRaw(DEFAULT_CENTER)
+    LatLng.fromRaw(DEFAULT_CENTER),
   );
 
   const center = centerLatLng.raw() || DEFAULT_CENTER;

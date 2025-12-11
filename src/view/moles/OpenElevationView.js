@@ -30,12 +30,12 @@ export default function OpenElevationView({ place }) {
         Icon={TerrainIcon}
         label="Relative Elevation"
         value={openElevationData.relativeElevationData.relativeElevation.toFixed(
-          0
+          0,
         )}
         unit="m"
         alertLabel=""
         color={getAlertColor(
-          openElevationData.relativeElevationData.lowGroundDangerLevel
+          openElevationData.relativeElevationData.lowGroundDangerLevel,
         )}
       />
     </MetricCardCollection>

@@ -16,7 +16,7 @@ export default class OpenMeteo {
   static async getRawData({ latLng }) {
     if (SystemMode.isTest()) {
       return await WWW.fetch(
-        process.env.PUBLIC_URL + `/test_data/open_meteo_raw_data.json`
+        process.env.PUBLIC_URL + `/test_data/open_meteo_raw_data.json`,
       );
     }
 
@@ -69,7 +69,7 @@ export default class OpenMeteo {
         currentFields.map((field, index) => [
           field,
           current.variables(index).value(),
-        ])
+        ]),
       ),
       hourly_time_ut: Array.from(
         {
@@ -77,13 +77,13 @@ export default class OpenMeteo {
             (Number(hourly.timeEnd()) - Number(hourly.time())) /
             hourly.interval(),
         },
-        (_, i) => Number(hourly.time()) + i * hourly.interval()
+        (_, i) => Number(hourly.time()) + i * hourly.interval(),
       ),
       hourly: Object.fromEntries(
         hourlyFields.map((field, index) => [
           field,
           Object.values(hourly.variables(index).valuesArray()),
-        ])
+        ]),
       ),
     };
 
@@ -104,13 +104,13 @@ export default class OpenMeteo {
       hourlyTemp: weatherDataRaw.hourly.temperature_2m,
       hourlyRain: weatherDataRaw.hourly.precipitation,
       hourlyRainSumLast24Hours: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(6 * 24, 7 * 24)
+        weatherDataRaw.hourly.precipitation.slice(6 * 24, 7 * 24),
       ),
       hourlyRainSumPrevious7Days: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(0, 7 * 24)
+        weatherDataRaw.hourly.precipitation.slice(0, 7 * 24),
       ),
       hourlyRainSumNext24Hours: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24)
+        weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24),
       ),
 
       hourlyDeepSoilMoisture: weatherDataRaw.hourly.soil_moisture_27_to_81cm,
@@ -130,7 +130,7 @@ export default class OpenMeteo {
         .slice(7 * 24, 8 * 24)
         .filter((rain) => rain > 1).length,
       f04MeanDeepSoilMoistureNext24Hours: ArrayUtils.mean(
-        weatherData.hourlyDeepSoilMoisture.slice(7 * 24, 8 * 24)
+        weatherData.hourlyDeepSoilMoisture.slice(7 * 24, 8 * 24),
       ),
     };
 

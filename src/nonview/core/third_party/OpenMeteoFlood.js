@@ -32,7 +32,7 @@ export default class OpenMeteoFlood {
                   (Number(daily.timeEnd()) - Number(daily.time())) /
                   daily.interval(),
               },
-              (_, i) => Number(daily.time()) + i * daily.interval()
+              (_, i) => Number(daily.time()) + i * daily.interval(),
             ),
             riverDischarge: Object.values(daily.variables(0).valuesArray()),
           },
@@ -40,7 +40,7 @@ export default class OpenMeteoFlood {
 
         const weatherDataJSON = JSON.stringify(weatherData);
         return weatherDataJSON;
-      }
+      },
     );
     const weatherData = JSON.parse(weatherDataJSON);
     return weatherData;

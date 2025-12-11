@@ -33,11 +33,11 @@ export default function NaturalDisasterRisk({ place }) {
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
           floodRiskData.floodRiskLevel,
-          floodRiskData.floodRiskMaxLevel
+          floodRiskData.floodRiskMaxLevel,
         )}
         color={getAlertColor(
           floodRiskData.floodRiskLevel,
-          floodRiskData.floodRiskMaxLevel
+          floodRiskData.floodRiskMaxLevel,
         )}
       />
       <MetricCard
@@ -49,11 +49,11 @@ export default function NaturalDisasterRisk({ place }) {
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
           landslideRiskData.landslideRiskLevel,
-          landslideRiskData.landslideRiskMaxLevel
+          landslideRiskData.landslideRiskMaxLevel,
         )}
         color={getAlertColor(
           landslideRiskData.landslideRiskLevel,
-          landslideRiskData.landslideRiskMaxLevel
+          landslideRiskData.landslideRiskMaxLevel,
         )}
       />
       <MetricCard

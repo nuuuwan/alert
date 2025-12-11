@@ -27,7 +27,7 @@ export default class Nominatim {
       return [];
     }
     const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
-      query
+      query,
     )}&format=jsonv2&countrycodes=lk`;
     console.debug(url);
     try {
