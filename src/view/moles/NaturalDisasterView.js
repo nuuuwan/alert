@@ -19,7 +19,7 @@ export default function NaturalDisasterView({ place }) {
 
   return (
     <MetricCardCollection
-      title="Natural Disaster Risks"
+      title="Natural Disasters"
       sourceList={[
         ...OpenElevation.getSourceList(),
         ...OpenMeteo.getSourceList(place.latLng),
@@ -27,74 +27,74 @@ export default function NaturalDisasterView({ place }) {
     >
       <MetricCard
         Icon={FloodIcon}
-        label="Flood Risk"
+        label="Flood"
         value={`${floodRiskData.floodRiskLevel}/${floodRiskData.floodRiskMaxLevel}`}
         unit=""
         timeLabel="Next 24h"
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
           floodRiskData.floodRiskLevel,
-          floodRiskData.floodRiskMaxLevel,
+          floodRiskData.floodRiskMaxLevel
         )}
         color={getAlertColor(
           floodRiskData.floodRiskLevel,
-          floodRiskData.floodRiskMaxLevel,
+          floodRiskData.floodRiskMaxLevel
         )}
       />
       <MetricCard
         Icon={LandslideIcon}
-        label="Landslide Risk"
+        label="Landslide"
         value={`${landslideRiskData.landslideRiskLevel}/${landslideRiskData.landslideRiskMaxLevel}`}
         unit=""
         timeLabel="Next 24h"
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
           landslideRiskData.landslideRiskLevel,
-          landslideRiskData.landslideRiskMaxLevel,
+          landslideRiskData.landslideRiskMaxLevel
         )}
         color={getAlertColor(
           landslideRiskData.landslideRiskLevel,
-          landslideRiskData.landslideRiskMaxLevel,
+          landslideRiskData.landslideRiskMaxLevel
         )}
       />
 
       <MetricCard
         Icon={WarningIcon}
-        label="Heat Risk"
+        label="Heat"
         value={`${heatRiskData.heatRiskLevel}/${heatRiskData.heatRiskMaxLevel}`}
         unit=""
         timeLabel="Next 24h"
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
           heatRiskData.heatRiskLevel,
-          heatRiskData.heatRiskMaxLevel,
+          heatRiskData.heatRiskMaxLevel
         )}
         color={getAlertColor(
           heatRiskData.heatRiskLevel,
-          heatRiskData.heatRiskMaxLevel,
+          heatRiskData.heatRiskMaxLevel
         )}
       />
 
       <MetricCard
         Icon={WarningIcon}
-        label="Drought Risk"
+        label="Drought"
         value={`${droughtRiskData.droughtRiskLevel}/${droughtRiskData.droughtRiskMaxLevel}`}
         unit=""
         timeLabel="Next 24h"
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
           droughtRiskData.droughtRiskLevel,
-          droughtRiskData.droughtRiskMaxLevel,
+          droughtRiskData.droughtRiskMaxLevel
         )}
         color={getAlertColor(
           droughtRiskData.droughtRiskLevel,
-          droughtRiskData.droughtRiskMaxLevel,
+          droughtRiskData.droughtRiskMaxLevel
         )}
       />
 
       <MetricCard
         Icon={WarningIcon}
-        label="Tsunami Risk"
+        label="Tsunami"
         value="TODO"
         unit=""
         timeLabel="Coming Soon..."
