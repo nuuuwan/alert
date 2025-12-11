@@ -20,7 +20,7 @@ export default class Cache {
     try {
       const payload = JSON.stringify(value);
       const payloadSizeK = payload.length / 1_000;
-      if (payloadSizeK > 100) {
+      if (payloadSizeK > 10) {
         console.warn(`⚠️ [Cache] ${payloadSizeK}KB: "${cacheKey}"`);
       }
       localStorage.setItem(cacheKey, payload);
