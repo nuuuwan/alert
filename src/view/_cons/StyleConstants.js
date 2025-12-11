@@ -16,12 +16,23 @@ export function getAlertColor(level, maxLevel) {
     throw new Error(`Level out of bounds: ${level} / ${maxLevel}`);
   }
   const p = parseInt((level / maxLevel) * 3);
-  return [
+  const color = [
     COLORS.noAlert,
     COLORS.lowAlert,
     COLORS.mediumAlert,
     COLORS.highAlert,
   ][p];
+  console.debug(level, maxLevel, p, color);
+  return color;
+}
+
+export function isAlertColor(color) {
+  return (
+    color === COLORS.noAlert ||
+    color === COLORS.lowAlert ||
+    color === COLORS.mediumAlert ||
+    color === COLORS.highAlert
+  );
 }
 
 // Typography

@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { COLORS } from "../_cons/StyleConstants";
+import { isAlertColor, COLORS } from "../_cons/StyleConstants";
 
 import MoreTimeIcon from "@mui/icons-material/MoreTime";
 
@@ -14,9 +14,9 @@ export default function MetricCard({
   color,
   isPrediction,
 }) {
-  let foreColor = COLORS.neutral;
+  let foreColor = color || COLORS.neutral;
   let backColor = "white";
-  if (color !== COLORS.neutral && color !== undefined) {
+  if (isAlertColor(color)) {
     foreColor = "white";
     backColor = color;
   }

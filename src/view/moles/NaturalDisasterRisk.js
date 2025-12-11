@@ -24,11 +24,11 @@ export default function NaturalDisasterRisk({ place }) {
         timeLabel="Next 24h"
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
-          floodRiskData.floodRiskLabelLevel,
+          floodRiskData.floodRiskLevel,
           floodRiskData.floodRiskMaxLevel
         )}
         color={getAlertColor(
-          floodRiskData.floodRiskAlertLevel,
+          floodRiskData.floodRiskLevel,
           floodRiskData.floodRiskMaxLevel
         )}
       />
@@ -40,11 +40,11 @@ export default function NaturalDisasterRisk({ place }) {
         timeLabel="Next 24h"
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
-          landslideRiskData.landslideRiskLabelLevel,
+          landslideRiskData.landslideRiskLevel,
           landslideRiskData.landslideRiskMaxLevel
         )}
         color={getAlertColor(
-          landslideRiskData.landslideRiskAlertLevel,
+          landslideRiskData.landslideRiskLevel,
           landslideRiskData.landslideRiskMaxLevel
         )}
       />
