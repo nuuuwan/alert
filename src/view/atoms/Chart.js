@@ -12,6 +12,8 @@ export default function Chart({
   yAxisLabel,
   chartType,
   color,
+  yAxisMin,
+  yAxisMax,
 }) {
   const currentTime = Date.now();
   const xAxisData = timeData.map((time) => new Date(time * 1000));
@@ -76,6 +78,8 @@ export default function Chart({
           tickLabelStyle: {
             fontSize: 10,
           },
+          min: yAxisMin,
+          max: yAxisMax,
         },
       ]}
       series={series}
