@@ -6,10 +6,15 @@ import { COLORS } from "../_cons/StyleConstants";
 export default function MetricCardCollection({ title, children, sourceList }) {
   return (
     <Box
-      sx={{ background: COLORS.neutralLightest, p: 1, borderRadius: 1, m: 1 }}
+      sx={{
+        background: COLORS.neutralLightest,
+        borderRadius: 1,
+        m: 1,
+        p: 1,
+      }}
     >
-      <Box>
-        <Typography variant="body2">{title}</Typography>
+      <Box sx={{ mb: 1 }}>
+        <Typography variant="h6">{title}</Typography>
       </Box>
 
       <Box
