@@ -11,17 +11,11 @@ import OpacityIcon from "@mui/icons-material/Opacity";
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
 
-  const [latitude, longitude] = latLng.raw();
   return (
     <Box sx={{ p: 1 }}>
       <MetricCardCollection
         title="Weather"
-        sourceList={[
-          {
-            label: "Open-Meteo (Real-Time Weather API)",
-            url: `https://open-meteo.com/en/docs?latitude=${latitude}&longitude=${longitude}`,
-          },
-        ]}
+        sourceList={OpenMeteo.getSourceList(latLng)}
       >
         <MetricCard
           Icon={WaterDropIcon}
