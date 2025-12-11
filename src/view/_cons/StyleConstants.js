@@ -9,6 +9,7 @@ export const COLORS = {
   neutral: "#888888",
   neutralLight: "#cccccc",
   neutralLighter: "#eeeeee",
+  neutralLightest: "#f8f8f8",
 };
 
 export function getAlertColor(level, maxLevel) {

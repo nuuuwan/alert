@@ -1,29 +1,30 @@
 import Box from "@mui/material/Box";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SourceView from "./SourceView";
+import { COLORS } from "../_cons/StyleConstants";
 
 export default function MetricCardCollection({ title, children, sourceList }) {
   return (
-    <Accordion defaultExpanded={false}>
-      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+    <Box
+      sx={{ background: COLORS.neutralLightest, p: 1, borderRadius: 1, m: 1 }}
+    >
+      <Box>
         <Typography variant="body2">{title}</Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Box
-          sx={{
-            display: "flex",
-            gap: 1,
-            flexWrap: "wrap",
-          }}
-        >
-          {children}
-        </Box>
+      </Box>
+
+      <Box
+        sx={{
+          display: "flex",
+          gap: 1,
+          flexWrap: "wrap",
+        }}
+      >
+        {children}
+      </Box>
+
+      <Box>
         <SourceView sourceList={sourceList} />
-      </AccordionDetails>
-    </Accordion>
+      </Box>
+    </Box>
   );
 }
