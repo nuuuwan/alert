@@ -20,10 +20,11 @@ function PlaceSearch({ onPlaceSelect, latLng }) {
       if (!latLng) {
         return;
       }
-      console.debug(latLng);
       const searchResult = await Nominatim.reverseGeocode(latLng);
-      const placeName = searchResult.display_name;
-      setInitialTextValue(placeName);
+      if (searchResult) {
+        const placeName = searchResult.display_name;
+        setInitialTextValue(placeName);
+      }
     }
     loadInitialPlace();
   }, [latLng]);
@@ -47,7 +48,7 @@ function PlaceSearch({ onPlaceSelect, latLng }) {
   const handleChange = (event, newValue) => {
     if (newValue && onPlaceSelect) {
       onPlaceSelect(
-        LatLng.fromRaw([parseFloat(newValue.lat), parseFloat(newValue.lon)]),
+        LatLng.fromRaw([parseFloat(newValue.lat), parseFloat(newValue.lon)])
       );
     }
   };

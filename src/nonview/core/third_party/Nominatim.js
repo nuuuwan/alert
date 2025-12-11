@@ -19,7 +19,6 @@ export default class Nominatim {
     const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
       query
     )}&format=jsonv2&countrycodes=lk`;
-    console.debug(url);
     try {
       return await Cache.get(`Nominatim.Search_${query}`, async () => {
         return await WWW.fetchJSON(url);
