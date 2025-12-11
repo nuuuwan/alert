@@ -4,7 +4,7 @@ import ArrayUtils from "../../base/ArrayUtils";
 import SystemMode from "../../base/SystemMode";
 import WWW from "../../base/WWW";
 export default class OpenMeteo {
-  static getSourceList({ latLng }) {
+  static getSourceList(latLng) {
     const [latitude, longitude] = latLng.raw();
     return [
       {

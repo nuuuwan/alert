@@ -7,6 +7,7 @@ import TimeUtils from "../../nonview/base/TimeUtils";
 import RainChart from "../atoms/RainChart";
 import TempChart from "../atoms/TempChart";
 import OpacityIcon from "@mui/icons-material/Opacity";
+import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
