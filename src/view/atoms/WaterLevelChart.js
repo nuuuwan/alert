@@ -83,7 +83,6 @@ export default function WaterLevelChart({
         margin={5}
         grid={{ vertical: true, horizontal: true }}
         sx={{
-          width: { xs: "100vw", md: "calc(100vw - 100vh)" },
           "& .MuiLineElement-series-auto-generated-id-1": {
             strokeDasharray: "5 5",
           },
