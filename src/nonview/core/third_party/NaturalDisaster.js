@@ -55,6 +55,16 @@ export default class NaturalDisaster {
     return heatRiskData;
   }
 
+  static computeDroughtRiskData({ openMeteoData }) {
+    const droughtRiskLevel = openMeteoData.droughtRiskLevel;
+    const droughtRiskMaxLevel = openMeteoData.droughtRiskMaxLevel;
+    const droughtRiskData = {
+      droughtRiskLevel,
+      droughtRiskMaxLevel,
+    };
+    return droughtRiskData;
+  }
+
   static getData({ openMeteoData, openElevationData }) {
     return {
       landslideRiskData: this.computeLandslideRiskData({
@@ -66,6 +76,9 @@ export default class NaturalDisaster {
         openElevationData,
       }),
       heatRiskData: this.computeHeatRiskData({
+        openMeteoData,
+      }),
+      droughtRiskData: this.computeDroughtRiskData({
         openMeteoData,
       }),
     };

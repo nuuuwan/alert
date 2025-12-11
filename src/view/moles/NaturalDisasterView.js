@@ -11,7 +11,7 @@ import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 export default function NaturalDisasterView({ place }) {
   const { openMeteoData, openElevationData } = place;
 
-  const { floodRiskData, landslideRiskData, heatRiskData } =
+  const { floodRiskData, landslideRiskData, heatRiskData, droughtRiskData } =
     NaturalDisaster.getData({
       openMeteoData,
       openElevationData,
@@ -77,18 +77,24 @@ export default function NaturalDisasterView({ place }) {
 
       <MetricCard
         Icon={WarningIcon}
-        label="Tsunami Risk"
-        value="TODO"
+        label="Drought Risk"
+        value={`${droughtRiskData.droughtRiskLevel}/${droughtRiskData.droughtRiskMaxLevel}`}
         unit=""
-        timeLabel="Coming Soon..."
+        timeLabel="Next 24h"
         isPrediction
-        alertLabel={""}
-        color={COLORS.neutralLight}
+        alertLabel={NaturalDisaster.getLabel(
+          droughtRiskData.droughtRiskLevel,
+          droughtRiskData.droughtRiskMaxLevel
+        )}
+        color={getAlertColor(
+          droughtRiskData.droughtRiskLevel,
+          droughtRiskData.droughtRiskMaxLevel
+        )}
       />
 
       <MetricCard
         Icon={WarningIcon}
-        label="Drought Risk"
+        label="Tsunami Risk"
         value="TODO"
         unit=""
         timeLabel="Coming Soon..."
