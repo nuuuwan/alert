@@ -14,7 +14,7 @@ function PlaceLink({ place, distanceM, nameOverride }) {
         sx={{
           display: "flex",
           alignItems: "center",
-          gap: 0.125,
+          gap: 0.25,
           borderRadius: 2,
           padding: 0.25,
           margin: 0.25,
