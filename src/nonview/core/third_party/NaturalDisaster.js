@@ -3,7 +3,7 @@ export default class NaturalDisaster {
     if (level < 0 || level > maxLevel) {
       throw new Error(`Level out of bounds: ${level} / ${maxLevel}`);
     }
-    return ["No Risk", "Low Risk", "Medium Risk", "High Risk"][
+    return ["", "Low Risk", "Medium Risk", "High Risk"][
       parseInt((level / maxLevel) * 3)
     ];
   }
@@ -17,7 +17,7 @@ export default class NaturalDisaster {
       openElevationData.slopeData.slopeAngle > 22.5;
 
     const landslideRiskLevel = Object.values(
-      landslideRiskFactors24hThresholded,
+      landslideRiskFactors24hThresholded
     ).filter((v) => v).length;
     const landslideRiskMaxLevel = 6;
     const landslideRiskData = {
@@ -35,7 +35,7 @@ export default class NaturalDisaster {
       openElevationData.relativeElevationData.relativeElevation < -5;
 
     const floodRiskLevel = Object.values(floodRiskFactors24hThresholded).filter(
-      (v) => v,
+      (v) => v
     ).length;
     const floodRiskMaxLevel = 5;
     const floodRiskData = {
