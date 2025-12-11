@@ -87,7 +87,7 @@ export default class OpenMeteo {
         ])
       ),
     };
-
+    console.debug(JSON.stringify(weatherDataRaw, null, 2));
     return weatherDataRaw;
   }
 
@@ -187,6 +187,9 @@ export default class OpenMeteo {
       h02MeanTempNext24Hours: ArrayUtils.mean(
         weatherData.hourlyTemp.slice(7 * 24, 8 * 24)
       ),
+      h03MaxDewPointNext24Hours: Math.max(
+        ...weatherData.hourlyDewPoint.slice(7 * 24, 8 * 24)
+      ),
     };
 
     weatherData.heatRiskFactors24hThresholded = {
@@ -194,6 +197,8 @@ export default class OpenMeteo {
         weatherData.heatRiskFactors24h.h01MaxTempNext24Hours > 35,
       h02MeanTempNext24Hours:
         weatherData.heatRiskFactors24h.h02MeanTempNext24Hours > 30,
+      h03MaxDewPointNext24Hours:
+        weatherData.heatRiskFactors24h.h03MaxDewPointNext24Hours > 25,
     };
 
     weatherData.heatRiskLevel = Object.values(

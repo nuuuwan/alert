@@ -8,6 +8,7 @@ import RainChart from "../atoms/RainChart";
 import TempChart from "../atoms/TempChart";
 import OpacityIcon from "@mui/icons-material/Opacity";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
+import CloudIcon from "@mui/icons-material/Cloud";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
@@ -37,6 +38,13 @@ export default function OpenMeteoView({ place }) {
           label="RH"
           value={openMeteoData.currentRH.toFixed(0)}
           unit="%"
+          timeLabel={TimeUtils.getTimeAgoString(openMeteoData.currentTimeUt)}
+        />
+        <MetricCard
+          Icon={CloudIcon}
+          label="Dew Point"
+          value={openMeteoData.hourlyDewPoint[7 * 24].toFixed(1)}
+          unit="°C"
           timeLabel={TimeUtils.getTimeAgoString(openMeteoData.currentTimeUt)}
         />
         <MetricCard
