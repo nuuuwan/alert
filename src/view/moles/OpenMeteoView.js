@@ -14,7 +14,7 @@ export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
 
   return (
-    <Box sx={{ p: 1 }}>
+    <Box sx={{ p: 0, m: 0 }}>
       <MetricCardCollection
         title="Weather"
         sourceList={OpenMeteo.getSourceList(latLng)}

@@ -39,11 +39,6 @@ export default function MetricCard({
         overflow: "hidden", // Ensure content does not overflow
       }}
     >
-      <Box>
-        <Typography variant="h6" color={foreColor} noWrap>
-          {alertLabel}
-        </Typography>
-      </Box>
       <Box
         sx={{
           display: "flex",
@@ -97,6 +92,11 @@ export default function MetricCard({
         {isPrediction && (
           <MoreTimeIcon fontSize="small" sx={{ color: foreColor, ml: 0.5 }} />
         )}
+      </Box>
+      <Box>
+        <Typography variant="h6" color={foreColor} noWrap>
+          {alertLabel}
+        </Typography>
       </Box>
     </Box>
   );
