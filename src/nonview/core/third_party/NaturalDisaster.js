@@ -1,4 +1,13 @@
 export default class NaturalDisaster {
+  static getLabel(level, maxLevel) {
+    if (level < 0 || level > maxLevel) {
+      throw new Error(`Level out of bounds: ${level} / ${maxLevel}`);
+    }
+    return ["No Risk", "Low Risk", "Medium Risk", "High Risk"][
+      parseInt((level / maxLevel) * 3)
+    ];
+  }
+
   static computeLandslideRiskData({ openMeteoData, openElevationData }) {
     console.debug({ openElevationData });
     let landslideRiskFactors24hThresholded = {
@@ -9,19 +18,9 @@ export default class NaturalDisaster {
       openElevationData.slopeData.slopeAngle > 22.5;
 
     const landslideRiskScore = Object.values(
-      landslideRiskFactors24hThresholded,
+      landslideRiskFactors24hThresholded
     ).filter((v) => v).length;
     const landslideRiskScoreTotal = 6;
-    const landslideRiskLabel = [
-      "Low",
-      "Low",
-      "Moderate",
-      "Moderate",
-      "High",
-      "High",
-      "Extreme",
-    ][landslideRiskScore];
-
     const landslideRiskData = {
       landslideRiskScore,
       landslideRiskScoreTotal,
@@ -38,17 +37,9 @@ export default class NaturalDisaster {
       openElevationData.relativeElevationData.relativeElevation < -5;
 
     const floodRiskScore = Object.values(floodRiskFactors24hThresholded).filter(
-      (v) => v,
+      (v) => v
     ).length;
     const floodRiskScoreTotal = 5;
-    const floodRiskLabel = [
-      "Low",
-      "Low",
-      "Moderate",
-      "Moderate",
-      "High",
-      "Extreme",
-    ][floodRiskScore];
     const floodRiskData = {
       floodRiskScore,
       floodRiskScoreTotal,
