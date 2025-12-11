@@ -9,7 +9,7 @@ export const COLORS = {
   neutral: "#888888",
   neutralLight: "#cccccc",
   neutralLighter: "#eeeeee",
-  neutralLightest: "#f8f8f8",
+  neutralLightest: "#fcfcfc",
 
   // Things
   water: "rgb(33, 150, 243)",
