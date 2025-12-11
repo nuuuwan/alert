@@ -4,6 +4,7 @@ import FloodIcon from "../atoms/icons/FloodIcon";
 import { getAlertColor } from "../_cons/StyleConstants";
 import LandslideIcon from "../atoms/icons/LandslideIcon";
 import WarningIcon from "@mui/icons-material/Warning";
+import Alert from "@mui/material/Alert";
 import NaturalDisaster from "../../nonview/core/third_party/NaturalDisaster";
 import OpenElevation from "../../nonview/core/third_party/OpenElevation";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
@@ -31,6 +32,10 @@ export default function NaturalDisasterView({ place }) {
         ...OpenMeteo.getSourceList(place.latLng),
       ]}
     >
+      <Alert severity="warning" sx={{ mb: 1 }}>
+        These <strong>Natural Disaster Risk Metrics</strong> are still under
+        development and should be used for informational purposes only.
+      </Alert>
       <MetricCard
         Icon={FloodIcon}
         label="Flood"
