@@ -63,8 +63,9 @@ export default function MapView({
         </Box>
         <Box
           sx={{
-            height: { xs: "60vh", md: "100vh" },
-            width: { xs: "100%", md: "40%" },
+            width: { xs: "100vw", md: "calc(100vw - 100vh)" },
+            height: { xs: "auto", md: "100vh" },
+            maxHeight: { xs: "100vh", md: "100vh" },
             overflow: "auto",
           }}
         >
