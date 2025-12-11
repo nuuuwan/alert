@@ -54,7 +54,6 @@ export default function RecentEarthquakesView() {
           );
           const formattedTimAgo = TimeUtils.getTimeAgoString(earthquake.timeUt);
           const color = getMagnitudeColor(earthquake.magnitude);
-          console.debug(earthquake.magnitude, color);
 
           return (
             <ListItem
