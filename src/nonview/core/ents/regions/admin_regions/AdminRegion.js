@@ -3,7 +3,6 @@ import WithLoadAllStaticMixin from "../../../../base/mixins/WithLoadAllStaticMix
 import Region from "../Region";
 import MultiPolygon from "../../../../base/geos/MultiPolygon";
 import Cache from "../../../../base/Cache";
-
 import WithNameMixin from "../../../../base/mixins/WithNameMixin.js";
 
 class AdminRegion extends Region {
@@ -53,7 +52,7 @@ class AdminRegion extends Region {
           "/nuuuwan/lk_admin_regions/refs/heads/main" +
           `/data/geo/json/smaller/${this.getAdminRegionType()}s.json/${id}.json`;
         return await WWW.fetch(url);
-      },
+      }
     );
 
     return MultiPolygon.fromReverseRaw(revFloatPairListList);
@@ -69,7 +68,7 @@ class AdminRegion extends Region {
       `AdminRegion:getRawDataList:${this.getAdminRegionType()}`,
       async () => {
         return await WWW.fetch(this.getUrl());
-      },
+      }
     );
   }
 
@@ -80,14 +79,32 @@ class AdminRegion extends Region {
           id: rawData.id,
           name: rawData.name,
           areaSqKm: parseFloat(rawData.area_sqkm),
-        }),
-      ),
+        })
+      )
     );
   }
 
   static async loadAll() {
     const rawDataList = await this.getRawDataList();
     return await this.loadFromRawDataList(rawDataList);
+  }
+
+  static async loadNearest(latLng) {
+    const allRegions = await this.loadAll();
+    let nearestRegion = null;
+    let minDistance = Infinity;
+
+    for (const region of allRegions) {
+      const centroid = region.multiPolygon.getCentroid();
+      if (!centroid) continue;
+
+      const distance = latLng.distanceTo(centroid);
+      if (distance < minDistance) {
+        minDistance = distance;
+        nearestRegion = region;
+      }
+    }
+    return nearestRegion;
   }
 }
 
