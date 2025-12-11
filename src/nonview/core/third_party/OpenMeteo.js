@@ -110,6 +110,9 @@ export default class OpenMeteo {
       hourlyRainSumPrevious7Days: ArrayUtils.sum(
         weatherDataRaw.hourly.precipitation.slice(0, 7 * 24)
       ),
+      hourlyRainSumNext7Days: ArrayUtils.sum(
+        weatherDataRaw.hourly.precipitation.slice(7 * 24, 14 * 24)
+      ),
       hourlyRainSumNext24Hours: ArrayUtils.sum(
         weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24)
       ),
@@ -215,25 +218,25 @@ export default class OpenMeteo {
   static computeDroughtRisk(weatherData) {
     weatherData.droughtRiskFactors24h = {
       d01HourlyRainSumPrevious7Days: weatherData.hourlyRainSumPrevious7Days,
-      d02HourlyRainSumNext24Hours: weatherData.hourlyRainSumNext24Hours,
-      d03MeanDeepSoilMoistureNext24Hours: ArrayUtils.mean(
-        weatherData.hourlyDeepSoilMoisture.slice(7 * 24, 8 * 24)
+      d02HourlyRainSumNext7Days: weatherData.hourlyRainSumNext7Days,
+      d03MeanDeepSoilMoistureNext7Days: ArrayUtils.mean(
+        weatherData.hourlyDeepSoilMoisture.slice(7 * 24, 14 * 24)
       ),
-      d04HoursOfNoRainNext24Hours: weatherData.hourlyRain
-        .slice(7 * 24, 8 * 24)
+      d04HoursOfNoRainNext7Days: weatherData.hourlyRain
+        .slice(7 * 24, 14 * 24)
         .filter((rain) => rain < 0.1).length,
     };
 
     weatherData.droughtRiskFactors24hThresholded = {
       d01HourlyRainSumPrevious7Days:
-        weatherData.droughtRiskFactors24h.d01HourlyRainSumPrevious7Days < 10,
-      d02HourlyRainSumNext24Hours:
-        weatherData.droughtRiskFactors24h.d02HourlyRainSumNext24Hours < 2,
-      d03MeanDeepSoilMoistureNext24Hours:
-        weatherData.droughtRiskFactors24h.d03MeanDeepSoilMoistureNext24Hours <
-        0.15,
+        weatherData.droughtRiskFactors24h.d01HourlyRainSumPrevious7Days < 0.1,
+      d02HourlyRainSumNext7Days:
+        weatherData.droughtRiskFactors24h.d02HourlyRainSumNext7Days < 0.1,
+      d03MeanDeepSoilMoistureNext7Days:
+        weatherData.droughtRiskFactors24h.d03MeanDeepSoilMoistureNext7Days <
+        0.25,
       d04HoursOfNoRainNext24Hours:
-        weatherData.droughtRiskFactors24h.d04HoursOfNoRainNext24Hours > 20,
+        weatherData.droughtRiskFactors24h.d04HoursOfNoRainNext24Hours > 0,
     };
 
     weatherData.droughtRiskLevel = Object.values(

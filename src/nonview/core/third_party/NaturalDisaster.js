@@ -3,7 +3,7 @@ export default class NaturalDisaster {
     if (level < 0 || level > maxLevel) {
       throw new Error(`Level out of bounds: ${level} / ${maxLevel}`);
     }
-    return ["", "Low Risk", "Medium Risk", "High Risk"][
+    return ["No Risk", "Low Risk", "Medium Risk", "High Risk"][
       parseInt((level / maxLevel) * 3)
     ];
   }
