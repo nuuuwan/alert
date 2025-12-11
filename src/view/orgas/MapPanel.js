@@ -25,8 +25,9 @@ function MapEventHandler({ onMapClickOrMoveEnd }) {
 function MapCenterUpdater({ center, zoom }) {
   const map = useMap();
   useEffect(() => {
-    map.setView(center, zoom);
+    console.debug(center, zoom);
     map.panTo(center);
+    map.setView(center, zoom);
   }, [map, center, zoom]);
   return null;
 }
@@ -40,8 +41,6 @@ export default function MapPanel({
   selectedEnt,
   setSelectedEnt,
   setCenterLatLng,
-  //
-  onMapClickOrMoveEnd,
   //
   center,
   zoom,
@@ -60,6 +59,10 @@ export default function MapPanel({
     }
     fetchBrowserLocation();
   }, [hasSomeEntParam, navigate, setCenterLatLng]);
+
+  const onMapClickOrMoveEnd = async (latLng) => {
+    navigate(`/Place/${latLng.id}`);
+  };
 
   return (
     <MapContainer
