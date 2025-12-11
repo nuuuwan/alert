@@ -7,9 +7,8 @@ import Box from "@mui/material/Box";
 import Place from "../../nonview/core/ents/places/Place";
 import DataPanel from "../moles/DataPanel";
 import EntDetails from "../moles/EntDetails";
-import Typography from "@mui/material/Typography";
-import SystemMode from "../../nonview/base/SystemMode";
 import MapPanel from "./MapPanel";
+import TestModeBanner from "../atoms/TestModeBanner";
 
 export default function MapView({
   dsdNameId,
@@ -54,19 +53,7 @@ export default function MapView({
 
   return (
     <Box>
-      {SystemMode.isTest() && (
-        <Box
-          sx={{
-            position: "absolute",
-            zIndex: 1000,
-            pointerEvents: "none",
-          }}
-        >
-          <Typography variant="h4" component="div" sx={{ color: "red" }}>
-            TEST MODE - FAKE DATA
-          </Typography>
-        </Box>
-      )}
+      <TestModeBanner />
       <MapPanel
         center={center}
         zoom={zoom}
