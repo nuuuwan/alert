@@ -1,3 +1,4 @@
+import { COLORS } from "../_cons/StyleConstants";
 import Chart from "./Chart";
 
 export default function TempChart({ hourlyTemp, hourlyTimeUt }) {
@@ -7,6 +8,7 @@ export default function TempChart({ hourlyTemp, hourlyTimeUt }) {
       timeData={hourlyTimeUt.slice(6 * 24, 8 * 24)}
       yAxisLabel="Temperature (°C)"
       chartType="line"
+      color={COLORS.fire}
     />
   );
 }

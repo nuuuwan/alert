@@ -6,7 +6,13 @@ import { ChartsXAxis, ChartsYAxis } from "@mui/x-charts";
 import { ChartsReferenceLine } from "@mui/x-charts/ChartsReferenceLine";
 import { BarPlot } from "@mui/x-charts/BarChart";
 
-export default function Chart({ data, timeData, yAxisLabel, chartType }) {
+export default function Chart({
+  data,
+  timeData,
+  yAxisLabel,
+  chartType,
+  color,
+}) {
   const currentTime = Date.now();
   const xAxisData = timeData.map((time) => new Date(time * 1000));
 
@@ -25,14 +31,14 @@ export default function Chart({ data, timeData, yAxisLabel, chartType }) {
     {
       data: observedData,
       label: "Past (Observed)",
-      color: COLORS.neutral,
+      color,
       showMark: false,
       type: chartType,
     },
     {
       data: predictedData,
       label: "Future (Predicted)",
-      color: COLORS.neutralLight,
+      color,
       showMark: false,
       type: chartType,
     },

@@ -1,3 +1,4 @@
+import { COLORS } from "../_cons/StyleConstants";
 import Chart from "./Chart";
 
 export default function RainChart({ hourlyRain, hourlyTimeUt }) {
@@ -7,6 +8,7 @@ export default function RainChart({ hourlyRain, hourlyTimeUt }) {
       timeData={hourlyTimeUt.slice(6 * 24, 8 * 24)}
       yAxisLabel="Rainfall (mm)"
       chartType="bar"
+      color={COLORS.water}
     />
   );
 }
