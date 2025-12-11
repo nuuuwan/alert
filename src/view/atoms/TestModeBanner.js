@@ -13,9 +13,11 @@ export default function TestModeBanner() {
         position: "absolute",
         zIndex: 1000,
         pointerEvents: "none",
+        top: 16,
+        left: 16,
       }}
     >
-      <Typography variant="h4" component="div" sx={{ color: "red" }}>
+      <Typography variant="h6" component="div" sx={{ color: "red" }}>
         TEST MODE - FAKE DATA
       </Typography>
     </Box>
