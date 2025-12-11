@@ -2,11 +2,18 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import EntIcon from "../atoms/EntIcon";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
-import NominatimView from "./NominatimView";
 import Divider from "@mui/material/Divider";
 import NearbyPlacesView from "./NearbyPlacesView";
+import PlaceSearch from "./PlaceSearch";
+import { useNavigate } from "react-router-dom";
 
 export default function DetailsHeader({ ent, supertitleOverride }) {
+  const navigate = useNavigate();
+
+  const handlePlaceSelect = (latLng) => {
+    navigate(`/Place/${latLng.id}`);
+  };
+
   const size = 24;
   const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
   return (
@@ -23,7 +30,7 @@ export default function DetailsHeader({ ent, supertitleOverride }) {
       <Typography variant="body2" color="text.secondary">
         {ent.subtitle}
       </Typography>
-      <NominatimView latlng={ent.latLng} />
+      <PlaceSearch onPlaceSelect={handlePlaceSelect} latLng={ent.latLng} />
       <NearbyPlacesView latLng={ent.latLng} />
       <Divider sx={{ my: 1 }} />
     </Box>
