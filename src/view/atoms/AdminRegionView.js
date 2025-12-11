@@ -19,9 +19,14 @@ export default function AdminRegionView({ AdminRegionClass, id }) {
   return (
     <Chip
       sx={{ backgroundColor: "white", p: 0, m: 0 }}
-      label={`${
-        adminRegion.name
-      } ${adminRegion.constructor.getEntTypeNameShort()}`}
+      label={
+        <>
+          {adminRegion.name}{" "}
+          <span style={{ opacity: 0.25 }}>
+            {adminRegion.constructor.getEntTypeNameShort()}
+          </span>
+        </>
+      }
     />
   );
 }
