@@ -1,5 +1,6 @@
 // Colors
 export const COLORS = {
+  noAlert: "#4caf50",
   highAlert: "#d32f2f",
   mediumAlert: "#f57c00",
   lowAlert: "#d4a500",
@@ -7,6 +8,7 @@ export const COLORS = {
   // Neutrals
   neutral: "#888888",
   neutralLight: "#cccccc",
+  neutralLighter: "#eeeeee",
 };
 
 export function getAlertColor(level) {
