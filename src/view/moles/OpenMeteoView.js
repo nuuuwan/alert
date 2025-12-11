@@ -52,16 +52,18 @@ export default function OpenMeteoView({ place }) {
           timeLabel="Next 24h total"
           isPrediction
         />
-      </MetricCardCollection>
 
-      <RainChart
-        hourlyRain={openMeteoData.hourlyRain}
-        hourlyTimeUt={openMeteoData.hourlyTimeUt}
-      />
-      <TempChart
-        hourlyTemp={openMeteoData.hourlyTemp}
-        hourlyTimeUt={openMeteoData.hourlyTimeUt}
-      />
+        <Box>
+          <RainChart
+            hourlyRain={openMeteoData.hourlyRain}
+            hourlyTimeUt={openMeteoData.hourlyTimeUt}
+          />
+          <TempChart
+            hourlyTemp={openMeteoData.hourlyTemp}
+            hourlyTimeUt={openMeteoData.hourlyTimeUt}
+          />
+        </Box>
+      </MetricCardCollection>
     </Box>
   );
 }
