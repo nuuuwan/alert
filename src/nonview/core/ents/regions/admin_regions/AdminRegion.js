@@ -11,7 +11,7 @@ class AdminRegion extends Region {
   }
 
   static getEntTypeNameShort() {
-    return this.getEntTypeName();
+    return "";
   }
   static getAdminRegionType() {
     throw new Error("Not implemented");
