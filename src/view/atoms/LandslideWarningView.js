@@ -17,7 +17,7 @@ export default function LandslideWarningView({ level, timeUt }) {
   } else if (level === 3) {
     value = "Evacuate";
   }
-  const color = getAlertColor(level);
+  const color = getAlertColor(level, 3);
 
   return (
     <MetricCard
