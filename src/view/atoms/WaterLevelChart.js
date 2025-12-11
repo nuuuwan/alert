@@ -18,7 +18,7 @@ export default function WaterLevelChart({
     {
       data: yAxisData,
       label: "Water Level",
-      color: COLORS.neutral,
+      color: COLORS.water,
       showMark: false,
     },
   ];
@@ -56,8 +56,6 @@ export default function WaterLevelChart({
   return (
     <>
       <LineChart
-        width="100%"
-        height={300}
         xAxis={[
           {
             data: xAxisData,
@@ -95,6 +93,8 @@ export default function WaterLevelChart({
           "& .MuiLineElement-series-auto-generated-id-3": {
             strokeDasharray: "5 5",
           },
+          width: { xs: "80vw", md: "calc(80vw - 80vh)" },
+          height: { xs: "calc(80vw * 9/16)", md: "calc((80vw - 80vh) * 9/16)" },
         }}
       />
     </>
