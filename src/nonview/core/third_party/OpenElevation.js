@@ -3,6 +3,15 @@ import Cache from "../../base/Cache";
 import SystemMode from "../../base/SystemMode";
 
 export default class OpenElevation {
+  static getSourceList() {
+    return [
+      {
+        label: "Open-Elevation (Free Elevation API)",
+        url: `https://open-elevation.com/#api-docs`,
+      },
+    ];
+  }
+
   static getTestData() {
     return {
       elevationM: 123,
@@ -50,7 +59,7 @@ export default class OpenElevation {
       async () => {
         const response = await WWW.fetchJSON(url);
         return JSON.stringify(response);
-      },
+      }
     );
     const response = JSON.parse(responseJSON);
     return response.results.map((result) => result.elevation);

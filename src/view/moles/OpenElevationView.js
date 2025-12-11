@@ -2,6 +2,7 @@ import MetricCard from "../atoms/MetricCard";
 import MetricCardCollection from "../atoms/MetricCardCollection";
 import TerrainIcon from "@mui/icons-material/Terrain";
 import { getAlertColor } from "../_cons/StyleConstants";
+import OpenElevation from "../../nonview/core/third_party/OpenElevation";
 
 export default function OpenElevationView({ place }) {
   const { openElevationData } = place;
@@ -9,12 +10,7 @@ export default function OpenElevationView({ place }) {
   return (
     <MetricCardCollection
       title="Terrain Metrics"
-      sourceList={[
-        {
-          label: "Open-Elevation (Free Elevation API)",
-          url: `https://open-elevation.com/#api-docs`,
-        },
-      ]}
+      sourceList={OpenElevation.getSourceList()}
     >
       <MetricCard
         Icon={TerrainIcon}
@@ -34,12 +30,12 @@ export default function OpenElevationView({ place }) {
         Icon={TerrainIcon}
         label="Relative Elevation"
         value={openElevationData.relativeElevationData.relativeElevation.toFixed(
-          0,
+          0
         )}
         unit="m"
         alertLabel=""
         color={getAlertColor(
-          openElevationData.relativeElevationData.lowGroundDangerLevel,
+          openElevationData.relativeElevationData.lowGroundDangerLevel
         )}
       />
     </MetricCardCollection>
