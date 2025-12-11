@@ -19,22 +19,34 @@ export default function NaturalDisasterRisk({ place }) {
       <MetricCard
         Icon={FloodIcon}
         label="Flood Risk"
-        value={`${floodRiskData.floodRiskScore}/${floodRiskData.floodRiskScoreTotal}`}
+        value={`${floodRiskData.floodRiskLevel}/${floodRiskData.floodRiskMaxLevel}`}
         unit=""
         timeLabel="Next 24h"
         isPrediction
-        alertLabel={floodRiskData.floodRiskLabel}
-        color={getAlertColor(floodRiskData.floodRiskAlertLevel)}
+        alertLabel={NaturalDisaster.getLabel(
+          floodRiskData.floodRiskLabelLevel,
+          floodRiskData.floodRiskMaxLevel
+        )}
+        color={getAlertColor(
+          floodRiskData.floodRiskAlertLevel,
+          floodRiskData.floodRiskMaxLevel
+        )}
       />
       <MetricCard
         Icon={LandslideIcon}
         label="Landslide Risk"
-        value={`${landslideRiskData.landslideRiskScore}/${landslideRiskData.landslideRiskScoreTotal}`}
+        value={`${landslideRiskData.landslideRiskLevel}/${landslideRiskData.landslideRiskMaxLevel}`}
         unit=""
         timeLabel="Next 24h"
         isPrediction
-        alertLabel={landslideRiskData.landslideRiskLabel}
-        color={getAlertColor(landslideRiskData.landslideRiskAlertLevel)}
+        alertLabel={NaturalDisaster.getLabel(
+          landslideRiskData.landslideRiskLabelLevel,
+          landslideRiskData.landslideRiskMaxLevel
+        )}
+        color={getAlertColor(
+          landslideRiskData.landslideRiskAlertLevel,
+          landslideRiskData.landslideRiskMaxLevel
+        )}
       />
       <MetricCard
         Icon={WarningIcon}

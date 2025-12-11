@@ -17,14 +17,13 @@ export default class NaturalDisaster {
     landslideRiskFactors24hThresholded.f06Slope =
       openElevationData.slopeData.slopeAngle > 22.5;
 
-    const landslideRiskScore = Object.values(
+    const landslideRiskLevel = Object.values(
       landslideRiskFactors24hThresholded
     ).filter((v) => v).length;
-    const landslideRiskScoreTotal = 6;
+    const landslideRiskMaxLevel = 6;
     const landslideRiskData = {
-      landslideRiskScore,
-      landslideRiskScoreTotal,
-      landslideRiskLabel,
+      landslideRiskLevel,
+      landslideRiskMaxLevel,
     };
     return landslideRiskData;
   }
@@ -36,14 +35,13 @@ export default class NaturalDisaster {
     floodRiskFactors24hThresholded.f05RelativeElevation =
       openElevationData.relativeElevationData.relativeElevation < -5;
 
-    const floodRiskScore = Object.values(floodRiskFactors24hThresholded).filter(
+    const floodRiskLevel = Object.values(floodRiskFactors24hThresholded).filter(
       (v) => v
     ).length;
-    const floodRiskScoreTotal = 5;
+    const floodRiskMaxLevel = 5;
     const floodRiskData = {
-      floodRiskScore,
-      floodRiskScoreTotal,
-      floodRiskLabel,
+      floodRiskLevel,
+      floodRiskMaxLevel,
     };
     return floodRiskData;
   }
