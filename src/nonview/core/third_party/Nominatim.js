@@ -5,7 +5,12 @@ export default class Nominatim {
     const [lat, lon] = latLng.raw();
     const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`;
     try {
-      return await WWW.fetchJSON(url);
+      return await Cache.get(
+        `Nominatim.reverseGeocode.${latLng.id}`,
+        async () => {
+          return await WWW.fetchJSON(url);
+        }
+      );
     } catch (error) {
       console.error("Failed to fetch reverse geocoding data:", error);
       return null;
@@ -20,7 +25,7 @@ export default class Nominatim {
       query
     )}&format=jsonv2&countrycodes=lk`;
     try {
-      return await Cache.get(`Nominatim.Search_${query}`, async () => {
+      return await Cache.get(`Nominatim.search.${query}`, async () => {
         return await WWW.fetchJSON(url);
       });
     } catch (error) {
