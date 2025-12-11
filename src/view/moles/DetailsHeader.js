@@ -1,29 +1,43 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
 import EntIcon from "../atoms/EntIcon";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import Divider from "@mui/material/Divider";
 import NearbyPlacesView from "./NearbyPlacesView";
-import NominatimView from "./NominatimView";
+import AdminRegionView from "../atoms/AdminRegionView";
+import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
+import District from "../../nonview/core/ents/regions/admin_regions/District";
+import Province from "../../nonview/core/ents/regions/admin_regions/Province";
 
 export default function DetailsHeader({ ent, supertitleOverride }) {
   const size = 24;
   const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
+  const dsd = ent.dsd;
   return (
     <Box sx={{ m: 0, p: 0 }}>
+      {dsd && (
+        <Breadcrumbs separator="›" sx={{ m: 0, p: 0 }}>
+          <AdminRegionView AdminRegionClass={Province} id={dsd.provinceId} />
+          <AdminRegionView AdminRegionClass={District} id={dsd.districtId} />
+          <AdminRegionView AdminRegionClass={DSD} id={dsd.id} />
+        </Breadcrumbs>
+      )}
+
       <Box sx={{ display: "flex", alignItems: "flex-start" }}>
         <EntIcon ent={ent} size={size} />
         <Typography variant="h5" sx={{ lineHeight: `${size}px` }} color={color}>
           {ent.title}
         </Typography>
       </Box>
+
       <Typography variant="overline" color="text.secondary">
         {supertitleOverride ? supertitleOverride : ent.supertitle}
       </Typography>
       <Typography variant="body2" color="text.secondary">
         {ent.subtitle}
       </Typography>
-      <NominatimView latLng={ent.latLng} />
+
       <NearbyPlacesView latLng={ent.latLng} />
       <Divider sx={{ my: 1 }} />
     </Box>

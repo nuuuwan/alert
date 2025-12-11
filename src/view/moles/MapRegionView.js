@@ -4,18 +4,13 @@ import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import { useNavigate } from "react-router-dom";
 
-export default function MapRegionView({ region, onClick }) {
+export default function MapRegionView({ region }) {
   const navigate = useNavigate();
   let color = COLORS.neutral;
   if (region instanceof DSD) {
     const dsd = region;
     color = getAlertColor(dsd.latestLandslideWarningLevel, 3);
   }
-
-  const onClickInner = (e) => {
-    L.DomEvent.stopPropagation(e);
-    navigate(`/DSD/${region.getNameId()}`);
-  };
 
   return (
     <>
@@ -26,11 +21,8 @@ export default function MapRegionView({ region, onClick }) {
           pathOptions={{
             fillColor: color,
             color: "white",
-            weight: 0.5,
+            weight: 1,
             fillOpacity: 0.2,
-          }}
-          eventHandlers={{
-            click: onClickInner,
           }}
         />
       ))}

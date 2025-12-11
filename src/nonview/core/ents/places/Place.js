@@ -38,7 +38,6 @@ class Place {
     this.openElevationData = await OpenElevation.getData(this.latLng);
     this.earthquakeData = await Earthquake.loadAllRecent();
     this.dsd = await DSD.loadNearest(this.latLng);
-    console.debug(this.dsd);
     return this;
   }
 

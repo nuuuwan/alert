@@ -4,12 +4,23 @@ import TimeUtils from "../../../../base/TimeUtils";
 import Cache from "../../../../base/Cache";
 
 export default class DSD extends AdminRegion {
+  get districtId() {
+    return this.id.substring(0, 5);
+  }
+
+  get provinceId() {
+    return this.id.substring(0, 4);
+  }
+
   static getAdminRegionType() {
     return "dsd";
   }
 
   static getEntTypeName() {
     return "Divisional Secretariat Division";
+  }
+  static getEntTypeNameShort() {
+    return "DSD";
   }
 
   static async loadAllWarningData() {
@@ -20,22 +31,24 @@ export default class DSD extends AdminRegion {
       const dsdIDToDateStrToLevel = alertData["event_data"];
       const maxDateStr = Object.values(dsdIDToDateStrToLevel).reduce(function (
         maxDateStr,
-        dateStrToLevel,
+        dateStrToLevel
       ) {
         return Object.keys(dateStrToLevel).reduce(function (
           maxDateStr,
-          dateStr,
+          dateStr
         ) {
           return dateStr > maxDateStr ? dateStr : maxDateStr;
-        }, maxDateStr);
-      }, "00000000");
+        },
+        maxDateStr);
+      },
+      "00000000");
       const dsdIDToLatestLandslideWarning = Object.fromEntries(
         Object.entries(dsdIDToDateStrToLevel)
           .map(([dsdID, dateStrToLevel]) => [
             dsdID,
             dateStrToLevel[maxDateStr] || 0,
           ])
-          .filter((entry) => entry[1]),
+          .filter((entry) => entry[1])
       );
       const timeUt = TimeUtils.parseYYYYMMDD(maxDateStr) + 3_600 * 16;
       return {
