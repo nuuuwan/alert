@@ -8,7 +8,7 @@ import NaturalDisaster from "../../nonview/core/third_party/NaturalDisaster";
 import OpenElevation from "../../nonview/core/third_party/OpenElevation";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 
-export default function NaturalDisasterRisk({ place }) {
+export default function NaturalDisasterView({ place }) {
   const { openMeteoData, openElevationData } = place;
 
   const { floodRiskData, landslideRiskData } = NaturalDisaster.getData({
@@ -33,11 +33,11 @@ export default function NaturalDisasterRisk({ place }) {
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
           floodRiskData.floodRiskLevel,
-          floodRiskData.floodRiskMaxLevel,
+          floodRiskData.floodRiskMaxLevel
         )}
         color={getAlertColor(
           floodRiskData.floodRiskLevel,
-          floodRiskData.floodRiskMaxLevel,
+          floodRiskData.floodRiskMaxLevel
         )}
       />
       <MetricCard
@@ -49,11 +49,11 @@ export default function NaturalDisasterRisk({ place }) {
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
           landslideRiskData.landslideRiskLevel,
-          landslideRiskData.landslideRiskMaxLevel,
+          landslideRiskData.landslideRiskMaxLevel
         )}
         color={getAlertColor(
           landslideRiskData.landslideRiskLevel,
-          landslideRiskData.landslideRiskMaxLevel,
+          landslideRiskData.landslideRiskMaxLevel
         )}
       />
       <MetricCard
