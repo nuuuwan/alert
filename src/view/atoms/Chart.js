@@ -42,6 +42,10 @@ export default function Chart({ data, timeData, yAxisLabel, chartType }) {
 
   return (
     <ChartContainer
+      sx={{
+        width: { xs: "80vw", md: "calc(80vw - 80vh)" },
+        height: { xs: "calc(80vw * 9/16)", md: "calc((80vw - 80vh) * 9/16)" },
+      }}
       xAxis={[
         {
           data: xAxisData,
