@@ -4,6 +4,9 @@ import "leaflet/dist/leaflet.css";
 import "./MapView.css";
 import MapViewInner from "./MapViewInner";
 import LatLng from "../../nonview/base/geos/LatLng";
+import GeoLocation from "../../nonview/base/GeoLocation";
+import Place from "../../nonview/core/ents/places/Place";
+import { useNavigate } from "react-router-dom";
 
 function MapEventHandler({ onMapClickOrMoveEnd }) {
   useMapEvents({
@@ -29,17 +32,35 @@ function MapCenterUpdater({ center, zoom }) {
 }
 
 export default function MapPanel({
-  center,
-  zoom,
-  onMapClickOrMoveEnd,
   dsdNameId,
   hydrometricStationNameId,
   cityNameId,
   placeLatLngId,
-  setCenterLatLng,
+  //
   selectedEnt,
   setSelectedEnt,
+  setCenterLatLng,
+  //
+  onMapClickOrMoveEnd,
+  //
+  center,
+  zoom,
 }) {
+  const navigate = useNavigate();
+  const hasSomeEntParam =
+    dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
+  useEffect(() => {
+    async function fetchBrowserLocation() {
+      const latLng = await GeoLocation.getCurrentLatLng();
+      if (!hasSomeEntParam && latLng) {
+        const place = await Place.load({ latLng });
+        setCenterLatLng(latLng);
+        navigate(place.url);
+      }
+    }
+    fetchBrowserLocation();
+  }, [hasSomeEntParam, navigate, setCenterLatLng]);
+
   return (
     <MapContainer
       center={center}
