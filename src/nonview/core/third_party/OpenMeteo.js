@@ -119,6 +119,7 @@ export default class OpenMeteo {
     weatherData = OpenMeteo.computeFloodRisk(weatherData);
     weatherData = OpenMeteo.computeLandslideRisk(weatherData);
     weatherData = OpenMeteo.computerHeatRisk(weatherData);
+    weatherData = OpenMeteo.computeDroughtRisk(weatherData);
 
     return weatherData;
   }
@@ -200,6 +201,41 @@ export default class OpenMeteo {
 
     weatherData.heatRiskMaxLevel = Object.keys(
       weatherData.heatRiskFactors24hThresholded
+    ).length;
+
+    return weatherData;
+  }
+
+  static computeDroughtRisk(weatherData) {
+    weatherData.droughtRiskFactors24h = {
+      d01HourlyRainSumPrevious7Days: weatherData.hourlyRainSumPrevious7Days,
+      d02HourlyRainSumNext24Hours: weatherData.hourlyRainSumNext24Hours,
+      d03MeanDeepSoilMoistureNext24Hours: ArrayUtils.mean(
+        weatherData.hourlyDeepSoilMoisture.slice(7 * 24, 8 * 24)
+      ),
+      d04HoursOfNoRainNext24Hours: weatherData.hourlyRain
+        .slice(7 * 24, 8 * 24)
+        .filter((rain) => rain < 0.1).length,
+    };
+
+    weatherData.droughtRiskFactors24hThresholded = {
+      d01HourlyRainSumPrevious7Days:
+        weatherData.droughtRiskFactors24h.d01HourlyRainSumPrevious7Days < 10,
+      d02HourlyRainSumNext24Hours:
+        weatherData.droughtRiskFactors24h.d02HourlyRainSumNext24Hours < 2,
+      d03MeanDeepSoilMoistureNext24Hours:
+        weatherData.droughtRiskFactors24h.d03MeanDeepSoilMoistureNext24Hours <
+        0.15,
+      d04HoursOfNoRainNext24Hours:
+        weatherData.droughtRiskFactors24h.d04HoursOfNoRainNext24Hours > 20,
+    };
+
+    weatherData.droughtRiskLevel = Object.values(
+      weatherData.droughtRiskFactors24hThresholded
+    ).filter((v) => v).length;
+
+    weatherData.droughtRiskMaxLevel = Object.keys(
+      weatherData.droughtRiskFactors24hThresholded
     ).length;
 
     return weatherData;
