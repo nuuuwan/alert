@@ -9,14 +9,9 @@ import Place from "../../nonview/core/ents/places/Place";
 import { useNavigate } from "react-router-dom";
 
 function MapEventHandler({ onMapClickOrMoveEnd }) {
-  useMapEvents({
-    click(e) {
-      const centre = e.latlng;
-      const latLng = LatLng.fromRaw([
-        parseFloat(centre.lat),
-        parseFloat(centre.lng),
-      ]);
-      onMapClickOrMoveEnd(latLng);
+  const map = useMapEvents({
+    click: (e) => {
+      onMapClickOrMoveEnd(LatLng.fromRaw([e.latlng.lat, e.latlng.lng]));
     },
   });
   return null;
@@ -25,9 +20,7 @@ function MapEventHandler({ onMapClickOrMoveEnd }) {
 function MapCenterUpdater({ center, zoom }) {
   const map = useMap();
   useEffect(() => {
-    console.debug(center, zoom);
-    map.panTo(center);
-    map.setView(center, zoom);
+    map.flyTo(center, zoom);
   }, [map, center, zoom]);
   return null;
 }
