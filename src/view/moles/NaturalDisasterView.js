@@ -34,11 +34,11 @@ export default function NaturalDisasterView({ place }) {
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
           floodRiskData.floodRiskLevel,
-          floodRiskData.floodRiskMaxLevel
+          floodRiskData.floodRiskMaxLevel,
         )}
         color={getAlertColor(
           floodRiskData.floodRiskLevel,
-          floodRiskData.floodRiskMaxLevel
+          floodRiskData.floodRiskMaxLevel,
         )}
       />
       <MetricCard
@@ -50,11 +50,11 @@ export default function NaturalDisasterView({ place }) {
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
           landslideRiskData.landslideRiskLevel,
-          landslideRiskData.landslideRiskMaxLevel
+          landslideRiskData.landslideRiskMaxLevel,
         )}
         color={getAlertColor(
           landslideRiskData.landslideRiskLevel,
-          landslideRiskData.landslideRiskMaxLevel
+          landslideRiskData.landslideRiskMaxLevel,
         )}
       />
 
@@ -67,11 +67,11 @@ export default function NaturalDisasterView({ place }) {
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
           heatRiskData.heatRiskLevel,
-          heatRiskData.heatRiskMaxLevel
+          heatRiskData.heatRiskMaxLevel,
         )}
         color={getAlertColor(
           heatRiskData.heatRiskLevel,
-          heatRiskData.heatRiskMaxLevel
+          heatRiskData.heatRiskMaxLevel,
         )}
       />
 
@@ -84,11 +84,11 @@ export default function NaturalDisasterView({ place }) {
         isPrediction
         alertLabel={NaturalDisaster.getLabel(
           droughtRiskData.droughtRiskLevel,
-          droughtRiskData.droughtRiskMaxLevel
+          droughtRiskData.droughtRiskMaxLevel,
         )}
         color={getAlertColor(
           droughtRiskData.droughtRiskLevel,
-          droughtRiskData.droughtRiskMaxLevel
+          droughtRiskData.droughtRiskMaxLevel,
         )}
       />
 

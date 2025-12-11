@@ -48,7 +48,7 @@ function PlaceSearch({ onPlaceSelect, latLng }) {
   const handleChange = (event, newValue) => {
     if (newValue && onPlaceSelect) {
       onPlaceSelect(
-        LatLng.fromRaw([parseFloat(newValue.lat), parseFloat(newValue.lon)])
+        LatLng.fromRaw([parseFloat(newValue.lat), parseFloat(newValue.lon)]),
       );
     }
   };

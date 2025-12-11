@@ -9,7 +9,7 @@ export default class Nominatim {
         `Nominatim.reverseGeocode.${latLng.id}`,
         async () => {
           return await WWW.fetchJSON(url);
-        }
+        },
       );
     } catch (error) {
       console.error("Failed to fetch reverse geocoding data:", error);
@@ -22,7 +22,7 @@ export default class Nominatim {
       return [];
     }
     const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
-      query
+      query,
     )}&format=jsonv2&countrycodes=lk`;
     try {
       return await Cache.get(`Nominatim.search.${query}`, async () => {
