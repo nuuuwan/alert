@@ -9,8 +9,7 @@ export default function MapRegionView({ region, onClick }) {
   let color = COLORS.neutral;
   if (region instanceof DSD) {
     const dsd = region;
-
-    color = getAlertColor(dsd.latestLandslideWarningLevel);
+    color = getAlertColor(dsd.latestLandslideWarningLevel, 3);
   }
 
   const onClickInner = (e) => {
