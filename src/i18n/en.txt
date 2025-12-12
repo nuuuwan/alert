@@ -379,6 +379,8 @@ Oddusuddan
 Okewela
 Okkampitiya
 Opanayake
+Open-Elevation (Free Elevation API)
+Open-Meteo (Real-Time Weather API)
 Paadeniya
 Pachchilaipalli
 Padavi Sri Pura
@@ -458,6 +460,7 @@ Siyambalanduwa
 Sooriyakanda
 Sooriyawewa
 Soranathota
+Sources
 Southern
 Sri Jayawardanapura Kotte
 Sri Jayawardenepura Kotte
