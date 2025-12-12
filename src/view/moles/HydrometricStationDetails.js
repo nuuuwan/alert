@@ -100,7 +100,7 @@ export default function HydrometricStationDetails({ place }) {
           unit="m"
           timeLabel={TimeUtils.getTimeAgoString(latestReading.timeUt)}
           alertLabel={alertLevel}
-          color={color}
+          color={COLORS.water}
         />
         {rateOfChangeData && (
           <MetricCard
@@ -109,6 +109,7 @@ export default function HydrometricStationDetails({ place }) {
             value={rateOfChangeData.value}
             unit="cm/hr"
             timeLabel={rateOfRiseTimeLabel}
+            color={COLORS.water}
           />
         )}
       </MetricCardCollection>

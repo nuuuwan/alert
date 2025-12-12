@@ -1,5 +1,4 @@
 import PlaceIcon from "@mui/icons-material/Place";
-import { COLORS } from "../_cons/StyleConstants";
 
 export default function MapCrosshair() {
   const size = 68;

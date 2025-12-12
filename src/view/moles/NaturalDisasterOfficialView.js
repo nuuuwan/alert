@@ -31,7 +31,7 @@ export default function NaturalDisasterOfficialView({ place }) {
 
   return (
     <MetricCardCollection
-      title="Official Natural Disaster Warnings"
+      title="Official Alerts"
       sourceList={[
         {
           label: "Disaster Management Centre of Sri Lanka",

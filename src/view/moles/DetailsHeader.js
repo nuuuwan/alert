@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import EntIcon from "../atoms/EntIcon";
