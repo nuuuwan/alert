@@ -3,11 +3,11 @@ import { useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import "./MapView.css";
 import MapViewInner from "./MapViewInner";
+import MapCrosshair from "../atoms/MapCrosshair";
 import LatLng from "../../nonview/base/geos/LatLng";
 import GeoLocation from "../../nonview/base/GeoLocation";
 import Place from "../../nonview/core/ents/places/Place";
 import { useNavigate } from "react-router-dom";
-
 function MapEventHandler({ onMapMoveEnd }) {
   useMapEvents({
     moveend: (e) => {
@@ -18,11 +18,11 @@ function MapEventHandler({ onMapMoveEnd }) {
   return null;
 }
 
-function MapCenterUpdater({ center }) {
+function MapCenterUpdater({ center, zoom }) {
   const map = useMap();
   useEffect(() => {
-    map.panTo(center);
-  }, [map, center]);
+    map.setView(center, zoom);
+  }, [map, center, zoom]);
   return null;
 }
 
@@ -92,7 +92,7 @@ export default function MapPanel({
         setMapLatLng={setMapLatLng}
       />
 
-      <div id="map-crosshairs"></div>
+      <MapCrosshair />
     </MapContainer>
   );
 }
