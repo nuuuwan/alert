@@ -51,7 +51,12 @@ export default function MetricCard({
         {Icon && (
           <Icon fontSize="small" sx={{ color: foreColor }} color={foreColor} />
         )}
-        <Typography variant="caption" color={foreColor} noWrap>
+        <Typography
+          variant="caption"
+          color={foreColor}
+          noWrap
+          sx={{ fontSize: Math.min(12, 180 / t(label).length) }}
+        >
           {t(label)}
         </Typography>
       </Box>
