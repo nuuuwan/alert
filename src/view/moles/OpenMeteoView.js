@@ -44,21 +44,21 @@ export default function OpenMeteoView({ place }) {
           label="Temp"
           value={openMeteoData.currentTempCelsius.toFixed(1)}
           unit="°C"
-          timeLabel={TimeUtils.getTimeAgoString(openMeteoData.currentTimeUt)}
+          timeLabel={"Now"}
         />
         <MetricCard
           Icon={OpacityIcon}
           label="RH"
           value={openMeteoData.currentRH.toFixed(0)}
           unit="%"
-          timeLabel={TimeUtils.getTimeAgoString(openMeteoData.currentTimeUt)}
+          timeLabel={"Now"}
         />
         <MetricCard
           Icon={CloudIcon}
           label="Dew Point"
           value={openMeteoData.hourlyDewPoint[7 * 24].toFixed(1)}
           unit="°C"
-          timeLabel={TimeUtils.getTimeAgoString(openMeteoData.currentTimeUt)}
+          timeLabel={"Now"}
         />
       </MetricCardCollection>
 
