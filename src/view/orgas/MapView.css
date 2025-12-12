@@ -2,37 +2,3 @@
   filter: grayscale(80%);
 }
 
-#map-crosshairs {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 40px; /* Increased size for debugging */
-  height: 40px; /* Increased size for debugging */
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 2000; /* Increased z-index to ensure visibility */
-}
-
-#map-crosshairs::before,
-#map-crosshairs::after {
-  content: "";
-  position: absolute;
-  background: black;
-  z-index: 2001; /* Ensure pseudo-elements are above other elements */
-}
-
-#map-crosshairs::before {
-  width: 2px;
-  height: 100%;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-#map-crosshairs::after {
-  width: 100%;
-  height: 2px;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-}
