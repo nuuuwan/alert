@@ -10,13 +10,14 @@ root.render(
   <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/DSD/:dsdNameId" element={<App />} />
+      <Route path="/:lang" element={<App />} />
+      <Route path="/:lang/DSD/:dsdNameId" element={<App />} />
       <Route
         path="/HydrometricStation/:hydrometricStationNameId"
         element={<App />}
       />
-      <Route path="/City/:cityNameId" element={<App />} />
-      <Route path="/Place/:placeLatLngId" element={<App />} />
+      <Route path="/:lang/City/:cityNameId" element={<App />} />
+      <Route path="/:lang/Place/:placeLatLngId" element={<App />} />
     </Routes>
   </BrowserRouter>
 );

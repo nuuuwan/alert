@@ -6,6 +6,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { FONT_FAMILY } from "./view/_cons/StyleConstants";
 import { useParams } from "react-router-dom";
 import { DataProvider } from "./nonview/core/DataContext";
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 
 const theme = createTheme({
   typography: {
@@ -14,8 +16,22 @@ const theme = createTheme({
 });
 
 function App() {
-  const { dsdNameId, hydrometricStationNameId, cityNameId, placeLatLngId } =
-    useParams();
+  const {
+    dsdNameId,
+    hydrometricStationNameId,
+    cityNameId,
+    placeLatLngId,
+    lang,
+  } = useParams();
+
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    if (lang && i18n.language !== lang) {
+      i18n.changeLanguage(lang);
+      console.debug("Language changed to", lang);
+    }
+  }, [lang, i18n]);
 
   return (
     <ThemeProvider theme={theme}>
