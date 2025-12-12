@@ -61,6 +61,7 @@ Chavakachcheri
 Chilaw
 Chunnakam
 Colombo
+Current Weather
 Damana
 Dambadeniya
 Dambulla
@@ -442,6 +443,7 @@ Puttalam
 Putupaula
 Ragama
 Rain
+Rainfall
 Rajanganaya
 Rakwana
 Rambewa
@@ -480,6 +482,7 @@ Tangalle
 Teldeniya
 Tellippalai
 Temp
+Temperature
 Terrain Metrics
 Thalathuoya
 Thalawa
@@ -551,6 +554,7 @@ Water Level
 Wattala
 Wattegama
 Weather
+Weather Forecast
 Weeraketiya
 Weerambugedara
 Weerawila
