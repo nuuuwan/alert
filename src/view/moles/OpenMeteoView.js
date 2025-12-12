@@ -46,7 +46,7 @@ export default function OpenMeteoView({ place }) {
         />
         <MetricCard
           Icon={OpacityIcon}
-          label="RH"
+          label="Relative Humidity"
           value={openMeteoData.currentRH.toFixed(0)}
           unit="%"
           timeLabel={"Now"}
