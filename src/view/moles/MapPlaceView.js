@@ -15,15 +15,13 @@ export default function MapPlaceView({ place }) {
   const iconSize = LOCATION_MARKER_RADIUS * 8;
   const circleSize = iconSize * 1.1;
   const opacity = 1;
-  const placeColor = getAlertColor(place.alertLevel);
+  const placeColor = getAlertColor(place.alertLevel, 3);
 
   const onClickInner = (e) => {
     L.DomEvent.stopPropagation(e);
     navigate(place.url);
   };
 
-  // Ensure MUI icons render correctly by wrapping them in a div with proper styling.
-  // Safari requires SVG namespace declaration for proper rendering in Leaflet markers.
   let entIconSvg = ReactDOMServer.renderToStaticMarkup(
     <div
       style={{
@@ -34,12 +32,7 @@ export default function MapPlaceView({ place }) {
         height: iconSize,
       }}
     >
-      <EntIcon
-        ent={place}
-        size={iconSize}
-        color={placeColor}
-        strokeColor={placeColor}
-      />
+      <EntIcon ent={place} size={iconSize} color={placeColor} />
     </div>
   );
 
