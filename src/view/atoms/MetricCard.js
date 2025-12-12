@@ -44,7 +44,7 @@ export default function MetricCard({
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          gap: 0.5,
+          gap: 0.1,
           overflow: "hidden", // Prevent overflow in this section
         }}
       >
