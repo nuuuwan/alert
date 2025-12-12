@@ -20,4 +20,8 @@ export default class Region {
   get latLng() {
     return this.getCentroidLatLng();
   }
+
+  isInside(latLng) {
+    return this.multiPolygon.isInside(latLng);
+  }
 }
