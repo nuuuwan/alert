@@ -5,6 +5,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 import { useTranslation } from "react-i18next";
+import { COLORS } from "../_cons/StyleConstants";
 
 const LANGUAGE_LABELS = {
   si: "සිං",
@@ -29,39 +30,25 @@ export default function MapActionButtons({
     i18n.changeLanguage(lang);
   };
 
-  const iconButtonStyle = { width: 48, height: 48, m: 0, p: 0 };
+  const iconSize = 36;
+
+  const iconButtonStyle = {
+    width: iconSize,
+    height: iconSize,
+    m: 1,
+    p: 0,
+    bgcolor: COLORS.neutralLightest,
+  };
   return (
     <Box
       sx={{
         position: "absolute",
-        right: "50%",
+        left: "10",
         zIndex: 1000,
         m: 0,
         p: 0,
       }}
     >
-      {otherLanguages.map((lang) => (
-        <IconButton
-          key={lang}
-          onClick={() => handleLanguageChange(lang)}
-          aria-label={`switch to ${lang}`}
-          sx={iconButtonStyle}
-        >
-          <Avatar
-            sx={{
-              width: 24,
-              height: 24,
-              bgcolor: "white",
-              color: "black",
-              fontSize: 18,
-              m: 0,
-              p: 0,
-            }}
-          >
-            {LANGUAGE_LABELS[lang]}
-          </Avatar>
-        </IconButton>
-      ))}
       <IconButton
         onClick={onCurrentLocation}
         aria-label="current location"
@@ -83,6 +70,28 @@ export default function MapActionButtons({
       >
         <DownloadIcon />
       </IconButton>
+      {otherLanguages.map((lang) => (
+        <IconButton
+          key={lang}
+          onClick={() => handleLanguageChange(lang)}
+          aria-label={`switch to ${lang}`}
+          sx={iconButtonStyle}
+        >
+          <Avatar
+            sx={{
+              width: iconSize * 0.9,
+              height: iconSize * 0.9,
+              color: "black",
+              bgcolor: "transparent",
+              fontSize: iconSize * 0.5,
+              m: 0,
+              p: 0,
+            }}
+          >
+            {LANGUAGE_LABELS[lang]}
+          </Avatar>
+        </IconButton>
+      ))}
     </Box>
   );
 }
