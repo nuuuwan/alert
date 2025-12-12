@@ -25,7 +25,6 @@ export default function OpenMeteoView({ place }) {
           value={openMeteoData.hourlyRainSumNext24Hours.toFixed(0)}
           unit="mm"
           timeLabel="Next 24h total"
-          isPrediction
         />
       </MetricCardCollection>
       <MetricCardCollection

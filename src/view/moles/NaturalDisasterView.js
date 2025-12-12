@@ -47,7 +47,6 @@ export default function NaturalDisasterView({ place }) {
         value={`${floodRiskData.floodRiskLevel}/${floodRiskData.floodRiskMaxLevel}`}
         unit=""
         timeLabel="Next 24h"
-        isPrediction
         alertLabel={NaturalDisaster.getLabel(
           floodRiskData.floodRiskLevel,
           floodRiskData.floodRiskMaxLevel
@@ -63,7 +62,6 @@ export default function NaturalDisasterView({ place }) {
         value={`${landslideRiskData.landslideRiskLevel}/${landslideRiskData.landslideRiskMaxLevel}`}
         unit=""
         timeLabel="Next 24h"
-        isPrediction
         alertLabel={NaturalDisaster.getLabel(
           landslideRiskData.landslideRiskLevel,
           landslideRiskData.landslideRiskMaxLevel
@@ -80,7 +78,6 @@ export default function NaturalDisasterView({ place }) {
         value={`${heatRiskData.heatRiskLevel}/${heatRiskData.heatRiskMaxLevel}`}
         unit=""
         timeLabel="Next 24h"
-        isPrediction
         alertLabel={NaturalDisaster.getLabel(
           heatRiskData.heatRiskLevel,
           heatRiskData.heatRiskMaxLevel
@@ -97,7 +94,6 @@ export default function NaturalDisasterView({ place }) {
         value={`${droughtRiskData.droughtRiskLevel}/${droughtRiskData.droughtRiskMaxLevel}`}
         unit=""
         timeLabel="Next 24h"
-        isPrediction
         alertLabel={NaturalDisaster.getLabel(
           droughtRiskData.droughtRiskLevel,
           droughtRiskData.droughtRiskMaxLevel
@@ -114,7 +110,6 @@ export default function NaturalDisasterView({ place }) {
         value={`${tsunamiRiskData.tsunamiRiskLevel}/${tsunamiRiskData.tsunamiRiskMaxLevel}`}
         unit=""
         timeLabel="Next 24h"
-        isPrediction
         alertLabel={NaturalDisaster.getLabel(
           tsunamiRiskData.tsunamiRiskLevel,
           tsunamiRiskData.tsunamiRiskMaxLevel
