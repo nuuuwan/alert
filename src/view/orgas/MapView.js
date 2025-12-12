@@ -2,16 +2,13 @@ import { useState, useRef } from "react";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 import LatLng from "../../nonview/base/geos/LatLng";
 import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import DownloadIcon from "@mui/icons-material/Download";
-import MyLocationIcon from "@mui/icons-material/MyLocation";
-import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 import { useNavigate } from "react-router-dom";
 import EntDetails from "../moles/EntDetails";
 import MapPanel from "./MapPanel";
 import TestModeBanner from "../atoms/TestModeBanner";
 import DownloadableContent from "../moles/DownloadableContent";
 import Place from "../../nonview/core/ents/places/Place";
+import MapActionButtons from "../atoms/MapActionButtons";
 
 export default function MapView({
   dsdNameId,
@@ -49,29 +46,11 @@ export default function MapView({
   return (
     <Box>
       <TestModeBanner />
-      <Box
-        sx={{
-          position: "absolute",
-          right: 10,
-          zIndex: 1000,
-        }}
-      >
-        <IconButton
-          onClick={handleCurrentLocation}
-          aria-label="current location"
-        >
-          <MyLocationIcon />
-        </IconButton>
-        <IconButton
-          onClick={handleSetToMapCenter}
-          aria-label="set to map center"
-        >
-          <LocationSearchingIcon />
-        </IconButton>
-        <IconButton onClick={handleDownload} aria-label="download">
-          <DownloadIcon />
-        </IconButton>
-      </Box>
+      <MapActionButtons
+        onCurrentLocation={handleCurrentLocation}
+        onSetToMapCenter={handleSetToMapCenter}
+        onDownload={handleDownload}
+      />
       <Box
         sx={{
           display: "flex",
