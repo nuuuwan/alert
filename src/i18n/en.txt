@@ -8,6 +8,7 @@ Akurana
 Akuressa
 Alawwa
 Alayadiwembu
+Alert
 Aluthgama
 Ambagamuwa
 Ambalangoda
@@ -114,6 +115,7 @@ Eravur Pattu
 Eravur Town
 Etampitiya
 European Space Agency (ESA) Sentinel-2
+Evacuate
 Flood
 Galagedara
 Galenbindunuwewa
@@ -565,6 +567,7 @@ Walawe Ganga
 Walgama
 Warakapola
 Wariyapola
+Watch
 Water Level
 Wattala
 Wattegama
