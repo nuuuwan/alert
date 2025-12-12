@@ -37,8 +37,9 @@ export default function NaturalDisasterView({ place }) {
       ]}
     >
       <Alert severity="warning" sx={{ mb: 1 }}>
-        These <strong>Natural Disaster Risk Metrics</strong> are still under
-        development and should be used for informational purposes only.
+        {t(
+          "These Natural Disaster Risk Metrics are still under development and should be used for informational purposes only."
+        )}
       </Alert>
       <MetricCard
         Icon={FloodIcon}
