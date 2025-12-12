@@ -71,7 +71,9 @@ export default function MetricCard({
           color={foreColor}
           sx={{ ml: 0.5, position: "relative", bottom: "4px" }}
           noWrap
-        >{`${unit}`}</Typography>
+        >
+          {t(unit)}
+        </Typography>
       </Box>
 
       <Box
