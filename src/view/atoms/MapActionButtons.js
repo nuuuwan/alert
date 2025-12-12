@@ -35,7 +35,7 @@ export default function MapActionButtons({
   const iconButtonStyle = {
     width: iconSize,
     height: iconSize,
-    m: 1,
+    m: 0.25,
     p: 0,
     bgcolor: COLORS.neutralLightest,
   };
