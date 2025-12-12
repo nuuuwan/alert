@@ -5,7 +5,6 @@ import DownloadIcon from "@mui/icons-material/Download";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 import { useTranslation } from "react-i18next";
-import { useNavigate, useLocation } from "react-router-dom";
 
 const LANGUAGE_LABELS = {
   en: "E",
@@ -19,8 +18,6 @@ export default function MapActionButtons({
   onDownload,
 }) {
   const { i18n } = useTranslation();
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const currentLanguage = i18n.language;
 
@@ -29,18 +26,6 @@ export default function MapActionButtons({
   );
 
   const handleLanguageChange = (lang) => {
-    const pathParts = location.pathname.split("/").filter((part) => part);
-    const currentLang = ["en", "si", "ta"].find((l) => l === pathParts[0]);
-
-    let newPath;
-    if (currentLang) {
-      pathParts[0] = lang;
-      newPath = `/${pathParts.join("/")}`;
-    } else {
-      newPath = `/${lang}${location.pathname}`;
-    }
-
-    navigate(newPath);
     i18n.changeLanguage(lang);
   };
 

@@ -51,7 +51,7 @@ export default function MapPanel({
       if (!hasSomeEntParam && latLng) {
         const place = await Place.load({ latLng });
         setMapLatLng(latLng);
-        navigate(`${i18n.language}/${place.url}`);
+        navigate(`${place.url}`);
       }
     }
     fetchBrowserLocation();
