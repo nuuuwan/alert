@@ -592,3 +592,5 @@ Yatiyantota
 ago
 km
 m
+mm
+°C
