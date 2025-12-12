@@ -23,7 +23,6 @@ export default function MapView({
   const navigate = useNavigate();
   const downloadRef = useRef(null);
 
-  const [selectedLatLng, setSelectedLatLng] = useState(null);
   const [mapLatLng, setMapLatLng] = useState(LatLng.fromRaw(DEFAULT_CENTER));
 
   const center = mapLatLng.raw() || DEFAULT_CENTER;
@@ -33,7 +32,6 @@ export default function MapView({
   };
 
   const handleSetToMapCenter = () => {
-    setSelectedLatLng(mapLatLng);
     const place = Place.fromLatLng(mapLatLng);
     navigate(place.url);
   };
@@ -100,7 +98,6 @@ export default function MapView({
             center={center}
             zoom={DEFAULT_ZOOM}
             //
-            setSelectedLatLng={setSelectedLatLng}
             setMapLatLng={setMapLatLng}
           />
         </Box>

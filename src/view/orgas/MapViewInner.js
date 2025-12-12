@@ -14,8 +14,6 @@ export default function MapViewInner({
   cityNameId,
   placeLatLngId,
   //
-  setSelectedLatLng,
-  //
   setMapLatLng,
   selectedEnt,
   setSelectedEnt,
@@ -51,13 +49,12 @@ export default function MapViewInner({
         if (dsd) {
           await dsd.loadDetails();
           setSelectedEnt(dsd);
-          setSelectedLatLng(dsd.getCentroidLatLng());
           setMapLatLng(dsd.getCentroidLatLng());
         }
       }
     }
     fetchSelectedDsd();
-  }, [dsdNameId, setSelectedLatLng, setSelectedEnt, setMapLatLng]);
+  }, [dsdNameId, setSelectedEnt, setMapLatLng]);
 
   useEffect(() => {
     async function fetchHydrometricStation() {
@@ -68,18 +65,12 @@ export default function MapViewInner({
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
           setSelectedEnt(hydrometricStation);
-          setSelectedLatLng(hydrometricStation.latLng);
           setMapLatLng(hydrometricStation.latLng);
         }
       }
     }
     fetchHydrometricStation();
-  }, [
-    hydrometricStationNameId,
-    setSelectedLatLng,
-    setSelectedEnt,
-    setMapLatLng,
-  ]);
+  }, [hydrometricStationNameId, setSelectedEnt, setMapLatLng]);
 
   useEffect(() => {
     async function fetchCity() {
@@ -88,13 +79,12 @@ export default function MapViewInner({
         if (city) {
           await city.loadDetails();
           setSelectedEnt(city);
-          setSelectedLatLng(city.latLng);
           setMapLatLng(city.latLng);
         }
       }
     }
     fetchCity();
-  }, [cityNameId, setSelectedLatLng, setSelectedEnt, setMapLatLng]);
+  }, [cityNameId, setSelectedEnt, setMapLatLng]);
 
   useEffect(() => {
     async function fetchPlace() {
@@ -104,12 +94,11 @@ export default function MapViewInner({
         if (place) {
           await place.loadDetails();
           setSelectedEnt(place);
-          setSelectedLatLng(place.latLng);
         }
       }
     }
     fetchPlace();
-  }, [placeLatLngId, setSelectedLatLng, setSelectedEnt, setMapLatLng]);
+  }, [placeLatLngId, setSelectedEnt, setMapLatLng]);
 
   return (
     <Box>

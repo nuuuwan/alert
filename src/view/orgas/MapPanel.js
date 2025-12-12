@@ -34,7 +34,6 @@ export default function MapPanel({
   //
   selectedEnt,
   setSelectedEnt,
-  setSelectedLatLng,
   setMapLatLng,
   //
   center,
@@ -49,13 +48,12 @@ export default function MapPanel({
       const latLng = await GeoLocation.getCurrentLatLng();
       if (!hasSomeEntParam && latLng) {
         const place = await Place.load({ latLng });
-        setSelectedLatLng(latLng);
         setMapLatLng(latLng);
         navigate(place.url);
       }
     }
     fetchBrowserLocation();
-  }, [hasSomeEntParam, navigate, setSelectedLatLng, setMapLatLng]);
+  }, [hasSomeEntParam, navigate, setMapLatLng]);
 
   const onMapClick = async (latLng) => {
     navigate(`/Place/${latLng.id}`);
@@ -84,8 +82,6 @@ export default function MapPanel({
         hydrometricStationNameId={hydrometricStationNameId}
         cityNameId={cityNameId}
         placeLatLngId={placeLatLngId}
-        //
-        setSelectedLatLng={setSelectedLatLng}
         //
         selectedEnt={selectedEnt}
         setSelectedEnt={setSelectedEnt}
