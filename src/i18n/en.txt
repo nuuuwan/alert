@@ -452,6 +452,7 @@ Ratmalana
 Ratnapura
 Rattota
 Rawathawatta
+Recent Earthquakes
 Rideegama
 Rideemaliyadda
 Ruwanwella
@@ -479,6 +480,7 @@ Tangalle
 Teldeniya
 Tellippalai
 Temp
+Terrain Metrics
 Thalathuoya
 Thalawa
 Thalawathugoda
@@ -504,6 +506,7 @@ Thunukkai
 Trincomalee
 Trincomalee Town and Gravets
 Tsunami
+USGS Earthquake Data (via lk_tsunamis)
 Udadumbara
 Udapalatha
 Udawalawe
@@ -547,6 +550,7 @@ Wariyapola
 Water Level
 Wattala
 Wattegama
+Weather
 Weeraketiya
 Weerambugedara
 Weerawila
