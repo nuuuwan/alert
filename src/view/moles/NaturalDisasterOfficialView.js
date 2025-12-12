@@ -1,22 +1,51 @@
 import MetricCard from "../atoms/MetricCard";
 import MetricCardCollection from "../atoms/MetricCardCollection";
 import LandslideIcon from "@mui/icons-material/Landslide";
+import WaterIcon from "@mui/icons-material/Water";
 import { getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
+import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 
 export default function NaturalDisasterOfficialView({ place }) {
   const dsd = place.dsd;
-  if (!dsd || dsd.latestLandslideWarningLevel === undefined) {
+  const isHydrometricStation = place instanceof HydrometricStation;
+
+  const landslideCard =
+    dsd && dsd.latestLandslideWarningLevel !== undefined
+      ? getLandslideCard(dsd)
+      : null;
+  const waterLevelCard =
+    isHydrometricStation && place.alertLevel > 0
+      ? getWaterLevelCard(place)
+      : null;
+
+  if (!landslideCard && !waterLevelCard) {
     return null;
   }
 
-  const level = dsd.latestLandslideWarningLevel;
-  const timeUt = dsd.latestLandslideWarningTimeUt;
+  return (
+    <MetricCardCollection
+      title="Official Alerts"
+      sourceList={[
+        {
+          label: "Disaster Management Centre of Sri Lanka",
+          url: "https://www.dmc.gov.lk",
+        },
+      ]}
+    >
+      {landslideCard}
+      {waterLevelCard}
+    </MetricCardCollection>
+  );
+}
 
+function getLandslideCard(dsd) {
+  const level = dsd.latestLandslideWarningLevel;
   if (level === null) {
     return null;
   }
 
+  const timeUt = dsd.latestLandslideWarningTimeUt;
   let value = "Safe";
   let alertLabel = level > 0 ? `Level ${level}` : "No Alert";
   if (level === 1) {
@@ -30,24 +59,43 @@ export default function NaturalDisasterOfficialView({ place }) {
   const color = getAlertColor(level, 3);
 
   return (
-    <MetricCardCollection
-      title="Official Alerts"
-      sourceList={[
-        {
-          label: "Disaster Management Centre of Sri Lanka",
-          url: "https://www.dmc.gov.lk",
-        },
-      ]}
-    >
-      <MetricCard
-        Icon={LandslideIcon}
-        label="Landslide"
-        value={value}
-        unit=""
-        color={color}
-        timeLabel={TimeUtils.getTimeAgoString(timeUt)}
-        alertLabel={alertLabel}
-      />
-    </MetricCardCollection>
+    <MetricCard
+      Icon={LandslideIcon}
+      label="Landslide"
+      value={value}
+      unit=""
+      color={color}
+      timeLabel={TimeUtils.getTimeAgoString(timeUt)}
+      alertLabel={alertLabel}
+    />
+  );
+}
+
+function getWaterLevelCard(hydrometricStation) {
+  const level = hydrometricStation.alertLevel;
+  const waterLevelM = hydrometricStation.latestWaterLevelM;
+  const timeUt = hydrometricStation.latestWaterLevelTimeUt;
+
+  let alertLabel = level > 0 ? `Level ${level}` : "Safe";
+  if (level === 1) {
+    alertLabel = "Alert Level";
+  } else if (level === 2) {
+    alertLabel = "Minor Flood";
+  } else if (level === 3) {
+    alertLabel = "Major Flood";
+  }
+
+  const color = getAlertColor(level, 3);
+
+  return (
+    <MetricCard
+      Icon={WaterIcon}
+      label="Water Level"
+      value={waterLevelM !== undefined ? waterLevelM.toFixed(2) : "N/A"}
+      unit="m"
+      color={color}
+      timeLabel={TimeUtils.getTimeAgoString(timeUt)}
+      alertLabel={alertLabel}
+    />
   );
 }
