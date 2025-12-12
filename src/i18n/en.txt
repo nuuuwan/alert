@@ -451,7 +451,6 @@ Puliyankulam
 Puthukkudiyiruppu
 Puttalam
 Putupaula
-RH
 Ragama
 Rain
 Rainfall
@@ -467,6 +466,7 @@ Rattota
 Rawathawatta
 Recent Earthquakes
 Relative Elevation
+Relative Humidity
 Rideegama
 Rideemaliyadda
 Ruwanwella
