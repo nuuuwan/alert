@@ -56,7 +56,7 @@ class AdminRegion extends Region {
           "/nuuuwan/lk_admin_regions/refs/heads/main" +
           `/data/geo/json/smaller/${this.getAdminRegionType()}s.json/${id}.json`;
         return await WWW.fetch(url);
-      }
+      },
     );
 
     return MultiPolygon.fromReverseRaw(revFloatPairListList);
@@ -72,7 +72,7 @@ class AdminRegion extends Region {
       `AdminRegion:getRawDataList:${this.getAdminRegionType()}`,
       async () => {
         return await WWW.fetch(this.getUrl());
-      }
+      },
     );
   }
 
@@ -83,8 +83,8 @@ class AdminRegion extends Region {
           id: rawData.id,
           name: rawData.name,
           areaSqKm: parseFloat(rawData.area_sqkm),
-        })
-      )
+        }),
+      ),
     );
   }
 
@@ -119,7 +119,7 @@ class AdminRegion extends Region {
 
     console.warn(
       `No ${this.getAdminRegionType()} contains the given latLng.` +
-        ` Returning region with nearest centroid instead.`
+        ` Returning region with nearest centroid instead.`,
     );
     return sortedRegions[0] || null;
   }

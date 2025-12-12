@@ -38,7 +38,7 @@ export default function NaturalDisasterView({ place }) {
     >
       <Alert severity="warning" sx={{ mb: 1 }}>
         {t(
-          "These Natural Disaster Risk Metrics are still under development and should be used for informational purposes only."
+          "These Natural Disaster Risk Metrics are still under development and should be used for informational purposes only.",
         )}
       </Alert>
       <MetricCard
@@ -49,11 +49,11 @@ export default function NaturalDisasterView({ place }) {
         timeLabel="Next 24h"
         alertLabel={NaturalDisaster.getLabel(
           floodRiskData.floodRiskLevel,
-          floodRiskData.floodRiskMaxLevel
+          floodRiskData.floodRiskMaxLevel,
         )}
         color={getAlertColor(
           floodRiskData.floodRiskLevel,
-          floodRiskData.floodRiskMaxLevel
+          floodRiskData.floodRiskMaxLevel,
         )}
       />
       <MetricCard
@@ -64,11 +64,11 @@ export default function NaturalDisasterView({ place }) {
         timeLabel="Next 24h"
         alertLabel={NaturalDisaster.getLabel(
           landslideRiskData.landslideRiskLevel,
-          landslideRiskData.landslideRiskMaxLevel
+          landslideRiskData.landslideRiskMaxLevel,
         )}
         color={getAlertColor(
           landslideRiskData.landslideRiskLevel,
-          landslideRiskData.landslideRiskMaxLevel
+          landslideRiskData.landslideRiskMaxLevel,
         )}
       />
 
@@ -80,11 +80,11 @@ export default function NaturalDisasterView({ place }) {
         timeLabel="Next 24h"
         alertLabel={NaturalDisaster.getLabel(
           heatRiskData.heatRiskLevel,
-          heatRiskData.heatRiskMaxLevel
+          heatRiskData.heatRiskMaxLevel,
         )}
         color={getAlertColor(
           heatRiskData.heatRiskLevel,
-          heatRiskData.heatRiskMaxLevel
+          heatRiskData.heatRiskMaxLevel,
         )}
       />
 
@@ -96,11 +96,11 @@ export default function NaturalDisasterView({ place }) {
         timeLabel="Next 24h"
         alertLabel={NaturalDisaster.getLabel(
           droughtRiskData.droughtRiskLevel,
-          droughtRiskData.droughtRiskMaxLevel
+          droughtRiskData.droughtRiskMaxLevel,
         )}
         color={getAlertColor(
           droughtRiskData.droughtRiskLevel,
-          droughtRiskData.droughtRiskMaxLevel
+          droughtRiskData.droughtRiskMaxLevel,
         )}
       />
 
@@ -112,11 +112,11 @@ export default function NaturalDisasterView({ place }) {
         timeLabel="Next 24h"
         alertLabel={NaturalDisaster.getLabel(
           tsunamiRiskData.tsunamiRiskLevel,
-          tsunamiRiskData.tsunamiRiskMaxLevel
+          tsunamiRiskData.tsunamiRiskMaxLevel,
         )}
         color={getAlertColor(
           tsunamiRiskData.tsunamiRiskLevel,
-          tsunamiRiskData.tsunamiRiskMaxLevel
+          tsunamiRiskData.tsunamiRiskMaxLevel,
         )}
       />
     </MetricCardCollection>
