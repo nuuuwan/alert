@@ -103,6 +103,7 @@ Ekala
 Elahera
 Elapatha
 Elephant Pass
+Elevation
 Ella
 Ellagawa
 Elpitiya
@@ -263,6 +264,7 @@ Laggala-Pallegama
 Lahugala
 Landslide
 Lankapura
+Last 24h total
 Low Risk
 Lunugala
 Lunugamvehera
@@ -315,6 +317,7 @@ Mathugama
 Matugama
 Mawanella
 Mawathagama
+Max Slope Angle
 Medadumbara
 Medagama
 Medamahanuwara
@@ -370,6 +373,7 @@ Neerveli
 Negombo
 Neluwa
 Next 24h
+Next 24h total
 Nikaweratiya
 Nildandahinna
 Nilwala Ganga
@@ -457,6 +461,7 @@ Ratnapura
 Rattota
 Rawathawatta
 Recent Earthquakes
+Relative Elevation
 Rideegama
 Rideemaliyadda
 Ruwanwella
@@ -581,5 +586,6 @@ Yatawatta
 Yatinuwara
 Yatiyanthota
 Yatiyantota
+ago
 km
 m
