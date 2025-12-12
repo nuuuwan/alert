@@ -442,7 +442,7 @@ Nuwaragam Palatha Central
 Nuwaragam Palatha East
 Oddusudan
 Oddusuddan
-Official Natural Disaster Warnings
+Official Alerts
 Okewela
 Okkampitiya
 Opanayake
@@ -495,7 +495,7 @@ Poonakary
 Porativu Pattu
 Pothuvil
 Pottuvil
-Probabilistic Disaster Risk Indicators (Experimental)
+Probabilistic Disaster Risk Alerts (Experimental)
 Pugoda
 Pujapitiya
 Puliyankulam
