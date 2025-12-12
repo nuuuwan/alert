@@ -1,9 +1,11 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function AdminRegionView({ AdminRegionClass, id }) {
   const [adminRegion, setAdminRegion] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function fetchRegionData() {
@@ -20,7 +22,7 @@ export default function AdminRegionView({ AdminRegionClass, id }) {
   return (
     <Box component="span">
       <Typography variant="body2" component="span">
-        {adminRegion.name}
+        {t(adminRegion.name)}
       </Typography>
       <Typography
         variant="caption"
