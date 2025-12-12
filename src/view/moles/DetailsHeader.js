@@ -9,11 +9,13 @@ import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import District from "../../nonview/core/ents/regions/admin_regions/District";
 import Province from "../../nonview/core/ents/regions/admin_regions/Province";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
+import { useTranslation } from "react-i18next";
 
 export default function DetailsHeader({ ent, supertitleOverride }) {
   const size = 24;
   const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
   const dsd = ent.dsd;
+  const { t } = useTranslation();
   return (
     <Box sx={{ m: 0, p: 0 }}>
       {dsd && (
@@ -27,15 +29,15 @@ export default function DetailsHeader({ ent, supertitleOverride }) {
       <Box sx={{ display: "flex", alignItems: "flex-start" }}>
         <EntIcon ent={ent} size={size} />
         <Typography variant="h5" sx={{ lineHeight: `${size}px` }} color={color}>
-          {ent.title}
+          {t(ent.title)}
         </Typography>
       </Box>
 
       <Typography variant="overline" color="text.secondary">
-        {supertitleOverride ? supertitleOverride : ent.supertitle}
+        {t(ent.supertitle)}
       </Typography>
       <Typography variant="body2" color="text.secondary">
-        {ent.subtitle}
+        {t(ent.subtitle)}
       </Typography>
 
       <NearbyPlacesView latLng={ent.latLng} />
