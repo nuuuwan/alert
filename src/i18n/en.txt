@@ -268,6 +268,9 @@ Lahugala
 Landslide
 Lankapura
 Last 24h total
+Level 1
+Level 2
+Level 3
 Low Risk
 Lunugala
 Lunugamvehera
