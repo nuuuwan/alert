@@ -68,7 +68,13 @@ export default function MetricCard({
           overflow: "hidden", // Prevent overflow in this section
         }}
       >
-        <Typography variant="h5" color={foreColor} fontWeight={"bold"} noWrap>
+        <Typography
+          variant="h5"
+          color={foreColor}
+          fontWeight={"bold"}
+          noWrap
+          sx={{ fontSize: Math.min(24, 180 / t(value).length) }}
+        >
           {t(value)}
         </Typography>
         <Typography
