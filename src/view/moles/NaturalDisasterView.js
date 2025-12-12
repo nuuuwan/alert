@@ -10,9 +10,11 @@ import Alert from "@mui/material/Alert";
 import NaturalDisaster from "../../nonview/core/third_party/NaturalDisaster";
 import OpenElevation from "../../nonview/core/third_party/OpenElevation";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
+import { useTranslation } from "react-i18next";
 
 export default function NaturalDisasterView({ place }) {
   const { openMeteoData, openElevationData, earthquakeData } = place;
+  const { t } = useTranslation();
 
   const {
     floodRiskData,
@@ -28,7 +30,7 @@ export default function NaturalDisasterView({ place }) {
 
   return (
     <MetricCardCollection
-      title="Natural Disasters"
+      title={t("Natural Disasters")}
       sourceList={[
         ...OpenElevation.getSourceList(),
         ...OpenMeteo.getSourceList(place.latLng),

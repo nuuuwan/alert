@@ -3,6 +3,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./i18n";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,7 +18,7 @@ root.render(
       <Route path="/City/:cityNameId" element={<App />} />
       <Route path="/Place/:placeLatLngId" element={<App />} />
     </Routes>
-  </BrowserRouter>,
+  </BrowserRouter>
 );
 
 reportWebVitals();
