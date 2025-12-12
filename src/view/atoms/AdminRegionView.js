@@ -1,4 +1,5 @@
-import Chip from "@mui/material/Chip";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 
 export default function AdminRegionView({ AdminRegionClass, id }) {
@@ -17,16 +18,18 @@ export default function AdminRegionView({ AdminRegionClass, id }) {
   }
 
   return (
-    <Chip
-      sx={{ backgroundColor: "white", p: 0, m: 0 }}
-      label={
-        <>
-          {adminRegion.name}{" "}
-          <span style={{ opacity: 0.25 }}>
-            {adminRegion.constructor.getEntTypeNameShort()}
-          </span>
-        </>
-      }
-    />
+    <Box component="span">
+      <Typography variant="body2" component="span">
+        {adminRegion.name}
+      </Typography>
+      <Typography
+        variant="caption"
+        color="text.secondary"
+        component="span"
+        sx={{ ml: 0.5 }}
+      >
+        {adminRegion.constructor.getEntTypeNameShort()}
+      </Typography>
+    </Box>
   );
 }

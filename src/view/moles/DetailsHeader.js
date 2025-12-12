@@ -1,6 +1,5 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
 import EntIcon from "../atoms/EntIcon";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import Divider from "@mui/material/Divider";
@@ -9,6 +8,7 @@ import AdminRegionView from "../atoms/AdminRegionView";
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import District from "../../nonview/core/ents/regions/admin_regions/District";
 import Province from "../../nonview/core/ents/regions/admin_regions/Province";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
 
 export default function DetailsHeader({ ent, supertitleOverride }) {
   const size = 24;
