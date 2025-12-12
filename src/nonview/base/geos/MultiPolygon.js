@@ -36,15 +36,19 @@ export default class MultiPolygon {
 
   static fromRaw(floatPairListList) {
     return new MultiPolygon(
-      floatPairListList.map((floatPairList) => Polygon.fromRaw(floatPairList)),
+      floatPairListList.map((floatPairList) => Polygon.fromRaw(floatPairList))
     );
   }
 
   static fromReverseRaw(floatPairListList) {
     return new MultiPolygon(
       floatPairListList.map((floatPairList) =>
-        Polygon.fromReverseRaw(floatPairList),
-      ),
+        Polygon.fromReverseRaw(floatPairList)
+      )
     );
+  }
+
+  isInside(latLng) {
+    return this.polygonList.some((polygon) => polygon.isInside(latLng));
   }
 }
