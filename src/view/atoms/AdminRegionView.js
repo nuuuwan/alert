@@ -25,12 +25,11 @@ export default function AdminRegionView({ AdminRegionClass, id }) {
         {t(adminRegion.name)}
       </Typography>
       <Typography
-        variant="caption"
-        color="text.secondary"
+        variant="body2"
         component="span"
-        sx={{ ml: 0.5 }}
+        sx={{ ml: 0.5, opacity: 0.33 }}
       >
-        {adminRegion.constructor.getEntTypeNameShort()}
+        {t(adminRegion.constructor.getEntTypeNameShort())}
       </Typography>
     </Box>
   );
