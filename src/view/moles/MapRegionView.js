@@ -19,7 +19,7 @@ export default function MapRegionView({ region }) {
             fillColor: color,
             color: "white",
             weight: 1,
-            fillOpacity: 0.2,
+            fillOpacity: 0.5,
           }}
         />
       ))}

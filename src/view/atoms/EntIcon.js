@@ -1,7 +1,7 @@
 import Place from "../../nonview/core/ents/places/Place";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
-import { COLORS, getAlertColor } from "../_cons/StyleConstants";
+import { COLORS } from "../_cons/StyleConstants";
 import City from "../../nonview/core/ents/places/City";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import WaterIcon from "@mui/icons-material/Water";
