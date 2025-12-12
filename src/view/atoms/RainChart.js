@@ -9,7 +9,7 @@ export default function RainChart({ hourlyRain, hourlyTimeUt }) {
     <Chart
       data={hourlyRainForChart}
       timeData={hourlyTimeUtForChart}
-      yAxisLabel={t("Rainfall") + " (mm)"}
+      yAxisLabel={`${t("Rainfall")} (${t("mm")})`}
       chartType="bar"
       color={COLORS.water}
       yAxisMin={0}

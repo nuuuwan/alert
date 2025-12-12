@@ -9,7 +9,7 @@ export default function TempChart({ hourlyTemp, hourlyTimeUt }) {
     <Chart
       data={hourlyTempForChart}
       timeData={hourlyTimeUtForChart}
-      yAxisLabel={t("Temperature") + " (°C)"}
+      yAxisLabel={`${t("Temperature")} (${t("°C")})`}
       chartType="line"
       color={COLORS.fire}
       yAxisMin={Math.min(...hourlyTempForChart) - 1}
