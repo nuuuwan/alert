@@ -83,6 +83,7 @@ Deltota
 Deniyaya
 Deraniyagala
 Devinuwara
+Dew Point
 Dickoya
 Dickwella
 Digana
@@ -450,6 +451,7 @@ Puliyankulam
 Puthukkudiyiruppu
 Puttalam
 Putupaula
+RH
 Ragama
 Rain
 Rainfall
