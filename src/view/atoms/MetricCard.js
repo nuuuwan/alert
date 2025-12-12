@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import { isAlertColor, COLORS } from "../_cons/StyleConstants";
 
 import MoreTimeIcon from "@mui/icons-material/MoreTime";
+import { useTranslation } from "react-i18next";
 
 export default function MetricCard({
   label,
@@ -14,6 +15,7 @@ export default function MetricCard({
   color,
   isPrediction,
 }) {
+  const { t } = useTranslation();
   let foreColor = color || COLORS.neutral;
   let backColor = "white";
   if (isAlertColor(color)) {
@@ -52,7 +54,7 @@ export default function MetricCard({
           <Icon fontSize="small" sx={{ color: foreColor }} color={foreColor} />
         )}
         <Typography variant="caption" color={foreColor} noWrap>
-          {label}
+          {t(label)}
         </Typography>
       </Box>
       <Box
@@ -87,15 +89,15 @@ export default function MetricCard({
           sx={{ opacity: 0.6 }}
           noWrap
         >
-          {timeLabel}
+          {t(timeLabel)}
         </Typography>
         {isPrediction && (
           <MoreTimeIcon fontSize="small" sx={{ color: foreColor, ml: 0.5 }} />
         )}
       </Box>
       <Box>
-        <Typography variant="h6" color={foreColor} noWrap>
-          {alertLabel}
+        <Typography variant="caption" color={foreColor} noWrap>
+          {t(alertLabel)}
         </Typography>
       </Box>
     </Box>
