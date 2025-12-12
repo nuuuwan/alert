@@ -1,6 +1,6 @@
 import MetricCard from "../atoms/MetricCard";
 import MetricCardCollection from "../atoms/MetricCardCollection";
-import WarningIcon from "@mui/icons-material/Warning";
+import LandslideIcon from "@mui/icons-material/Landslide";
 import { getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import { useTranslation } from "react-i18next";
@@ -42,8 +42,8 @@ export default function NaturalDisasterOfficialView({ place }) {
       ]}
     >
       <MetricCard
-        Icon={WarningIcon}
-        label="Landslide Warning"
+        Icon={LandslideIcon}
+        label="Landslide"
         value={value}
         unit=""
         color={color}

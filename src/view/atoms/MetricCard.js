@@ -69,7 +69,7 @@ export default function MetricCard({
         }}
       >
         <Typography variant="h5" color={foreColor} fontWeight={"bold"} noWrap>
-          {value}
+          {t(value)}
         </Typography>
         <Typography
           variant="caption"
