@@ -16,7 +16,20 @@ export default function OpenMeteoView({ place }) {
   return (
     <Box sx={{ p: 0, m: 0 }}>
       <MetricCardCollection
-        title="Weather"
+        title="Weather Forecast"
+        sourceList={OpenMeteo.getSourceList(latLng)}
+      >
+        <MetricCard
+          Icon={WaterDropIcon}
+          label="Rain"
+          value={openMeteoData.hourlyRainSumNext24Hours.toFixed(0)}
+          unit="mm"
+          timeLabel="Next 24h total"
+          isPrediction
+        />
+      </MetricCardCollection>
+      <MetricCardCollection
+        title="Current Weather"
         sourceList={OpenMeteo.getSourceList(latLng)}
       >
         <MetricCard
@@ -46,14 +59,6 @@ export default function OpenMeteoView({ place }) {
           value={openMeteoData.hourlyDewPoint[7 * 24].toFixed(1)}
           unit="°C"
           timeLabel={TimeUtils.getTimeAgoString(openMeteoData.currentTimeUt)}
-        />
-        <MetricCard
-          Icon={WaterDropIcon}
-          label="Rain"
-          value={openMeteoData.hourlyRainSumNext24Hours.toFixed(0)}
-          unit="mm"
-          timeLabel="Next 24h total"
-          isPrediction
         />
       </MetricCardCollection>
 
