@@ -55,9 +55,9 @@ export default function MapPlaceView({ place }) {
       icon={L.divIcon({
         className: "place-icon",
         html: `
-            <div style="position: relative; width: ${iconSize}px; height: ${iconSize}px; display: flex; align-items: center; justify-content: center; opacity: ${opacity};">
-              <div style="position: absolute; width: ${circleSize}px; height: ${circleSize}px; background-color: white; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 100;"></div>
-              <div style="position: relative; z-index: 1000; display: flex; align-items: center; justify-content: center;">
+            <div style="position: relative; width: ${iconSize}px; height: ${iconSize}px; display: flex; align-items: center; justify-content: center; opacity: ${opacity}; z-index: 1500;">
+              <div style="position: absolute; width: ${circleSize}px; height: ${circleSize}px; background-color: white; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 1500;"></div>
+              <div style="position: relative; z-index: 2000; display: flex; align-items: center; justify-content: center;">
                 ${entIconSvg}
               </div>
             </div>

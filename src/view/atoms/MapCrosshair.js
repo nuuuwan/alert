@@ -3,7 +3,7 @@ import { COLORS } from "../_cons/StyleConstants";
 
 export default function MapCrosshair() {
   const size = 68;
-  const color = COLORS.neutral;
+  const color = "black";
   const width = `${size}px`;
   const height = width;
   return (
@@ -17,6 +17,7 @@ export default function MapCrosshair() {
         // pointerEvents: "none",
         transform: "translate(-50%, -50%)",
         zIndex: 500,
+        opacity: 0.25,
       }}
     >
       <PlaceIcon sx={{ width, height, color }} />
