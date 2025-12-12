@@ -13,7 +13,6 @@ export default function MetricCard({
   timeLabel,
   alertLabel,
   color,
-  isPrediction,
 }) {
   const { t } = useTranslation();
   let foreColor = color || COLORS.neutral;
@@ -91,9 +90,6 @@ export default function MetricCard({
         >
           {t(timeLabel)}
         </Typography>
-        {isPrediction && (
-          <MoreTimeIcon fontSize="small" sx={{ color: foreColor, ml: 0.5 }} />
-        )}
       </Box>
       <Box>
         <Typography variant="caption" color={foreColor} noWrap>
