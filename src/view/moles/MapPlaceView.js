@@ -36,10 +36,9 @@ export default function MapPlaceView({ place }) {
     </div>
   );
 
-  // Fix Safari SVG rendering by adding namespace and dimensions
   entIconSvg = entIconSvg.replace(
     "<svg",
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${iconSize}" height="${iconSize}"`
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${iconSize}" height="${iconSize}" fill="${placeColor}"`
   );
 
   return (

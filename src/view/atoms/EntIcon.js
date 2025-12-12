@@ -26,7 +26,6 @@ function getIconClass(ent) {
 
 export default function EntIcon({ ent, color, size }) {
   color = color || COLORS.neutral;
-  color = COLORS.highAlert;
   const IconClass = getIconClass(ent);
   return <IconClass sx={{ color, fontSize: size || 48 }} />;
 }
