@@ -18,7 +18,7 @@ export default function NaturalDisasterOfficialView({ place }) {
   }
 
   let value = "Safe";
-  let alertLabel = `Level ${level}`;
+  let alertLabel = level > 0 ? `Level ${level}` : "No Alert";
   if (level === 1) {
     value = "Watch";
   } else if (level === 2) {
