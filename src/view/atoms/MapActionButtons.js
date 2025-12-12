@@ -7,9 +7,9 @@ import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 import { useTranslation } from "react-i18next";
 
 const LANGUAGE_LABELS = {
-  en: "E",
-  si: "සි",
+  si: "සිං",
   ta: "த",
+  en: "En",
 };
 
 export default function MapActionButtons({
@@ -51,6 +51,7 @@ export default function MapActionButtons({
               fontSize: "0.75rem",
               bgcolor: "white",
               color: "black",
+              fontSize: 18,
             }}
           >
             {LANGUAGE_LABELS[lang]}
