@@ -30,7 +30,7 @@ export default function NaturalDisasterView({ place }) {
 
   return (
     <MetricCardCollection
-      title="Natural Disasters"
+      title="Natural Disaster Risk"
       sourceList={[
         ...OpenElevation.getSourceList(),
         ...OpenMeteo.getSourceList(place.latLng),
