@@ -1,11 +1,13 @@
 Addalachchenai
 Agalawatta
+Ahangama
 Akkaraipattu
 Akmeemana
 Akurana
 Akuressa
 Alawwa
 Alayadiwembu
+Aluthgama
 Ambagamuwa
 Ambalangoda
 Ambalantota
@@ -13,21 +15,33 @@ Ambanganga Korale
 Ambanpola
 Ampara
 Anamaduwa
+Angoda
 Angunakolapelessa
+Angunukolapelessa
+Ankumbura
 Anuradhapura
 Arachchikattuwa
+Aralaganwila
 Aranayaka
+Ariyalai
+Aththanagalu Oya
 Athuraliya
+Athurugiriya
 Attanagalla
+Avissawella
 Ayagama
+Badalgama
 Badalkumbura
 Baddegama
 Badulla
+Badulu Oya
+Baduraliya
 Balangoda
 Balapitiya
 Bamunakotuwa
 Bandaragama
 Bandarawela
+Battaramulla
 Batticaloa
 Beliatta
 Bentota
@@ -36,38 +50,64 @@ Bibile
 Bingiriya
 Biyagama
 Bope-Poddala
+Boralesgamuwa
+Bowatta
 Bulathkohupitiya
 Bulathsinhala
 Buttala
 Central
+Chankanai
+Chavakachcheri
 Chilaw
+Chunnakam
 Colombo
 Damana
+Dambadeniya
 Dambulla
 Dankotuwa
+Daulagala
+Deduru Oya
 Dehiattakandiya
 Dehiovita
+Dehiowita
 Dehiwala
+Deiyandara
+Dekatana
 Delft
+Delgoda
+Delkanda
 Deltota
+Deniyaya
 Deraniyagala
 Devinuwara
+Dickoya
 Dickwella
+Digana
+Dikwella
 Dimbulagala
 Divulapitiya
+Diyatalawa
 Dodangoda
 Doluwa
 Dompe
+Dondra
+Dunamale
+Dungalpitiya
 Eastern
 Eheliyagoda
 Ehetuwewa
+Ekala
 Elahera
 Elapatha
+Elephant Pass
 Ella
+Ellagawa
 Elpitiya
 Embilipitiya
 Eravur Pattu
 Eravur Town
+Etampitiya
+Galagedara
 Galenbindunuwewa
 Galewela
 Galgamuwa
@@ -76,69 +116,116 @@ Galle
 Galle Four Gravets
 Galnewa
 Gampaha
+Gampola
 Ganewatta
 Ganga Ihala Korale
+Gin Ganga
+Ginigathhena
+Girandurukotte
 Giribawa
+Giriulla
+Glencourse
 Godakawela
 Gomarankadawala
 Gonapeenuwala
+Gothatuwa
+Gurugoda Oya
 Habaraduwa
+Habarana
 Hakmana
 Haldummulla
 Hali-Ela
 Hambantota
 Hanguranketha
+Hanwella
 Haputale
 Harispattuwa
 Hatharaliyadda
+Hatton
+Hemmathagama
+Hettipola
 Hikkaduwa
 Hingurakgoda
+Hingurana
+Holombuwa
 Homagama
 Horana
+Horowpotana
 Horowpothana
+Hungama
+Hunnasgiriya
 Ibbagamuwa
 Imaduwa
 Imbulpe
+Induruwa
 Ingiriya
 Ipalogama
 Irakkamam
 Island North (Kayts)
 Island South (Velanai)
 Ja-Ela
+Ja-ela
 Jaffna
+Kadawatha
+Kadugannawa
+Kaduruwela
 Kaduwela
 Kahatagasdigiliya
 Kahawatta
+Kaithady
 Kalawana
+Kalawellawa (Millakanda)
 Kalmunai
 Kalmunai Tamil Division
 Kalpitiya
+Kalu Ganga
 Kalutara
+Kaluwanchikudy
 Kamburupitiya
+Kanakarayankulam
 Kandaketiya
+Kandana
 Kandavalai
 Kandy
 Kandy Four Gravets & Gangawata Korale
+Kankesanturai
 Kanthale
 Karachchi
 Karainagar
 Karaitheevu
+Karaitivu
 Karandeniya
+Karawanella
+Karawita
 Karuwalagaswewa
 Katana
+Kataragama
 Katharagama
 Kattankudy
+Katugasthota
+Katukurunda
+Katunayake
+Katupotha
 Katuwana
+Kayts
 Kebithigollewa
+Kebitigollewa
 Kegalle
+Kehelgamu Oya
 Kekirawa
+Kelani Ganga
 Kelaniya
 Kesbewa
 Kilinochchi
 Kinniya
+Kiribathgoda
 Kiriella
+Kirinda
 Kirinda Puhulwella
+Kirindi Oya
+Kithulgala
 Kobeigane
+Kochchikade
 Kolonna
 Kolonnawa
 Koralai Pattu  West (Oddamavadi)
@@ -146,34 +233,57 @@ Koralai Pattu (Valachchenai)
 Koralai Pattu Central
 Koralai Pattu North (Vaharai)
 Koralai Pattu South (Kiran)
+Kosgama
+Koslanda
 Kotapola
 Kotavehera
 Kothmale
+Kottawa
+Kotugoda
 Kuchchaveli
+Kuda Ganga
+Kuda Oya
+Kuliyapitiya
 Kuliyapitiya East
 Kuliyapitiya West
+Kumbukkan Oya
 Kundasale
 Kurunegala
 Kuruvita
+Kuruwita
+Labuduwa
 Laggala-Pallegama
 Lahugala
 Lankapura
 Lunugala
 Lunugamvehera
 Madampe
+Madawala
 Madhu
 Madulla
+Madulsima
+Madurankuliya
 Madurawala
+Maduru Oya
+Magura
+Maguru Ganga
+Maha Oya
 Mahakumbukkadawala
 Mahaoya
 Mahara
 Maharagama
+Mahaweli Ganga
 Mahawewa
 Mahawilachchiya
 Mahiyanganaya
 Maho
+Malabe
 Malimbada
 Mallawapitiya
+Malwathu Oya
+Manampitiya
+Manipay
+Mankulam
 Manmunai North
 Manmunai Pattu (Araipattai)
 Manmunai South & Eruvil pattu
@@ -183,34 +293,60 @@ Mannar
 Mannar Town
 Manthai East
 Manthai West
+Mapalagama
+Maradankadawala
 Maritimepattu
+Maruthankerny
+Maskeliya
 Maspotha
 Matale
 Matara
 Matara Four Gravets
 Mathugama
+Matugama
 Mawanella
 Mawathagama
 Medadumbara
 Medagama
+Medamahanuwara
 Medawachchiya
+Medawala
 Medirigiriya
+Mee Oya
 Meegahakivula
+Meegoda
+Meepe
+Meerigama
+Menik Ganga
+Menikhinna
+Middeniya
+Mihintale
 Mihinthale
 Millaniya
 Minipe
 Minuwangoda
 Mirigama
+Mirissa
+Miriswatte
+Monaragala
 Moneragala
+Moragaswewa
+Moraketiya
 Moratuwa
+Morawaka
 Morawewa
+Mukunu Oya
 Mulatiyana
 Mullaitivu
+Mulleriyawa
+Mulliyawalai
 Mundel
 Musali
 Muttur
 Nachchaduwa
+Nagalagam Street
 Nagoda
+Nakkala
 Nallur
 Nanattan
 Narammala
@@ -219,9 +355,13 @@ Natural Disasters
 Naula
 Navithanveli
 Nawagattegama
+Nawalapitiya
+Neerveli
 Negombo
 Neluwa
 Nikaweratiya
+Nildandahinna
+Nilwala Ganga
 Ninthavur
 Nivithigala
 Niyagama
@@ -229,72 +369,115 @@ Nochchiyagama
 North Central
 North Western
 Northern
+Norwood
+Nugegoda
 Nuwara Eliya
 Nuwaragam Palatha Central
 Nuwaragam Palatha East
+Oddusudan
 Oddusuddan
 Okewela
+Okkampitiya
 Opanayake
+Paadeniya
 Pachchilaipalli
 Padavi Sri Pura
 Padaviya
 Padiyathalawa
 Padukka
 Palagala
+Palaly
 Palindanuwara
+Pallai
 Pallama
+Pallebedda
 Pallepola
 Palugaswewa
+Panadugama
 Panadura
 Panduwasnuwara East
 Panduwasnuwara West
 Pannala
 Panvila
+Paranthan
 Pasbage Korale
 Pasgoda
 Passara
+Pasyala
 Pathadumbara
 Pathahewaheta
+Pelawatte
 Pelmadulla
+Peradeniya
+Pesalai
+Pilimathalawa
 Pitabeddara
+Pitigala
 Place
+Place names
+Point Pedro
 Polgahawela
 Polonnaruwa
 Polpithigama
 Poonakary
 Porativu Pattu
 Pothuvil
+Pottuvil
+Pugoda
 Pujapitiya
+Puliyankulam
 Puthukkudiyiruppu
 Puttalam
+Putupaula
+Ragama
 Rajanganaya
+Rakwana
 Rambewa
 Rambukkana
 Rasnayakapura
+Rathnapura
 Ratmalana
 Ratnapura
 Rattota
+Rawathawatta
 Rideegama
 Rideemaliyadda
 Ruwanwella
 Sabaragamuwa
 Sainthamaruthu
+Saliyawewa
 Samanthurai
+Sammanturai
+Seeduwa
 Seethawaka
+Seethawaka Ganga
+Serunuwara
 Seruvila
 Sevanagala
 Siyambalanduwa
+Sooriyakanda
 Sooriyawewa
 Soranathota
 Southern
 Sri Jayawardanapura Kotte
+Sri Jayawardenepura Kotte
+Suriyawewa
 Tangalle
+Teldeniya
+Tellippalai
+Thalathuoya
 Thalawa
+Thalawathugoda
+Thaldena
+Thalgahagoda
 Thamankaduwa
 Thambalagamuwa
 Thambuttegama
 Thanamalvila
+Thanamalwila
+Thanthirimale
 Thawalama
+Thelijjawila
 Thenmaradchi (Chavakachcheri)
 These Natural Disaster Risk Metrics are still under development and should be used for informational purposes only.
 Thihagoda
@@ -308,34 +491,49 @@ Trincomalee
 Trincomalee Town and Gravets
 Udadumbara
 Udapalatha
+Udawalawe
 Udubaddawa
+Ududumbara
+Udugama
 Udunuwara
 Uhana
 Ukuwela
+Urawa
+Urubokka
+Urubokka Ganga
 Uva
 Uva Paranagama
 Vadamaradchi East
 Vadamaradchi North (Point Pedro)
 Vadamaradchi South-West (Karaveddy)
+Valaichchenai
 Valikamam East (Kopay)
 Valikamam North (Tellipallai)
 Valikamam South (Uduvil)
 Valikamam South-West (Sandilipay)
 Valikamam West (Chankanai)
 Vanathawilluwa
+Varany
 Vavuniya
 Vavuniya North
 Vavuniya South
+Velanai
 Vengalacheddikulam
 Verugal (Eachchilampattu)
+Veyangoda
+Wadduwa
 Walallavita
 Walapane
 Walasmulla
+Walawe Ganga
+Walgama
 Warakapola
 Wariyapola
 Wattala
+Wattegama
 Weeraketiya
 Weerambugedara
+Weerawila
 Weligama
 Weligepola
 Welikanda
@@ -343,11 +541,17 @@ Welimada
 Welioya
 Welipitiya
 Welivitiya-Divithura
+Wellampitiya
 Wellawaya
 Wennappuwa
+Weraganthota
 Western
 Wilgamuwa
+Yaka Wewa
+Yakkala
 Yakkalamulla
+Yan Oya
 Yatawatta
 Yatinuwara
 Yatiyanthota
+Yatiyantota
