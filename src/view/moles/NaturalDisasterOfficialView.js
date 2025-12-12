@@ -48,7 +48,7 @@ function getLandslideCard(dsd) {
   }
 
   const timeUt = dsd.latestLandslideWarningTimeUt;
-  let value = "Safe";
+  let value = "No Alert";
   let alertLabel = level > 0 ? `Level ${level}` : "No Alert";
   if (level === 1) {
     value = "Watch";
@@ -78,7 +78,7 @@ function getWaterLevelCard(hydrometricStation) {
   const waterLevelM = hydrometricStation.latestWaterLevelM;
   const timeUt = hydrometricStation.latestWaterLevelTimeUt;
 
-  let alertLabel = level > 0 ? `Level ${level}` : "Safe";
+  let alertLabel = level > 0 ? `Level ${level}` : "No Alert";
   if (level === 1) {
     alertLabel = "Alert Level";
   } else if (level === 2) {
