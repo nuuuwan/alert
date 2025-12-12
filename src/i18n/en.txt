@@ -91,6 +91,7 @@ Dodangoda
 Doluwa
 Dompe
 Dondra
+Drought
 Dunamale
 Dungalpitiya
 Eastern
@@ -107,6 +108,7 @@ Embilipitiya
 Eravur Pattu
 Eravur Town
 Etampitiya
+Flood
 Galagedara
 Galenbindunuwewa
 Galewela
@@ -142,8 +144,10 @@ Haputale
 Harispattuwa
 Hatharaliyadda
 Hatton
+Heat
 Hemmathagama
 Hettipola
+High Risk
 Hikkaduwa
 Hingurakgoda
 Hingurana
@@ -154,6 +158,7 @@ Horowpotana
 Horowpothana
 Hungama
 Hunnasgiriya
+Hydrometric Station
 Ibbagamuwa
 Imaduwa
 Imbulpe
@@ -254,7 +259,9 @@ Kuruwita
 Labuduwa
 Laggala-Pallegama
 Lahugala
+Landslide
 Lankapura
+Low Risk
 Lunugala
 Lunugamvehera
 Madampe
@@ -312,6 +319,7 @@ Medamahanuwara
 Medawachchiya
 Medawala
 Medirigiriya
+Medium Risk
 Mee Oya
 Meegahakivula
 Meegoda
@@ -365,6 +373,8 @@ Nilwala Ganga
 Ninthavur
 Nivithigala
 Niyagama
+No Alert
+No Risk
 Nochchiyagama
 North Central
 North Western
@@ -432,6 +442,7 @@ Puthukkudiyiruppu
 Puttalam
 Putupaula
 Ragama
+Rain
 Rajanganaya
 Rakwana
 Rambewa
@@ -468,6 +479,7 @@ Suriyawewa
 Tangalle
 Teldeniya
 Tellippalai
+Temp
 Thalathuoya
 Thalawa
 Thalawathugoda
@@ -492,6 +504,7 @@ Thumpane
 Thunukkai
 Trincomalee
 Trincomalee Town and Gravets
+Tsunami
 Udadumbara
 Udapalatha
 Udawalawe
@@ -532,6 +545,7 @@ Walawe Ganga
 Walgama
 Warakapola
 Wariyapola
+Water Level
 Wattala
 Wattegama
 Weeraketiya
