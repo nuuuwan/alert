@@ -35,13 +35,34 @@ class Place {
   }
 
   async loadDetails() {
-    this.openMeteoData = await OpenMeteo.getData({ latLng: this.latLng });
-    this.openMeteoFloodData = await OpenMeteoFlood.getData(this.latLng);
-    this.openElevationData = await OpenElevation.getData(this.latLng);
-    this.earthquakeData = await Earthquake.loadAllRecent();
-    this.dsd = await DSD.loadNearest(this.latLng);
-    this.district = await District.loadFromId(this.dsd.districtId);
-    this.province = await Province.loadFromId(this.dsd.provinceId);
+    const [
+      openMeteoData,
+      openMeteoFloodData,
+      openElevationData,
+      earthquakeData,
+      dsd,
+    ] = await Promise.all([
+      OpenMeteo.getData({ latLng: this.latLng }),
+      OpenMeteoFlood.getData(this.latLng),
+      OpenElevation.getData(this.latLng),
+      Earthquake.loadAllRecent(),
+      DSD.loadNearest(this.latLng),
+    ]);
+
+    this.openMeteoData = openMeteoData;
+    this.openMeteoFloodData = openMeteoFloodData;
+    this.openElevationData = openElevationData;
+    this.earthquakeData = earthquakeData;
+    this.dsd = dsd;
+
+    const [district, province] = await Promise.all([
+      District.loadFromId(this.dsd.districtId),
+      Province.loadFromId(this.dsd.provinceId),
+    ]);
+
+    this.district = district;
+    this.province = province;
+
     return this;
   }
 
