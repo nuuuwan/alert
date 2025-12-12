@@ -48,13 +48,6 @@ export default function MapView({
     return `${selectedEnt.id}.png`;
   };
 
-  console.debug(
-    "mapLatLng",
-    mapLatLng && mapLatLng.raw(),
-    "selectedLatLng",
-    selectedLatLng && selectedLatLng.raw()
-  );
-
   return (
     <Box>
       <TestModeBanner />
