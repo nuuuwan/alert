@@ -367,8 +367,6 @@ Nallur
 Nanattan
 Narammala
 Nattandiya
-Natural Disaster Risk (Experimental)
-Natural Disasters
 Naula
 Navithanveli
 Nawagattegama
@@ -446,6 +444,7 @@ Poonakary
 Porativu Pattu
 Pothuvil
 Pottuvil
+Probabilistic Disaster Risk Indicators (Experimental)
 Pugoda
 Pujapitiya
 Puliyankulam
