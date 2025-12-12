@@ -29,12 +29,15 @@ export default function MapActionButtons({
     i18n.changeLanguage(lang);
   };
 
+  const iconButtonStyle = { width: 48, height: 48, m: 0, p: 0 };
   return (
     <Box
       sx={{
         position: "absolute",
         right: 10,
         zIndex: 1000,
+        m: 0,
+        p: 0,
       }}
     >
       {otherLanguages.map((lang) => (
@@ -42,16 +45,17 @@ export default function MapActionButtons({
           key={lang}
           onClick={() => handleLanguageChange(lang)}
           aria-label={`switch to ${lang}`}
-          sx={{ width: 48, height: 48 }}
+          sx={iconButtonStyle}
         >
           <Avatar
             sx={{
               width: 24,
               height: 24,
-              fontSize: "0.75rem",
               bgcolor: "white",
               color: "black",
               fontSize: 18,
+              m: 0,
+              p: 0,
             }}
           >
             {LANGUAGE_LABELS[lang]}
@@ -61,21 +65,21 @@ export default function MapActionButtons({
       <IconButton
         onClick={onCurrentLocation}
         aria-label="current location"
-        sx={{ width: 48, height: 48 }}
+        sx={iconButtonStyle}
       >
         <MyLocationIcon />
       </IconButton>
       <IconButton
         onClick={onSetToMapCenter}
         aria-label="set to map center"
-        sx={{ width: 48, height: 48 }}
+        sx={iconButtonStyle}
       >
         <LocationSearchingIcon />
       </IconButton>
       <IconButton
         onClick={onDownload}
         aria-label="download"
-        sx={{ width: 48, height: 48 }}
+        sx={iconButtonStyle}
       >
         <DownloadIcon />
       </IconButton>
