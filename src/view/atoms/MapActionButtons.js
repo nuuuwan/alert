@@ -22,7 +22,7 @@ export default function MapActionButtons({
   const currentLanguage = i18n.language;
 
   const otherLanguages = ["en", "si", "ta"].filter(
-    (lang) => lang !== currentLanguage,
+    (lang) => lang !== currentLanguage
   );
 
   const handleLanguageChange = (lang) => {
@@ -34,7 +34,7 @@ export default function MapActionButtons({
     <Box
       sx={{
         position: "absolute",
-        right: 10,
+        right: "50%",
         zIndex: 1000,
         m: 0,
         p: 0,
