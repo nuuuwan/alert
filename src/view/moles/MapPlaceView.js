@@ -23,8 +23,8 @@ export default function MapPlaceView({ place }) {
   };
 
   // Ensure MUI icons render correctly by wrapping them in a div with proper styling.
-  // Added debugging to log the generated SVG markup and ensure styles are applied correctly.
-  const entIconSvg = ReactDOMServer.renderToStaticMarkup(
+  // Safari requires SVG namespace declaration for proper rendering in Leaflet markers.
+  let entIconSvg = ReactDOMServer.renderToStaticMarkup(
     <div
       style={{
         display: "flex",
@@ -41,6 +41,12 @@ export default function MapPlaceView({ place }) {
         strokeColor={placeColor}
       />
     </div>
+  );
+
+  // Fix Safari SVG rendering by adding namespace and dimensions
+  entIconSvg = entIconSvg.replace(
+    "<svg",
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${iconSize}" height="${iconSize}"`
   );
 
   return (
