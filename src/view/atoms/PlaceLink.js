@@ -3,9 +3,11 @@ import Typography from "@mui/material/Typography";
 import EntIcon from "../atoms/EntIcon";
 import { COLORS } from "../_cons/StyleConstants";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-function PlaceLink({ place, distanceM, nameOverride }) {
+function PlaceLink({ place, distanceM }) {
   let to = place.url;
+  const { t } = useTranslation();
 
   const color = COLORS.neutral;
   return (
@@ -30,7 +32,7 @@ function PlaceLink({ place, distanceM, nameOverride }) {
         <EntIcon ent={place} size={18} />
 
         <Typography variant="caption" noWrap>
-          {nameOverride || place.title}
+          {t(place.name)}
         </Typography>
 
         <Typography variant="caption" color="text.secondary">
