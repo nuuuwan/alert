@@ -19,6 +19,13 @@ export default function OpenMeteoView({ place }) {
         sourceList={OpenMeteo.getSourceList(latLng)}
       >
         <MetricCard
+          Icon={ThermostatIcon}
+          label="Max Temp"
+          value={openMeteoData.maxTempNext24Hours.toFixed(1)}
+          unit="°C"
+          timeLabel="Next 24h"
+        />
+        <MetricCard
           Icon={WaterDropIcon}
           label="Rain"
           value={openMeteoData.hourlyRainSumNext24Hours.toFixed(0)}
