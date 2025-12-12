@@ -2,7 +2,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { isAlertColor, COLORS } from "../_cons/StyleConstants";
 
-import MoreTimeIcon from "@mui/icons-material/MoreTime";
 import { useTranslation } from "react-i18next";
 
 export default function MetricCard({
