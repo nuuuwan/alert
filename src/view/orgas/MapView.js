@@ -5,11 +5,13 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import DownloadIcon from "@mui/icons-material/Download";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
+import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 import { useNavigate } from "react-router-dom";
 import EntDetails from "../moles/EntDetails";
 import MapPanel from "./MapPanel";
 import TestModeBanner from "../atoms/TestModeBanner";
 import DownloadableContent from "../moles/DownloadableContent";
+import Place from "../../nonview/core/ents/places/Place";
 
 export default function MapView({
   dsdNameId,
@@ -21,15 +23,19 @@ export default function MapView({
   const navigate = useNavigate();
   const downloadRef = useRef(null);
 
-  const [centerLatLng, setCenterLatLng] = useState(
-    LatLng.fromRaw(DEFAULT_CENTER)
-  );
+  const [selectedLatLng, setSelectedLatLng] = useState(null);
+  const [mapLatLng, setMapLatLng] = useState(LatLng.fromRaw(DEFAULT_CENTER));
 
-  const center = centerLatLng.raw() || DEFAULT_CENTER;
-  const zoom = DEFAULT_ZOOM;
+  const center = mapLatLng.raw() || DEFAULT_CENTER;
 
   const handleCurrentLocation = () => {
     navigate("/");
+  };
+
+  const handleSetToMapCenter = () => {
+    setSelectedLatLng(mapLatLng);
+    const place = Place.fromLatLng(mapLatLng);
+    navigate(place.url);
   };
 
   const handleDownload = () => {
@@ -41,6 +47,13 @@ export default function MapView({
   const getFileName = () => {
     return `${selectedEnt.id}.png`;
   };
+
+  console.debug(
+    "mapLatLng",
+    mapLatLng && mapLatLng.raw(),
+    "selectedLatLng",
+    selectedLatLng && selectedLatLng.raw()
+  );
 
   return (
     <Box>
@@ -57,6 +70,12 @@ export default function MapView({
           aria-label="current location"
         >
           <MyLocationIcon />
+        </IconButton>
+        <IconButton
+          onClick={handleSetToMapCenter}
+          aria-label="set to map center"
+        >
+          <LocationSearchingIcon />
         </IconButton>
         <IconButton onClick={handleDownload} aria-label="download">
           <DownloadIcon />
@@ -86,9 +105,10 @@ export default function MapView({
             setSelectedEnt={setSelectedEnt}
             //
             center={center}
-            zoom={zoom}
+            zoom={DEFAULT_ZOOM}
             //
-            setCenterLatLng={setCenterLatLng}
+            setSelectedLatLng={setSelectedLatLng}
+            setMapLatLng={setMapLatLng}
           />
         </Box>
         <Box

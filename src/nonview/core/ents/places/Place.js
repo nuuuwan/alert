@@ -74,6 +74,10 @@ class Place {
     const data = await this.loadData({ latLng });
     return new Place(data);
   }
+
+  static fromLatLng(latLng) {
+    return new Place({ latLng, openMeteoData: undefined });
+  }
 }
 
 export default Place;

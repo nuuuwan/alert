@@ -14,8 +14,9 @@ export default function MapViewInner({
   cityNameId,
   placeLatLngId,
   //
-  setCenterLatLng,
+  setSelectedLatLng,
   //
+  setMapLatLng,
   selectedEnt,
   setSelectedEnt,
 }) {
@@ -50,28 +51,35 @@ export default function MapViewInner({
         if (dsd) {
           await dsd.loadDetails();
           setSelectedEnt(dsd);
-          setCenterLatLng(dsd.getCentroidLatLng());
+          setSelectedLatLng(dsd.getCentroidLatLng());
+          setMapLatLng(dsd.getCentroidLatLng());
         }
       }
     }
     fetchSelectedDsd();
-  }, [dsdNameId, setCenterLatLng, setSelectedEnt]);
+  }, [dsdNameId, setSelectedLatLng, setSelectedEnt, setMapLatLng]);
 
   useEffect(() => {
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId,
+          hydrometricStationNameId
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
           setSelectedEnt(hydrometricStation);
-          setCenterLatLng(hydrometricStation.latLng);
+          setSelectedLatLng(hydrometricStation.latLng);
+          setMapLatLng(hydrometricStation.latLng);
         }
       }
     }
     fetchHydrometricStation();
-  }, [hydrometricStationNameId, setCenterLatLng, setSelectedEnt]);
+  }, [
+    hydrometricStationNameId,
+    setSelectedLatLng,
+    setSelectedEnt,
+    setMapLatLng,
+  ]);
 
   useEffect(() => {
     async function fetchCity() {
@@ -80,12 +88,13 @@ export default function MapViewInner({
         if (city) {
           await city.loadDetails();
           setSelectedEnt(city);
-          setCenterLatLng(city.latLng);
+          setSelectedLatLng(city.latLng);
+          setMapLatLng(city.latLng);
         }
       }
     }
     fetchCity();
-  }, [cityNameId, setCenterLatLng, setSelectedEnt]);
+  }, [cityNameId, setSelectedLatLng, setSelectedEnt, setMapLatLng]);
 
   useEffect(() => {
     async function fetchPlace() {
@@ -95,19 +104,19 @@ export default function MapViewInner({
         if (place) {
           await place.loadDetails();
           setSelectedEnt(place);
-          setCenterLatLng(place.latLng);
+          setSelectedLatLng(place.latLng);
         }
       }
     }
     fetchPlace();
-  }, [placeLatLngId, setCenterLatLng, setSelectedEnt]);
+  }, [placeLatLngId, setSelectedLatLng, setSelectedEnt, setMapLatLng]);
 
   return (
     <Box>
       {[selectedEnt, ...HydrometricStations].map(
         (station) =>
           station &&
-          station.latLng && <MapPlaceView key={station.id} place={station} />,
+          station.latLng && <MapPlaceView key={station.id} place={station} />
       )}
 
       {dsdEnts &&

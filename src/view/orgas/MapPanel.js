@@ -8,20 +8,21 @@ import GeoLocation from "../../nonview/base/GeoLocation";
 import Place from "../../nonview/core/ents/places/Place";
 import { useNavigate } from "react-router-dom";
 
-function MapEventHandler({ onMapClickOrMoveEnd }) {
+function MapEventHandler({ onMapMoveEnd }) {
   useMapEvents({
-    click: (e) => {
-      onMapClickOrMoveEnd(LatLng.fromRaw([e.latlng.lat, e.latlng.lng]));
+    moveend: (e) => {
+      const center = e.target.getCenter();
+      onMapMoveEnd(LatLng.fromRaw([center.lat, center.lng]));
     },
   });
   return null;
 }
 
-function MapCenterUpdater({ center, zoom }) {
+function MapCenterUpdater({ center }) {
   const map = useMap();
   useEffect(() => {
-    map.flyTo(center, zoom);
-  }, [map, center, zoom]);
+    map.panTo(center);
+  }, [map, center]);
   return null;
 }
 
@@ -33,7 +34,8 @@ export default function MapPanel({
   //
   selectedEnt,
   setSelectedEnt,
-  setCenterLatLng,
+  setSelectedLatLng,
+  setMapLatLng,
   //
   center,
   zoom,
@@ -41,20 +43,26 @@ export default function MapPanel({
   const navigate = useNavigate();
   const hasSomeEntParam =
     dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
+
   useEffect(() => {
     async function fetchBrowserLocation() {
       const latLng = await GeoLocation.getCurrentLatLng();
       if (!hasSomeEntParam && latLng) {
         const place = await Place.load({ latLng });
-        setCenterLatLng(latLng);
+        setSelectedLatLng(latLng);
+        setMapLatLng(latLng);
         navigate(place.url);
       }
     }
     fetchBrowserLocation();
-  }, [hasSomeEntParam, navigate, setCenterLatLng]);
+  }, [hasSomeEntParam, navigate, setSelectedLatLng, setMapLatLng]);
 
-  const onMapClickOrMoveEnd = async (latLng) => {
+  const onMapClick = async (latLng) => {
     navigate(`/Place/${latLng.id}`);
+  };
+
+  const onMapMoveEnd = (latLng) => {
+    setMapLatLng(latLng);
   };
 
   return (
@@ -68,8 +76,8 @@ export default function MapPanel({
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <MapCenterUpdater center={center} zoom={zoom} />
-      <MapEventHandler onMapClickOrMoveEnd={onMapClickOrMoveEnd} />
+      <MapCenterUpdater center={center} />
+      <MapEventHandler onMapClick={onMapClick} onMapMoveEnd={onMapMoveEnd} />
 
       <MapViewInner
         dsdNameId={dsdNameId}
@@ -77,10 +85,11 @@ export default function MapPanel({
         cityNameId={cityNameId}
         placeLatLngId={placeLatLngId}
         //
-        setCenterLatLng={setCenterLatLng}
+        setSelectedLatLng={setSelectedLatLng}
         //
         selectedEnt={selectedEnt}
         setSelectedEnt={setSelectedEnt}
+        setMapLatLng={setMapLatLng}
       />
 
       <div id="map-crosshairs"></div>
