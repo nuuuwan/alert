@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 import LatLng from "../../nonview/base/geos/LatLng";
 import Box from "@mui/material/Box";
-import DataPanel from "../moles/DataPanel";
+import IconButton from "@mui/material/IconButton";
+import DownloadIcon from "@mui/icons-material/Download";
+import MyLocationIcon from "@mui/icons-material/MyLocation";
+import { useNavigate } from "react-router-dom";
 import EntDetails from "../moles/EntDetails";
 import MapPanel from "./MapPanel";
 import TestModeBanner from "../atoms/TestModeBanner";
+import DownloadableContent from "../moles/DownloadableContent";
 
 export default function MapView({
   dsdNameId,
@@ -14,17 +18,50 @@ export default function MapView({
   placeLatLngId,
 }) {
   const [selectedEnt, setSelectedEnt] = useState(null);
+  const navigate = useNavigate();
+  const downloadRef = useRef(null);
 
   const [centerLatLng, setCenterLatLng] = useState(
-    LatLng.fromRaw(DEFAULT_CENTER),
+    LatLng.fromRaw(DEFAULT_CENTER)
   );
 
   const center = centerLatLng.raw() || DEFAULT_CENTER;
   const zoom = DEFAULT_ZOOM;
 
+  const handleCurrentLocation = () => {
+    navigate("/");
+  };
+
+  const handleDownload = () => {
+    if (downloadRef.current) {
+      downloadRef.current.download();
+    }
+  };
+
+  const getFileName = () => {
+    return `${selectedEnt.id}.png`;
+  };
+
   return (
     <Box>
       <TestModeBanner />
+      <Box
+        sx={{
+          position: "absolute",
+          right: 10,
+          zIndex: 1000,
+        }}
+      >
+        <IconButton
+          onClick={handleCurrentLocation}
+          aria-label="current location"
+        >
+          <MyLocationIcon />
+        </IconButton>
+        <IconButton onClick={handleDownload} aria-label="download">
+          <DownloadIcon />
+        </IconButton>
+      </Box>
       <Box
         sx={{
           display: "flex",
@@ -62,10 +99,15 @@ export default function MapView({
             overflow: "auto",
           }}
         >
-          <DataPanel
-            selectedEnt={selectedEnt}
-            renderContent={(ent) => <EntDetails ent={ent} />}
-          />
+          <DownloadableContent
+            ref={downloadRef}
+            getFileName={getFileName}
+            selectedItem={selectedEnt}
+          >
+            <Box>
+              <EntDetails ent={selectedEnt} />
+            </Box>
+          </DownloadableContent>
         </Box>
       </Box>
     </Box>
