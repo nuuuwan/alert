@@ -30,8 +30,10 @@ export default class Polygon {
       const [xi, yi] = polygon[i];
       const [xj, yj] = polygon[j];
 
-      const intersect =
-        yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi;
+      const alpha1 = yi > y;
+      const alpha2 = yj > y;
+      const alpha = alpha1 !== alpha2;
+      const intersect = alpha && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi;
       if (intersect) inside = !inside;
     }
     return inside;

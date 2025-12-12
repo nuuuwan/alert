@@ -53,7 +53,9 @@ class Place {
     this.openMeteoFloodData = openMeteoFloodData;
     this.openElevationData = openElevationData;
     this.earthquakeData = earthquakeData;
+
     this.dsd = dsd;
+    this.dsd = await this.dsd.loadLandslideWarningData();
 
     const [district, province] = await Promise.all([
       District.loadFromId(this.dsd.districtId),
