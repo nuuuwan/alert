@@ -33,12 +33,23 @@ export default function MapViewInner({
 
   useEffect(() => {
     async function fetchDsdEnts() {
-      const dsdEnts = await DSD.loadWithAlerts();
+      let dsdEnts = [];
+      if (selectedEnt) {
+        if (selectedEnt instanceof DSD) {
+          dsdEnts = [selectedEnt];
+          return;
+        } else if (selectedEnt instanceof Place) {
+          const dsd = selectedEnt.dsd;
+          if (dsd) {
+            dsdEnts = [dsd];
+          }
+        }
+      }
       await Promise.all(dsdEnts.map((dsd) => dsd.loadDetails()));
       setDsdEnts(dsdEnts);
     }
     fetchDsdEnts();
-  }, []);
+  }, [selectedEnt]);
 
   // Single Ent Loading
 
