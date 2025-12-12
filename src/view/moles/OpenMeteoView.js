@@ -8,6 +8,7 @@ import TempChart from "../atoms/TempChart";
 import OpacityIcon from "@mui/icons-material/Opacity";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 import CloudIcon from "@mui/icons-material/Cloud";
+import { COLORS } from "../_cons/StyleConstants";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
@@ -24,6 +25,7 @@ export default function OpenMeteoView({ place }) {
           value={openMeteoData.maxTempNext24Hours.toFixed(1)}
           unit="°C"
           timeLabel="Next 24h"
+          color={COLORS.fire}
         />
         <MetricCard
           Icon={WaterDropIcon}
@@ -31,6 +33,7 @@ export default function OpenMeteoView({ place }) {
           value={openMeteoData.hourlyRainSumNext24Hours.toFixed(0)}
           unit="mm"
           timeLabel="Next 24h total"
+          color={COLORS.water}
         />
       </MetricCardCollection>
       <MetricCardCollection
@@ -43,6 +46,7 @@ export default function OpenMeteoView({ place }) {
           value={openMeteoData.hourlyRainSumLast24Hours.toFixed(0)}
           unit="mm"
           timeLabel="Last 24h total"
+          color={COLORS.water}
         />
         <MetricCard
           Icon={ThermostatIcon}
@@ -50,6 +54,7 @@ export default function OpenMeteoView({ place }) {
           value={openMeteoData.currentTempCelsius.toFixed(1)}
           unit="°C"
           timeLabel={"Now"}
+          color={COLORS.fire}
         />
         <MetricCard
           Icon={OpacityIcon}
@@ -57,6 +62,7 @@ export default function OpenMeteoView({ place }) {
           value={openMeteoData.currentRH.toFixed(0)}
           unit="%"
           timeLabel={"Now"}
+          color={COLORS.air}
         />
         <MetricCard
           Icon={CloudIcon}
@@ -64,6 +70,7 @@ export default function OpenMeteoView({ place }) {
           value={openMeteoData.hourlyDewPoint[7 * 24].toFixed(1)}
           unit="°C"
           timeLabel={"Now"}
+          color={COLORS.fire}
         />
       </MetricCardCollection>
 
