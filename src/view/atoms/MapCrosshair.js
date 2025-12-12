@@ -1,4 +1,4 @@
-import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
+import PlaceIcon from "@mui/icons-material/Place";
 import { COLORS } from "../_cons/StyleConstants";
 
 export default function MapCrosshair() {
@@ -16,10 +16,10 @@ export default function MapCrosshair() {
         height,
         // pointerEvents: "none",
         transform: "translate(-50%, -50%)",
-        zIndex: 1000,
+        zIndex: 500,
       }}
     >
-      <LocationSearchingIcon sx={{ width, height, color }} />
+      <PlaceIcon sx={{ width, height, color }} />
     </div>
   );
 }

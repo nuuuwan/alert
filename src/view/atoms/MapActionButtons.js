@@ -3,7 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import Avatar from "@mui/material/Avatar";
 import DownloadIcon from "@mui/icons-material/Download";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
-import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
+import PlaceIcon from "@mui/icons-material/Place";
 import { useTranslation } from "react-i18next";
 import { COLORS } from "../_cons/StyleConstants";
 
@@ -23,7 +23,7 @@ export default function MapActionButtons({
   const currentLanguage = i18n.language;
 
   const otherLanguages = ["en", "si", "ta"].filter(
-    (lang) => lang !== currentLanguage,
+    (lang) => lang !== currentLanguage
   );
 
   const handleLanguageChange = (lang) => {
@@ -43,9 +43,10 @@ export default function MapActionButtons({
     <Box
       sx={{
         position: "absolute",
-        left: "10",
+        top: 0,
+        left: 0,
         zIndex: 1000,
-        m: 0,
+        m: 1,
         p: 0,
       }}
     >
@@ -61,7 +62,7 @@ export default function MapActionButtons({
         aria-label="set to map center"
         sx={iconButtonStyle}
       >
-        <LocationSearchingIcon />
+        <PlaceIcon />
       </IconButton>
       <IconButton
         onClick={onDownload}
