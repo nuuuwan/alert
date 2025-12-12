@@ -580,3 +580,5 @@ Yatawatta
 Yatinuwara
 Yatiyanthota
 Yatiyantota
+km
+m
