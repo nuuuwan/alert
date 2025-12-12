@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import EntIcon from "../atoms/EntIcon";
@@ -16,6 +17,9 @@ export default function DetailsHeader({ ent, supertitleOverride }) {
   const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
   const dsd = ent.dsd;
   const { t } = useTranslation();
+
+  document.title = ent.title;
+
   return (
     <Box sx={{ m: 0, p: 0 }}>
       {dsd && (
