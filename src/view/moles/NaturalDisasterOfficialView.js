@@ -3,10 +3,8 @@ import MetricCardCollection from "../atoms/MetricCardCollection";
 import LandslideIcon from "@mui/icons-material/Landslide";
 import { getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
-import { useTranslation } from "react-i18next";
 
 export default function NaturalDisasterOfficialView({ place }) {
-  const { t } = useTranslation();
   const dsd = place.dsd;
   if (!dsd || dsd.latestLandslideWarningLevel === undefined) {
     return null;
@@ -19,7 +17,7 @@ export default function NaturalDisasterOfficialView({ place }) {
     return null;
   }
 
-  let value = "No Warning";
+  let value = "Safe";
   let alertLabel = `Level ${level}`;
   if (level === 1) {
     value = "Watch";
