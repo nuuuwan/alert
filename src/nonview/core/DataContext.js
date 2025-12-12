@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import HydrometricStation from "./ents/places/HydrometricStation";
 import CircularProgress from "@mui/material/CircularProgress";
+import DSD from "./ents/regions/admin_regions/DSD";
 
 const DataContext = createContext();
 
@@ -16,7 +17,13 @@ export const DataProvider = ({ children }) => {
     const fetchData = async () => {
       await HydrometricStation.getRawAlertData();
       const hydrometricStations = await HydrometricStation.loadAll();
-      setData((prevData) => ({ ...prevData, hydrometricStations }));
+      const sexAgeDataIdx = await DSD.loadAllSexAgeDataIdx();
+
+      setData((prevData) => ({
+        ...prevData,
+        hydrometricStations,
+        sexAgeDataIdx,
+      }));
       setLoading(false);
     };
 

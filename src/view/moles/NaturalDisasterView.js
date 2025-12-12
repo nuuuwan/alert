@@ -1,9 +1,11 @@
 import MetricCard from "../atoms/MetricCard";
 import MetricCardCollection from "../atoms/MetricCardCollection";
-import FloodIcon from "../atoms/icons/FloodIcon";
+import FloodIcon from "@mui/icons-material/Flood";
 import { getAlertColor } from "../_cons/StyleConstants";
-import LandslideIcon from "../atoms/icons/LandslideIcon";
-import WarningIcon from "@mui/icons-material/Warning";
+import LandslideIcon from "@mui/icons-material/Landslide";
+import DeviceThermostatIcon from "@mui/icons-material/DeviceThermostat";
+import InvertColorsOffIcon from "@mui/icons-material/InvertColorsOff";
+import TsunamiIcon from "@mui/icons-material/Tsunami";
 import Alert from "@mui/material/Alert";
 import NaturalDisaster from "../../nonview/core/third_party/NaturalDisaster";
 import OpenElevation from "../../nonview/core/third_party/OpenElevation";
@@ -70,7 +72,7 @@ export default function NaturalDisasterView({ place }) {
       />
 
       <MetricCard
-        Icon={WarningIcon}
+        Icon={DeviceThermostatIcon}
         label="Heat"
         value={`${heatRiskData.heatRiskLevel}/${heatRiskData.heatRiskMaxLevel}`}
         unit=""
@@ -87,7 +89,7 @@ export default function NaturalDisasterView({ place }) {
       />
 
       <MetricCard
-        Icon={WarningIcon}
+        Icon={InvertColorsOffIcon}
         label="Drought"
         value={`${droughtRiskData.droughtRiskLevel}/${droughtRiskData.droughtRiskMaxLevel}`}
         unit=""
@@ -104,7 +106,7 @@ export default function NaturalDisasterView({ place }) {
       />
 
       <MetricCard
-        Icon={WarningIcon}
+        Icon={TsunamiIcon}
         label="Tsunami"
         value={`${tsunamiRiskData.tsunamiRiskLevel}/${tsunamiRiskData.tsunamiRiskMaxLevel}`}
         unit=""
