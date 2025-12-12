@@ -17,7 +17,7 @@ export default class NaturalDisaster {
       openElevationData.slopeData.slopeAngle > 22.5;
 
     const landslideRiskLevel = Object.values(
-      landslideRiskFactors24hThresholded
+      landslideRiskFactors24hThresholded,
     ).filter((v) => v).length;
     const landslideRiskMaxLevel = 6;
     const landslideRiskData = {
@@ -35,7 +35,7 @@ export default class NaturalDisaster {
       openElevationData.relativeElevationData.relativeElevation < -5;
 
     const floodRiskLevel = Object.values(floodRiskFactors24hThresholded).filter(
-      (v) => v
+      (v) => v,
     ).length;
     const floodRiskMaxLevel = 5;
     const floodRiskData = {
@@ -68,12 +68,12 @@ export default class NaturalDisaster {
   static computeTsunamiRiskData({ earthquakeData }) {
     const twentyFourHoursAgo = Date.now() / 1000 - 24 * 60 * 60;
     const recentEarthquakes = earthquakeData.filter(
-      (eq) => eq.timeUt >= twentyFourHoursAgo
+      (eq) => eq.timeUt >= twentyFourHoursAgo,
     );
 
     const tsunamiRiskFactors = {
       f01EarthquakeMagnitudeLast24HoursMax: Math.max(
-        ...recentEarthquakes.map((eq) => eq.magnitude || 0)
+        ...recentEarthquakes.map((eq) => eq.magnitude || 0),
       ),
     };
 
@@ -83,7 +83,7 @@ export default class NaturalDisaster {
     };
 
     const tsunamiRiskLevel = Object.values(
-      tsunamiRiskFactorsThresholded
+      tsunamiRiskFactorsThresholded,
     ).filter((v) => v).length;
     const tsunamiRiskMaxLevel = 1;
     const tsunamiRiskData = {

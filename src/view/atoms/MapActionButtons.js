@@ -22,7 +22,7 @@ export default function MapActionButtons({
   const currentLanguage = i18n.language;
 
   const otherLanguages = ["en", "si", "ta"].filter(
-    (lang) => lang !== currentLanguage
+    (lang) => lang !== currentLanguage,
   );
 
   const handleLanguageChange = (lang) => {
