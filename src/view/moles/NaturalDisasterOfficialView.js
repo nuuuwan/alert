@@ -14,10 +14,7 @@ export default function NaturalDisasterOfficialView({ place }) {
     dsd && dsd.latestLandslideWarningLevel !== undefined
       ? getLandslideCard(dsd)
       : null;
-  const waterLevelCard =
-    isHydrometricStation && place.alertLevel > 0
-      ? getWaterLevelCard(place)
-      : null;
+  const waterLevelCard = isHydrometricStation ? getWaterLevelCard(place) : null;
 
   if (!landslideCard && !waterLevelCard) {
     return null;
