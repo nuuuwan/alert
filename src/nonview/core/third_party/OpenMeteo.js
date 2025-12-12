@@ -16,7 +16,7 @@ export default class OpenMeteo {
   static async getRawData({ latLng }) {
     if (SystemMode.isTest()) {
       return await WWW.fetch(
-        process.env.PUBLIC_URL + `/test_data/open_meteo_raw_data.json`
+        process.env.PUBLIC_URL + `/test_data/open_meteo_raw_data.json`,
       );
     }
 
@@ -70,7 +70,7 @@ export default class OpenMeteo {
         currentFields.map((field, index) => [
           field,
           current.variables(index).value(),
-        ])
+        ]),
       ),
       hourly_time_ut: Array.from(
         {
@@ -78,13 +78,13 @@ export default class OpenMeteo {
             (Number(hourly.timeEnd()) - Number(hourly.time())) /
             hourly.interval(),
         },
-        (_, i) => Number(hourly.time()) + i * hourly.interval()
+        (_, i) => Number(hourly.time()) + i * hourly.interval(),
       ),
       hourly: Object.fromEntries(
         hourlyFields.map((field, index) => [
           field,
           Object.values(hourly.variables(index).valuesArray()),
-        ])
+        ]),
       ),
     };
     return weatherDataRaw;
@@ -103,20 +103,20 @@ export default class OpenMeteo {
       hourlyTimeUt: weatherDataRaw.hourly_time_ut,
       hourlyTemp: weatherDataRaw.hourly.temperature_2m,
       maxTempNext24Hours: Math.max(
-        ...weatherDataRaw.hourly.temperature_2m.slice(7 * 24, 8 * 24)
+        ...weatherDataRaw.hourly.temperature_2m.slice(7 * 24, 8 * 24),
       ),
       hourlyRain: weatherDataRaw.hourly.precipitation,
       hourlyRainSumLast24Hours: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(6 * 24, 7 * 24)
+        weatherDataRaw.hourly.precipitation.slice(6 * 24, 7 * 24),
       ),
       hourlyRainSumPrevious7Days: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(0, 7 * 24)
+        weatherDataRaw.hourly.precipitation.slice(0, 7 * 24),
       ),
       hourlyRainSumNext7Days: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(7 * 24, 14 * 24)
+        weatherDataRaw.hourly.precipitation.slice(7 * 24, 14 * 24),
       ),
       hourlyRainSumNext24Hours: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24)
+        weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24),
       ),
       hourlyDeepSoilMoisture: weatherDataRaw.hourly.soil_moisture_27_to_81cm,
       hourlyDewPoint: weatherDataRaw.hourly.dew_point_2m,
@@ -138,7 +138,7 @@ export default class OpenMeteo {
         .slice(7 * 24, 8 * 24)
         .filter((rain) => rain > 1).length,
       f04MeanDeepSoilMoistureNext24Hours: ArrayUtils.mean(
-        weatherData.hourlyDeepSoilMoisture.slice(7 * 24, 8 * 24)
+        weatherData.hourlyDeepSoilMoisture.slice(7 * 24, 8 * 24),
       ),
     };
 
@@ -188,10 +188,10 @@ export default class OpenMeteo {
     weatherData.heatRiskFactors24h = {
       h01MaxTempNext24Hours: weatherData.maxTempNext24Hours,
       h02MeanTempNext24Hours: ArrayUtils.mean(
-        weatherData.hourlyTemp.slice(7 * 24, 8 * 24)
+        weatherData.hourlyTemp.slice(7 * 24, 8 * 24),
       ),
       h03MaxDewPointNext24Hours: Math.max(
-        ...weatherData.hourlyDewPoint.slice(7 * 24, 8 * 24)
+        ...weatherData.hourlyDewPoint.slice(7 * 24, 8 * 24),
       ),
     };
 
@@ -205,11 +205,11 @@ export default class OpenMeteo {
     };
 
     weatherData.heatRiskLevel = Object.values(
-      weatherData.heatRiskFactors24hThresholded
+      weatherData.heatRiskFactors24hThresholded,
     ).filter((v) => v).length;
 
     weatherData.heatRiskMaxLevel = Object.keys(
-      weatherData.heatRiskFactors24hThresholded
+      weatherData.heatRiskFactors24hThresholded,
     ).length;
 
     return weatherData;
@@ -220,7 +220,7 @@ export default class OpenMeteo {
       d01HourlyRainSumPrevious7Days: weatherData.hourlyRainSumPrevious7Days,
       d02HourlyRainSumNext7Days: weatherData.hourlyRainSumNext7Days,
       d03MeanDeepSoilMoistureNext7Days: ArrayUtils.mean(
-        weatherData.hourlyDeepSoilMoisture.slice(7 * 24, 14 * 24)
+        weatherData.hourlyDeepSoilMoisture.slice(7 * 24, 14 * 24),
       ),
       d04HoursOfNoRainNext7Days: weatherData.hourlyRain
         .slice(7 * 24, 14 * 24)
@@ -240,11 +240,11 @@ export default class OpenMeteo {
     };
 
     weatherData.droughtRiskLevel = Object.values(
-      weatherData.droughtRiskFactors24hThresholded
+      weatherData.droughtRiskFactors24hThresholded,
     ).filter((v) => v).length;
 
     weatherData.droughtRiskMaxLevel = Object.keys(
-      weatherData.droughtRiskFactors24hThresholded
+      weatherData.droughtRiskFactors24hThresholded,
     ).length;
 
     return weatherData;
