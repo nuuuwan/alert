@@ -1,5 +1,6 @@
 <1km
 Addalachchenai
+Addalaichenai
 Agalawatta
 Ahangama
 Akkaraipattu
@@ -7,12 +8,15 @@ Akmeemana
 Akurana
 Akuressa
 Alawwa
+Alayadivembu
 Alayadiwembu
 Alert
 Aluthgama
 Ambagamuwa
+Ambagamuwa Korale
 Ambalangoda
 Ambalantota
+Ambanganga
 Ambanganga Korale
 Ambanpola
 Ampara
@@ -25,6 +29,7 @@ Anuradhapura
 Arachchikattuwa
 Aralaganwila
 Aranayaka
+Aranayake
 Ariyalai
 Aththanagalu Oya
 Athuraliya
@@ -54,6 +59,7 @@ Biyagama
 Bope-Poddala
 Boralesgamuwa
 Bowatta
+Bulathkohipitiya
 Bulathkohupitiya
 Bulathsinhala
 Buttala
@@ -119,17 +125,20 @@ European Space Agency (ESA) Sentinel-2
 Evacuate
 Flood
 Galagedara
+Galenbidunuwewa
 Galenbindunuwewa
 Galewela
 Galgamuwa
 Galigamuwa
 Galle
+Galle 4 Gravets
 Galle Four Gravets
 Galnewa
 Gampaha
 Gampola
 Ganewatta
 Ganga Ihala Korale
+Gangawata Korale
 Gin Ganga
 Ginigathhena
 Girandurukotte
@@ -139,6 +148,7 @@ Glencourse
 Godakawela
 Gomarankadawala
 Gonapeenuwala
+Gonapinuwala
 Gothatuwa
 Gurugoda Oya
 Habaraduwa
@@ -147,6 +157,7 @@ Hakmana
 Haldummulla
 Hali-Ela
 Hambantota
+Hanguranketa
 Hanguranketha
 Hanwella
 Haputale
@@ -157,12 +168,14 @@ Heat
 Hemmathagama
 Hettipola
 High Risk
+Higurakgoda
 Hikkaduwa
 Hingurakgoda
 Hingurana
 Holombuwa
 Homagama
 Horana
+Horowpathana
 Horowpotana
 Horowpothana
 Hungama
@@ -177,21 +190,27 @@ Ipalogama
 Irakkamam
 Island North (Kayts)
 Island South (Velanai)
+Islands North (Kayts)
+Islands South (Velanai)
+Ja Ela
 Ja-Ela
 Ja-ela
 Jaffna
+Kaburupitiya
 Kadawatha
 Kadugannawa
 Kaduruwela
 Kaduwela
 Kahatagasdigiliya
 Kahawatta
+Kahawattha
 Kaithady
 Kalawana
 Kalawellawa (Millakanda)
 Kalmunai
 Kalmunai Tamil Division
 Kalpitiya
+Kalthota
 Kalu Ganga
 Kalutara
 Kaluwanchikudy
@@ -200,9 +219,11 @@ Kanakarayankulam
 Kandaketiya
 Kandana
 Kandavalai
+Kandeketiya
 Kandy
 Kandy Four Gravets & Gangawata Korale
 Kankesanturai
+Kantale
 Kanthale
 Karachchi
 Karainagar
@@ -242,19 +263,27 @@ Kobeigane
 Kochchikade
 Kolonna
 Kolonnawa
+Koralai Pattu
 Koralai Pattu  West (Oddamavadi)
 Koralai Pattu (Valachchenai)
 Koralai Pattu Central
+Koralai Pattu North
 Koralai Pattu North (Vaharai)
+Koralai Pattu South
 Koralai Pattu South (Kiran)
+Koralai Pattu West
 Kosgama
 Koslanda
 Kotapola
 Kotavehera
+Kotawehera
 Kothmale
+Kothmale East
+Kothmale West
 Kottawa
 Kotugoda
 Kuchchaveli
+Kuchchaweli
 Kuda Ganga
 Kuda Oya
 Kuliyapitiya
@@ -266,6 +295,7 @@ Kurunegala
 Kuruvita
 Kuruwita
 Labuduwa
+Laggala
 Laggala-Pallegama
 Lahugala
 Landslide
@@ -277,6 +307,8 @@ Level 3
 Low Risk
 Lunugala
 Lunugamvehera
+Lunugamwehera
+Madampagama
 Madampe
 Madawala
 Madhu
@@ -305,8 +337,11 @@ Manampitiya
 Manipay
 Mankulam
 Manmunai North
+Manmunai Pattu
 Manmunai Pattu (Araipattai)
+Manmunai South & Eruvil Pattu
 Manmunai South & Eruvil pattu
+Manmunai South West
 Manmunai South-West
 Manmunai West
 Mannar
@@ -323,6 +358,7 @@ Matale
 Matara
 Matara Four Gravets
 Mathugama
+Mathurata
 Matugama
 Mawanella
 Mawathagama
@@ -335,6 +371,7 @@ Medawala
 Medirigiriya
 Medium Risk
 Mee Oya
+Meegahakiula
 Meegahakivula
 Meegoda
 Meepe
@@ -364,12 +401,14 @@ Mulleriyawa
 Mulliyawalai
 Mundel
 Musali
+Muthur
 Muttur
 Nachchaduwa
 Nagalagam Street
 Nagoda
 Nakkala
 Nallur
+Nanaddan
 Nanattan
 Narammala
 Nattandiya
@@ -385,6 +424,7 @@ Next 24h total
 Nikaweratiya
 Nildandahinna
 Nilwala Ganga
+Nintavur
 Ninthavur
 Nivithigala
 Niyagama
@@ -430,6 +470,7 @@ Pannala
 Panvila
 Paranthan
 Pasbage Korale
+Pasbagekorale
 Pasgoda
 Passara
 Pasyala
@@ -440,6 +481,7 @@ Pelmadulla
 Peradeniya
 Pesalai
 Pilimathalawa
+Pitabaddara
 Pitabeddara
 Pitigala
 Place
@@ -447,6 +489,7 @@ Point Pedro
 Polgahawela
 Polonnaruwa
 Polpithigama
+Polpitigama
 Poojapitiya
 Poonakary
 Porativu Pattu
@@ -467,6 +510,7 @@ Rakwana
 Rambewa
 Rambukkana
 Rasnayakapura
+Rathgama
 Rathnapura
 Ratmalana
 Ratnapura
@@ -482,6 +526,7 @@ Sabaragamuwa
 Sainthamaruthu
 Saliyawewa
 Samanthurai
+Sammanthurai
 Sammanturai
 Seeduwa
 Seethawaka
@@ -506,11 +551,13 @@ Temperature
 Terrain Metrics
 Thalathuoya
 Thalawa
+Thalawakele
 Thalawathugoda
 Thaldena
 Thalgahagoda
 Thamankaduwa
 Thambalagamuwa
+Thambuththegama
 Thambuttegama
 Thanamalvila
 Thanamalwila
@@ -526,9 +573,12 @@ Thirukkovil
 Thissamaharama
 Thumpane
 Thunukkai
+Tirukkovil
+Town & Gravets
 Trincomalee
 Trincomalee Town and Gravets
 Tsunami
+Tumpane
 USGS Earthquake Data (via lk_tsunamis)
 Udadumbara
 Udapalatha
@@ -544,15 +594,21 @@ Urubokka
 Urubokka Ganga
 Uva
 Uva Paranagama
+Uvaparanagama
+Vadamaradchchi East
+Vadamaradchchi South-West (Karaveddy)
 Vadamaradchi East
 Vadamaradchi North (Point Pedro)
 Vadamaradchi South-West (Karaveddy)
 Valaichchenai
 Valikamam East (Kopay)
 Valikamam North (Tellipallai)
+Valikamam North (Thllippalai)
 Valikamam South (Uduvil)
+Valikamam South West (Sandilipay)
 Valikamam South-West (Sandilipay)
 Valikamam West (Chankanai)
+Vanathavilluwa
 Vanathawilluwa
 Varany
 Vavuniya
@@ -560,14 +616,17 @@ Vavuniya North
 Vavuniya South
 Velanai
 Vengalacheddikulam
+Verugal
 Verugal (Eachchilampattu)
 Veyangoda
 Wadduwa
 Walallavita
+Walallawita
 Walapane
 Walasmulla
 Walawe Ganga
 Walgama
+Wanduramba
 Warakapola
 Wariyapola
 Watch
@@ -576,6 +635,7 @@ Wattala
 Wattegama
 Weather
 Weather Forecast
+Weerabugedara
 Weeraketiya
 Weerambugedara
 Weerawila
@@ -586,6 +646,7 @@ Welimada
 Welioya
 Welipitiya
 Welivitiya-Divithura
+Welivitiya-Divitura
 Wellampitiya
 Wellawaya
 Wennappuwa
@@ -604,4 +665,5 @@ ago
 km
 m
 mm
+name
 °C
