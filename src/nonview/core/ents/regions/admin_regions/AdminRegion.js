@@ -56,7 +56,7 @@ class AdminRegion extends Region {
           "/nuuuwan/lk_admin_regions/refs/heads/main" +
           `/data/geo/json/smaller/${this.getAdminRegionType()}s.json/${id}.json`;
         return await WWW.fetch(url);
-      },
+      }
     );
 
     return MultiPolygon.fromReverseRaw(revFloatPairListList);
@@ -72,7 +72,7 @@ class AdminRegion extends Region {
       `AdminRegion:getRawDataList:${this.getAdminRegionType()}`,
       async () => {
         return await WWW.fetch(this.getUrl());
-      },
+      }
     );
   }
 
@@ -83,8 +83,8 @@ class AdminRegion extends Region {
           id: rawData.id,
           name: rawData.name,
           areaSqKm: parseFloat(rawData.area_sqkm),
-        }),
-      ),
+        })
+      )
     );
   }
 
@@ -95,20 +95,33 @@ class AdminRegion extends Region {
 
   static async loadNearest(latLng) {
     const allRegions = await this.loadAll();
-    let nearestRegion = null;
-    let minDistance = Infinity;
 
-    for (const region of allRegions) {
-      const centroid = region.multiPolygon.getCentroid();
-      if (!centroid) continue;
+    // Sort regions by distance to latLng
+    const sortedRegions = allRegions.sort((regionA, regionB) => {
+      const centroidA = regionA.multiPolygon.getCentroid();
+      const centroidB = regionB.multiPolygon.getCentroid();
 
-      const distance = latLng.distanceTo(centroid);
-      if (distance < minDistance) {
-        minDistance = distance;
-        nearestRegion = region;
+      if (!centroidA) return 1;
+      if (!centroidB) return -1;
+
+      const distanceA = latLng.distanceTo(centroidA);
+      const distanceB = latLng.distanceTo(centroidB);
+
+      return distanceA - distanceB;
+    });
+
+    // Find the first region where latLng is inside
+    for (const region of sortedRegions) {
+      if (region.isInside(latLng)) {
+        return region;
       }
     }
-    return nearestRegion;
+
+    console.warn(
+      `No ${this.getAdminRegionType()} contains the given latLng.` +
+        ` Returning region with nearest centroid instead.`
+    );
+    return sortedRegions[0] || null;
   }
 }
 
