@@ -48,8 +48,8 @@ function App() {
 
   const handleSetToMapCenter = () => {
     const place = Place.fromLatLng(mapLatLng);
-    navigate(place.url);
     setPageMode("Alerts");
+    navigate(place.url);
   };
 
   const handleDownload = () => {
@@ -150,26 +150,25 @@ function App() {
       <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
         <CustomAppBar selectedEnt={selectedEnt} />
         <DataProvider>
-          {pageMode === "Map" && (
-            <MapView
-              dsdNameId={dsdNameId}
-              hydrometricStationNameId={hydrometricStationNameId}
-              placeLatLngId={placeLatLngId}
-              cityNameId={cityNameId}
-              //
-              setTitle={setTitle}
-              pageMode={pageMode}
-              downloadRef={downloadRef}
-              //
-              mapLatLng={mapLatLng}
-              setMapLatLng={setMapLatLng}
-              //
-              selectedEnt={selectedEnt}
-              setSelectedEnt={setSelectedEnt}
-              //
-              setPageMode={setPageMode}
-            />
-          )}
+          <MapView
+            dsdNameId={dsdNameId}
+            hydrometricStationNameId={hydrometricStationNameId}
+            placeLatLngId={placeLatLngId}
+            cityNameId={cityNameId}
+            //
+            setTitle={setTitle}
+            pageMode={pageMode}
+            downloadRef={downloadRef}
+            //
+            mapLatLng={mapLatLng}
+            setMapLatLng={setMapLatLng}
+            //
+            selectedEnt={selectedEnt}
+            setSelectedEnt={setSelectedEnt}
+            //
+            setPageMode={setPageMode}
+          />
+
           {pageMode === "Alerts" && (
             <DataView
               downloadRef={downloadRef}
