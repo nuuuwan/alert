@@ -1,22 +1,13 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SourceView from "./SourceView";
-import { COLORS } from "../_cons/StyleConstants";
 import { useTranslation } from "react-i18next";
-import Paper from "@mui/material/Paper";
+import CustomPaper from "./CustomPaper";
 
 export default function MetricCardCollection({ title, children, sourceList }) {
   const { t } = useTranslation();
   return (
-    <Paper
-      sx={{
-        background: COLORS.neutralLightest,
-        borderRadius: 3,
-        m: 3,
-        p: 3,
-        width: "fit-content",
-      }}
-    >
+    <CustomPaper>
       <Box sx={{ mb: 1 }}>
         <Typography variant="h6">{t(title)}</Typography>
       </Box>
@@ -34,6 +25,6 @@ export default function MetricCardCollection({ title, children, sourceList }) {
       <Box>
         <SourceView sourceList={sourceList} />
       </Box>
-    </Paper>
+    </CustomPaper>
   );
 }
