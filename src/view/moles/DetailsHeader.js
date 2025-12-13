@@ -19,6 +19,12 @@ export default function DetailsHeader({ ent }) {
 
   return (
     <Box sx={{ m: 0, p: 0 }}>
+      <Typography variant="overline" color="text.secondary">
+        {t(ent.supertitle)}
+      </Typography>
+      <Typography variant="body2" color="text.secondary">
+        {t(ent.subtitle)}
+      </Typography>
       {dsd && (
         <Breadcrumbs separator="›" sx={{ m: 0, p: 0 }}>
           <AdminRegionView AdminRegionClass={Province} id={dsd.provinceId} />
@@ -26,20 +32,6 @@ export default function DetailsHeader({ ent }) {
           <AdminRegionView AdminRegionClass={DSD} id={dsd.id} />
         </Breadcrumbs>
       )}
-
-      <Box sx={{ display: "flex", alignItems: "flex-start" }}>
-        <EntIcon ent={ent} size={size} />
-        <Typography variant="h5" sx={{ lineHeight: `${size}px` }} color={color}>
-          {t(ent.title)}
-        </Typography>
-      </Box>
-
-      <Typography variant="overline" color="text.secondary">
-        {t(ent.supertitle)}
-      </Typography>
-      <Typography variant="body2" color="text.secondary">
-        {t(ent.subtitle)}
-      </Typography>
 
       <NearbyPlacesView latLng={ent.latLng} />
       <Divider sx={{ my: 1 }} />
