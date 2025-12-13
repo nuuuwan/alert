@@ -73,7 +73,7 @@ export default function AlertScoreView({ alertScore }) {
                   <MetricCard
                     label={t(metric.name)}
                     value={metric.value}
-                    unit=""
+                    unit={metric.unit}
                     color={getAlertColor(isConditionMet ? 1 : 0, 1)}
                     timeLabel={t(metric.timeLabel)}
                   />

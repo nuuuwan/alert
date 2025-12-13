@@ -7,6 +7,7 @@ export default class AlertScoreMetric {
     timeLabel,
     conditionDescription,
     source,
+    unit,
   }) {
     this.name = name;
     this.description = description;
@@ -15,6 +16,7 @@ export default class AlertScoreMetric {
     this.timeLabel = timeLabel;
     this.conditionDescription = conditionDescription;
     this.source = source;
+    this.unit = unit;
   }
 
   get isTrue() {

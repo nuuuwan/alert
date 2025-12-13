@@ -124,6 +124,7 @@ export default class NaturalDisaster {
             label: "USGS Earthquake Data (via lk_tsunamis)",
             url: "https://github.com/nuuuwan/lk_tsunamis",
           },
+          unit: "",
         }),
       ],
     });
@@ -146,6 +147,7 @@ export default class NaturalDisaster {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
+          unit: "mm/h",
         }),
         new AlertScoreMetric({
           name: "Total Rainfall Next 24h",
@@ -159,6 +161,7 @@ export default class NaturalDisaster {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
+          unit: "mm",
         }),
         new AlertScoreMetric({
           name: "Hours of Rain",
@@ -172,6 +175,7 @@ export default class NaturalDisaster {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
+          unit: "h",
         }),
         new AlertScoreMetric({
           name: "Mean Soil Moisture",
@@ -186,6 +190,7 @@ export default class NaturalDisaster {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
+          unit: "m³/m³",
         }),
         new AlertScoreMetric({
           name: "Rainfall Previous 7 Days",
@@ -199,6 +204,7 @@ export default class NaturalDisaster {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
+          unit: "mm",
         }),
         new AlertScoreMetric({
           name: "Slope Angle",
@@ -211,6 +217,7 @@ export default class NaturalDisaster {
             label: "Open-Elevation API",
             url: "https://open-elevation.com",
           },
+          unit: "°",
         }),
       ],
     });
@@ -233,6 +240,7 @@ export default class NaturalDisaster {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
+          unit: "mm/h",
         }),
         new AlertScoreMetric({
           name: "Total Rainfall Next 24h",
@@ -245,6 +253,7 @@ export default class NaturalDisaster {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
+          unit: "mm",
         }),
         new AlertScoreMetric({
           name: "Hours of Rain",
@@ -257,6 +266,7 @@ export default class NaturalDisaster {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
+          unit: "h",
         }),
         new AlertScoreMetric({
           name: "Mean Soil Moisture",
@@ -271,6 +281,7 @@ export default class NaturalDisaster {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
+          unit: "m³/m³",
         }),
         new AlertScoreMetric({
           name: "Relative Elevation",
@@ -283,6 +294,7 @@ export default class NaturalDisaster {
             label: "Open-Elevation API",
             url: "https://open-elevation.com",
           },
+          unit: "m",
         }),
       ],
     });
