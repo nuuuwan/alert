@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import CircularProgress from "@mui/material/CircularProgress";
 import WavesIcon from "@mui/icons-material/Waves";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
@@ -82,44 +83,46 @@ export default function HydrometricStationDetails({ place }) {
     "No Alert";
 
   return (
-    <Box>
-      <MetricCardCollection
-        title="Water Level Metrics"
-        sourceList={[
-          {
-            label:
-              "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
-            url: "https://github.com/nuuuwan/lk_irrigation",
-          },
-        ]}
-      >
-        <MetricCard
-          Icon={WavesIcon}
-          label="Water Level"
-          value={latestReading.waterLevelM.toFixed(2)}
-          unit="m"
-          timeLabel={TimeUtils.getTimeAgoString(latestReading.timeUt)}
-          alertLabel={alertLevel}
-          color={COLORS.water}
-        />
-        {rateOfChangeData && (
+    <Grid container spacing={3}>
+      <Grid item xs={12}>
+        <MetricCardCollection
+          title="Water Level Metrics"
+          sourceList={[
+            {
+              label:
+                "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
+              url: "https://github.com/nuuuwan/lk_irrigation",
+            },
+          ]}
+        >
           <MetricCard
-            Icon={rateOfChangeData.icon}
-            label="Rate of Rise/Drop"
-            value={rateOfChangeData.value}
-            unit="cm/hr"
-            timeLabel={rateOfRiseTimeLabel}
+            Icon={WavesIcon}
+            label="Water Level"
+            value={latestReading.waterLevelM.toFixed(2)}
+            unit="m"
+            timeLabel={TimeUtils.getTimeAgoString(latestReading.timeUt)}
+            alertLabel={alertLevel}
             color={COLORS.water}
           />
-        )}
-      </MetricCardCollection>
+          {rateOfChangeData && (
+            <MetricCard
+              Icon={rateOfChangeData.icon}
+              label="Rate of Rise/Drop"
+              value={rateOfChangeData.value}
+              unit="cm/hr"
+              timeLabel={rateOfRiseTimeLabel}
+              color={COLORS.water}
+            />
+          )}
+        </MetricCardCollection>
+      </Grid>
 
-      <Box sx={{ mt: 3 }}>
+      <Grid item xs={12}>
         <WaterLevelChart
           waterLevelHistory={waterLevelHistory}
           HydrometricStation={place}
         />
-      </Box>
-    </Box>
+      </Grid>
+    </Grid>
   );
 }
