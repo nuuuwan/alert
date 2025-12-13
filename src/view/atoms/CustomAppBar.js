@@ -23,7 +23,7 @@ const LANGUAGE_LABELS = {
   en: "En",
 };
 
-export default function CustomAppBar({ selectedEnt, mapLatLng, mapEdited }) {
+export default function CustomAppBar({ selectedEnt, mapLatLng }) {
   const { i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -54,9 +54,10 @@ export default function CustomAppBar({ selectedEnt, mapLatLng, mapEdited }) {
   };
 
   const title =
-    (!mapEdited && selectedEnt ? selectedEnt.title : null) ||
+    (selectedEnt ? selectedEnt.title : null) ||
     (mapLatLng ? mapLatLng.title : null) ||
     "ALERT";
+
   document.title = title;
 
   return (

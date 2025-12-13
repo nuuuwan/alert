@@ -16,8 +16,6 @@ export default function MapView({
   setSelectedEnt,
   //
   setPageMode,
-  //
-  setMapEdited,
 }) {
   const center = mapLatLng.raw() || DEFAULT_CENTER;
 
@@ -47,8 +45,6 @@ export default function MapView({
         setMapLatLng={setMapLatLng}
         //
         setPageMode={setPageMode}
-        //
-        setMapEdited={setMapEdited}
       />
     </Box>
   );

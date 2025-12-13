@@ -48,7 +48,6 @@ function PlaceSearch({ onPlaceSelect, latLng }) {
   };
   const handlePlaceSelect = (latLng) => {
     navigate(`/Place/${latLng.id}`);
-    setMapEdited(false);
   };
 
   const handleChange = (event, newValue) => {

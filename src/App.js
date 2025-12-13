@@ -43,18 +43,15 @@ function App() {
   const [mapLatLng, setMapLatLng] = useState(LatLng.fromRaw(DEFAULT_CENTER));
   const [pageMode, setPageMode] = useState("Alerts");
   const [selectedEnt, setSelectedEnt] = useState(null);
-  const [mapEdited, setMapEdited] = useState(false);
 
   const handleCurrentLocation = () => {
     navigate("/");
-    setMapEdited(false);
   };
 
   const handleSetToMapCenter = () => {
     const place = Place.fromLatLng(mapLatLng);
     setPageMode("Alerts");
     navigate(place.url);
-    setMapEdited(false);
   };
 
   const handleDownload = () => {
@@ -79,7 +76,6 @@ function App() {
         const place = await Place.load({ latLng });
         setMapLatLng(latLng);
         navigate(`${place.url}`);
-        setMapEdited(false);
       }
     }
     fetchBrowserLocation();
@@ -153,11 +149,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
-        <CustomAppBar
-          selectedEnt={selectedEnt}
-          mapLatLng={mapLatLng}
-          mapEdited={mapEdited}
-        />
+        <CustomAppBar selectedEnt={selectedEnt} mapLatLng={mapLatLng} />
         <DataProvider>
           <MapView
             dsdNameId={dsdNameId}
@@ -176,7 +168,6 @@ function App() {
             //
             setPageMode={setPageMode}
             //
-            setMapEdited={setMapEdited}
           />
 
           {pageMode !== "Map" && (

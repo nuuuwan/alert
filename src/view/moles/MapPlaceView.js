@@ -6,7 +6,7 @@ import EntIcon from "../atoms/EntIcon";
 import { getAlertColor } from "../_cons/StyleConstants";
 import { useNavigate } from "react-router-dom";
 
-export default function MapPlaceView({ place, setMapEdited }) {
+export default function MapPlaceView({ place }) {
   const navigate = useNavigate();
   if (!place) {
     throw new Error("MapPlaceView requires a place prop");
@@ -20,7 +20,6 @@ export default function MapPlaceView({ place, setMapEdited }) {
   const onClickInner = (e) => {
     L.DomEvent.stopPropagation(e);
     navigate(place.url);
-    setMapEdited(false);
   };
 
   let entIconSvg = ReactDOMServer.renderToStaticMarkup(
