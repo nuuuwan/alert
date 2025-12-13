@@ -42,7 +42,6 @@ export default function MapPanel({
   const navigate = useNavigate();
 
   const onMapClick = async (latLng) => {
-    setPageMode("Alerts");
     navigate(`/Place/${latLng.id}`);
   };
 
