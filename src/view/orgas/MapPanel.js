@@ -7,7 +7,7 @@ import MapCrosshair from "../atoms/MapCrosshair";
 import LatLng from "../../nonview/base/geos/LatLng";
 function MapEventHandler({ onMapMoveEnd }) {
   useMapEvents({
-    moveend: (e) => {
+    dragend: (e) => {
       const center = e.target.getCenter();
       onMapMoveEnd(LatLng.fromRaw([center.lat, center.lng]));
     },
