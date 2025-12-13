@@ -1,7 +1,6 @@
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import Paper from "@mui/material/Paper";
-import DownloadIcon from "@mui/icons-material/Download";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 import MapIcon from "@mui/icons-material/Map";
@@ -12,7 +11,6 @@ import { COLORS } from "../_cons/StyleConstants";
 export default function CustomBottomNavigator({
   onCurrentLocation,
   onSetToMapCenter,
-  onDownload,
   setPageMode,
 }) {
   const handleCurrentLocation = () => {
@@ -21,10 +19,6 @@ export default function CustomBottomNavigator({
 
   const handleSetToMapCenter = () => {
     onSetToMapCenter();
-  };
-
-  const handleDownload = () => {
-    onDownload();
   };
 
   const handleMapMode = () => {
@@ -74,10 +68,6 @@ export default function CustomBottomNavigator({
         <BottomNavigationAction
           icon={<LocationSearchingIcon />}
           onClick={handleSetToMapCenter}
-        />
-        <BottomNavigationAction
-          icon={<DownloadIcon />}
-          onClick={handleDownload}
         />
       </BottomNavigation>
     </Paper>
