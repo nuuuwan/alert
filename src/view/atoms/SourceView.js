@@ -10,7 +10,7 @@ export default function SourceView({ sourceList }) {
   }
 
   return (
-    <Box sx={{ mt: 2 }}>
+    <Box sx={{ mt: 2, maxWidth: "320px" }}>
       <Typography variant="caption" color="text.secondary">
         {t("Source") + ": "}
         {sourceList.map((source, index) => (
