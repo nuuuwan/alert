@@ -32,10 +32,12 @@ export default function CustomBottomNavigator({
   };
 
   const handleAlertsMode = () => {
+    onSetToMapCenter();
     setPageMode("Alerts");
   };
 
   const handleDataMode = () => {
+    onSetToMapCenter();
     setPageMode("Data");
   };
 
