@@ -16,4 +16,8 @@ export default class AlertScoreMetric {
     this.conditionDescription = conditionDescription;
     this.source = source;
   }
+
+  get isTrue() {
+    return this.condition(this.value);
+  }
 }

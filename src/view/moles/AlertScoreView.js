@@ -1,7 +1,7 @@
 import MetricCard from "../atoms/MetricCard";
 import CustomPaper from "../atoms/CustomPaper";
 import { useTranslation } from "react-i18next";
-import { getAlertColor } from "../_cons/StyleConstants";
+import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import InfoIcon from "@mui/icons-material/Info";
 import TsunamiIcon from "@mui/icons-material/Tsunami";
 import WaterIcon from "@mui/icons-material/Water";
@@ -9,9 +9,14 @@ import TerrainIcon from "@mui/icons-material/Terrain";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import SpaIcon from "@mui/icons-material/Spa";
 import NaturalDisaster from "../../nonview/core/third_party/NaturalDisaster";
-import MetricCardCollection from "../atoms/MetricCardCollection";
 import Typography from "@mui/material/Typography";
-
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableRow from "@mui/material/TableRow";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
+import Box from "@mui/material/Box";
 export default function AlertScoreView({ alertScore }) {
   const { t } = useTranslation();
 
@@ -50,6 +55,44 @@ export default function AlertScoreView({ alertScore }) {
         timeLabel={t(alertScore.timeLabel)}
         alertLabel={alertLabel}
       />
+      <Table>
+        <TableBody>
+          {alertScore.metricList.map((metric, index) => {
+            const isConditionMet = metric.condition(metric.value);
+            const StatusIcon = isConditionMet ? CheckCircleIcon : CancelIcon;
+            const statusColor = isConditionMet
+              ? COLORS.highAlert
+              : COLORS.noAlert;
+
+            return (
+              <TableRow key={index}>
+                <TableCell sx={{ width: 50, textAlign: "center" }}>
+                  <StatusIcon sx={{ color: statusColor }} />
+                </TableCell>
+                <TableCell>
+                  <MetricCard
+                    label={t(metric.name)}
+                    value={metric.value}
+                    unit=""
+                    color={getAlertColor(isConditionMet ? 1 : 0, 1)}
+                    timeLabel={t(metric.timeLabel)}
+                  />
+                </TableCell>
+                <TableCell>
+                  <Box>
+                    <Typography variant="subtitle2" fontWeight={600}>
+                      {t(metric.description)}
+                    </Typography>
+                    <Typography variant="body2" sx={{ mt: 0.5 }}>
+                      {t(metric.conditionDescription)}
+                    </Typography>
+                  </Box>
+                </TableCell>
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
     </CustomPaper>
   );
 }

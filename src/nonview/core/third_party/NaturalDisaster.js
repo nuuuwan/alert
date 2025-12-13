@@ -102,18 +102,20 @@ export default class NaturalDisaster {
     const earthequakeDataLast24Hours = earthquakeData.filter(
       (eq) => eq.timeUt >= twentyFourHoursAgo
     );
+
     return new AlertScore({
       name: "Tsunami",
       description: "Risk of the location experiencing a tsunami event.",
       timeLabel: "Next 24h",
       metricList: [
         new AlertScoreMetric({
-          name: "Earthquake Magnitude - Last 24 Hours - Max",
+          name: "Magnitude",
           description:
             "Maximum earthquake magnitude recorded in the last 24 hours.",
           timeLabel: "Next 24h",
           value: Math.max(
-            ...earthequakeDataLast24Hours.map((eq) => eq.magnitude || 0)
+            ...earthequakeDataLast24Hours.map((eq) => eq.magnitude || 0),
+            ...[0]
           ),
           condition: (value) => value >= 6.5,
           conditionDescription:
