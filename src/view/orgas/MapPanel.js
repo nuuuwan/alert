@@ -36,10 +36,13 @@ export default function MapPanel({
   //
   center,
   zoom,
+  //
+  setPageMode,
 }) {
   const navigate = useNavigate();
 
   const onMapClick = async (latLng) => {
+    setPageMode("Alerts");
     navigate(`/Place/${latLng.id}`);
   };
 

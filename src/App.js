@@ -155,9 +155,9 @@ function App() {
               hydrometricStationNameId={hydrometricStationNameId}
               placeLatLngId={placeLatLngId}
               cityNameId={cityNameId}
+              //
               setTitle={setTitle}
               pageMode={pageMode}
-              setPageMode={setPageMode}
               downloadRef={downloadRef}
               //
               mapLatLng={mapLatLng}
@@ -165,6 +165,8 @@ function App() {
               //
               selectedEnt={selectedEnt}
               setSelectedEnt={setSelectedEnt}
+              //
+              setPageMode={setPageMode}
             />
           )}
           {pageMode === "Alerts" && (
