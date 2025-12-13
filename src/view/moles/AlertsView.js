@@ -9,7 +9,7 @@ export default function AlertsView({ selectedEnt }) {
     return null;
   }
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={0}>
       <Grid item xs={12} md={6}>
         <DetailsHeader ent={place} />
       </Grid>

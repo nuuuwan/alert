@@ -83,7 +83,7 @@ export default function HydrometricStationDetails({ place }) {
     "No Alert";
 
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={0}>
       <Grid item xs={12}>
         <MetricCardCollection
           title="Water Level Metrics"
