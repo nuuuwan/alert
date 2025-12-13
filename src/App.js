@@ -168,35 +168,37 @@ function App() {
             setPageMode={setPageMode}
           />
 
-          <Box
-            sx={{
-              position: "absolute",
-              width: "100%",
-              height: "calc(100% - 120px)",
-              marginTop: "64px",
-              marginBottom: "56px",
-              zIndex: 200,
-              overflow: "auto",
-            }}
-          >
-            {pageMode === "Alerts" && (
-              <AlertsView
-                downloadRef={downloadRef}
-                //
-                selectedEnt={selectedEnt}
-                setSelectedEnt={setSelectedEnt}
-              />
-            )}
+          {pageMode !== "Map" && (
+            <Box
+              sx={{
+                position: "absolute",
+                width: "100%",
+                height: "calc(100% - 120px)",
+                marginTop: "64px",
+                marginBottom: "56px",
+                zIndex: 200,
+                overflow: "auto",
+              }}
+            >
+              {pageMode === "Alerts" && (
+                <AlertsView
+                  downloadRef={downloadRef}
+                  //
+                  selectedEnt={selectedEnt}
+                  setSelectedEnt={setSelectedEnt}
+                />
+              )}
 
-            {pageMode === "Data" && (
-              <DataView
-                downloadRef={downloadRef}
-                //
-                selectedEnt={selectedEnt}
-                setSelectedEnt={setSelectedEnt}
-              />
-            )}
-          </Box>
+              {pageMode === "Data" && (
+                <DataView
+                  downloadRef={downloadRef}
+                  //
+                  selectedEnt={selectedEnt}
+                  setSelectedEnt={setSelectedEnt}
+                />
+              )}
+            </Box>
+          )}
         </DataProvider>
         <CustomBottomNavigator
           onCurrentLocation={handleCurrentLocation}
