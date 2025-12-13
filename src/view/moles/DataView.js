@@ -1,4 +1,4 @@
-import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import SatelliteImageView from "../atoms/SatelliteImageView";
 import OpenMeteoView from "../moles/OpenMeteoView";
 import HydrometricStationDetails from "../moles/HydrometricStationDetails";
@@ -12,14 +12,27 @@ export default function DataView({ selectedEnt }) {
     return null;
   }
   return (
-    <Box sx={{}}>
+    <Grid container spacing={2}>
       {place instanceof HydrometricStation && (
-        <HydrometricStationDetails place={place} />
+        <Grid item xs={12} md={6}>
+          <HydrometricStationDetails place={place} />
+        </Grid>
       )}
-      <OpenElevationView place={place} />
-      <OpenMeteoView place={place} />
-      <SatelliteImageView place={place} />
-      <RecentEarthquakesView place={place} />
-    </Box>
+
+      <Grid item xs={12} md={6}>
+        <OpenElevationView place={place} />
+      </Grid>
+
+      <Grid item xs={12} md={6}>
+        <OpenMeteoView place={place} />
+      </Grid>
+
+      <Grid item xs={12} md={6}>
+        <SatelliteImageView place={place} />
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <RecentEarthquakesView place={place} />
+      </Grid>
+    </Grid>
   );
 }
