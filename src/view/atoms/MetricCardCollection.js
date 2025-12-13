@@ -10,7 +10,9 @@ export default function MetricCardCollection({ title, children, sourceList }) {
   return (
     <CustomPaper>
       <Box sx={{ mb: 1 }}>
-        <Typography variant="h6">{t(title)}</Typography>
+        <Typography variant="h6" fontWeight={600}>
+          {t(title)}
+        </Typography>
       </Box>
 
       <Grid container spacing={0} sx={{ mb: 2 }}>
