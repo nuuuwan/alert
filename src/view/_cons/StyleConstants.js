@@ -43,4 +43,4 @@ export function isAlertColor(color) {
 }
 
 // Typography
-export const FONT_FAMILY = ['"PT Sans"', "sans-serif"].join(", ");
+export const FONT_FAMILY = ['"Fira Sans"', "sans-serif"].join(", ");
