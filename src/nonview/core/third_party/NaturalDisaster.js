@@ -1,3 +1,7 @@
+import AlertScore from "../alerts/AlertScore";
+import AlertScoreMetric from "../alerts/AlertScoreMetric";
+import TimeUtils from "../utils/TimeUtils";
+
 export default class NaturalDisaster {
   static getLabel(level, maxLevel) {
     if (level < 0 || level > maxLevel) {
@@ -17,7 +21,7 @@ export default class NaturalDisaster {
       openElevationData.slopeData.slopeAngle > 22.5;
 
     const landslideRiskLevel = Object.values(
-      landslideRiskFactors24hThresholded,
+      landslideRiskFactors24hThresholded
     ).filter((v) => v).length;
     const landslideRiskMaxLevel = 6;
     const landslideRiskData = {
@@ -35,7 +39,7 @@ export default class NaturalDisaster {
       openElevationData.relativeElevationData.relativeElevation < -5;
 
     const floodRiskLevel = Object.values(floodRiskFactors24hThresholded).filter(
-      (v) => v,
+      (v) => v
     ).length;
     const floodRiskMaxLevel = 5;
     const floodRiskData = {
@@ -68,12 +72,12 @@ export default class NaturalDisaster {
   static computeTsunamiRiskData({ earthquakeData }) {
     const twentyFourHoursAgo = Date.now() / 1000 - 24 * 60 * 60;
     const recentEarthquakes = earthquakeData.filter(
-      (eq) => eq.timeUt >= twentyFourHoursAgo,
+      (eq) => eq.timeUt >= twentyFourHoursAgo
     );
 
     const tsunamiRiskFactors = {
       f01EarthquakeMagnitudeLast24HoursMax: Math.max(
-        ...recentEarthquakes.map((eq) => eq.magnitude || 0),
+        ...recentEarthquakes.map((eq) => eq.magnitude || 0)
       ),
     };
 
@@ -83,7 +87,7 @@ export default class NaturalDisaster {
     };
 
     const tsunamiRiskLevel = Object.values(
-      tsunamiRiskFactorsThresholded,
+      tsunamiRiskFactorsThresholded
     ).filter((v) => v).length;
     const tsunamiRiskMaxLevel = 1;
     const tsunamiRiskData = {
@@ -91,6 +95,30 @@ export default class NaturalDisaster {
       tsunamiRiskMaxLevel,
     };
     return tsunamiRiskData;
+  }
+
+  static getTsunamiRiskScore({ earthquakeData }) {
+    const twentyFourHoursAgo = TimeUtils.getUnixTime() - 24 * 60 * 60;
+    const earthequakeDataLast24Hours = earthquakeData.filter(
+      (eq) => eq.timeUt >= twentyFourHoursAgo
+    );
+    return new AlertScore([
+      new AlertScoreMetric({
+        name: "Earthquake Magnitude - Last 24 Hours - Max",
+        description:
+          "Maximum earthquake magnitude recorded in the last 24 hours.",
+        value: Math.max(
+          ...earthequakeDataLast24Hours.map((eq) => eq.magnitude || 0)
+        ),
+        condition: (value) => value >= 6.5,
+        conditionDescription:
+          "Magnitude of earthquake greater than or equal to 6.5",
+        source: {
+          label: "USGS Earthquake Data (via lk_tsunamis)",
+          url: "https://github.com/nuuuwan/lk_tsunamis",
+        },
+      }),
+    ]);
   }
 
   static getData({ openMeteoData, openElevationData, earthquakeData }) {
