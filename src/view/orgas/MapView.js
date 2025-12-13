@@ -15,6 +15,7 @@ export default function MapView({
   hydrometricStationNameId,
   cityNameId,
   placeLatLngId,
+  setTitle,
 }) {
   const [selectedEnt, setSelectedEnt] = useState(null);
   const navigate = useNavigate();
@@ -94,7 +95,7 @@ export default function MapView({
             selectedItem={selectedEnt}
           >
             <Box>
-              <EntDetails ent={selectedEnt} />
+              <EntDetails ent={selectedEnt} setTitle={setTitle} />
             </Box>
           </DownloadableContent>
         </Box>

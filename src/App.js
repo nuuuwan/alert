@@ -8,7 +8,7 @@ import { FONT_FAMILY } from "./view/_cons/StyleConstants";
 import { useParams } from "react-router-dom";
 import { DataProvider } from "./nonview/core/DataContext";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const theme = createTheme({
   typography: {
@@ -26,6 +26,7 @@ function App() {
   } = useParams();
 
   const { i18n } = useTranslation();
+  const [title, setTitle] = useState("ALERT");
 
   useEffect(() => {
     if (lang && i18n.language !== lang) {
@@ -38,13 +39,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
-        <CustomAppBar />
+        <CustomAppBar title={title} />
         <DataProvider>
           <MapView
             dsdNameId={dsdNameId}
             hydrometricStationNameId={hydrometricStationNameId}
             placeLatLngId={placeLatLngId}
             cityNameId={cityNameId}
+            setTitle={setTitle}
           />
         </DataProvider>
       </Box>

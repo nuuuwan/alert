@@ -11,13 +11,11 @@ import Province from "../../nonview/core/ents/regions/admin_regions/Province";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { useTranslation } from "react-i18next";
 
-export default function DetailsHeader({ ent, supertitleOverride }) {
+export default function DetailsHeader({ ent }) {
   const size = 24;
   const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
   const dsd = ent.dsd;
   const { t } = useTranslation();
-
-  document.title = ent.title;
 
   return (
     <Box sx={{ m: 0, p: 0 }}>

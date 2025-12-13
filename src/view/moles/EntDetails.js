@@ -17,7 +17,7 @@ function EntChildDetails({ ent }) {
   throw new Error("Unknown ent class: " + ent.constructor.name);
 }
 
-export default function EntDetails({ ent, supertitleOverride }) {
+export default function EntDetails({ ent, setTitle }) {
   const [entWithDetails, setEntWithDetails] = useState(null);
 
   useEffect(() => {
@@ -34,9 +34,11 @@ export default function EntDetails({ ent, supertitleOverride }) {
     return <CircularProgress />;
   }
 
+  setTitle(ent.title);
+
   return (
     <Box sx={{ m: 1, p: 1 }}>
-      <DetailsHeader ent={ent} supertitleOverride={supertitleOverride} />
+      <DetailsHeader ent={ent} />
       <EntChildDetails ent={entWithDetails} />
     </Box>
   );

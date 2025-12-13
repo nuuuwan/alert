@@ -22,7 +22,7 @@ const LANGUAGE_LABELS = {
   en: "En",
 };
 
-export default function CustomAppBar() {
+export default function CustomAppBar({ title }) {
   const { i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -53,6 +53,8 @@ export default function CustomAppBar() {
     handleMenuClose();
   };
 
+  document.title = title;
+
   return (
     <AppBar
       position="static"
@@ -61,7 +63,9 @@ export default function CustomAppBar() {
       }}
     >
       <Toolbar>
-        <div style={{ flexGrow: 1 }} />
+        <div style={{ flexGrow: 1 }}>
+          <span style={{ color: "white", fontSize: "1.2rem" }}>{title}</span>
+        </div>
         <IconButton
           aria-label="menu"
           aria-controls="app-menu"
