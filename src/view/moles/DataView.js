@@ -1,12 +1,13 @@
 import Box from "@mui/material/Box";
-import EntDetails from "./EntDetails";
-import DownloadableContent from "./DownloadableContent";
+import SatelliteImageView from "../atoms/SatelliteImageView";
+import OpenMeteoView from "../moles/OpenMeteoView";
+import HydrometricStationDetails from "../moles/HydrometricStationDetails";
+import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
+import OpenElevationView from "../moles/OpenElevationView";
+import RecentEarthquakesView from "../moles/RecentEarthquakesView";
 
-export default function DataView({ downloadRef, selectedEnt, setTitle }) {
-  const getFileName = () => {
-    return `${selectedEnt.id}.png`;
-  };
-
+export default function DataView({ selectedEnt }) {
+  const place = selectedEnt;
   return (
     <Box
       sx={{
@@ -19,15 +20,13 @@ export default function DataView({ downloadRef, selectedEnt, setTitle }) {
         backgroundColor: "rgba(255, 255, 255, 0.5)",
       }}
     >
-      <DownloadableContent
-        ref={downloadRef}
-        getFileName={getFileName}
-        selectedItem={selectedEnt}
-      >
-        <Box>
-          <EntDetails ent={selectedEnt} setTitle={setTitle} />
-        </Box>
-      </DownloadableContent>
+      {place instanceof HydrometricStation && (
+        <HydrometricStationDetails place={place} />
+      )}
+      <OpenElevationView place={place} />
+      <OpenMeteoView place={place} />
+      <SatelliteImageView place={place} />
+      <RecentEarthquakesView place={place} />
     </Box>
   );
 }

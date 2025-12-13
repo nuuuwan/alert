@@ -1,12 +1,9 @@
 import Box from "@mui/material/Box";
-import EntDetails from "./EntDetails";
-import DownloadableContent from "./DownloadableContent";
+import NaturalDisasterOfficialView from "./NaturalDisasterOfficialView";
+import NaturalDisasterView from "./NaturalDisasterView";
 
-export default function AlertsView({ downloadRef, selectedEnt, setTitle }) {
-  const getFileName = () => {
-    return `${selectedEnt.id}.png`;
-  };
-
+export default function AlertsView({ selectedEnt, setTitle }) {
+  const place = selectedEnt;
   return (
     <Box
       sx={{
@@ -19,15 +16,8 @@ export default function AlertsView({ downloadRef, selectedEnt, setTitle }) {
         backgroundColor: "rgba(255, 255, 255, 0.5)",
       }}
     >
-      <DownloadableContent
-        ref={downloadRef}
-        getFileName={getFileName}
-        selectedItem={selectedEnt}
-      >
-        <Box>
-          <EntDetails ent={selectedEnt} setTitle={setTitle} />
-        </Box>
-      </DownloadableContent>
+      <NaturalDisasterOfficialView place={place} />
+      <NaturalDisasterView place={place} />
     </Box>
   );
 }
