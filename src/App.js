@@ -19,7 +19,6 @@ import AlertsView from "./view/moles/AlertsView";
 import HydrometricStation from "./nonview/core/ents/places/HydrometricStation";
 import DSD from "./nonview/core/ents/regions/admin_regions/DSD";
 import City from "./nonview/core/ents/places/City";
-import { map } from "leaflet";
 
 const theme = createTheme({
   typography: {
