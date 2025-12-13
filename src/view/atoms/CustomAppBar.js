@@ -57,9 +57,13 @@ export default function CustomAppBar({ title }) {
 
   return (
     <AppBar
-      position="static"
       sx={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
         bgcolor: COLORS.neutral,
+        zIndex: 1000,
       }}
     >
       <Toolbar>

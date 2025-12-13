@@ -29,31 +29,30 @@ export default function MapView({
 
   if (pageMode === "Map") {
     return (
-      <Box>
+      <Box
+        sx={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          zIndex: 100,
+        }}
+      >
         <TestModeBanner />
 
-        <Box
-          sx={{
-            width: "100vw",
-            height: "100vh",
-            aspectRatio: "1 / 1",
-          }}
-        >
-          <MapPanel
-            dsdNameId={dsdNameId}
-            hydrometricStationNameId={hydrometricStationNameId}
-            cityNameId={cityNameId}
-            placeLatLngId={placeLatLngId}
-            //
-            selectedEnt={selectedEnt}
-            setSelectedEnt={setSelectedEnt}
-            //
-            center={center}
-            zoom={DEFAULT_ZOOM}
-            //
-            setMapLatLng={setMapLatLng}
-          />
-        </Box>
+        <MapPanel
+          dsdNameId={dsdNameId}
+          hydrometricStationNameId={hydrometricStationNameId}
+          cityNameId={cityNameId}
+          placeLatLngId={placeLatLngId}
+          //
+          selectedEnt={selectedEnt}
+          setSelectedEnt={setSelectedEnt}
+          //
+          center={center}
+          zoom={DEFAULT_ZOOM}
+          //
+          setMapLatLng={setMapLatLng}
+        />
       </Box>
     );
   }
