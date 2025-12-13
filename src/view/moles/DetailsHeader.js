@@ -9,8 +9,11 @@ import { useTranslation } from "react-i18next";
 import CustomPaper from "../atoms/CustomPaper";
 
 export default function DetailsHeader({ ent }) {
-  const dsd = ent.dsd;
   const { t } = useTranslation();
+  if (!ent) {
+    return null;
+  }
+  const dsd = ent.dsd;
 
   return (
     <CustomPaper>
