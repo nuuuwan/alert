@@ -99,12 +99,14 @@ export default function OpenMeteoView({ place }) {
         <RainChart
           hourlyRain={openMeteoData.hourlyRain}
           hourlyTimeUt={openMeteoData.hourlyTimeUt}
+          latLng={place.latLng}
         />
       </Grid>
       <Grid item xs={12}>
         <TempChart
           hourlyTemp={openMeteoData.hourlyTemp}
           hourlyTimeUt={openMeteoData.hourlyTimeUt}
+          latLng={place.latLng}
         />
       </Grid>
     </Grid>

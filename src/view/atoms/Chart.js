@@ -5,9 +5,11 @@ import { LinePlot } from "@mui/x-charts/LineChart";
 import { ChartsXAxis, ChartsYAxis } from "@mui/x-charts";
 import { ChartsReferenceLine } from "@mui/x-charts/ChartsReferenceLine";
 import { BarPlot } from "@mui/x-charts/BarChart";
-import CustomPaper from "./CustomPaper";
+import MetricCardCollection from "./MetricCardCollection";
+import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 
 export default function Chart({
+  title,
   data,
   timeData,
   yAxisLabel,
@@ -15,6 +17,7 @@ export default function Chart({
   color,
   yAxisMin,
   yAxisMax,
+  latLng,
 }) {
   const currentTime = Date.now();
   const xAxisData = timeData.map((time) => new Date(time * 1000));
@@ -50,7 +53,10 @@ export default function Chart({
   const Plot = chartType === "line" ? LinePlot : BarPlot;
 
   return (
-    <CustomPaper>
+    <MetricCardCollection
+      title={title}
+      sourceList={OpenMeteo.getSourceList(latLng)}
+    >
       <ChartContainer
         sx={{
           width: { xs: "80vw", md: "calc(80vw - 80vh)" },
@@ -98,6 +104,6 @@ export default function Chart({
         <ChartsXAxis />
         <ChartsYAxis />
       </ChartContainer>
-    </CustomPaper>
+    </MetricCardCollection>
   );
 }
