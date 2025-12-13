@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import EntIcon from "../atoms/EntIcon";
+import EntAvatar from "./EntAvatar";
 import { COLORS } from "../_cons/StyleConstants";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -29,7 +29,7 @@ function PlaceLink({ place, distanceM }) {
           },
         }}
       >
-        <EntIcon ent={place} size={18} />
+        <EntAvatar ent={place} size={24} iconSize={18} />
 
         <Typography variant="caption" noWrap>
           {t(place.name)}
