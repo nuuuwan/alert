@@ -13,6 +13,7 @@ import { useEffect, useState, useRef } from "react";
 import Place from "./nonview/core/ents/places/Place";
 import LatLng from "./nonview/base/geos/LatLng";
 import { DEFAULT_CENTER } from "./nonview/cons/MapConstants";
+import DataView from "./view/moles/DataView";
 
 const theme = createTheme({
   typography: {
@@ -33,9 +34,9 @@ function App() {
   const navigate = useNavigate();
   const downloadRef = useRef(null);
   const [mapLatLng, setMapLatLng] = useState(LatLng.fromRaw(DEFAULT_CENTER));
-
   const [title, setTitle] = useState("ALERT");
   const [pageMode, setPageMode] = useState("Map");
+  const [selectedEnt, setSelectedEnt] = useState(null);
 
   const handleCurrentLocation = () => {
     navigate("/");
@@ -65,18 +66,34 @@ function App() {
       <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
         <CustomAppBar title={title} />
         <DataProvider>
-          <MapView
-            dsdNameId={dsdNameId}
-            hydrometricStationNameId={hydrometricStationNameId}
-            placeLatLngId={placeLatLngId}
-            cityNameId={cityNameId}
-            setTitle={setTitle}
-            pageMode={pageMode}
-            setPageMode={setPageMode}
-            downloadRef={downloadRef}
-            mapLatLng={mapLatLng}
-            setMapLatLng={setMapLatLng}
-          />
+          {pageMode === "Map" && (
+            <MapView
+              dsdNameId={dsdNameId}
+              hydrometricStationNameId={hydrometricStationNameId}
+              placeLatLngId={placeLatLngId}
+              cityNameId={cityNameId}
+              setTitle={setTitle}
+              pageMode={pageMode}
+              setPageMode={setPageMode}
+              downloadRef={downloadRef}
+              //
+              mapLatLng={mapLatLng}
+              setMapLatLng={setMapLatLng}
+              //
+              selectedEnt={selectedEnt}
+              setSelectedEnt={setSelectedEnt}
+            />
+          )}
+          {pageMode === "Alerts" && (
+            <DataView
+              downloadRef={downloadRef}
+              getFileName={() => `${title}-alerts.png`}
+              setTitle={setTitle}
+              //
+              selectedEnt={selectedEnt}
+              setSelectedEnt={setSelectedEnt}
+            />
+          )}
         </DataProvider>
         <CustomBottomNavigator
           onCurrentLocation={handleCurrentLocation}
