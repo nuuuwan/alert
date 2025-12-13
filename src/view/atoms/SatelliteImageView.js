@@ -17,7 +17,7 @@ export default function SatelliteImageView({ place }) {
   const [lat, lng] = latLng.raw();
   const center = latLngToWebMercator(lat, lng);
 
-  const bufferMeters = 2000;
+  const bufferMeters = 1000;
   const minX = center.x - bufferMeters;
   const minY = center.y - bufferMeters;
   const maxX = center.x + bufferMeters;
