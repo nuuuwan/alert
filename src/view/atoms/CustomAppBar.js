@@ -59,8 +59,6 @@ export default function CustomAppBar({ selectedEnt, mapLatLng, mapEdited }) {
     "ALERT";
   document.title = title;
 
-  console.debug(mapLatLng.raw(), title);
-
   return (
     <AppBar
       sx={{

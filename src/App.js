@@ -63,7 +63,6 @@ function App() {
   useEffect(() => {
     if (lang && i18n.language !== lang) {
       i18n.changeLanguage(lang);
-      console.debug("Language changed to", lang);
     }
   }, [lang, i18n]);
 
