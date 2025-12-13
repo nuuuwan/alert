@@ -11,6 +11,7 @@ export default function CustomPaper({ children, sx }) {
           m: 2,
           p: 2,
           width: "fit-content",
+          opacity: 0.8,
         },
         sx
       )}
