@@ -49,6 +49,7 @@ function App() {
   const handleSetToMapCenter = () => {
     const place = Place.fromLatLng(mapLatLng);
     navigate(place.url);
+    setPageMode("Alerts");
   };
 
   const handleDownload = () => {
