@@ -211,6 +211,7 @@ function App() {
           onSetToMapCenter={handleSetToMapCenter}
           onDownload={handleDownload}
           setPageMode={setPageMode}
+          pageMode={pageMode}
         />
       </Box>
     </ThemeProvider>

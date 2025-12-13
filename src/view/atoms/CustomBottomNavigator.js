@@ -9,6 +9,7 @@ import { COLORS } from "../_cons/StyleConstants";
 export default function CustomBottomNavigator({
   onSetToMapCenter,
   setPageMode,
+  pageMode,
 }) {
   const handleMapMode = () => {
     setPageMode("Map");
@@ -24,6 +25,16 @@ export default function CustomBottomNavigator({
     setPageMode("Data");
   };
 
+  const handleNavigationChange = (event, newValue) => {
+    if (newValue === "Map") {
+      handleMapMode();
+    } else if (newValue === "Alerts") {
+      handleAlertsMode();
+    } else if (newValue === "Data") {
+      handleDataMode();
+    }
+  };
+
   return (
     <Paper
       sx={{
@@ -36,19 +47,50 @@ export default function CustomBottomNavigator({
       elevation={3}
     >
       <BottomNavigation
+        value={pageMode}
+        onChange={handleNavigationChange}
         sx={{
           bgcolor: COLORS.neutralLightest,
         }}
       >
-        {" "}
-        <BottomNavigationAction icon={<MapIcon />} onClick={handleMapMode} />
         <BottomNavigationAction
-          icon={<WarningIcon />}
-          onClick={handleAlertsMode}
+          value="Map"
+          icon={<MapIcon />}
+          disabled={pageMode === "Map"}
+          sx={{
+            ...(pageMode === "Map" && {
+              bgcolor: "rgba(0, 0, 0, 0.1)",
+            }),
+            "&.Mui-selected": {
+              color: "inherit",
+            },
+          }}
         />
         <BottomNavigationAction
+          value="Alerts"
+          icon={<WarningIcon />}
+          disabled={pageMode === "Alerts"}
+          sx={{
+            ...(pageMode === "Alerts" && {
+              bgcolor: "rgba(0, 0, 0, 0.1)",
+            }),
+            "&.Mui-selected": {
+              color: "inherit",
+            },
+          }}
+        />
+        <BottomNavigationAction
+          value="Data"
           icon={<AssessmentIcon />}
-          onClick={handleDataMode}
+          disabled={pageMode === "Data"}
+          sx={{
+            ...(pageMode === "Data" && {
+              bgcolor: "rgba(0, 0, 0, 0.1)",
+            }),
+            "&.Mui-selected": {
+              color: "inherit",
+            },
+          }}
         />
       </BottomNavigation>
     </Paper>
