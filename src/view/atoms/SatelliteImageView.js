@@ -2,8 +2,7 @@ import { useState } from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
-import SourceView from "./SourceView";
-
+import MetricCardCollection from "./MetricCardCollection";
 export default function SatelliteImageView({ place }) {
   const { latLng, name } = place;
   const latLngToWebMercator = (lat, lng) => {
@@ -28,15 +27,15 @@ export default function SatelliteImageView({ place }) {
   const [loading, setLoading] = useState(true);
 
   return (
-    <Box>
-      <Typography
-        variant="caption"
-        color="text.secondary"
-        display="block"
-        sx={{ textTransform: "uppercase" }}
-      >
-        Satellite View
-      </Typography>
+    <MetricCardCollection
+      title="Satellite Image"
+      sourceList={[
+        {
+          label: "European Space Agency (ESA) Sentinel-2",
+          url: "https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2",
+        },
+      ]}
+    >
       {loading && (
         <Box
           sx={{
@@ -69,14 +68,6 @@ export default function SatelliteImageView({ place }) {
           borderColor: "divider",
         }}
       />
-      <SourceView
-        sourceList={[
-          {
-            label: "European Space Agency (ESA) Sentinel-2",
-            url: "https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2",
-          },
-        ]}
-      />
-    </Box>
+    </MetricCardCollection>
   );
 }
