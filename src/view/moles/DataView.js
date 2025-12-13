@@ -10,9 +10,7 @@ export default function DataView({ downloadRef, selectedEnt, setTitle }) {
   return (
     <Box
       sx={{
-        width: { xs: "100vw", md: "calc(100vw - 100vh)" },
-        height: { xs: "auto", md: "100vh" },
-        maxHeight: { xs: "100vh", md: "100vh" },
+        marginTop: "54px",
         overflow: "auto",
       }}
     >
