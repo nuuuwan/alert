@@ -15,6 +15,7 @@ import LatLng from "./nonview/base/geos/LatLng";
 import { DEFAULT_CENTER } from "./nonview/cons/MapConstants";
 import GeoLocation from "./nonview/base/GeoLocation";
 import DataView from "./view/moles/DataView";
+import AlertsView from "./view/moles/AlertsView";
 import HydrometricStation from "./nonview/core/ents/places/HydrometricStation";
 import DSD from "./nonview/core/ents/regions/admin_regions/DSD";
 import City from "./nonview/core/ents/places/City";
@@ -38,7 +39,6 @@ function App() {
   const navigate = useNavigate();
   const downloadRef = useRef(null);
   const [mapLatLng, setMapLatLng] = useState(LatLng.fromRaw(DEFAULT_CENTER));
-  const [title, setTitle] = useState("ALERT");
   const [pageMode, setPageMode] = useState("Alerts");
   const [selectedEnt, setSelectedEnt] = useState(null);
 
@@ -104,7 +104,7 @@ function App() {
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId,
+          hydrometricStationNameId
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
@@ -156,7 +156,6 @@ function App() {
             placeLatLngId={placeLatLngId}
             cityNameId={cityNameId}
             //
-            setTitle={setTitle}
             pageMode={pageMode}
             downloadRef={downloadRef}
             //
@@ -170,10 +169,17 @@ function App() {
           />
 
           {pageMode === "Alerts" && (
+            <AlertsView
+              downloadRef={downloadRef}
+              //
+              selectedEnt={selectedEnt}
+              setSelectedEnt={setSelectedEnt}
+            />
+          )}
+
+          {pageMode === "Data" && (
             <DataView
               downloadRef={downloadRef}
-              getFileName={() => `${title}-alerts.png`}
-              setTitle={setTitle}
               //
               selectedEnt={selectedEnt}
               setSelectedEnt={setSelectedEnt}

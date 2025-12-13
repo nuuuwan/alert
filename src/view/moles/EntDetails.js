@@ -34,8 +34,6 @@ export default function EntDetails({ ent, setTitle }) {
     return <CircularProgress />;
   }
 
-  setTitle(ent.title);
-
   return (
     <Box sx={{ m: 1, p: 1 }}>
       <DetailsHeader ent={ent} />
