@@ -1,6 +1,6 @@
 import AlertScore from "../alerts/AlertScore";
 import AlertScoreMetric from "../alerts/AlertScoreMetric";
-import TimeUtils from "../utils/TimeUtils";
+import TimeUtils from "../../base/TimeUtils";
 
 export default class NaturalDisaster {
   static getLabel(level, maxLevel) {
@@ -102,23 +102,29 @@ export default class NaturalDisaster {
     const earthequakeDataLast24Hours = earthquakeData.filter(
       (eq) => eq.timeUt >= twentyFourHoursAgo
     );
-    return new AlertScore([
-      new AlertScoreMetric({
-        name: "Earthquake Magnitude - Last 24 Hours - Max",
-        description:
-          "Maximum earthquake magnitude recorded in the last 24 hours.",
-        value: Math.max(
-          ...earthequakeDataLast24Hours.map((eq) => eq.magnitude || 0)
-        ),
-        condition: (value) => value >= 6.5,
-        conditionDescription:
-          "Magnitude of earthquake greater than or equal to 6.5",
-        source: {
-          label: "USGS Earthquake Data (via lk_tsunamis)",
-          url: "https://github.com/nuuuwan/lk_tsunamis",
-        },
-      }),
-    ]);
+    return new AlertScore({
+      name: "Tsunami",
+      description: "Risk of the location experiencing a tsunami event.",
+      timeLabel: "Next 24h",
+      metricList: [
+        new AlertScoreMetric({
+          name: "Earthquake Magnitude - Last 24 Hours - Max",
+          description:
+            "Maximum earthquake magnitude recorded in the last 24 hours.",
+          timeLabel: "Next 24h",
+          value: Math.max(
+            ...earthequakeDataLast24Hours.map((eq) => eq.magnitude || 0)
+          ),
+          condition: (value) => value >= 6.5,
+          conditionDescription:
+            "Magnitude of earthquake greater than or equal to 6.5",
+          source: {
+            label: "USGS Earthquake Data (via lk_tsunamis)",
+            url: "https://github.com/nuuuwan/lk_tsunamis",
+          },
+        }),
+      ],
+    });
   }
 
   static getData({ openMeteoData, openElevationData, earthquakeData }) {

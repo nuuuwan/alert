@@ -4,6 +4,7 @@ export default class AlertScoreMetric {
     description,
     value,
     condition,
+    timeLabel,
     conditionDescription,
     source,
   }) {
@@ -11,6 +12,7 @@ export default class AlertScoreMetric {
     this.description = description;
     this.value = value;
     this.condition = condition;
+    this.timeLabel = timeLabel;
     this.conditionDescription = conditionDescription;
     this.source = source;
   }

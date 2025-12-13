@@ -1,6 +1,9 @@
 export default class AlertScore {
-  constructor(metricList) {
+  constructor({ name, description, metricList, timeLabel }) {
+    this.name = name;
+    this.description = description;
     this.metricList = metricList;
+    this.timeLabel = timeLabel;
   }
 
   get maxScore() {
