@@ -8,6 +8,9 @@ import RecentEarthquakesView from "../moles/RecentEarthquakesView";
 
 export default function DataView({ selectedEnt }) {
   const place = selectedEnt;
+  if (!place) {
+    return null;
+  }
   return (
     <Box
       sx={{
@@ -17,7 +20,6 @@ export default function DataView({ selectedEnt }) {
         marginTop: "56px",
         zIndex: 200,
         overflow: "auto",
-        backgroundColor: "rgba(255, 255, 255, 0.5)",
       }}
     >
       {place instanceof HydrometricStation && (

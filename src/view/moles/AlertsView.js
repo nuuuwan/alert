@@ -4,6 +4,9 @@ import NaturalDisasterView from "./NaturalDisasterView";
 
 export default function AlertsView({ selectedEnt, setTitle }) {
   const place = selectedEnt;
+  if (!place) {
+    return null;
+  }
   return (
     <Box
       sx={{
@@ -13,7 +16,6 @@ export default function AlertsView({ selectedEnt, setTitle }) {
         marginTop: "56px",
         zIndex: 200,
         overflow: "auto",
-        backgroundColor: "rgba(255, 255, 255, 0.5)",
       }}
     >
       <NaturalDisasterOfficialView place={place} />
