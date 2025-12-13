@@ -15,7 +15,9 @@ export default function MapView({
   selectedEnt,
   setSelectedEnt,
   //
+  pageMode,
   setPageMode,
+
   //
   onCurrentLocation,
 }) {
@@ -46,6 +48,7 @@ export default function MapView({
         //
         setMapLatLng={setMapLatLng}
         //
+        pageMode={pageMode}
         setPageMode={setPageMode}
         //
         onCurrentLocation={onCurrentLocation}

@@ -41,6 +41,8 @@ export default function MapPanel({
   zoom,
   //
   onCurrentLocation,
+  //
+  pageMode,
 }) {
   const onMapMoveEnd = (latLng) => {
     setMapLatLng(latLng);
@@ -72,30 +74,34 @@ export default function MapPanel({
         setMapLatLng={setMapLatLng}
       />
 
-      <MapCrosshair />
+      {pageMode === "Map" && (
+        <Box>
+          <MapCrosshair />
 
-      <Box
-        sx={{
-          position: "absolute",
-          bottom: "56px",
-          right: "0px",
-          zIndex: 1000,
-          margin: "16px",
-        }}
-      >
-        <IconButton
-          onClick={onCurrentLocation}
-          sx={{
-            backgroundColor: COLORS.neutralLightest,
-            "&:hover": {
-              backgroundColor: COLORS.neutralLight,
-            },
-            boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
-          }}
-        >
-          <MyLocationIcon />
-        </IconButton>
-      </Box>
+          <Box
+            sx={{
+              position: "absolute",
+              bottom: "56px",
+              right: "0px",
+              zIndex: 1000,
+              margin: "16px",
+            }}
+          >
+            <IconButton
+              onClick={onCurrentLocation}
+              sx={{
+                backgroundColor: COLORS.neutralLightest,
+                "&:hover": {
+                  backgroundColor: COLORS.neutralLight,
+                },
+                boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+              }}
+            >
+              <MyLocationIcon />
+            </IconButton>
+          </Box>
+        </Box>
+      )}
     </MapContainer>
   );
 }

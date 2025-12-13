@@ -157,7 +157,6 @@ function App() {
             placeLatLngId={placeLatLngId}
             cityNameId={cityNameId}
             //
-            pageMode={pageMode}
             downloadRef={downloadRef}
             //
             mapLatLng={mapLatLng}
@@ -166,6 +165,7 @@ function App() {
             selectedEnt={selectedEnt}
             setSelectedEnt={setSelectedEnt}
             //
+            pageMode={pageMode}
             setPageMode={setPageMode}
             //
             onCurrentLocation={handleCurrentLocation}
