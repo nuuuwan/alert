@@ -1,4 +1,4 @@
-import PlaceIcon from "@mui/icons-material/Place";
+import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 
 export default function MapCrosshair() {
   const size = 68;
@@ -19,7 +19,7 @@ export default function MapCrosshair() {
         opacity: 0.25,
       }}
     >
-      <PlaceIcon sx={{ width, height, color }} />
+      <LocationSearchingIcon sx={{ width, height, color }} />
     </div>
   );
 }

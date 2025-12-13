@@ -3,27 +3,40 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import Paper from "@mui/material/Paper";
 import DownloadIcon from "@mui/icons-material/Download";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
-import PlaceIcon from "@mui/icons-material/Place";
-import { useState } from "react";
+import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
+import MapIcon from "@mui/icons-material/Map";
+import WarningIcon from "@mui/icons-material/Warning";
+import AssessmentIcon from "@mui/icons-material/Assessment";
 import { COLORS } from "../_cons/StyleConstants";
 
 export default function CustomBottomNavigator({
   onCurrentLocation,
   onSetToMapCenter,
   onDownload,
+  setPageMode,
 }) {
-  const [value, setValue] = useState(0);
+  const handleCurrentLocation = () => {
+    onCurrentLocation();
+  };
 
-  const handleNavigationChange = (event, newValue) => {
-    setValue(newValue);
+  const handleSetToMapCenter = () => {
+    onSetToMapCenter();
+  };
 
-    if (newValue === 0) {
-      onCurrentLocation();
-    } else if (newValue === 1) {
-      onSetToMapCenter();
-    } else if (newValue === 2) {
-      onDownload();
-    }
+  const handleDownload = () => {
+    onDownload();
+  };
+
+  const handleMapMode = () => {
+    setPageMode("Map");
+  };
+
+  const handleAlertsMode = () => {
+    setPageMode("Alerts");
+  };
+
+  const handleDataMode = () => {
+    setPageMode("Data");
   };
 
   return (
@@ -38,15 +51,32 @@ export default function CustomBottomNavigator({
       elevation={3}
     >
       <BottomNavigation
-        value={value}
-        onChange={handleNavigationChange}
         sx={{
           bgcolor: COLORS.neutralLightest,
         }}
       >
-        <BottomNavigationAction icon={<MyLocationIcon />} />
-        <BottomNavigationAction icon={<PlaceIcon />} />
-        <BottomNavigationAction icon={<DownloadIcon />} />
+        {" "}
+        <BottomNavigationAction icon={<MapIcon />} onClick={handleMapMode} />
+        <BottomNavigationAction
+          icon={<WarningIcon />}
+          onClick={handleAlertsMode}
+        />
+        <BottomNavigationAction
+          icon={<AssessmentIcon />}
+          onClick={handleDataMode}
+        />
+        <BottomNavigationAction
+          icon={<MyLocationIcon />}
+          onClick={handleCurrentLocation}
+        />
+        <BottomNavigationAction
+          icon={<LocationSearchingIcon />}
+          onClick={handleSetToMapCenter}
+        />
+        <BottomNavigationAction
+          icon={<DownloadIcon />}
+          onClick={handleDownload}
+        />
       </BottomNavigation>
     </Paper>
   );
