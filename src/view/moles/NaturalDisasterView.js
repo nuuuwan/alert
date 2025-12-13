@@ -31,7 +31,7 @@ export default function NaturalDisasterView({ place }) {
   });
 
   const tsunamiScore = NaturalDisaster.getTsunamiRiskScore({ earthquakeData });
-  console.debug({ tsunamiScore });
+  const droughtScore = OpenMeteo.getDroughtRiskScore({ openMeteoData });
 
   return (
     <Box>
@@ -131,6 +131,7 @@ export default function NaturalDisasterView({ place }) {
       </MetricCardCollection>
       <Box>
         <AlertScoreView alertScore={tsunamiScore} />
+        <AlertScoreView alertScore={droughtScore} />
       </Box>
     </Box>
   );
