@@ -5,8 +5,6 @@ import HydrometricStation from "../../nonview/core/ents/places/HydrometricStatio
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import Box from "@mui/material/Box";
 import Place from "../../nonview/core/ents/places/Place";
-import City from "../../nonview/core/ents/places/City";
-import LatLng from "../../nonview/base/geos/LatLng";
 
 export default function MapViewInner({
   dsdNameId,
@@ -49,66 +47,6 @@ export default function MapViewInner({
     }
     fetchDsdEnts();
   }, [selectedEnt]);
-
-  // Single Ent Loading
-
-  useEffect(() => {
-    async function fetchSelectedDsd() {
-      if (dsdNameId) {
-        const dsd = await DSD.loadFromName(dsdNameId);
-        if (dsd) {
-          await dsd.loadDetails();
-          setSelectedEnt(dsd);
-          setMapLatLng(dsd.getCentroidLatLng());
-        }
-      }
-    }
-    fetchSelectedDsd();
-  }, [dsdNameId, setSelectedEnt, setMapLatLng]);
-
-  useEffect(() => {
-    async function fetchHydrometricStation() {
-      if (hydrometricStationNameId) {
-        const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId
-        );
-        if (hydrometricStation) {
-          await hydrometricStation.loadDetails();
-          setSelectedEnt(hydrometricStation);
-          setMapLatLng(hydrometricStation.latLng);
-        }
-      }
-    }
-    fetchHydrometricStation();
-  }, [hydrometricStationNameId, setSelectedEnt, setMapLatLng]);
-
-  useEffect(() => {
-    async function fetchCity() {
-      if (cityNameId) {
-        const city = await City.loadFromName(cityNameId);
-        if (city) {
-          await city.loadDetails();
-          setSelectedEnt(city);
-          setMapLatLng(city.latLng);
-        }
-      }
-    }
-    fetchCity();
-  }, [cityNameId, setSelectedEnt, setMapLatLng]);
-
-  useEffect(() => {
-    async function fetchPlace() {
-      if (placeLatLngId) {
-        const latLng = LatLng.fromId(placeLatLngId);
-        const place = await Place.load({ latLng });
-        if (place) {
-          await place.loadDetails();
-          setSelectedEnt(place);
-        }
-      }
-    }
-    fetchPlace();
-  }, [placeLatLngId, setSelectedEnt, setMapLatLng]);
 
   return (
     <Box>

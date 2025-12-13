@@ -1,7 +1,5 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import EntIcon from "../atoms/EntIcon";
-import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import Divider from "@mui/material/Divider";
 import NearbyPlacesView from "./NearbyPlacesView";
 import AdminRegionView from "../atoms/AdminRegionView";
@@ -12,8 +10,6 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { useTranslation } from "react-i18next";
 
 export default function DetailsHeader({ ent }) {
-  const size = 24;
-  const color = getAlertColor(ent.alertLevel) || COLORS.neutral;
   const dsd = ent.dsd;
   const { t } = useTranslation();
 

@@ -13,7 +13,11 @@ import { useEffect, useState, useRef } from "react";
 import Place from "./nonview/core/ents/places/Place";
 import LatLng from "./nonview/base/geos/LatLng";
 import { DEFAULT_CENTER } from "./nonview/cons/MapConstants";
+import GeoLocation from "./nonview/base/GeoLocation";
 import DataView from "./view/moles/DataView";
+import HydrometricStation from "./nonview/core/ents/places/HydrometricStation";
+import DSD from "./nonview/core/ents/regions/admin_regions/DSD";
+import City from "./nonview/core/ents/places/City";
 
 const theme = createTheme({
   typography: {
@@ -59,6 +63,85 @@ function App() {
       console.debug("Language changed to", lang);
     }
   }, [lang, i18n]);
+
+  useEffect(() => {
+    const hasSomeEntParam =
+      dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
+
+    async function fetchBrowserLocation() {
+      const latLng = await GeoLocation.getCurrentLatLng();
+      if (!hasSomeEntParam && latLng) {
+        const place = await Place.load({ latLng });
+        setMapLatLng(latLng);
+        navigate(`${place.url}`);
+      }
+    }
+    fetchBrowserLocation();
+  }, [
+    dsdNameId,
+    hydrometricStationNameId,
+    cityNameId,
+    placeLatLngId,
+    navigate,
+  ]);
+
+  useEffect(() => {
+    async function fetchSelectedDsd() {
+      if (dsdNameId) {
+        const dsd = await DSD.loadFromName(dsdNameId);
+        if (dsd) {
+          await dsd.loadDetails();
+          setSelectedEnt(dsd);
+          setMapLatLng(dsd.getCentroidLatLng());
+        }
+      }
+    }
+    fetchSelectedDsd();
+  }, [dsdNameId]);
+
+  useEffect(() => {
+    async function fetchHydrometricStation() {
+      if (hydrometricStationNameId) {
+        const hydrometricStation = await HydrometricStation.loadFromName(
+          hydrometricStationNameId
+        );
+        if (hydrometricStation) {
+          await hydrometricStation.loadDetails();
+          setSelectedEnt(hydrometricStation);
+          setMapLatLng(hydrometricStation.latLng);
+        }
+      }
+    }
+    fetchHydrometricStation();
+  }, [hydrometricStationNameId]);
+
+  useEffect(() => {
+    async function fetchCity() {
+      if (cityNameId) {
+        const city = await City.loadFromName(cityNameId);
+        if (city) {
+          await city.loadDetails();
+          setSelectedEnt(city);
+          setMapLatLng(city.latLng);
+        }
+      }
+    }
+    fetchCity();
+  }, [cityNameId]);
+
+  useEffect(() => {
+    async function fetchPlace() {
+      if (placeLatLngId) {
+        const latLng = LatLng.fromId(placeLatLngId);
+        const place = await Place.load({ latLng });
+        if (place) {
+          await place.loadDetails();
+          setSelectedEnt(place);
+        }
+      }
+    }
+    fetchPlace();
+  }, [placeLatLngId]);
 
   return (
     <ThemeProvider theme={theme}>

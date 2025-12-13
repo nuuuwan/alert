@@ -5,10 +5,7 @@ import "./MapView.css";
 import MapViewInner from "./MapViewInner";
 import MapCrosshair from "../atoms/MapCrosshair";
 import LatLng from "../../nonview/base/geos/LatLng";
-import GeoLocation from "../../nonview/base/GeoLocation";
-import Place from "../../nonview/core/ents/places/Place";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 function MapEventHandler({ onMapMoveEnd }) {
   useMapEvents({
     moveend: (e) => {
@@ -41,21 +38,6 @@ export default function MapPanel({
   zoom,
 }) {
   const navigate = useNavigate();
-  const { i18n } = useTranslation();
-  const hasSomeEntParam =
-    dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
-
-  useEffect(() => {
-    async function fetchBrowserLocation() {
-      const latLng = await GeoLocation.getCurrentLatLng();
-      if (!hasSomeEntParam && latLng) {
-        const place = await Place.load({ latLng });
-        setMapLatLng(latLng);
-        navigate(`${place.url}`);
-      }
-    }
-    fetchBrowserLocation();
-  }, [hasSomeEntParam, navigate, setMapLatLng, i18n]);
 
   const onMapClick = async (latLng) => {
     navigate(`/Place/${latLng.id}`);
