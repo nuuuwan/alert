@@ -5,7 +5,6 @@ import "./MapView.css";
 import MapViewInner from "./MapViewInner";
 import MapCrosshair from "../atoms/MapCrosshair";
 import LatLng from "../../nonview/base/geos/LatLng";
-import { useNavigate } from "react-router-dom";
 function MapEventHandler({ onMapMoveEnd }) {
   useMapEvents({
     moveend: (e) => {
@@ -36,15 +35,7 @@ export default function MapPanel({
   //
   center,
   zoom,
-  //
-  setPageMode,
 }) {
-  const navigate = useNavigate();
-
-  const onMapClick = async (latLng) => {
-    navigate(`/Place/${latLng.id}`);
-  };
-
   const onMapMoveEnd = (latLng) => {
     setMapLatLng(latLng);
   };
@@ -61,7 +52,7 @@ export default function MapPanel({
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <MapCenterUpdater center={center} />
-      <MapEventHandler onMapClick={onMapClick} onMapMoveEnd={onMapMoveEnd} />
+      <MapEventHandler onMapMoveEnd={onMapMoveEnd} />
 
       <MapViewInner
         dsdNameId={dsdNameId}
