@@ -22,7 +22,7 @@ const LANGUAGE_LABELS = {
   en: "En",
 };
 
-export default function CustomAppBar({ title }) {
+export default function CustomAppBar({ selectedEnt }) {
   const { i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -53,6 +53,7 @@ export default function CustomAppBar({ title }) {
     handleMenuClose();
   };
 
+  const title = selectedEnt ? selectedEnt.title : "ALERT";
   document.title = title;
 
   return (

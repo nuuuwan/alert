@@ -148,7 +148,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
-        <CustomAppBar title={title} />
+        <CustomAppBar selectedEnt={selectedEnt} />
         <DataProvider>
           {pageMode === "Map" && (
             <MapView
