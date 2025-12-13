@@ -168,6 +168,7 @@ function App() {
             //
             setPageMode={setPageMode}
             //
+            onCurrentLocation={handleCurrentLocation}
           />
 
           {pageMode !== "Map" && (
@@ -207,7 +208,6 @@ function App() {
           )}
         </DataProvider>
         <CustomBottomNavigator
-          onCurrentLocation={handleCurrentLocation}
           onSetToMapCenter={handleSetToMapCenter}
           onDownload={handleDownload}
           setPageMode={setPageMode}

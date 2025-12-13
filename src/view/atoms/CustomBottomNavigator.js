@@ -1,20 +1,15 @@
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import Paper from "@mui/material/Paper";
-import MyLocationIcon from "@mui/icons-material/MyLocation";
 import MapIcon from "@mui/icons-material/Map";
 import WarningIcon from "@mui/icons-material/Warning";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import { COLORS } from "../_cons/StyleConstants";
 
 export default function CustomBottomNavigator({
-  onCurrentLocation,
   onSetToMapCenter,
   setPageMode,
 }) {
-  const handleCurrentLocation = () => {
-    onCurrentLocation();
-  };
   const handleMapMode = () => {
     setPageMode("Map");
   };
@@ -54,10 +49,6 @@ export default function CustomBottomNavigator({
         <BottomNavigationAction
           icon={<AssessmentIcon />}
           onClick={handleDataMode}
-        />
-        <BottomNavigationAction
-          icon={<MyLocationIcon />}
-          onClick={handleCurrentLocation}
         />
       </BottomNavigation>
     </Paper>

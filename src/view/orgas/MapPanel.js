@@ -5,6 +5,10 @@ import "./MapView.css";
 import MapViewInner from "./MapViewInner";
 import MapCrosshair from "../atoms/MapCrosshair";
 import LatLng from "../../nonview/base/geos/LatLng";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import MyLocationIcon from "@mui/icons-material/MyLocation";
+import { COLORS } from "../_cons/StyleConstants";
 function MapEventHandler({ onMapMoveEnd }) {
   useMapEvents({
     dragend: (e) => {
@@ -35,6 +39,8 @@ export default function MapPanel({
   //
   center,
   zoom,
+  //
+  onCurrentLocation,
 }) {
   const onMapMoveEnd = (latLng) => {
     setMapLatLng(latLng);
@@ -67,6 +73,29 @@ export default function MapPanel({
       />
 
       <MapCrosshair />
+
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "56px",
+          right: "0px",
+          zIndex: 1000,
+          margin: "16px",
+        }}
+      >
+        <IconButton
+          onClick={onCurrentLocation}
+          sx={{
+            backgroundColor: COLORS.neutralLightest,
+            "&:hover": {
+              backgroundColor: COLORS.neutralLight,
+            },
+            boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+          }}
+        >
+          <MyLocationIcon />
+        </IconButton>
+      </Box>
     </MapContainer>
   );
 }
