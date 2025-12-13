@@ -312,4 +312,50 @@ export default class OpenMeteo {
       ],
     });
   }
+
+  static getHeatRiskScore({ openMeteoData }) {
+    return new AlertScore({
+      name: "Heat",
+      description: "Risk of the location experiencing a heat event.",
+      timeLabel: "Next 24 hours",
+      metricList: [
+        new AlertScoreMetric({
+          name: "Max Temperature",
+          description: "Maximum temperature forecasted for the next 24 hours.",
+          timeLabel: "Next 24 hours",
+          value: openMeteoData.heatRiskFactors24h.h01MaxTempNext24Hours,
+          condition: (value) => value > 35,
+          conditionDescription: "Maximum temperature greater than 35°C",
+          source: {
+            label: "Open-Meteo Weather API",
+            url: "https://open-meteo.com",
+          },
+        }),
+        new AlertScoreMetric({
+          name: "Mean Temperature",
+          description: "Mean temperature forecasted for the next 24 hours.",
+          timeLabel: "Next 24 hours",
+          value: openMeteoData.heatRiskFactors24h.h02MeanTempNext24Hours,
+          condition: (value) => value > 30,
+          conditionDescription: "Mean temperature greater than 30°C",
+          source: {
+            label: "Open-Meteo Weather API",
+            url: "https://open-meteo.com",
+          },
+        }),
+        new AlertScoreMetric({
+          name: "Max Dew Point",
+          description: "Maximum dew point forecasted for the next 24 hours.",
+          timeLabel: "Next 24 hours",
+          value: openMeteoData.heatRiskFactors24h.h03MaxDewPointNext24Hours,
+          condition: (value) => value > 25,
+          conditionDescription: "Maximum dew point greater than 25°C",
+          source: {
+            label: "Open-Meteo Weather API",
+            url: "https://open-meteo.com",
+          },
+        }),
+      ],
+    });
+  }
 }
