@@ -48,12 +48,13 @@ function PlaceSearch({ onPlaceSelect, latLng }) {
   };
   const handlePlaceSelect = (latLng) => {
     navigate(`/Place/${latLng.id}`);
+    setMapEdited(false);
   };
 
   const handleChange = (event, newValue) => {
     if (newValue && onPlaceSelect) {
       handlePlaceSelect(
-        LatLng.fromRaw([parseFloat(newValue.lat), parseFloat(newValue.lon)]),
+        LatLng.fromRaw([parseFloat(newValue.lat), parseFloat(newValue.lon)])
       );
     }
   };

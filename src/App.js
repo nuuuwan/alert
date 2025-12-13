@@ -52,6 +52,7 @@ function App() {
   const handleSetToMapCenter = () => {
     const place = Place.fromLatLng(mapLatLng);
     setPageMode("Alerts");
+    setMapEdited(false);
     navigate(place.url);
   };
 
@@ -76,6 +77,7 @@ function App() {
       if (!hasSomeEntParam && latLng) {
         const place = await Place.load({ latLng });
         setMapLatLng(latLng);
+        setMapEdited(false);
         navigate(`${place.url}`);
       }
     }

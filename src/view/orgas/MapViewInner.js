@@ -15,6 +15,8 @@ export default function MapViewInner({
   setMapLatLng,
   selectedEnt,
   setSelectedEnt,
+  //
+  setMapEdited,
 }) {
   const [HydrometricStations, setHydrometricStations] = useState([]);
   const [dsdEnts, setDsdEnts] = useState([]);
@@ -53,7 +55,13 @@ export default function MapViewInner({
       {[selectedEnt, ...HydrometricStations].map(
         (station) =>
           station &&
-          station.latLng && <MapPlaceView key={station.id} place={station} />,
+          station.latLng && (
+            <MapPlaceView
+              key={station.id}
+              place={station}
+              setMapEdited={setMapEdited}
+            />
+          )
       )}
 
       {dsdEnts &&

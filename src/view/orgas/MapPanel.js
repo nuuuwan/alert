@@ -66,6 +66,8 @@ export default function MapPanel({
         selectedEnt={selectedEnt}
         setSelectedEnt={setSelectedEnt}
         setMapLatLng={setMapLatLng}
+        //
+        setMapEdited={setMapEdited}
       />
 
       <MapCrosshair />

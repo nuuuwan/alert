@@ -6,7 +6,7 @@ import EntIcon from "../atoms/EntIcon";
 import { getAlertColor } from "../_cons/StyleConstants";
 import { useNavigate } from "react-router-dom";
 
-export default function MapPlaceView({ place }) {
+export default function MapPlaceView({ place, setMapEdited }) {
   const navigate = useNavigate();
   if (!place) {
     throw new Error("MapPlaceView requires a place prop");
@@ -20,6 +20,7 @@ export default function MapPlaceView({ place }) {
   const onClickInner = (e) => {
     L.DomEvent.stopPropagation(e);
     navigate(place.url);
+    setMapEdited(false);
   };
 
   let entIconSvg = ReactDOMServer.renderToStaticMarkup(
@@ -33,12 +34,12 @@ export default function MapPlaceView({ place }) {
       }}
     >
       <EntIcon ent={place} size={iconSize} color={placeColor} />
-    </div>,
+    </div>
   );
 
   entIconSvg = entIconSvg.replace(
     "<svg",
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${iconSize}" height="${iconSize}" fill="${placeColor}"`,
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${iconSize}" height="${iconSize}" fill="${placeColor}"`
   );
 
   return (
