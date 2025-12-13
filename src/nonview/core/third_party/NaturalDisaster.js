@@ -129,6 +129,165 @@ export default class NaturalDisaster {
     });
   }
 
+  static getLandslideRiskScore({ openMeteoData, openElevationData }) {
+    return new AlertScore({
+      name: "Landslide",
+      description: "Risk of the location experiencing a landslide event.",
+      timeLabel: "Next 24 hours",
+      metricList: [
+        new AlertScoreMetric({
+          name: "Peak Rainfall Intensity",
+          description: "Maximum hourly rainfall intensity.",
+          timeLabel: "Next 24 hours",
+          value: openMeteoData.landslideRiskFactors24h.f01PeakRainFallIntensity,
+          condition: (value) => value > 30,
+          conditionDescription: "Peak rainfall intensity greater than 30 mm/h",
+          source: {
+            label: "Open-Meteo Weather API",
+            url: "https://open-meteo.com",
+          },
+        }),
+        new AlertScoreMetric({
+          name: "Total Rainfall Next 24h",
+          description: "Total rainfall forecasted for the next 24 hours.",
+          timeLabel: "Next 24 hours",
+          value:
+            openMeteoData.landslideRiskFactors24h.f02HourlyRainSumNext24Hours,
+          condition: (value) => value > 80,
+          conditionDescription: "Total rainfall greater than 80 mm",
+          source: {
+            label: "Open-Meteo Weather API",
+            url: "https://open-meteo.com",
+          },
+        }),
+        new AlertScoreMetric({
+          name: "Hours of Rain",
+          description: "Number of hours with rainfall in the next 24 hours.",
+          timeLabel: "Next 24 hours",
+          value:
+            openMeteoData.landslideRiskFactors24h.f03HoursOfRainNext24Hours,
+          condition: (value) => value > 10,
+          conditionDescription: "Hours of rain greater than 10 hours",
+          source: {
+            label: "Open-Meteo Weather API",
+            url: "https://open-meteo.com",
+          },
+        }),
+        new AlertScoreMetric({
+          name: "Mean Soil Moisture",
+          description: "Mean deep soil moisture for the next 24 hours.",
+          timeLabel: "Next 24 hours",
+          value:
+            openMeteoData.landslideRiskFactors24h
+              .f04MeanDeepSoilMoistureNext24Hours,
+          condition: (value) => value > 0.25,
+          conditionDescription: "Mean soil moisture greater than 0.25",
+          source: {
+            label: "Open-Meteo Weather API",
+            url: "https://open-meteo.com",
+          },
+        }),
+        new AlertScoreMetric({
+          name: "Rainfall Previous 7 Days",
+          description: "Total rainfall recorded in the previous 7 days.",
+          timeLabel: "Previous 7 days",
+          value:
+            openMeteoData.landslideRiskFactors24h.f05HourlyRainSumPrevious7Days,
+          condition: (value) => value > 200,
+          conditionDescription: "Rainfall greater than 200 mm",
+          source: {
+            label: "Open-Meteo Weather API",
+            url: "https://open-meteo.com",
+          },
+        }),
+        new AlertScoreMetric({
+          name: "Slope Angle",
+          description: "Slope angle of the location.",
+          timeLabel: "Static",
+          value: openElevationData.slopeData.slopeAngle,
+          condition: (value) => value > 22.5,
+          conditionDescription: "Slope angle greater than 22.5 degrees",
+          source: {
+            label: "Open-Elevation API",
+            url: "https://open-elevation.com",
+          },
+        }),
+      ],
+    });
+  }
+
+  static getFloodRiskScore({ openMeteoData, openElevationData }) {
+    return new AlertScore({
+      name: "Flood",
+      description: "Risk of the location experiencing a flood event.",
+      timeLabel: "Next 24 hours",
+      metricList: [
+        new AlertScoreMetric({
+          name: "Peak Rainfall Intensity",
+          description: "Maximum hourly rainfall intensity.",
+          timeLabel: "Next 24 hours",
+          value: openMeteoData.floodRiskFactors24h.f01PeakRainFallIntensity,
+          condition: (value) => value > 50,
+          conditionDescription: "Peak rainfall intensity greater than 50 mm/h",
+          source: {
+            label: "Open-Meteo Weather API",
+            url: "https://open-meteo.com",
+          },
+        }),
+        new AlertScoreMetric({
+          name: "Total Rainfall Next 24h",
+          description: "Total rainfall forecasted for the next 24 hours.",
+          timeLabel: "Next 24 hours",
+          value: openMeteoData.floodRiskFactors24h.f02HourlyRainSumNext24Hours,
+          condition: (value) => value > 100,
+          conditionDescription: "Total rainfall greater than 100 mm",
+          source: {
+            label: "Open-Meteo Weather API",
+            url: "https://open-meteo.com",
+          },
+        }),
+        new AlertScoreMetric({
+          name: "Hours of Rain",
+          description: "Number of hours with rainfall in the next 24 hours.",
+          timeLabel: "Next 24 hours",
+          value: openMeteoData.floodRiskFactors24h.f03HoursOfRainNext24Hours,
+          condition: (value) => value > 12,
+          conditionDescription: "Hours of rain greater than 12 hours",
+          source: {
+            label: "Open-Meteo Weather API",
+            url: "https://open-meteo.com",
+          },
+        }),
+        new AlertScoreMetric({
+          name: "Mean Soil Moisture",
+          description: "Mean deep soil moisture for the next 24 hours.",
+          timeLabel: "Next 24 hours",
+          value:
+            openMeteoData.floodRiskFactors24h
+              .f04MeanDeepSoilMoistureNext24Hours,
+          condition: (value) => value > 0.3,
+          conditionDescription: "Mean soil moisture greater than 0.3",
+          source: {
+            label: "Open-Meteo Weather API",
+            url: "https://open-meteo.com",
+          },
+        }),
+        new AlertScoreMetric({
+          name: "Relative Elevation",
+          description: "Relative elevation of the location.",
+          timeLabel: "Static",
+          value: openElevationData.relativeElevationData.relativeElevation,
+          condition: (value) => value < -5,
+          conditionDescription: "Relative elevation lower than -5 meters",
+          source: {
+            label: "Open-Elevation API",
+            url: "https://open-elevation.com",
+          },
+        }),
+      ],
+    });
+  }
+
   static getData({ openMeteoData, openElevationData, earthquakeData }) {
     return {
       landslideRiskData: this.computeLandslideRiskData({

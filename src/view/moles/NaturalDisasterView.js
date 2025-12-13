@@ -30,6 +30,14 @@ export default function NaturalDisasterView({ place }) {
     earthquakeData,
   });
 
+  const landslideScore = NaturalDisaster.getLandslideRiskScore({
+    openMeteoData,
+    openElevationData,
+  });
+  const floodScore = NaturalDisaster.getFloodRiskScore({
+    openMeteoData,
+    openElevationData,
+  });
   const tsunamiScore = NaturalDisaster.getTsunamiRiskScore({ earthquakeData });
   const droughtScore = OpenMeteo.getDroughtRiskScore({ openMeteoData });
   const heatScore = OpenMeteo.getHeatRiskScore({ openMeteoData });
@@ -131,6 +139,8 @@ export default function NaturalDisasterView({ place }) {
         />
       </MetricCardCollection>
       <Box>
+        <AlertScoreView alertScore={landslideScore} />
+        <AlertScoreView alertScore={floodScore} />
         <AlertScoreView alertScore={tsunamiScore} />
         <AlertScoreView alertScore={droughtScore} />
         <AlertScoreView alertScore={heatScore} />
