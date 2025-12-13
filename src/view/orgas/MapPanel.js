@@ -35,9 +35,12 @@ export default function MapPanel({
   //
   center,
   zoom,
+  //
+  setMapEdited,
 }) {
   const onMapMoveEnd = (latLng) => {
     setMapLatLng(latLng);
+    setMapEdited(true);
   };
 
   return (

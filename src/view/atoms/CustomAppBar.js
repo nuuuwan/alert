@@ -23,11 +23,10 @@ const LANGUAGE_LABELS = {
   en: "En",
 };
 
-export default function CustomAppBar({ selectedEnt }) {
+export default function CustomAppBar({ selectedEnt, mapLatLng, mapEdited }) {
   const { i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-
   const currentLanguage = i18n.language;
   const availableLanguages = ["en", "si", "ta"];
 
@@ -54,8 +53,13 @@ export default function CustomAppBar({ selectedEnt }) {
     handleMenuClose();
   };
 
-  const title = selectedEnt ? selectedEnt.title : "ALERT";
+  const title =
+    (!mapEdited && selectedEnt ? selectedEnt.title : null) ||
+    (mapLatLng ? mapLatLng.title : null) ||
+    "ALERT";
   document.title = title;
+
+  console.debug(mapLatLng.raw(), title);
 
   return (
     <AppBar

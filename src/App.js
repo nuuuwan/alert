@@ -19,6 +19,7 @@ import AlertsView from "./view/moles/AlertsView";
 import HydrometricStation from "./nonview/core/ents/places/HydrometricStation";
 import DSD from "./nonview/core/ents/regions/admin_regions/DSD";
 import City from "./nonview/core/ents/places/City";
+import { map } from "leaflet";
 
 const theme = createTheme({
   typography: {
@@ -41,6 +42,7 @@ function App() {
   const [mapLatLng, setMapLatLng] = useState(LatLng.fromRaw(DEFAULT_CENTER));
   const [pageMode, setPageMode] = useState("Alerts");
   const [selectedEnt, setSelectedEnt] = useState(null);
+  const [mapEdited, setMapEdited] = useState(false);
 
   const handleCurrentLocation = () => {
     navigate("/");
@@ -148,7 +150,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
-        <CustomAppBar selectedEnt={selectedEnt} />
+        <CustomAppBar
+          selectedEnt={selectedEnt}
+          mapLatLng={mapLatLng}
+          mapEdited={mapEdited}
+        />
         <DataProvider>
           <MapView
             dsdNameId={dsdNameId}
@@ -166,6 +172,8 @@ function App() {
             setSelectedEnt={setSelectedEnt}
             //
             setPageMode={setPageMode}
+            //
+            setMapEdited={setMapEdited}
           />
 
           {pageMode !== "Map" && (
