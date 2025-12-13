@@ -47,13 +47,14 @@ function App() {
 
   const handleCurrentLocation = () => {
     navigate("/");
+    setMapEdited(false);
   };
 
   const handleSetToMapCenter = () => {
     const place = Place.fromLatLng(mapLatLng);
     setPageMode("Alerts");
-    setMapEdited(false);
     navigate(place.url);
+    setMapEdited(false);
   };
 
   const handleDownload = () => {
@@ -77,8 +78,8 @@ function App() {
       if (!hasSomeEntParam && latLng) {
         const place = await Place.load({ latLng });
         setMapLatLng(latLng);
-        setMapEdited(false);
         navigate(`${place.url}`);
+        setMapEdited(false);
       }
     }
     fetchBrowserLocation();
