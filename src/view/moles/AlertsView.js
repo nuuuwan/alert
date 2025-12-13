@@ -8,16 +8,7 @@ export default function AlertsView({ selectedEnt, setTitle }) {
     return null;
   }
   return (
-    <Box
-      sx={{
-        position: "absolute",
-        width: "100%",
-        height: "100%",
-        marginTop: "64px",
-        zIndex: 200,
-        overflow: "auto",
-      }}
-    >
+    <Box>
       <NaturalDisasterOfficialView place={place} />
       <NaturalDisasterView place={place} />
     </Box>

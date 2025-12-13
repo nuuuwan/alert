@@ -12,16 +12,7 @@ export default function DataView({ selectedEnt }) {
     return null;
   }
   return (
-    <Box
-      sx={{
-        position: "absolute",
-        width: "100%",
-        height: "100%",
-        marginTop: "64px",
-        zIndex: 200,
-        overflow: "auto",
-      }}
-    >
+    <Box sx={{}}>
       {place instanceof HydrometricStation && (
         <HydrometricStationDetails place={place} />
       )}
