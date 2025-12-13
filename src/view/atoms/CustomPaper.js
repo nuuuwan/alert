@@ -1,5 +1,4 @@
 import Paper from "@mui/material/Paper";
-import { COLORS } from "../_cons/StyleConstants";
 
 export default function CustomPaper({ children, sx }) {
   return (
