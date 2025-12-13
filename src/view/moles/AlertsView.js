@@ -13,7 +13,7 @@ export default function AlertsView({ selectedEnt, setTitle }) {
         position: "absolute",
         width: "100%",
         height: "100%",
-        marginTop: "56px",
+        marginTop: "64px",
         zIndex: 200,
         overflow: "auto",
       }}
