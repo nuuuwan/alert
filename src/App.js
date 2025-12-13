@@ -35,7 +35,7 @@ function App() {
   const downloadRef = useRef(null);
   const [mapLatLng, setMapLatLng] = useState(LatLng.fromRaw(DEFAULT_CENTER));
   const [title, setTitle] = useState("ALERT");
-  const [pageMode, setPageMode] = useState("Map");
+  const [pageMode, setPageMode] = useState("Alerts");
   const [selectedEnt, setSelectedEnt] = useState(null);
 
   const handleCurrentLocation = () => {
