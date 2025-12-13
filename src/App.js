@@ -19,6 +19,8 @@ import AlertsView from "./view/moles/AlertsView";
 import HydrometricStation from "./nonview/core/ents/places/HydrometricStation";
 import DSD from "./nonview/core/ents/regions/admin_regions/DSD";
 import City from "./nonview/core/ents/places/City";
+import DetailsHeader from "./view/moles/DetailsHeader";
+import Grid from "@mui/material/Grid";
 
 const theme = createTheme({
   typography: {
@@ -186,6 +188,10 @@ function App() {
                 overflow: "auto",
               }}
             >
+              <Grid item xs={12} md={6}>
+                <DetailsHeader ent={selectedEnt} />
+              </Grid>
+
               {pageMode === "Alerts" && (
                 <AlertsView
                   downloadRef={downloadRef}

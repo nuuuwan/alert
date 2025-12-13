@@ -5,7 +5,6 @@ import HydrometricStationDetails from "../moles/HydrometricStationDetails";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import OpenElevationView from "../moles/OpenElevationView";
 import RecentEarthquakesView from "../moles/RecentEarthquakesView";
-import DetailsHeader from "./DetailsHeader";
 
 export default function DataView({ selectedEnt }) {
   const place = selectedEnt;
@@ -14,9 +13,6 @@ export default function DataView({ selectedEnt }) {
   }
   return (
     <Grid container spacing={0}>
-      <Grid item xs={12} md={6}>
-        <DetailsHeader ent={place} />
-      </Grid>
       {place instanceof HydrometricStation && (
         <Grid item xs={12} md={6}>
           <HydrometricStationDetails place={place} />

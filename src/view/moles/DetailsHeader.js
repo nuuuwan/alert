@@ -13,7 +13,7 @@ export default function DetailsHeader({ ent }) {
   const { t } = useTranslation();
 
   return (
-    <CustomPaper sx={{ width: 480 }}>
+    <CustomPaper>
       <Typography variant="overline" color="text.secondary">
         {t(ent.supertitle)}
       </Typography>
