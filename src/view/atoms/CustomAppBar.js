@@ -3,7 +3,10 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import BugReportIcon from "@mui/icons-material/BugReport";
 import { useState } from "react";
 import { COLORS } from "../_cons/StyleConstants";
 
@@ -56,8 +59,18 @@ export default function CustomAppBar() {
           open={open}
           onClose={handleMenuClose}
         >
-          <MenuItem onClick={handleNavigateToRepo}>GitHub Repository</MenuItem>
-          <MenuItem onClick={handleNavigateToIssues}>Report Issues</MenuItem>
+          <MenuItem onClick={handleNavigateToRepo}>
+            <ListItemIcon>
+              <GitHubIcon fontSize="small" />
+            </ListItemIcon>
+            GitHub Repository
+          </MenuItem>
+          <MenuItem onClick={handleNavigateToIssues}>
+            <ListItemIcon>
+              <BugReportIcon fontSize="small" />
+            </ListItemIcon>
+            Report Issues
+          </MenuItem>
         </Menu>
       </Toolbar>
     </AppBar>
