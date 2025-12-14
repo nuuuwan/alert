@@ -2,4 +2,4 @@
 
 ## More Details
 
-- [Detailed Requirements](README-requirements.md)
+- [Detailed Requirements](README.requirements.md)
