@@ -7,6 +7,7 @@ import Province from "../../nonview/core/ents/regions/admin_regions/Province";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { useTranslation } from "react-i18next";
 import CustomPaper from "../atoms/CustomPaper";
+import Box from "@mui/material/Box";
 
 export default function DetailsHeader({ ent }) {
   const { t } = useTranslation();
@@ -16,21 +17,23 @@ export default function DetailsHeader({ ent }) {
   const dsd = ent.dsd;
 
   return (
-    <CustomPaper>
-      <Typography variant="overline" color="text.secondary">
-        {t(ent.supertitle)}
-      </Typography>
-      <Typography variant="body2" color="text.secondary">
-        {t(ent.subtitle)}
-      </Typography>
-      {dsd && (
-        <Breadcrumbs separator="›" sx={{ m: 0, p: 0 }}>
-          <AdminRegionView AdminRegionClass={Province} id={dsd.provinceId} />
-          <AdminRegionView AdminRegionClass={District} id={dsd.districtId} />
-          <AdminRegionView AdminRegionClass={DSD} id={dsd.id} />
-        </Breadcrumbs>
-      )}
+    <Box>
+      <CustomPaper>
+        <Typography variant="overline" color="text.secondary">
+          {t(ent.supertitle)}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {t(ent.subtitle)}
+        </Typography>
+        {dsd && (
+          <Breadcrumbs separator="›" sx={{ m: 0, p: 0 }}>
+            <AdminRegionView AdminRegionClass={Province} id={dsd.provinceId} />
+            <AdminRegionView AdminRegionClass={District} id={dsd.districtId} />
+            <AdminRegionView AdminRegionClass={DSD} id={dsd.id} />
+          </Breadcrumbs>
+        )}
+      </CustomPaper>
       <NearbyPlacesView latLng={ent.latLng} />
-    </CustomPaper>
+    </Box>
   );
 }
