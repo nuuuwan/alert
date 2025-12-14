@@ -45,6 +45,8 @@ function App() {
   const [selectedEnt, setSelectedEnt] = useState(null);
 
   const handleCurrentLocation = () => {
+    localStorage.clear();
+    window.location.reload();
     navigate("/");
   };
 
@@ -105,7 +107,7 @@ function App() {
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId,
+          hydrometricStationNameId
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
