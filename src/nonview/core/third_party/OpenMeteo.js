@@ -188,8 +188,8 @@ export default class OpenMeteo {
         }),
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "rainHoursNext7dSum"),
-          condition: (value) => value < 3,
-          conditionDescription: "Less than 3 hours",
+          condition: (value) => value < 1,
+          conditionDescription: "Less than 1 hour",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
