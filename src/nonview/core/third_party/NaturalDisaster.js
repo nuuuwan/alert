@@ -1,13 +1,7 @@
 import AlertScore from "../alerts/AlertScore";
 import AlertScoreMetric from "../alerts/AlertScoreMetric";
 import TimeUtils from "../../base/TimeUtils";
-import Rain from "../units/Rain";
-import EarthquakeMagnitude from "../units/EarthquakeMagnitude";
-import SoilMoisture from "../units/SoilMoisture";
-import Slope from "../units/Slope";
-import RelativeElevation from "../units/RelativeElevation";
-import TimedUnit from "../units/TimedUnit";
-import RainHours from "../units/RainHours";
+import { newTimedUnit } from "../units/TimedUnit";
 
 export default class NaturalDisaster {
   static getLabel(level, maxLevel) {
@@ -24,6 +18,11 @@ export default class NaturalDisaster {
     const earthequakeDataLast24Hours = earthquakeData.filter(
       (eq) => eq.timeUt >= twentyFourHoursAgo
     );
+    const earthquakeAlertData = {
+      earthquakeMagnitudePrev24hMax: earthequakeDataLast24Hours
+        ? Math.max(...earthequakeDataLast24Hours.map((eq) => eq.magnitude))
+        : 0,
+    };
 
     return new AlertScore({
       name: "Tsunami",
@@ -34,15 +33,10 @@ export default class NaturalDisaster {
           name: "Magnitude",
           description:
             "Maximum earthquake magnitude recorded in the last 24 hours.",
-          timedUnitValue: new TimedUnit({
-            timeLabel: "Prev. 24h max",
-            unitValue: new EarthquakeMagnitude(
-              Math.max(
-                ...earthequakeDataLast24Hours.map((eq) => eq.magnitude || 0),
-                ...[0]
-              )
-            ),
-          }),
+          timedUnitValue: newTimedUnit(
+            earthquakeAlertData,
+            "earthquakeMagnitudePrev24hMax"
+          ),
           condition: (value) => value >= 6.5,
           conditionDescription: "Greater than or equal to 6.5",
           source: {
@@ -61,12 +55,8 @@ export default class NaturalDisaster {
       timeLabel: "Next 24h",
       metricList: [
         new AlertScoreMetric({
-          name: "Peak Rainfall Intensity",
           description: "Maximum hourly rainfall intensity.",
-          timedUnitValue: new TimedUnit({
-            timeLabel: "Next 24h max",
-            unitValue: new Rain(openMeteoData.rainNext24hMax),
-          }),
+          timedUnitValue: newTimedUnit(openMeteoData, "rainNext24hMax"),
           condition: (value) => value > 30,
           conditionDescription: "Greater than 30 mm",
           source: {
@@ -77,10 +67,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           name: "Total Rainfall Next 24h",
           description: "Total rainfall forecasted for the next 24 hours.",
-          timedUnitValue: new TimedUnit({
-            timeLabel: "Next 24h sum",
-            unitValue: new Rain(openMeteoData.rainNext24hSum),
-          }),
+          timedUnitValue: newTimedUnit(openMeteoData, "rainNext24hSum"),
           condition: (value) => value > 80,
           conditionDescription: "Greater than 80 mm",
           source: {
@@ -91,10 +78,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           name: "Hours of Rain",
           description: "Number of hours with rainfall in the next 24 hours.",
-          timedUnitValue: new TimedUnit({
-            timeLabel: "Next 24h sum",
-            unitValue: new RainHours(openMeteoData.rainHoursNext24hSum),
-          }),
+          timedUnitValue: newTimedUnit(openMeteoData, "rainHoursNext24hSum"),
           condition: (value) => value > 10,
           conditionDescription: "Greater than 10 hours",
           source: {
@@ -105,12 +89,10 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           name: "Mean Soil Moisture",
           description: "Mean deep soil moisture for the next 24 hours.",
-          timedUnitValue: new TimedUnit({
-            timeLabel: "Next 24h mean",
-            unitValue: new SoilMoisture(
-              openMeteoData.soilMoistureDeepNext24hMean
-            ),
-          }),
+          timedUnitValue: newTimedUnit(
+            openMeteoData,
+            "soilMoistureDeepNext24hMean"
+          ),
           condition: (value) => value > 0.25,
           conditionDescription: "Greater than 0.25",
           source: {
@@ -121,10 +103,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           name: "Rainfall Prev. 7 Days",
           description: "Total rainfall recorded in the previous 7d.",
-          timedUnitValue: new TimedUnit({
-            timeLabel: "Prev. 7d sum",
-            unitValue: new Rain(openMeteoData.rainPrev7dSum),
-          }),
+          timedUnitValue: newTimedUnit(openMeteoData, "rainPrev7dSum"),
           condition: (value) => value > 200,
           conditionDescription: "Greater than 200 mm",
           source: {
@@ -135,10 +114,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           name: "Slope Angle",
           description: "Slope angle of the location.",
-          timedUnitValue: new TimedUnit({
-            timeLabel: "",
-            unitValue: new Slope(openElevationData.slopeMaxAngle),
-          }),
+          timedUnitValue: newTimedUnit(openElevationData, "slopeMaxAngle"),
           condition: (value) => value > 22.5,
           conditionDescription: "Greater than 22.5 degrees",
           source: {
@@ -159,10 +135,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           name: "Peak Rainfall Intensity",
           description: "Maximum hourly rainfall intensity.",
-          timedUnitValue: new TimedUnit({
-            timeLabel: "Next 24h max",
-            unitValue: new Rain(openMeteoData.rainNext24hMax),
-          }),
+          timedUnitValue: newTimedUnit(openMeteoData, "rainNext24hMax"),
           condition: (value) => value > 50,
           conditionDescription: "Greater than 50 mm",
           source: {
@@ -173,10 +146,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           name: "Total Rainfall Next 24h",
           description: "Total rainfall forecasted for the next 24 hours.",
-          timedUnitValue: new TimedUnit({
-            timeLabel: "Next 24h sum",
-            unitValue: new Rain(openMeteoData.rainNext24hSum),
-          }),
+          timedUnitValue: newTimedUnit(openMeteoData, "rainNext24hSum"),
           condition: (value) => value > 100,
           conditionDescription: "Greater than 100 mm",
           source: {
@@ -187,10 +157,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           name: "Hours of Rain",
           description: "Number of hours with rainfall in the next 24 hours.",
-          timedUnitValue: new TimedUnit({
-            timeLabel: "Next 24h sum",
-            unitValue: new RainHours(openMeteoData.rainHoursNext24hSum),
-          }),
+          timedUnitValue: newTimedUnit(openMeteoData, "rainHoursNext24hSum"),
           condition: (value) => value > 12,
           conditionDescription: "Greater than 12 hours",
           source: {
@@ -201,12 +168,10 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           name: "Mean Soil Moisture",
           description: "Mean deep soil moisture for the next 24 hours.",
-          timedUnitValue: new TimedUnit({
-            timeLabel: "Next 24h mean",
-            unitValue: new SoilMoisture(
-              openMeteoData.soilMoistureDeepNext24hMean
-            ),
-          }),
+          timedUnitValue: newTimedUnit(
+            openMeteoData,
+            "soilMoistureDeepNext24hMean"
+          ),
           condition: (value) => value > 0.3,
           conditionDescription: "Greater than 0.3",
           source: {
@@ -217,12 +182,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           name: "Relative Elevation",
           description: "Relative elevation of the location.",
-          timedUnitValue: new TimedUnit({
-            timeLabel: "",
-            unitValue: new RelativeElevation(
-              openElevationData.relativeElevation
-            ),
-          }),
+          timedUnitValue: newTimedUnit(openElevationData, "relativeElevation"),
           condition: (value) => value < -5,
           conditionDescription: "Less than -5 meters",
           source: {

@@ -5,6 +5,9 @@ import RainHours from "./RainHours";
 import Elevation from "./Elevation";
 import Rain from "./Rain";
 import SoilMoisture from "./SoilMoisture";
+import Slope from "./Slope";
+import RelativeElevation from "./RelativeElevation";
+import EarthquakeMagnitude from "./EarthquakeMagnitude";
 
 export default class TimedUnit {
   constructor({ unitValue, timeLabel }) {
@@ -34,6 +37,15 @@ function getUnitClass(key) {
   }
   if (key.startsWith("soilMoisture")) {
     return SoilMoisture;
+  }
+  if (key.startsWith("slope")) {
+    return Slope;
+  }
+  if (key.startsWith("relativeElevation")) {
+    return RelativeElevation;
+  }
+  if (key.startsWith("earthquakeMagnitude")) {
+    return EarthquakeMagnitude;
   }
   throw new Error(`Unknown unit key: ${key}`);
 }
