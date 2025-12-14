@@ -124,6 +124,7 @@ Ella
 Ellagawa
 Elpitiya
 Embilipitiya
+English
 Eravur Pattu
 Eravur Town
 Etampitiya
@@ -556,6 +557,7 @@ Seethawaka Ganga
 Serunuwara
 Seruvila
 Sevanagala
+Sinhala
 Siyambalanduwa
 Slope
 Sooriyakanda
@@ -566,6 +568,7 @@ Southern
 Sri Jayawardanapura Kotte
 Sri Jayawardenepura Kotte
 Suriyawewa
+Tamil
 Tangalle
 Teldeniya
 Tellippalai
