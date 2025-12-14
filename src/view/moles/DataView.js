@@ -21,11 +21,11 @@ export default function DataView({ selectedEnt }) {
       )}
 
       <Grid item xs={12} md={6}>
-        <OpenElevationView place={place} />
+        <OpenMeteoView place={place} />
       </Grid>
 
       <Grid item xs={12} md={6}>
-        <OpenMeteoView place={place} />
+        <OpenElevationView place={place} />
       </Grid>
 
       <Grid item xs={12} md={6}>
