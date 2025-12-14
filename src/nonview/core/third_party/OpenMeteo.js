@@ -153,7 +153,6 @@ export default class OpenMeteo {
   static getDroughtRiskScore({ openMeteoData }) {
     return new AlertScore({
       name: "Drought",
-      description: "Risk of the location experiencing a drought event.",
       timeLabel: "Next 7d",
       metricList: [
         new AlertScoreMetric({
@@ -202,7 +201,6 @@ export default class OpenMeteo {
   static getHeatRiskScore({ openMeteoData }) {
     return new AlertScore({
       name: "Heat",
-      description: "Risk of the location experiencing a heat event.",
       timeLabel: "Next 24h",
       metricList: [
         new AlertScoreMetric({

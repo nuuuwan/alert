@@ -26,7 +26,6 @@ export default class NaturalDisaster {
 
     return new AlertScore({
       name: "Tsunami",
-      description: "Risk of the location experiencing a tsunami event.",
       timeLabel: "Next 24h",
       metricList: [
         new AlertScoreMetric({
@@ -48,7 +47,6 @@ export default class NaturalDisaster {
   static getLandslideRiskScore({ openMeteoData, openElevationData }) {
     return new AlertScore({
       name: "Landslide",
-      description: "Risk of the location experiencing a landslide event.",
       timeLabel: "Next 24h",
       metricList: [
         new AlertScoreMetric({
@@ -115,7 +113,6 @@ export default class NaturalDisaster {
   static getFloodRiskScore({ openMeteoData, openElevationData }) {
     return new AlertScore({
       name: "Flood",
-      description: "Risk of the location experiencing a flood event.",
       timeLabel: "Next 24h",
       metricList: [
         new AlertScoreMetric({
