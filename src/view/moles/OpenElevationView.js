@@ -1,10 +1,7 @@
 import MetricCard from "../atoms/MetricCard";
 import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
 import OpenElevation from "../../nonview/core/third_party/OpenElevation";
-import Elevation from "../../nonview/core/units/Elevation";
-import Slope from "../../nonview/core/units/Slope";
-import RelativeElevation from "../../nonview/core/units/RelativeElevation";
-import TimedUnit from "../../nonview/core/units/TimedUnit";
+import { newTimedUnit } from "../../nonview/core/units/TimedUnit";
 
 export default function OpenElevationView({ place }) {
   const { openElevationData } = place;
@@ -15,30 +12,13 @@ export default function OpenElevationView({ place }) {
       dataSourceList={[OpenElevation.getDataSource()]}
     >
       <MetricCard
-        timedUnitValue={
-          new TimedUnit({
-            timeLabel: "",
-            unitValue: new Elevation(openElevationData.elevationM),
-          })
-        }
+        timedUnitValue={newTimedUnit(openElevationData, "elevationM")}
       />
       <MetricCard
-        timedUnitValue={
-          new TimedUnit({
-            timeLabel: "",
-            unitValue: new Slope(openElevationData.slopeMaxAngle),
-          })
-        }
+        timedUnitValue={newTimedUnit(openElevationData, "slopeMaxAngle")}
       />
       <MetricCard
-        timedUnitValue={
-          new TimedUnit({
-            timeLabel: "",
-            unitValue: new RelativeElevation(
-              openElevationData.relativeElevation
-            ),
-          })
-        }
+        timedUnitValue={newTimedUnit(openElevationData, "relativeElevation")}
       />
     </OldMetricCardCollection>
   );

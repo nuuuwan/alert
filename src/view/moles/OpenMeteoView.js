@@ -22,20 +22,10 @@ export default function OpenMeteoView({ place }) {
           dataSourceList={[OpenMeteo.getDataSource(latLng)]}
         >
           <MetricCard
-            timedUnitValue={
-              new TimedUnit({
-                timeLabel: "Next 24h sum",
-                unitValue: new Rain(openMeteoData.rainNext24hSum),
-              })
-            }
+            timedUnitValue={newTimedUnit(openMeteoData, "rainNext24hSum")}
           />
           <MetricCard
-            timedUnitValue={
-              new TimedUnit({
-                timeLabel: "Next 24h max",
-                unitValue: new Temperature(openMeteoData.tempNext24hMax),
-              })
-            }
+            timedUnitValue={newTimedUnit(openMeteoData, "tempNext24hMax")}
           />
         </OldMetricCardCollection>
       </Grid>
@@ -47,33 +37,15 @@ export default function OpenMeteoView({ place }) {
           <MetricCard
             timedUnitValue={newTimedUnit(openMeteoData, "rainPrev24hSum")}
           />
+          <MetricCard timedUnitValue={newTimedUnit(openMeteoData, "tempNow")} />
           <MetricCard
-            timedUnitValue={
-              new TimedUnit({
-                timeLabel: "Now",
-                unitValue: new Temperature(openMeteoData.tempNow),
-              })
-            }
+            timedUnitValue={newTimedUnit(openMeteoData, "relativeHumidityNow")}
           />
           <MetricCard
-            timedUnitValue={
-              new TimedUnit({
-                timeLabel: "Now",
-                unitValue: new RelativeHumidity(
-                  openMeteoData.relativeHumidityNow
-                ),
-              })
-            }
-          />
-          <MetricCard
-            timedUnitValue={
-              new TimedUnit({
-                timeLabel: "Now",
-                unitValue: new DewPoint(
-                  openMeteoData.dewPointListHourly[7 * 24]
-                ),
-              })
-            }
+            timedUnitValue={newTimedUnit(
+              openMeteoData,
+              "dewPointListHourly[7 * 24]"
+            )}
           />
         </OldMetricCardCollection>
       </Grid>
