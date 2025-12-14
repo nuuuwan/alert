@@ -176,7 +176,6 @@ export default class OpenMeteo {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
-          unit: "mm",
         }),
         new AlertScoreMetric({
           name: "Rain Next 7 Days",
@@ -191,7 +190,6 @@ export default class OpenMeteo {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
-          unit: "mm",
         }),
         new AlertScoreMetric({
           name: "Soil Moisture",
@@ -208,7 +206,6 @@ export default class OpenMeteo {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
-          unit: "m³/m³",
         }),
         new AlertScoreMetric({
           name: "No Rain Hours",
@@ -223,7 +220,6 @@ export default class OpenMeteo {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
-          unit: "h",
         }),
       ],
     });
@@ -248,7 +244,6 @@ export default class OpenMeteo {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
-          unit: "°C",
         }),
         new AlertScoreMetric({
           name: "Mean Temperature",
@@ -263,7 +258,6 @@ export default class OpenMeteo {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
-          unit: "°C",
         }),
         new AlertScoreMetric({
           name: "Max Dew Point",
@@ -278,7 +272,6 @@ export default class OpenMeteo {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
           },
-          unit: "°C",
         }),
       ],
     });
