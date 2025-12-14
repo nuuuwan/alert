@@ -18,7 +18,6 @@ export default class OpenElevation {
       relativeElevationData: {
         meanNeighbours: 130,
         relativeElevation: -7,
-        lowGroundDangerLevel: 2,
       },
       slopeData: {
         maxSlope: 0.15,
@@ -107,15 +106,6 @@ export default class OpenElevation {
       neighbours.reduce((a, b) => a + b, 0) / neighbours.length;
 
     const relativeElevation = h0 - meanNeighbours;
-
-    let lowGroundDangerLevel = 0;
-    if (relativeElevation < -10) {
-      lowGroundDangerLevel = 3;
-    } else if (relativeElevation < -5) {
-      lowGroundDangerLevel = 2;
-    } else if (relativeElevation < -2) {
-      lowGroundDangerLevel = 1;
-    }
 
     return {
       meanNeighbours,
