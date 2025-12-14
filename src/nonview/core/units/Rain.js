@@ -1,4 +1,5 @@
 import Unit from "./Unit";
+import CloudRainIcon from "@mui/icons-material/CloudRain";
 
 export default class Rain extends Unit {
   static getLabel() {
@@ -6,6 +7,12 @@ export default class Rain extends Unit {
   }
   static getUnitLabel() {
     return "mm";
+  }
+  static getIcon() {
+    return CloudRainIcon;
+  }
+  static getColor() {
+    return "rgb(0, 150, 255)";
   }
 
   format() {

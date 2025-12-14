@@ -1,4 +1,5 @@
 import Unit from "./Unit";
+import OpacityIcon from "@mui/icons-material/Opacity";
 
 export default class SoilMoisture extends Unit {
   static getLabel() {
@@ -6,6 +7,12 @@ export default class SoilMoisture extends Unit {
   }
   static getUnitLabel() {
     return "%";
+  }
+  static getIcon() {
+    return OpacityIcon;
+  }
+  static getColor() {
+    return "rgb(29, 190, 43)";
   }
 
   format() {

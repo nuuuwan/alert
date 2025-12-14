@@ -1,4 +1,5 @@
 import Unit from "./Unit";
+import WaterIcon from "@mui/icons-material/Water";
 
 export default class WaterLevel extends Unit {
   static getLabel() {
@@ -6,6 +7,12 @@ export default class WaterLevel extends Unit {
   }
   static getUnitLabel() {
     return "m";
+  }
+  static getIcon() {
+    return WaterIcon;
+  }
+  static getColor() {
+    return "rgb(0, 150, 255)";
   }
 
   format() {
