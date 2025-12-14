@@ -9,6 +9,7 @@ import Divider from "@mui/material/Divider";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import BugReportIcon from "@mui/icons-material/BugReport";
+import RefreshIcon from "@mui/icons-material/Refresh";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { COLORS } from "../_cons/StyleConstants";
@@ -51,6 +52,11 @@ export default function CustomAppBar({ selectedEnt, mapLatLng }) {
   const handleLanguageChange = (lang) => {
     i18n.changeLanguage(lang);
     handleMenuClose();
+  };
+
+  const handleRefresh = () => {
+    localStorage.clear();
+    window.location.reload();
   };
 
   const title =
@@ -111,6 +117,13 @@ export default function CustomAppBar({ selectedEnt, mapLatLng }) {
               <BugReportIcon fontSize="small" />
             </ListItemIcon>
             Report Issues
+          </MenuItem>
+          <Divider />
+          <MenuItem onClick={handleRefresh}>
+            <ListItemIcon>
+              <RefreshIcon fontSize="small" />
+            </ListItemIcon>
+            Refresh
           </MenuItem>
           <Divider />
           {availableLanguages.map((lang) => (
