@@ -3,7 +3,7 @@ import TerrainIcon from "@mui/icons-material/Terrain";
 
 export default class Slope extends Unit {
   static getLabel() {
-    return "Max Slope Angle";
+    return "Slope";
   }
   static getUnitLabel() {
     return "°";
