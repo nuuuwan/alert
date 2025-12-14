@@ -236,7 +236,7 @@ export default class NaturalDisaster {
           name: "Slope Angle",
           description: "Slope angle of the location.",
           timedUnitValue: new TimedUnit({
-            timeLabel: "Static",
+            timeLabel: "",
             unitValue: new Slope(openElevationData.slopeData.maxSlopeAngle),
           }),
           condition: (value) => value > 22.5,
@@ -329,7 +329,7 @@ export default class NaturalDisaster {
           name: "Relative Elevation",
           description: "Relative elevation of the location.",
           timedUnitValue: new TimedUnit({
-            timeLabel: "Static",
+            timeLabel: "",
             unitValue: new RelativeElevation(
               openElevationData.relativeElevationData.relativeElevation
             ),
