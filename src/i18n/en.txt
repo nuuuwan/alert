@@ -436,6 +436,7 @@ Nintavur
 Ninthavur
 Nivithigala
 Niyagama
+No
 No Alert
 No Risk
 Nochchiyagama
@@ -676,6 +677,7 @@ Yatawatta
 Yatinuwara
 Yatiyanthota
 Yatiyantota
+Yes
 ago
 event.
 km
