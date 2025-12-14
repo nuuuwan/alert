@@ -12,7 +12,7 @@ import BugReportIcon from "@mui/icons-material/BugReport";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { COLORS } from "../_cons/StyleConstants";
-import EntAvatar from "./EntAvatar";
+import EntAvatar from "../atoms/EntAvatar";
 
 const GITHUB_REPO = "https://github.com/nuuuwan/alert";
 const GITHUB_ISSUES = `${GITHUB_REPO}/issues`;

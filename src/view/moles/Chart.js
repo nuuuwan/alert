@@ -5,7 +5,7 @@ import { LinePlot } from "@mui/x-charts/LineChart";
 import { ChartsXAxis, ChartsYAxis } from "@mui/x-charts";
 import { ChartsReferenceLine } from "@mui/x-charts/ChartsReferenceLine";
 import { BarPlot } from "@mui/x-charts/BarChart";
-import MetricCardCollection from "./MetricCardCollection";
+import MetricCardCollection from "../atoms/MetricCardCollection";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 
 export default function Chart({
@@ -23,10 +23,10 @@ export default function Chart({
   const xAxisData = timeData.map((time) => new Date(time * 1000));
 
   const observedData = timeData.map((time, index) =>
-    time * 1000 <= currentTime ? data[index] : null,
+    time * 1000 <= currentTime ? data[index] : null
   );
   const predictedData = timeData.map((time, index) =>
-    time * 1000 > currentTime ? data[index] : null,
+    time * 1000 > currentTime ? data[index] : null
   );
 
   const nowPoint =

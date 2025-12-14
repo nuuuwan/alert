@@ -1,7 +1,7 @@
 import "./App.css";
 import MapView from "./view/orgas/MapView";
-import CustomAppBar from "./view/atoms/CustomAppBar";
-import CustomBottomNavigator from "./view/atoms/CustomBottomNavigator";
+import CustomAppBar from "./view/moles/CustomAppBar";
+import CustomBottomNavigator from "./view/moles/CustomBottomNavigator";
 import Box from "@mui/material/Box";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -105,7 +105,7 @@ function App() {
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId,
+          hydrometricStationNameId
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
