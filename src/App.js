@@ -45,8 +45,6 @@ function App() {
   const [selectedEnt, setSelectedEnt] = useState(null);
 
   const handleCurrentLocation = () => {
-    localStorage.clear();
-    window.location.reload();
     navigate("/");
   };
 
