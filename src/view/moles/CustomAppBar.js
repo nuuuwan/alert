@@ -21,10 +21,16 @@ import { Typography } from "@mui/material";
 const GITHUB_REPO = "https://github.com/nuuuwan/alert";
 const GITHUB_ISSUES = `${GITHUB_REPO}/issues`;
 
-const LANGUAGE_LABELS = {
+const LANGUAGE_LABELS_SHORT = {
   si: "සිං",
   ta: "த",
   en: "En",
+};
+
+const LANGUAGE_NAME_EN = {
+  si: "සිංහල",
+  ta: "தமிழ்",
+  en: "Enlish",
 };
 
 export default function CustomAppBar({ selectedEnt, mapLatLng }) {
@@ -138,19 +144,19 @@ export default function CustomAppBar({ selectedEnt, mapLatLng }) {
               <ListItemIcon>
                 <Avatar
                   sx={{
-                    width: 20,
-                    height: 20,
+                    width: 32,
+                    height: 32,
                     color: "black",
                     bgcolor: "transparent",
-                    fontSize: 11,
+                    fontSize: 18,
                     m: 0,
                     p: 0,
                   }}
                 >
-                  {LANGUAGE_LABELS[lang]}
+                  {LANGUAGE_LABELS_SHORT[lang]}
                 </Avatar>
               </ListItemIcon>
-              {lang.charAt(0).toUpperCase() + lang.slice(1)}
+              {LANGUAGE_NAME_EN[lang]}
             </MenuItem>
           ))}
           <Divider />
