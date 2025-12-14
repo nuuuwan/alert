@@ -34,16 +34,6 @@ function getUnitClass(key) {
   throw new Error(`Unknown unit key: ${key}`);
 }
 
-function getTimeLabelDuration(k) {
-  if (k.includes("24h")) {
-    return "24h";
-  }
-  if (k.includes("7d")) {
-    return "7d";
-  }
-  return "Now";
-}
-
 function getTimeLabelDirection(k) {
   if (k.includes("Next")) {
     return "Next";
@@ -54,10 +44,34 @@ function getTimeLabelDirection(k) {
   return "";
 }
 
+function getTimeLabelDuration(k) {
+  if (k.includes("24h")) {
+    return "24h";
+  }
+  if (k.includes("7d")) {
+    return "7d";
+  }
+  return "Now";
+}
+
+function getTimeLabelAggregation(k) {
+  if (k.includes("Sum")) {
+    return "sum";
+  }
+  if (k.includes("Max")) {
+    return "max";
+  }
+  if (k.includes("Mean")) {
+    return "mean";
+  }
+  return "";
+}
+
 function getTimeLabel(k) {
   const duration = getTimeLabelDuration(k);
   const direction = getTimeLabelDirection(k);
-  return `${direction} ${duration}`.trim();
+  const aggregation = getTimeLabelAggregation(k);
+  return `${direction} ${duration} ${aggregation}`.trim();
 }
 
 export function newTimedUnit(d, k) {
