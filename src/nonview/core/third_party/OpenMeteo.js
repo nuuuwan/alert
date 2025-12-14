@@ -10,6 +10,7 @@ import SoilMoisture from "../units/SoilMoisture";
 import Temperature from "../units/Temperature";
 import DewPoint from "../units/DewPoint";
 import TimedUnit from "../units/TimedUnit";
+import RainHours from "../units/RainHours";
 export default class OpenMeteo {
   static getSourceList(latLng) {
     const [latitude, longitude] = latLng.raw();
@@ -261,13 +262,13 @@ export default class OpenMeteo {
     return new AlertScore({
       name: "Drought",
       description: "Risk of the location experiencing a drought event.",
-      timeLabel: "Next 7 days",
+      timeLabel: "Next 7d",
       metricList: [
         new AlertScoreMetric({
           name: "Rain Last 7 Days",
-          description: "Total rainfall recorded in the previous 7 days.",
+          description: "Total rainfall recorded in the previous 7d.",
           timedUnitValue: new TimedUnit({
-            timeLabel: "Prev. 7 days",
+            timeLabel: "Prev. 7d sum",
             unitValue: new Rain(
               openMeteoData.droughtRiskFactors24h.d01HourlyRainSumPrevious7Days
             ),
@@ -282,9 +283,9 @@ export default class OpenMeteo {
         }),
         new AlertScoreMetric({
           name: "Rain Next 7 Days",
-          description: "Forecasted rainfall for the next 7 days.",
+          description: "Forecasted rainfall for the next 7d.",
           timedUnitValue: new TimedUnit({
-            timeLabel: "Next 7 days",
+            timeLabel: "Next 7d sum",
             unitValue: new Rain(
               openMeteoData.droughtRiskFactors24h.d02HourlyRainSumNext7Days
             ),
@@ -299,9 +300,9 @@ export default class OpenMeteo {
         }),
         new AlertScoreMetric({
           name: "Soil Moisture",
-          description: "Mean deep soil moisture for the next 7 days.",
+          description: "Mean deep soil moisture for the next 7d.",
           timedUnitValue: new TimedUnit({
-            timeLabel: "Next 7 days",
+            timeLabel: "Next 7d mean",
             unitValue: new SoilMoisture(
               openMeteoData.droughtRiskFactors24h.d03MeanDeepSoilMoistureNext7Days
             ),
@@ -316,10 +317,10 @@ export default class OpenMeteo {
         }),
         new AlertScoreMetric({
           name: "No Rain Hours",
-          description: "Hours with no rainfall in the next 7 days.",
+          description: "Hours with no rainfall in the next 7d.",
           timedUnitValue: new TimedUnit({
-            timeLabel: "Next 7 days",
-            unitValue: new Rain(
+            timeLabel: "Next 7d sum",
+            unitValue: new RainHours(
               openMeteoData.droughtRiskFactors24h.d04HoursOfNoRainNext7Days
             ),
           }),
