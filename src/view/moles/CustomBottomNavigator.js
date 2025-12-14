@@ -45,6 +45,8 @@ export default function CustomBottomNavigator({
         left: 0,
         right: 0,
         zIndex: 1000,
+        height: 60,
+        paddingBottom: 5,
       }}
       elevation={3}
     >
