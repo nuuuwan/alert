@@ -6,8 +6,10 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { COLORS } from "../_cons/StyleConstants";
 import { CircularProgress } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export default function NearbyPlacesView({ latLng }) {
+  const { t } = useTranslation();
   const [nearbyPlaces, setNearbyPlaces] = useState([]);
 
   useEffect(() => {
@@ -24,7 +26,7 @@ export default function NearbyPlacesView({ latLng }) {
   return (
     <CustomPaper>
       <Typography variant="caption" color={COLORS.neutral} sx={{ mb: 1 }}>
-        Nearby
+        {t("Nearby")}
       </Typography>
       <Stack spacing={1} direction="row" sx={{ flexWrap: "wrap" }}>
         {nearbyPlaces && nearbyPlaces.length > 0 ? (

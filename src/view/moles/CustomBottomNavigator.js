@@ -5,12 +5,14 @@ import MapIcon from "@mui/icons-material/Map";
 import WarningIcon from "@mui/icons-material/Warning";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import { COLORS } from "../_cons/StyleConstants";
+import { useTranslation } from "react-i18next";
 
 export default function CustomBottomNavigator({
   onSetToMapCenter,
   setPageMode,
   pageMode,
 }) {
+  const { t } = useTranslation();
   const handleMapMode = () => {
     setPageMode("Map");
   };
@@ -54,7 +56,7 @@ export default function CustomBottomNavigator({
         }}
       >
         <BottomNavigationAction
-          label="1. Select Location"
+          label={t("1. Select Location")}
           value="Map"
           icon={<MapIcon />}
           disabled={pageMode === "Map"}
@@ -66,7 +68,7 @@ export default function CustomBottomNavigator({
           }}
         />
         <BottomNavigationAction
-          label="2. View Alerts"
+          label={t("2. View Alerts")}
           value="Alerts"
           icon={<WarningIcon />}
           disabled={pageMode === "Alerts"}
@@ -78,7 +80,7 @@ export default function CustomBottomNavigator({
           }}
         />
         <BottomNavigationAction
-          label="3. View More Data"
+          label={t("3. View More Data")}
           value="Data"
           icon={<AssessmentIcon />}
           disabled={pageMode === "Data"}

@@ -60,7 +60,7 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
           <span style={{ fontWeight: "bold", color: alertColor }}>
             {score}/{maxScore}
           </span>
-          {t(" of Contributing Factors are satisfied.")}
+          {" " + t("of Contributing Factors are satisfied.")}
         </Typography>
         <Grid container spacing={0} sx={{ mt: 1 }}>
           {alertScore.metricList.map((metric, index) => {
