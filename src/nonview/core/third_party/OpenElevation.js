@@ -16,7 +16,7 @@ export default class OpenElevation {
     return {
       elevationM: 123,
       relativeElevationData: {
-        meanNeighbours: 130,
+        meanNeighbourElevation: 130,
         relativeElevation: -7,
       },
       slopeData: {
@@ -102,15 +102,14 @@ export default class OpenElevation {
     const h0 = elevations[centreIndex];
 
     const neighbours = elevations.filter((_, i) => i !== centreIndex);
-    const meanNeighbours =
+    const meanNeighbourElevation =
       neighbours.reduce((a, b) => a + b, 0) / neighbours.length;
 
-    const relativeElevation = h0 - meanNeighbours;
+    const relativeElevation = h0 - meanNeighbourElevation;
 
     return {
-      meanNeighbours,
+      meanNeighbourElevation,
       relativeElevation,
-      lowGroundDangerLevel,
     };
   }
 
