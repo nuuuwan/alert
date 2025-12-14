@@ -14,6 +14,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { COLORS } from "../_cons/StyleConstants";
 import EntAvatar from "../atoms/EntAvatar";
+import { t } from "i18next";
 
 const GITHUB_REPO = "https://github.com/nuuuwan/alert";
 const GITHUB_ISSUES = `${GITHUB_REPO}/issues`;
@@ -110,20 +111,20 @@ export default function CustomAppBar({ selectedEnt, mapLatLng }) {
             <ListItemIcon>
               <GitHubIcon fontSize="small" />
             </ListItemIcon>
-            GitHub Repository
+            {t("GitHub Repository")}
           </MenuItem>
           <MenuItem onClick={handleNavigateToIssues}>
             <ListItemIcon>
               <BugReportIcon fontSize="small" />
             </ListItemIcon>
-            Report Issues
+            {t("Report Issues")}
           </MenuItem>
           <Divider />
           <MenuItem onClick={handleRefresh}>
             <ListItemIcon>
               <RefreshIcon fontSize="small" />
             </ListItemIcon>
-            Refresh
+            {t("Refresh")}
           </MenuItem>
           <Divider />
           {availableLanguages.map((lang) => (
