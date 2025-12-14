@@ -6,6 +6,7 @@ import { getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import DataSource from "../../nonview/core/DataSource";
+import { CircularProgress } from "@mui/material";
 
 export default function NaturalDisasterOfficialView({ place }) {
   let landslideCard;
@@ -36,8 +37,14 @@ export default function NaturalDisasterOfficialView({ place }) {
         }),
       ]}
     >
-      {landslideCard}
-      {waterLevelCard}
+      {landslideCard || waterLevelCard ? (
+        <>
+          {landslideCard}
+          {waterLevelCard}
+        </>
+      ) : (
+        <CircularProgress />
+      )}
     </InformationGroup>
   );
 }

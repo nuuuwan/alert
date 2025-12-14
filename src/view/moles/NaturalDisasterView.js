@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
 import AlertScoreView from "./AlertScoreView";
 import ScienceIcon from "@mui/icons-material/Science";
+import { CircularProgress } from "@mui/material";
 
 export default function NaturalDisasterView({ place }) {
   const { t } = useTranslation();
@@ -40,11 +41,18 @@ export default function NaturalDisasterView({ place }) {
         )}
       </Alert>
       <Box>
-        {alertScoreList.map((alertScore, iAlertScore) => (
-          <Box key={alertScore.name} sx={{ mt: 2 }}>
-            <AlertScoreView iAlertScore={iAlertScore} alertScore={alertScore} />
-          </Box>
-        ))}
+        {alertScoreList ? (
+          alertScoreList.map((alertScore, iAlertScore) => (
+            <Box key={alertScore.name} sx={{ mt: 2 }}>
+              <AlertScoreView
+                iAlertScore={iAlertScore}
+                alertScore={alertScore}
+              />
+            </Box>
+          ))
+        ) : (
+          <CircularProgress />
+        )}
       </Box>
     </Box>
   );
