@@ -217,9 +217,9 @@ export default class NaturalDisaster {
         }),
         new AlertScoreMetric({
           name: "Rainfall Prev. 7 Days",
-          description: "Total rainfall recorded in the previous 7 days.",
+          description: "Total rainfall recorded in the previous 7d.",
           timedUnitValue: new TimedUnit({
-            timeLabel: "Prev. 7 days sum",
+            timeLabel: "Prev. 7d sum",
             unitValue: new Rain(
               openMeteoData.landslideRiskFactors24h.f05HourlyRainSumPrevious7Days
             ),
