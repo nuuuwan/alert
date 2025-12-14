@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next";
 import { COLORS } from "../_cons/StyleConstants";
 import EntAvatar from "../atoms/EntAvatar";
 import { t } from "i18next";
+import VERSION from "../../nonview/cons/VERSION";
 
 const GITHUB_REPO = "https://github.com/nuuuwan/alert";
 const GITHUB_ISSUES = `${GITHUB_REPO}/issues`;
@@ -124,7 +125,7 @@ export default function CustomAppBar({ selectedEnt, mapLatLng }) {
             <ListItemIcon>
               <RefreshIcon fontSize="small" />
             </ListItemIcon>
-            {t("Refresh")}
+            {t("Refresh")} (v{VERSION.DATETIME_STR})
           </MenuItem>
           <Divider />
           {availableLanguages.map((lang) => (
