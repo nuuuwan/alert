@@ -458,6 +458,7 @@ Okkampitiya
 Opanayake
 Open-Elevation (Free Elevation API)
 Open-Meteo (Real-Time Weather API)
+Open-Meteo Weather API
 Paadeniya
 Pachchilaipalli
 Padavi Sri Pura
@@ -548,6 +549,7 @@ Saliyawewa
 Samanthurai
 Sammanthurai
 Sammanturai
+Satellite Image
 Seeduwa
 Seethawaka
 Seethawaka Ganga
