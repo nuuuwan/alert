@@ -76,14 +76,9 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
                   />
                 </TableCell>
                 <TableCell>
-                  <Box>
-                    <Typography variant="subtitle2" fontWeight={600}>
-                      {t(metric.description)}
-                    </Typography>
-                    <Typography variant="body2" sx={{ mt: 0.5 }}>
-                      {t(metric.conditionDescription)}
-                    </Typography>
-                  </Box>
+                  <Typography variant="body2" sx={{ mt: 0.5 }}>
+                    {t(metric.conditionDescription)}
+                  </Typography>
                 </TableCell>
                 <TableCell sx={{ width: 50, textAlign: "center" }}>
                   {StatusIcon && <StatusIcon />}

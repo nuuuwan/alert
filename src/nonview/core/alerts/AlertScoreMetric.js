@@ -1,11 +1,5 @@
 export default class AlertScoreMetric {
-  constructor({
-    description,
-    timedUnitValue,
-    condition,
-    conditionDescription,
-  }) {
-    this.description = description;
+  constructor({ timedUnitValue, condition, conditionDescription }) {
     this.timedUnitValue = timedUnitValue;
     this.condition = condition;
     this.conditionDescription = conditionDescription;
@@ -13,5 +7,9 @@ export default class AlertScoreMetric {
 
   get isTrue() {
     return this.condition(this.timedUnitValue.unitValue.value);
+  }
+
+  get description() {
+    return this.timedUnitValue.description;
   }
 }
