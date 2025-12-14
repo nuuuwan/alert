@@ -2,7 +2,7 @@ export default class AlertScoreMetric {
   constructor({
     name,
     description,
-    value,
+    unitValue,
     condition,
     timeLabel,
     conditionDescription,
@@ -11,7 +11,7 @@ export default class AlertScoreMetric {
   }) {
     this.name = name;
     this.description = description;
-    this.value = value;
+    this.unitValue = unitValue;
     this.condition = condition;
     this.timeLabel = timeLabel;
     this.conditionDescription = conditionDescription;
@@ -20,6 +20,6 @@ export default class AlertScoreMetric {
   }
 
   get isTrue() {
-    return this.condition(this.value);
+    return this.condition(this.unitValue.value);
   }
 }

@@ -1,6 +1,11 @@
 import AlertScore from "../alerts/AlertScore";
 import AlertScoreMetric from "../alerts/AlertScoreMetric";
 import TimeUtils from "../../base/TimeUtils";
+import Rain from "../units/Rain";
+import EarthquakeMagnitude from "../units/EarthquakeMagnitude";
+import SoilMoisture from "../units/SoilMoisture";
+import Slope from "../units/Slope";
+import RelativeElevation from "../units/RelativeElevation";
 
 export default class NaturalDisaster {
   static getLabel(level, maxLevel) {
@@ -113,9 +118,11 @@ export default class NaturalDisaster {
           description:
             "Maximum earthquake magnitude recorded in the last 24 hours.",
           timeLabel: "Next 24h",
-          value: Math.max(
-            ...earthequakeDataLast24Hours.map((eq) => eq.magnitude || 0),
-            ...[0]
+          unitValue: new EarthquakeMagnitude(
+            Math.max(
+              ...earthequakeDataLast24Hours.map((eq) => eq.magnitude || 0),
+              ...[0]
+            )
           ),
           condition: (value) => value >= 6.5,
           conditionDescription:
@@ -140,7 +147,9 @@ export default class NaturalDisaster {
           name: "Peak Rainfall Intensity",
           description: "Maximum hourly rainfall intensity.",
           timeLabel: "Next 24 hours",
-          value: openMeteoData.landslideRiskFactors24h.f01PeakRainFallIntensity,
+          unitValue: new Rain(
+            openMeteoData.landslideRiskFactors24h.f01PeakRainFallIntensity
+          ),
           condition: (value) => value > 30,
           conditionDescription: "Peak rainfall intensity greater than 30 mm/h",
           source: {
@@ -153,8 +162,9 @@ export default class NaturalDisaster {
           name: "Total Rainfall Next 24h",
           description: "Total rainfall forecasted for the next 24 hours.",
           timeLabel: "Next 24 hours",
-          value:
-            openMeteoData.landslideRiskFactors24h.f02HourlyRainSumNext24Hours,
+          unitValue: new Rain(
+            openMeteoData.landslideRiskFactors24h.f02HourlyRainSumNext24Hours
+          ),
           condition: (value) => value > 80,
           conditionDescription: "Total rainfall greater than 80 mm",
           source: {
@@ -167,8 +177,9 @@ export default class NaturalDisaster {
           name: "Hours of Rain",
           description: "Number of hours with rainfall in the next 24 hours.",
           timeLabel: "Next 24 hours",
-          value:
-            openMeteoData.landslideRiskFactors24h.f03HoursOfRainNext24Hours,
+          unitValue: new Rain(
+            openMeteoData.landslideRiskFactors24h.f03HoursOfRainNext24Hours
+          ),
           condition: (value) => value > 10,
           conditionDescription: "Hours of rain greater than 10 hours",
           source: {
@@ -181,9 +192,9 @@ export default class NaturalDisaster {
           name: "Mean Soil Moisture",
           description: "Mean deep soil moisture for the next 24 hours.",
           timeLabel: "Next 24 hours",
-          value:
-            openMeteoData.landslideRiskFactors24h
-              .f04MeanDeepSoilMoistureNext24Hours,
+          unitValue: new SoilMoisture(
+            openMeteoData.landslideRiskFactors24h.f04MeanDeepSoilMoistureNext24Hours
+          ),
           condition: (value) => value > 0.25,
           conditionDescription: "Mean soil moisture greater than 0.25",
           source: {
@@ -196,8 +207,9 @@ export default class NaturalDisaster {
           name: "Rainfall Previous 7 Days",
           description: "Total rainfall recorded in the previous 7 days.",
           timeLabel: "Previous 7 days",
-          value:
-            openMeteoData.landslideRiskFactors24h.f05HourlyRainSumPrevious7Days,
+          unitValue: new Rain(
+            openMeteoData.landslideRiskFactors24h.f05HourlyRainSumPrevious7Days
+          ),
           condition: (value) => value > 200,
           conditionDescription: "Rainfall greater than 200 mm",
           source: {
@@ -210,7 +222,7 @@ export default class NaturalDisaster {
           name: "Slope Angle",
           description: "Slope angle of the location.",
           timeLabel: "Static",
-          value: openElevationData.slopeData.maxSlopeAngle,
+          unitValue: new Slope(openElevationData.slopeData.maxSlopeAngle),
           condition: (value) => value > 22.5,
           conditionDescription: "Slope angle greater than 22.5 degrees",
           source: {
@@ -233,7 +245,9 @@ export default class NaturalDisaster {
           name: "Peak Rainfall Intensity",
           description: "Maximum hourly rainfall intensity.",
           timeLabel: "Next 24 hours",
-          value: openMeteoData.floodRiskFactors24h.f01PeakRainFallIntensity,
+          unitValue: new Rain(
+            openMeteoData.floodRiskFactors24h.f01PeakRainFallIntensity
+          ),
           condition: (value) => value > 50,
           conditionDescription: "Peak rainfall intensity greater than 50 mm/h",
           source: {
@@ -246,7 +260,9 @@ export default class NaturalDisaster {
           name: "Total Rainfall Next 24h",
           description: "Total rainfall forecasted for the next 24 hours.",
           timeLabel: "Next 24 hours",
-          value: openMeteoData.floodRiskFactors24h.f02HourlyRainSumNext24Hours,
+          unitValue: new Rain(
+            openMeteoData.floodRiskFactors24h.f02HourlyRainSumNext24Hours
+          ),
           condition: (value) => value > 100,
           conditionDescription: "Total rainfall greater than 100 mm",
           source: {
@@ -259,7 +275,9 @@ export default class NaturalDisaster {
           name: "Hours of Rain",
           description: "Number of hours with rainfall in the next 24 hours.",
           timeLabel: "Next 24 hours",
-          value: openMeteoData.floodRiskFactors24h.f03HoursOfRainNext24Hours,
+          unitValue: new Rain(
+            openMeteoData.floodRiskFactors24h.f03HoursOfRainNext24Hours
+          ),
           condition: (value) => value > 12,
           conditionDescription: "Hours of rain greater than 12 hours",
           source: {
@@ -272,9 +290,9 @@ export default class NaturalDisaster {
           name: "Mean Soil Moisture",
           description: "Mean deep soil moisture for the next 24 hours.",
           timeLabel: "Next 24 hours",
-          value:
-            openMeteoData.floodRiskFactors24h
-              .f04MeanDeepSoilMoistureNext24Hours,
+          unitValue: new SoilMoisture(
+            openMeteoData.floodRiskFactors24h.f04MeanDeepSoilMoistureNext24Hours
+          ),
           condition: (value) => value > 0.3,
           conditionDescription: "Mean soil moisture greater than 0.3",
           source: {
@@ -287,7 +305,9 @@ export default class NaturalDisaster {
           name: "Relative Elevation",
           description: "Relative elevation of the location.",
           timeLabel: "Static",
-          value: openElevationData.relativeElevationData.relativeElevation,
+          unitValue: new RelativeElevation(
+            openElevationData.relativeElevationData.relativeElevation
+          ),
           condition: (value) => value < -5,
           conditionDescription: "Relative elevation lower than -5 meters",
           source: {

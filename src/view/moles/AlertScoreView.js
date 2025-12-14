@@ -17,6 +17,8 @@ import TableRow from "@mui/material/TableRow";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import Box from "@mui/material/Box";
+import MetricCard from "../atoms/MetricCard";
+
 export default function AlertScoreView({ alertScore }) {
   const { t } = useTranslation();
 
@@ -59,23 +61,17 @@ export default function AlertScoreView({ alertScore }) {
         <TableBody>
           {alertScore.metricList.map((metric, index) => {
             const isConditionMet = metric.condition(metric.value);
-            const StatusIcon = isConditionMet ? CheckCircleIcon : CancelIcon;
+            const StatusIcon = isConditionMet ? CheckCircleIcon : null;
             const statusColor = isConditionMet
               ? COLORS.highAlert
               : COLORS.noAlert;
 
             return (
               <TableRow key={index}>
-                <TableCell sx={{ width: 50, textAlign: "center" }}>
-                  <StatusIcon sx={{ color: statusColor }} />
-                </TableCell>
                 <TableCell>
-                  <OldMetricCard
-                    label={t(metric.name)}
-                    value={metric.value}
-                    color={getAlertColor(isConditionMet ? 1 : 0, 1)}
+                  <MetricCard
+                    unitValue={metric.unitValue}
                     timeLabel={t(metric.timeLabel)}
-                    unit={t(metric.unit)}
                   />
                 </TableCell>
                 <TableCell>
@@ -87,6 +83,9 @@ export default function AlertScoreView({ alertScore }) {
                       {t(metric.conditionDescription)}
                     </Typography>
                   </Box>
+                </TableCell>
+                <TableCell sx={{ width: 50, textAlign: "center" }}>
+                  {StatusIcon && <StatusIcon />}
                 </TableCell>
               </TableRow>
             );

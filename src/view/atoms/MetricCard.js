@@ -6,6 +6,9 @@ import { useTranslation } from "react-i18next";
 
 export default function MetricCard({ unitValue, timeLabel, alertLabel }) {
   const { t } = useTranslation();
+  if (!unitValue) {
+    return null;
+  }
 
   let color = unitValue.constructor.getColor();
   let foreColor = color || COLORS.neutral;
