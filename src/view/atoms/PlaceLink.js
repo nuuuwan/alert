@@ -16,10 +16,10 @@ function PlaceLink({ place, distanceM }) {
         sx={{
           display: "flex",
           alignItems: "center",
-          gap: 0.25,
+          gap: 0.125,
           borderRadius: 2,
           padding: 0.25,
-          margin: 0.25,
+          margin: 0.125,
           transition: "all 0.3s ease",
           "&:hover": {
             backgroundColor: COLORS.primary,

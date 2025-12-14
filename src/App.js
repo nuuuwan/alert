@@ -181,6 +181,7 @@ function App() {
                 marginBottom: "56px",
                 zIndex: 200,
                 overflow: "auto",
+                p: 0,
               }}
             >
               <Grid item xs={12} md={6}>

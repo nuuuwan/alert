@@ -27,7 +27,7 @@ export default function NearbyPlacesView({ latLng }) {
   return (
     <CustomPaper>
       <Typography variant="caption" color={COLORS.neutral} sx={{ mb: 1 }}>
-        Nearby Places
+        Nearby
       </Typography>
       <Stack spacing={1} direction="row" sx={{ flexWrap: "wrap" }}>
         {nearbyPlaces.map(([place, distanceM]) => (
