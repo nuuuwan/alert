@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
+import ImageIcon from "@mui/icons-material/Image";
 import InformationGroup from "./InformationGroup";
 import DataSource from "../../nonview/core/DataSource";
 export default function SatelliteImageView({ place }) {
@@ -29,6 +30,7 @@ export default function SatelliteImageView({ place }) {
   return (
     <InformationGroup
       title="Satellite Image"
+      Icon={ImageIcon}
       dataSourceList={[
         new DataSource({
           label: "European Space Agency (ESA) Sentinel-2",

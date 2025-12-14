@@ -7,6 +7,7 @@ import TimeUtils from "../../nonview/base/TimeUtils";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import DataSource from "../../nonview/core/DataSource";
 import { CircularProgress } from "@mui/material";
+import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 
 export default function NaturalDisasterOfficialView({ place }) {
   let landslideCard;
@@ -25,6 +26,7 @@ export default function NaturalDisasterOfficialView({ place }) {
   return (
     <InformationGroup
       title="Official Alerts"
+      Icon={ReportProblemIcon}
       dataSourceList={[
         new DataSource({
           label: "Disaster Management Centre of Sri Lanka",
