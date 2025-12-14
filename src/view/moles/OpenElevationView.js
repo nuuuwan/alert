@@ -1,8 +1,9 @@
-import OldMetricCard from "../atoms/OldMetricCard";
+import MetricCard from "../atoms/MetricCard";
 import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
-import TerrainIcon from "@mui/icons-material/Terrain";
-import { COLORS } from "../_cons/StyleConstants";
 import OpenElevation from "../../nonview/core/third_party/OpenElevation";
+import Elevation from "../../nonview/core/units/Elevation";
+import Slope from "../../nonview/core/units/Slope";
+import RelativeElevation from "../../nonview/core/units/RelativeElevation";
 
 export default function OpenElevationView({ place }) {
   const { openElevationData } = place;
@@ -12,30 +13,21 @@ export default function OpenElevationView({ place }) {
       title="Terrain Metrics"
       sourceList={OpenElevation.getSourceList()}
     >
-      <OldMetricCard
-        Icon={TerrainIcon}
-        label="Elevation"
-        value={openElevationData.elevationM.toFixed(1)}
-        unit="m"
-        color={COLORS.earth}
+      <MetricCard
+        unitValue={new Elevation(openElevationData.elevationM)}
+        timeLabel=""
       />
-      <OldMetricCard
-        Icon={TerrainIcon}
-        label="Max Slope Angle"
-        value={openElevationData.slopeData.maxSlopeAngle.toFixed(0)}
-        unit="°"
-        alertLabel=""
-        color={COLORS.earth}
+      <MetricCard
+        unitValue={new Slope(openElevationData.slopeData.maxSlopeAngle)}
+        timeLabel=""
       />
-      <OldMetricCard
-        Icon={TerrainIcon}
-        label="Relative Elevation"
-        value={openElevationData.relativeElevationData.relativeElevation.toFixed(
-          0
-        )}
-        unit="m"
-        alertLabel=""
-        color={COLORS.earth}
+      <MetricCard
+        unitValue={
+          new RelativeElevation(
+            openElevationData.relativeElevationData.relativeElevation
+          )
+        }
+        timeLabel=""
       />
     </OldMetricCardCollection>
   );
