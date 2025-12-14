@@ -29,7 +29,7 @@ export default function MetricCard({ unitValue, timeLabel, alertLabel }) {
         border: "2px solid",
         borderColor: foreColor,
         textAlign: "center",
-        width: 160,
+        width: 120,
         height: 120,
         display: "flex",
         flexDirection: "column",
