@@ -11,16 +11,23 @@ export default function CustomBottomNavigator({
   setPageMode,
   pageMode,
 }) {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const handleMapMode = () => {
+    scrollToTop();
     setPageMode("Map");
   };
 
   const handleAlertsMode = () => {
+    scrollToTop();
     onSetToMapCenter();
     setPageMode("Alerts");
   };
 
   const handleDataMode = () => {
+    scrollToTop();
     onSetToMapCenter();
     setPageMode("Data");
   };
