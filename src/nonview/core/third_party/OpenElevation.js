@@ -127,10 +127,10 @@ export default class OpenElevation {
 
     return {
       elevationM: elevations[4],
-      relativeElevationData,
-      slopeData,
       pts,
       elevations,
+      ...relativeElevationData,
+      ...slopeData,
     };
   }
 }
