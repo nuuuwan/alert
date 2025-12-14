@@ -11,7 +11,7 @@ export default function WaterLevelChart({
   waterLevelHistory,
   HydrometricStation,
 }) {
-  const chartData = [...waterLevelHistory].reverse().slice(-168); // Last 7 days
+  const chartData = [...waterLevelHistory].reverse().slice(-168); // Last 7d
   const xAxisData = chartData.map((d) => new Date(d.timeUt * 1000));
   const yAxisData = chartData.map((d) => d.waterLevelM);
 
