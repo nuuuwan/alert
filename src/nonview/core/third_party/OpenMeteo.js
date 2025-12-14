@@ -345,7 +345,7 @@ export default class OpenMeteo {
           name: "Max Temperature",
           description: "Maximum temperature forecasted for the next 24 hours.",
           timedUnitValue: new TimedUnit({
-            timeLabel: "Next 24h",
+            timeLabel: "Next 24h max",
             unitValue: new Temperature(
               openMeteoData.heatRiskFactors24h.h01MaxTempNext24Hours
             ),
@@ -362,7 +362,7 @@ export default class OpenMeteo {
           name: "Mean Temperature",
           description: "Mean temperature forecasted for the next 24 hours.",
           timedUnitValue: new TimedUnit({
-            timeLabel: "Next 24h",
+            timeLabel: "Next 24h mean",
             unitValue: new Temperature(
               openMeteoData.heatRiskFactors24h.h02MeanTempNext24Hours
             ),
@@ -379,7 +379,7 @@ export default class OpenMeteo {
           name: "Max Dew Point",
           description: "Maximum dew point forecasted for the next 24 hours.",
           timedUnitValue: new TimedUnit({
-            timeLabel: "Next 24h",
+            timeLabel: "Next 24h max",
             unitValue: new DewPoint(
               openMeteoData.heatRiskFactors24h.h03MaxDewPointNext24Hours
             ),
