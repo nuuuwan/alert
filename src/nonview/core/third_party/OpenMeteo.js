@@ -170,7 +170,7 @@ export default class OpenMeteo {
             unitValue: new Rain(openMeteoData.rainPrev7dSum),
           }),
           condition: (value) => value < 0.1,
-          conditionDescription: "Total rainfall less than 0.1 mm",
+          conditionDescription: "Less than 0.1 mm",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -184,7 +184,7 @@ export default class OpenMeteo {
             unitValue: new Rain(openMeteoData.rainNext7dSum),
           }),
           condition: (value) => value < 0.1,
-          conditionDescription: "Forecasted rainfall less than 0.1 mm",
+          conditionDescription: "Less than 0.1 mm",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -200,7 +200,7 @@ export default class OpenMeteo {
             ),
           }),
           condition: (value) => value < 0.25,
-          conditionDescription: "Mean deep soil moisture less than 0.25",
+          conditionDescription: "Less than 0.25",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -214,7 +214,7 @@ export default class OpenMeteo {
             unitValue: new RainHours(openMeteoData.rainHoursNext7dSum),
           }),
           condition: (value) => value > 0,
-          conditionDescription: "Hours with no rainfall greater than 0",
+          conditionDescription: "Greater than 0",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -238,7 +238,7 @@ export default class OpenMeteo {
             unitValue: new Temperature(openMeteoData.tempNext24hMax),
           }),
           condition: (value) => value > 35,
-          conditionDescription: "Maximum temperature greater than 35°C",
+          conditionDescription: "Greater than 35°C",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -252,7 +252,7 @@ export default class OpenMeteo {
             unitValue: new Temperature(openMeteoData.tempNext24hMean),
           }),
           condition: (value) => value > 30,
-          conditionDescription: "Mean temperature greater than 30°C",
+          conditionDescription: "Greater than 30°C",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -266,7 +266,7 @@ export default class OpenMeteo {
             unitValue: new DewPoint(openMeteoData.dewPointNext24hMax),
           }),
           condition: (value) => value > 25,
-          conditionDescription: "Maximum dew point greater than 25°C",
+          conditionDescription: "Greater than 25°C",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
