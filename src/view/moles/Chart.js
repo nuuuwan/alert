@@ -55,7 +55,7 @@ export default function Chart({
   return (
     <OldMetricCardCollection
       title={title}
-      sourceList={OpenMeteo.getSourceList(latLng)}
+      dataSourceList={[OpenMeteo.getDataSource(latLng)]}
     >
       <ChartContainer
         sx={{

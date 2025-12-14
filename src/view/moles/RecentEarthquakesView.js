@@ -29,7 +29,7 @@ export default function RecentEarthquakesView({ place }) {
   return (
     <OldMetricCardCollection
       title="Recent Earthquakes"
-      sourceList={Earthquake.getSourceList()}
+      dataSourceList={[Earthquake.getDataSource()]}
     >
       <List sx={{ width: "100%", bgcolor: "background.paper" }}>
         {recentData.map((earthquake, index) => {

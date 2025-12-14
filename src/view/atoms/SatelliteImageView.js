@@ -2,6 +2,7 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import OldMetricCardCollection from "./OldMetricCardCollection";
+import DataSource from "../../nonview/core/DataSource";
 export default function SatelliteImageView({ place }) {
   const { latLng, name } = place;
   const latLngToWebMercator = (lat, lng) => {
@@ -28,11 +29,11 @@ export default function SatelliteImageView({ place }) {
   return (
     <OldMetricCardCollection
       title="Satellite Image"
-      sourceList={[
-        {
+      dataSourceList={[
+        new DataSource({
           label: "European Space Agency (ESA) Sentinel-2",
           url: "https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2",
-        },
+        }),
       ]}
     >
       {loading && (

@@ -1,5 +1,6 @@
 import WWW from "../../base/WWW";
 import LatLng from "../../base/geos/LatLng";
+import DataSource from "../DataSource";
 
 export default class Earthquake {
   static URL_RECENT_EARTHQUAKES =
@@ -18,12 +19,10 @@ export default class Earthquake {
     return rawData.map((data) => new Earthquake(data));
   }
 
-  static getSourceList() {
-    return [
-      {
-        label: "USGS Earthquake Data (via lk_tsunamis)",
-        url: "https://github.com/nuuuwan/lk_tsunamis",
-      },
-    ];
+  static getDataSource() {
+    return new DataSource({
+      label: "USGS Earthquake Data (via lk_tsunamis)",
+      url: "https://github.com/nuuuwan/lk_tsunamis",
+    });
   }
 }

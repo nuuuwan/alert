@@ -18,7 +18,7 @@ export default function OpenMeteoView({ place }) {
       <Grid item xs={12}>
         <OldMetricCardCollection
           title="Weather Forecast"
-          sourceList={OpenMeteo.getSourceList(latLng)}
+          dataSourceList={[OpenMeteo.getDataSource(latLng)]}
         >
           <MetricCard
             timedUnitValue={
@@ -41,7 +41,7 @@ export default function OpenMeteoView({ place }) {
       <Grid item xs={12}>
         <OldMetricCardCollection
           title="Current Weather"
-          sourceList={OpenMeteo.getSourceList(latLng)}
+          dataSourceList={[OpenMeteo.getDataSource(latLng)]}
         >
           <MetricCard
             timedUnitValue={

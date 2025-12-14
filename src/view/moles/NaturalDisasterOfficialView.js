@@ -5,6 +5,7 @@ import WaterIcon from "@mui/icons-material/Water";
 import { getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
+import DataSource from "../../nonview/core/DataSource";
 
 export default function NaturalDisasterOfficialView({ place }) {
   const dsd = place.dsd;
@@ -23,16 +24,16 @@ export default function NaturalDisasterOfficialView({ place }) {
   return (
     <OldMetricCardCollection
       title="Official Alerts"
-      sourceList={[
-        {
+      dataSourceList={[
+        new DataSource({
           label: "Disaster Management Centre of Sri Lanka",
           url: "https://www.dmc.gov.lk",
-        },
-        {
+        }),
+        new DataSource({
           label:
             "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
           url: "https://github.com/nuuuwan/lk_irrigation",
-        },
+        }),
       ]}
     >
       {landslideCard}

@@ -7,6 +7,7 @@ import FemaleIcon from "@mui/icons-material/Female";
 import OldMetricCard from "../atoms/OldMetricCard";
 import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
 import { COLORS } from "../_cons/StyleConstants";
+import DataSource from "../../nonview/core/DataSource";
 
 const dataConfig = [
   { label: "Area", key: "areaSqKm", unit: "km²", Icon: CropOriginalIcon },
@@ -31,12 +32,12 @@ function SexAgeView({ sexAgeData, areaSqKm }) {
   return (
     <OldMetricCardCollection
       title="Demographics"
-      sourceList={[
-        {
+      dataSourceList={[
+        new DataSource({
           url: "https://github.com/nuuuwan/lk_census_2024",
           label:
             "Census of Population and Housing 2024, Department of Census and Statistics, Sri Lanka",
-        },
+        }),
       ]}
     >
       {dataConfig.map(({ key, Icon, label, unit }) => (

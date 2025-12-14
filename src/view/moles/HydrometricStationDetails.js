@@ -11,6 +11,7 @@ import WaterLevelChart from "../atoms/WaterLevelChart";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
+import DataSource from "../../nonview/core/DataSource";
 
 export default function HydrometricStationDetails({ place }) {
   const [loading, setLoading] = useState(true);
@@ -87,12 +88,12 @@ export default function HydrometricStationDetails({ place }) {
       <Grid item xs={12}>
         <OldMetricCardCollection
           title="Water Level Metrics"
-          sourceList={[
-            {
+          dataSourceList={[
+            new DataSource({
               label:
                 "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
               url: "https://github.com/nuuuwan/lk_irrigation",
-            },
+            }),
           ]}
         >
           <OldMetricCard

@@ -12,7 +12,7 @@ export default function OpenElevationView({ place }) {
   return (
     <OldMetricCardCollection
       title="Terrain Metrics"
-      sourceList={OpenElevation.getSourceList()}
+      dataSourceList={[OpenElevation.getDataSource()]}
     >
       <MetricCard
         timedUnitValue={

@@ -1,15 +1,14 @@
 import WWW from "../../base/WWW";
 import Cache from "../../base/Cache";
 import SystemMode from "../../base/SystemMode";
+import DataSource from "../DataSource";
 
 export default class OpenElevation {
-  static getSourceList() {
-    return [
-      {
-        label: "Open-Elevation (Free Elevation API)",
-        url: `https://open-elevation.com/#api-docs`,
-      },
-    ];
+  static getDataSource() {
+    return new DataSource({
+      label: "Open-Elevation (Free Elevation API)",
+      url: `https://open-elevation.com/#api-docs`,
+    });
   }
 
   static getTestData() {

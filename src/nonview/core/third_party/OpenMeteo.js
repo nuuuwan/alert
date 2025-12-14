@@ -11,15 +11,14 @@ import Temperature from "../units/Temperature";
 import DewPoint from "../units/DewPoint";
 import TimedUnit from "../units/TimedUnit";
 import RainHours from "../units/RainHours";
+import DataSource from "../DataSource";
+
 export default class OpenMeteo {
-  static getSourceList(latLng) {
-    const [latitude, longitude] = latLng.raw();
-    return [
-      {
-        label: "Open-Meteo (Real-Time Weather API)",
-        url: `https://open-meteo.com/en/docs?latitude=${latitude}&longitude=${longitude}`,
-      },
-    ];
+  static getDataSource() {
+    return new DataSource({
+      label: "Open-Meteo Weather API",
+      url: "https://open-meteo.com/en/docs",
+    });
   }
   static async getRawData({ latLng }) {
     if (SystemMode.isTest()) {

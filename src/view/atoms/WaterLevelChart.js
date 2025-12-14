@@ -2,6 +2,7 @@ import { LineChart } from "@mui/x-charts/LineChart";
 import { COLORS } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import OldMetricCardCollection from "./OldMetricCardCollection";
+import DataSource from "../../nonview/core/DataSource";
 
 const DASHED_STYLE = {
   strokeDasharray: "5 5",
@@ -57,12 +58,12 @@ export default function WaterLevelChart({
   return (
     <OldMetricCardCollection
       title="Water Level History"
-      sourceList={[
-        {
+      dataSourceList={[
+        new DataSource({
           label:
             "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
           url: "https://github.com/nuuuwan/lk_irrigation",
-        },
+        }),
       ]}
     >
       <LineChart

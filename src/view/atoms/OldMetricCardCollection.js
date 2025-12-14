@@ -1,14 +1,14 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import SourceView from "./SourceView";
+import DataSourceView from "./DataSourceView";
 import { useTranslation } from "react-i18next";
 import CustomPaper from "./CustomPaper";
 
 export default function OldMetricCardCollection({
   title,
   children,
-  sourceList,
+  dataSourceList,
 }) {
   const { t } = useTranslation();
   return (
@@ -30,7 +30,7 @@ export default function OldMetricCardCollection({
       </Grid>
 
       <Box>
-        <SourceView sourceList={sourceList} />
+        <DataSourceView dataSourceList={dataSourceList} />
       </Box>
     </CustomPaper>
   );
