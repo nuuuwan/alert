@@ -10,12 +10,11 @@ import WhatshotIcon from "@mui/icons-material/Whatshot";
 import SpaIcon from "@mui/icons-material/Spa";
 import NaturalDisaster from "../../nonview/core/third_party/NaturalDisaster";
 import Typography from "@mui/material/Typography";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CancelIcon from "@mui/icons-material/Cancel";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import MetricCard from "../atoms/MetricCard";
 import ScienceIcon from "@mui/icons-material/Science";
+import Divider from "@mui/material/Divider";
 
 export default function AlertScoreView({ iAlertScore, alertScore }) {
   const { t } = useTranslation();
@@ -37,6 +36,7 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
     }[alertScore.name] || InfoIcon;
 
   const alertLabel = NaturalDisaster.getLabel(score, maxScore);
+  const alertColor = getAlertColor(score, maxScore);
 
   return (
     <CustomPaper>
@@ -54,12 +54,19 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
         Icon={Icon}
         value={`${score}/${maxScore}`}
         unit=""
-        color={getAlertColor(score, maxScore)}
+        color={alertColor}
         timeLabel={t(alertScore.timeLabel)}
         alertLabel={alertLabel}
       />
 
-      <Grid container spacing={2} sx={{ mt: 1 }}>
+      <Divider />
+      <Typography variant="subtitle2" sx={{ mt: 1 }}>
+        <span style={{ fontWeight: "bold", color: alertColor }}>
+          {score}/{maxScore}
+        </span>
+        {t(" of Contributing Factors are satisfied.")}
+      </Typography>
+      <Grid container spacing={0} sx={{ mt: 1 }}>
         {alertScore.metricList.map((metric, index) => {
           const isConditionMet = metric.condition(metric.value);
           const statusColor = isConditionMet
@@ -72,8 +79,8 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: 1,
-                  p: 1,
+                  gap: 0,
+                  p: 0,
                   alignItems: "center",
                   justifyContent: "center",
                 }}
@@ -88,7 +95,7 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
                   sx={{ textDecoration: !isConditionMet ? "line-through" : "" }}
                   color={statusColor}
                 >
-                  {t(metric.conditionDescription)}
+                  {t(metric.conditionDescription)}?
                 </Typography>
               </Box>
             </Grid>
