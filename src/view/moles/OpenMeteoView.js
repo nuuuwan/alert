@@ -39,7 +39,7 @@ export default function OpenMeteoView({ place }) {
           <MetricCard
             timedUnitValue={newTimedUnit(
               openMeteoData,
-              "dewPointListHourly[7 * 24]"
+              "dewPointListHourly[7 * 24]",
             )}
           />
         </OldMetricCardCollection>

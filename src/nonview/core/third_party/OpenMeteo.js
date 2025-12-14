@@ -64,7 +64,7 @@ export default class OpenMeteo {
         currentFields.map((field, index) => [
           field,
           current.variables(index).value(),
-        ])
+        ]),
       ),
       hourly_time_ut: Array.from(
         {
@@ -72,13 +72,13 @@ export default class OpenMeteo {
             (Number(hourly.timeEnd()) - Number(hourly.time())) /
             hourly.interval(),
         },
-        (_, i) => Number(hourly.time()) + i * hourly.interval()
+        (_, i) => Number(hourly.time()) + i * hourly.interval(),
       ),
       hourly: Object.fromEntries(
         hourlyFields.map((field, index) => [
           field,
           Object.values(hourly.variables(index).valuesArray()),
-        ])
+        ]),
       ),
     };
     return weatherDataRaw;
@@ -90,24 +90,24 @@ export default class OpenMeteo {
     // Extract temporary variables to avoid repetition
     const rainListNext24h = weatherDataRaw.hourly.precipitation.slice(
       7 * 24,
-      8 * 24
+      8 * 24,
     );
     const rainNext7d = weatherDataRaw.hourly.precipitation.slice(
       7 * 24,
-      14 * 24
+      14 * 24,
     );
     const rainListPrev24h = weatherDataRaw.hourly.precipitation.slice(
       6 * 24,
-      7 * 24
+      7 * 24,
     );
     const rainListPrev7d = weatherDataRaw.hourly.precipitation.slice(0, 7 * 24);
     const dewPointListNext24h = weatherDataRaw.hourly.dew_point_2m.slice(
       7 * 24,
-      8 * 24
+      8 * 24,
     );
     const tempListNext24h = weatherDataRaw.hourly.temperature_2m.slice(
       7 * 24,
-      8 * 24
+      8 * 24,
     );
     const soilMoistureDeepListNext24h =
       weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 8 * 24);
@@ -174,7 +174,7 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(
             openMeteoData,
-            "soilMoistureDeepNext7dMean"
+            "soilMoistureDeepNext7dMean",
           ),
           condition: (value) => value < 0.25,
           conditionDescription: "Less than 0.25",

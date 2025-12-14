@@ -32,7 +32,7 @@ export default function NaturalDisasterView({ place }) {
         sx={{ ml: 3, width: "fit-content", maxWidth: 400 }}
       >
         {t(
-          "The Following Natural Disaster Risk Scores are still under development and should be used for informational purposes only."
+          "The Following Natural Disaster Risk Scores are still under development and should be used for informational purposes only.",
         )}
       </Alert>
       <Box>
