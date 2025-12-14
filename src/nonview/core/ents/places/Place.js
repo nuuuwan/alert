@@ -7,7 +7,7 @@ import District from "../../ents/regions/admin_regions/District.js";
 import Province from "../../ents/regions/admin_regions/Province.js";
 class Place {
   static getEntTypeName() {
-    return "Place";
+    return "Arbitrary Point";
   }
   constructor({ latLng, openMeteoData }) {
     this.latLng = latLng;

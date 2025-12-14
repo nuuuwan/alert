@@ -7,4 +7,7 @@ export default class District extends AdminRegion {
   static getEntTypeName() {
     return "District";
   }
+  static getEntTypeNameShort() {
+    return "District";
+  }
 }
