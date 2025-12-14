@@ -39,6 +39,7 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
       Icon={ScienceIcon}
       title={`${iAlertScore + 1}. ${t(alertScore.name)} ${t("Alert Score")}`}
       dataSourceList={[]}
+      InnerComponent={Box}
     >
       <Box>
         <Typography variant="body2" sx={{ mb: 1 }}>

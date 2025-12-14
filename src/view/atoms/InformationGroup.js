@@ -11,6 +11,7 @@ export default function InformationGroup({
   children,
   dataSourceList,
   Icon = InfoIcon,
+  InnerComponent = Grid,
 }) {
   const { t } = useTranslation();
   return (
@@ -20,9 +21,9 @@ export default function InformationGroup({
         <Typography variant="h6">{t(title)}</Typography>
       </Box>
 
-      <Grid container spacing={0}>
+      <InnerComponent container spacing={0}>
         {children}
-      </Grid>
+      </InnerComponent>
 
       <Box>
         <DataSourceView dataSourceList={dataSourceList} />
