@@ -150,6 +150,7 @@ Ginigathhena
 Girandurukotte
 Giribawa
 Giriulla
+GitHub Repository
 Glencourse
 Godakawela
 Gomarankadawala
@@ -529,8 +530,10 @@ Ratnapura
 Rattota
 Rawathawatta
 Recent Earthquakes
+Refresh
 Relative Elevation
 Relative Humidity
+Report Issues
 Rideegama
 Rideemaliyadda
 Risk of the location experiencing a
