@@ -3,7 +3,7 @@ import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
 export default class EarthquakeMagnitude extends Unit {
   static getLabel() {
-    return "Earthquake Magnitude";
+    return "Magnitude";
   }
   static getUnitLabel() {
     return "ML";
