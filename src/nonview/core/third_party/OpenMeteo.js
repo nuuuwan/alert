@@ -126,134 +126,37 @@ export default class OpenMeteo {
       hourlyRainSumNext24Hours: ArrayUtils.sum(
         weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24)
       ),
+      hoursOfNoRainNext7Days: weatherDataRaw.hourly.precipitation
+        .slice(7 * 24, 14 * 24)
+        .filter((rain) => rain === 0).length,
+      hourlySoilMoistureTop1cm: weatherDataRaw.hourly.soil_moisture_0_to_1cm,
       hourlyDeepSoilMoisture: weatherDataRaw.hourly.soil_moisture_27_to_81cm,
       hourlyDewPoint: weatherDataRaw.hourly.dew_point_2m,
-    };
-
-    weatherData = OpenMeteo.computeFloodRisk(weatherData);
-    weatherData = OpenMeteo.computeLandslideRisk(weatherData);
-    weatherData = OpenMeteo.computerHeatRisk(weatherData);
-    weatherData = OpenMeteo.computeDroughtRisk(weatherData);
-
-    return weatherData;
-  }
-
-  static computeFloodRisk(weatherData) {
-    weatherData.floodRiskFactors24h = {
-      f01PeakRainFallIntensity: Math.max(...weatherData.hourlyRain),
-      f02HourlyRainSumNext24Hours: weatherData.hourlyRainSumNext24Hours,
-      f03HoursOfRainNext24Hours: weatherData.hourlyRain
+      meanDeepSoilMoistureNext7Days: ArrayUtils.mean(
+        weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 14 * 24)
+      ),
+      meanTempNext24Hours: ArrayUtils.mean(
+        weatherDataRaw.hourly.temperature_2m.slice(7 * 24, 8 * 24)
+      ),
+      maxDewPointNext24Hours: Math.max(
+        ...weatherDataRaw.hourly.dew_point_2m.slice(7 * 24, 8 * 24)
+      ),
+      peakRainFallIntensity: Math.max(
+        ...weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24)
+      ),
+      hoursOfRainNext24Hours: weatherDataRaw.hourly.precipitation
         .slice(7 * 24, 8 * 24)
-        .filter((rain) => rain > 1).length,
-      f04MeanDeepSoilMoistureNext24Hours: ArrayUtils.mean(
-        weatherData.hourlyDeepSoilMoisture.slice(7 * 24, 8 * 24)
-      ),
-    };
-
-    weatherData.floodRiskFactors24hThresholded = {
-      f01PeakRainFallIntensity:
-        weatherData.floodRiskFactors24h.f01PeakRainFallIntensity > 50,
-      f02HourlyRainSumNext24Hours:
-        weatherData.floodRiskFactors24h.f02HourlyRainSumNext24Hours > 100,
-      f03HoursOfRainNext24Hours:
-        weatherData.floodRiskFactors24h.f03HoursOfRainNext24Hours > 12,
-      f04MeanDeepSoilMoistureNext24Hours:
-        weatherData.floodRiskFactors24h.f04MeanDeepSoilMoistureNext24Hours >
-        0.3,
-    };
-
-    return weatherData;
-  }
-
-  static computeLandslideRisk(weatherData) {
-    weatherData.landslideRiskFactors24h = weatherData.floodRiskFactors24h;
-    weatherData.landslideRiskFactors24h = {
-      ...weatherData.landslideRiskFactors24h,
-      f05HourlyRainSumPrevious7Days: weatherData.hourlyRainSumPrevious7Days,
-    };
-
-    weatherData.landslideRiskFactors24hThresholded = {
-      f01PeakRainFallIntensity:
-        weatherData.floodRiskFactors24hThresholded.f01PeakRainFallIntensity >
-        30,
-      f02HourlyRainSumNext24Hours:
-        weatherData.floodRiskFactors24hThresholded.f02HourlyRainSumNext24Hours >
-        80,
-      f03HoursOfRainNext24Hours:
-        weatherData.floodRiskFactors24hThresholded.f03HoursOfRainNext24Hours >
-        10,
-      f04MeanDeepSoilMoistureNext24Hours:
-        weatherData.floodRiskFactors24hThresholded
-          .f04MeanDeepSoilMoistureNext24Hours > 0.25,
-      f05HourlyRainSumPrevious7Days:
-        weatherData.landslideRiskFactors24h.f05HourlyRainSumPrevious7Days > 200,
-    };
-
-    return weatherData;
-  }
-
-  static computerHeatRisk(weatherData) {
-    weatherData.heatRiskFactors24h = {
-      h01MaxTempNext24Hours: weatherData.maxTempNext24Hours,
-      h02MeanTempNext24Hours: ArrayUtils.mean(
-        weatherData.hourlyTemp.slice(7 * 24, 8 * 24)
-      ),
-      h03MaxDewPointNext24Hours: Math.max(
-        ...weatherData.hourlyDewPoint.slice(7 * 24, 8 * 24)
-      ),
-    };
-
-    weatherData.heatRiskFactors24hThresholded = {
-      h01MaxTempNext24Hours:
-        weatherData.heatRiskFactors24h.h01MaxTempNext24Hours > 35,
-      h02MeanTempNext24Hours:
-        weatherData.heatRiskFactors24h.h02MeanTempNext24Hours > 30,
-      h03MaxDewPointNext24Hours:
-        weatherData.heatRiskFactors24h.h03MaxDewPointNext24Hours > 25,
-    };
-
-    weatherData.heatRiskLevel = Object.values(
-      weatherData.heatRiskFactors24hThresholded
-    ).filter((v) => v).length;
-
-    weatherData.heatRiskMaxLevel = Object.keys(
-      weatherData.heatRiskFactors24hThresholded
-    ).length;
-
-    return weatherData;
-  }
-
-  static computeDroughtRisk(weatherData) {
-    weatherData.droughtRiskFactors24h = {
-      d01HourlyRainSumPrevious7Days: weatherData.hourlyRainSumPrevious7Days,
-      d02HourlyRainSumNext7Days: weatherData.hourlyRainSumNext7Days,
-      d03MeanDeepSoilMoistureNext7Days: ArrayUtils.mean(
-        weatherData.hourlyDeepSoilMoisture.slice(7 * 24, 14 * 24)
-      ),
-      d04HoursOfNoRainNext7Days: weatherData.hourlyRain
+        .filter((rain) => rain > 0).length,
+      hoursOfRainNext7Days: weatherDataRaw.hourly.precipitation
         .slice(7 * 24, 14 * 24)
-        .filter((rain) => rain < 0.1).length,
+        .filter((rain) => rain > 0).length,
+      meanDeepSoilMoistureNext24Hours: ArrayUtils.mean(
+        weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 8 * 24)
+      ),
+      meanDeepSoilMoistureNext7Days: ArrayUtils.mean(
+        weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 14 * 24)
+      ),
     };
-
-    weatherData.droughtRiskFactors24hThresholded = {
-      d01HourlyRainSumPrevious7Days:
-        weatherData.droughtRiskFactors24h.d01HourlyRainSumPrevious7Days < 0.1,
-      d02HourlyRainSumNext7Days:
-        weatherData.droughtRiskFactors24h.d02HourlyRainSumNext7Days < 0.1,
-      d03MeanDeepSoilMoistureNext7Days:
-        weatherData.droughtRiskFactors24h.d03MeanDeepSoilMoistureNext7Days <
-        0.25,
-      d04HoursOfNoRainNext24Hours:
-        weatherData.droughtRiskFactors24h.d04HoursOfNoRainNext24Hours > 0,
-    };
-
-    weatherData.droughtRiskLevel = Object.values(
-      weatherData.droughtRiskFactors24hThresholded
-    ).filter((v) => v).length;
-
-    weatherData.droughtRiskMaxLevel = Object.keys(
-      weatherData.droughtRiskFactors24hThresholded
-    ).length;
 
     return weatherData;
   }
@@ -269,9 +172,7 @@ export default class OpenMeteo {
           description: "Total rainfall recorded in the previous 7d.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Prev. 7d sum",
-            unitValue: new Rain(
-              openMeteoData.droughtRiskFactors24h.d01HourlyRainSumPrevious7Days
-            ),
+            unitValue: new Rain(openMeteoData.hourlyRainSumPrevious7Days),
           }),
           condition: (value) => value < 0.1,
           conditionDescription: "Total rainfall less than 0.1 mm",
@@ -286,9 +187,7 @@ export default class OpenMeteo {
           description: "Forecasted rainfall for the next 7d.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 7d sum",
-            unitValue: new Rain(
-              openMeteoData.droughtRiskFactors24h.d02HourlyRainSumNext7Days
-            ),
+            unitValue: new Rain(openMeteoData.hourlyRainSumNext7Days),
           }),
           condition: (value) => value < 0.1,
           conditionDescription: "Forecasted rainfall less than 0.1 mm",
@@ -304,7 +203,7 @@ export default class OpenMeteo {
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 7d mean",
             unitValue: new SoilMoisture(
-              openMeteoData.droughtRiskFactors24h.d03MeanDeepSoilMoistureNext7Days
+              openMeteoData.meanDeepSoilMoistureNext7Days
             ),
           }),
           condition: (value) => value < 0.25,
@@ -320,9 +219,7 @@ export default class OpenMeteo {
           description: "Hours with no rainfall in the next 7d.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 7d sum",
-            unitValue: new RainHours(
-              openMeteoData.droughtRiskFactors24h.d04HoursOfNoRainNext7Days
-            ),
+            unitValue: new RainHours(openMeteoData.hoursOfNoRainNext7Days),
           }),
           condition: (value) => value > 0,
           conditionDescription: "Hours with no rainfall greater than 0",
@@ -347,9 +244,7 @@ export default class OpenMeteo {
           description: "Maximum temperature forecasted for the next 24 hours.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 24h max",
-            unitValue: new Temperature(
-              openMeteoData.heatRiskFactors24h.h01MaxTempNext24Hours
-            ),
+            unitValue: new Temperature(openMeteoData.maxTempNext24Hours),
           }),
           condition: (value) => value > 35,
           conditionDescription: "Maximum temperature greater than 35°C",
@@ -364,9 +259,7 @@ export default class OpenMeteo {
           description: "Mean temperature forecasted for the next 24 hours.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 24h mean",
-            unitValue: new Temperature(
-              openMeteoData.heatRiskFactors24h.h02MeanTempNext24Hours
-            ),
+            unitValue: new Temperature(openMeteoData.meanTempNext24Hours),
           }),
           condition: (value) => value > 30,
           conditionDescription: "Mean temperature greater than 30°C",
@@ -381,9 +274,7 @@ export default class OpenMeteo {
           description: "Maximum dew point forecasted for the next 24 hours.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 24h max",
-            unitValue: new DewPoint(
-              openMeteoData.heatRiskFactors24h.h03MaxDewPointNext24Hours
-            ),
+            unitValue: new DewPoint(openMeteoData.maxDewPointNext24Hours),
           }),
           condition: (value) => value > 25,
           conditionDescription: "Maximum dew point greater than 25°C",
