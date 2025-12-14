@@ -34,10 +34,10 @@ export default function NaturalDisasterView({ place }) {
       <Alert
         severity="warning"
         icon={<ScienceIcon />}
-        sx={{ ml: 3, width: "fit-content", maxWidth: 400 }}
+        sx={{ ml: 3, width: "fit-content", maxWidth: 320 }}
       >
         {t(
-          "The following Natural Disaster Risk Scores are still under development and should be used for informational purposes only.",
+          "The following Natural Disaster Risk Scores are still under development and should be used for informational purposes only."
         )}
       </Alert>
       <Box>
