@@ -267,7 +267,7 @@ export default class OpenMeteo {
           name: "Rain Last 7 Days",
           description: "Total rainfall recorded in the previous 7 days.",
           timedUnitValue: new TimedUnit({
-            timeLabel: "Previous 7 days",
+            timeLabel: "Prev. 7 days",
             unitValue: new Rain(
               openMeteoData.droughtRiskFactors24h.d01HourlyRainSumPrevious7Days
             ),

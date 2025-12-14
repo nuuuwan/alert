@@ -120,7 +120,7 @@ export default class NaturalDisaster {
           description:
             "Maximum earthquake magnitude recorded in the last 24 hours.",
           timedUnitValue: new TimedUnit({
-            timeLabel: "Previous 24h max",
+            timeLabel: "Prev. 24h max",
             unitValue: new EarthquakeMagnitude(
               Math.max(
                 ...earthequakeDataLast24Hours.map((eq) => eq.magnitude || 0),
@@ -216,10 +216,10 @@ export default class NaturalDisaster {
           unit: "m³/m³",
         }),
         new AlertScoreMetric({
-          name: "Rainfall Previous 7 Days",
+          name: "Rainfall Prev. 7 Days",
           description: "Total rainfall recorded in the previous 7 days.",
           timedUnitValue: new TimedUnit({
-            timeLabel: "Previous 7 days sum",
+            timeLabel: "Prev. 7 days sum",
             unitValue: new Rain(
               openMeteoData.landslideRiskFactors24h.f05HourlyRainSumPrevious7Days
             ),
