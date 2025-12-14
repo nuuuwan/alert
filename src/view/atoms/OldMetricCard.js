@@ -39,8 +39,6 @@ export default function OldMetricCard({
         overflow: "hidden", // Ensure content does not overflow
       }}
     >
-      <Typography variant="body1">OLD</Typography>
-
       <Box
         sx={{
           display: "flex",
