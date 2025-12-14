@@ -58,6 +58,7 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
         timeLabel={t(alertScore.timeLabel)}
         alertLabel={alertLabel}
       />
+
       <Grid container spacing={2} sx={{ mt: 1 }}>
         {alertScore.metricList.map((metric, index) => {
           const isConditionMet = metric.condition(metric.value);
@@ -71,8 +72,6 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
                   flexDirection: "column",
                   gap: 1,
                   p: 1,
-                  border: "1px solid #e0e0e0",
-                  borderRadius: 1,
                 }}
               >
                 <MetricCard
