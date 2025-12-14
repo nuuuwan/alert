@@ -5,7 +5,7 @@ import CustomPaper from "../atoms/CustomPaper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { COLORS } from "../_cons/StyleConstants";
-import LoadingView from "../atoms/LoadingView";
+import { CircularProgress } from "@mui/material";
 
 export default function NearbyPlacesView({ latLng }) {
   const [nearbyPlaces, setNearbyPlaces] = useState([]);
@@ -26,13 +26,15 @@ export default function NearbyPlacesView({ latLng }) {
       <Typography variant="caption" color={COLORS.neutral} sx={{ mb: 1 }}>
         Nearby
       </Typography>
-      <LoadingView isLoaded={nearbyPlaces.length > 0}>
-        <Stack spacing={1} direction="row" sx={{ flexWrap: "wrap" }}>
-          {nearbyPlaces.map(([place, distanceM]) => (
+      <Stack spacing={1} direction="row" sx={{ flexWrap: "wrap" }}>
+        {nearbyPlaces && nearbyPlaces.length > 0 ? (
+          nearbyPlaces.map(([place, distanceM]) => (
             <PlaceLink key={place.id} place={place} distanceM={distanceM} />
-          ))}
-        </Stack>
-      </LoadingView>
+          ))
+        ) : (
+          <CircularProgress />
+        )}
+      </Stack>
     </CustomPaper>
   );
 }

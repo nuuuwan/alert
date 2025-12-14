@@ -6,7 +6,6 @@ import { getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import DataSource from "../../nonview/core/DataSource";
-import LoadingView from "../atoms/LoadingView";
 
 export default function NaturalDisasterOfficialView({ place }) {
   let landslideCard;
@@ -37,10 +36,8 @@ export default function NaturalDisasterOfficialView({ place }) {
         }),
       ]}
     >
-      <LoadingView isLoaded={landslideCard || waterLevelCard}>
-        {landslideCard}
-        {waterLevelCard}
-      </LoadingView>
+      {landslideCard}
+      {waterLevelCard}
     </InformationGroup>
   );
 }

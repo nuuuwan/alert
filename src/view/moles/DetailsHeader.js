@@ -8,22 +8,19 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { useTranslation } from "react-i18next";
 import CustomPaper from "../atoms/CustomPaper";
 import Box from "@mui/material/Box";
+import { CircularProgress } from "@mui/material";
 
 export default function DetailsHeader({ ent }) {
   const { t } = useTranslation();
-  if (!ent) {
-    return null;
-  }
-  const dsd = ent.dsd;
-
+  const dsd = ent?.dsd;
   return (
     <Box>
       <CustomPaper>
         <Typography variant="overline" color="text.secondary">
-          {t(ent.supertitle)}
+          {ent ? t(ent.supertitle) : <CircularProgress />}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {t(ent.subtitle)}
+          {ent ? t(ent.subtitle) : <CircularProgress />}
         </Typography>
         {dsd && (
           <Breadcrumbs separator="›" sx={{ m: 0, p: 0 }}>
@@ -33,7 +30,7 @@ export default function DetailsHeader({ ent }) {
           </Breadcrumbs>
         )}
       </CustomPaper>
-      <NearbyPlacesView latLng={ent.latLng} />
+      <NearbyPlacesView latLng={ent ? ent.latLng : null} />
     </Box>
   );
 }

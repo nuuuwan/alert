@@ -5,7 +5,6 @@ import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
 import AlertScoreView from "./AlertScoreView";
 import ScienceIcon from "@mui/icons-material/Science";
-import LoadingView from "../atoms/LoadingView";
 
 export default function NaturalDisasterView({ place }) {
   const { t } = useTranslation();
@@ -41,16 +40,11 @@ export default function NaturalDisasterView({ place }) {
         )}
       </Alert>
       <Box>
-        <LoadingView isLoaded={alertScoreList}>
-          {alertScoreList.map((alertScore, iAlertScore) => (
-            <Box key={alertScore.name} sx={{ mt: 2 }}>
-              <AlertScoreView
-                iAlertScore={iAlertScore}
-                alertScore={alertScore}
-              />
-            </Box>
-          ))}
-        </LoadingView>
+        {alertScoreList.map((alertScore, iAlertScore) => (
+          <Box key={alertScore.name} sx={{ mt: 2 }}>
+            <AlertScoreView iAlertScore={iAlertScore} alertScore={alertScore} />
+          </Box>
+        ))}
       </Box>
     </Box>
   );
