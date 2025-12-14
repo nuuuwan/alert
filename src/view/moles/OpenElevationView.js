@@ -26,7 +26,7 @@ export default function OpenElevationView({ place }) {
         timedUnitValue={
           new TimedUnit({
             timeLabel: "",
-            unitValue: new Slope(openElevationData.slopeData.maxSlopeAngle),
+            unitValue: new Slope(openElevationData.slopeData.slopeMaxAngle),
           })
         }
       />

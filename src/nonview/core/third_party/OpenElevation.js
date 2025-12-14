@@ -20,8 +20,8 @@ export default class OpenElevation {
         relativeElevation: -7,
       },
       slopeData: {
-        maxSlope: 0.15,
-        maxSlopeAngle: 8.53,
+        slopeMax: 0.15,
+        slopeMaxAngle: 8.53,
       },
     };
   }
@@ -75,7 +75,7 @@ export default class OpenElevation {
   static getSlopeData(pts, elevations) {
     const centreIndex = 4;
     const h0 = elevations[centreIndex];
-    let maxSlope = 0;
+    let slopeMax = 0;
     for (let i = 0; i < elevations.length; i++) {
       if (i === centreIndex) continue;
 
@@ -86,14 +86,14 @@ export default class OpenElevation {
       if (d === 0) continue;
 
       const slope = dh / d;
-      if (slope > maxSlope) maxSlope = slope;
+      if (slope > slopeMax) slopeMax = slope;
     }
 
-    const maxSlopeAngle = Math.atan(maxSlope) * (180 / Math.PI);
+    const slopeMaxAngle = Math.atan(slopeMax) * (180 / Math.PI);
 
     return {
-      maxSlope,
-      maxSlopeAngle,
+      slopeMax,
+      slopeMaxAngle,
     };
   }
 
