@@ -20,7 +20,19 @@ export default function OpenMeteoView({ place }) {
             timedUnitValue={newTimedUnit(openMeteoData, "rainNext24hSum")}
           />
           <MetricCard
+            timedUnitValue={newTimedUnit(openMeteoData, "tempNext24hMin")}
+          />
+          <MetricCard
             timedUnitValue={newTimedUnit(openMeteoData, "tempNext24hMax")}
+          />
+          <MetricCard
+            timedUnitValue={newTimedUnit(openMeteoData, "dewPointNext24hMax")}
+          />
+          <MetricCard
+            timedUnitValue={newTimedUnit(
+              openMeteoData,
+              "soilMoistureDeepNext24hMean"
+            )}
           />
         </OldMetricCardCollection>
       </Grid>
@@ -37,10 +49,7 @@ export default function OpenMeteoView({ place }) {
             timedUnitValue={newTimedUnit(openMeteoData, "relativeHumidityNow")}
           />
           <MetricCard
-            timedUnitValue={newTimedUnit(
-              openMeteoData,
-              "dewPointListHourly[7 * 24]",
-            )}
+            timedUnitValue={newTimedUnit(openMeteoData, "dewPointNow")}
           />
         </OldMetricCardCollection>
       </Grid>

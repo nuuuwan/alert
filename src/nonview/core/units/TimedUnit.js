@@ -79,10 +79,10 @@ function getUnitClass(key) {
 
 function getTimeLabelDirection(k) {
   if (k.includes("Next")) {
-    return "Next";
+    return "next";
   }
   if (k.includes("Prev")) {
-    return "Prev.";
+    return "prev.";
   }
   return "";
 }
@@ -94,7 +94,7 @@ function getTimeLabelDuration(k) {
   if (k.includes("7d")) {
     return "7d";
   }
-  return "Now";
+  return "now";
 }
 
 function getTimeLabelAggregation(k) {
@@ -103,6 +103,9 @@ function getTimeLabelAggregation(k) {
   }
   if (k.includes("Max")) {
     return "max";
+  }
+  if (k.includes("Min")) {
+    return "min";
   }
   if (k.includes("Mean")) {
     return "mean";
