@@ -38,4 +38,4 @@ export function isAlertColor(color) {
 }
 
 // Typography
-export const FONT_FAMILY = ['"Inconsolata"', "sans-serif"].join(", ");
+export const FONT_FAMILY = ['"Dosis"', "sans-serif"].join(", ");
