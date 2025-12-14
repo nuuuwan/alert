@@ -207,14 +207,14 @@ export default class OpenMeteo {
           },
         }),
         new AlertScoreMetric({
-          name: "No Rain Hours",
-          description: "Hours with no rainfall in the next 7d.",
+          name: "Rain Hours",
+          description: "Hours with rainfall in the next 7d.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 7d sum",
             unitValue: new RainHours(openMeteoData.rainHoursNext7dSum),
           }),
-          condition: (value) => value > 0,
-          conditionDescription: "Greater than 0",
+          condition: (value) => value < 3,
+          conditionDescription: "Less than 3 hours",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
