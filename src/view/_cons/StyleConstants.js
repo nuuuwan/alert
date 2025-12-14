@@ -19,16 +19,11 @@ export const COLORS = {
 };
 
 export function getAlertColor(level, maxLevel) {
-  if (level < 0 || level > maxLevel) {
-    throw new Error(`Level out of bounds: ${level} / ${maxLevel}`);
+  if (level === 0) {
+    return COLORS.noAlert;
   }
-  const p = parseInt((level / maxLevel) * 3);
-  const color = [
-    COLORS.noAlert,
-    COLORS.lowAlert,
-    COLORS.mediumAlert,
-    COLORS.highAlert,
-  ][p];
+  const p = parseInt(((level - 1) / (maxLevel - 1)) * 2);
+  const color = [COLORS.lowAlert, COLORS.mediumAlert, COLORS.highAlert][p];
 
   return color;
 }

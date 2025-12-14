@@ -5,11 +5,11 @@ import { newTimedUnit } from "../units/TimedUnit";
 
 export default class NaturalDisaster {
   static getLabel(level, maxLevel) {
-    if (level < 0 || level > maxLevel) {
-      throw new Error(`Level out of bounds: ${level} / ${maxLevel}`);
+    if (level === 0) {
+      return "No Risk";
     }
-    return ["No Risk", "Low Risk", "Medium Risk", "High Risk"][
-      parseInt((level / maxLevel) * 3)
+    return ["Low Risk", "Medium Risk", "High Risk"][
+      parseInt(((level - 1) / (maxLevel - 1)) * 2)
     ];
   }
 

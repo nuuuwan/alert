@@ -179,8 +179,8 @@ export default class OpenMeteo {
             openMeteoData,
             "soilMoistureDeepNext7dMean"
           ),
-          condition: (value) => value < 0.25,
-          conditionDescription: "Less than 0.25",
+          condition: (value) => value < 0.1,
+          conditionDescription: "Less than 0.1",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
