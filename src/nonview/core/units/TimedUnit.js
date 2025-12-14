@@ -4,6 +4,7 @@ import RelativeHumidity from "./RelativeHumidity";
 import RainHours from "./RainHours";
 import Elevation from "./Elevation";
 import Rain from "./Rain";
+import SoilMoisture from "./SoilMoisture";
 
 export default class TimedUnit {
   constructor({ unitValue, timeLabel }) {
@@ -30,6 +31,9 @@ function getUnitClass(key) {
   }
   if (key.startsWith("elevation")) {
     return Elevation;
+  }
+  if (key.startsWith("soilMoisture")) {
+    return SoilMoisture;
   }
   throw new Error(`Unknown unit key: ${key}`);
 }
