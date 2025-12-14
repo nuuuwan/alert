@@ -32,6 +32,7 @@ function SexAgeView({ sexAgeData, areaSqKm }) {
   return (
     <InformationGroup
       title="Demographics"
+      Icon={PeopleIcon}
       dataSourceList={[
         new DataSource({
           url: "https://github.com/nuuuwan/lk_census_2024",

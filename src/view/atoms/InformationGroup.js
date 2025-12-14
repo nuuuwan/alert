@@ -10,7 +10,7 @@ export default function InformationGroup({
   title,
   children,
   dataSourceList,
-  icon: Icon = InfoIcon,
+  Icon = InfoIcon,
 }) {
   const { t } = useTranslation();
   return (

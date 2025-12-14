@@ -89,6 +89,7 @@ export default function HydrometricStationDetails({ place }) {
       <Grid item xs={12}>
         <InformationGroup
           title="Water Level Metrics"
+          Icon={WavesIcon}
           dataSourceList={[
             new DataSource({
               label:

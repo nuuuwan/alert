@@ -7,6 +7,7 @@ import {
   Chip,
   Link,
 } from "@mui/material";
+import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import Earthquake from "../../nonview/core/third_party/Earthquake";
 import InformationGroup from "../atoms/InformationGroup";
 import { COLORS } from "../_cons/StyleConstants";
@@ -29,6 +30,7 @@ export default function RecentEarthquakesView({ place }) {
   return (
     <InformationGroup
       title="Recent Earthquakes"
+      Icon={WarningAmberIcon}
       dataSourceList={[Earthquake.getDataSource()]}
     >
       <List sx={{ width: "100%", bgcolor: "background.paper" }}>

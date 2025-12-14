@@ -1,3 +1,4 @@
+import TimelineIcon from "@mui/icons-material/Timeline";
 import { COLORS } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import { ChartContainer } from "@mui/x-charts/ChartContainer";
@@ -56,6 +57,7 @@ export default function Chart({
   return (
     <InformationGroup
       title={title}
+      Icon={TimelineIcon}
       dataSourceList={[OpenMeteo.getDataSource(latLng)]}
     >
       <ChartContainer

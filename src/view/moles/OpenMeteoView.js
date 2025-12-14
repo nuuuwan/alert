@@ -1,4 +1,5 @@
 import Grid from "@mui/material/Grid";
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import InformationGroup from "../atoms/InformationGroup";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 import MetricCard from "../atoms/MetricCard";
@@ -14,6 +15,7 @@ export default function OpenMeteoView({ place }) {
       <Grid item xs={12}>
         <InformationGroup
           title="Weather Forecast"
+          Icon={WbSunnyIcon}
           dataSourceList={[OpenMeteo.getDataSource(latLng)]}
         >
           <MetricCard
@@ -39,6 +41,7 @@ export default function OpenMeteoView({ place }) {
       <Grid item xs={12}>
         <InformationGroup
           title="Current Weather"
+          Icon={WbSunnyIcon}
           dataSourceList={[OpenMeteo.getDataSource(latLng)]}
         >
           <MetricCard
