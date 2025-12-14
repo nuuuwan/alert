@@ -10,13 +10,10 @@ import WhatshotIcon from "@mui/icons-material/Whatshot";
 import SpaIcon from "@mui/icons-material/Spa";
 import NaturalDisaster from "../../nonview/core/third_party/NaturalDisaster";
 import Typography from "@mui/material/Typography";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableRow from "@mui/material/TableRow";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import MetricCard from "../atoms/MetricCard";
 import ScienceIcon from "@mui/icons-material/Science";
 
@@ -61,33 +58,42 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
         timeLabel={t(alertScore.timeLabel)}
         alertLabel={alertLabel}
       />
-      <Table>
-        <TableBody>
-          {alertScore.metricList.map((metric, index) => {
-            const isConditionMet = metric.condition(metric.value);
-            const StatusIcon = isConditionMet ? CheckCircleIcon : CancelIcon;
+      <Grid container spacing={2} sx={{ mt: 1 }}>
+        {alertScore.metricList.map((metric, index) => {
+          const isConditionMet = metric.condition(metric.value);
+          const StatusIcon = isConditionMet ? CheckCircleIcon : CancelIcon;
 
-            return (
-              <TableRow key={index}>
-                <TableCell>
-                  <MetricCard
-                    timedUnitValue={metric.timedUnitValue}
-                    timeLabel={t(metric.timeLabel)}
-                  />
-                </TableCell>
-                <TableCell>
-                  <Typography variant="body2" sx={{ mt: 0.5 }}>
-                    {t(metric.conditionDescription)}
-                  </Typography>
-                </TableCell>
-                <TableCell sx={{ width: 50, textAlign: "center" }}>
-                  {StatusIcon && <StatusIcon />}
-                </TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
+          return (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 1,
+                  p: 1,
+                  border: "1px solid #e0e0e0",
+                  borderRadius: 1,
+                }}
+              >
+                <MetricCard
+                  timedUnitValue={metric.timedUnitValue}
+                  timeLabel={t(metric.timeLabel)}
+                />
+                <Typography variant="body2">
+                  {t(metric.conditionDescription)}
+                </Typography>
+                <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+                  {StatusIcon && (
+                    <StatusIcon
+                      sx={{ color: isConditionMet ? "#4caf50" : "#f44336" }}
+                    />
+                  )}
+                </Box>
+              </Box>
+            </Grid>
+          );
+        })}
+      </Grid>
     </CustomPaper>
   );
 }
