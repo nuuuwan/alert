@@ -86,7 +86,7 @@ export default function HydrometricStationDetails({ place }) {
 
   return (
     <Grid container spacing={0}>
-      <Grid item xs={12}>
+      <Grid size={{ xs: 12 }}>
         <InformationGroup
           title="Water Level Metrics"
           Icon={WavesIcon}
@@ -120,7 +120,7 @@ export default function HydrometricStationDetails({ place }) {
         </InformationGroup>
       </Grid>
 
-      <Grid item xs={12}>
+      <Grid size={{ xs: 12 }}>
         <WaterLevelChart
           waterLevelHistory={waterLevelHistory}
           HydrometricStation={place}

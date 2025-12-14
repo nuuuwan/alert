@@ -15,23 +15,23 @@ export default function DataView({ selectedEnt }) {
   return (
     <Grid container spacing={0}>
       {place instanceof HydrometricStation && (
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <HydrometricStationDetails place={place} />
         </Grid>
       )}
 
-      <Grid item xs={12} md={6}>
+      <Grid size={{ xs: 12, md: 6 }}>
         <OpenMeteoView place={place} />
       </Grid>
 
-      <Grid item xs={12} md={6}>
+      <Grid size={{ xs: 12, md: 6 }}>
         <OpenElevationView place={place} />
       </Grid>
 
-      <Grid item xs={12} md={6}>
+      <Grid size={{ xs: 12, md: 6 }}>
         <SatelliteImageView place={place} />
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid size={{ xs: 12, md: 6 }}>
         <RecentEarthquakesView place={place} />
       </Grid>
     </Grid>

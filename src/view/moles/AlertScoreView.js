@@ -66,7 +66,7 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
           </span>
           {" " + t("of Contributing Factors are satisfied.")}
         </Typography>
-        <Grid container spacing={0} sx={{ mt: 1 }}>
+        <Grid container spacing={0}>
           {alertScore.metricList.map((metric, index) => {
             const isConditionMet = metric.condition(metric.value);
             const statusColor = isConditionMet
@@ -78,33 +78,29 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
               : t("No");
 
             return (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 0,
-                    p: 0,
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <MetricCard
-                    timedUnitValue={metric.timedUnitValue}
-                    timeLabel={t(metric.timeLabel)}
-                    colorOverride={statusColor}
-                  />
-                  <Typography variant="caption" color={statusColor}>
-                    {metric.conditionDescription}
-                    {t(
-                      metric.timedUnitValue.unitValue.constructor.getUnitLabel()
-                    )}
-                  </Typography>
-                  <Typography variant="caption" color={statusColor}>
-                    {isConditionMetDescription}
-                  </Typography>
-                </Box>
-              </Grid>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <MetricCard
+                  timedUnitValue={metric.timedUnitValue}
+                  timeLabel={t(metric.timeLabel)}
+                  colorOverride={statusColor}
+                />
+                <Typography variant="caption" color={statusColor}>
+                  {metric.conditionDescription}
+                  {t(
+                    metric.timedUnitValue.unitValue.constructor.getUnitLabel()
+                  )}
+                </Typography>
+                <Typography variant="caption" color={statusColor}>
+                  {isConditionMetDescription}
+                </Typography>
+              </Box>
             );
           })}
         </Grid>

@@ -12,7 +12,7 @@ export default function OpenMeteoView({ place }) {
 
   return (
     <Grid container spacing={0}>
-      <Grid item xs={12}>
+      <Grid size={{ xs: 12 }}>
         <InformationGroup
           title="Weather Forecast"
           Icon={WbSunnyIcon}
@@ -33,12 +33,12 @@ export default function OpenMeteoView({ place }) {
           <MetricCard
             timedUnitValue={newTimedUnit(
               openMeteoData,
-              "soilMoistureDeepNext24hMean",
+              "soilMoistureDeepNext24hMean"
             )}
           />
         </InformationGroup>
       </Grid>
-      <Grid item xs={12}>
+      <Grid size={{ xs: 12 }}>
         <InformationGroup
           title="Current Weather"
           Icon={WbSunnyIcon}
@@ -56,14 +56,14 @@ export default function OpenMeteoView({ place }) {
           />
         </InformationGroup>
       </Grid>
-      <Grid item xs={12}>
+      <Grid size={{ xs: 12 }}>
         <RainChart
           rainListHourly={openMeteoData.rainListHourly}
           timeUtListHourly={openMeteoData.timeUtListHourly}
           latLng={place.latLng}
         />
       </Grid>
-      <Grid item xs={12}>
+      <Grid size={{ xs: 12 }}>
         <TempChart
           tempListHourly={openMeteoData.tempListHourly}
           timeUtListHourly={openMeteoData.timeUtListHourly}

@@ -20,14 +20,8 @@ export default function InformationGroup({
         <Typography variant="h6">{t(title)}</Typography>
       </Box>
 
-      <Grid container spacing={0} sx={{ mb: 2 }}>
-        {Array.isArray(children)
-          ? children.map((child, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                {child}
-              </Grid>
-            ))
-          : children}
+      <Grid container spacing={0}>
+        {children}
       </Grid>
 
       <Box>

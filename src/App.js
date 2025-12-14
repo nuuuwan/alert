@@ -114,7 +114,7 @@ function App() {
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId,
+          hydrometricStationNameId
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
@@ -193,7 +193,7 @@ function App() {
                 p: 0,
               }}
             >
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 6 }}>
                 <DetailsHeader ent={selectedEnt} />
               </Grid>
 
