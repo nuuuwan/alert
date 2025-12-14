@@ -1,8 +1,6 @@
 import { fetchWeatherApi } from "openmeteo";
 import TimeUtils from "../../base/TimeUtils";
 import ArrayUtils from "../../base/ArrayUtils";
-import SystemMode from "../../base/SystemMode";
-import WWW from "../../base/WWW";
 import AlertScore from "../alerts/AlertScore";
 import AlertScoreMetric from "../alerts/AlertScoreMetric";
 import Rain from "../units/Rain";
@@ -21,12 +19,6 @@ export default class OpenMeteo {
     });
   }
   static async getRawData({ latLng }) {
-    if (SystemMode.isTest()) {
-      return await WWW.fetch(
-        process.env.PUBLIC_URL + `/test_data/open_meteo_raw_data.json`
-      );
-    }
-
     const utNow = TimeUtils.getUnixTime();
     const spanDays = 7;
     const startHour = TimeUtils.formatISO8601(utNow - spanDays * 86400);

@@ -1,6 +1,5 @@
 import WWW from "../../base/WWW";
 import Cache from "../../base/Cache";
-import SystemMode from "../../base/SystemMode";
 import DataSource from "../DataSource";
 
 export default class OpenElevation {
@@ -9,20 +8,6 @@ export default class OpenElevation {
       label: "Open-Elevation (Free Elevation API)",
       url: `https://open-elevation.com/#api-docs`,
     });
-  }
-
-  static getTestData() {
-    return {
-      elevationM: 123,
-      relativeElevationData: {
-        elevationNeighbourMean: 130,
-        relativeElevation: -7,
-      },
-      slopeData: {
-        slopeMax: 0.15,
-        slopeMaxAngle: 8.53,
-      },
-    };
   }
 
   static async getElevationList(latLngList) {
@@ -113,10 +98,6 @@ export default class OpenElevation {
   }
 
   static async getData(latLng, neighbourDistanceM = 100) {
-    if (SystemMode.isTest()) {
-      return this.getTestData();
-    }
-
     const e = (0.0001 * neighbourDistanceM) / 11.1;
     const pts = this.__buildNeighbourhood__(latLng, e);
     const elevations = await this.getElevationList(pts);
