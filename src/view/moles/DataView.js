@@ -5,11 +5,12 @@ import HydrometricStationDetails from "../moles/HydrometricStationDetails";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import OpenElevationView from "../moles/OpenElevationView";
 import RecentEarthquakesView from "../moles/RecentEarthquakesView";
+import { CircularProgress } from "@mui/material";
 
 export default function DataView({ selectedEnt }) {
   const place = selectedEnt;
   if (!place) {
-    return null;
+    return <CircularProgress />;
   }
   return (
     <Grid container spacing={0}>

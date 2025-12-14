@@ -19,10 +19,6 @@ import Divider from "@mui/material/Divider";
 export default function AlertScoreView({ iAlertScore, alertScore }) {
   const { t } = useTranslation();
 
-  if (!alertScore) {
-    return null;
-  }
-
   const score = alertScore.score;
   const maxScore = alertScore.maxScore;
 

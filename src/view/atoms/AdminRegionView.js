@@ -16,7 +16,7 @@ export default function AdminRegionView({ AdminRegionClass, id }) {
   }, [AdminRegionClass, id]);
 
   if (!adminRegion) {
-    return null;
+    return "...";
   }
 
   return (

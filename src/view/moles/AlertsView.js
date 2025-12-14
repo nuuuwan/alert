@@ -4,9 +4,7 @@ import NaturalDisasterView from "./NaturalDisasterView";
 
 export default function AlertsView({ selectedEnt }) {
   const place = selectedEnt;
-  if (!place) {
-    return null;
-  }
+
   return (
     <Grid container spacing={0}>
       <Grid item xs={12} md={6}>

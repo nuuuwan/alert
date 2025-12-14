@@ -5,9 +5,6 @@ import { useTranslation } from "react-i18next";
 
 export default function DataSourceView({ dataSourceList }) {
   const { t } = useTranslation();
-  if (!dataSourceList || dataSourceList.length === 0) {
-    return null;
-  }
 
   return (
     <Box sx={{ mt: 2, maxWidth: "320px" }}>

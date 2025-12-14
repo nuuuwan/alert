@@ -21,7 +21,7 @@ export default function NearbyPlacesView({ latLng }) {
   }, [latLng]);
 
   if (nearbyPlaces.length === 0) {
-    return null;
+    return "Loading nearby places...";
   }
 
   return (

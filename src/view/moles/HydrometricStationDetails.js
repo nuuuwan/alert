@@ -12,6 +12,7 @@ import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
 import DataSource from "../../nonview/core/DataSource";
+import { Alert } from "@mui/material";
 
 export default function HydrometricStationDetails({ place }) {
   const [loading, setLoading] = useState(true);
@@ -41,7 +42,7 @@ export default function HydrometricStationDetails({ place }) {
   }
 
   if (waterLevelHistory.length === 0) {
-    return null;
+    return <Alert severity="info">No water level data available.</Alert>;
   }
 
   const nObservations = 10;
