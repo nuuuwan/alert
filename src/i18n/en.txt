@@ -531,6 +531,7 @@ Relative Elevation
 Relative Humidity
 Rideegama
 Rideemaliyadda
+Risk of the location experiencing a
 Risk of the location experiencing a flood event.
 Risk of the location experiencing a landslide event.
 Risk of the location experiencing a tsunami event.
@@ -676,6 +677,7 @@ Yatinuwara
 Yatiyanthota
 Yatiyantota
 ago
+event.
 km
 m
 mm
