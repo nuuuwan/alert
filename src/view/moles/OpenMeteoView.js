@@ -1,16 +1,13 @@
 import Grid from "@mui/material/Grid";
-import ThermostatIcon from "@mui/icons-material/Thermostat";
-import WaterDropIcon from "@mui/icons-material/WaterDrop";
-import OldMetricCard from "../atoms/OldMetricCard";
 import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
-import RainChart from "./RainChart";
-import TempChart from "./TempChart";
-import OpacityIcon from "@mui/icons-material/Opacity";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
-import CloudIcon from "@mui/icons-material/Cloud";
-import { COLORS } from "../_cons/StyleConstants";
 import MetricCard from "../atoms/MetricCard";
 import Temperature from "../../nonview/core/units/Temperature";
+import Rain from "../../nonview/core/units/Rain";
+import RelativeHumidity from "../../nonview/core/units/RelativeHumidity";
+import DewPoint from "../../nonview/core/units/DewPoint";
+import RainChart from "../moles/RainChart";
+import TempChart from "../moles/TempChart";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
@@ -27,16 +24,9 @@ export default function OpenMeteoView({ place }) {
             unitValue={new Temperature(openMeteoData.maxTempNext24Hours)}
             timeLabel="Next 24h"
           />
-          <OldMetricCard
-            Icon={WaterDropIcon}
-            label="Rain"
-            value={openMeteoData.hourlyRainSumNext24Hours.toFixed(0)}
-            unit="mm"
+          <MetricCard
+            unitValue={new Rain(openMeteoData.hourlyRainSumNext24Hours)}
             timeLabel="Next 24h total"
-            color={COLORS.water}
-            xs={6}
-            sm={6}
-            md={6}
           />
         </OldMetricCardCollection>
       </Grid>
@@ -45,49 +35,21 @@ export default function OpenMeteoView({ place }) {
           title="Current Weather"
           sourceList={OpenMeteo.getSourceList(latLng)}
         >
-          <OldMetricCard
-            Icon={WaterDropIcon}
-            label="Rain"
-            value={openMeteoData.hourlyRainSumLast24Hours.toFixed(0)}
-            unit="mm"
+          <MetricCard
+            unitValue={new Rain(openMeteoData.hourlyRainSumLast24Hours)}
             timeLabel="Last 24h total"
-            color={COLORS.water}
-            xs={6}
-            sm={6}
-            md={3}
           />
-          <OldMetricCard
-            Icon={ThermostatIcon}
-            label="Temp"
-            value={openMeteoData.currentTempCelsius.toFixed(1)}
-            unit="°C"
-            timeLabel={"Now"}
-            color={COLORS.fire}
-            xs={6}
-            sm={6}
-            md={3}
+          <MetricCard
+            unitValue={new Temperature(openMeteoData.currentTempCelsius)}
+            timeLabel="Now"
           />
-          <OldMetricCard
-            Icon={OpacityIcon}
-            label="Relative Humidity"
-            value={openMeteoData.currentRH.toFixed(0)}
-            unit="%"
-            timeLabel={"Now"}
-            color={COLORS.air}
-            xs={6}
-            sm={6}
-            md={3}
+          <MetricCard
+            unitValue={new RelativeHumidity(openMeteoData.currentRH)}
+            timeLabel="Now"
           />
-          <OldMetricCard
-            Icon={CloudIcon}
-            label="Dew Point"
-            value={openMeteoData.hourlyDewPoint[7 * 24].toFixed(1)}
-            unit="°C"
-            timeLabel={"Now"}
-            color={COLORS.fire}
-            xs={6}
-            sm={6}
-            md={3}
+          <MetricCard
+            unitValue={new DewPoint(openMeteoData.hourlyDewPoint[7 * 24])}
+            timeLabel="Now"
           />
         </OldMetricCardCollection>
       </Grid>
