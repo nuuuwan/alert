@@ -69,7 +69,7 @@ export default class NaturalDisaster {
             unitValue: new Rain(openMeteoData.rainNext24hMax),
           }),
           condition: (value) => value > 30,
-          conditionDescription: "Peak rainfall intensity greater than 30 mm/h",
+          conditionDescription: "Greater than 30 mm/h",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -83,7 +83,7 @@ export default class NaturalDisaster {
             unitValue: new Rain(openMeteoData.rainNext24hSum),
           }),
           condition: (value) => value > 80,
-          conditionDescription: "Total rainfall greater than 80 mm",
+          conditionDescription: "Greater than 80 mm",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -97,7 +97,7 @@ export default class NaturalDisaster {
             unitValue: new RainHours(openMeteoData.rainHoursNext24hSum),
           }),
           condition: (value) => value > 10,
-          conditionDescription: "Hours of rain greater than 10 hours",
+          conditionDescription: "Greater than 10 hours",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -113,7 +113,7 @@ export default class NaturalDisaster {
             ),
           }),
           condition: (value) => value > 0.25,
-          conditionDescription: "Mean soil moisture greater than 0.25",
+          conditionDescription: "Greater than 0.25",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -127,7 +127,7 @@ export default class NaturalDisaster {
             unitValue: new Rain(openMeteoData.rainPrev7dSum),
           }),
           condition: (value) => value > 200,
-          conditionDescription: "Rainfall greater than 200 mm",
+          conditionDescription: "Greater than 200 mm",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -141,7 +141,7 @@ export default class NaturalDisaster {
             unitValue: new Slope(openElevationData.slopeData.slopeMaxAngle),
           }),
           condition: (value) => value > 22.5,
-          conditionDescription: "Slope angle greater than 22.5 degrees",
+          conditionDescription: "Greater than 22.5 degrees",
           source: {
             label: "Open-Elevation API",
             url: "https://open-elevation.com",
@@ -165,7 +165,7 @@ export default class NaturalDisaster {
             unitValue: new Rain(openMeteoData.rainNext24hMax),
           }),
           condition: (value) => value > 50,
-          conditionDescription: "Peak rainfall intensity greater than 50 mm/h",
+          conditionDescription: "Greater than 50 mm/h",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -179,7 +179,7 @@ export default class NaturalDisaster {
             unitValue: new Rain(openMeteoData.rainNext24hSum),
           }),
           condition: (value) => value > 100,
-          conditionDescription: "Total rainfall greater than 100 mm",
+          conditionDescription: "Greater than 100 mm",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -193,7 +193,7 @@ export default class NaturalDisaster {
             unitValue: new RainHours(openMeteoData.rainHoursNext24hSum),
           }),
           condition: (value) => value > 12,
-          conditionDescription: "Hours of rain greater than 12 hours",
+          conditionDescription: "Greater than 12 hours",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -209,7 +209,7 @@ export default class NaturalDisaster {
             ),
           }),
           condition: (value) => value > 0.3,
-          conditionDescription: "Mean soil moisture greater than 0.3",
+          conditionDescription: "Greater than 0.3",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -225,7 +225,7 @@ export default class NaturalDisaster {
             ),
           }),
           condition: (value) => value < -5,
-          conditionDescription: "Relative elevation lower than -5 meters",
+          conditionDescription: "Less than -5 meters",
           source: {
             label: "Open-Elevation API",
             url: "https://open-elevation.com",
