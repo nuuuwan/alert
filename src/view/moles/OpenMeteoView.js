@@ -51,7 +51,7 @@ export default function OpenMeteoView({ place }) {
             timedUnitValue={
               new TimedUnit({
                 timeLabel: "Now",
-                unitValue: new Temperature(openMeteoData.currentTempCelsius),
+                unitValue: new Temperature(openMeteoData.tempNow),
               })
             }
           />
@@ -59,7 +59,9 @@ export default function OpenMeteoView({ place }) {
             timedUnitValue={
               new TimedUnit({
                 timeLabel: "Now",
-                unitValue: new RelativeHumidity(openMeteoData.currentRH),
+                unitValue: new RelativeHumidity(
+                  openMeteoData.relativeHumidityNow
+                ),
               })
             }
           />

@@ -122,9 +122,9 @@ export default class OpenMeteo {
     let weatherData = {
       elevationM: weatherDataRaw.elevation,
       // current
-      currentTempCelsius: weatherDataRaw.current.temperature_2m,
-      currentRH: weatherDataRaw.current.relative_humidity_2m,
-      currentTimeUt: weatherDataRaw.current_time_ut,
+      tempNow: weatherDataRaw.current.temperature_2m,
+      relativeHumidityNow: weatherDataRaw.current.relative_humidity_2m,
+      timeUtNow: weatherDataRaw.current_time_ut,
 
       // hourly - dew point
       dewPointListHourly: weatherDataRaw.hourly.dew_point_2m,
