@@ -76,6 +76,7 @@ export default function AlertScoreView({ alertScore }) {
                     unit={metric.unit}
                     color={getAlertColor(isConditionMet ? 1 : 0, 1)}
                     timeLabel={t(metric.timeLabel)}
+                    unit={t(metric.unit)}
                   />
                 </TableCell>
                 <TableCell>
