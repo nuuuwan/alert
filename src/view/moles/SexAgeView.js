@@ -4,8 +4,8 @@ import ChildCareIcon from "@mui/icons-material/ChildCareOutlined";
 import ElderlyIcon from "@mui/icons-material/ElderlyOutlined";
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
 import FemaleIcon from "@mui/icons-material/Female";
-import MetricCard from "../atoms/MetricCard";
-import MetricCardCollection from "../atoms/MetricCardCollection";
+import OldMetricCard from "../atoms/OldMetricCard";
+import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
 import { COLORS } from "../_cons/StyleConstants";
 
 const dataConfig = [
@@ -29,7 +29,7 @@ function SexAgeView({ sexAgeData, areaSqKm }) {
   const allData = { ...sexAgeData, areaSqKm: areaSqKm };
 
   return (
-    <MetricCardCollection
+    <OldMetricCardCollection
       title="Demographics"
       sourceList={[
         {
@@ -40,7 +40,7 @@ function SexAgeView({ sexAgeData, areaSqKm }) {
       ]}
     >
       {dataConfig.map(({ key, Icon, label, unit }) => (
-        <MetricCard
+        <OldMetricCard
           key={key}
           label={label}
           value={allData[key]?.toLocaleString() || "N/A"}
@@ -50,7 +50,7 @@ function SexAgeView({ sexAgeData, areaSqKm }) {
           timeLabel="2024"
         />
       ))}
-    </MetricCardCollection>
+    </OldMetricCardCollection>
   );
 }
 

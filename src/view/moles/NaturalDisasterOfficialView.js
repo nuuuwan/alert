@@ -1,5 +1,5 @@
-import MetricCard from "../atoms/MetricCard";
-import MetricCardCollection from "../atoms/MetricCardCollection";
+import OldMetricCard from "../atoms/OldMetricCard";
+import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
 import LandslideIcon from "@mui/icons-material/Landslide";
 import WaterIcon from "@mui/icons-material/Water";
 import { getAlertColor } from "../_cons/StyleConstants";
@@ -21,7 +21,7 @@ export default function NaturalDisasterOfficialView({ place }) {
   }
 
   return (
-    <MetricCardCollection
+    <OldMetricCardCollection
       title="Official Alerts"
       sourceList={[
         {
@@ -37,7 +37,7 @@ export default function NaturalDisasterOfficialView({ place }) {
     >
       {landslideCard}
       {waterLevelCard}
-    </MetricCardCollection>
+    </OldMetricCardCollection>
   );
 }
 
@@ -61,7 +61,7 @@ function getLandslideCard(dsd) {
   const color = getAlertColor(level, 3);
 
   return (
-    <MetricCard
+    <OldMetricCard
       Icon={LandslideIcon}
       label="Landslide"
       value={value}
@@ -90,7 +90,7 @@ function getWaterLevelCard(hydrometricStation) {
   const color = getAlertColor(level, 3);
 
   return (
-    <MetricCard
+    <OldMetricCard
       Icon={WaterIcon}
       label="Water Level"
       value={waterLevelM !== undefined ? waterLevelM.toFixed(2) : "N/A"}

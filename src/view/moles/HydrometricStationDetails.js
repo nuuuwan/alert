@@ -6,11 +6,11 @@ import WavesIcon from "@mui/icons-material/Waves";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
-import MetricCard from "../atoms/MetricCard";
+import OldMetricCard from "../atoms/OldMetricCard";
 import WaterLevelChart from "../atoms/WaterLevelChart";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
-import MetricCardCollection from "../atoms/MetricCardCollection";
+import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
 
 export default function HydrometricStationDetails({ place }) {
   const [loading, setLoading] = useState(true);
@@ -85,7 +85,7 @@ export default function HydrometricStationDetails({ place }) {
   return (
     <Grid container spacing={0}>
       <Grid item xs={12}>
-        <MetricCardCollection
+        <OldMetricCardCollection
           title="Water Level Metrics"
           sourceList={[
             {
@@ -95,7 +95,7 @@ export default function HydrometricStationDetails({ place }) {
             },
           ]}
         >
-          <MetricCard
+          <OldMetricCard
             Icon={WavesIcon}
             label="Water Level"
             value={latestReading.waterLevelM.toFixed(2)}
@@ -105,7 +105,7 @@ export default function HydrometricStationDetails({ place }) {
             color={COLORS.water}
           />
           {rateOfChangeData && (
-            <MetricCard
+            <OldMetricCard
               Icon={rateOfChangeData.icon}
               label="Rate of Rise/Drop"
               value={rateOfChangeData.value}
@@ -114,7 +114,7 @@ export default function HydrometricStationDetails({ place }) {
               color={COLORS.water}
             />
           )}
-        </MetricCardCollection>
+        </OldMetricCardCollection>
       </Grid>
 
       <Grid item xs={12}>

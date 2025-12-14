@@ -4,7 +4,7 @@ import { isAlertColor, COLORS } from "../_cons/StyleConstants";
 
 import { useTranslation } from "react-i18next";
 
-export default function MetricCard({
+export default function OldMetricCard({
   label,
   value,
   unit,

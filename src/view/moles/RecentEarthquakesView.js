@@ -8,7 +8,7 @@ import {
   Link,
 } from "@mui/material";
 import Earthquake from "../../nonview/core/third_party/Earthquake";
-import MetricCardCollection from "../atoms/MetricCardCollection";
+import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
 import { COLORS } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 
@@ -16,7 +16,7 @@ export default function RecentEarthquakesView({ place }) {
   const { earthquakeData } = place;
   const oneWeekAgo = Date.now() / 1000 - 7 * 24 * 60 * 60;
   const recentData = earthquakeData.filter(
-    (earthquake) => earthquake.timeUt >= oneWeekAgo,
+    (earthquake) => earthquake.timeUt >= oneWeekAgo
   );
 
   const getMagnitudeColor = (magnitude) => {
@@ -27,14 +27,14 @@ export default function RecentEarthquakesView({ place }) {
   };
 
   return (
-    <MetricCardCollection
+    <OldMetricCardCollection
       title="Recent Earthquakes"
       sourceList={Earthquake.getSourceList()}
     >
       <List sx={{ width: "100%", bgcolor: "background.paper" }}>
         {recentData.map((earthquake, index) => {
           const formattedDate = TimeUtils.formatMMMDDIImmp(
-            new Date(earthquake.timeUt * 1000),
+            new Date(earthquake.timeUt * 1000)
           );
           const formattedTimAgo = TimeUtils.getTimeAgoString(earthquake.timeUt);
           const color = getMagnitudeColor(earthquake.magnitude);
@@ -99,6 +99,6 @@ export default function RecentEarthquakesView({ place }) {
           );
         })}
       </List>
-    </MetricCardCollection>
+    </OldMetricCardCollection>
   );
 }

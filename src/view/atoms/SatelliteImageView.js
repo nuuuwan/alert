@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
-import MetricCardCollection from "./MetricCardCollection";
+import OldMetricCardCollection from "./OldMetricCardCollection";
 export default function SatelliteImageView({ place }) {
   const { latLng, name } = place;
   const latLngToWebMercator = (lat, lng) => {
@@ -26,7 +26,7 @@ export default function SatelliteImageView({ place }) {
   const [loading, setLoading] = useState(true);
 
   return (
-    <MetricCardCollection
+    <OldMetricCardCollection
       title="Satellite Image"
       sourceList={[
         {
@@ -67,6 +67,6 @@ export default function SatelliteImageView({ place }) {
           borderColor: "divider",
         }}
       />
-    </MetricCardCollection>
+    </OldMetricCardCollection>
   );
 }

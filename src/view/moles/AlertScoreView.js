@@ -1,4 +1,4 @@
-import MetricCard from "../atoms/MetricCard";
+import OldMetricCard from "../atoms/OldMetricCard";
 import CustomPaper from "../atoms/CustomPaper";
 import { useTranslation } from "react-i18next";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
@@ -46,7 +46,7 @@ export default function AlertScoreView({ alertScore }) {
       <Typography variant="body2" sx={{ mb: 1 }}>
         {t(alertScore.description)}
       </Typography>
-      <MetricCard
+      <OldMetricCard
         label={t(alertScore.name)}
         Icon={Icon}
         value={`${score}/${maxScore}`}
@@ -70,7 +70,7 @@ export default function AlertScoreView({ alertScore }) {
                   <StatusIcon sx={{ color: statusColor }} />
                 </TableCell>
                 <TableCell>
-                  <MetricCard
+                  <OldMetricCard
                     label={t(metric.name)}
                     value={metric.value}
                     unit={metric.unit}

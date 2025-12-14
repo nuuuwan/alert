@@ -1,7 +1,7 @@
 import { LineChart } from "@mui/x-charts/LineChart";
 import { COLORS } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
-import MetricCardCollection from "./MetricCardCollection";
+import OldMetricCardCollection from "./OldMetricCardCollection";
 
 const DASHED_STYLE = {
   strokeDasharray: "5 5",
@@ -55,7 +55,7 @@ export default function WaterLevelChart({
   });
 
   return (
-    <MetricCardCollection
+    <OldMetricCardCollection
       title="Water Level History"
       sourceList={[
         {
@@ -106,6 +106,6 @@ export default function WaterLevelChart({
           height: { xs: "calc(80vw * 9/16)", md: "calc((80vw - 80vh) * 9/16)" },
         }}
       />
-    </MetricCardCollection>
+    </OldMetricCardCollection>
   );
 }

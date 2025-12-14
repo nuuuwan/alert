@@ -5,7 +5,11 @@ import SourceView from "./SourceView";
 import { useTranslation } from "react-i18next";
 import CustomPaper from "./CustomPaper";
 
-export default function MetricCardCollection({ title, children, sourceList }) {
+export default function OldMetricCardCollection({
+  title,
+  children,
+  sourceList,
+}) {
   const { t } = useTranslation();
   return (
     <CustomPaper>

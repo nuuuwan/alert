@@ -1,5 +1,5 @@
-import MetricCard from "../atoms/MetricCard";
-import MetricCardCollection from "../atoms/MetricCardCollection";
+import OldMetricCard from "../atoms/OldMetricCard";
+import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
 import FloodIcon from "@mui/icons-material/Flood";
 import { getAlertColor } from "../_cons/StyleConstants";
 import LandslideIcon from "@mui/icons-material/Landslide";
@@ -52,14 +52,14 @@ export default function NaturalDisasterView({ place }) {
           "These Natural Disaster Risk Metrics are still under development and should be used for informational purposes only."
         )}
       </Alert>
-      <MetricCardCollection
+      <OldMetricCardCollection
         title="Probabilistic Disaster Risk Alerts (Experimental)"
         sourceList={[
           ...OpenElevation.getSourceList(),
           ...OpenMeteo.getSourceList(place.latLng),
         ]}
       >
-        <MetricCard
+        <OldMetricCard
           Icon={FloodIcon}
           label="Flood"
           value={`${floodRiskData.floodRiskLevel}/${floodRiskData.floodRiskMaxLevel}`}
@@ -74,7 +74,7 @@ export default function NaturalDisasterView({ place }) {
             floodRiskData.floodRiskMaxLevel
           )}
         />
-        <MetricCard
+        <OldMetricCard
           Icon={LandslideIcon}
           label="Landslide"
           value={`${landslideRiskData.landslideRiskLevel}/${landslideRiskData.landslideRiskMaxLevel}`}
@@ -90,7 +90,7 @@ export default function NaturalDisasterView({ place }) {
           )}
         />
 
-        <MetricCard
+        <OldMetricCard
           Icon={DeviceThermostatIcon}
           label="Heat"
           value={`${heatRiskData.heatRiskLevel}/${heatRiskData.heatRiskMaxLevel}`}
@@ -106,7 +106,7 @@ export default function NaturalDisasterView({ place }) {
           )}
         />
 
-        <MetricCard
+        <OldMetricCard
           Icon={InvertColorsOffIcon}
           label="Drought"
           value={`${droughtRiskData.droughtRiskLevel}/${droughtRiskData.droughtRiskMaxLevel}`}
@@ -122,7 +122,7 @@ export default function NaturalDisasterView({ place }) {
           )}
         />
 
-        <MetricCard
+        <OldMetricCard
           Icon={TsunamiIcon}
           label="Tsunami"
           value={`${tsunamiRiskData.tsunamiRiskLevel}/${tsunamiRiskData.tsunamiRiskMaxLevel}`}
@@ -137,7 +137,7 @@ export default function NaturalDisasterView({ place }) {
             tsunamiRiskData.tsunamiRiskMaxLevel
           )}
         />
-      </MetricCardCollection>
+      </OldMetricCardCollection>
       <Box>
         <AlertScoreView alertScore={landslideScore} />
         <AlertScoreView alertScore={floodScore} />

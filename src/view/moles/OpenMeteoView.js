@@ -1,8 +1,8 @@
 import Grid from "@mui/material/Grid";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
-import MetricCard from "../atoms/MetricCard";
-import MetricCardCollection from "../atoms/MetricCardCollection";
+import OldMetricCard from "../atoms/OldMetricCard";
+import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
 import RainChart from "./RainChart";
 import TempChart from "./TempChart";
 import OpacityIcon from "@mui/icons-material/Opacity";
@@ -16,11 +16,11 @@ export default function OpenMeteoView({ place }) {
   return (
     <Grid container spacing={0}>
       <Grid item xs={12}>
-        <MetricCardCollection
+        <OldMetricCardCollection
           title="Weather Forecast"
           sourceList={OpenMeteo.getSourceList(latLng)}
         >
-          <MetricCard
+          <OldMetricCard
             Icon={ThermostatIcon}
             label="Max Temp"
             value={openMeteoData.maxTempNext24Hours.toFixed(1)}
@@ -31,7 +31,7 @@ export default function OpenMeteoView({ place }) {
             sm={6}
             md={6}
           />
-          <MetricCard
+          <OldMetricCard
             Icon={WaterDropIcon}
             label="Rain"
             value={openMeteoData.hourlyRainSumNext24Hours.toFixed(0)}
@@ -42,14 +42,14 @@ export default function OpenMeteoView({ place }) {
             sm={6}
             md={6}
           />
-        </MetricCardCollection>
+        </OldMetricCardCollection>
       </Grid>
       <Grid item xs={12}>
-        <MetricCardCollection
+        <OldMetricCardCollection
           title="Current Weather"
           sourceList={OpenMeteo.getSourceList(latLng)}
         >
-          <MetricCard
+          <OldMetricCard
             Icon={WaterDropIcon}
             label="Rain"
             value={openMeteoData.hourlyRainSumLast24Hours.toFixed(0)}
@@ -60,7 +60,7 @@ export default function OpenMeteoView({ place }) {
             sm={6}
             md={3}
           />
-          <MetricCard
+          <OldMetricCard
             Icon={ThermostatIcon}
             label="Temp"
             value={openMeteoData.currentTempCelsius.toFixed(1)}
@@ -71,7 +71,7 @@ export default function OpenMeteoView({ place }) {
             sm={6}
             md={3}
           />
-          <MetricCard
+          <OldMetricCard
             Icon={OpacityIcon}
             label="Relative Humidity"
             value={openMeteoData.currentRH.toFixed(0)}
@@ -82,7 +82,7 @@ export default function OpenMeteoView({ place }) {
             sm={6}
             md={3}
           />
-          <MetricCard
+          <OldMetricCard
             Icon={CloudIcon}
             label="Dew Point"
             value={openMeteoData.hourlyDewPoint[7 * 24].toFixed(1)}
@@ -93,7 +93,7 @@ export default function OpenMeteoView({ place }) {
             sm={6}
             md={3}
           />
-        </MetricCardCollection>
+        </OldMetricCardCollection>
       </Grid>
       <Grid item xs={12}>
         <RainChart

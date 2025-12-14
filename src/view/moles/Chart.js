@@ -5,7 +5,7 @@ import { LinePlot } from "@mui/x-charts/LineChart";
 import { ChartsXAxis, ChartsYAxis } from "@mui/x-charts";
 import { ChartsReferenceLine } from "@mui/x-charts/ChartsReferenceLine";
 import { BarPlot } from "@mui/x-charts/BarChart";
-import MetricCardCollection from "../atoms/MetricCardCollection";
+import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 
 export default function Chart({
@@ -53,7 +53,7 @@ export default function Chart({
   const Plot = chartType === "line" ? LinePlot : BarPlot;
 
   return (
-    <MetricCardCollection
+    <OldMetricCardCollection
       title={title}
       sourceList={OpenMeteo.getSourceList(latLng)}
     >
@@ -104,6 +104,6 @@ export default function Chart({
         <ChartsXAxis />
         <ChartsYAxis />
       </ChartContainer>
-    </MetricCardCollection>
+    </OldMetricCardCollection>
   );
 }
