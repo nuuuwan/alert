@@ -10,7 +10,7 @@ import LoadingView from "../atoms/LoadingView";
 export default function NaturalDisasterView({ place }) {
   const { t } = useTranslation();
 
-  let alertScoreList = null;
+  let alertScoreList = [];
 
   if (place) {
     const { openMeteoData, openElevationData, earthquakeData } = place;
@@ -41,7 +41,7 @@ export default function NaturalDisasterView({ place }) {
         )}
       </Alert>
       <Box>
-        <LoadingView isLoaded={alertScoreList !== null}>
+        <LoadingView isLoaded={alertScoreList}>
           {alertScoreList.map((alertScore, iAlertScore) => (
             <Box key={alertScore.name} sx={{ mt: 2 }}>
               <AlertScoreView

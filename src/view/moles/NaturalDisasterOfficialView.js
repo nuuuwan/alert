@@ -6,19 +6,20 @@ import { getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import DataSource from "../../nonview/core/DataSource";
+import LoadingView from "../atoms/LoadingView";
 
 export default function NaturalDisasterOfficialView({ place }) {
-  const dsd = place.dsd;
-  const isHydrometricStation = place instanceof HydrometricStation;
+  let landslideCard;
+  let waterLevelCard;
+  if (place) {
+    const dsd = place && place.dsd;
+    const isHydrometricStation = place instanceof HydrometricStation;
 
-  const landslideCard =
-    dsd && dsd.latestLandslideWarningLevel !== undefined
-      ? getLandslideCard(dsd)
-      : null;
-  const waterLevelCard = isHydrometricStation ? getWaterLevelCard(place) : null;
-
-  if (!landslideCard && !waterLevelCard) {
-    return null;
+    landslideCard =
+      dsd && dsd.latestLandslideWarningLevel !== undefined
+        ? getLandslideCard(dsd)
+        : null;
+    waterLevelCard = isHydrometricStation ? getWaterLevelCard(place) : null;
   }
 
   return (
@@ -36,8 +37,10 @@ export default function NaturalDisasterOfficialView({ place }) {
         }),
       ]}
     >
-      {landslideCard}
-      {waterLevelCard}
+      <LoadingView isLoaded={landslideCard || waterLevelCard}>
+        {landslideCard}
+        {waterLevelCard}
+      </LoadingView>
     </OldMetricCardCollection>
   );
 }
