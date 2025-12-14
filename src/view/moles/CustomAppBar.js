@@ -16,6 +16,7 @@ import { COLORS } from "../_cons/StyleConstants";
 import EntAvatar from "../atoms/EntAvatar";
 import { t } from "i18next";
 import VERSION from "../../nonview/cons/VERSION";
+import { Typography } from "@mui/material";
 
 const GITHUB_REPO = "https://github.com/nuuuwan/alert";
 const GITHUB_ISSUES = `${GITHUB_REPO}/issues`;
@@ -125,7 +126,7 @@ export default function CustomAppBar({ selectedEnt, mapLatLng }) {
             <ListItemIcon>
               <RefreshIcon fontSize="small" />
             </ListItemIcon>
-            {t("Refresh")} (v{VERSION.DATETIME_STR})
+            {t("Refresh")}
           </MenuItem>
           <Divider />
           {availableLanguages.map((lang) => (
@@ -152,6 +153,10 @@ export default function CustomAppBar({ selectedEnt, mapLatLng }) {
               {lang.charAt(0).toUpperCase() + lang.slice(1)}
             </MenuItem>
           ))}
+          <Divider />
+          <Typography variant="caption" sx={{ marginLeft: 2 }}>
+            v{VERSION.DATETIME_STR}
+          </Typography>
         </Menu>
       </Toolbar>
     </AppBar>
