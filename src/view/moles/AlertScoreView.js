@@ -1,7 +1,7 @@
 import OldMetricCard from "../atoms/OldMetricCard";
 import CustomPaper from "../atoms/CustomPaper";
 import { useTranslation } from "react-i18next";
-import { getAlertColor } from "../_cons/StyleConstants";
+import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import InfoIcon from "@mui/icons-material/Info";
 import TsunamiIcon from "@mui/icons-material/Tsunami";
 import WaterIcon from "@mui/icons-material/Water";
@@ -62,7 +62,9 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
       <Grid container spacing={2} sx={{ mt: 1 }}>
         {alertScore.metricList.map((metric, index) => {
           const isConditionMet = metric.condition(metric.value);
-          const StatusIcon = isConditionMet ? CheckCircleIcon : CancelIcon;
+          const statusColor = isConditionMet
+            ? COLORS.highAlert
+            : COLORS.noAlert;
 
           return (
             <Grid item xs={12} sm={6} md={4} key={index}>
@@ -72,22 +74,22 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
                   flexDirection: "column",
                   gap: 1,
                   p: 1,
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
                 <MetricCard
                   timedUnitValue={metric.timedUnitValue}
                   timeLabel={t(metric.timeLabel)}
+                  colorOverride={statusColor}
                 />
-                <Typography variant="body2">
+                <Typography
+                  variant="caption"
+                  sx={{ textDecoration: !isConditionMet ? "line-through" : "" }}
+                  color={statusColor}
+                >
                   {t(metric.conditionDescription)}
                 </Typography>
-                <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-                  {StatusIcon && (
-                    <StatusIcon
-                      sx={{ color: isConditionMet ? "#4caf50" : "#f44336" }}
-                    />
-                  )}
-                </Box>
               </Box>
             </Grid>
           );

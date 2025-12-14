@@ -4,11 +4,15 @@ import { isAlertColor, COLORS } from "../_cons/StyleConstants";
 
 import { useTranslation } from "react-i18next";
 
-export default function MetricCard({ timedUnitValue, alertLabel }) {
+export default function MetricCard({
+  timedUnitValue,
+  alertLabel,
+  colorOverride,
+}) {
   const { t } = useTranslation();
   const unitValue = timedUnitValue.unitValue;
 
-  let color = unitValue.constructor.getColor();
+  const color = colorOverride || unitValue.constructor.getColor();
   let foreColor = color || COLORS.neutral;
   let backColor = "white";
   if (isAlertColor(color)) {
@@ -38,7 +42,7 @@ export default function MetricCard({ timedUnitValue, alertLabel }) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        overflow: "hidden", // Ensure content does not overflow
+        overflow: "hidden",
       }}
     >
       <Box
