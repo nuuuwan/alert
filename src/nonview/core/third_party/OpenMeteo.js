@@ -99,6 +99,34 @@ export default class OpenMeteo {
 
   static async getData({ latLng }) {
     const weatherDataRaw = await OpenMeteo.getRawData({ latLng });
+
+    // Extract temporary variables to avoid repetition
+    const rainListNext24h = weatherDataRaw.hourly.precipitation.slice(
+      7 * 24,
+      8 * 24
+    );
+    const rainNext7d = weatherDataRaw.hourly.precipitation.slice(
+      7 * 24,
+      14 * 24
+    );
+    const rainListPrev24h = weatherDataRaw.hourly.precipitation.slice(
+      6 * 24,
+      7 * 24
+    );
+    const rainListPrev7d = weatherDataRaw.hourly.precipitation.slice(0, 7 * 24);
+    const dewPointListNext24h = weatherDataRaw.hourly.dew_point_2m.slice(
+      7 * 24,
+      8 * 24
+    );
+    const tempListNext24h = weatherDataRaw.hourly.temperature_2m.slice(
+      7 * 24,
+      8 * 24
+    );
+    const soilMoistureDeepListNext24h =
+      weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 8 * 24);
+    const soilMoistureDeepListNext7d =
+      weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 14 * 24);
+
     let weatherData = {
       elevationM: weatherDataRaw.elevation,
       // current
@@ -108,47 +136,23 @@ export default class OpenMeteo {
 
       // hourly - dew point
       dewPointListHourly: weatherDataRaw.hourly.dew_point_2m,
-      dewPointNext24hMax: Math.max(
-        ...weatherDataRaw.hourly.dew_point_2m.slice(7 * 24, 8 * 24)
-      ),
-      rainHoursNext24hSum: weatherDataRaw.hourly.precipitation
-        .slice(7 * 24, 8 * 24)
-        .filter((rain) => rain > 0).length,
+      dewPointNext24hMax: Math.max(...dewPointListNext24h),
+      rainHoursNext24hSum: rainListNext24h.filter((rain) => rain > 0).length,
       // hourly - rain
-      rainHoursNext7dSum: weatherDataRaw.hourly.precipitation
-        .slice(7 * 24, 14 * 24)
-        .filter((rain) => rain > 0).length,
+      rainHoursNext7dSum: rainNext7d.filter((rain) => rain > 0).length,
       rainListHourly: weatherDataRaw.hourly.precipitation,
-      rainNext24hMax: Math.max(
-        ...weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24)
-      ),
-      rainNext24hSum: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24)
-      ),
-      rainNext7dSum: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(7 * 24, 14 * 24)
-      ),
-      rainPrev24hSum: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(6 * 24, 7 * 24)
-      ),
-      rainPrev7dSum: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(0, 7 * 24)
-      ),
+      rainNext24hMax: Math.max(...rainListNext24h),
+      rainNext24hSum: ArrayUtils.sum(rainListNext24h),
+      rainNext7dSum: ArrayUtils.sum(rainNext7d),
+      rainPrev24hSum: ArrayUtils.sum(rainListPrev24h),
+      rainPrev7dSum: ArrayUtils.sum(rainListPrev7d),
       // hourly - soil moisture
-      soilMoistureDeepNext24hMean: ArrayUtils.mean(
-        weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 8 * 24)
-      ),
-      soilMoistureDeepNext7dMean: ArrayUtils.mean(
-        weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 14 * 24)
-      ),
+      soilMoistureDeepNext24hMean: ArrayUtils.mean(soilMoistureDeepListNext24h),
+      soilMoistureDeepNext7dMean: ArrayUtils.mean(soilMoistureDeepListNext7d),
       // hourly - temperature
       tempListHourly: weatherDataRaw.hourly.temperature_2m,
-      tempNext24hMax: Math.max(
-        ...weatherDataRaw.hourly.temperature_2m.slice(7 * 24, 8 * 24)
-      ),
-      tempNext24hMean: ArrayUtils.mean(
-        weatherDataRaw.hourly.temperature_2m.slice(7 * 24, 8 * 24)
-      ),
+      tempNext24hMax: Math.max(...tempListNext24h),
+      tempNext24hMean: ArrayUtils.mean(tempListNext24h),
       // hourly - time
       timeUtListHourly: weatherDataRaw.hourly_time_ut,
     };
