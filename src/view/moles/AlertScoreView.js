@@ -19,7 +19,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import Box from "@mui/material/Box";
 import MetricCard from "../atoms/MetricCard";
 
-export default function AlertScoreView({ alertScore }) {
+export default function AlertScoreView({ iAlertScore, alertScore }) {
   const { t } = useTranslation();
 
   if (!alertScore) {
@@ -43,7 +43,7 @@ export default function AlertScoreView({ alertScore }) {
   return (
     <CustomPaper>
       <Typography variant="h6" sx={{ mb: 1 }}>
-        {t(alertScore.name)} {t("Alert Score")}
+        A{iAlertScore + 1}. {t(alertScore.name)} {t("Alert Score")}
       </Typography>
       <Typography variant="body2" sx={{ mb: 1 }}>
         {t(alertScore.description)}

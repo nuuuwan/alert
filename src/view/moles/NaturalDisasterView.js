@@ -9,17 +9,19 @@ export default function NaturalDisasterView({ place }) {
   const { openMeteoData, openElevationData, earthquakeData } = place;
   const { t } = useTranslation();
 
-  const landslideScore = NaturalDisaster.getLandslideRiskScore({
-    openMeteoData,
-    openElevationData,
-  });
-  const floodScore = NaturalDisaster.getFloodRiskScore({
-    openMeteoData,
-    openElevationData,
-  });
-  const tsunamiScore = NaturalDisaster.getTsunamiRiskScore({ earthquakeData });
-  const droughtScore = OpenMeteo.getDroughtRiskScore({ openMeteoData });
-  const heatScore = OpenMeteo.getHeatRiskScore({ openMeteoData });
+  const alertScoreList = [
+    NaturalDisaster.getLandslideRiskScore({
+      openMeteoData,
+      openElevationData,
+    }),
+    NaturalDisaster.getFloodRiskScore({
+      openMeteoData,
+      openElevationData,
+    }),
+    NaturalDisaster.getTsunamiRiskScore({ earthquakeData }),
+    OpenMeteo.getDroughtRiskScore({ openMeteoData }),
+    OpenMeteo.getHeatRiskScore({ openMeteoData }),
+  ];
 
   return (
     <Box>
@@ -32,11 +34,11 @@ export default function NaturalDisasterView({ place }) {
         )}
       </Alert>
       <Box>
-        <AlertScoreView alertScore={landslideScore} />
-        <AlertScoreView alertScore={floodScore} />
-        <AlertScoreView alertScore={tsunamiScore} />
-        <AlertScoreView alertScore={droughtScore} />
-        <AlertScoreView alertScore={heatScore} />
+        {alertScoreList.map((alertScore, iAlertScore) => (
+          <Box key={alertScore.name} sx={{ mt: 2 }}>
+            <AlertScoreView iAlertScore={iAlertScore} alertScore={alertScore} />
+          </Box>
+        ))}
       </Box>
     </Box>
   );
