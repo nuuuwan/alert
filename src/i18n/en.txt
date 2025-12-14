@@ -101,6 +101,7 @@ Digana
 Dikwella
 Dimbulagala
 Disaster Management Centre of Sri Lanka
+District
 Divulapitiya
 Diyatalawa
 Dodangoda
@@ -501,6 +502,7 @@ Porativu Pattu
 Pothuvil
 Pottuvil
 Probabilistic Disaster Risk Alerts (Experimental)
+Province
 Pugoda
 Pujapitiya
 Puliyankulam
