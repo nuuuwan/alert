@@ -6,7 +6,7 @@ export default class SoilMoisture extends Unit {
     return "Soil Moisture";
   }
   static getUnitLabel() {
-    return "%";
+    return "m³/m³";
   }
   static getIcon() {
     return OpacityIcon;

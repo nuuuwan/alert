@@ -44,8 +44,7 @@ export default class NaturalDisaster {
             ),
           }),
           condition: (value) => value >= 6.5,
-          conditionDescription:
-            "Magnitude of earthquake greater than or equal to 6.5",
+          conditionDescription: "Greater than or equal to 6.5",
           source: {
             label: "USGS Earthquake Data (via lk_tsunamis)",
             url: "https://github.com/nuuuwan/lk_tsunamis",
@@ -69,7 +68,7 @@ export default class NaturalDisaster {
             unitValue: new Rain(openMeteoData.rainNext24hMax),
           }),
           condition: (value) => value > 30,
-          conditionDescription: "Greater than 30 mm/h",
+          conditionDescription: "Greater than 30 mm",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -165,7 +164,7 @@ export default class NaturalDisaster {
             unitValue: new Rain(openMeteoData.rainNext24hMax),
           }),
           condition: (value) => value > 50,
-          conditionDescription: "Greater than 50 mm/h",
+          conditionDescription: "Greater than 50 mm",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
