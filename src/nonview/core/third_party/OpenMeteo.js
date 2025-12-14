@@ -132,9 +132,7 @@ export default class OpenMeteo {
       hourlySoilMoistureTop1cm: weatherDataRaw.hourly.soil_moisture_0_to_1cm,
       hourlyDeepSoilMoisture: weatherDataRaw.hourly.soil_moisture_27_to_81cm,
       hourlyDewPoint: weatherDataRaw.hourly.dew_point_2m,
-      meanDeepSoilMoistureNext7Days: ArrayUtils.mean(
-        weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 14 * 24)
-      ),
+
       meanTempNext24Hours: ArrayUtils.mean(
         weatherDataRaw.hourly.temperature_2m.slice(7 * 24, 8 * 24)
       ),
