@@ -22,32 +22,11 @@ export default class OpenElevation {
       },
       slopeData: {
         maxSlope: 0.15,
-        slopeAngle: 8.53,
-        slopeDangerLevel: 1,
+        maxSlopeAngle: 8.53,
       },
     };
   }
 
-  static async getData(latLng, neighbourDistanceM = 100) {
-    if (SystemMode.isTest()) {
-      return this.getTestData();
-    }
-
-    const e = (0.0001 * neighbourDistanceM) / 11.1;
-    const pts = this._buildNeighbourhood(latLng, e);
-    const elevations = await this.getElevationList(pts);
-
-    const relativeElevationData = this.getRelativeElevationData(elevations);
-    const slopeData = this.getSlopeData(pts, elevations);
-
-    return {
-      elevationM: elevations[4],
-      relativeElevationData,
-      slopeData,
-      pts,
-      elevations,
-    };
-  }
   static async getElevationList(latLngList) {
     const locations = latLngList
       .map((latLng) => `${latLng.lat},${latLng.lng}`)
@@ -59,13 +38,13 @@ export default class OpenElevation {
       async () => {
         const response = await WWW.fetchJSON(url);
         return JSON.stringify(response);
-      },
+      }
     );
     const response = JSON.parse(responseJSON);
     return response.results.map((result) => result.elevation);
   }
 
-  static _buildNeighbourhood(latLng, e) {
+  static __buildNeighbourhood__(latLng, e) {
     const offsets = [-e, 0, e];
     const pts = [];
 
@@ -77,7 +56,7 @@ export default class OpenElevation {
     return pts;
   }
 
-  static _haversine(a, b) {
+  static __getHaversine__(a, b) {
     const R = 6371000; // metres
     const toRad = (x) => (x * Math.PI) / 180;
 
@@ -104,27 +83,18 @@ export default class OpenElevation {
       const hi = elevations[i];
       const dh = Math.abs(hi - h0);
 
-      const d = this._haversine(pts[i], pts[centreIndex]);
+      const d = this.__getHaversine__(pts[i], pts[centreIndex]);
       if (d === 0) continue;
 
       const slope = dh / d;
       if (slope > maxSlope) maxSlope = slope;
     }
 
-    const slopeAngle = Math.atan(maxSlope) * (180 / Math.PI);
-    let slopeDangerLevel = 0;
-    if (slopeAngle >= 22.5) {
-      slopeDangerLevel = 3;
-    } else if (slopeAngle >= 15) {
-      slopeDangerLevel = 2;
-    } else if (slopeAngle >= 7.5) {
-      slopeDangerLevel = 1;
-    }
+    const maxSlopeAngle = Math.atan(maxSlope) * (180 / Math.PI);
 
     return {
       maxSlope,
-      slopeAngle,
-      slopeDangerLevel,
+      maxSlopeAngle,
     };
   }
 
@@ -151,6 +121,27 @@ export default class OpenElevation {
       meanNeighbours,
       relativeElevation,
       lowGroundDangerLevel,
+    };
+  }
+
+  static async getData(latLng, neighbourDistanceM = 100) {
+    if (SystemMode.isTest()) {
+      return this.getTestData();
+    }
+
+    const e = (0.0001 * neighbourDistanceM) / 11.1;
+    const pts = this.__buildNeighbourhood__(latLng, e);
+    const elevations = await this.getElevationList(pts);
+
+    const relativeElevationData = this.getRelativeElevationData(elevations);
+    const slopeData = this.getSlopeData(pts, elevations);
+
+    return {
+      elevationM: elevations[4],
+      relativeElevationData,
+      slopeData,
+      pts,
+      elevations,
     };
   }
 }
