@@ -4,11 +4,13 @@ import { isAlertColor, COLORS } from "../_cons/StyleConstants";
 
 import { useTranslation } from "react-i18next";
 
-export default function MetricCard({ unitValue, timeLabel, alertLabel }) {
+export default function MetricCard({ timedUnitValue, alertLabel }) {
   const { t } = useTranslation();
-  if (!unitValue) {
-    return null;
+  if (!timedUnitValue) {
+    return "No timeUnitValue provided";
   }
+
+  const unitValue = timedUnitValue.unitValue;
 
   let color = unitValue.constructor.getColor();
   let foreColor = color || COLORS.neutral;
@@ -20,7 +22,10 @@ export default function MetricCard({ unitValue, timeLabel, alertLabel }) {
 
   const Icon = unitValue.constructor.getIcon();
   const label = unitValue.constructor.getLabel();
-  const value = unitValue.format();
+  const valueFormatted = unitValue.format();
+  const unitLabel = unitValue.constructor.getUnitLabel();
+
+  const timeLabel = timedUnitValue.timeLabel;
 
   return (
     <Box
@@ -74,9 +79,9 @@ export default function MetricCard({ unitValue, timeLabel, alertLabel }) {
           color={foreColor}
           fontWeight={"bold"}
           noWrap
-          sx={{ fontSize: Math.min(24, 180 / t(value).length) }}
+          sx={{ fontSize: Math.min(24, 180 / t(valueFormatted).length) }}
         >
-          {t(value)}
+          {t(valueFormatted)}
         </Typography>
         <Typography
           variant="caption"
@@ -84,7 +89,7 @@ export default function MetricCard({ unitValue, timeLabel, alertLabel }) {
           sx={{ ml: 0.5, position: "relative", bottom: "4px" }}
           noWrap
         >
-          {unitValue.constructor.getUnitLabel()}
+          {unitLabel}
         </Typography>
       </Box>
 

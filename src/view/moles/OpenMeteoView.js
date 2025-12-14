@@ -6,6 +6,7 @@ import Temperature from "../../nonview/core/units/Temperature";
 import Rain from "../../nonview/core/units/Rain";
 import RelativeHumidity from "../../nonview/core/units/RelativeHumidity";
 import DewPoint from "../../nonview/core/units/DewPoint";
+import TimedUnit from "../../nonview/core/units/TimedUnit";
 import RainChart from "../moles/RainChart";
 import TempChart from "../moles/TempChart";
 
@@ -21,12 +22,20 @@ export default function OpenMeteoView({ place }) {
           sourceList={OpenMeteo.getSourceList(latLng)}
         >
           <MetricCard
-            unitValue={new Temperature(openMeteoData.maxTempNext24Hours)}
-            timeLabel="Next 24h"
+            timedUnitValue={
+              new TimedUnit({
+                timeLabel: "Next 24h sum",
+                unitValue: new Rain(openMeteoData.hourlyRainSumNext24Hours),
+              })
+            }
           />
           <MetricCard
-            unitValue={new Rain(openMeteoData.hourlyRainSumNext24Hours)}
-            timeLabel="Next 24h total"
+            timedUnitValue={
+              new TimedUnit({
+                timeLabel: "Next 24h max",
+                unitValue: new Temperature(openMeteoData.maxTempNext24Hours),
+              })
+            }
           />
         </OldMetricCardCollection>
       </Grid>
@@ -36,20 +45,36 @@ export default function OpenMeteoView({ place }) {
           sourceList={OpenMeteo.getSourceList(latLng)}
         >
           <MetricCard
-            unitValue={new Rain(openMeteoData.hourlyRainSumLast24Hours)}
-            timeLabel="Last 24h total"
+            timedUnitValue={
+              new TimedUnit({
+                timeLabel: "Last 24h sum",
+                unitValue: new Rain(openMeteoData.hourlyRainSumLast24Hours),
+              })
+            }
           />
           <MetricCard
-            unitValue={new Temperature(openMeteoData.currentTempCelsius)}
-            timeLabel="Now"
+            timedUnitValue={
+              new TimedUnit({
+                timeLabel: "Now",
+                unitValue: new Temperature(openMeteoData.currentTempCelsius),
+              })
+            }
           />
           <MetricCard
-            unitValue={new RelativeHumidity(openMeteoData.currentRH)}
-            timeLabel="Now"
+            timedUnitValue={
+              new TimedUnit({
+                timeLabel: "Now",
+                unitValue: new RelativeHumidity(openMeteoData.currentRH),
+              })
+            }
           />
           <MetricCard
-            unitValue={new DewPoint(openMeteoData.hourlyDewPoint[7 * 24])}
-            timeLabel="Now"
+            timedUnitValue={
+              new TimedUnit({
+                timeLabel: "Now",
+                unitValue: new DewPoint(openMeteoData.hourlyDewPoint[7 * 24]),
+              })
+            }
           />
         </OldMetricCardCollection>
       </Grid>

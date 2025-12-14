@@ -70,7 +70,7 @@ export default function AlertScoreView({ alertScore }) {
               <TableRow key={index}>
                 <TableCell>
                   <MetricCard
-                    unitValue={metric.unitValue}
+                    timedUnitValue={metric.timedUnitValue}
                     timeLabel={t(metric.timeLabel)}
                   />
                 </TableCell>

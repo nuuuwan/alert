@@ -5,6 +5,11 @@ import SystemMode from "../../base/SystemMode";
 import WWW from "../../base/WWW";
 import AlertScore from "../alerts/AlertScore";
 import AlertScoreMetric from "../alerts/AlertScoreMetric";
+import Rain from "../units/Rain";
+import SoilMoisture from "../units/SoilMoisture";
+import Temperature from "../units/Temperature";
+import DewPoint from "../units/DewPoint";
+import TimedUnit from "../units/TimedUnit";
 export default class OpenMeteo {
   static getSourceList(latLng) {
     const [latitude, longitude] = latLng.raw();
@@ -261,9 +266,12 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           name: "Rain Last 7 Days",
           description: "Total rainfall recorded in the previous 7 days.",
-          timeLabel: "Previous 7 days",
-          value:
-            openMeteoData.droughtRiskFactors24h.d01HourlyRainSumPrevious7Days,
+          timedUnitValue: new TimedUnit({
+            timeLabel: "Previous 7 days",
+            unitValue: new Rain(
+              openMeteoData.droughtRiskFactors24h.d01HourlyRainSumPrevious7Days
+            ),
+          }),
           condition: (value) => value < 0.1,
           conditionDescription: "Total rainfall less than 0.1 mm",
           source: {
@@ -275,8 +283,12 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           name: "Rain Next 7 Days",
           description: "Forecasted rainfall for the next 7 days.",
-          timeLabel: "Next 7 days",
-          value: openMeteoData.droughtRiskFactors24h.d02HourlyRainSumNext7Days,
+          timedUnitValue: new TimedUnit({
+            timeLabel: "Next 7 days",
+            unitValue: new Rain(
+              openMeteoData.droughtRiskFactors24h.d02HourlyRainSumNext7Days
+            ),
+          }),
           condition: (value) => value < 0.1,
           conditionDescription: "Forecasted rainfall less than 0.1 mm",
           source: {
@@ -288,10 +300,12 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           name: "Soil Moisture",
           description: "Mean deep soil moisture for the next 7 days.",
-          timeLabel: "Next 7 days",
-          value:
-            openMeteoData.droughtRiskFactors24h
-              .d03MeanDeepSoilMoistureNext7Days,
+          timedUnitValue: new TimedUnit({
+            timeLabel: "Next 7 days",
+            unitValue: new SoilMoisture(
+              openMeteoData.droughtRiskFactors24h.d03MeanDeepSoilMoistureNext7Days
+            ),
+          }),
           condition: (value) => value < 0.25,
           conditionDescription: "Mean deep soil moisture less than 0.25",
           source: {
@@ -303,8 +317,12 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           name: "No Rain Hours",
           description: "Hours with no rainfall in the next 7 days.",
-          timeLabel: "Next 7 days",
-          value: openMeteoData.droughtRiskFactors24h.d04HoursOfNoRainNext7Days,
+          timedUnitValue: new TimedUnit({
+            timeLabel: "Next 7 days",
+            unitValue: new Rain(
+              openMeteoData.droughtRiskFactors24h.d04HoursOfNoRainNext7Days
+            ),
+          }),
           condition: (value) => value > 0,
           conditionDescription: "Hours with no rainfall greater than 0",
           source: {
@@ -326,8 +344,12 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           name: "Max Temperature",
           description: "Maximum temperature forecasted for the next 24 hours.",
-          timeLabel: "Next 24 hours",
-          value: openMeteoData.heatRiskFactors24h.h01MaxTempNext24Hours,
+          timedUnitValue: new TimedUnit({
+            timeLabel: "Next 24 hours",
+            unitValue: new Temperature(
+              openMeteoData.heatRiskFactors24h.h01MaxTempNext24Hours
+            ),
+          }),
           condition: (value) => value > 35,
           conditionDescription: "Maximum temperature greater than 35°C",
           source: {
@@ -339,8 +361,12 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           name: "Mean Temperature",
           description: "Mean temperature forecasted for the next 24 hours.",
-          timeLabel: "Next 24 hours",
-          value: openMeteoData.heatRiskFactors24h.h02MeanTempNext24Hours,
+          timedUnitValue: new TimedUnit({
+            timeLabel: "Next 24 hours",
+            unitValue: new Temperature(
+              openMeteoData.heatRiskFactors24h.h02MeanTempNext24Hours
+            ),
+          }),
           condition: (value) => value > 30,
           conditionDescription: "Mean temperature greater than 30°C",
           source: {
@@ -352,8 +378,12 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           name: "Max Dew Point",
           description: "Maximum dew point forecasted for the next 24 hours.",
-          timeLabel: "Next 24 hours",
-          value: openMeteoData.heatRiskFactors24h.h03MaxDewPointNext24Hours,
+          timedUnitValue: new TimedUnit({
+            timeLabel: "Next 24 hours",
+            unitValue: new DewPoint(
+              openMeteoData.heatRiskFactors24h.h03MaxDewPointNext24Hours
+            ),
+          }),
           condition: (value) => value > 25,
           conditionDescription: "Maximum dew point greater than 25°C",
           source: {
