@@ -1,20 +1,24 @@
 import { COLORS } from "../_cons/StyleConstants";
 import Chart from "./Chart";
 import { useTranslation } from "react-i18next";
-export default function RainChart({ hourlyRain, hourlyTimeUt, latLng }) {
+export default function RainChart({
+  rainListHourly,
+  timeUtListHourly,
+  latLng,
+}) {
   const { t } = useTranslation();
-  const hourlyRainForChart = hourlyRain.slice(6 * 24, 8 * 24);
-  const hourlyTimeUtForChart = hourlyTimeUt.slice(6 * 24, 8 * 24);
+  const rainListHourlyForChart = rainListHourly.slice(6 * 24, 8 * 24);
+  const timeUtListHourlyForChart = timeUtListHourly.slice(6 * 24, 8 * 24);
   return (
     <Chart
       title="Rainfall History & Forecast"
-      data={hourlyRainForChart}
-      timeData={hourlyTimeUtForChart}
+      data={rainListHourlyForChart}
+      timeData={timeUtListHourlyForChart}
       yAxisLabel={`${t("Rainfall")} (${t("mm")})`}
       chartType="bar"
       color={COLORS.water}
       yAxisMin={0}
-      yAxisMax={Math.max(12.5, Math.max(...hourlyRainForChart))}
+      yAxisMax={Math.max(12.5, Math.max(...rainListHourlyForChart))}
       latLng={latLng}
     />
   );

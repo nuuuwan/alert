@@ -24,7 +24,7 @@ export default function OpenMeteoView({ place }) {
             timedUnitValue={
               new TimedUnit({
                 timeLabel: "Next 24h sum",
-                unitValue: new Rain(openMeteoData.hourlyRainSumNext24Hours),
+                unitValue: new Rain(openMeteoData.rainNext24hSum),
               })
             }
           />
@@ -32,7 +32,7 @@ export default function OpenMeteoView({ place }) {
             timedUnitValue={
               new TimedUnit({
                 timeLabel: "Next 24h max",
-                unitValue: new Temperature(openMeteoData.maxTempNext24Hours),
+                unitValue: new Temperature(openMeteoData.tempNext24hMax),
               })
             }
           />
@@ -47,7 +47,7 @@ export default function OpenMeteoView({ place }) {
             timedUnitValue={
               new TimedUnit({
                 timeLabel: "Last 24h sum",
-                unitValue: new Rain(openMeteoData.hourlyRainSumLast24Hours),
+                unitValue: new Rain(openMeteoData.rainPrev24hSum),
               })
             }
           />
@@ -71,7 +71,9 @@ export default function OpenMeteoView({ place }) {
             timedUnitValue={
               new TimedUnit({
                 timeLabel: "Now",
-                unitValue: new DewPoint(openMeteoData.hourlyDewPoint[7 * 24]),
+                unitValue: new DewPoint(
+                  openMeteoData.dewPointListHourly[7 * 24]
+                ),
               })
             }
           />
@@ -79,15 +81,15 @@ export default function OpenMeteoView({ place }) {
       </Grid>
       <Grid item xs={12}>
         <RainChart
-          hourlyRain={openMeteoData.hourlyRain}
-          hourlyTimeUt={openMeteoData.hourlyTimeUt}
+          rainListHourly={openMeteoData.rainListHourly}
+          timeUtListHourly={openMeteoData.timeUtListHourly}
           latLng={place.latLng}
         />
       </Grid>
       <Grid item xs={12}>
         <TempChart
-          hourlyTemp={openMeteoData.hourlyTemp}
-          hourlyTimeUt={openMeteoData.hourlyTimeUt}
+          tempListHourly={openMeteoData.tempListHourly}
+          timeUtListHourly={openMeteoData.timeUtListHourly}
           latLng={place.latLng}
         />
       </Grid>

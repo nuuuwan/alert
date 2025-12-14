@@ -108,50 +108,48 @@ export default class OpenMeteo {
       currentTimeUt: weatherDataRaw.current_time_ut,
 
       // hourly
-      hourlyTimeUt: weatherDataRaw.hourly_time_ut,
-      hourlyTemp: weatherDataRaw.hourly.temperature_2m,
-      maxTempNext24Hours: Math.max(
+      timeUtListHourly: weatherDataRaw.hourly_time_ut,
+      tempListHourly: weatherDataRaw.hourly.temperature_2m,
+      tempNext24hMax: Math.max(
         ...weatherDataRaw.hourly.temperature_2m.slice(7 * 24, 8 * 24)
       ),
-      hourlyRain: weatherDataRaw.hourly.precipitation,
-      hourlyRainSumLast24Hours: ArrayUtils.sum(
+      rainListHourly: weatherDataRaw.hourly.precipitation,
+      rainPrev24hSum: ArrayUtils.sum(
         weatherDataRaw.hourly.precipitation.slice(6 * 24, 7 * 24)
       ),
-      hourlyRainSumPrevious7Days: ArrayUtils.sum(
+      rainPrev7dSum: ArrayUtils.sum(
         weatherDataRaw.hourly.precipitation.slice(0, 7 * 24)
       ),
-      hourlyRainSumNext7Days: ArrayUtils.sum(
+      rainNext7dSum: ArrayUtils.sum(
         weatherDataRaw.hourly.precipitation.slice(7 * 24, 14 * 24)
       ),
-      hourlyRainSumNext24Hours: ArrayUtils.sum(
+      rainNext24hSum: ArrayUtils.sum(
         weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24)
       ),
-      hoursOfNoRainNext7Days: weatherDataRaw.hourly.precipitation
+      rainHoursNext7dSum: weatherDataRaw.hourly.precipitation
         .slice(7 * 24, 14 * 24)
         .filter((rain) => rain === 0).length,
-      hourlySoilMoistureTop1cm: weatherDataRaw.hourly.soil_moisture_0_to_1cm,
-      hourlyDeepSoilMoisture: weatherDataRaw.hourly.soil_moisture_27_to_81cm,
-      hourlyDewPoint: weatherDataRaw.hourly.dew_point_2m,
+      dewPointListHourly: weatherDataRaw.hourly.dew_point_2m,
 
-      meanTempNext24Hours: ArrayUtils.mean(
+      tempNext24hMean: ArrayUtils.mean(
         weatherDataRaw.hourly.temperature_2m.slice(7 * 24, 8 * 24)
       ),
-      maxDewPointNext24Hours: Math.max(
+      dewPointNext24hMax: Math.max(
         ...weatherDataRaw.hourly.dew_point_2m.slice(7 * 24, 8 * 24)
       ),
-      peakRainFallIntensity: Math.max(
+      rainNext24hMax: Math.max(
         ...weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24)
       ),
-      hoursOfRainNext24Hours: weatherDataRaw.hourly.precipitation
+      rainHoursNext24hSum: weatherDataRaw.hourly.precipitation
         .slice(7 * 24, 8 * 24)
         .filter((rain) => rain > 0).length,
-      hoursOfRainNext7Days: weatherDataRaw.hourly.precipitation
+      rainHoursNext7dSum: weatherDataRaw.hourly.precipitation
         .slice(7 * 24, 14 * 24)
         .filter((rain) => rain > 0).length,
-      meanDeepSoilMoistureNext24Hours: ArrayUtils.mean(
+      soilMoistureDeepNext24hMean: ArrayUtils.mean(
         weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 8 * 24)
       ),
-      meanDeepSoilMoistureNext7Days: ArrayUtils.mean(
+      soilMoistureDeepNext7dMean: ArrayUtils.mean(
         weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 14 * 24)
       ),
     };
@@ -170,7 +168,7 @@ export default class OpenMeteo {
           description: "Total rainfall recorded in the previous 7d.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Prev. 7d sum",
-            unitValue: new Rain(openMeteoData.hourlyRainSumPrevious7Days),
+            unitValue: new Rain(openMeteoData.rainPrev7dSum),
           }),
           condition: (value) => value < 0.1,
           conditionDescription: "Total rainfall less than 0.1 mm",
@@ -185,7 +183,7 @@ export default class OpenMeteo {
           description: "Forecasted rainfall for the next 7d.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 7d sum",
-            unitValue: new Rain(openMeteoData.hourlyRainSumNext7Days),
+            unitValue: new Rain(openMeteoData.rainNext7dSum),
           }),
           condition: (value) => value < 0.1,
           conditionDescription: "Forecasted rainfall less than 0.1 mm",
@@ -201,7 +199,7 @@ export default class OpenMeteo {
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 7d mean",
             unitValue: new SoilMoisture(
-              openMeteoData.meanDeepSoilMoistureNext7Days
+              openMeteoData.soilMoistureDeepNext7dMean
             ),
           }),
           condition: (value) => value < 0.25,
@@ -217,7 +215,7 @@ export default class OpenMeteo {
           description: "Hours with no rainfall in the next 7d.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 7d sum",
-            unitValue: new RainHours(openMeteoData.hoursOfNoRainNext7Days),
+            unitValue: new RainHours(openMeteoData.rainHoursNext7dSum),
           }),
           condition: (value) => value > 0,
           conditionDescription: "Hours with no rainfall greater than 0",
@@ -242,7 +240,7 @@ export default class OpenMeteo {
           description: "Maximum temperature forecasted for the next 24 hours.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 24h max",
-            unitValue: new Temperature(openMeteoData.maxTempNext24Hours),
+            unitValue: new Temperature(openMeteoData.tempNext24hMax),
           }),
           condition: (value) => value > 35,
           conditionDescription: "Maximum temperature greater than 35°C",
@@ -257,7 +255,7 @@ export default class OpenMeteo {
           description: "Mean temperature forecasted for the next 24 hours.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 24h mean",
-            unitValue: new Temperature(openMeteoData.meanTempNext24Hours),
+            unitValue: new Temperature(openMeteoData.tempNext24hMean),
           }),
           condition: (value) => value > 30,
           conditionDescription: "Mean temperature greater than 30°C",
@@ -272,7 +270,7 @@ export default class OpenMeteo {
           description: "Maximum dew point forecasted for the next 24 hours.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 24h max",
-            unitValue: new DewPoint(openMeteoData.maxDewPointNext24Hours),
+            unitValue: new DewPoint(openMeteoData.dewPointNext24hMax),
           }),
           condition: (value) => value > 25,
           conditionDescription: "Maximum dew point greater than 25°C",

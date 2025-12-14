@@ -1,20 +1,24 @@
 import { COLORS } from "../_cons/StyleConstants";
 import Chart from "./Chart";
 import { useTranslation } from "react-i18next";
-export default function TempChart({ hourlyTemp, hourlyTimeUt, latLng }) {
+export default function TempChart({
+  tempListHourly,
+  timeUtListHourly,
+  latLng,
+}) {
   const { t } = useTranslation();
-  const hourlyTempForChart = hourlyTemp.slice(6 * 24, 8 * 24);
-  const hourlyTimeUtForChart = hourlyTimeUt.slice(6 * 24, 8 * 24);
+  const tempListHourlyForChart = tempListHourly.slice(6 * 24, 8 * 24);
+  const timeUtListHourlyForChart = timeUtListHourly.slice(6 * 24, 8 * 24);
   return (
     <Chart
       title="Temperature History & Forecast"
-      data={hourlyTempForChart}
-      timeData={hourlyTimeUtForChart}
+      data={tempListHourlyForChart}
+      timeData={timeUtListHourlyForChart}
       yAxisLabel={`${t("Temperature")} (${t("°C")})`}
       chartType="line"
       color={COLORS.fire}
-      yAxisMin={Math.min(...hourlyTempForChart) - 1}
-      yAxisMax={Math.max(...hourlyTempForChart) + 1}
+      yAxisMin={Math.min(...tempListHourlyForChart) - 1}
+      yAxisMax={Math.max(...tempListHourlyForChart) + 1}
       latLng={latLng}
     />
   );
