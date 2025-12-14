@@ -7,6 +7,7 @@ import SoilMoisture from "../units/SoilMoisture";
 import Slope from "../units/Slope";
 import RelativeElevation from "../units/RelativeElevation";
 import TimedUnit from "../units/TimedUnit";
+import RainHours from "../units/RainHours";
 
 export default class NaturalDisaster {
   static getLabel(level, maxLevel) {
@@ -185,7 +186,7 @@ export default class NaturalDisaster {
           description: "Number of hours with rainfall in the next 24 hours.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 24h sum",
-            unitValue: new Rain(
+            unitValue: new RainHours(
               openMeteoData.landslideRiskFactors24h.f03HoursOfRainNext24Hours
             ),
           }),
@@ -295,7 +296,7 @@ export default class NaturalDisaster {
           description: "Number of hours with rainfall in the next 24 hours.",
           timedUnitValue: new TimedUnit({
             timeLabel: "Next 24h sum",
-            unitValue: new Rain(
+            unitValue: new RainHours(
               openMeteoData.floodRiskFactors24h.f03HoursOfRainNext24Hours
             ),
           }),
