@@ -18,6 +18,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import Box from "@mui/material/Box";
 import MetricCard from "../atoms/MetricCard";
+import ScienceIcon from "@mui/icons-material/Science";
 
 export default function AlertScoreView({ iAlertScore, alertScore }) {
   const { t } = useTranslation();
@@ -42,9 +43,12 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
 
   return (
     <CustomPaper>
-      <Typography variant="h6" sx={{ mb: 1 }}>
-        A{iAlertScore + 1}. {t(alertScore.name)} {t("Alert Score")}
-      </Typography>
+      <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+        <ScienceIcon />
+        <Typography variant="h6">
+          A{iAlertScore + 1}. {t(alertScore.name)} {t("Alert Score")}
+        </Typography>
+      </Box>
       <Typography variant="body2" sx={{ mb: 1 }}>
         {t(alertScore.description)}
       </Typography>

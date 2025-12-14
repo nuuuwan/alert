@@ -4,6 +4,7 @@ import { ChartContainer } from "@mui/x-charts/ChartContainer";
 import { LinePlot } from "@mui/x-charts/LineChart";
 import { ChartsXAxis, ChartsYAxis } from "@mui/x-charts";
 import { ChartsReferenceLine } from "@mui/x-charts/ChartsReferenceLine";
+import { ChartsGrid } from "@mui/x-charts/ChartsGrid";
 import { BarPlot } from "@mui/x-charts/BarChart";
 import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
@@ -94,6 +95,7 @@ export default function Chart({
         grid={{ vertical: true, horizontal: true }}
         margin={10}
       >
+        <ChartsGrid horizontal vertical />
         <Plot />
         <ChartsReferenceLine
           x={nowPoint}

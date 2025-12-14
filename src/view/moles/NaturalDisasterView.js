@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
 import AlertScoreView from "./AlertScoreView";
+import ScienceIcon from "@mui/icons-material/Science";
 
 export default function NaturalDisasterView({ place }) {
   const { openMeteoData, openElevationData, earthquakeData } = place;
@@ -27,10 +28,11 @@ export default function NaturalDisasterView({ place }) {
     <Box>
       <Alert
         severity="warning"
+        icon={<ScienceIcon />}
         sx={{ ml: 3, width: "fit-content", maxWidth: 400 }}
       >
         {t(
-          "These Natural Disaster Risk Metrics are still under development and should be used for informational purposes only."
+          "The Following Natural Disaster Risk Scores are still under development and should be used for informational purposes only."
         )}
       </Alert>
       <Box>
