@@ -101,8 +101,8 @@ export default class NaturalDisaster {
         }),
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openElevationData, "slopeMaxAngle"),
-          condition: (value) => value > 22.5,
-          conditionDescription: "Greater than 22.5 degrees",
+          condition: (value) => value > 15,
+          conditionDescription: "Greater than 15 degrees",
           source: {
             label: "Open-Elevation API",
             url: "https://open-elevation.com",

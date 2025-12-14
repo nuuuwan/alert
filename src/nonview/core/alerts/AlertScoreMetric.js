@@ -5,6 +5,10 @@ export default class AlertScoreMetric {
     this.conditionDescription = conditionDescription;
   }
 
+  get value() {
+    return this.timedUnitValue.unitValue.value;
+  }
+
   get isTrue() {
     return this.condition(this.timedUnitValue.unitValue.value);
   }
