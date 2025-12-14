@@ -1,7 +1,7 @@
 import OldMetricCard from "../atoms/OldMetricCard";
 import CustomPaper from "../atoms/CustomPaper";
 import { useTranslation } from "react-i18next";
-import { COLORS, getAlertColor } from "../_cons/StyleConstants";
+import { getAlertColor } from "../_cons/StyleConstants";
 import InfoIcon from "@mui/icons-material/Info";
 import TsunamiIcon from "@mui/icons-material/Tsunami";
 import WaterIcon from "@mui/icons-material/Water";
@@ -61,10 +61,7 @@ export default function AlertScoreView({ alertScore }) {
         <TableBody>
           {alertScore.metricList.map((metric, index) => {
             const isConditionMet = metric.condition(metric.value);
-            const StatusIcon = isConditionMet ? CheckCircleIcon : null;
-            const statusColor = isConditionMet
-              ? COLORS.highAlert
-              : COLORS.noAlert;
+            const StatusIcon = isConditionMet ? CheckCircleIcon : CancelIcon;
 
             return (
               <TableRow key={index}>
