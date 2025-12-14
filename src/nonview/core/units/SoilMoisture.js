@@ -16,6 +16,6 @@ export default class SoilMoisture extends Unit {
   }
 
   format() {
-    return `${this.value.toFixed(1)}`;
+    return `${this.value.toFixed(2)}`;
   }
 }
