@@ -54,42 +54,39 @@ export default function CustomBottomNavigator({
         }}
       >
         <BottomNavigationAction
+          label="1. Select Location"
           value="Map"
           icon={<MapIcon />}
           disabled={pageMode === "Map"}
+          showLabel={true}
           sx={{
             ...(pageMode === "Map" && {
               bgcolor: "rgba(0, 0, 0, 0.1)",
             }),
-            "&.Mui-selected": {
-              color: "inherit",
-            },
           }}
         />
         <BottomNavigationAction
+          label="2. View Alerts"
           value="Alerts"
           icon={<WarningIcon />}
           disabled={pageMode === "Alerts"}
+          showLabel={true}
           sx={{
             ...(pageMode === "Alerts" && {
               bgcolor: "rgba(0, 0, 0, 0.1)",
             }),
-            "&.Mui-selected": {
-              color: "inherit",
-            },
           }}
         />
         <BottomNavigationAction
+          label="3. View More Data"
           value="Data"
           icon={<AssessmentIcon />}
           disabled={pageMode === "Data"}
+          showLabel={true}
           sx={{
             ...(pageMode === "Data" && {
               bgcolor: "rgba(0, 0, 0, 0.1)",
             }),
-            "&.Mui-selected": {
-              color: "inherit",
-            },
           }}
         />
       </BottomNavigation>
