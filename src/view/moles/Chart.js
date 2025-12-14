@@ -25,10 +25,10 @@ export default function Chart({
   const xAxisData = timeData.map((time) => new Date(time * 1000));
 
   const observedData = timeData.map((time, index) =>
-    time * 1000 <= currentTime ? data[index] : null
+    time * 1000 <= currentTime ? data[index] : null,
   );
   const predictedData = timeData.map((time, index) =>
-    time * 1000 > currentTime ? data[index] : null
+    time * 1000 > currentTime ? data[index] : null,
   );
 
   const nowPoint =

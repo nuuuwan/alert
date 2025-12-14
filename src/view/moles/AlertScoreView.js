@@ -97,7 +97,7 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
                   <Typography variant="caption" color={statusColor}>
                     {metric.conditionDescription}
                     {t(
-                      metric.timedUnitValue.unitValue.constructor.getUnitLabel()
+                      metric.timedUnitValue.unitValue.constructor.getUnitLabel(),
                     )}
                   </Typography>
                   <Typography variant="caption" color={statusColor}>
