@@ -30,7 +30,6 @@ export default class NaturalDisaster {
       timeLabel: "Next 24h",
       metricList: [
         new AlertScoreMetric({
-          name: "Magnitude",
           description:
             "Maximum earthquake magnitude recorded in the last 24 hours.",
           timedUnitValue: newTimedUnit(
@@ -65,7 +64,6 @@ export default class NaturalDisaster {
           },
         }),
         new AlertScoreMetric({
-          name: "Total Rainfall Next 24h",
           description: "Total rainfall forecasted for the next 24 hours.",
           timedUnitValue: newTimedUnit(openMeteoData, "rainNext24hSum"),
           condition: (value) => value > 80,
@@ -76,7 +74,6 @@ export default class NaturalDisaster {
           },
         }),
         new AlertScoreMetric({
-          name: "Hours of Rain",
           description: "Number of hours with rainfall in the next 24 hours.",
           timedUnitValue: newTimedUnit(openMeteoData, "rainHoursNext24hSum"),
           condition: (value) => value > 10,
@@ -87,7 +84,6 @@ export default class NaturalDisaster {
           },
         }),
         new AlertScoreMetric({
-          name: "Mean Soil Moisture",
           description: "Mean deep soil moisture for the next 24 hours.",
           timedUnitValue: newTimedUnit(
             openMeteoData,
@@ -101,7 +97,6 @@ export default class NaturalDisaster {
           },
         }),
         new AlertScoreMetric({
-          name: "Rainfall Prev. 7 Days",
           description: "Total rainfall recorded in the previous 7d.",
           timedUnitValue: newTimedUnit(openMeteoData, "rainPrev7dSum"),
           condition: (value) => value > 200,
@@ -112,7 +107,6 @@ export default class NaturalDisaster {
           },
         }),
         new AlertScoreMetric({
-          name: "Slope Angle",
           description: "Slope angle of the location.",
           timedUnitValue: newTimedUnit(openElevationData, "slopeMaxAngle"),
           condition: (value) => value > 22.5,
@@ -133,7 +127,6 @@ export default class NaturalDisaster {
       timeLabel: "Next 24h",
       metricList: [
         new AlertScoreMetric({
-          name: "Peak Rainfall Intensity",
           description: "Maximum hourly rainfall intensity.",
           timedUnitValue: newTimedUnit(openMeteoData, "rainNext24hMax"),
           condition: (value) => value > 50,
@@ -144,7 +137,6 @@ export default class NaturalDisaster {
           },
         }),
         new AlertScoreMetric({
-          name: "Total Rainfall Next 24h",
           description: "Total rainfall forecasted for the next 24 hours.",
           timedUnitValue: newTimedUnit(openMeteoData, "rainNext24hSum"),
           condition: (value) => value > 100,
@@ -155,7 +147,6 @@ export default class NaturalDisaster {
           },
         }),
         new AlertScoreMetric({
-          name: "Hours of Rain",
           description: "Number of hours with rainfall in the next 24 hours.",
           timedUnitValue: newTimedUnit(openMeteoData, "rainHoursNext24hSum"),
           condition: (value) => value > 12,
@@ -166,7 +157,6 @@ export default class NaturalDisaster {
           },
         }),
         new AlertScoreMetric({
-          name: "Mean Soil Moisture",
           description: "Mean deep soil moisture for the next 24 hours.",
           timedUnitValue: newTimedUnit(
             openMeteoData,
@@ -180,7 +170,6 @@ export default class NaturalDisaster {
           },
         }),
         new AlertScoreMetric({
-          name: "Relative Elevation",
           description: "Relative elevation of the location.",
           timedUnitValue: newTimedUnit(openElevationData, "relativeElevation"),
           condition: (value) => value < -5,

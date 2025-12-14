@@ -154,7 +154,6 @@ export default class OpenMeteo {
       timeLabel: "Next 7d",
       metricList: [
         new AlertScoreMetric({
-          name: "Rain Last 7 Days",
           description: "Total rainfall recorded in the previous 7d.",
           timedUnitValue: newTimedUnit(openMeteoData, "rainPrev7dSum"),
           condition: (value) => value < 0.1,
@@ -165,7 +164,6 @@ export default class OpenMeteo {
           },
         }),
         new AlertScoreMetric({
-          name: "Rain Next 7 Days",
           description: "Forecasted rainfall for the next 7d.",
           timedUnitValue: newTimedUnit(openMeteoData, "rainNext7dSum"),
           condition: (value) => value < 0.1,
@@ -176,7 +174,6 @@ export default class OpenMeteo {
           },
         }),
         new AlertScoreMetric({
-          name: "Soil Moisture",
           description: "Mean deep soil moisture for the next 7d.",
           timedUnitValue: newTimedUnit(
             openMeteoData,
@@ -190,7 +187,6 @@ export default class OpenMeteo {
           },
         }),
         new AlertScoreMetric({
-          name: "Rain Hours",
           description: "Hours with rainfall in the next 7d.",
           timedUnitValue: newTimedUnit(openMeteoData, "rainHoursNext7dSum"),
           condition: (value) => value < 3,
@@ -211,7 +207,6 @@ export default class OpenMeteo {
       timeLabel: "Next 24h",
       metricList: [
         new AlertScoreMetric({
-          name: "Max Temperature",
           description: "Maximum temperature forecasted for the next 24 hours.",
           timedUnitValue: newTimedUnit(openMeteoData, "tempNext24hMax"),
           condition: (value) => value > 35,
@@ -222,7 +217,6 @@ export default class OpenMeteo {
           },
         }),
         new AlertScoreMetric({
-          name: "Mean Temperature",
           description: "Mean temperature forecasted for the next 24 hours.",
           timedUnitValue: newTimedUnit(openMeteoData, "tempNext24hMean"),
           condition: (value) => value > 30,
@@ -233,7 +227,6 @@ export default class OpenMeteo {
           },
         }),
         new AlertScoreMetric({
-          name: "Max Dew Point",
           description: "Maximum dew point forecasted for the next 24 hours.",
           timedUnitValue: newTimedUnit(openMeteoData, "dewPointNext24hMax"),
           condition: (value) => value > 25,

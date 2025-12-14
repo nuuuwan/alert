@@ -1,12 +1,10 @@
 export default class AlertScoreMetric {
   constructor({
-    name,
     description,
     timedUnitValue,
     condition,
     conditionDescription,
   }) {
-    this.name = name;
     this.description = description;
     this.timedUnitValue = timedUnitValue;
     this.condition = condition;
