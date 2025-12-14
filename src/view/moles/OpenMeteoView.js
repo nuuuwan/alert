@@ -12,7 +12,6 @@ import TempChart from "../moles/TempChart";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
-  console.debug({ openMeteoData });
 
   return (
     <Grid container spacing={0}>
