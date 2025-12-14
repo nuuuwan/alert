@@ -5,11 +5,7 @@ import DataSourceView from "./DataSourceView";
 import { useTranslation } from "react-i18next";
 import CustomPaper from "./CustomPaper";
 
-export default function OldMetricCardCollection({
-  title,
-  children,
-  dataSourceList,
-}) {
+export default function InformationGroup({ title, children, dataSourceList }) {
   const { t } = useTranslation();
   return (
     <CustomPaper>

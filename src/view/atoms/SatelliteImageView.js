@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
-import OldMetricCardCollection from "./OldMetricCardCollection";
+import InformationGroup from "./InformationGroup";
 import DataSource from "../../nonview/core/DataSource";
 export default function SatelliteImageView({ place }) {
   const { latLng, name } = place;
@@ -27,7 +27,7 @@ export default function SatelliteImageView({ place }) {
   const [loading, setLoading] = useState(true);
 
   return (
-    <OldMetricCardCollection
+    <InformationGroup
       title="Satellite Image"
       dataSourceList={[
         new DataSource({
@@ -68,6 +68,6 @@ export default function SatelliteImageView({ place }) {
           borderColor: "divider",
         }}
       />
-    </OldMetricCardCollection>
+    </InformationGroup>
   );
 }

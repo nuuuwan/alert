@@ -10,7 +10,7 @@ import OldMetricCard from "../atoms/OldMetricCard";
 import WaterLevelChart from "../atoms/WaterLevelChart";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
-import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
+import InformationGroup from "../atoms/InformationGroup";
 import DataSource from "../../nonview/core/DataSource";
 import { Alert } from "@mui/material";
 
@@ -87,7 +87,7 @@ export default function HydrometricStationDetails({ place }) {
   return (
     <Grid container spacing={0}>
       <Grid item xs={12}>
-        <OldMetricCardCollection
+        <InformationGroup
           title="Water Level Metrics"
           dataSourceList={[
             new DataSource({
@@ -116,7 +116,7 @@ export default function HydrometricStationDetails({ place }) {
               color={COLORS.water}
             />
           )}
-        </OldMetricCardCollection>
+        </InformationGroup>
       </Grid>
 
       <Grid item xs={12}>

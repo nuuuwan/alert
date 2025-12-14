@@ -5,7 +5,7 @@ import ElderlyIcon from "@mui/icons-material/ElderlyOutlined";
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
 import FemaleIcon from "@mui/icons-material/Female";
 import OldMetricCard from "../atoms/OldMetricCard";
-import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
+import InformationGroup from "../atoms/InformationGroup";
 import { COLORS } from "../_cons/StyleConstants";
 import DataSource from "../../nonview/core/DataSource";
 
@@ -30,7 +30,7 @@ function SexAgeView({ sexAgeData, areaSqKm }) {
   const allData = { ...sexAgeData, areaSqKm: areaSqKm };
 
   return (
-    <OldMetricCardCollection
+    <InformationGroup
       title="Demographics"
       dataSourceList={[
         new DataSource({
@@ -51,7 +51,7 @@ function SexAgeView({ sexAgeData, areaSqKm }) {
           timeLabel="2024"
         />
       ))}
-    </OldMetricCardCollection>
+    </InformationGroup>
   );
 }
 

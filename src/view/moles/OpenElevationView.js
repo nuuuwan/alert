@@ -1,5 +1,5 @@
 import MetricCard from "../atoms/MetricCard";
-import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
+import InformationGroup from "../atoms/InformationGroup";
 import OpenElevation from "../../nonview/core/third_party/OpenElevation";
 import { newTimedUnit } from "../../nonview/core/units/TimedUnit";
 
@@ -7,7 +7,7 @@ export default function OpenElevationView({ place }) {
   const { openElevationData } = place;
 
   return (
-    <OldMetricCardCollection
+    <InformationGroup
       title="Terrain Metrics"
       dataSourceList={[OpenElevation.getDataSource()]}
     >
@@ -20,6 +20,6 @@ export default function OpenElevationView({ place }) {
       <MetricCard
         timedUnitValue={newTimedUnit(openElevationData, "relativeElevation")}
       />
-    </OldMetricCardCollection>
+    </InformationGroup>
   );
 }

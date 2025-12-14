@@ -1,5 +1,5 @@
 import Grid from "@mui/material/Grid";
-import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
+import InformationGroup from "../atoms/InformationGroup";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 import MetricCard from "../atoms/MetricCard";
 import RainChart from "../moles/RainChart";
@@ -12,7 +12,7 @@ export default function OpenMeteoView({ place }) {
   return (
     <Grid container spacing={0}>
       <Grid item xs={12}>
-        <OldMetricCardCollection
+        <InformationGroup
           title="Weather Forecast"
           dataSourceList={[OpenMeteo.getDataSource(latLng)]}
         >
@@ -34,10 +34,10 @@ export default function OpenMeteoView({ place }) {
               "soilMoistureDeepNext24hMean"
             )}
           />
-        </OldMetricCardCollection>
+        </InformationGroup>
       </Grid>
       <Grid item xs={12}>
-        <OldMetricCardCollection
+        <InformationGroup
           title="Current Weather"
           dataSourceList={[OpenMeteo.getDataSource(latLng)]}
         >
@@ -51,7 +51,7 @@ export default function OpenMeteoView({ place }) {
           <MetricCard
             timedUnitValue={newTimedUnit(openMeteoData, "dewPointNow")}
           />
-        </OldMetricCardCollection>
+        </InformationGroup>
       </Grid>
       <Grid item xs={12}>
         <RainChart

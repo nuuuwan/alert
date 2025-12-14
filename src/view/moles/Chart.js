@@ -6,7 +6,7 @@ import { ChartsXAxis, ChartsYAxis } from "@mui/x-charts";
 import { ChartsReferenceLine } from "@mui/x-charts/ChartsReferenceLine";
 import { ChartsGrid } from "@mui/x-charts/ChartsGrid";
 import { BarPlot } from "@mui/x-charts/BarChart";
-import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
+import InformationGroup from "../atoms/InformationGroup";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 
 export default function Chart({
@@ -24,10 +24,10 @@ export default function Chart({
   const xAxisData = timeData.map((time) => new Date(time * 1000));
 
   const observedData = timeData.map((time, index) =>
-    time * 1000 <= currentTime ? data[index] : null,
+    time * 1000 <= currentTime ? data[index] : null
   );
   const predictedData = timeData.map((time, index) =>
-    time * 1000 > currentTime ? data[index] : null,
+    time * 1000 > currentTime ? data[index] : null
   );
 
   const nowPoint =
@@ -54,7 +54,7 @@ export default function Chart({
   const Plot = chartType === "line" ? LinePlot : BarPlot;
 
   return (
-    <OldMetricCardCollection
+    <InformationGroup
       title={title}
       dataSourceList={[OpenMeteo.getDataSource(latLng)]}
     >
@@ -106,6 +106,6 @@ export default function Chart({
         <ChartsXAxis />
         <ChartsYAxis />
       </ChartContainer>
-    </OldMetricCardCollection>
+    </InformationGroup>
   );
 }

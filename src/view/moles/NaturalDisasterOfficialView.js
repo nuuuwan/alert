@@ -1,5 +1,5 @@
 import OldMetricCard from "../atoms/OldMetricCard";
-import OldMetricCardCollection from "../atoms/OldMetricCardCollection";
+import InformationGroup from "../atoms/InformationGroup";
 import LandslideIcon from "@mui/icons-material/Landslide";
 import WaterIcon from "@mui/icons-material/Water";
 import { getAlertColor } from "../_cons/StyleConstants";
@@ -23,7 +23,7 @@ export default function NaturalDisasterOfficialView({ place }) {
   }
 
   return (
-    <OldMetricCardCollection
+    <InformationGroup
       title="Official Alerts"
       dataSourceList={[
         new DataSource({
@@ -41,7 +41,7 @@ export default function NaturalDisasterOfficialView({ place }) {
         {landslideCard}
         {waterLevelCard}
       </LoadingView>
-    </OldMetricCardCollection>
+    </InformationGroup>
   );
 }
 
