@@ -17,9 +17,7 @@ export default function InformationGroup({
     <CustomPaper>
       <Box sx={{ mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
         <Icon />
-        <Typography variant="h6" fontWeight={600}>
-          {t(title)}
-        </Typography>
+        <Typography variant="h6">{t(title)}</Typography>
       </Box>
 
       <Grid container spacing={0} sx={{ mb: 2 }}>
