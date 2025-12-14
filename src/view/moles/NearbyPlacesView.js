@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
 import Nearby from "../../nonview/core/Nearby";
 import PlaceLink from "../atoms/PlaceLink";
+import CustomPaper from "../atoms/CustomPaper";
 
 export default function NearbyPlacesView({ latLng }) {
   const [nearbyPlaces, setNearbyPlaces] = useState([]);
@@ -22,18 +22,10 @@ export default function NearbyPlacesView({ latLng }) {
   }
 
   return (
-    <Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 0,
-        }}
-      >
-        {nearbyPlaces.map(([place, distanceM]) => (
-          <PlaceLink key={place.id} place={place} distanceM={distanceM} />
-        ))}
-      </Box>
-    </Box>
+    <CustomPaper>
+      {nearbyPlaces.map(([place, distanceM]) => (
+        <PlaceLink key={place.id} place={place} distanceM={distanceM} />
+      ))}
+    </CustomPaper>
   );
 }
