@@ -49,7 +49,7 @@ function getLandslideCard(dsd) {
   }
 
   const timeUt = dsd.latestLandslideWarningTimeUt;
-  let value = "No Alert";
+  let value = "Safe";
   let alertLabel = level > 0 ? `Level ${level}` : "No Alert";
   if (level === 1) {
     value = "Watch";
