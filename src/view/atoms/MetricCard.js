@@ -89,7 +89,7 @@ export default function MetricCard({
           sx={{ ml: 0.5, position: "relative", bottom: "4px" }}
           noWrap
         >
-          {unitLabel}
+          {t(unitLabel)}
         </Typography>
       </Box>
 

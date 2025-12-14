@@ -34,7 +34,7 @@ export default class NaturalDisaster {
             "earthquakeMagnitudePrev24hMax"
           ),
           condition: (value) => value >= 6.5,
-          conditionDescription: "Greater than or equal to 6.5",
+          conditionDescription: ">= 6.5",
           source: {
             label: "USGS Earthquake Data (via lk_tsunamis)",
             url: "https://github.com/nuuuwan/lk_tsunamis",
@@ -52,7 +52,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "rainNext24hMax"),
           condition: (value) => value > 30,
-          conditionDescription: "Greater than 30 mm",
+          conditionDescription: "> 30",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -61,7 +61,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "rainNext24hSum"),
           condition: (value) => value > 80,
-          conditionDescription: "Greater than 80 mm",
+          conditionDescription: "> 80",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -70,7 +70,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "rainHoursNext24hSum"),
           condition: (value) => value > 10,
-          conditionDescription: "Greater than 10 hours",
+          conditionDescription: "> 10",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -82,7 +82,7 @@ export default class NaturalDisaster {
             "soilMoistureDeepNext24hMean"
           ),
           condition: (value) => value > 0.25,
-          conditionDescription: "Greater than 0.25",
+          conditionDescription: "> 0.25",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -91,7 +91,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "rainPrev7dSum"),
           condition: (value) => value > 200,
-          conditionDescription: "Greater than 200 mm",
+          conditionDescription: "> 200",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -100,7 +100,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openElevationData, "slopeMaxAngle"),
           condition: (value) => value > 15,
-          conditionDescription: "Greater than 15 degrees",
+          conditionDescription: "> 15",
           source: {
             label: "Open-Elevation API",
             url: "https://open-elevation.com",
@@ -118,7 +118,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "rainNext24hMax"),
           condition: (value) => value > 50,
-          conditionDescription: "Greater than 50 mm",
+          conditionDescription: "> 50",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -127,7 +127,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "rainNext24hSum"),
           condition: (value) => value > 100,
-          conditionDescription: "Greater than 100 mm",
+          conditionDescription: "> 100",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -136,7 +136,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "rainHoursNext24hSum"),
           condition: (value) => value > 12,
-          conditionDescription: "Greater than 12 hours",
+          conditionDescription: "> 12",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -148,7 +148,7 @@ export default class NaturalDisaster {
             "soilMoistureDeepNext24hMean"
           ),
           condition: (value) => value > 0.3,
-          conditionDescription: "Greater than 0.3",
+          conditionDescription: "> 0.3",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -157,7 +157,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openElevationData, "relativeElevation"),
           condition: (value) => value < -5,
-          conditionDescription: "Less than -5 meters",
+          conditionDescription: "< -5",
           source: {
             label: "Open-Elevation API",
             url: "https://open-elevation.com",

@@ -73,6 +73,10 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
               ? COLORS.highAlert
               : COLORS.noAlert;
 
+            const isConditionMetDescription = isConditionMet
+              ? t("Yes")
+              : t("No");
+
             return (
               <Grid item xs={12} sm={6} md={4} key={index}>
                 <Box
@@ -90,14 +94,14 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
                     timeLabel={t(metric.timeLabel)}
                     colorOverride={statusColor}
                   />
-                  <Typography
-                    variant="caption"
-                    sx={{
-                      textDecoration: !isConditionMet ? "line-through" : "",
-                    }}
-                    color={statusColor}
-                  >
-                    {t(metric.conditionDescription)}?
+                  <Typography variant="caption" color={statusColor}>
+                    {metric.conditionDescription}
+                    {t(
+                      metric.timedUnitValue.unitValue.constructor.getUnitLabel()
+                    )}
+                  </Typography>
+                  <Typography variant="caption" color={statusColor}>
+                    {isConditionMetDescription}
                   </Typography>
                 </Box>
               </Grid>

@@ -158,7 +158,7 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "rainPrev7dSum"),
           condition: (value) => value < 0.1,
-          conditionDescription: "Less than 0.1 mm",
+          conditionDescription: "< 0.1",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -167,19 +167,7 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "rainNext7dSum"),
           condition: (value) => value < 0.1,
-          conditionDescription: "Less than 0.1 mm",
-          source: {
-            label: "Open-Meteo Weather API",
-            url: "https://open-meteo.com",
-          },
-        }),
-        new AlertScoreMetric({
-          timedUnitValue: newTimedUnit(
-            openMeteoData,
-            "soilMoistureDeepNext7dMean"
-          ),
-          condition: (value) => value < 0.1,
-          conditionDescription: "Less than 0.1",
+          conditionDescription: "< 0.1",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -188,7 +176,7 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "rainHoursNext7dSum"),
           condition: (value) => value < 1,
-          conditionDescription: "Less than 1 hour",
+          conditionDescription: "< 1",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -206,7 +194,7 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "tempNext24hMax"),
           condition: (value) => value > 35,
-          conditionDescription: "Greater than 35°C",
+          conditionDescription: "> 35",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -215,7 +203,7 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "tempNext24hMean"),
           condition: (value) => value > 30,
-          conditionDescription: "Greater than 30°C",
+          conditionDescription: "> 30",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
@@ -224,7 +212,7 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "dewPointNext24hMax"),
           condition: (value) => value > 25,
-          conditionDescription: "Greater than 25°C",
+          conditionDescription: "> 25",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",

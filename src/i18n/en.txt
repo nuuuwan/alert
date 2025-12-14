@@ -684,5 +684,11 @@ km
 m
 mm
 name
+next 24h max
+next 24h mean
+next 24h sum
+now
+now max
 of Contributing Factors are satisfied.
+prev. 7d sum
 °C
