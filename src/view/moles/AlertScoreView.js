@@ -57,9 +57,9 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
           timeLabel={t(alertScore.timeLabel)}
           alertLabel={alertLabel}
         />
+        <Divider />
       </Box>
       <Box>
-        <Divider />
         <Typography variant="subtitle2" sx={{ mt: 1 }}>
           <span style={{ fontWeight: "bold", color: alertColor }}>
             {score}/{maxScore}
@@ -97,7 +97,7 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
                   <Typography variant="caption" color={statusColor}>
                     {metric.conditionDescription}
                     {t(
-                      metric.timedUnitValue.unitValue.constructor.getUnitLabel(),
+                      metric.timedUnitValue.unitValue.constructor.getUnitLabel()
                     )}
                   </Typography>
                   <Typography variant="caption" color={statusColor}>
