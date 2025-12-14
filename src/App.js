@@ -5,7 +5,7 @@ import CustomBottomNavigator from "./view/moles/CustomBottomNavigator";
 import Box from "@mui/material/Box";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { FONT_FAMILY } from "./view/_cons/StyleConstants";
+import { COLORS, FONT_FAMILY } from "./view/_cons/StyleConstants";
 import { useParams, useNavigate } from "react-router-dom";
 import { DataProvider } from "./nonview/core/DataContext";
 import { useTranslation } from "react-i18next";
@@ -25,6 +25,15 @@ import Grid from "@mui/material/Grid";
 const theme = createTheme({
   typography: {
     fontFamily: FONT_FAMILY,
+    fontSize: 14,
+  },
+  palette: {
+    primary: {
+      main: "#000000",
+    },
+    secondary: {
+      main: COLORS.neutral,
+    },
   },
 });
 
