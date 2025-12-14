@@ -22,7 +22,7 @@ export default function OpenElevationView({ place }) {
       <OldMetricCard
         Icon={TerrainIcon}
         label="Max Slope Angle"
-        value={openElevationData.slopeData.slopeAngle.toFixed(0)}
+        value={openElevationData.slopeData.maxSlopeAngle.toFixed(0)}
         unit="°"
         alertLabel=""
         color={COLORS.earth}

@@ -18,7 +18,7 @@ export default class NaturalDisaster {
     };
 
     landslideRiskFactors24hThresholded.f06Slope =
-      openElevationData.slopeData.slopeAngle > 22.5;
+      openElevationData.slopeData.maxSlopeAngle > 22.5;
 
     const landslideRiskLevel = Object.values(
       landslideRiskFactors24hThresholded
@@ -210,7 +210,7 @@ export default class NaturalDisaster {
           name: "Slope Angle",
           description: "Slope angle of the location.",
           timeLabel: "Static",
-          value: openElevationData.slopeData.slopeAngle,
+          value: openElevationData.slopeData.maxSlopeAngle,
           condition: (value) => value > 22.5,
           conditionDescription: "Slope angle greater than 22.5 degrees",
           source: {

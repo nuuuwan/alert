@@ -9,9 +9,12 @@ import OpacityIcon from "@mui/icons-material/Opacity";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 import CloudIcon from "@mui/icons-material/Cloud";
 import { COLORS } from "../_cons/StyleConstants";
+import MetricCard from "../atoms/MetricCard";
+import Temperature from "../../nonview/core/units/Temperature";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
+  console.debug({ openMeteoData });
 
   return (
     <Grid container spacing={0}>
@@ -20,16 +23,9 @@ export default function OpenMeteoView({ place }) {
           title="Weather Forecast"
           sourceList={OpenMeteo.getSourceList(latLng)}
         >
-          <OldMetricCard
-            Icon={ThermostatIcon}
-            label="Max Temp"
-            value={openMeteoData.maxTempNext24Hours.toFixed(1)}
-            unit="°C"
+          <MetricCard
+            unitValue={new Temperature(openMeteoData.maxTempNext24Hours)}
             timeLabel="Next 24h"
-            color={COLORS.fire}
-            xs={6}
-            sm={6}
-            md={6}
           />
           <OldMetricCard
             Icon={WaterDropIcon}
