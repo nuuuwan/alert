@@ -9,6 +9,7 @@ import DewPoint from "../../nonview/core/units/DewPoint";
 import TimedUnit from "../../nonview/core/units/TimedUnit";
 import RainChart from "../moles/RainChart";
 import TempChart from "../moles/TempChart";
+import { newTimedUnit } from "../../nonview/core/units/TimedUnit";
 
 export default function OpenMeteoView({ place }) {
   const { openMeteoData, latLng } = place;
@@ -44,12 +45,7 @@ export default function OpenMeteoView({ place }) {
           dataSourceList={[OpenMeteo.getDataSource(latLng)]}
         >
           <MetricCard
-            timedUnitValue={
-              new TimedUnit({
-                timeLabel: "Last 24h sum",
-                unitValue: new Rain(openMeteoData.rainPrev24hSum),
-              })
-            }
+            timedUnitValue={newTimedUnit(openMeteoData, "rainPrev24hSum")}
           />
           <MetricCard
             timedUnitValue={
