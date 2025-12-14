@@ -10,9 +10,36 @@ import RelativeElevation from "./RelativeElevation";
 import EarthquakeMagnitude from "./EarthquakeMagnitude";
 
 export default class TimedUnit {
-  constructor({ unitValue, timeLabel }) {
-    this.unitValue = unitValue;
-    this.timeLabel = timeLabel;
+  constructor({
+    UnitClass,
+    value,
+    timeLabelDirection,
+    timedLabelDuration,
+    timeLabelAggregation,
+  }) {
+    this.UnitClass = UnitClass;
+    this.value = value;
+    this.timeLabelDirection = timeLabelDirection;
+    this.timedLabelDuration = timedLabelDuration;
+    this.timeLabelAggregation = timeLabelAggregation;
+  }
+
+  get unitValue() {
+    return new this.UnitClass(this.value);
+  }
+
+  get timeLabel() {
+    let parts = [];
+    if (this.timeLabelDirection) {
+      parts.push(this.timeLabelDirection);
+    }
+    if (this.timedLabelDuration) {
+      parts.push(this.timedLabelDuration);
+    }
+    if (this.timeLabelAggregation) {
+      parts.push(this.timeLabelAggregation);
+    }
+    return parts.join(" ").trim();
   }
 }
 
@@ -83,17 +110,16 @@ function getTimeLabelAggregation(k) {
   return "";
 }
 
-function getTimeLabel(k) {
-  const duration = getTimeLabelDuration(k);
-  const direction = getTimeLabelDirection(k);
-  const aggregation = getTimeLabelAggregation(k);
-  return `${direction} ${duration} ${aggregation}`.trim();
-}
-
 export function newTimedUnit(d, k) {
   const UnitClass = getUnitClass(k);
+  const timeLabelDirection = getTimeLabelDirection(k);
+  const timedLabelDuration = getTimeLabelDuration(k);
+  const timeLabelAggregation = getTimeLabelAggregation(k);
   return new TimedUnit({
-    timeLabel: getTimeLabel(k),
-    unitValue: new UnitClass(d[k]),
+    UnitClass,
+    value: d[k],
+    timeLabelDirection,
+    timedLabelDuration,
+    timeLabelAggregation,
   });
 }
