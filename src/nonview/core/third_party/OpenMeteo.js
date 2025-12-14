@@ -107,51 +107,51 @@ export default class OpenMeteo {
       currentRH: weatherDataRaw.current.relative_humidity_2m,
       currentTimeUt: weatherDataRaw.current_time_ut,
 
-      // hourly
-      timeUtListHourly: weatherDataRaw.hourly_time_ut,
-      tempListHourly: weatherDataRaw.hourly.temperature_2m,
-      tempNext24hMax: Math.max(
-        ...weatherDataRaw.hourly.temperature_2m.slice(7 * 24, 8 * 24)
+      // hourly - dew point
+      dewPointListHourly: weatherDataRaw.hourly.dew_point_2m,
+      dewPointNext24hMax: Math.max(
+        ...weatherDataRaw.hourly.dew_point_2m.slice(7 * 24, 8 * 24)
       ),
+      rainHoursNext24hSum: weatherDataRaw.hourly.precipitation
+        .slice(7 * 24, 8 * 24)
+        .filter((rain) => rain > 0).length,
+      // hourly - rain
+      rainHoursNext7dSum: weatherDataRaw.hourly.precipitation
+        .slice(7 * 24, 14 * 24)
+        .filter((rain) => rain > 0).length,
       rainListHourly: weatherDataRaw.hourly.precipitation,
+      rainNext24hMax: Math.max(
+        ...weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24)
+      ),
+      rainNext24hSum: ArrayUtils.sum(
+        weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24)
+      ),
+      rainNext7dSum: ArrayUtils.sum(
+        weatherDataRaw.hourly.precipitation.slice(7 * 24, 14 * 24)
+      ),
       rainPrev24hSum: ArrayUtils.sum(
         weatherDataRaw.hourly.precipitation.slice(6 * 24, 7 * 24)
       ),
       rainPrev7dSum: ArrayUtils.sum(
         weatherDataRaw.hourly.precipitation.slice(0, 7 * 24)
       ),
-      rainNext7dSum: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(7 * 24, 14 * 24)
-      ),
-      rainNext24hSum: ArrayUtils.sum(
-        weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24)
-      ),
-      rainHoursNext7dSum: weatherDataRaw.hourly.precipitation
-        .slice(7 * 24, 14 * 24)
-        .filter((rain) => rain === 0).length,
-      dewPointListHourly: weatherDataRaw.hourly.dew_point_2m,
-
-      tempNext24hMean: ArrayUtils.mean(
-        weatherDataRaw.hourly.temperature_2m.slice(7 * 24, 8 * 24)
-      ),
-      dewPointNext24hMax: Math.max(
-        ...weatherDataRaw.hourly.dew_point_2m.slice(7 * 24, 8 * 24)
-      ),
-      rainNext24hMax: Math.max(
-        ...weatherDataRaw.hourly.precipitation.slice(7 * 24, 8 * 24)
-      ),
-      rainHoursNext24hSum: weatherDataRaw.hourly.precipitation
-        .slice(7 * 24, 8 * 24)
-        .filter((rain) => rain > 0).length,
-      rainHoursNext7dSum: weatherDataRaw.hourly.precipitation
-        .slice(7 * 24, 14 * 24)
-        .filter((rain) => rain > 0).length,
+      // hourly - soil moisture
       soilMoistureDeepNext24hMean: ArrayUtils.mean(
         weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 8 * 24)
       ),
       soilMoistureDeepNext7dMean: ArrayUtils.mean(
         weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 14 * 24)
       ),
+      // hourly - temperature
+      tempListHourly: weatherDataRaw.hourly.temperature_2m,
+      tempNext24hMax: Math.max(
+        ...weatherDataRaw.hourly.temperature_2m.slice(7 * 24, 8 * 24)
+      ),
+      tempNext24hMean: ArrayUtils.mean(
+        weatherDataRaw.hourly.temperature_2m.slice(7 * 24, 8 * 24)
+      ),
+      // hourly - time
+      timeUtListHourly: weatherDataRaw.hourly_time_ut,
     };
 
     return weatherData;
