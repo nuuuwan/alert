@@ -1,3 +1,6 @@
+1. Select Location
+2. View Alerts
+3. View More Data
 <1km
 Addalachchenai
 Addalaichenai
