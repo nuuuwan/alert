@@ -5,24 +5,29 @@ import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
 import AlertScoreView from "./AlertScoreView";
 import ScienceIcon from "@mui/icons-material/Science";
+import LoadingView from "../atoms/LoadingView";
 
 export default function NaturalDisasterView({ place }) {
-  const { openMeteoData, openElevationData, earthquakeData } = place;
   const { t } = useTranslation();
 
-  const alertScoreList = [
-    NaturalDisaster.getLandslideRiskScore({
-      openMeteoData,
-      openElevationData,
-    }),
-    NaturalDisaster.getFloodRiskScore({
-      openMeteoData,
-      openElevationData,
-    }),
-    NaturalDisaster.getTsunamiRiskScore({ earthquakeData }),
-    OpenMeteo.getDroughtRiskScore({ openMeteoData }),
-    OpenMeteo.getHeatRiskScore({ openMeteoData }),
-  ];
+  let alertScoreList = null;
+
+  if (place) {
+    const { openMeteoData, openElevationData, earthquakeData } = place;
+    alertScoreList = [
+      NaturalDisaster.getLandslideRiskScore({
+        openMeteoData,
+        openElevationData,
+      }),
+      NaturalDisaster.getFloodRiskScore({
+        openMeteoData,
+        openElevationData,
+      }),
+      NaturalDisaster.getTsunamiRiskScore({ earthquakeData }),
+      OpenMeteo.getDroughtRiskScore({ openMeteoData }),
+      OpenMeteo.getHeatRiskScore({ openMeteoData }),
+    ];
+  }
 
   return (
     <Box>
@@ -32,15 +37,20 @@ export default function NaturalDisasterView({ place }) {
         sx={{ ml: 3, width: "fit-content", maxWidth: 400 }}
       >
         {t(
-          "The Following Natural Disaster Risk Scores are still under development and should be used for informational purposes only.",
+          "The Following Natural Disaster Risk Scores are still under development and should be used for informational purposes only."
         )}
       </Alert>
       <Box>
-        {alertScoreList.map((alertScore, iAlertScore) => (
-          <Box key={alertScore.name} sx={{ mt: 2 }}>
-            <AlertScoreView iAlertScore={iAlertScore} alertScore={alertScore} />
-          </Box>
-        ))}
+        <LoadingView isLoaded={alertScoreList !== null}>
+          {alertScoreList.map((alertScore, iAlertScore) => (
+            <Box key={alertScore.name} sx={{ mt: 2 }}>
+              <AlertScoreView
+                iAlertScore={iAlertScore}
+                alertScore={alertScore}
+              />
+            </Box>
+          ))}
+        </LoadingView>
       </Box>
     </Box>
   );
