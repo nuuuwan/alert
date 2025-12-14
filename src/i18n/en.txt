@@ -516,6 +516,7 @@ Putupaula
 Ragama
 Rain
 Rainfall
+Rainfall History & Forecast
 Rajanganaya
 Rakwana
 Rambewa
@@ -551,6 +552,7 @@ Serunuwara
 Seruvila
 Sevanagala
 Siyambalanduwa
+Slope
 Sooriyakanda
 Sooriyawewa
 Soranathota
@@ -564,6 +566,7 @@ Teldeniya
 Tellippalai
 Temp
 Temperature
+Temperature History & Forecast
 Terrain Metrics
 Thalathuoya
 Thalawa
@@ -683,9 +686,11 @@ event.
 km
 m
 mm
+m³/m³
 name
 next 24h max
 next 24h mean
+next 24h min
 next 24h sum
 now
 now max
