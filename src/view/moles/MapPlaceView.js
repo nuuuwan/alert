@@ -19,7 +19,7 @@ export default function MapPlaceView({ place, setPageMode }) {
 
   const onClickInner = (e) => {
     L.DomEvent.stopPropagation(e);
-    setPageMode("Alert");
+    setPageMode("Alerts");
     navigate(place.url);
   };
 
