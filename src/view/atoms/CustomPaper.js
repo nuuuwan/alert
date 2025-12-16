@@ -7,9 +7,9 @@ export default function CustomPaper({ children, sx }) {
       sx={Object.assign(
         {
           background: "rgba(224, 224, 224, 0.1)",
-          borderRadius: 2,
-          m: 2,
-          p: 2,
+          borderRadius: 1,
+          m: 1,
+          p: 1,
           opacity: 0.9,
           width: "fit-content",
           maxWidth: "90vw",
