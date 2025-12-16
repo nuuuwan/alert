@@ -5,16 +5,7 @@ import HydrometricStation from "../../nonview/core/ents/places/HydrometricStatio
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import Box from "@mui/material/Box";
 
-export default function MapViewInner({
-  dsdNameId,
-  hydrometricStationNameId,
-  cityNameId,
-  placeLatLngId,
-  //
-  setMapLatLng,
-  selectedEnt,
-  setSelectedEnt,
-}) {
+export default function MapViewInner({ selectedEnt }) {
   const [HydrometricStations, setHydrometricStations] = useState([]);
   const [dsdEnts, setDsdEnts] = useState([]);
 

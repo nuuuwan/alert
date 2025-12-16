@@ -80,16 +80,7 @@ export default function MapPanel({
       <MapCenterUpdater center={center} />
       <MapEventHandler onMapMoveEnd={onMapMoveEnd} onMapClick={onMapClick} />
 
-      <MapViewInner
-        dsdNameId={dsdNameId}
-        hydrometricStationNameId={hydrometricStationNameId}
-        cityNameId={cityNameId}
-        placeLatLngId={placeLatLngId}
-        //
-        selectedEnt={selectedEnt}
-        setSelectedEnt={setSelectedEnt}
-        setMapLatLng={setMapLatLng}
-      />
+      <MapViewInner selectedEnt={selectedEnt} />
 
       {pageMode === "Map" && (
         <Box>
