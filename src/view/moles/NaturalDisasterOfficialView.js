@@ -24,7 +24,7 @@ export default function NaturalDisasterOfficialView({ place }) {
       new DataSource({
         label: "Disaster Management Centre of Sri Lanka",
         url: "https://www.dmc.gov.lk",
-      }),
+      })
     );
   }
 
@@ -34,7 +34,7 @@ export default function NaturalDisasterOfficialView({ place }) {
         label:
           "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
         url: "https://github.com/nuuuwan/lk_irrigation",
-      }),
+      })
     );
   }
 
@@ -83,7 +83,7 @@ function getLandslideCard(dsd) {
 }
 
 function getWaterLevelCard(hydrometricStation) {
-  const level = hydrometricStation.alertLevel;
+  const level = hydrometricStation.waterLevelAlertLevel;
   const waterLevelM = hydrometricStation.latestWaterLevelM;
   const timeUt = hydrometricStation.latestWaterLevelTimeUt;
 
