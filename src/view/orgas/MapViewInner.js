@@ -4,7 +4,7 @@ import { useDataContext } from "../../nonview/core/DataContext";
 import Place from "../../nonview/core/ents/places/Place";
 import CircularProgress from "@mui/material/CircularProgress";
 
-export default function MapViewInner({ selectedEnt }) {
+export default function MapViewInner({ selectedEnt, setPageMode }) {
   const { data } = useDataContext();
 
   const HydrometricStations = data.hydrometricStations || [];
@@ -27,7 +27,14 @@ export default function MapViewInner({ selectedEnt }) {
     <Box>
       {deduplicatedPlaces.map(
         (place) =>
-          place && place.latLng && <MapPlaceView key={place.id} place={place} />
+          place &&
+          place.latLng && (
+            <MapPlaceView
+              key={place.id}
+              place={place}
+              setPageMode={setPageMode}
+            />
+          )
       )}
     </Box>
   );
