@@ -8,15 +8,18 @@ export default function MapViewInner({ selectedEnt }) {
   const HydrometricStations = data.hydrometricStations || [];
   const majorCities = data.majorCities || [];
 
-  const places = [selectedEnt, ...HydrometricStations, ...majorCities];
-  const deduplicatedPlaces = Place.dedupeByLatLng(places);
-  const placesWithAlerts = deduplicatedPlaces.filter(
+  const places = [...HydrometricStations, ...majorCities];
+  const placesWithAlerts = places.filter(
     (place) => place && place.alertLevel > 0
   );
+  const deduplicatedPlaces = Place.dedupeByLatLng([
+    ...placesWithAlerts,
+    selectedEnt,
+  ]);
 
   return (
     <Box>
-      {placesWithAlerts.map(
+      {deduplicatedPlaces.map(
         (place) =>
           place && place.latLng && <MapPlaceView key={place.id} place={place} />
       )}
