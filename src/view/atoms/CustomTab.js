@@ -3,14 +3,13 @@ import { COLORS } from "../_cons/StyleConstants";
 
 export default function CustomTab(props) {
   const tabSx = {
-    backgroundColor: COLORS.neutralLighterTransparent,
-    color: "black",
+    // backgroundColor: COLORS.neutralLighterTransparent,
+    color: COLORS.neutralLight,
     padding: 1,
     margin: 1,
     borderRadius: 5,
     "&.Mui-selected": {
-      backgroundColor: COLORS.neutralLight,
-      color: "white",
+      color: COLORS.neutral,
     },
   };
 
