@@ -14,9 +14,7 @@ export default function NaturalDisasterOfficialView({ place }) {
     return <CircularProgress />;
   }
 
-  const landslideCard = place.landslideWarningLevel
-    ? getLandslideCard(place.dsd)
-    : null;
+  const landslideCard = getLandslideCard(place.dsd);
   const waterLevelCard =
     place instanceof HydrometricStation ? getWaterLevelCard(place) : null;
 
