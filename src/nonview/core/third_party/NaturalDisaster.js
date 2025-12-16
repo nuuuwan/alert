@@ -15,13 +15,13 @@ export default class NaturalDisaster {
 
   static getTsunamiRiskScore({ earthquakeData }) {
     const twentyFourHoursAgo = TimeUtils.getUnixTime() - 24 * 60 * 60;
-    const earthequakeDataLast24Hours = earthquakeData.filter(
-      (eq) => eq.timeUt >= twentyFourHoursAgo,
-    );
+    const earthequakeDataLast24Hours =
+      earthquakeData.filter((eq) => eq.timeUt >= twentyFourHoursAgo) || [];
     const earthquakeAlertData = {
-      earthquakeMagnitudePrev24hMax: earthequakeDataLast24Hours
-        ? Math.max(...earthequakeDataLast24Hours.map((eq) => eq.magnitude))
-        : 0,
+      earthquakeMagnitudePrev24hMax:
+        earthequakeDataLast24Hours.length > 0
+          ? Math.max(...earthequakeDataLast24Hours.map((eq) => eq.magnitude))
+          : 0,
     };
 
     return new AlertScore({
@@ -31,7 +31,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(
             earthquakeAlertData,
-            "earthquakeMagnitudePrev24hMax",
+            "earthquakeMagnitudePrev24hMax"
           ),
           condition: (value) => value >= 6.5,
           conditionDescription: ">= 6.5",
@@ -79,7 +79,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(
             openMeteoData,
-            "soilMoistureDeepNext24hMean",
+            "soilMoistureDeepNext24hMean"
           ),
           condition: (value) => value > 0.25,
           conditionDescription: "> 0.25",
@@ -145,7 +145,7 @@ export default class NaturalDisaster {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(
             openMeteoData,
-            "soilMoistureDeepNext24hMean",
+            "soilMoistureDeepNext24hMean"
           ),
           condition: (value) => value > 0.3,
           conditionDescription: "> 0.3",
