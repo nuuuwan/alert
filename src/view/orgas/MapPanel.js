@@ -108,7 +108,7 @@ export default function MapPanel({
               zIndex: 1000,
             }}
           >
-            <AlertLegend onViewDetails={() => setPageMode("Alerts")} />
+            <AlertLegend />
           </Box>
 
           <Box

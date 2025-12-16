@@ -1,10 +1,8 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { COLORS } from "../_cons/StyleConstants";
-import WarningIcon from "@mui/icons-material/Warning";
-import Button from "@mui/material/Button";
 
-export default function AlertLegend({ onViewDetails }) {
+export default function AlertLegend() {
   const legendItems = [
     {
       label: "High Alert",
@@ -57,21 +55,6 @@ export default function AlertLegend({ onViewDetails }) {
           <Typography variant="caption">{item.label}</Typography>
         </Box>
       ))}
-      <Button
-        variant="contained"
-        startIcon={<WarningIcon />}
-        onClick={onViewDetails}
-        sx={{
-          marginTop: "8px",
-          backgroundColor: "white",
-          color: COLORS.neutral,
-          textTransform: "none",
-          fontSize: "12px",
-          width: "100%",
-        }}
-      >
-        View Alerts
-      </Button>
     </Box>
   );
 }
