@@ -10,7 +10,6 @@ export default function CustomPaper({ children, sx }) {
           borderRadius: 2,
           m: 2,
           p: 2,
-          width: "fit-content",
           opacity: 0.9,
           maxWidth: "90vw",
         },
