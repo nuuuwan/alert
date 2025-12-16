@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import MapPlaceView from "../moles/MapPlaceView";
-import MapRegionView from "../moles/MapRegionView";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
-import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import Box from "@mui/material/Box";
 
 export default function MapViewInner({ selectedEnt }) {
   const [HydrometricStations, setHydrometricStations] = useState([]);
-  const [dsdEnts, setDsdEnts] = useState([]);
 
   // Default Multiple Ent Loading
 
@@ -19,20 +16,6 @@ export default function MapViewInner({ selectedEnt }) {
     fetch();
   }, []);
 
-  useEffect(() => {
-    async function fetchDsdEnts() {
-      let dsdEnts = await DSD.loadWithAlerts();
-      if (selectedEnt) {
-        if (selectedEnt instanceof DSD) {
-          dsdEnts.push(selectedEnt);
-        }
-      }
-      await Promise.all(dsdEnts.map((dsd) => dsd.loadDetails()));
-      setDsdEnts(dsdEnts);
-    }
-    fetchDsdEnts();
-  }, [selectedEnt]);
-
   return (
     <Box>
       {[selectedEnt, ...HydrometricStations].map(
@@ -40,9 +23,6 @@ export default function MapViewInner({ selectedEnt }) {
           station &&
           station.latLng && <MapPlaceView key={station.id} place={station} />
       )}
-
-      {dsdEnts &&
-        dsdEnts.map((dsd) => <MapRegionView key={dsd.id} region={dsd} />)}
     </Box>
   );
 }
