@@ -39,8 +39,39 @@ class City extends Place {
           latLng,
         });
         return new City({ ...rawData, ...placeData });
-      }),
+      })
     );
+  }
+
+  static getMajorCityNames() {
+    return [
+      "Colombo",
+      "Sri Jayawardenepura Kotte",
+      "Kandy",
+      "Galle",
+      "Jaffna",
+      "Negombo",
+      "Trincomalee",
+      "Batticaloa",
+      "Anuradhapura",
+      "Kurunegala",
+      "Ratnapura",
+      "Badulla",
+      "Matara",
+      "Hambantota",
+      "Kalutara",
+      "Gampaha",
+      "Kegalle",
+      "Polonnaruwa",
+      "Mannar",
+      "Vavuniya",
+    ];
+  }
+
+  static async loadAllMajor() {
+    const cityList = await this.loadAll();
+    const majorCityNames = this.getMajorCityNames();
+    return cityList.filter((city) => majorCityNames.includes(city.name));
   }
 }
 
