@@ -16,7 +16,7 @@ import ScienceIcon from "@mui/icons-material/Science";
 import Divider from "@mui/material/Divider";
 import InformationGroup from "../atoms/InformationGroup";
 
-export default function AlertScoreView({ iAlertScore, alertScore }) {
+export default function AllAlertScoreView({ iAlertScore, alertScore }) {
   const { t } = useTranslation();
 
   const score = alertScore.score;
@@ -95,7 +95,7 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
                 <Typography variant="caption" color={statusColor}>
                   {metric.conditionDescription}
                   {t(
-                    metric.timedUnitValue.unitValue.constructor.getUnitLabel(),
+                    metric.timedUnitValue.unitValue.constructor.getUnitLabel()
                   )}
                 </Typography>
                 <Typography variant="caption" color={statusColor}>

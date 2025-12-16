@@ -3,7 +3,7 @@ import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
-import AlertScoreView from "./AlertScoreView";
+import AllAlertScoreView from "./AllAlertScoreView";
 import ScienceIcon from "@mui/icons-material/Science";
 import { CircularProgress } from "@mui/material";
 
@@ -37,14 +37,14 @@ export default function NaturalDisasterView({ place }) {
         sx={{ ml: 3, width: "fit-content", maxWidth: 320 }}
       >
         {t(
-          "The following Natural Disaster Risk Scores are still under development and should be used for informational purposes only.",
+          "The following Natural Disaster Risk Scores are still under development and should be used for informational purposes only."
         )}
       </Alert>
       <Box>
         {alertScoreList ? (
           alertScoreList.map((alertScore, iAlertScore) => (
             <Box key={alertScore.name} sx={{ mt: 2 }}>
-              <AlertScoreView
+              <AllAlertScoreView
                 iAlertScore={iAlertScore}
                 alertScore={alertScore}
               />
