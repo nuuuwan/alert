@@ -21,13 +21,13 @@ export default function AdminRegionView({ AdminRegionClass, id }) {
 
   return (
     <Box component="span" color="white">
-      <Typography variant="body2" component="span">
+      <Typography variant="body2" component="span" sx={{ fontSize: "75%" }}>
         {t(adminRegion.name)}
       </Typography>
       <Typography
-        variant="body2"
+        variant="caption"
         component="span"
-        sx={{ ml: 0.5, opacity: 0.5 }}
+        sx={{ ml: 0.5, opacity: 0.5, fontSize: "65%" }}
       >
         {t(adminRegion.constructor.getEntTypeNameShort())}
       </Typography>
