@@ -161,67 +161,64 @@ function App() {
       <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
         <CustomAppBar selectedEnt={selectedEnt} mapLatLng={mapLatLng} />
         <DataProvider>
-          <MapView
-            dsdNameId={dsdNameId}
-            hydrometricStationNameId={hydrometricStationNameId}
-            placeLatLngId={placeLatLngId}
-            cityNameId={cityNameId}
-            //
-            downloadRef={downloadRef}
-            //
-            mapLatLng={mapLatLng}
-            setMapLatLng={setMapLatLng}
-            //
-            selectedEnt={selectedEnt}
-            setSelectedEnt={setSelectedEnt}
-            //
-            pageMode={pageMode}
-            setPageMode={setPageMode}
-            //
-            onCurrentLocation={handleCurrentLocation}
-          />
-
-          {pageMode !== "Map" && (
-            <Box
-              sx={{
-                position: "absolute",
-                width: "100%",
-                height: "calc(100% - 120px)",
-                marginTop: "64px",
-                marginBottom: "56px",
-                zIndex: 200,
-                overflow: "auto",
-                p: 0,
-              }}
-            >
-              {pageMode === "Alerts" && (
-                <AlertsView
-                  downloadRef={downloadRef}
-                  //
-                  selectedEnt={selectedEnt}
-                  setSelectedEnt={setSelectedEnt}
-                />
-              )}
-
-              {pageMode === "Data" && (
-                <DataView
-                  downloadRef={downloadRef}
-                  //
-                  selectedEnt={selectedEnt}
-                  setSelectedEnt={setSelectedEnt}
-                />
-              )}
-
-              <Grid size={{ xs: 12, md: 6 }}>
-                <NearbyPlacesView
-                  latLng={selectedEnt ? selectedEnt.latLng : null}
-                />
-                <DSDLocationBreadcrumbs
-                  dsd={selectedEnt && selectedEnt.dsd ? selectedEnt.dsd : null}
-                />
-              </Grid>
-            </Box>
-          )}
+          <Box
+            sx={{
+              position: "absolute",
+              width: "100%",
+              height: "calc(100% - 120px)",
+              marginTop: "64px",
+              marginBottom: "56px",
+              zIndex: 200,
+              overflow: "auto",
+              p: 0,
+            }}
+          >
+            {pageMode === "Map" && (
+              <MapView
+                dsdNameId={dsdNameId}
+                hydrometricStationNameId={hydrometricStationNameId}
+                placeLatLngId={placeLatLngId}
+                cityNameId={cityNameId}
+                //
+                downloadRef={downloadRef}
+                //
+                mapLatLng={mapLatLng}
+                setMapLatLng={setMapLatLng}
+                //
+                selectedEnt={selectedEnt}
+                setSelectedEnt={setSelectedEnt}
+                //
+                pageMode={pageMode}
+                setPageMode={setPageMode}
+                //
+                onCurrentLocation={handleCurrentLocation}
+              />
+            )}
+            {pageMode === "Alerts" && (
+              <AlertsView
+                downloadRef={downloadRef}
+                //
+                selectedEnt={selectedEnt}
+                setSelectedEnt={setSelectedEnt}
+              />
+            )}
+            {pageMode === "Data" && (
+              <DataView
+                downloadRef={downloadRef}
+                //
+                selectedEnt={selectedEnt}
+                setSelectedEnt={setSelectedEnt}
+              />
+            )}
+            <Grid size={{ xs: 12, md: 6 }}>
+              <NearbyPlacesView
+                latLng={selectedEnt ? selectedEnt.latLng : null}
+              />
+              <DSDLocationBreadcrumbs
+                dsd={selectedEnt && selectedEnt.dsd ? selectedEnt.dsd : null}
+              />
+            </Grid>
+          </Box>
         </DataProvider>
         <CustomBottomNavigator
           onSetToMapCenter={handleSetToMapCenter}
