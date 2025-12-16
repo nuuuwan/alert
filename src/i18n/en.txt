@@ -15,6 +15,7 @@ Alayadivembu
 Alayadiwembu
 Alert
 Alert Score
+Alerts
 Aluthgama
 Ambagamuwa
 Ambagamuwa Korale
@@ -81,6 +82,7 @@ Damana
 Dambadeniya
 Dambulla
 Dankotuwa
+Data
 Daulagala
 Deduru Oya
 Dehiattakandiya
@@ -359,6 +361,7 @@ Mannar
 Mannar Town
 Manthai East
 Manthai West
+Map
 Mapalagama
 Maradankadawala
 Maritimepattu
