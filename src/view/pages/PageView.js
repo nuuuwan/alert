@@ -54,6 +54,9 @@ function PageView({
           onCurrentLocation={onCurrentLocation}
         />
       )}
+      <Grid size={{ xs: 12, md: 6 }}>
+        <NearbyPlacesView latLng={selectedEnt ? selectedEnt.latLng : null} />
+      </Grid>
       {pageMode === "Alerts" && (
         <AlertsView
           downloadRef={downloadRef}
@@ -70,12 +73,6 @@ function PageView({
           setSelectedEnt={setSelectedEnt}
         />
       )}
-      <Grid size={{ xs: 12, md: 6 }}>
-        <NearbyPlacesView latLng={selectedEnt ? selectedEnt.latLng : null} />
-        <DSDLocationBreadcrumbs
-          dsd={selectedEnt && selectedEnt.dsd ? selectedEnt.dsd : null}
-        />
-      </Grid>
     </Box>
   );
 }
