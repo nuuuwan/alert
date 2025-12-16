@@ -1,18 +1,30 @@
-import Grid from "@mui/material/Grid";
+import { useState } from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
 import NaturalDisasterOfficialView from "./NaturalDisasterOfficialView";
 import NaturalDisasterView from "./NaturalDisasterView";
 
 export default function AlertsView({ selectedEnt }) {
   const place = selectedEnt;
+  const [tabValue, setTabValue] = useState(0);
+
+  const handleTabChange = (event, newValue) => {
+    setTabValue(newValue);
+  };
 
   return (
-    <Grid container spacing={0}>
-      <Grid size={{ xs: 12, md: 6 }}>
+    <Box sx={{ width: "100%" }}>
+      <Tabs value={tabValue} onChange={handleTabChange}>
+        <Tab label="Official Alerts" />
+        <Tab label="Alerts" />
+      </Tabs>
+      <Box hidden={tabValue !== 0}>
         <NaturalDisasterOfficialView place={place} />
-      </Grid>
-      <Grid size={{ xs: 12, md: 6 }}>
+      </Box>
+      <Box hidden={tabValue !== 1}>
         <NaturalDisasterView place={place} />
-      </Grid>
-    </Grid>
+      </Box>
+    </Box>
   );
 }
