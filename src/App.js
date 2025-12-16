@@ -19,7 +19,6 @@ import AlertsView from "./view/moles/AlertsView";
 import HydrometricStation from "./nonview/core/ents/places/HydrometricStation";
 import DSD from "./nonview/core/ents/regions/admin_regions/DSD";
 import City from "./nonview/core/ents/places/City";
-import DetailsHeader from "./view/moles/DetailsHeader";
 import Grid from "@mui/material/Grid";
 import NearbyPlacesView from "./view/moles/NearbyPlacesView";
 import DSDLocationBreadcrumbs from "./view/moles/DSDLocationBreadcrumbs";
@@ -195,10 +194,6 @@ function App() {
                 p: 0,
               }}
             >
-              <Grid size={{ xs: 12, md: 6 }}>
-                <DetailsHeader ent={selectedEnt} />
-              </Grid>
-
               {pageMode === "Alerts" && (
                 <AlertsView
                   downloadRef={downloadRef}
