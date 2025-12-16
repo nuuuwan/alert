@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
 import AlertScoreView from "./AlertScoreView";
 import ScienceIcon from "@mui/icons-material/Science";
-import { CircularProgress, Tabs, Tab } from "@mui/material";
+import { CircularProgress, Tabs } from "@mui/material";
 import { useState } from "react";
 import InformationGroup from "../atoms/InformationGroup";
 import CustomTab from "../atoms/CustomTab";

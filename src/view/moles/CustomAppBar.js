@@ -1,13 +1,10 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import { useTranslation } from "react-i18next";
 import { COLORS } from "../_cons/StyleConstants";
 import EntAvatar from "../atoms/EntAvatar";
 import CustomAppBarMenu from "./CustomAppBarMenu";
 
 export default function CustomAppBar({ selectedEnt, mapLatLng }) {
-  const { i18n } = useTranslation();
-
   const title =
     (selectedEnt ? selectedEnt.title : null) ||
     (mapLatLng ? mapLatLng.title : null) ||

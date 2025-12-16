@@ -30,11 +30,6 @@ export default function DataView({ selectedEnt }) {
     earthquakes: 4,
   };
 
-  let tabOffset = 0;
-  if (!(place instanceof HydrometricStation)) {
-    tabOffset = 1;
-  }
-
   return (
     <Box sx={{ width: "100%" }}>
       <Tabs value={activeTab} onChange={handleTabChange}>
