@@ -35,11 +35,6 @@ function MapCenterUpdater({ center, zoom }) {
 }
 
 export default function MapPanel({
-  dsdNameId,
-  hydrometricStationNameId,
-  cityNameId,
-  placeLatLngId,
-  //
   selectedEnt,
   setSelectedEnt,
   setMapLatLng,

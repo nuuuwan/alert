@@ -35,11 +35,6 @@ export default function MapView({
       <TestModeBanner />
 
       <MapPanel
-        dsdNameId={dsdNameId}
-        hydrometricStationNameId={hydrometricStationNameId}
-        cityNameId={cityNameId}
-        placeLatLngId={placeLatLngId}
-        //
         selectedEnt={selectedEnt}
         setSelectedEnt={setSelectedEnt}
         //
