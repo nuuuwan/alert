@@ -3,7 +3,7 @@ import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
-import AllAlertScoreView from "./AllAlertScoreView";
+import AlertScoreView from "./AlertScoreView";
 import ScienceIcon from "@mui/icons-material/Science";
 import { CircularProgress } from "@mui/material";
 
@@ -44,7 +44,7 @@ export default function NaturalDisasterView({ place }) {
         {alertScoreList ? (
           alertScoreList.map((alertScore, iAlertScore) => (
             <Box key={alertScore.name} sx={{ mt: 2 }}>
-              <AllAlertScoreView
+              <AlertScoreView
                 iAlertScore={iAlertScore}
                 alertScore={alertScore}
               />
