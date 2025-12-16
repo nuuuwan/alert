@@ -45,25 +45,42 @@ class City extends Place {
 
   static getMajorCityNames() {
     return [
+      // National capitals
+      "Sri Jayawardenepura Kotte",
       "Colombo",
+
+      // District capitals, all 25
+      "Gampaha",
+      "Kalutara",
       "Kandy",
+      "Matale",
+      "Nuwara Eliya",
       "Galle",
-      "Jaffna",
-      "Negombo",
-      "Trincomalee",
-      "Batticaloa",
-      "Anuradhapura",
-      "Kurunegala",
-      "Ratnapura",
-      "Badulla",
       "Matara",
       "Hambantota",
-      "Kalutara",
-      "Gampaha",
-      "Kegalle",
-      "Polonnaruwa",
+      "Jaffna",
+      "Kilinochchi",
       "Mannar",
       "Vavuniya",
+      "Mullaitivu",
+      "Batticaloa",
+      "Ampara",
+      "Trincomalee",
+      "Kurunegala",
+      "Puttalam",
+      "Anuradhapura",
+      "Polonnaruwa",
+      "Badulla",
+      "Monaragala",
+      "Ratnapura",
+      "Kegalle",
+
+      // Additional major cities
+      "Negombo",
+      "Moratuwa",
+      "Dehiwala",
+      "Matara",
+      "Kalmunai",
     ];
   }
 
