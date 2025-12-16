@@ -17,7 +17,7 @@ export default function AlertsView({ selectedEnt }) {
     <Box sx={{ width: "100%" }}>
       <Tabs value={tabValue} onChange={handleTabChange}>
         <Tab label="Official Alerts" />
-        <Tab label="Alerts" />
+        <Tab label="Auto Alerts (Experimental)" />
       </Tabs>
       <Box hidden={tabValue !== 0}>
         <NaturalDisasterOfficialView place={place} />

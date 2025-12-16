@@ -34,7 +34,7 @@ export default function NaturalDisasterView({ place }) {
 
   return (
     <InformationGroup
-      title="Experimental Natural Disaster Risk Scores"
+      title="Auto Alerts (Experimental)"
       Icon={ScienceIcon}
       InnerComponent={Box}
     >
@@ -44,7 +44,7 @@ export default function NaturalDisasterView({ place }) {
         sx={{ ml: 3, width: "fit-content", maxWidth: 320 }}
       >
         {t(
-          "The following Natural Disaster Risk Scores are still under development and should be used for informational purposes only."
+          "The following Natural Disaster Risk Scores are automtically generated, and are still under development and should be used for informational purposes only."
         )}
       </Alert>
       <Box>
