@@ -160,7 +160,11 @@ export default function CustomAppBar({ selectedEnt, mapLatLng }) {
             </MenuItem>
           ))}
           <Divider />
-          <Typography variant="caption" sx={{ marginLeft: 2 }}>
+          <Typography
+            variant="caption"
+            sx={{ marginLeft: 2 }}
+            color={COLORS.neutralLight}
+          >
             v{VERSION.DATETIME_STR}
           </Typography>
         </Menu>
