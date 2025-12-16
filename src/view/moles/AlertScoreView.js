@@ -12,7 +12,6 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import ScienceIcon from "@mui/icons-material/Science";
-import Divider from "@mui/material/Divider";
 import InformationGroup from "../atoms/InformationGroup";
 import AlertScoreItemView from "./AlertScoreItemView";
 
@@ -58,7 +57,6 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
           timeLabel={t(alertScore.timeLabel)}
           alertLabel={alertLabel}
         />
-        <Divider />
       </Box>
       <Box>
         <Typography variant="subtitle2" sx={{ mt: 1 }}>
