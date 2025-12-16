@@ -1,7 +1,7 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { COLORS } from "../_cons/StyleConstants";
-import EntAvatar from "../atoms/EntAvatar";
+import EntTitle from "../atoms/EntTitle";
 import CustomAppBarMenu from "./CustomAppBarMenu";
 
 export default function CustomAppBar({ selectedEnt, mapLatLng }) {
@@ -9,8 +9,6 @@ export default function CustomAppBar({ selectedEnt, mapLatLng }) {
     (selectedEnt ? selectedEnt.title : null) ||
     (mapLatLng ? mapLatLng.title : null) ||
     "ALERT";
-
-  document.title = title;
 
   return (
     <AppBar
@@ -32,10 +30,7 @@ export default function CustomAppBar({ selectedEnt, mapLatLng }) {
             gap: "8px",
           }}
         >
-          {selectedEnt && (
-            <EntAvatar ent={selectedEnt} color="white" size="32px" />
-          )}
-          <span style={{ color: "white", fontSize: "1.2rem" }}>{title}</span>
+          <EntTitle ent={selectedEnt} mapLatLng={mapLatLng} />
         </div>
         <CustomAppBarMenu />
       </Toolbar>
