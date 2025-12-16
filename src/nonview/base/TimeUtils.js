@@ -97,7 +97,7 @@ export default class TimeUtils {
 
   static sleep(seconds) {
     return new Promise((resolve) =>
-      setTimeout(resolve, parseInt(seconds * 1000))
+      setTimeout(resolve, parseInt(seconds * 1000)),
     );
   }
 }
