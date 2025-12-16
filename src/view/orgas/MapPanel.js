@@ -1,5 +1,5 @@
 import { MapContainer, TileLayer, useMapEvents, useMap } from "react-leaflet";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import "./MapView.css";
 import MapViewInner from "./MapViewInner";
@@ -10,11 +10,15 @@ import IconButton from "@mui/material/IconButton";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import { COLORS } from "../_cons/StyleConstants";
 import AlertLegend from "../atoms/AlertLegend";
-function MapEventHandler({ onMapMoveEnd }) {
+function MapEventHandler({ onMapMoveEnd, onMapClick }) {
   useMapEvents({
     dragend: (e) => {
       const center = e.target.getCenter();
       onMapMoveEnd(LatLng.fromRaw([center.lat, center.lng]));
+    },
+    click: (e) => {
+      const latLng = LatLng.fromRaw([e.latlng.lat, e.latlng.lng]);
+      onMapMoveEnd(latLng);
     },
   });
   return null;
@@ -46,9 +50,16 @@ export default function MapPanel({
   setPageMode,
   pageMode,
 }) {
+  const [clickPoint, setClickPoint] = useState(null);
+
   const onMapMoveEnd = (latLng) => {
     setMapLatLng(latLng);
     setSelectedEnt(null);
+  };
+
+  const onMapClick = (containerPoint) => {
+    setClickPoint(containerPoint);
+    setTimeout(() => setClickPoint(null), 300);
   };
 
   return (
@@ -63,7 +74,7 @@ export default function MapPanel({
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <MapCenterUpdater center={center} />
-      <MapEventHandler onMapMoveEnd={onMapMoveEnd} />
+      <MapEventHandler onMapMoveEnd={onMapMoveEnd} onMapClick={onMapClick} />
 
       <MapViewInner
         dsdNameId={dsdNameId}
@@ -79,6 +90,25 @@ export default function MapPanel({
       {pageMode === "Map" && (
         <Box>
           <MapCrosshair />
+
+          {clickPoint && (
+            <Box
+              sx={{
+                position: "absolute",
+                left: clickPoint.x,
+                top: clickPoint.y,
+                width: "20px",
+                height: "20px",
+                marginLeft: "-10px",
+                marginTop: "-10px",
+                border: "2px solid #d32f2f",
+                borderRadius: "50%",
+                boxShadow: "inset 0 0 4px #d32f2f",
+                pointerEvents: "none",
+                zIndex: 999,
+              }}
+            />
+          )}
 
           <Box
             sx={{
