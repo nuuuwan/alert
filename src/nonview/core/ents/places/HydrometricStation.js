@@ -46,7 +46,7 @@ class HydrometricStation extends Place {
           latLng,
         });
         return new HydrometricStation({ ...rawData, ...placeData });
-      }),
+      })
     );
   }
 
@@ -59,35 +59,36 @@ class HydrometricStation extends Place {
       .reduce(function (waterLevelHistory, [dateId, timeOnlyIdToWaterLevelM]) {
         return Object.entries(timeOnlyIdToWaterLevelM).reduce(function (
           waterLevelHistory,
-          [timeOnlyId, waterLevelM],
+          [timeOnlyId, waterLevelM]
         ) {
           const timeUt = TimeUtils.parseYYYYMMDDHHHMMSS(
-            `${dateId}${timeOnlyId}`,
+            `${dateId}${timeOnlyId}`
           );
           if (timeUt > minTimeUt) {
             waterLevelHistory.push({ timeUt, waterLevelM });
           }
           return waterLevelHistory;
-        }, waterLevelHistory);
+        },
+        waterLevelHistory);
       }, [])
       .sort(TimeUtils.compareTimeUtDescending);
     this.waterLevelHistory = waterLevelHistory;
 
-    let alertLevel = 0;
+    let waterLevelAlertLevel = 0;
 
     if (waterLevelHistory.length > 0) {
       this.latestWaterLevelM = waterLevelHistory[0].waterLevelM;
       this.latestWaterLevelTimeUt = waterLevelHistory[0].timeUt;
 
       if (this.latestWaterLevelM >= this.majorFloodLevelM) {
-        alertLevel = 3;
+        waterLevelAlertLevel = 3;
       } else if (this.latestWaterLevelM >= this.minorFloodLevelM) {
-        alertLevel = 2;
+        waterLevelAlertLevel = 2;
       } else if (this.latestWaterLevelM >= this.alertLevelM) {
-        alertLevel = 1;
+        waterLevelAlertLevel = 1;
       }
     }
-    this.alertLevel = alertLevel;
+    this.waterLevelAlertLevel = waterLevelAlertLevel;
     return this;
   }
 
@@ -95,6 +96,10 @@ class HydrometricStation extends Place {
     await this.loadWaterLevelHistory();
     await super.loadDetails();
     return this;
+  }
+
+  get alertLevel() {
+    return Math.max(super.alertLevel || 0, this.waterLevelAlertLevel || 0);
   }
 
   static async getRawAlertData() {
@@ -116,7 +121,7 @@ class HydrometricStation extends Place {
             return HydrometricStation;
           }
           return null;
-        }),
+        })
       )
     ).filter((HydrometricStation) => HydrometricStation !== null);
     return HydrometricStationsWithAlerts;

@@ -34,6 +34,10 @@ class Place {
     return `/Place/${this.latLng.id}`;
   }
 
+  get alertLevel() {
+    return 0;
+  }
+
   async loadDetails() {
     const [
       openMeteoData,
