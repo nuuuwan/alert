@@ -9,6 +9,7 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import { COLORS } from "../_cons/StyleConstants";
+import AlertLegend from "../atoms/AlertLegend";
 function MapEventHandler({ onMapMoveEnd }) {
   useMapEvents({
     dragend: (e) => {
@@ -42,6 +43,7 @@ export default function MapPanel({
   //
   onCurrentLocation,
   //
+  setPageMode,
   pageMode,
 }) {
   const onMapMoveEnd = (latLng) => {
@@ -77,6 +79,17 @@ export default function MapPanel({
       {pageMode === "Map" && (
         <Box>
           <MapCrosshair />
+
+          <Box
+            sx={{
+              position: "absolute",
+              top: "72px",
+              right: "16px",
+              zIndex: 1000,
+            }}
+          >
+            <AlertLegend onViewDetails={() => setPageMode("Alerts")} />
+          </Box>
 
           <Box
             sx={{
