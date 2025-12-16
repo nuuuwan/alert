@@ -1,42 +1,22 @@
-import { useEffect, useState } from "react";
 import MapPlaceView from "../moles/MapPlaceView";
-import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import Box from "@mui/material/Box";
-import City from "../../nonview/core/ents/places/City";
-import TimeUtils from "../../nonview/base/TimeUtils";
+import { useDataContext } from "../../nonview/core/DataContext";
 
 export default function MapViewInner({ selectedEnt }) {
-  const [HydrometricStations, setHydrometricStations] = useState([]);
-  const [majorCities, setMajorCities] = useState([]);
+  const { data } = useDataContext();
+  const HydrometricStations = data.hydrometricStations || [];
+  const majorCities = data.majorCities || [];
 
-  useEffect(() => {
-    async function fetch() {
-      const HydrometricStations = await HydrometricStation.loadWithAlerts();
-      setHydrometricStations(HydrometricStations);
-    }
-    fetch();
-  }, []);
-
-  useEffect(() => {
-    async function fetch() {
-      const majorCities = await City.loadAllMajor();
-      Promise.all(
-        majorCities.map(async (city) => {
-          await city.loadDetails();
-          await TimeUtils.sleep(0.5);
-        })
-      );
-      setMajorCities(majorCities);
-    }
-    fetch();
-  }, []);
+  const places = [selectedEnt, ...HydrometricStations, ...majorCities];
+  const placesWithAlerts = places.filter(
+    (place) => place && place.alertLevel > 0
+  );
 
   return (
     <Box>
-      {[selectedEnt, ...HydrometricStations, ...majorCities].map(
-        (station) =>
-          station &&
-          station.latLng && <MapPlaceView key={station.id} place={station} />
+      {placesWithAlerts.map(
+        (place) =>
+          place && place.latLng && <MapPlaceView key={place.id} place={place} />
       )}
     </Box>
   );
