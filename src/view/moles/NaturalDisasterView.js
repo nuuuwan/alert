@@ -58,8 +58,11 @@ export default function NaturalDisasterView({ place }) {
               allowScrollButtonsMobile
               aria-label="scrollable auto tabs example"
             >
-              {alertScoreList.map((alertScore) => (
-                <Tab key={alertScore.name} label={alertScore.name} />
+              {alertScoreList.map((alertScore, iAlert) => (
+                <Tab
+                  key={alertScore.name}
+                  label={`${iAlert + 1}. ${alertScore.name}`}
+                />
               ))}
             </Tabs>
             <Box sx={{ mt: 2 }}>
