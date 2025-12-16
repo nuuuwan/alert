@@ -1,6 +1,7 @@
 import MapPlaceView from "../moles/MapPlaceView";
 import Box from "@mui/material/Box";
 import { useDataContext } from "../../nonview/core/DataContext";
+import Place from "../../nonview/core/ents/places/Place";
 
 export default function MapViewInner({ selectedEnt }) {
   const { data } = useDataContext();
@@ -8,7 +9,8 @@ export default function MapViewInner({ selectedEnt }) {
   const majorCities = data.majorCities || [];
 
   const places = [selectedEnt, ...HydrometricStations, ...majorCities];
-  const placesWithAlerts = places.filter(
+  const deduplicatedPlaces = Place.dedupeByLatLng(places);
+  const placesWithAlerts = deduplicatedPlaces.filter(
     (place) => place && place.alertLevel > 0
   );
 

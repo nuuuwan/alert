@@ -96,6 +96,12 @@ class Place {
   get alertLevel() {
     return Math.max(this.officialAlertLevel, this.autoAlertLevel);
   }
+
+  static dedupeByLatLng(places) {
+    return Object.values(
+      Object.fromEntries(places.map((place) => [place.latLng.id, place]))
+    );
+  }
 }
 
 export default Place;
