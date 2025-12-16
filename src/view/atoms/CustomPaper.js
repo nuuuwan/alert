@@ -6,7 +6,7 @@ export default function CustomPaper({ children, sx }) {
       elevation={0}
       sx={Object.assign(
         {
-          background: "rgba(224, 224, 224, 0.25)",
+          background: "rgba(224, 224, 224, 0.1)",
           borderRadius: 2,
           m: 2,
           p: 2,
