@@ -2,8 +2,9 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { COLORS } from "../_cons/StyleConstants";
 import CustomPaper from "./CustomPaper";
-
+import { useTranslation } from "react-i18next";
 export default function AlertLegend() {
+  const { t } = useTranslation();
   const legendItems = [
     {
       label: "High Alert",
@@ -49,7 +50,7 @@ export default function AlertLegend() {
               borderRadius: "2px",
             }}
           />
-          <Typography variant="caption">{item.label}</Typography>
+          <Typography variant="caption">{t(item.label)}</Typography>
         </Box>
       ))}
     </CustomPaper>

@@ -8,6 +8,6 @@ export default class District extends AdminRegion {
     return "District";
   }
   static getEntTypeNameShort() {
-    return "District";
+    return "D.";
   }
 }

@@ -8,6 +8,6 @@ export default class Province extends AdminRegion {
     return "Province";
   }
   static getEntTypeNameShort() {
-    return "Province";
+    return "P.";
   }
 }

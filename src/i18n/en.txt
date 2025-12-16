@@ -360,6 +360,9 @@ Manmunai West
 Mannar
 Mannar Town
 Manthai East
+High Alert
+Medium Alert
+Low Alert
 Manthai West
 Map
 Mapalagama

@@ -103,7 +103,7 @@ export default function MapPanel({
           <Box
             sx={{
               position: "absolute",
-              top: "72px",
+              top: "16px",
               right: "16px",
               zIndex: 1000,
             }}
