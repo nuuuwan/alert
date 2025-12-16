@@ -10,43 +10,44 @@ import { CircularProgress } from "@mui/material";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 
 export default function NaturalDisasterOfficialView({ place }) {
-  let landslideCard;
-  let waterLevelCard;
-  if (place) {
-    const dsd = place && place.dsd;
-    const isHydrometricStation = place instanceof HydrometricStation;
+  if (!place) {
+    return <CircularProgress />;
+  }
 
-    landslideCard =
-      dsd && dsd.latestLandslideWarningLevel !== undefined
-        ? getLandslideCard(dsd)
-        : null;
-    waterLevelCard = isHydrometricStation ? getWaterLevelCard(place) : null;
+  const landslideCard = place.landslideWarningLevel
+    ? getLandslideCard(place.dsd)
+    : null;
+  const waterLevelCard =
+    place instanceof HydrometricStation ? getWaterLevelCard(place) : null;
+
+  let dataSourceList = [];
+  if (landslideCard) {
+    dataSourceList.push(
+      new DataSource({
+        label: "Disaster Management Centre of Sri Lanka",
+        url: "https://www.dmc.gov.lk",
+      })
+    );
+  }
+
+  if (waterLevelCard) {
+    dataSourceList.push(
+      new DataSource({
+        label:
+          "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
+        url: "https://github.com/nuuuwan/lk_irrigation",
+      })
+    );
   }
 
   return (
     <InformationGroup
       title="Official Alerts"
       Icon={ReportProblemIcon}
-      dataSourceList={[
-        new DataSource({
-          label: "Disaster Management Centre of Sri Lanka",
-          url: "https://www.dmc.gov.lk",
-        }),
-        new DataSource({
-          label:
-            "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
-          url: "https://github.com/nuuuwan/lk_irrigation",
-        }),
-      ]}
+      dataSourceList={dataSourceList}
     >
-      {landslideCard || waterLevelCard ? (
-        <>
-          {landslideCard}
-          {waterLevelCard}
-        </>
-      ) : (
-        <CircularProgress />
-      )}
+      {landslideCard}
+      {waterLevelCard}
     </InformationGroup>
   );
 }

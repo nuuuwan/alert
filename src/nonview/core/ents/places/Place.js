@@ -81,10 +81,12 @@ class Place {
     return new Place({ latLng, openMeteoData: undefined });
   }
 
+  get landslideWarningLevel() {
+    return (this.dsd && this.dsd.latestLandslideWarningLevel) || 0;
+  }
+
   get officialAlertLevel() {
-    const landslideWarningLevel =
-      (this.dsd && this.dsd.latestLandslideWarningLevel) || 0;
-    return landslideWarningLevel;
+    return this.landslideWarningLevel;
   }
 
   get autoAlertLevel() {
