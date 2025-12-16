@@ -94,4 +94,8 @@ export default class TimeUtils {
 
     return `${year}-${month}-${day}T${hours}:${minutes}`;
   }
+
+  static sleep(seconds) {
+    return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+  }
 }

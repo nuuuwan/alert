@@ -3,6 +3,7 @@ import MapPlaceView from "../moles/MapPlaceView";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import Box from "@mui/material/Box";
 import City from "../../nonview/core/ents/places/City";
+import TimeUtils from "../../nonview/base/TimeUtils";
 
 export default function MapViewInner({ selectedEnt }) {
   const [HydrometricStations, setHydrometricStations] = useState([]);
@@ -19,9 +20,10 @@ export default function MapViewInner({ selectedEnt }) {
   useEffect(() => {
     async function fetch() {
       const majorCities = await City.loadAllMajor();
-      await Promise.all(
+      Promise.all(
         majorCities.map(async (city) => {
           await city.loadDetails();
+          await TimeUtils.sleep(0.5);
         })
       );
       setMajorCities(majorCities);
