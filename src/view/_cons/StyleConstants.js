@@ -11,6 +11,9 @@ export const COLORS = {
   neutralLighter: "#eeeeee",
   neutralLightest: "#fcfcfc",
 
+  neutralLighterTransparent: "rgba(238, 238, 238, 0.75)",
+  neutralLightTransparent: "rgba(204, 204, 204, 0.75)",
+
   // Things
   water: "rgb(0, 150, 255)",
   fire: "rgb(255, 87, 34)",
