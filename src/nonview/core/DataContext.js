@@ -24,7 +24,7 @@ export const DataProvider = ({ children }) => {
       const majorCities = await City.loadAllMajor();
       for (const city of majorCities) {
         await city.loadDetails();
-        await TimeUtils.sleep(Math.random());
+        await TimeUtils.sleep(Math.random() * 0.1);
       }
       console.debug("Loaded majorCities.");
 
