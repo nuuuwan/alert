@@ -4,7 +4,6 @@ import MapRegionView from "../moles/MapRegionView";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import Box from "@mui/material/Box";
-import Place from "../../nonview/core/ents/places/Place";
 
 export default function MapViewInner({
   dsdNameId,
@@ -35,11 +34,6 @@ export default function MapViewInner({
       if (selectedEnt) {
         if (selectedEnt instanceof DSD) {
           dsdEnts.push(selectedEnt);
-        } else if (selectedEnt instanceof Place) {
-          const dsd = selectedEnt.dsd;
-          if (dsd) {
-            dsdEnts.push(dsd);
-          }
         }
       }
       await Promise.all(dsdEnts.map((dsd) => dsd.loadDetails()));
@@ -53,7 +47,7 @@ export default function MapViewInner({
       {[selectedEnt, ...HydrometricStations].map(
         (station) =>
           station &&
-          station.latLng && <MapPlaceView key={station.id} place={station} />,
+          station.latLng && <MapPlaceView key={station.id} place={station} />
       )}
 
       {dsdEnts &&
