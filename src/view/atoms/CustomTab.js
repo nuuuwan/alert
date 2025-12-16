@@ -5,12 +5,11 @@ export default function CustomTab(props) {
   const tabSx = {
     backgroundColor: COLORS.neutralLighterTransparent,
     color: "black",
-    borderRadius: "50px",
-    margin: "4px",
-    minWidth: "auto",
-    padding: "8px 16px",
+    padding: 1,
+    margin: 1,
+    borderRadius: 5,
     "&.Mui-selected": {
-      backgroundColor: COLORS.neutralLightTransparent,
+      backgroundColor: COLORS.neutralLight,
       color: "white",
     },
   };
