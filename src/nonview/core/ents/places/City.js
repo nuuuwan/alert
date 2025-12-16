@@ -75,7 +75,7 @@ class City extends Place {
       "Ratnapura",
       "Kegalle",
 
-      // Additional major cities
+      // // Additional major cities
       "Negombo",
       "Moratuwa",
       "Dehiwala",

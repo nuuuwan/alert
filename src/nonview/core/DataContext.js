@@ -1,6 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import HydrometricStation from "./ents/places/HydrometricStation";
-import CircularProgress from "@mui/material/CircularProgress";
 import DSD from "./ents/regions/admin_regions/DSD";
 import City from "./ents/places/City";
 import TimeUtils from "../base/TimeUtils";
@@ -13,19 +12,21 @@ export const useDataContext = () => {
 
 export const DataProvider = ({ children }) => {
   const [data, setData] = useState({});
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       await HydrometricStation.getRawAlertData();
       const hydrometricStations = await HydrometricStation.loadAll();
+      console.debug("Loaded hydrometricStations.");
       const sexAgeDataIdx = await DSD.loadAllSexAgeDataIdx();
+      console.debug("Loaded sexAgeDataIdx.");
 
       const majorCities = await City.loadAllMajor();
       for (const city of majorCities) {
         await city.loadDetails();
-        await TimeUtils.sleep(0.5);
+        await TimeUtils.sleep(Math.random());
       }
+      console.debug("Loaded majorCities.");
 
       setData((prevData) => ({
         ...prevData,
@@ -33,15 +34,10 @@ export const DataProvider = ({ children }) => {
         sexAgeDataIdx,
         majorCities,
       }));
-      setLoading(false);
     };
 
     fetchData();
   }, []);
-
-  if (loading) {
-    return <CircularProgress />;
-  }
 
   return (
     <DataContext.Provider value={{ data, setData }}>

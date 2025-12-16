@@ -2,9 +2,11 @@ import MapPlaceView from "../moles/MapPlaceView";
 import Box from "@mui/material/Box";
 import { useDataContext } from "../../nonview/core/DataContext";
 import Place from "../../nonview/core/ents/places/Place";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function MapViewInner({ selectedEnt }) {
   const { data } = useDataContext();
+
   const HydrometricStations = data.hydrometricStations || [];
   const majorCities = data.majorCities || [];
 
@@ -16,6 +18,10 @@ export default function MapViewInner({ selectedEnt }) {
     ...placesWithAlerts,
     selectedEnt,
   ]);
+
+  if (!deduplicatedPlaces) {
+    return <CircularProgress />;
+  }
 
   return (
     <Box>
