@@ -38,7 +38,7 @@ export default function MapViewInner({ selectedEnt }) {
       {[selectedEnt, ...HydrometricStations].map(
         (station) =>
           station &&
-          station.latLng && <MapPlaceView key={station.id} place={station} />
+          station.latLng && <MapPlaceView key={station.id} place={station} />,
       )}
 
       {dsdEnts &&
