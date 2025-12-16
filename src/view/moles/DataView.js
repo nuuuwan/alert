@@ -1,4 +1,7 @@
-import Grid from "@mui/material/Grid";
+import { useState } from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
 import SatelliteImageView from "../atoms/SatelliteImageView";
 import OpenMeteoView from "../moles/OpenMeteoView";
 import HydrometricStationDetails from "../moles/HydrometricStationDetails";
@@ -8,32 +11,66 @@ import RecentEarthquakesView from "../moles/RecentEarthquakesView";
 import { CircularProgress } from "@mui/material";
 
 export default function DataView({ selectedEnt }) {
+  const [activeTab, setActiveTab] = useState(0);
   const place = selectedEnt;
+
   if (!place) {
     return <CircularProgress />;
   }
+
+  const handleTabChange = (event, newValue) => {
+    setActiveTab(newValue);
+  };
+
+  const tabIndex = {
+    hydrometric: 0,
+    weather: 1,
+    elevation: 2,
+    satellite: 3,
+    earthquakes: 4,
+  };
+
+  let tabOffset = 0;
+  if (!(place instanceof HydrometricStation)) {
+    tabOffset = 1;
+  }
+
   return (
-    <Grid container spacing={0}>
-      {place instanceof HydrometricStation && (
-        <Grid size={{ xs: 12, md: 6 }}>
-          <HydrometricStationDetails place={place} />
-        </Grid>
-      )}
+    <Box sx={{ width: "100%" }}>
+      <Tabs value={activeTab} onChange={handleTabChange}>
+        {place instanceof HydrometricStation && <Tab label="Hydrometric" />}
+        <Tab label="Weather" />
+        <Tab label="Elevation" />
+        <Tab label="Satellite" />
+        <Tab label="Earthquakes" />
+      </Tabs>
 
-      <Grid size={{ xs: 12, md: 6 }}>
-        <OpenMeteoView place={place} />
-      </Grid>
+      <Box sx={{ p: 2 }}>
+        {place instanceof HydrometricStation &&
+          activeTab === tabIndex.hydrometric && (
+            <HydrometricStationDetails place={place} />
+          )}
 
-      <Grid size={{ xs: 12, md: 6 }}>
-        <OpenElevationView place={place} />
-      </Grid>
+        {activeTab ===
+          (place instanceof HydrometricStation ? tabIndex.weather : 0) && (
+          <OpenMeteoView place={place} />
+        )}
 
-      <Grid size={{ xs: 12, md: 6 }}>
-        <SatelliteImageView place={place} />
-      </Grid>
-      <Grid size={{ xs: 12, md: 6 }}>
-        <RecentEarthquakesView place={place} />
-      </Grid>
-    </Grid>
+        {activeTab ===
+          (place instanceof HydrometricStation ? tabIndex.elevation : 1) && (
+          <OpenElevationView place={place} />
+        )}
+
+        {activeTab ===
+          (place instanceof HydrometricStation ? tabIndex.satellite : 2) && (
+          <SatelliteImageView place={place} />
+        )}
+
+        {activeTab ===
+          (place instanceof HydrometricStation ? tabIndex.earthquakes : 3) && (
+          <RecentEarthquakesView place={place} />
+        )}
+      </Box>
+    </Box>
   );
 }
