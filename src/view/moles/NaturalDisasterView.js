@@ -53,6 +53,10 @@ export default function NaturalDisasterView({ place }) {
             <Tabs
               value={tabValue}
               onChange={(event, newValue) => setTabValue(newValue)}
+              variant="scrollable"
+              scrollButtons
+              allowScrollButtonsMobile
+              aria-label="scrollable auto tabs example"
             >
               {alertScoreList.map((alertScore) => (
                 <Tab key={alertScore.name} label={alertScore.name} />
