@@ -40,6 +40,7 @@ Aththanagalu Oya
 Athuraliya
 Athurugiriya
 Attanagalla
+Auto Alerts (Experimental)
 Avissawella
 Ayagama
 Badalgama
@@ -112,6 +113,7 @@ Dondra
 Drought
 Dunamale
 Dungalpitiya
+Earthquakes
 Eastern
 Eheliyagoda
 Ehetuwewa
@@ -550,6 +552,7 @@ Saliyawewa
 Samanthurai
 Sammanthurai
 Sammanturai
+Satellite
 Satellite Image
 Seeduwa
 Seethawaka
@@ -590,6 +593,7 @@ Thanamalvila
 Thanamalwila
 Thanthirimale
 Thawalama
+The following Natural Disaster Risk Scores are automtically generated, and are still under development and should be used for informational purposes only.
 The following Natural Disaster Risk Scores are still under development and should be used for informational purposes only.
 Thelijjawila
 Thenmaradchi (Chavakachcheri)
