@@ -10,6 +10,8 @@ import IconButton from "@mui/material/IconButton";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import { COLORS } from "../_cons/StyleConstants";
 import AlertLegend from "../atoms/AlertLegend";
+import Place from "../../nonview/core/ents/places/Place";
+
 function MapEventHandler({ onMapMoveEnd, onMapClick }) {
   useMapEvents({
     dragend: (e) => {
@@ -52,9 +54,11 @@ export default function MapPanel({
 }) {
   const [clickPoint, setClickPoint] = useState(null);
 
-  const onMapMoveEnd = (latLng) => {
+  const onMapMoveEnd = async (latLng) => {
     setMapLatLng(latLng);
-    setSelectedEnt(null);
+    const place = Place.fromLatLng(latLng);
+    await place.loadDetails();
+    setSelectedEnt(place);
   };
 
   const onMapClick = (containerPoint) => {
