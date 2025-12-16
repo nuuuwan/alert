@@ -5,11 +5,6 @@ import EntTitle from "../atoms/EntTitle";
 import CustomAppBarMenu from "./CustomAppBarMenu";
 
 export default function CustomAppBar({ selectedEnt, mapLatLng }) {
-  const title =
-    (selectedEnt ? selectedEnt.title : null) ||
-    (mapLatLng ? mapLatLng.title : null) ||
-    "ALERT";
-
   return (
     <AppBar
       sx={{
