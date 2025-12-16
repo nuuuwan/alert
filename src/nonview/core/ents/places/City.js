@@ -46,7 +46,6 @@ class City extends Place {
   static getMajorCityNames() {
     return [
       "Colombo",
-      "Sri Jayawardenepura Kotte",
       "Kandy",
       "Galle",
       "Jaffna",
@@ -55,16 +54,16 @@ class City extends Place {
       "Batticaloa",
       "Anuradhapura",
       "Kurunegala",
-      "Ratnapura",
-      "Badulla",
-      "Matara",
-      "Hambantota",
-      "Kalutara",
-      "Gampaha",
-      "Kegalle",
-      "Polonnaruwa",
-      "Mannar",
-      "Vavuniya",
+      // "Ratnapura",
+      // "Badulla",
+      // "Matara",
+      // "Hambantota",
+      // "Kalutara",
+      // "Gampaha",
+      // "Kegalle",
+      // "Polonnaruwa",
+      // "Mannar",
+      // "Vavuniya",
     ];
   }
 
