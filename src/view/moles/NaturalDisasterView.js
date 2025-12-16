@@ -8,6 +8,7 @@ import ScienceIcon from "@mui/icons-material/Science";
 import { CircularProgress, Tabs, Tab } from "@mui/material";
 import { useState } from "react";
 import InformationGroup from "../atoms/InformationGroup";
+import CustomTab from "../atoms/CustomTab";
 
 export default function NaturalDisasterView({ place }) {
   const { t } = useTranslation();
@@ -59,7 +60,7 @@ export default function NaturalDisasterView({ place }) {
               aria-label="scrollable auto tabs example"
             >
               {alertScoreList.map((alertScore, iAlert) => (
-                <Tab
+                <CustomTab
                   key={alertScore.name}
                   label={`${iAlert + 1}. ${alertScore.name}`}
                 />
