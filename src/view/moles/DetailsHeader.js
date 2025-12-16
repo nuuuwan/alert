@@ -7,7 +7,6 @@ import { CircularProgress } from "@mui/material";
 
 export default function DetailsHeader({ ent }) {
   const { t } = useTranslation();
-  const dsd = ent?.dsd;
   return (
     <Box>
       <CustomPaper>
