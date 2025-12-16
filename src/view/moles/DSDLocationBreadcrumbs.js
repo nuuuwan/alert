@@ -10,7 +10,7 @@ export default function DSDLocationBreadcrumbs({ dsd }) {
   }
 
   return (
-    <Breadcrumbs separator="‧" sx={{ m: 0, p: 0 }}>
+    <Breadcrumbs separator="/" sx={{ m: 0, p: 0, color: "white" }}>
       <AdminRegionView AdminRegionClass={Province} id={dsd.provinceId} />
       <AdminRegionView AdminRegionClass={District} id={dsd.districtId} />
       <AdminRegionView AdminRegionClass={DSD} id={dsd.id} />

@@ -7,7 +7,4 @@ export default class Province extends AdminRegion {
   static getEntTypeName() {
     return "Province";
   }
-  static getEntTypeNameShort() {
-    return "P.";
-  }
 }
