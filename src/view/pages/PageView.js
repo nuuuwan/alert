@@ -4,7 +4,6 @@ import MapView from "../orgas/MapView";
 import AlertsView from "../moles/AlertsView";
 import DataView from "../moles/DataView";
 import NearbyPlacesView from "../moles/NearbyPlacesView";
-import DSDLocationBreadcrumbs from "../moles/DSDLocationBreadcrumbs";
 
 function PageView({
   dsdNameId,
