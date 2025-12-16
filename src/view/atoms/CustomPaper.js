@@ -3,7 +3,6 @@ import Paper from "@mui/material/Paper";
 export default function CustomPaper({ children, sx }) {
   return (
     <Paper
-      elevation={10}
       sx={Object.assign(
         {
           background: "white",
@@ -14,7 +13,7 @@ export default function CustomPaper({ children, sx }) {
           width: "fit-content",
           maxWidth: "90vw",
         },
-        sx,
+        sx
       )}
     >
       {children}
