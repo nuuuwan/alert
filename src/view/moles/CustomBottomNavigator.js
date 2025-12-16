@@ -62,7 +62,7 @@ export default function CustomBottomNavigator({
         }}
       >
         <BottomNavigationAction
-          label={t("1. Select Location")}
+          label={t("Map")}
           value="Map"
           icon={<MapIcon />}
           disabled={pageMode === "Map"}
@@ -74,7 +74,7 @@ export default function CustomBottomNavigator({
           }}
         />
         <BottomNavigationAction
-          label={t("2. View Alerts")}
+          label={t("Alerts")}
           value="Alerts"
           icon={<WarningIcon />}
           disabled={pageMode === "Alerts"}
@@ -86,7 +86,7 @@ export default function CustomBottomNavigator({
           }}
         />
         <BottomNavigationAction
-          label={t("3. View More Data")}
+          label={t("Data")}
           value="Data"
           icon={<AssessmentIcon />}
           disabled={pageMode === "Data"}
