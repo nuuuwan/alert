@@ -34,10 +34,6 @@ class Place {
     return `/Place/${this.latLng.id}`;
   }
 
-  get alertLevel() {
-    return 0;
-  }
-
   async loadDetails() {
     const [
       openMeteoData,
@@ -83,6 +79,20 @@ class Place {
 
   static fromLatLng(latLng) {
     return new Place({ latLng, openMeteoData: undefined });
+  }
+
+  get officialAlertLevel() {
+    const landslideWarningLevel =
+      (this.dsd && this.dsd.latestLandslideWarningLevel) || 0;
+    return landslideWarningLevel;
+  }
+
+  get autoAlertLevel() {
+    return 0;
+  }
+
+  get alertLevel() {
+    return Math.max(this.officialAlertLevel, this.autoAlertLevel);
   }
 }
 
