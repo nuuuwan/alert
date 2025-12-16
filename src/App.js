@@ -21,6 +21,8 @@ import DSD from "./nonview/core/ents/regions/admin_regions/DSD";
 import City from "./nonview/core/ents/places/City";
 import DetailsHeader from "./view/moles/DetailsHeader";
 import Grid from "@mui/material/Grid";
+import NearbyPlacesView from "./view/moles/NearbyPlacesView";
+import DSDLocationBreadcrumbs from "./view/moles/DSDLocationBreadcrumbs";
 
 const theme = createTheme({
   typography: {
@@ -114,7 +116,7 @@ function App() {
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId,
+          hydrometricStationNameId
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
@@ -214,6 +216,15 @@ function App() {
                   setSelectedEnt={setSelectedEnt}
                 />
               )}
+
+              <Grid size={{ xs: 12, md: 6 }}>
+                <NearbyPlacesView
+                  latLng={selectedEnt ? selectedEnt.latLng : null}
+                />
+                <DSDLocationBreadcrumbs
+                  dsd={selectedEnt && selectedEnt.dsd ? selectedEnt.dsd : null}
+                />
+              </Grid>
             </Box>
           )}
         </DataProvider>
