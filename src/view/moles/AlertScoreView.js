@@ -1,6 +1,6 @@
 import OldMetricCard from "../atoms/OldMetricCard";
 import { useTranslation } from "react-i18next";
-import { COLORS, getAlertColor } from "../_cons/StyleConstants";
+import { getAlertColor } from "../_cons/StyleConstants";
 import InfoIcon from "@mui/icons-material/Info";
 import TsunamiIcon from "@mui/icons-material/Tsunami";
 import WaterIcon from "@mui/icons-material/Water";
@@ -11,7 +11,6 @@ import NaturalDisaster from "../../nonview/core/third_party/NaturalDisaster";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import MetricCard from "../atoms/MetricCard";
 import ScienceIcon from "@mui/icons-material/Science";
 import Divider from "@mui/material/Divider";
 import InformationGroup from "../atoms/InformationGroup";

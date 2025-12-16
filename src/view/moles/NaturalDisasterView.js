@@ -5,10 +5,13 @@ import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
 import AlertScoreView from "./AlertScoreView";
 import ScienceIcon from "@mui/icons-material/Science";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Tabs, Tab } from "@mui/material";
+import { useState } from "react";
+import InformationGroup from "../atoms/InformationGroup";
 
 export default function NaturalDisasterView({ place }) {
   const { t } = useTranslation();
+  const [tabValue, setTabValue] = useState(0);
 
   let alertScoreList = [];
 
@@ -30,7 +33,11 @@ export default function NaturalDisasterView({ place }) {
   }
 
   return (
-    <Box>
+    <InformationGroup
+      title="Experimental Natural Disaster Risk Scores"
+      Icon={ScienceIcon}
+      InnerComponent={Box}
+    >
       <Alert
         severity="warning"
         icon={<ScienceIcon />}
@@ -41,19 +48,27 @@ export default function NaturalDisasterView({ place }) {
         )}
       </Alert>
       <Box>
-        {alertScoreList ? (
-          alertScoreList.map((alertScore, iAlertScore) => (
-            <Box key={alertScore.name} sx={{ mt: 2 }}>
+        {alertScoreList && alertScoreList.length > 0 ? (
+          <>
+            <Tabs
+              value={tabValue}
+              onChange={(event, newValue) => setTabValue(newValue)}
+            >
+              {alertScoreList.map((alertScore) => (
+                <Tab key={alertScore.name} label={alertScore.name} />
+              ))}
+            </Tabs>
+            <Box sx={{ mt: 2 }}>
               <AlertScoreView
-                iAlertScore={iAlertScore}
-                alertScore={alertScore}
+                iAlertScore={tabValue}
+                alertScore={alertScoreList[tabValue]}
               />
             </Box>
-          ))
+          </>
         ) : (
           <CircularProgress />
         )}
       </Box>
-    </Box>
+    </InformationGroup>
   );
 }
