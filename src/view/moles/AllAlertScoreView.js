@@ -15,6 +15,7 @@ import MetricCard from "../atoms/MetricCard";
 import ScienceIcon from "@mui/icons-material/Science";
 import Divider from "@mui/material/Divider";
 import InformationGroup from "../atoms/InformationGroup";
+import AlertScoreView from "./AlertScoreView";
 
 export default function AllAlertScoreView({ iAlertScore, alertScore }) {
   const { t } = useTranslation();
@@ -68,42 +69,9 @@ export default function AllAlertScoreView({ iAlertScore, alertScore }) {
           {" " + t("of Contributing Factors are satisfied.")}
         </Typography>
         <Grid container spacing={0}>
-          {alertScore.metricList.map((metric, index) => {
-            const isConditionMet = metric.condition(metric.value);
-            const statusColor = isConditionMet
-              ? COLORS.highAlert
-              : COLORS.noAlert;
-
-            const isConditionMetDescription = isConditionMet
-              ? t("Yes")
-              : t("No");
-
-            return (
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <MetricCard
-                  timedUnitValue={metric.timedUnitValue}
-                  timeLabel={t(metric.timeLabel)}
-                  colorOverride={statusColor}
-                />
-                <Typography variant="caption" color={statusColor}>
-                  {metric.conditionDescription}
-                  {t(
-                    metric.timedUnitValue.unitValue.constructor.getUnitLabel()
-                  )}
-                </Typography>
-                <Typography variant="caption" color={statusColor}>
-                  {isConditionMetDescription}
-                </Typography>
-              </Box>
-            );
-          })}
+          {alertScore.metricList.map((metric, index) => (
+            <AlertScoreView key={index} metric={metric} />
+          ))}
         </Grid>
       </Box>
     </InformationGroup>
