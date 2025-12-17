@@ -185,7 +185,7 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(
             openMeteoData,
-            "soilMoistureDeepNext24hMean"
+            "soilMoistureDeepNext7dMean"
           ),
           condition: (value) => value < 0.05,
           conditionDescription: "< 0.05",
