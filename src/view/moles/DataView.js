@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Tabs from "@mui/material/Tabs";
 import Box from "@mui/material/Box";
 import CustomTab from "../atoms/CustomTab";
+import CustomTabs from "../atoms/CustomTabs";
 import SatelliteImageView from "../atoms/SatelliteImageView";
 import OpenMeteoView from "../moles/OpenMeteoView";
 import HydrometricStationDetails from "../moles/HydrometricStationDetails";
@@ -34,7 +34,7 @@ export default function DataView() {
 
   return (
     <Box>
-      <Tabs value={activeTab} onChange={handleTabChange}>
+      <CustomTabs value={activeTab} onChange={handleTabChange}>
         {place instanceof HydrometricStation && (
           <CustomTab label="Hydrometric" />
         )}
@@ -42,7 +42,7 @@ export default function DataView() {
         <CustomTab label="Elevation" />
         <CustomTab label="Satellite" />
         <CustomTab label="Earthquakes" />
-      </Tabs>
+      </CustomTabs>
 
       <Box sx={{ p: 2 }}>
         {place instanceof HydrometricStation &&

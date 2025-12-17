@@ -5,10 +5,11 @@ import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
 import AlertScoreView from "./AlertScoreView";
 import ScienceIcon from "@mui/icons-material/Science";
-import { CircularProgress, Tabs } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 import { useState } from "react";
 import InformationGroup from "../atoms/InformationGroup";
 import CustomTab from "../atoms/CustomTab";
+import CustomTabs from "../atoms/CustomTabs";
 
 export default function NaturalDisasterView({ place }) {
   const { t } = useTranslation();
@@ -51,7 +52,7 @@ export default function NaturalDisasterView({ place }) {
       <Box>
         {alertScoreList && alertScoreList.length > 0 ? (
           <>
-            <Tabs
+            <CustomTabs
               value={tabValue}
               onChange={(event, newValue) => setTabValue(newValue)}
             >
@@ -61,7 +62,7 @@ export default function NaturalDisasterView({ place }) {
                   label={`${iAlert + 1}. ${t(alertScore.name)}`}
                 />
               ))}
-            </Tabs>
+            </CustomTabs>
             <Box sx={{ mt: 2 }}>
               <AlertScoreView
                 iAlertScore={tabValue}
