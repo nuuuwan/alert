@@ -44,15 +44,9 @@ class City extends Place {
   }
 
   static getMajorCityNames() {
-    return ["Kandy"];
-  }
-
-  static getMajorCityNamesAll() {
     return [
-      // National capitals
-      "Sri Jayawardenepura Kotte",
-      "Colombo",
       // District capitals, all 25
+      "Colombo",
       "Gampaha",
       "Kalutara",
       "Kandy",
@@ -80,7 +74,6 @@ class City extends Place {
       // // Additional major cities
       "Negombo",
       "Moratuwa",
-      "Dehiwala",
       "Matara",
       "Kalmunai",
     ];
