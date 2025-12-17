@@ -93,24 +93,10 @@ function App() {
   ]);
 
   useEffect(() => {
-    async function fetchSelectedDsd() {
-      if (dsdNameId) {
-        const dsd = await DSD.loadFromName(dsdNameId);
-        if (dsd) {
-          await dsd.loadDetails();
-          setSelectedEnt(dsd);
-          setMapLatLng(dsd.getCentroidLatLng());
-        }
-      }
-    }
-    fetchSelectedDsd();
-  }, [dsdNameId]);
-
-  useEffect(() => {
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId,
+          hydrometricStationNameId
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
