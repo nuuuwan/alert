@@ -14,6 +14,13 @@ import { useNavigate } from "react-router-dom";
 
 function MapEventHandler({ onMapMoveEnd }) {
   useMapEvents({
+    dragend: (e) => {
+      const latLng = LatLng.fromRaw([
+        e.target.getCenter().lat,
+        e.target.getCenter().lng,
+      ]);
+      onMapMoveEnd(latLng);
+    },
     click: (e) => {
       const latLng = LatLng.fromRaw([e.latlng.lat, e.latlng.lng]);
       onMapMoveEnd(latLng);
