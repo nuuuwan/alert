@@ -43,7 +43,7 @@ function App() {
   const navigate = useNavigate();
   const downloadRef = useRef(null);
   const [mapLatLng, setMapLatLng] = useState(LatLng.fromRaw(DEFAULT_CENTER));
-  const [pageMode, setPageMode] = useState("Alerts");
+  const [pageMode, setPageMode] = useState("Map");
 
   const handleCurrentLocation = () => {
     navigate("/");
