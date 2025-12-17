@@ -14,4 +14,8 @@ export default class AlertScore {
     return this.metricList.filter((metric) => metric.condition(metric.value))
       .length;
   }
+
+  get level() {
+    return Math.floor((3 * this.score) / this.maxScore);
+  }
 }

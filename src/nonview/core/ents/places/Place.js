@@ -109,10 +109,7 @@ class Place {
 
   get autoAlertLevel() {
     const autoAlertList = this.autoAlertList || [];
-    const maxAutoAlertLevel = Math.max(
-      ...autoAlertList.map((alert) => (3 * alert.score) / alert.maxScore)
-    );
-    return Math.floor(maxAutoAlertLevel);
+    return Math.max(...autoAlertList.map((alert) => alert.level));
   }
 
   get alertLevel() {
