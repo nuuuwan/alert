@@ -21,7 +21,9 @@ export default function InformationGroup({
         <Typography variant="h6">{t(title)}</Typography>
       </Box>
 
-      <InnerComponent container spacing={0}>
+      <InnerComponent
+        {...(InnerComponent === Grid ? { container: true, spacing: 0 } : {})}
+      >
         {children}
       </InnerComponent>
 
