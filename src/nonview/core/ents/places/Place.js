@@ -1,6 +1,7 @@
 import OpenMeteo from "../../third_party/OpenMeteo.js";
 import OpenElevation from "../../third_party/OpenElevation.js";
 import OpenMeteoFlood from "../../third_party/OpenMeteoFlood.js";
+import OpenMeteoAirQuality from "../../third_party/OpenMeteoAirQuality.js";
 import Earthquake from "../../third_party/Earthquake.js";
 import NaturalDisaster from "../../third_party/NaturalDisaster.js";
 import DSD from "../../ents/regions/admin_regions/DSD.js";
@@ -42,12 +43,14 @@ class Place {
       openMeteoFloodData,
       openElevationData,
       earthquakeData,
+      airQualityData,
       dsd,
     ] = await Promise.all([
       OpenMeteo.getData({ latLng: this.latLng }),
       OpenMeteoFlood.getData(this.latLng),
       OpenElevation.getData(this.latLng),
       Earthquake.loadAllRecent(),
+      OpenMeteoAirQuality.getData({ latLng: this.latLng }),
       DSD.loadNearest(this.latLng),
     ]);
 
@@ -55,6 +58,7 @@ class Place {
     this.openMeteoFloodData = openMeteoFloodData;
     this.openElevationData = openElevationData;
     this.earthquakeData = earthquakeData;
+    this.airQualityData = airQualityData;
 
     this.dsd = dsd;
     this.dsd = await this.dsd.loadLandslideWarningData();
@@ -81,6 +85,9 @@ class Place {
       }),
       OpenMeteo.getDroughtRiskScore({ openMeteoData: this.openMeteoData }),
       OpenMeteo.getHeatRiskScore({ openMeteoData: this.openMeteoData }),
+      OpenMeteoAirQuality.getAirQualityScore({
+        airQualityData: this.airQualityData,
+      }),
     ];
 
     return this;

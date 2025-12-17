@@ -44,6 +44,10 @@ class City extends Place {
   }
 
   static getMajorCityNames() {
+    return ["Kandy"];
+  }
+
+  static getMajorCityNamesAll() {
     return [
       // National capitals
       "Sri Jayawardenepura Kotte",

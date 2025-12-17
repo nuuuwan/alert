@@ -8,6 +8,7 @@ import SoilMoisture from "./SoilMoisture";
 import Slope from "./Slope";
 import RelativeElevation from "./RelativeElevation";
 import EarthquakeMagnitude from "./EarthquakeMagnitude";
+import USAQI from "./USAQI";
 
 export default class TimedUnit {
   constructor({
@@ -73,6 +74,9 @@ function getUnitClass(key) {
   }
   if (key.startsWith("earthquakeMagnitude")) {
     return EarthquakeMagnitude;
+  }
+  if (key.startsWith("usAqi")) {
+    return USAQI;
   }
   throw new Error(`Unknown unit key: ${key}`);
 }
