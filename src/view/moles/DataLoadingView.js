@@ -5,9 +5,13 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Chip from "@mui/material/Chip";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useDataContext } from "../../nonview/core/DataContext";
+import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 
 function DataLoadingView() {
   const { data } = useDataContext();
+  const { selectedEnt } = useSelectedEntDataContext();
+
+  const loadedData = { ...data, ...{ selectedEnt } };
 
   const loadingItems = [
     {
@@ -20,11 +24,16 @@ function DataLoadingView() {
       key: "majorCities",
       value: 100,
     },
-  ];
+    {
+      label: "Selected Entity",
+      key: "selectedEnt",
+      value: 50,
+    },
+  ].sort((a, b) => a.value - b.value);
 
   const totalValue = loadingItems.reduce((sum, item) => sum + item.value, 0);
   const loadedValue = loadingItems.reduce(
-    (sum, item) => sum + (data[item.key] ? item.value : 0),
+    (sum, item) => sum + (loadedData[item.key] ? item.value : 0),
     0
   );
   const progressPercentage = (loadedValue / totalValue) * 100;
