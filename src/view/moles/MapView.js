@@ -8,9 +8,6 @@ export default function MapView({
   //
   pageMode,
   setPageMode,
-
-  //
-  onCurrentLocation,
 }) {
   const center = mapLatLng.raw() || DEFAULT_CENTER;
 
@@ -31,8 +28,6 @@ export default function MapView({
         //
         pageMode={pageMode}
         setPageMode={setPageMode}
-        //
-        onCurrentLocation={onCurrentLocation}
       />
     </Box>
   );

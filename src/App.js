@@ -45,10 +45,6 @@ function App() {
   const [mapLatLng, setMapLatLng] = useState(LatLng.fromRaw(DEFAULT_CENTER));
   const [pageMode, setPageMode] = useState("Map");
 
-  const handleCurrentLocation = () => {
-    navigate("/");
-  };
-
   const handleSetToMapCenter = () => {
     const place = Place.fromLatLng(mapLatLng);
     setPageMode("Alerts");
@@ -86,7 +82,6 @@ function App() {
               setMapLatLng={setMapLatLng}
               pageMode={pageMode}
               setPageMode={setPageMode}
-              onCurrentLocation={handleCurrentLocation}
             />
             <CustomBottomNavigator
               onSetToMapCenter={handleSetToMapCenter}

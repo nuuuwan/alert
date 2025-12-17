@@ -7,13 +7,7 @@ import NearbyPlacesView from "../moles/NearbyPlacesView";
 import DataLoadingView from "../moles/DataLoadingView";
 import { useDataContext } from "../../nonview/core/DataContext";
 import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
-function PageView({
-  mapLatLng,
-  setMapLatLng,
-  pageMode,
-  setPageMode,
-  onCurrentLocation,
-}) {
+function PageView({ mapLatLng, setMapLatLng, pageMode, setPageMode }) {
   const { data } = useDataContext();
   const { selectedEnt } = useSelectedEntDataContext();
   const isLoaded = data.hydrometricStations && data.majorCities;
@@ -42,8 +36,6 @@ function PageView({
           //
           pageMode={pageMode}
           setPageMode={setPageMode}
-          //
-          onCurrentLocation={onCurrentLocation}
         />
       )}
       <Grid size={{ xs: 12, md: 6 }}>
