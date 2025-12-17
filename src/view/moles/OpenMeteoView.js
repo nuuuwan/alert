@@ -37,7 +37,7 @@ export default function OpenMeteoView({ place }) {
           <MetricCard
             timedUnitValue={newTimedUnit(
               openMeteoData,
-              "soilMoistureDeepNext24hMean"
+              "soilMoistureDeepNext24hMean",
             )}
           />
           <MetricCard

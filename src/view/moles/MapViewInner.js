@@ -14,7 +14,7 @@ export default function MapViewInner({ setPageMode }) {
 
   const places = [...HydrometricStations, ...majorCities];
   const placesWithAlerts = places.filter(
-    (place) => place && place.alertLevel > 0
+    (place) => place && place.alertLevel > 0,
   );
   const deduplicatedPlaces = Place.dedupeByLatLng([
     ...placesWithAlerts,
@@ -36,7 +36,7 @@ export default function MapViewInner({ setPageMode }) {
               place={place}
               setPageMode={setPageMode}
             />
-          )
+          ),
       )}
     </Box>
   );

@@ -48,7 +48,7 @@ export function SelectedEntDataProvider({
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId
+          hydrometricStationNameId,
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();

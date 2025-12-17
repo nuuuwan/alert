@@ -46,7 +46,7 @@ export default class OpenMeteoAirQuality {
         currentFields.map((field, index) => [
           field,
           current.variables(index).value(),
-        ])
+        ]),
       ),
       hourly_time_ut: Array.from(
         {
@@ -54,13 +54,13 @@ export default class OpenMeteoAirQuality {
             (Number(hourly.timeEnd()) - Number(hourly.time())) /
             hourly.interval(),
         },
-        (_, i) => Number(hourly.time()) + i * hourly.interval()
+        (_, i) => Number(hourly.time()) + i * hourly.interval(),
       ),
       hourly: Object.fromEntries(
         hourlyFields.map((field, index) => [
           field,
           Object.values(hourly.variables(index).valuesArray()),
-        ])
+        ]),
       ),
     };
 

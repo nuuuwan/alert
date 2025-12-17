@@ -125,7 +125,7 @@ class Place {
 
   static dedupeByLatLng(places) {
     return Object.values(
-      Object.fromEntries(places.map((place) => [place.latLng.id, place]))
+      Object.fromEntries(places.map((place) => [place.latLng.id, place])),
     );
   }
 }
