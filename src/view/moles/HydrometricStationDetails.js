@@ -1,7 +1,4 @@
-import { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import CircularProgress from "@mui/material/CircularProgress";
 import WavesIcon from "@mui/icons-material/Waves";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
@@ -15,32 +12,7 @@ import DataSource from "../../nonview/core/DataSource";
 import { Alert } from "@mui/material";
 
 export default function HydrometricStationDetails({ place }) {
-  const [loading, setLoading] = useState(true);
-  const [waterLevelHistory, setWaterLevelHistory] = useState([]);
-
-  useEffect(() => {
-    async function loadData() {
-      setLoading(true);
-      try {
-        await place.loadDetails();
-        setWaterLevelHistory(place.waterLevelHistory || []);
-      } catch (error) {
-        console.error("Error loading water level history:", error);
-      }
-      setLoading(false);
-    }
-
-    loadData();
-  }, [place]);
-
-  if (loading) {
-    return (
-      <Box sx={{ display: "flex", justifyContent: "center", py: 4 }}>
-        <CircularProgress />
-      </Box>
-    );
-  }
-
+  const waterLevelHistory = place.waterLevelHistory || [];
   if (waterLevelHistory.length === 0) {
     return <Alert severity="info">No water level data available.</Alert>;
   }

@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import Nearby from "../../nonview/core/Nearby";
 import PlaceLink from "../atoms/PlaceLink";
 import CustomPaper from "../atoms/CustomPaper";
 import Stack from "@mui/material/Stack";
@@ -8,21 +6,9 @@ import { COLORS } from "../_cons/StyleConstants";
 import { CircularProgress } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
-export default function NearbyPlacesView({ latLng }) {
+export default function NearbyPlacesView({ ent }) {
   const { t } = useTranslation();
-  const [nearbyPlaces, setNearbyPlaces] = useState([]);
-
-  useEffect(() => {
-    const fetchNearbyPlaces = async () => {
-      if (latLng) {
-        const nearby = await Nearby.findNearbyPlaces(latLng);
-        setNearbyPlaces(nearby);
-      }
-    };
-
-    fetchNearbyPlaces();
-  }, [latLng]);
-
+  const nearbyPlaces = ent.nearbyPlaces;
   return (
     <CustomPaper>
       <Typography variant="caption" color={COLORS.neutral} sx={{ mb: 1 }}>

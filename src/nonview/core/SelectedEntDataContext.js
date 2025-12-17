@@ -20,11 +20,7 @@ export function SelectedEntDataProvider({
   setMapLatLng,
 }) {
   const [selectedEnt, setSelectedEnt] = useState(null);
-  const [dsd, setDSD] = useState(null);
-  const [district, setDistrict] = useState(null);
-  const [province, setProvince] = useState(null);
 
-  // Fetch browser location on initial load
   useEffect(() => {
     const hasSomeEntParam =
       dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
@@ -46,7 +42,6 @@ export function SelectedEntDataProvider({
     setMapLatLng,
   ]);
 
-  // Fetch hydrometric station
   useEffect(() => {
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
@@ -63,7 +58,6 @@ export function SelectedEntDataProvider({
     fetchHydrometricStation();
   }, [hydrometricStationNameId, setMapLatLng]);
 
-  // Fetch city
   useEffect(() => {
     async function fetchCity() {
       if (cityNameId) {
@@ -78,7 +72,6 @@ export function SelectedEntDataProvider({
     fetchCity();
   }, [cityNameId, setMapLatLng]);
 
-  // Fetch place by LatLng
   useEffect(() => {
     async function fetchPlace() {
       if (placeLatLngId) {
@@ -94,9 +87,7 @@ export function SelectedEntDataProvider({
   }, [placeLatLngId]);
 
   return (
-    <SelectedEntDataContext.Provider
-      value={{ selectedEnt, dsd, district, province }}
-    >
+    <SelectedEntDataContext.Provider value={{ selectedEnt }}>
       {children}
     </SelectedEntDataContext.Provider>
   );

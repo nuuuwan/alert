@@ -39,7 +39,7 @@ function PageView({ mapLatLng, setMapLatLng, pageMode, setPageMode }) {
         />
       )}
       <Grid size={{ xs: 12, md: 6 }}>
-        <NearbyPlacesView latLng={selectedEnt ? selectedEnt.latLng : null} />
+        <NearbyPlacesView ent={selectedEnt} />
       </Grid>
       {pageMode === "Alerts" && <AlertsView />}
       {pageMode === "Data" && <DataView />}

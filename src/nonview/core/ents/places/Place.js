@@ -5,6 +5,8 @@ import Earthquake from "../../third_party/Earthquake.js";
 import DSD from "../../ents/regions/admin_regions/DSD.js";
 import District from "../../ents/regions/admin_regions/District.js";
 import Province from "../../ents/regions/admin_regions/Province.js";
+import Nearby from "../../Nearby.js";
+
 class Place {
   static getEntTypeName() {
     return "Point Location";
@@ -41,18 +43,21 @@ class Place {
       openElevationData,
       earthquakeData,
       dsd,
+      nearbyPlaces,
     ] = await Promise.all([
       OpenMeteo.getData({ latLng: this.latLng }),
       OpenMeteoFlood.getData(this.latLng),
       OpenElevation.getData(this.latLng),
       Earthquake.loadAllRecent(),
       DSD.loadNearest(this.latLng),
+      Nearby.findNearbyPlaces(this.latLng),
     ]);
 
     this.openMeteoData = openMeteoData;
     this.openMeteoFloodData = openMeteoFloodData;
     this.openElevationData = openElevationData;
     this.earthquakeData = earthquakeData;
+    this.nearbyPlaces = nearbyPlaces;
 
     this.dsd = dsd;
     this.dsd = await this.dsd.loadLandslideWarningData();
@@ -99,7 +104,7 @@ class Place {
 
   static dedupeByLatLng(places) {
     return Object.values(
-      Object.fromEntries(places.map((place) => [place.latLng.id, place])),
+      Object.fromEntries(places.map((place) => [place.latLng.id, place]))
     );
   }
 }
