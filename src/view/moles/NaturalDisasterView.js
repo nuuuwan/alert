@@ -1,5 +1,3 @@
-import NaturalDisaster from "../../nonview/core/third_party/NaturalDisaster";
-import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
@@ -16,24 +14,7 @@ export default function NaturalDisasterView({ place }) {
   const { t } = useTranslation();
   const [tabValue, setTabValue] = useState(0);
 
-  let alertScoreList = [];
-
-  if (place) {
-    const { openMeteoData, openElevationData, earthquakeData } = place;
-    alertScoreList = [
-      NaturalDisaster.getLandslideRiskScore({
-        openMeteoData,
-        openElevationData,
-      }),
-      NaturalDisaster.getFloodRiskScore({
-        openMeteoData,
-        openElevationData,
-      }),
-      NaturalDisaster.getTsunamiRiskScore({ earthquakeData }),
-      OpenMeteo.getDroughtRiskScore({ openMeteoData }),
-      OpenMeteo.getHeatRiskScore({ openMeteoData }),
-    ];
-  }
+  const alertScoreList = place?.autoAlertList || [];
 
   return (
     <InformationGroup

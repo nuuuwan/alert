@@ -2,6 +2,7 @@ import OpenMeteo from "../../third_party/OpenMeteo.js";
 import OpenElevation from "../../third_party/OpenElevation.js";
 import OpenMeteoFlood from "../../third_party/OpenMeteoFlood.js";
 import Earthquake from "../../third_party/Earthquake.js";
+import NaturalDisaster from "../../third_party/NaturalDisaster.js";
 import DSD from "../../ents/regions/admin_regions/DSD.js";
 import District from "../../ents/regions/admin_regions/District.js";
 import Province from "../../ents/regions/admin_regions/Province.js";
@@ -65,6 +66,22 @@ class Place {
 
     this.district = district;
     this.province = province;
+
+    this.autoAlertList = [
+      NaturalDisaster.getLandslideRiskScore({
+        openMeteoData: this.openMeteoData,
+        openElevationData: this.openElevationData,
+      }),
+      NaturalDisaster.getFloodRiskScore({
+        openMeteoData: this.openMeteoData,
+        openElevationData: this.openElevationData,
+      }),
+      NaturalDisaster.getTsunamiRiskScore({
+        earthquakeData: this.earthquakeData,
+      }),
+      OpenMeteo.getDroughtRiskScore({ openMeteoData: this.openMeteoData }),
+      OpenMeteo.getHeatRiskScore({ openMeteoData: this.openMeteoData }),
+    ];
 
     return this;
   }
