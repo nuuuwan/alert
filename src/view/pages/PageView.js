@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import MapView from "../orgas/MapView";
+import MapView from "../moles/MapView";
 import AlertsView from "../moles/AlertsView";
 import DataView from "../moles/DataView";
 import NearbyPlacesView from "../moles/NearbyPlacesView";
