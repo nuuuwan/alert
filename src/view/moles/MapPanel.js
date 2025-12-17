@@ -11,9 +11,8 @@ import { COLORS } from "../_cons/StyleConstants";
 import AlertLegend from "../atoms/AlertLegend";
 import Place from "../../nonview/core/ents/places/Place";
 import { useNavigate } from "react-router-dom";
-import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 
-function MapEventHandler({ onMapMoveEnd, onMapClick }) {
+function MapEventHandler({ onMapMoveEnd }) {
   useMapEvents({
     click: (e) => {
       const latLng = LatLng.fromRaw([e.latlng.lat, e.latlng.lng]);
@@ -44,7 +43,6 @@ export default function MapPanel({
 }) {
   const [clickPoint, setClickPoint] = useState(null);
   const navigate = useNavigate();
-  const { selectedEnt } = useSelectedEntDataContext();
 
   const onMapMoveEnd = async (latLng) => {
     const place = Place.fromLatLng(latLng);
