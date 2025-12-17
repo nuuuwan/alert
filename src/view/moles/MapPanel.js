@@ -71,7 +71,7 @@ export default function MapPanel({
       <MapCenterUpdater center={center} />
       <MapEventHandler onMapMoveEnd={onMapMoveEnd} onMapClick={onMapClick} />
 
-      <MapViewInner selectedEnt={selectedEnt} setPageMode={setPageMode} />
+      <MapViewInner setPageMode={setPageMode} />
 
       {pageMode === "Map" && (
         <Box>

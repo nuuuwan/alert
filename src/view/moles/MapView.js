@@ -6,9 +6,6 @@ export default function MapView({
   mapLatLng,
   setMapLatLng,
   //
-  selectedEnt,
-  setSelectedEnt,
-  //
   pageMode,
   setPageMode,
 
@@ -27,9 +24,6 @@ export default function MapView({
       }}
     >
       <MapPanel
-        selectedEnt={selectedEnt}
-        setSelectedEnt={setSelectedEnt}
-        //
         center={center}
         zoom={DEFAULT_ZOOM}
         //

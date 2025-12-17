@@ -9,9 +9,11 @@ import HydrometricStation from "../../nonview/core/ents/places/HydrometricStatio
 import OpenElevationView from "../moles/OpenElevationView";
 import RecentEarthquakesView from "../moles/RecentEarthquakesView";
 import { CircularProgress } from "@mui/material";
+import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 
-export default function DataView({ selectedEnt }) {
+export default function DataView() {
   const [activeTab, setActiveTab] = useState(0);
+  const { selectedEnt } = useSelectedEntDataContext();
   const place = selectedEnt;
 
   if (!place) {

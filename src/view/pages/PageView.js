@@ -49,8 +49,8 @@ function PageView({
       <Grid size={{ xs: 12, md: 6 }}>
         <NearbyPlacesView latLng={selectedEnt ? selectedEnt.latLng : null} />
       </Grid>
-      {pageMode === "Alerts" && <AlertsView selectedEnt={selectedEnt} />}
-      {pageMode === "Data" && <DataView selectedEnt={selectedEnt} />}
+      {pageMode === "Alerts" && <AlertsView />}
+      {pageMode === "Data" && <DataView />}
     </Box>
   );
 }
