@@ -32,13 +32,13 @@ export default function MetricCard({
       sx={{
         p: 0.5,
         m: 0.5,
-        borderRadius: 2,
+        borderRadius: 1,
         backgroundColor: backColor,
-        border: "2px solid",
+        border: "1px solid",
         borderColor: foreColor,
         textAlign: "center",
-        width: 120,
-        height: 120,
+        width: 90,
+        height: 90,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -75,10 +75,8 @@ export default function MetricCard({
         }}
       >
         <Typography
-          variant="h5"
+          variant="h6"
           color={foreColor}
-          fontWeight={"bold"}
-          noWrap
           sx={{ fontSize: Math.min(24, 180 / t(valueFormatted).length) }}
         >
           {t(valueFormatted)}
@@ -86,7 +84,7 @@ export default function MetricCard({
         <Typography
           variant="caption"
           color={foreColor}
-          sx={{ ml: 0.5, position: "relative", bottom: "4px" }}
+          sx={{ ml: 0.1, position: "relative", bottom: "4px" }}
           noWrap
         >
           {t(unitLabel)}
