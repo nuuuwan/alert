@@ -33,7 +33,7 @@ export default function DataView() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box>
       <Tabs value={activeTab} onChange={handleTabChange}>
         {place instanceof HydrometricStation && (
           <CustomTab label="Hydrometric" />

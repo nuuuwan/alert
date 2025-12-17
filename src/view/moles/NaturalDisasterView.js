@@ -45,7 +45,7 @@ export default function NaturalDisasterView({ place }) {
         sx={{ ml: 3, width: "fit-content", maxWidth: "90vw" }}
       >
         {t(
-          "The following Natural Disaster Risk Scores are automtically generated, and are still under development and should be used for informational purposes only.",
+          "The following Natural Disaster Risk Scores are automtically generated, and are still under development and should be used for informational purposes only."
         )}
       </Alert>
       <Box>
@@ -54,10 +54,6 @@ export default function NaturalDisasterView({ place }) {
             <Tabs
               value={tabValue}
               onChange={(event, newValue) => setTabValue(newValue)}
-              variant="scrollable"
-              scrollButtons
-              allowScrollButtonsMobile
-              aria-label="scrollable auto tabs example"
             >
               {alertScoreList.map((alertScore, iAlert) => (
                 <CustomTab
