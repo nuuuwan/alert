@@ -1,7 +1,6 @@
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 import Box from "@mui/material/Box";
 import MapPanel from "./MapPanel";
-import TestModeBanner from "../atoms/TestModeBanner";
 
 export default function MapView({
   mapLatLng,
@@ -27,8 +26,6 @@ export default function MapView({
         zIndex: 100,
       }}
     >
-      <TestModeBanner />
-
       <MapPanel
         selectedEnt={selectedEnt}
         setSelectedEnt={setSelectedEnt}
