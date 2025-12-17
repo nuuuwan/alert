@@ -10,6 +10,7 @@ import { useState } from "react";
 import InformationGroup from "../atoms/InformationGroup";
 import CustomTab from "../atoms/CustomTab";
 import CustomTabs from "../atoms/CustomTabs";
+import { getAlertColor } from "../_cons/StyleConstants";
 
 export default function NaturalDisasterView({ place }) {
   const { t } = useTranslation();
@@ -56,12 +57,18 @@ export default function NaturalDisasterView({ place }) {
               value={tabValue}
               onChange={(event, newValue) => setTabValue(newValue)}
             >
-              {alertScoreList.map((alertScore, iAlert) => (
-                <CustomTab
-                  key={alertScore.name}
-                  label={`${iAlert + 1}. ${t(alertScore.name)}`}
-                />
-              ))}
+              {alertScoreList.map((alertScore, iAlert) => {
+                const score = alertScore.score;
+                const maxScore = alertScore.maxScore;
+                const alertColor = getAlertColor(score, maxScore);
+                return (
+                  <CustomTab
+                    key={alertScore.name}
+                    label={`${iAlert + 1}. ${t(alertScore.name)}`}
+                    color={alertColor}
+                  />
+                );
+              })}
             </CustomTabs>
             <Box sx={{ mt: 2 }}>
               <AlertScoreView

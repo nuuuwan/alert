@@ -18,9 +18,6 @@ import AlertScoreItemView from "./AlertScoreItemView";
 export default function AlertScoreView({ iAlertScore, alertScore }) {
   const { t } = useTranslation();
 
-  const score = alertScore.score;
-  const maxScore = alertScore.maxScore;
-
   const Icon =
     {
       Tsunami: TsunamiIcon,
@@ -30,8 +27,10 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
       Drought: SpaIcon,
     }[alertScore.name] || InfoIcon;
 
-  const alertLabel = NaturalDisaster.getLabel(score, maxScore);
+  const score = alertScore.score;
+  const maxScore = alertScore.maxScore;
   const alertColor = getAlertColor(score, maxScore);
+  const alertLabel = NaturalDisaster.getLabel(score, maxScore);
 
   return (
     <InformationGroup
