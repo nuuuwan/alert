@@ -20,6 +20,9 @@ export function SelectedEntDataProvider({
   setMapLatLng,
 }) {
   const [selectedEnt, setSelectedEnt] = useState(null);
+  const [dsd, setDSD] = useState(null);
+  const [district, setDistrict] = useState(null);
+  const [province, setProvince] = useState(null);
 
   // Fetch browser location on initial load
   useEffect(() => {
@@ -91,7 +94,9 @@ export function SelectedEntDataProvider({
   }, [placeLatLngId]);
 
   return (
-    <SelectedEntDataContext.Provider value={{ selectedEnt, setSelectedEnt }}>
+    <SelectedEntDataContext.Provider
+      value={{ selectedEnt, dsd, district, province }}
+    >
       {children}
     </SelectedEntDataContext.Provider>
   );

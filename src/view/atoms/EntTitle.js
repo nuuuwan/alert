@@ -13,7 +13,7 @@ export default function EntTitle({ ent, mapLatLng }) {
         <EntAvatar ent={entDisplay} color="white" size="32px" />
         <Stack direction="column" spacing={0} justifyContent="center">
           <Typography variant="body1">{entDisplay.title}</Typography>
-          <DSDLocationBreadcrumbs dsd={entDisplay.dsd} />
+          <DSDLocationBreadcrumbs ent={entDisplay} />
         </Stack>
       </Stack>
     </Box>

@@ -1,17 +1,14 @@
 import AdminRegionView from "../atoms/AdminRegionView";
-import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
-import District from "../../nonview/core/ents/regions/admin_regions/District";
 import Stack from "@mui/material/Stack";
 
-export default function DSDLocationBreadcrumbs({ dsd }) {
-  if (!dsd) {
+export default function DSDLocationBreadcrumbs({ ent }) {
+  if (!ent) {
     return null;
   }
-
   return (
     <Stack direction="row" spacing={1}>
-      <AdminRegionView AdminRegionClass={DSD} id={dsd.id} />,
-      <AdminRegionView AdminRegionClass={District} id={dsd.districtId} />
+      <AdminRegionView regionEnt={ent.dsd} />,
+      <AdminRegionView regionEnt={ent.district} />
     </Stack>
   );
 }
