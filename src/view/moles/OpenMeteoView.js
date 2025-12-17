@@ -2,6 +2,7 @@ import Grid from "@mui/material/Grid";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import InformationGroup from "../atoms/InformationGroup";
 import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
+import OpenMeteoAirQuality from "../../nonview/core/third_party/OpenMeteoAirQuality";
 import MetricCard from "../atoms/MetricCard";
 import RainChart from "../moles/RainChart";
 import TempChart from "../moles/TempChart";
@@ -16,7 +17,10 @@ export default function OpenMeteoView({ place }) {
         <InformationGroup
           title="Weather Forecast"
           Icon={WbSunnyIcon}
-          dataSourceList={[OpenMeteo.getDataSource(latLng)]}
+          dataSourceList={[
+            OpenMeteo.getDataSource(latLng),
+            OpenMeteoAirQuality.getDataSource(),
+          ]}
         >
           <MetricCard
             timedUnitValue={newTimedUnit(openMeteoData, "rainNext24hSum")}
@@ -33,8 +37,11 @@ export default function OpenMeteoView({ place }) {
           <MetricCard
             timedUnitValue={newTimedUnit(
               openMeteoData,
-              "soilMoistureDeepNext24hMean",
+              "soilMoistureDeepNext24hMean"
             )}
+          />
+          <MetricCard
+            timedUnitValue={newTimedUnit(place.airQualityData, "usAqiMax24h")}
           />
         </InformationGroup>
       </Grid>
@@ -42,7 +49,10 @@ export default function OpenMeteoView({ place }) {
         <InformationGroup
           title="Current Weather"
           Icon={WbSunnyIcon}
-          dataSourceList={[OpenMeteo.getDataSource(latLng)]}
+          dataSourceList={[
+            OpenMeteo.getDataSource(latLng),
+            OpenMeteoAirQuality.getDataSource(),
+          ]}
         >
           <MetricCard
             timedUnitValue={newTimedUnit(openMeteoData, "rainPrev24hSum")}
@@ -53,6 +63,9 @@ export default function OpenMeteoView({ place }) {
           />
           <MetricCard
             timedUnitValue={newTimedUnit(openMeteoData, "dewPointNow")}
+          />
+          <MetricCard
+            timedUnitValue={newTimedUnit(place.airQualityData, "usAqiNow")}
           />
         </InformationGroup>
       </Grid>

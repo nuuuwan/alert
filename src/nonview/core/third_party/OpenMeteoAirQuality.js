@@ -74,6 +74,7 @@ export default class OpenMeteoAirQuality {
 
     let airQualityData = {
       usAqiMax24h: usAqiMax,
+      usAqiNow: airQualityDataRaw.current.us_aqi,
       timeUtNow: airQualityDataRaw.current_time_ut,
     };
 
