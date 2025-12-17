@@ -90,8 +90,8 @@ export default class OpenMeteoAirQuality {
       metricList: [
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(airQualityData, "usAqiMax24h"),
-          condition: (value) => value > 100,
-          conditionDescription: "> 100",
+          condition: (value) => value > 150,
+          conditionDescription: "> 150",
           source: dataSource,
         }),
       ],
