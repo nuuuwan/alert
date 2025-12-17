@@ -10,13 +10,11 @@ import MyLocationIcon from "@mui/icons-material/MyLocation";
 import { COLORS } from "../_cons/StyleConstants";
 import AlertLegend from "../atoms/AlertLegend";
 import Place from "../../nonview/core/ents/places/Place";
+import { useNavigate } from "react-router-dom";
+import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 
 function MapEventHandler({ onMapMoveEnd, onMapClick }) {
   useMapEvents({
-    dragend: (e) => {
-      const center = e.target.getCenter();
-      onMapMoveEnd(LatLng.fromRaw([center.lat, center.lng]));
-    },
     click: (e) => {
       const latLng = LatLng.fromRaw([e.latlng.lat, e.latlng.lng]);
       onMapMoveEnd(latLng);
@@ -34,8 +32,6 @@ function MapCenterUpdater({ center, zoom }) {
 }
 
 export default function MapPanel({
-  selectedEnt,
-  setSelectedEnt,
   setMapLatLng,
   //
   center,
@@ -47,12 +43,13 @@ export default function MapPanel({
   pageMode,
 }) {
   const [clickPoint, setClickPoint] = useState(null);
+  const navigate = useNavigate();
+  const { selectedEnt } = useSelectedEntDataContext();
 
   const onMapMoveEnd = async (latLng) => {
-    setMapLatLng(latLng);
     const place = Place.fromLatLng(latLng);
-    await place.loadDetails();
-    setSelectedEnt(place);
+    navigate(place.url);
+    setMapLatLng(latLng);
   };
 
   const onMapClick = (containerPoint) => {

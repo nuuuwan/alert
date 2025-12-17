@@ -8,15 +8,12 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { COLORS, FONT_FAMILY } from "./view/_cons/StyleConstants";
 import { useParams, useNavigate } from "react-router-dom";
 import { DataProvider } from "./nonview/core/DataContext";
+import { SelectedEntDataProvider } from "./nonview/core/SelectedEntDataContext";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState, useRef } from "react";
 import Place from "./nonview/core/ents/places/Place";
 import LatLng from "./nonview/base/geos/LatLng";
 import { DEFAULT_CENTER } from "./nonview/cons/MapConstants";
-import GeoLocation from "./nonview/base/GeoLocation";
-import HydrometricStation from "./nonview/core/ents/places/HydrometricStation";
-import DSD from "./nonview/core/ents/regions/admin_regions/DSD";
-import City from "./nonview/core/ents/places/City";
 
 const theme = createTheme({
   typography: {
@@ -47,7 +44,6 @@ function App() {
   const downloadRef = useRef(null);
   const [mapLatLng, setMapLatLng] = useState(LatLng.fromRaw(DEFAULT_CENTER));
   const [pageMode, setPageMode] = useState("Alerts");
-  const [selectedEnt, setSelectedEnt] = useState(null);
 
   const handleCurrentLocation = () => {
     navigate("/");
@@ -71,98 +67,35 @@ function App() {
     }
   }, [lang, i18n]);
 
-  useEffect(() => {
-    const hasSomeEntParam =
-      dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
-
-    async function fetchBrowserLocation() {
-      const latLng = await GeoLocation.getCurrentLatLng();
-      if (!hasSomeEntParam && latLng) {
-        const place = await Place.load({ latLng });
-        setMapLatLng(latLng);
-        navigate(`${place.url}`);
-      }
-    }
-    fetchBrowserLocation();
-  }, [
-    dsdNameId,
-    hydrometricStationNameId,
-    cityNameId,
-    placeLatLngId,
-    navigate,
-  ]);
-
-  useEffect(() => {
-    async function fetchHydrometricStation() {
-      if (hydrometricStationNameId) {
-        const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId
-        );
-        if (hydrometricStation) {
-          await hydrometricStation.loadDetails();
-          setSelectedEnt(hydrometricStation);
-          setMapLatLng(hydrometricStation.latLng);
-        }
-      }
-    }
-    fetchHydrometricStation();
-  }, [hydrometricStationNameId]);
-
-  useEffect(() => {
-    async function fetchCity() {
-      if (cityNameId) {
-        const city = await City.loadFromName(cityNameId);
-        if (city) {
-          await city.loadDetails();
-          setSelectedEnt(city);
-          setMapLatLng(city.latLng);
-        }
-      }
-    }
-    fetchCity();
-  }, [cityNameId]);
-
-  useEffect(() => {
-    async function fetchPlace() {
-      if (placeLatLngId) {
-        const latLng = LatLng.fromId(placeLatLngId);
-        const place = await Place.load({ latLng });
-        if (place) {
-          await place.loadDetails();
-          setSelectedEnt(place);
-        }
-      }
-    }
-    fetchPlace();
-  }, [placeLatLngId]);
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+
       <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
-        <CustomAppBar selectedEnt={selectedEnt} mapLatLng={mapLatLng} />
         <DataProvider>
-          <PageView
+          <SelectedEntDataProvider
             dsdNameId={dsdNameId}
             hydrometricStationNameId={hydrometricStationNameId}
-            placeLatLngId={placeLatLngId}
             cityNameId={cityNameId}
-            downloadRef={downloadRef}
-            mapLatLng={mapLatLng}
+            placeLatLngId={placeLatLngId}
             setMapLatLng={setMapLatLng}
-            selectedEnt={selectedEnt}
-            setSelectedEnt={setSelectedEnt}
-            pageMode={pageMode}
-            setPageMode={setPageMode}
-            onCurrentLocation={handleCurrentLocation}
-          />
+          >
+            <CustomAppBar mapLatLng={mapLatLng} />
+            <PageView
+              mapLatLng={mapLatLng}
+              setMapLatLng={setMapLatLng}
+              pageMode={pageMode}
+              setPageMode={setPageMode}
+              onCurrentLocation={handleCurrentLocation}
+            />
+            <CustomBottomNavigator
+              onSetToMapCenter={handleSetToMapCenter}
+              onDownload={handleDownload}
+              setPageMode={setPageMode}
+              pageMode={pageMode}
+            />
+          </SelectedEntDataProvider>
         </DataProvider>
-        <CustomBottomNavigator
-          onSetToMapCenter={handleSetToMapCenter}
-          onDownload={handleDownload}
-          setPageMode={setPageMode}
-          pageMode={pageMode}
-        />
       </Box>
     </ThemeProvider>
   );

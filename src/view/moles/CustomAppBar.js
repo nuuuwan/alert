@@ -3,8 +3,11 @@ import Toolbar from "@mui/material/Toolbar";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import EntTitle from "../atoms/EntTitle";
 import CustomAppBarMenu from "./CustomAppBarMenu";
+import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 
-export default function CustomAppBar({ selectedEnt, mapLatLng }) {
+export default function CustomAppBar({ mapLatLng }) {
+  const { selectedEnt } = useSelectedEntDataContext();
+
   const color = selectedEnt
     ? getAlertColor(selectedEnt.alertLevel || 0, 3)
     : COLORS.neutral;

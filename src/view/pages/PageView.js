@@ -6,23 +6,16 @@ import DataView from "../moles/DataView";
 import NearbyPlacesView from "../moles/NearbyPlacesView";
 import DataLoadingView from "../moles/DataLoadingView";
 import { useDataContext } from "../../nonview/core/DataContext";
-
+import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 function PageView({
-  dsdNameId,
-  hydrometricStationNameId,
-  placeLatLngId,
-  cityNameId,
-  downloadRef,
   mapLatLng,
   setMapLatLng,
-  selectedEnt,
-  setSelectedEnt,
   pageMode,
   setPageMode,
   onCurrentLocation,
 }) {
   const { data } = useDataContext();
-
+  const { selectedEnt } = useSelectedEntDataContext();
   const isLoaded = data.hydrometricStations && data.majorCities;
 
   if (!isLoaded) {
@@ -44,13 +37,8 @@ function PageView({
     >
       {pageMode === "Map" && (
         <MapView
-          downloadRef={downloadRef}
-          //
           mapLatLng={mapLatLng}
           setMapLatLng={setMapLatLng}
-          //
-          selectedEnt={selectedEnt}
-          setSelectedEnt={setSelectedEnt}
           //
           pageMode={pageMode}
           setPageMode={setPageMode}
@@ -61,22 +49,8 @@ function PageView({
       <Grid size={{ xs: 12, md: 6 }}>
         <NearbyPlacesView latLng={selectedEnt ? selectedEnt.latLng : null} />
       </Grid>
-      {pageMode === "Alerts" && (
-        <AlertsView
-          downloadRef={downloadRef}
-          //
-          selectedEnt={selectedEnt}
-          setSelectedEnt={setSelectedEnt}
-        />
-      )}
-      {pageMode === "Data" && (
-        <DataView
-          downloadRef={downloadRef}
-          //
-          selectedEnt={selectedEnt}
-          setSelectedEnt={setSelectedEnt}
-        />
-      )}
+      {pageMode === "Alerts" && <AlertsView selectedEnt={selectedEnt} />}
+      {pageMode === "Data" && <DataView selectedEnt={selectedEnt} />}
     </Box>
   );
 }

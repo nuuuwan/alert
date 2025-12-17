@@ -5,9 +5,11 @@ import CustomTab from "../atoms/CustomTab";
 import NaturalDisasterOfficialView from "./NaturalDisasterOfficialView";
 import NaturalDisasterView from "./NaturalDisasterView";
 import { useTranslation } from "react-i18next";
+import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 
-export default function AlertsView({ selectedEnt }) {
+export default function AlertsView() {
   const { t } = useTranslation();
+  const { selectedEnt } = useSelectedEntDataContext();
   const place = selectedEnt;
   const [tabValue, setTabValue] = useState(0);
 
