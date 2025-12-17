@@ -21,12 +21,14 @@ export const COLORS = {
   air: "rgb(192, 128, 20)",
 };
 
-export function getAlertColor(level, maxLevel) {
-  if (level === 0) {
-    return COLORS.noAlert;
-  }
-  const p = parseInt(((level - 1) / (maxLevel - 1)) * 2);
-  const color = [COLORS.lowAlert, COLORS.mediumAlert, COLORS.highAlert][p];
+export function getAlertColor(level, maxLevel = 3) {
+  const p = parseInt((level / maxLevel) * 3);
+  const color = [
+    COLORS.noAlert,
+    COLORS.lowAlert,
+    COLORS.mediumAlert,
+    COLORS.highAlert,
+  ][p];
 
   return color;
 }
