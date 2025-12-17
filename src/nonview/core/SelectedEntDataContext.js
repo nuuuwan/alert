@@ -4,6 +4,7 @@ import LatLng from "../base/geos/LatLng";
 import GeoLocation from "../base/GeoLocation";
 import HydrometricStation from "./ents/places/HydrometricStation";
 import City from "./ents/places/City";
+import Nearby from "./Nearby";
 
 const SelectedEntDataContext = createContext();
 
@@ -20,6 +21,7 @@ export function SelectedEntDataProvider({
   setMapLatLng,
 }) {
   const [selectedEnt, setSelectedEnt] = useState(null);
+  const [nearbyPlaces, setNearbyPlaces] = useState([]);
 
   useEffect(() => {
     const hasSomeEntParam =
@@ -86,8 +88,20 @@ export function SelectedEntDataProvider({
     fetchPlace();
   }, [placeLatLngId]);
 
+  useEffect(() => {
+    const fetchNearbyPlaces = async () => {
+      if (selectedEnt) {
+        const latLng = selectedEnt.latLng;
+        const nearby = await Nearby.findNearbyPlaces(latLng);
+        setNearbyPlaces(nearby);
+      }
+    };
+
+    fetchNearbyPlaces();
+  }, [selectedEnt]);
+
   return (
-    <SelectedEntDataContext.Provider value={{ selectedEnt }}>
+    <SelectedEntDataContext.Provider value={{ selectedEnt, nearbyPlaces }}>
       {children}
     </SelectedEntDataContext.Provider>
   );

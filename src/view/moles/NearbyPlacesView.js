@@ -5,10 +5,11 @@ import Typography from "@mui/material/Typography";
 import { COLORS } from "../_cons/StyleConstants";
 import { CircularProgress } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 
 export default function NearbyPlacesView({ ent }) {
   const { t } = useTranslation();
-  const nearbyPlaces = ent.nearbyPlaces;
+  const { nearbyPlaces } = useSelectedEntDataContext();
   return (
     <CustomPaper>
       <Typography variant="caption" color={COLORS.neutral} sx={{ mb: 1 }}>
