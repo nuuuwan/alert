@@ -14,29 +14,34 @@ export const DataProvider = ({ children }) => {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    const fetchData = async () => {
+    const loadHydrometricStations = async () => {
       await HydrometricStation.getRawAlertData();
       const hydrometricStations = await HydrometricStation.loadAll();
       console.debug("Loaded hydrometricStations.");
-      const sexAgeDataIdx = await DSD.loadAllSexAgeDataIdx();
-      console.debug("Loaded sexAgeDataIdx.");
+      setData((prevData) => ({
+        ...prevData,
+        hydrometricStations,
+      }));
+    };
 
+    loadHydrometricStations();
+  }, []);
+
+  useEffect(() => {
+    const loadMajorCities = async () => {
       const majorCities = await City.loadAllMajor();
       for (const city of majorCities) {
         await city.loadDetails();
         await TimeUtils.sleep(Math.random() * 0.1);
       }
       console.debug("Loaded majorCities.");
-
       setData((prevData) => ({
         ...prevData,
-        hydrometricStations,
-        sexAgeDataIdx,
         majorCities,
       }));
     };
 
-    fetchData();
+    loadMajorCities();
   }, []);
 
   return (

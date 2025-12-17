@@ -4,6 +4,8 @@ import MapView from "../orgas/MapView";
 import AlertsView from "../moles/AlertsView";
 import DataView from "../moles/DataView";
 import NearbyPlacesView from "../moles/NearbyPlacesView";
+import DataLoadingView from "../moles/DataLoadingView";
+import { useDataContext } from "../../nonview/core/DataContext";
 
 function PageView({
   dsdNameId,
@@ -19,6 +21,15 @@ function PageView({
   setPageMode,
   onCurrentLocation,
 }) {
+  const { data } = useDataContext();
+
+  const isLoaded =
+    data.hydrometricStations && data.sexAgeDataIdx && data.majorCities;
+
+  if (!isLoaded) {
+    return <DataLoadingView />;
+  }
+
   return (
     <Box
       sx={{
