@@ -23,8 +23,7 @@ function PageView({
 }) {
   const { data } = useDataContext();
 
-  const isLoaded =
-    data.hydrometricStations && data.sexAgeDataIdx && data.majorCities;
+  const isLoaded = data.hydrometricStations && data.majorCities;
 
   if (!isLoaded) {
     return <DataLoadingView />;
@@ -45,11 +44,6 @@ function PageView({
     >
       {pageMode === "Map" && (
         <MapView
-          dsdNameId={dsdNameId}
-          hydrometricStationNameId={hydrometricStationNameId}
-          placeLatLngId={placeLatLngId}
-          cityNameId={cityNameId}
-          //
           downloadRef={downloadRef}
           //
           mapLatLng={mapLatLng}

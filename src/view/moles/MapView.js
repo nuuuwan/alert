@@ -4,11 +4,6 @@ import MapPanel from "./MapPanel";
 import TestModeBanner from "../atoms/TestModeBanner";
 
 export default function MapView({
-  dsdNameId,
-  hydrometricStationNameId,
-  cityNameId,
-  placeLatLngId,
-  //
   mapLatLng,
   setMapLatLng,
   //
