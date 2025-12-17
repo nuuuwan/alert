@@ -31,6 +31,7 @@ export function SelectedEntDataProvider({
       const latLng = await GeoLocation.getCurrentLatLng();
       if (!hasSomeEntParam && latLng) {
         const place = await Place.load({ latLng });
+        await place.loadDetails();
         setMapLatLng(latLng);
         setSelectedEnt(place);
       }
@@ -48,7 +49,7 @@ export function SelectedEntDataProvider({
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId,
+          hydrometricStationNameId
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
