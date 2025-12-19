@@ -1,5 +1,4 @@
 import OldMetricCard from "../atoms/OldMetricCard";
-import InformationGroup from "../atoms/InformationGroup";
 import LandslideIcon from "@mui/icons-material/Landslide";
 import WaterIcon from "@mui/icons-material/Water";
 import { getAlertColor } from "../_cons/StyleConstants";
@@ -7,7 +6,8 @@ import TimeUtils from "../../nonview/base/TimeUtils";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import DataSource from "../../nonview/core/DataSource";
 import { CircularProgress } from "@mui/material";
-import ReportProblemIcon from "@mui/icons-material/ReportProblem";
+import DataSourceView from "../atoms/DataSourceView";
+import CustomPaper from "../atoms/CustomPaper";
 
 export default function NaturalDisasterOfficialView({ place }) {
   if (!place) {
@@ -24,7 +24,7 @@ export default function NaturalDisasterOfficialView({ place }) {
       new DataSource({
         label: "Disaster Management Centre of Sri Lanka",
         url: "https://www.dmc.gov.lk",
-      }),
+      })
     );
   }
 
@@ -34,19 +34,16 @@ export default function NaturalDisasterOfficialView({ place }) {
         label:
           "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
         url: "https://github.com/nuuuwan/lk_irrigation",
-      }),
+      })
     );
   }
 
   return (
-    <InformationGroup
-      title="Official Alerts"
-      Icon={ReportProblemIcon}
-      dataSourceList={dataSourceList}
-    >
+    <CustomPaper>
       {landslideCard}
       {waterLevelCard}
-    </InformationGroup>
+      <DataSourceView dataSourceList={dataSourceList} />
+    </CustomPaper>
   );
 }
 
