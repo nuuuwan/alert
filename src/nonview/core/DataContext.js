@@ -16,7 +16,11 @@ export const DataProvider = ({ children }) => {
     const loadHydrometricStations = async () => {
       await HydrometricStation.getRawAlertData();
       const hydrometricStations = await HydrometricStation.loadAll();
-      console.debug("Loaded hydrometricStations.");
+      for (const station of hydrometricStations) {
+        await station.loadDetails();
+        await TimeUtils.sleep(Math.random() * 0.1);
+      }
+
       setData((prevData) => ({
         ...prevData,
         hydrometricStations,
@@ -33,7 +37,6 @@ export const DataProvider = ({ children }) => {
         await city.loadDetails();
         await TimeUtils.sleep(Math.random() * 0.1);
       }
-      console.debug("Loaded majorCities.");
       setData((prevData) => ({
         ...prevData,
         majorCities,
