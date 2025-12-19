@@ -80,7 +80,6 @@ export default function MapView({
         {pageMode === "Map" && (
           <Box>
             <MapCrosshair />
-
             <AlertLegend />
             <CurrentLocationButton />
           </Box>
