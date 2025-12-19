@@ -28,21 +28,17 @@ export default function NaturalDisasterOfficialView({ place }) {
 
   const tabs = [];
   if (landslideCard) {
-    const level = place.dsd.latestLandslideWarningLevel;
-    const color = getAlertColor(level, 3);
     tabs.push({
       label: t("Landslide"),
       card: landslideCard,
-      color,
+      color: getAlertColor(place.dsd.latestLandslideWarningLevel, 3),
     });
   }
   if (waterLevelCard) {
-    const level = place.waterLevelAlertLevel;
-    const color = getAlertColor(level, 3);
     tabs.push({
       label: t("Water Level"),
       card: waterLevelCard,
-      color,
+      color: getAlertColor(place.waterLevelAlertLevel, 3),
     });
   }
 
@@ -52,7 +48,7 @@ export default function NaturalDisasterOfficialView({ place }) {
       new DataSource({
         label: "Disaster Management Centre of Sri Lanka",
         url: "https://www.dmc.gov.lk",
-      }),
+      })
     );
   }
 
@@ -62,7 +58,7 @@ export default function NaturalDisasterOfficialView({ place }) {
         label:
           "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
         url: "https://github.com/nuuuwan/lk_irrigation",
-      }),
+      })
     );
   }
 
