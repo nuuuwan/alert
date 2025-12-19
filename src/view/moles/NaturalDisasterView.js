@@ -5,7 +5,6 @@ import AlertScoreView from "./AlertScoreView";
 import ScienceIcon from "@mui/icons-material/Science";
 import { CircularProgress } from "@mui/material";
 import { useState } from "react";
-import InformationGroup from "../atoms/InformationGroup";
 import CustomTab from "../atoms/CustomTab";
 import CustomTabs from "../atoms/CustomTabs";
 import { getAlertColor } from "../_cons/StyleConstants";
@@ -56,7 +55,7 @@ export default function NaturalDisasterView({ place }) {
         sx={{ ml: 3, width: "fit-content", maxWidth: "90vw" }}
       >
         {t(
-          "These alerts are automtically generated, and are still under development and should be used for informational purposes only.",
+          "These alerts are automtically generated, and are still under development and should be used for informational purposes only."
         )}
       </Alert>
     </CustomPaper>
