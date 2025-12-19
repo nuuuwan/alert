@@ -99,6 +99,7 @@ export default class OpenMeteo {
     const nowIndex = OpenMeteo.SPAN_DAYS_BEFORE * 24;
     const next24hEnd = (OpenMeteo.SPAN_DAYS_BEFORE + 1) * 24;
     const next7dEnd = (OpenMeteo.SPAN_DAYS_BEFORE + 7) * 24;
+    const next14dEnd = (OpenMeteo.SPAN_DAYS_BEFORE + 14) * 24;
     const prev24hStart = (OpenMeteo.SPAN_DAYS_BEFORE - 1) * 24;
     const prev7dStart = (OpenMeteo.SPAN_DAYS_BEFORE - 7) * 24;
     const prev28dStart = (OpenMeteo.SPAN_DAYS_BEFORE - 28) * 24;
@@ -111,6 +112,10 @@ export default class OpenMeteo {
     const rainNext7d = weatherDataRaw.hourly.precipitation.slice(
       nowIndex,
       next7dEnd
+    );
+    const rainNext14d = weatherDataRaw.hourly.precipitation.slice(
+      nowIndex,
+      next14dEnd
     );
     const rainListPrev24h = weatherDataRaw.hourly.precipitation.slice(
       prev24hStart,
@@ -154,10 +159,12 @@ export default class OpenMeteo {
       rainHoursNext24hSum: rainListNext24h.filter((rain) => rain > 0).length,
       // hourly - rain
       rainHoursNext7dSum: rainNext7d.filter((rain) => rain > 0).length,
+      rainHoursNext14dSum: rainNext14d.filter((rain) => rain > 0).length,
       rainListHourly: weatherDataRaw.hourly.precipitation,
       rainNext24hMax: Math.max(...rainListNext24h),
       rainNext24hSum: ArrayUtils.sum(rainListNext24h),
       rainNext7dSum: ArrayUtils.sum(rainNext7d),
+      rainNext14dSum: ArrayUtils.sum(rainNext14d),
       rainPrev24hSum: ArrayUtils.sum(rainListPrev24h),
       rainPrev7dSum: ArrayUtils.sum(rainListPrev7d),
       rainPrev28dSum: ArrayUtils.sum(rainListPrev28d),
@@ -179,7 +186,7 @@ export default class OpenMeteo {
   static getDroughtRiskScore({ openMeteoData }) {
     return new AlertScore({
       name: "Drought",
-      timeLabel: "Next 7d",
+      timeLabel: "Next 14d",
       metricList: [
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "rainPrev28dSum"),
@@ -191,7 +198,7 @@ export default class OpenMeteo {
           },
         }),
         new AlertScoreMetric({
-          timedUnitValue: newTimedUnit(openMeteoData, "rainNext7dSum"),
+          timedUnitValue: newTimedUnit(openMeteoData, "rainNext14dSum"),
           condition: (value) => value < 0.1,
           conditionDescription: "< 0.1",
           source: {
@@ -200,7 +207,7 @@ export default class OpenMeteo {
           },
         }),
         new AlertScoreMetric({
-          timedUnitValue: newTimedUnit(openMeteoData, "rainHoursNext7dSum"),
+          timedUnitValue: newTimedUnit(openMeteoData, "rainHoursNext14dSum"),
           condition: (value) => value < 1,
           conditionDescription: "< 1",
           source: {
