@@ -36,7 +36,7 @@ function DataLoadingView() {
   const totalValue = loadingItems.reduce((sum, item) => sum + item.value, 0);
   const loadedValue = loadingItems.reduce(
     (sum, item) => sum + (loadedData[item.key] ? item.value : 0),
-    0
+    0,
   );
   const progressPercentage = (loadedValue / totalValue) * 100;
 
