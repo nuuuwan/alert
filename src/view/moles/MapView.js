@@ -1,5 +1,5 @@
 import { MapContainer, TileLayer, useMapEvents, useMap } from "react-leaflet";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import MapViewInner from "./MapViewInner";
 import MapCrosshair from "../atoms/MapCrosshair";
