@@ -55,29 +55,30 @@ class City extends Place {
       "Badulla",
       "Ratnapura",
 
-      // // District capitals
-      // "Gampaha",
-      // "Kalutara",
-      // "Matale",
-      // "Nuwara Eliya",
-      // "Matara",
-      // "Hambantota",
-      // "Kilinochchi",
-      // "Mannar",
-      // "Vavuniya",
-      // "Mullaitivu",
-      // "Batticaloa",
-      // "Ampara",
-      // "Puttalam",
-      // "Anuradhapura",
-      // "Polonnaruwa",
-      // "Monaragala",
-      // "Kegalle",
-      // // // Additional major cities
-      // "Negombo",
-      // "Moratuwa",
-      // "Matara",
-      // "Kalmunai",
+      // District capitals
+      "Gampaha",
+      "Kalutara",
+      "Matale",
+      "Nuwara Eliya",
+      "Matara",
+      "Hambantota",
+      "Kilinochchi",
+      "Mannar",
+      "Vavuniya",
+      "Mullaitivu",
+      "Batticaloa",
+      "Ampara",
+      "Puttalam",
+      "Anuradhapura",
+      "Polonnaruwa",
+      "Monaragala",
+      "Kegalle",
+
+      // Additional major cities
+      "Negombo",
+      "Moratuwa",
+      "Matara",
+      "Kalmunai",
     ];
   }
 
