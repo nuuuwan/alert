@@ -2,10 +2,12 @@
 2. View Alerts
 3. View More Data
 <1km
+AQI
 Addalachchenai
 Addalaichenai
 Agalawatta
 Ahangama
+Air Quality
 Akkaraipattu
 Akmeemana
 Akurana
@@ -472,6 +474,7 @@ Okkampitiya
 Opanayake
 Open-Elevation (Free Elevation API)
 Open-Meteo (Real-Time Weather API)
+Open-Meteo Air Quality
 Open-Meteo Weather API
 Paadeniya
 Pachchilaipalli
