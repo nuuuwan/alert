@@ -34,13 +34,6 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
   return (
     <CustomPaper>
       <Box>
-        <Typography variant="body2" sx={{ mb: 1 }}>
-          {t("Risk of the location experiencing a") +
-            " " +
-            t(alertScore.name) +
-            " " +
-            t("event.")}
-        </Typography>
         <OldMetricCard
           label={t(alertScore.name)}
           Icon={Icon}
