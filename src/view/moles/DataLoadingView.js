@@ -31,7 +31,7 @@ function DataLoadingView() {
       key: "selectedEnt",
       value: 50,
     },
-  ].sort((a, b) => a.value - b.value);
+  ];
 
   const totalValue = loadingItems.reduce((sum, item) => sum + item.value, 0);
   const loadedValue = loadingItems.reduce(
