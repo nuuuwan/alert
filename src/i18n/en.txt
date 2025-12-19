@@ -112,6 +112,7 @@ Dodangoda
 Doluwa
 Dompe
 Dondra
+Done
 Drought
 Dunamale
 Dungalpitiya
@@ -319,6 +320,7 @@ Last 24h total
 Level 1
 Level 2
 Level 3
+Loading
 Loading Data
 Low Alert
 Low Risk
