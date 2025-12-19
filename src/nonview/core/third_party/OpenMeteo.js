@@ -256,8 +256,8 @@ export default class OpenMeteo {
         }),
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(openMeteoData, "dewPointNext24hMax"),
-          condition: (value) => value > 25,
-          conditionDescription: "> 25",
+          condition: (value) => value > 26,
+          conditionDescription: "> 26",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
