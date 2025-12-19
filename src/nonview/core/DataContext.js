@@ -17,8 +17,7 @@ export const DataProvider = ({ children }) => {
       await HydrometricStation.getRawAlertData();
       const hydrometricStations = await HydrometricStation.loadAll();
       for (const station of hydrometricStations) {
-        await station.loadDetails();
-        await TimeUtils.sleep(Math.random() * 0.1);
+        await station.loadWaterLevelHistory();
       }
 
       setData((prevData) => ({
