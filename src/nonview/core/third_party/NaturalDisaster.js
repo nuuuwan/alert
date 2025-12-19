@@ -147,8 +147,8 @@ export default class NaturalDisaster {
             openMeteoData,
             "soilMoistureDeepNext24hMean"
           ),
-          condition: (value) => value > 0.3,
-          conditionDescription: "> 0.3",
+          condition: (value) => value > 0.35,
+          conditionDescription: "> 0.35",
           source: {
             label: "Open-Meteo Weather API",
             url: "https://open-meteo.com",
