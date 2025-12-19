@@ -16,6 +16,7 @@ Alawwa
 Alayadivembu
 Alayadiwembu
 Alert
+Alert Level
 Alert Score
 Alerts
 Aluthgama
@@ -351,6 +352,7 @@ Mahawilachchiya
 Mahiyanganaya
 Maho
 Major Cities
+Major Flood Level
 Malabe
 Malimbada
 Mallawapitiya
@@ -407,6 +409,7 @@ Mihintale
 Mihinthale
 Millaniya
 Minipe
+Minor Flood Level
 Minuwangoda
 Mirigama
 Mirissa
@@ -677,6 +680,8 @@ Warakapola
 Wariyapola
 Watch
 Water Level
+Water Level History
+Water Level Metrics
 Wattala
 Wattegama
 Weather
