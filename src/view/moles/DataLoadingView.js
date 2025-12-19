@@ -6,6 +6,7 @@ import Chip from "@mui/material/Chip";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useDataContext } from "../../nonview/core/DataContext";
 import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
+import VERSION from "../../nonview/cons/VERSION";
 
 function DataLoadingView() {
   const { data } = useDataContext();
@@ -34,7 +35,7 @@ function DataLoadingView() {
   const totalValue = loadingItems.reduce((sum, item) => sum + item.value, 0);
   const loadedValue = loadingItems.reduce(
     (sum, item) => sum + (loadedData[item.key] ? item.value : 0),
-    0,
+    0
   );
   const progressPercentage = (loadedValue / totalValue) * 100;
 
@@ -93,6 +94,10 @@ function DataLoadingView() {
             </Stack>
           ))}
         </Stack>
+
+        <Typography variant="caption" sx={{ color: "#999999", marginTop: 2 }}>
+          v{VERSION.DATETIME_STR}
+        </Typography>
       </Stack>
     </Box>
   );
