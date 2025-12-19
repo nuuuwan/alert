@@ -3,6 +3,7 @@ import { COLORS } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import InformationGroup from "./InformationGroup";
 import DataSource from "../../nonview/core/DataSource";
+import { useTranslation } from "react-i18next";
 
 const DASHED_STYLE = {
   strokeDasharray: "5 5",
@@ -12,6 +13,7 @@ export default function WaterLevelChart({
   waterLevelHistory,
   HydrometricStation,
 }) {
+  const { t } = useTranslation();
   const chartData = [...waterLevelHistory].reverse().slice(-168); // Last 7d
   const xAxisData = chartData.map((d) => new Date(d.timeUt * 1000));
   const yAxisData = chartData.map((d) => d.waterLevelM);
@@ -19,7 +21,7 @@ export default function WaterLevelChart({
   const series = [
     {
       data: yAxisData,
-      label: "Water Level",
+      label: t("Water Level"),
       color: COLORS.water,
       showMark: false,
     },
@@ -47,7 +49,7 @@ export default function WaterLevelChart({
     if (level) {
       series.push({
         data: Array(xAxisData.length).fill(level),
-        label,
+        label: t(label),
         color,
         showMark: false,
         style: DASHED_STYLE,
@@ -86,7 +88,7 @@ export default function WaterLevelChart({
         ]}
         yAxis={[
           {
-            label: "Water Level (m)",
+            label: t("Water Level (m)"),
             valueFormatter: (value) => `${value.toFixed(0)}m`,
           },
         ]}
