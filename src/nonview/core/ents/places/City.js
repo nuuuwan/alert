@@ -39,43 +39,45 @@ class City extends Place {
           latLng,
         });
         return new City({ ...rawData, ...placeData });
-      }),
+      })
     );
   }
 
   static getMajorCityNames() {
     return [
-      // District capitals, all 25
+      // Province capitals
       "Colombo",
-      "Gampaha",
-      "Kalutara",
       "Kandy",
-      "Matale",
-      "Nuwara Eliya",
       "Galle",
-      "Matara",
-      "Hambantota",
       "Jaffna",
-      "Kilinochchi",
-      "Mannar",
-      "Vavuniya",
-      "Mullaitivu",
-      "Batticaloa",
-      "Ampara",
       "Trincomalee",
       "Kurunegala",
-      "Puttalam",
-      "Anuradhapura",
-      "Polonnaruwa",
       "Badulla",
-      "Monaragala",
       "Ratnapura",
-      "Kegalle",
-      // // Additional major cities
-      "Negombo",
-      "Moratuwa",
-      "Matara",
-      "Kalmunai",
+
+      // // District capitals
+      // "Gampaha",
+      // "Kalutara",
+      // "Matale",
+      // "Nuwara Eliya",
+      // "Matara",
+      // "Hambantota",
+      // "Kilinochchi",
+      // "Mannar",
+      // "Vavuniya",
+      // "Mullaitivu",
+      // "Batticaloa",
+      // "Ampara",
+      // "Puttalam",
+      // "Anuradhapura",
+      // "Polonnaruwa",
+      // "Monaragala",
+      // "Kegalle",
+      // // // Additional major cities
+      // "Negombo",
+      // "Moratuwa",
+      // "Matara",
+      // "Kalmunai",
     ];
   }
 
