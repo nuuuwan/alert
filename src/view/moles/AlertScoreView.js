@@ -11,9 +11,8 @@ import NaturalDisaster from "../../nonview/core/third_party/NaturalDisaster";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import ScienceIcon from "@mui/icons-material/Science";
-import InformationGroup from "../atoms/InformationGroup";
 import AlertScoreItemView from "./AlertScoreItemView";
+import CustomPaper from "../atoms/CustomPaper";
 
 export default function AlertScoreView({ iAlertScore, alertScore }) {
   const { t } = useTranslation();
@@ -33,12 +32,7 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
   const alertLabel = NaturalDisaster.getLabel(score, maxScore);
 
   return (
-    <InformationGroup
-      Icon={ScienceIcon}
-      title={`${iAlertScore + 1}. ${t(alertScore.name)} ${t("Alert Score")}`}
-      dataSourceList={[]}
-      InnerComponent={Box}
-    >
+    <CustomPaper>
       <Box>
         <Typography variant="body2" sx={{ mb: 1 }}>
           {t("Risk of the location experiencing a") +
@@ -70,6 +64,6 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
           ))}
         </Grid>
       </Box>
-    </InformationGroup>
+    </CustomPaper>
   );
 }
