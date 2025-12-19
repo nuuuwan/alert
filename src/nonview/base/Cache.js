@@ -1,10 +1,15 @@
 export default class Cache {
   static SALT = "v1";
   static CACHE_DURATION_MS = 10 * 60 * 1000;
+  static LOCAL_CACHE = {};
 
   static async get(key, callback) {
     const roundedTimestamp = Math.floor(Date.now() / this.CACHE_DURATION_MS);
     const cacheKey = `${key}-${roundedTimestamp}-${this.SALT}`;
+
+    if (Cache.LOCAL_CACHE[cacheKey] !== undefined) {
+      return Cache.LOCAL_CACHE[cacheKey];
+    }
 
     try {
       const cachedValue = localStorage.getItem(cacheKey);
@@ -24,6 +29,7 @@ export default class Cache {
         console.warn(`⚠️ [Cache] ${payloadSizeK}KB: "${cacheKey}"`);
       }
       localStorage.setItem(cacheKey, payload);
+      Cache.LOCAL_CACHE[cacheKey] = value;
     } catch (error) {
       console.error(`Error writing to cache for key "${cacheKey}":`, error);
       localStorage.clear();
@@ -35,8 +41,10 @@ export default class Cache {
   static clear(key) {
     if (key) {
       localStorage.removeItem(key);
+      Cache.LOCAL_CACHE[key] = undefined;
     } else {
       localStorage.clear();
+      Cache.LOCAL_CACHE = {};
     }
   }
 }
