@@ -8,8 +8,16 @@ import DataSource from "../../nonview/core/DataSource";
 import { CircularProgress } from "@mui/material";
 import DataSourceView from "../atoms/DataSourceView";
 import CustomPaper from "../atoms/CustomPaper";
+import { useState } from "react";
+import Box from "@mui/material/Box";
+import CustomTabs from "../atoms/CustomTabs";
+import CustomTab from "../atoms/CustomTab";
+import { useTranslation } from "react-i18next";
 
 export default function NaturalDisasterOfficialView({ place }) {
+  const { t } = useTranslation();
+  const [tabValue, setTabValue] = useState(0);
+
   if (!place) {
     return <CircularProgress />;
   }
@@ -18,13 +26,33 @@ export default function NaturalDisasterOfficialView({ place }) {
   const waterLevelCard =
     place instanceof HydrometricStation ? getWaterLevelCard(place) : null;
 
+  const tabs = [];
+  if (landslideCard) {
+    const level = place.dsd.latestLandslideWarningLevel;
+    const color = getAlertColor(level, 3);
+    tabs.push({
+      label: t("Landslide"),
+      card: landslideCard,
+      color,
+    });
+  }
+  if (waterLevelCard) {
+    const level = place.waterLevelAlertLevel;
+    const color = getAlertColor(level, 3);
+    tabs.push({
+      label: t("Water Level"),
+      card: waterLevelCard,
+      color,
+    });
+  }
+
   let dataSourceList = [];
   if (landslideCard) {
     dataSourceList.push(
       new DataSource({
         label: "Disaster Management Centre of Sri Lanka",
         url: "https://www.dmc.gov.lk",
-      }),
+      })
     );
   }
 
@@ -34,14 +62,35 @@ export default function NaturalDisasterOfficialView({ place }) {
         label:
           "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
         url: "https://github.com/nuuuwan/lk_irrigation",
-      }),
+      })
+    );
+  }
+
+  if (tabs.length === 0) {
+    return (
+      <CustomPaper>
+        <DataSourceView dataSourceList={dataSourceList} />
+      </CustomPaper>
     );
   }
 
   return (
     <CustomPaper>
-      {landslideCard}
-      {waterLevelCard}
+      <Box>
+        <CustomTabs
+          value={tabValue}
+          onChange={(event, newValue) => setTabValue(newValue)}
+        >
+          {tabs.map((tab, index) => (
+            <CustomTab
+              key={tab.label}
+              label={`${index + 1}. ${tab.label}`}
+              color={tab.color}
+            />
+          ))}
+        </CustomTabs>
+        <Box sx={{ mt: 2 }}>{tabs[tabValue]?.card}</Box>
+      </Box>
       <DataSourceView dataSourceList={dataSourceList} />
     </CustomPaper>
   );
