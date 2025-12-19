@@ -22,7 +22,7 @@ export default class OpenElevation {
       async () => {
         const response = await WWW.fetchJSON(url);
         return JSON.stringify(response);
-      }
+      },
     );
     await TimeUtils.sleep(0.1);
     const response = JSON.parse(responseJSON);

@@ -20,10 +20,10 @@ export default class OpenMeteo {
     const utNow = TimeUtils.getUnixTime();
 
     const startHour = TimeUtils.formatISO8601(
-      utNow - OpenMeteo.SPAN_DAYS_BEFORE * 86400
+      utNow - OpenMeteo.SPAN_DAYS_BEFORE * 86400,
     );
     const endHour = TimeUtils.formatISO8601(
-      utNow + OpenMeteo.SPAN_DAYS_AFTER * 86400
+      utNow + OpenMeteo.SPAN_DAYS_AFTER * 86400,
     );
 
     const currentFields = [
@@ -72,7 +72,7 @@ export default class OpenMeteo {
         currentFields.map((field, index) => [
           field,
           current.variables(index).value(),
-        ])
+        ]),
       ),
       hourly_time_ut: Array.from(
         {
@@ -80,13 +80,13 @@ export default class OpenMeteo {
             (Number(hourly.timeEnd()) - Number(hourly.time())) /
             hourly.interval(),
         },
-        (_, i) => Number(hourly.time()) + i * hourly.interval()
+        (_, i) => Number(hourly.time()) + i * hourly.interval(),
       ),
       hourly: Object.fromEntries(
         hourlyFields.map((field, index) => [
           field,
           Object.values(hourly.variables(index).valuesArray()),
-        ])
+        ]),
       ),
     };
     return weatherDataRaw;
@@ -107,40 +107,40 @@ export default class OpenMeteo {
     // Extract temporary variables to avoid repetition
     const rainListNext24h = weatherDataRaw.hourly.precipitation.slice(
       nowIndex,
-      next24hEnd
+      next24hEnd,
     );
     const rainNext7d = weatherDataRaw.hourly.precipitation.slice(
       nowIndex,
-      next7dEnd
+      next7dEnd,
     );
     const rainNext14d = weatherDataRaw.hourly.precipitation.slice(
       nowIndex,
-      next14dEnd
+      next14dEnd,
     );
     const rainListPrev24h = weatherDataRaw.hourly.precipitation.slice(
       prev24hStart,
-      nowIndex
+      nowIndex,
     );
     const rainListPrev7d = weatherDataRaw.hourly.precipitation.slice(
       prev7dStart,
-      nowIndex
+      nowIndex,
     );
     const rainListPrev28d = weatherDataRaw.hourly.precipitation.slice(
       prev28dStart,
-      nowIndex
+      nowIndex,
     );
     const dewPointListNext24h = weatherDataRaw.hourly.dew_point_2m.slice(
       nowIndex,
-      next24hEnd
+      next24hEnd,
     );
     const tempListNext24h = weatherDataRaw.hourly.temperature_2m.slice(
       nowIndex,
-      next24hEnd
+      next24hEnd,
     );
     const soilMoistureDeepListNext24h =
       weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(
         nowIndex,
-        next24hEnd
+        next24hEnd,
       );
     const soilMoistureDeepListNext7d =
       weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(nowIndex, next7dEnd);
@@ -218,7 +218,7 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(
             openMeteoData,
-            "soilMoistureDeepNext7dMean"
+            "soilMoistureDeepNext7dMean",
           ),
           condition: (value) => value < 0.05,
           conditionDescription: "< 0.05",
