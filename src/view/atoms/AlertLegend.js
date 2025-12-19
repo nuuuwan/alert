@@ -25,34 +25,43 @@ export default function AlertLegend() {
   ];
 
   return (
-    <CustomPaper
+    <Box
       sx={{
-        backgroundColor: "white",
-        padding: "12px",
-        borderRadius: "4px",
-        fontSize: "12px",
+        position: "absolute",
+        top: "16px",
+        right: "16px",
+        zIndex: 1000,
       }}
     >
-      {legendItems.map((item) => (
-        <Box
-          key={item.label}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-          }}
-        >
+      <CustomPaper
+        sx={{
+          backgroundColor: "white",
+          padding: "12px",
+          borderRadius: "4px",
+          fontSize: "12px",
+        }}
+      >
+        {legendItems.map((item) => (
           <Box
+            key={item.label}
             sx={{
-              width: "16px",
-              height: "16px",
-              backgroundColor: item.color,
-              borderRadius: "2px",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
             }}
-          />
-          <Typography variant="caption">{t(item.label)}</Typography>
-        </Box>
-      ))}
-    </CustomPaper>
+          >
+            <Box
+              sx={{
+                width: "16px",
+                height: "16px",
+                backgroundColor: item.color,
+                borderRadius: "2px",
+              }}
+            />
+            <Typography variant="caption">{t(item.label)}</Typography>
+          </Box>
+        ))}
+      </CustomPaper>
+    </Box>
   );
 }

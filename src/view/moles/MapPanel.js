@@ -97,28 +97,8 @@ export default function MapPanel({
             />
           )}
 
-          <Box
-            sx={{
-              position: "absolute",
-              top: "16px",
-              right: "16px",
-              zIndex: 1000,
-            }}
-          >
-            <AlertLegend />
-          </Box>
-
-          <Box
-            sx={{
-              position: "absolute",
-              bottom: "16px",
-              right: "0px",
-              zIndex: 1000,
-              margin: "16px",
-            }}
-          >
-            <CurrentLocationButton />
-          </Box>
+          <AlertLegend />
+          <CurrentLocationButton />
         </Box>
       )}
     </MapContainer>
