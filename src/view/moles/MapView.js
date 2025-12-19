@@ -43,7 +43,6 @@ export default function MapView({
   setPageMode,
   pageMode,
 }) {
-  const [clickPoint, setClickPoint] = useState(null);
   const navigate = useNavigate();
   const center = mapLatLng.raw() || DEFAULT_CENTER;
   const zoom = DEFAULT_ZOOM;
@@ -52,11 +51,6 @@ export default function MapView({
     const place = Place.fromLatLng(latLng);
     navigate(place.url);
     setMapLatLng(latLng);
-  };
-
-  const onMapClick = (containerPoint) => {
-    setClickPoint(containerPoint);
-    setTimeout(() => setClickPoint(null), 300);
   };
 
   return (
@@ -79,32 +73,13 @@ export default function MapView({
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <MapCenterUpdater center={center} />
-        <MapEventHandler onMapMoveEnd={onMapMoveEnd} onMapClick={onMapClick} />
+        <MapEventHandler onMapMoveEnd={onMapMoveEnd} />
 
         <MapViewInner setPageMode={setPageMode} />
 
         {pageMode === "Map" && (
           <Box>
             <MapCrosshair />
-
-            {clickPoint && (
-              <Box
-                sx={{
-                  position: "absolute",
-                  left: clickPoint.x,
-                  top: clickPoint.y,
-                  width: "20px",
-                  height: "20px",
-                  marginLeft: "-10px",
-                  marginTop: "-10px",
-                  border: "2px solid #d32f2f",
-                  borderRadius: "50%",
-                  boxShadow: "inset 0 0 4px #d32f2f",
-                  pointerEvents: "none",
-                  zIndex: 999,
-                }}
-              />
-            )}
 
             <AlertLegend />
             <CurrentLocationButton />
