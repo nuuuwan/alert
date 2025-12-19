@@ -2,7 +2,7 @@ import AdminRegionView from "../atoms/AdminRegionView";
 import Stack from "@mui/material/Stack";
 
 export default function DSDLocationBreadcrumbs({ ent }) {
-  if (!ent) {
+  if (!ent || !ent.dsd || !ent.district) {
     return null;
   }
   return (
