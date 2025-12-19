@@ -87,7 +87,7 @@ function DataLoadingView() {
             >
               <Typography variant="body2">{t(item.label)}</Typography>
               <Chip
-                label={data[item.key] ? "✓ " + t("Done") : t("Loading...")}
+                label={data[item.key] ? "✓ " + t("Done") : t("Loading") + "..."}
                 size="small"
                 color={data[item.key] ? "success" : "default"}
                 variant={data[item.key] ? "filled" : "outlined"}
