@@ -18,16 +18,10 @@ export default function CustomBottomNavigator({
   };
 
   const handleAlertsMode = () => {
-    if (pageMode === "Map") {
-      onSetToMapCenter();
-    }
     setPageMode("Alerts");
   };
 
   const handleDataMode = () => {
-    if (pageMode === "Map") {
-      onSetToMapCenter();
-    }
     setPageMode("Data");
   };
 
