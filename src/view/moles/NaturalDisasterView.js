@@ -9,6 +9,7 @@ import InformationGroup from "../atoms/InformationGroup";
 import CustomTab from "../atoms/CustomTab";
 import CustomTabs from "../atoms/CustomTabs";
 import { getAlertColor } from "../_cons/StyleConstants";
+import CustomPaper from "../atoms/CustomPaper";
 
 export default function NaturalDisasterView({ place }) {
   const { t } = useTranslation();
@@ -17,20 +18,7 @@ export default function NaturalDisasterView({ place }) {
   const alertScoreList = place?.autoAlertList || [];
 
   return (
-    <InformationGroup
-      title="Auto Alerts (Experimental)"
-      Icon={ScienceIcon}
-      InnerComponent={Box}
-    >
-      <Alert
-        severity="warning"
-        icon={<ScienceIcon />}
-        sx={{ ml: 3, width: "fit-content", maxWidth: "90vw" }}
-      >
-        {t(
-          "The following Natural Disaster Risk Scores are automtically generated, and are still under development and should be used for informational purposes only.",
-        )}
-      </Alert>
+    <CustomPaper>
       <Box>
         {alertScoreList && alertScoreList.length > 0 ? (
           <>
@@ -62,6 +50,15 @@ export default function NaturalDisasterView({ place }) {
           <CircularProgress />
         )}
       </Box>
-    </InformationGroup>
+      <Alert
+        severity="warning"
+        icon={<ScienceIcon />}
+        sx={{ ml: 3, width: "fit-content", maxWidth: "90vw" }}
+      >
+        {t(
+          "These alerts are automtically generated, and are still under development and should be used for informational purposes only."
+        )}
+      </Alert>
+    </CustomPaper>
   );
 }
