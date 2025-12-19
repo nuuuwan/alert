@@ -56,7 +56,7 @@ export default function NaturalDisasterView({ place }) {
         sx={{ ml: 3, width: "fit-content", maxWidth: "90vw" }}
       >
         {t(
-          "These alerts are automtically generated, and are still under development and should be used for informational purposes only."
+          "These alerts are automtically generated, and are still under development and should be used for informational purposes only.",
         )}
       </Alert>
     </CustomPaper>
