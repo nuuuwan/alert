@@ -19,7 +19,7 @@ function DataLoadingView() {
     {
       label: "Hydrometric Stations",
       key: "hydrometricStations",
-      value: 10,
+      value: 200,
     },
     {
       label: "Major Cities",
@@ -36,7 +36,7 @@ function DataLoadingView() {
   const totalValue = loadingItems.reduce((sum, item) => sum + item.value, 0);
   const loadedValue = loadingItems.reduce(
     (sum, item) => sum + (loadedData[item.key] ? item.value : 0),
-    0,
+    0
   );
   const progressPercentage = (loadedValue / totalValue) * 100;
 
