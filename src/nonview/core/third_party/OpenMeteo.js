@@ -7,6 +7,9 @@ import { newTimedUnit } from "../units/TimedUnit";
 import DataSource from "../DataSource";
 
 export default class OpenMeteo {
+  static SPAN_DAYS_BEFORE = 28;
+  static SPAN_DAYS_AFTER = 7;
+
   static getDataSource() {
     return new DataSource({
       label: "Open-Meteo Weather API",
@@ -15,9 +18,13 @@ export default class OpenMeteo {
   }
   static async getRawData({ latLng }) {
     const utNow = TimeUtils.getUnixTime();
-    const spanDays = 7;
-    const startHour = TimeUtils.formatISO8601(utNow - spanDays * 86400);
-    const endHour = TimeUtils.formatISO8601(utNow + spanDays * 86400);
+
+    const startHour = TimeUtils.formatISO8601(
+      utNow - OpenMeteo.SPAN_DAYS_BEFORE * 86400
+    );
+    const endHour = TimeUtils.formatISO8601(
+      utNow + OpenMeteo.SPAN_DAYS_AFTER * 86400
+    );
 
     const currentFields = [
       "temperature_2m",
@@ -65,7 +72,7 @@ export default class OpenMeteo {
         currentFields.map((field, index) => [
           field,
           current.variables(index).value(),
-        ]),
+        ])
       ),
       hourly_time_ut: Array.from(
         {
@@ -73,13 +80,13 @@ export default class OpenMeteo {
             (Number(hourly.timeEnd()) - Number(hourly.time())) /
             hourly.interval(),
         },
-        (_, i) => Number(hourly.time()) + i * hourly.interval(),
+        (_, i) => Number(hourly.time()) + i * hourly.interval()
       ),
       hourly: Object.fromEntries(
         hourlyFields.map((field, index) => [
           field,
           Object.values(hourly.variables(index).valuesArray()),
-        ]),
+        ])
       ),
     };
     return weatherDataRaw;
@@ -88,32 +95,50 @@ export default class OpenMeteo {
   static async getData({ latLng }) {
     const weatherDataRaw = await OpenMeteo.getRawData({ latLng });
 
+    // Calculate indices based on SPAN_DAYS_BEFORE and SPAN_DAYS_AFTER
+    const nowIndex = OpenMeteo.SPAN_DAYS_BEFORE * 24;
+    const next24hEnd = (OpenMeteo.SPAN_DAYS_BEFORE + 1) * 24;
+    const next7dEnd = (OpenMeteo.SPAN_DAYS_BEFORE + 7) * 24;
+    const prev24hStart = (OpenMeteo.SPAN_DAYS_BEFORE - 1) * 24;
+    const prev7dStart = (OpenMeteo.SPAN_DAYS_BEFORE - 7) * 24;
+    const prev28dStart = (OpenMeteo.SPAN_DAYS_BEFORE - 28) * 24;
+
     // Extract temporary variables to avoid repetition
     const rainListNext24h = weatherDataRaw.hourly.precipitation.slice(
-      7 * 24,
-      8 * 24,
+      nowIndex,
+      next24hEnd
     );
     const rainNext7d = weatherDataRaw.hourly.precipitation.slice(
-      7 * 24,
-      14 * 24,
+      nowIndex,
+      next7dEnd
     );
     const rainListPrev24h = weatherDataRaw.hourly.precipitation.slice(
-      6 * 24,
-      7 * 24,
+      prev24hStart,
+      nowIndex
     );
-    const rainListPrev7d = weatherDataRaw.hourly.precipitation.slice(0, 7 * 24);
+    const rainListPrev7d = weatherDataRaw.hourly.precipitation.slice(
+      prev7dStart,
+      nowIndex
+    );
+    const rainListPrev28d = weatherDataRaw.hourly.precipitation.slice(
+      prev28dStart,
+      nowIndex
+    );
     const dewPointListNext24h = weatherDataRaw.hourly.dew_point_2m.slice(
-      7 * 24,
-      8 * 24,
+      nowIndex,
+      next24hEnd
     );
     const tempListNext24h = weatherDataRaw.hourly.temperature_2m.slice(
-      7 * 24,
-      8 * 24,
+      nowIndex,
+      next24hEnd
     );
     const soilMoistureDeepListNext24h =
-      weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 8 * 24);
+      weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(
+        nowIndex,
+        next24hEnd
+      );
     const soilMoistureDeepListNext7d =
-      weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(7 * 24, 14 * 24);
+      weatherDataRaw.hourly.soil_moisture_27_to_81cm.slice(nowIndex, next7dEnd);
 
     let weatherData = {
       elevationM: weatherDataRaw.elevation,
@@ -135,6 +160,7 @@ export default class OpenMeteo {
       rainNext7dSum: ArrayUtils.sum(rainNext7d),
       rainPrev24hSum: ArrayUtils.sum(rainListPrev24h),
       rainPrev7dSum: ArrayUtils.sum(rainListPrev7d),
+      rainPrev28dSum: ArrayUtils.sum(rainListPrev28d),
       // hourly - soil moisture
       soilMoistureDeepNext24hMean: ArrayUtils.mean(soilMoistureDeepListNext24h),
       soilMoistureDeepNext7dMean: ArrayUtils.mean(soilMoistureDeepListNext7d),
@@ -156,7 +182,7 @@ export default class OpenMeteo {
       timeLabel: "Next 7d",
       metricList: [
         new AlertScoreMetric({
-          timedUnitValue: newTimedUnit(openMeteoData, "rainPrev7dSum"),
+          timedUnitValue: newTimedUnit(openMeteoData, "rainPrev28dSum"),
           condition: (value) => value < 0.1,
           conditionDescription: "< 0.1",
           source: {
@@ -185,7 +211,7 @@ export default class OpenMeteo {
         new AlertScoreMetric({
           timedUnitValue: newTimedUnit(
             openMeteoData,
-            "soilMoistureDeepNext7dMean",
+            "soilMoistureDeepNext7dMean"
           ),
           condition: (value) => value < 0.05,
           conditionDescription: "< 0.05",
