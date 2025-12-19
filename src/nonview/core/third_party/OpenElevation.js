@@ -1,6 +1,7 @@
 import WWW from "../../base/WWW";
 import Cache from "../../base/Cache";
 import DataSource from "../DataSource";
+import TimeUtils from "../../base/TimeUtils";
 
 export default class OpenElevation {
   static getDataSource() {
@@ -21,8 +22,9 @@ export default class OpenElevation {
       async () => {
         const response = await WWW.fetchJSON(url);
         return JSON.stringify(response);
-      },
+      }
     );
+    await TimeUtils.sleep(0.1);
     const response = JSON.parse(responseJSON);
     return response.results.map((result) => result.elevation);
   }
