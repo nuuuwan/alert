@@ -179,6 +179,7 @@ Hatton
 Heat
 Hemmathagama
 Hettipola
+High Alert
 High Risk
 Higurakgoda
 Hikkaduwa
@@ -317,6 +318,7 @@ Last 24h total
 Level 1
 Level 2
 Level 3
+Low Alert
 Low Risk
 Lunugala
 Lunugamvehera
@@ -360,9 +362,6 @@ Manmunai West
 Mannar
 Mannar Town
 Manthai East
-High Alert
-Medium Alert
-Low Alert
 Manthai West
 Map
 Mapalagama
@@ -386,6 +385,7 @@ Medamahanuwara
 Medawachchiya
 Medawala
 Medirigiriya
+Medium Alert
 Medium Risk
 Mee Oya
 Meegahakiula
