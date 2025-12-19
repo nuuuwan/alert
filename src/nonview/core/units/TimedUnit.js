@@ -98,6 +98,12 @@ function getTimeLabelDuration(k) {
   if (k.includes("7d")) {
     return "7d";
   }
+  if (k.includes("14d")) {
+    return "14d";
+  }
+  if (k.includes("28d")) {
+    return "28d";
+  }
   return "now";
 }
 
