@@ -8,7 +8,7 @@ import DataSource from "../DataSource";
 
 export default class OpenMeteo {
   static SPAN_DAYS_BEFORE = 28;
-  static SPAN_DAYS_AFTER = 7;
+  static SPAN_DAYS_AFTER = 14;
 
   static getDataSource() {
     return new DataSource({
