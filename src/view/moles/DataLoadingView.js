@@ -7,12 +7,13 @@ import LinearProgress from "@mui/material/LinearProgress";
 import { useDataContext } from "../../nonview/core/DataContext";
 import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 import VERSION from "../../nonview/cons/VERSION";
+import { useTranslation } from "react-i18next";
 
 function DataLoadingView() {
   const { data } = useDataContext();
   const { selectedEnt } = useSelectedEntDataContext();
-
   const loadedData = { ...data, ...{ selectedEnt } };
+  const { t } = useTranslation();
 
   const loadingItems = [
     {
@@ -58,7 +59,7 @@ function DataLoadingView() {
       <Stack spacing={3} alignItems="center" sx={{ maxWidth: 400 }}>
         <CircularProgress size={60} />
 
-        <Typography variant="h6">Loading Data...</Typography>
+        <Typography variant="h6">{t("Loading Data")}...</Typography>
 
         <LinearProgress
           variant="determinate"
@@ -84,9 +85,9 @@ function DataLoadingView() {
               alignItems="center"
               justifyContent="space-between"
             >
-              <Typography variant="body2">{item.label}</Typography>
+              <Typography variant="body2">{t(item.label)}</Typography>
               <Chip
-                label={data[item.key] ? "✓ Done" : "Loading..."}
+                label={data[item.key] ? "✓ " + t("Done") : t("Loading...")}
                 size="small"
                 color={data[item.key] ? "success" : "default"}
                 variant={data[item.key] ? "filled" : "outlined"}
