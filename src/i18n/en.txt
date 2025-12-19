@@ -195,6 +195,7 @@ Hungama
 Hunnasgiriya
 Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka
 Hydrometric Station
+Hydrometric Stations
 Ibbagamuwa
 Imaduwa
 Imbulpe
@@ -318,6 +319,7 @@ Last 24h total
 Level 1
 Level 2
 Level 3
+Loading Data
 Low Alert
 Low Risk
 Lunugala
@@ -344,6 +346,7 @@ Mahawewa
 Mahawilachchiya
 Mahiyanganaya
 Maho
+Major Cities
 Malabe
 Malimbada
 Mallawapitiya
@@ -563,6 +566,7 @@ Satellite Image
 Seeduwa
 Seethawaka
 Seethawaka Ganga
+Selected Entity
 Serunuwara
 Seruvila
 Sevanagala
