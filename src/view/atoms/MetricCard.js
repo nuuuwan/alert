@@ -98,12 +98,7 @@ export default function MetricCard({
           justifyContent: "center",
         }}
       >
-        <Typography
-          variant="caption"
-          color={foreColor}
-          sx={{ opacity: 0.6 }}
-          noWrap
-        >
+        <Typography variant="caption" color={foreColor} noWrap>
           {t(timeLabel)}
         </Typography>
       </Box>

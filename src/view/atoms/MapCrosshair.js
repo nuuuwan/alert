@@ -16,7 +16,6 @@ export default function MapCrosshair() {
         // pointerEvents: "none",
         transform: "translate(-50%, -50%)",
         zIndex: 500,
-        opacity: 0.25,
       }}
     >
       <LocationSearchingIcon sx={{ width, height, color }} />
