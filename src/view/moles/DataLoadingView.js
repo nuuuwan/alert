@@ -8,7 +8,6 @@ import { useDataContext } from "../../nonview/core/DataContext";
 import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 import VERSION from "../../nonview/cons/VERSION";
 import { useTranslation } from "react-i18next";
-import CustomPaper from "../atoms/CustomPaper";
 import { COLORS } from "../_cons/StyleConstants";
 
 function DataLoadingView() {
@@ -38,7 +37,7 @@ function DataLoadingView() {
   const totalValue = loadingItems.reduce((sum, item) => sum + item.value, 0);
   const loadedValue = loadingItems.reduce(
     (sum, item) => sum + (loadedData[item.key] ? item.value : 0),
-    0,
+    0
   );
   const progressPercentage = (loadedValue / totalValue) * 100;
 
@@ -58,57 +57,53 @@ function DataLoadingView() {
         alignItems: "center",
       }}
     >
-      <CustomPaper>
-        <Stack spacing={3} alignItems="center" sx={{ maxWidth: 400 }}>
-          <CircularProgress size={60} />
+      <Stack spacing={3} alignItems="center" sx={{ maxWidth: 400 }}>
+        <CircularProgress size={60} />
 
-          <Typography variant="h6">{t("Loading Data")}...</Typography>
+        <Typography variant="h6">{t("Loading Data")}...</Typography>
 
-          <LinearProgress
-            variant="determinate"
-            value={progressPercentage}
-            sx={{
-              width: "100%",
-              height: 8,
+        <LinearProgress
+          variant="determinate"
+          value={progressPercentage}
+          sx={{
+            width: "100%",
+            height: 8,
+            borderRadius: 4,
+            backgroundColor: COLORS.neutral,
+            "& .MuiLinearProgress-bar": {
               borderRadius: 4,
               backgroundColor: COLORS.neutral,
-              "& .MuiLinearProgress-bar": {
-                borderRadius: 4,
-                backgroundColor: COLORS.neutral,
-              },
-            }}
-          />
+            },
+          }}
+        />
 
-          <Stack spacing={1.5} sx={{ width: "100%" }}>
-            {loadingItems.map((item) => (
-              <Stack
-                key={item.key}
-                direction="row"
-                spacing={1}
-                alignItems="center"
-                justifyContent="space-between"
-              >
-                <Typography variant="body2">{t(item.label)}</Typography>
-                <Chip
-                  label={
-                    data[item.key] ? "✓ " + t("Done") : t("Loading") + "..."
-                  }
-                  size="small"
-                  color={data[item.key] ? "success" : "default"}
-                  variant={data[item.key] ? "filled" : "outlined"}
-                />
-              </Stack>
-            ))}
-          </Stack>
-
-          <Typography
-            variant="caption"
-            sx={{ color: COLORS.neutral, marginTop: 2 }}
-          >
-            v{VERSION.DATETIME_STR}
-          </Typography>
+        <Stack spacing={1.5} sx={{ width: "100%" }}>
+          {loadingItems.map((item) => (
+            <Stack
+              key={item.key}
+              direction="row"
+              spacing={1}
+              alignItems="center"
+              justifyContent="space-between"
+            >
+              <Typography variant="body2">{t(item.label)}</Typography>
+              <Chip
+                label={data[item.key] ? "✓ " + t("Done") : t("Loading") + "..."}
+                size="small"
+                color={data[item.key] ? "success" : "default"}
+                variant={data[item.key] ? "filled" : "outlined"}
+              />
+            </Stack>
+          ))}
         </Stack>
-      </CustomPaper>
+
+        <Typography
+          variant="caption"
+          sx={{ color: COLORS.neutral, marginTop: 2 }}
+        >
+          v{VERSION.DATETIME_STR}
+        </Typography>
+      </Stack>
     </Box>
   );
 }
