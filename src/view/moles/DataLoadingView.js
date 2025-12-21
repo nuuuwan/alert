@@ -9,6 +9,7 @@ import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataCon
 import VERSION from "../../nonview/cons/VERSION";
 import { useTranslation } from "react-i18next";
 import CustomPaper from "../atoms/CustomPaper";
+import { COLORS } from "../_cons/StyleConstants";
 
 function DataLoadingView() {
   const { data } = useDataContext();
@@ -70,10 +71,10 @@ function DataLoadingView() {
               width: "100%",
               height: 8,
               borderRadius: 4,
-              backgroundColor: "#e0e0e0",
+              backgroundColor: COLORS.neutral,
               "& .MuiLinearProgress-bar": {
                 borderRadius: 4,
-                backgroundColor: "#2196f3",
+                backgroundColor: COLORS.neutral,
               },
             }}
           />
@@ -100,7 +101,10 @@ function DataLoadingView() {
             ))}
           </Stack>
 
-          <Typography variant="caption" sx={{ color: "#999999", marginTop: 2 }}>
+          <Typography
+            variant="caption"
+            sx={{ color: COLORS.neutral, marginTop: 2 }}
+          >
             v{VERSION.DATETIME_STR}
           </Typography>
         </Stack>

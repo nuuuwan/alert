@@ -12,7 +12,7 @@ const DownloadableContent = forwardRef(
 
         try {
           const canvas = await html2canvas(contentRef.current, {
-            backgroundColor: "#ffffff",
+            backgroundColor: "white",
             scale: 2,
             useCORS: true,
             allowTaint: true,
@@ -34,7 +34,7 @@ const DownloadableContent = forwardRef(
     }));
 
     return <Box ref={contentRef}>{children}</Box>;
-  },
+  }
 );
 
 DownloadableContent.displayName = "DownloadableContent";
