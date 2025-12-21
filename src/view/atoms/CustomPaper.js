@@ -3,7 +3,7 @@ import Paper from "@mui/material/Paper";
 export default function CustomPaper({ children, sx }) {
   return (
     <Paper
-      elevation={5}
+      elevation={3}
       sx={Object.assign(
         {
           background: "rgba(255,2555,255, 0.9)",

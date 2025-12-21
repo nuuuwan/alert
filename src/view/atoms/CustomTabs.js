@@ -39,8 +39,8 @@ export default function CustomTabs({
             onClick={() => handleChange(tabKey)}
             sx={{
               color,
-              m: 1,
-              p: 1,
+              m: 0.25,
+              p: 0.25,
               opacity,
             }}
           >
