@@ -1,6 +1,6 @@
 // Colors
 export const COLORS = {
-  noAlert: "#cccccc",
+  noAlert: "#888888",
   highAlert: "#d32f2f",
   mediumAlert: "#f57c00",
   lowAlert: "#d4a500",

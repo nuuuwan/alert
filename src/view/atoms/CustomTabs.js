@@ -27,9 +27,10 @@ export default function CustomTabs({
   return (
     <Box>
       {tabKeys.map(function (tabKey, iTab) {
-        const color = tabToColor ? tabToColor[tabKey] : COLORS.neutral;
-        const textDecoration =
-          tabKey === selectedTabKey ? "underline" : "none ";
+        const color = tabToColor
+          ? tabToColor[tabKey] || COLORS.neutral
+          : COLORS.neutral;
+        const opacity = tabKey === selectedTabKey ? 1.0 : 0.33;
 
         return (
           <Button
@@ -37,12 +38,9 @@ export default function CustomTabs({
             onClick={() => handleChange(tabKey)}
             sx={{
               color,
-              textDecoration,
-              textDecorationThickness: "2px",
-              textDecorationSkipInk: "none",
-              textUnderlineOffset: "4px",
               m: 1,
               p: 1,
+              opacity,
             }}
           >
             {renderButtonInner(tabKey, color)}
