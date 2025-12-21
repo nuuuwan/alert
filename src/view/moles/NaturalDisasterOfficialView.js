@@ -3,7 +3,6 @@ import HydrometricStation from "../../nonview/core/ents/places/HydrometricStatio
 import DataSource from "../../nonview/core/DataSource";
 import { CircularProgress } from "@mui/material";
 import DataSourceView from "../atoms/DataSourceView";
-import CustomPaper from "../atoms/CustomPaper";
 import CustomTabs from "../atoms/CustomTabs";
 import LandslideCard from "./LandslideCard";
 import WaterLevelCard from "./WaterLevelCard";
@@ -22,7 +21,7 @@ export default function NaturalDisasterOfficialView({ place }) {
       new DataSource({
         label: "Disaster Management Centre of Sri Lanka",
         url: "https://www.dmc.gov.lk",
-      }),
+      })
     );
   }
 
@@ -32,16 +31,12 @@ export default function NaturalDisasterOfficialView({ place }) {
         label:
           "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
         url: "https://github.com/nuuuwan/lk_irrigation",
-      }),
+      })
     );
   }
 
   if (!hasLandslide && !hasWaterLevel) {
-    return (
-      <CustomPaper>
-        <DataSourceView dataSourceList={dataSourceList} />
-      </CustomPaper>
-    );
+    return <DataSourceView dataSourceList={dataSourceList} />;
   }
 
   return (

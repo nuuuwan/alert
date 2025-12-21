@@ -14,13 +14,11 @@ export default function AlertsView() {
         "Official Alerts": () => (
           <NaturalDisasterOfficialView place={selectedEnt} />
         ),
-        "Auto Alerts (Experimental)": () => (
-          <NaturalDisasterView place={selectedEnt} />
-        ),
+        "Auto Alerts": () => <NaturalDisasterView place={selectedEnt} />,
       }}
       tabToColor={{
         "Official Alerts": getAlertColor(selectedEnt.officialAlertLevel),
-        "Auto Alerts (Experimental)": getAlertColor(selectedEnt.autoAlertLevel),
+        "Auto Alerts": getAlertColor(selectedEnt.autoAlertLevel),
       }}
       renderButtonInner={(text, color) => (
         <Typography variant="h6" style={{ color }}>

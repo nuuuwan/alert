@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { COLORS } from "../_cons/StyleConstants";
-import CustomPaper from "./CustomPaper";
 import { useTranslation } from "react-i18next";
 export default function AlertLegend() {
   const { t } = useTranslation();
@@ -33,35 +32,26 @@ export default function AlertLegend() {
         zIndex: 1000,
       }}
     >
-      <CustomPaper
-        sx={{
-          backgroundColor: "white",
-          padding: "12px",
-          borderRadius: "4px",
-          fontSize: "12px",
-        }}
-      >
-        {legendItems.map((item) => (
+      {legendItems.map((item) => (
+        <Box
+          key={item.label}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+          }}
+        >
           <Box
-            key={item.label}
             sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
+              width: "16px",
+              height: "16px",
+              backgroundColor: item.color,
+              borderRadius: "2px",
             }}
-          >
-            <Box
-              sx={{
-                width: "16px",
-                height: "16px",
-                backgroundColor: item.color,
-                borderRadius: "2px",
-              }}
-            />
-            <Typography variant="caption">{t(item.label)}</Typography>
-          </Box>
-        ))}
-      </CustomPaper>
+          />
+          <Typography variant="caption">{t(item.label)}</Typography>
+        </Box>
+      ))}
     </Box>
   );
 }
