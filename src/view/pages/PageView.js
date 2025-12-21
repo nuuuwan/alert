@@ -51,7 +51,7 @@ function PageView({ mapLatLng, setMapLatLng, pageMode, setPageMode }) {
             overflowY: "auto",
           }}
         >
-          <Box sx={{ maxWidth: "800px", margin: "auto" }}>
+          <Box sx={{ maxWidth: "640px", margin: "auto" }}>
             <Grid size={{ xs: 12, md: 6 }}>
               <NearbyPlacesView ent={selectedEnt} />
             </Grid>

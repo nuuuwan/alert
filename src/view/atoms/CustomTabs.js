@@ -1,7 +1,6 @@
 import { Button, Typography } from "@mui/material";
 import { COLORS } from "../_cons/StyleConstants";
 import { useState } from "react";
-import CustomPaper from "./CustomPaper";
 import Box from "@mui/material/Box";
 
 export default function CustomTabs({
@@ -28,29 +27,29 @@ export default function CustomTabs({
 
   return (
     <Box>
-      <CustomPaper>
-        {tabKeys.map(function (tabKey, iTab) {
-          const color = tabToColor
-            ? tabToColor[tabKey] || COLORS.neutral
-            : COLORS.neutral;
-          const opacity = tabKey === selectedTabKey ? 1.0 : 0.33;
+      {tabKeys.map(function (tabKey, iTab) {
+        const color = tabToColor
+          ? tabToColor[tabKey] || COLORS.neutral
+          : COLORS.neutral;
+        const opacity = tabKey === selectedTabKey ? 1.0 : 0.67;
 
-          return (
-            <Button
-              key={iTab}
-              onClick={() => handleChange(tabKey)}
-              sx={{
-                color,
-                m: 0.25,
-                p: 0.25,
-                opacity,
-              }}
-            >
-              {renderButtonInner(tabKey, color)}
-            </Button>
-          );
-        })}
-      </CustomPaper>
+        return (
+          <Button
+            key={iTab}
+            onClick={() => handleChange(tabKey)}
+            sx={{
+              color,
+              m: 0.25,
+              p: 0.5,
+              opacity,
+              background: "white",
+            }}
+          >
+            {renderButtonInner(tabKey, color)}
+          </Button>
+        );
+      })}
+
       {selectedChild}
     </Box>
   );
