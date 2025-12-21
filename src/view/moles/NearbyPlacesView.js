@@ -2,7 +2,6 @@ import PlaceLink from "../atoms/PlaceLink";
 import CustomPaper from "../atoms/CustomPaper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { COLORS } from "../_cons/StyleConstants";
 import { CircularProgress } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";

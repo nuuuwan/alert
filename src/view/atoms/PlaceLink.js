@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import EntAvatar from "./EntAvatar";
-import { COLORS } from "../_cons/StyleConstants";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
