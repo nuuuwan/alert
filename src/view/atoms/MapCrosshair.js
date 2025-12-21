@@ -13,6 +13,7 @@ export default function MapCrosshair() {
         left: "50%",
         width,
         height,
+        opacity: 0.2,
         // pointerEvents: "none",
         transform: "translate(-50%, -50%)",
         zIndex: 500,
