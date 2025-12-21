@@ -14,7 +14,11 @@ import { Alert } from "@mui/material";
 export default function HydrometricStationDetails({ place }) {
   const waterLevelHistory = place.waterLevelHistory || [];
   if (waterLevelHistory.length === 0) {
-    return <Alert severity="info">No water level data available.</Alert>;
+    return (
+      <Alert severity="info">
+        Hydrometric Data is only available for Hydrometric Stations.
+      </Alert>
+    );
   }
 
   const nObservations = 10;

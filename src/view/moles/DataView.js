@@ -17,11 +17,11 @@ export default function DataView() {
   return (
     <CustomTabs
       tabToChild={{
-        Hydrometric: () => <HydrometricStationDetails place={selectedEnt} />,
         Weather: () => <OpenMeteoView place={selectedEnt} />,
         Elevation: () => <OpenElevationView place={selectedEnt} />,
         Satellite: () => <SatelliteImageView place={selectedEnt} />,
         Earthquakes: () => <RecentEarthquakesView place={selectedEnt} />,
+        Hydrometric: () => <HydrometricStationDetails place={selectedEnt} />,
       }}
     />
   );
