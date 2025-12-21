@@ -2,6 +2,7 @@ import { Button, Typography } from "@mui/material";
 import { COLORS } from "../_cons/StyleConstants";
 import { useState } from "react";
 import Box from "@mui/material/Box";
+import { useTranslation } from "react-i18next";
 
 export default function CustomTabs({
   tabToChild,
@@ -12,6 +13,7 @@ export default function CustomTabs({
     </Typography>
   ),
 }) {
+  const { t } = useTranslation();
   const tabKeys = Object.keys(tabToChild);
   if (tabKeys.length === 0) {
     throw new Error("CustomTabs requires at least one tab.");
@@ -49,7 +51,7 @@ export default function CustomTabs({
               opacity,
             }}
           >
-            {renderButtonInner(tabKey, color)}
+            {renderButtonInner(t(tabKey), color)}
           </Button>
         );
       })}
