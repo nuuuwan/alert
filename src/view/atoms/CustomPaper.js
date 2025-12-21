@@ -13,7 +13,7 @@ export default function CustomPaper({ children, sx }) {
           width: "fit-content",
           maxWidth: "90vw",
         },
-        sx
+        sx,
       )}
     >
       {children}
