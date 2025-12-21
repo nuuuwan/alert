@@ -28,21 +28,23 @@ export default function CustomTabs({
   return (
     <Box>
       {tabKeys.map(function (tabKey, iTab) {
-        const color = tabToColor
+        const tabColor = tabToColor
           ? tabToColor[tabKey] || COLORS.neutral
           : COLORS.neutral;
-        const opacity = tabKey === selectedTabKey ? 1.0 : 0.67;
-
+        const isSelected = tabKey === selectedTabKey;
+        const opacity = tabColor ? 1.0 : 0.22;
+        const color = isSelected ? "white" : tabColor;
+        const backgroundColor = isSelected ? tabColor : "white";
         return (
           <Button
             key={iTab}
             onClick={() => handleChange(tabKey)}
             sx={{
               color,
+              backgroundColor,
               m: 0.25,
               p: 0.5,
               opacity,
-              background: "white",
             }}
           >
             {renderButtonInner(tabKey, color)}
