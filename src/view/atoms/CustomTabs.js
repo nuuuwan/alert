@@ -1,8 +1,16 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { COLORS } from "../_cons/StyleConstants";
 import { useState } from "react";
 
-export default function CustomTabs({ tabToChild, tabToColor }) {
+export default function CustomTabs({
+  tabToChild,
+  tabToColor,
+  renderButtonInner = (text, color) => (
+    <Typography variant="title1" style={{ color }}>
+      {text}
+    </Typography>
+  ),
+}) {
   const tabKeys = Object.keys(tabToChild);
   if (tabKeys.length === 0) {
     throw new Error("CustomTabs requires at least one tab.");
@@ -20,8 +28,8 @@ export default function CustomTabs({ tabToChild, tabToColor }) {
     <Box>
       {tabKeys.map(function (tabKey, iTab) {
         const color = tabToColor ? tabToColor[tabKey] : COLORS.neutral;
-        const backgroundColor =
-          tabKey === selectedTabKey ? COLORS.neutralLightest : "transparent";
+        const textDecoration =
+          tabKey === selectedTabKey ? "underline" : "none ";
 
         return (
           <Button
@@ -29,12 +37,15 @@ export default function CustomTabs({ tabToChild, tabToColor }) {
             onClick={() => handleChange(tabKey)}
             sx={{
               color,
-              backgroundColor,
+              textDecoration,
+              textDecorationThickness: "2px",
+              textDecorationSkipInk: "none",
+              textUnderlineOffset: "4px",
               m: 1,
               p: 1,
             }}
           >
-            {tabKey}
+            {renderButtonInner(tabKey, color)}
           </Button>
         );
       })}
