@@ -43,4 +43,4 @@ export function isAlertColor(color) {
 }
 
 // Typography
-export const FONT_FAMILY = ['"Cabin"', "sans-serif"].join(", ");
+export const FONT_FAMILY = ['"Ubuntu"', "sans-serif"].join(", ");

@@ -29,7 +29,11 @@ export default function NaturalDisasterView({ place }) {
   return (
     <Box>
       <CustomTabs tabToChild={tabToChild} tabToColor={tabToColor} />
-      <Alert severity="warning" icon={<ScienceIcon />} sx={{ ml: 2 }}>
+      <Alert
+        severity="warning"
+        icon={<ScienceIcon />}
+        sx={{ ml: 2, maxWidth: "480px" }}
+      >
         {t(
           "These alerts are automtically generated, and are still under development and should be used for informational purposes only."
         )}
