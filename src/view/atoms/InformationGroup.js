@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import DataSourceView from "./DataSourceView";
 import { useTranslation } from "react-i18next";
 import InfoIcon from "@mui/icons-material/Info";
+import CustomPaper from "./CustomPaper";
 
 export default function InformationGroup({
   title,
@@ -14,7 +15,7 @@ export default function InformationGroup({
 }) {
   const { t } = useTranslation();
   return (
-    <Box>
+    <CustomPaper>
       <Box sx={{ mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
         <Icon />
         <Typography variant="h6">{t(title)}</Typography>
@@ -29,6 +30,6 @@ export default function InformationGroup({
       <Box>
         <DataSourceView dataSourceList={dataSourceList} />
       </Box>
-    </Box>
+    </CustomPaper>
   );
 }
