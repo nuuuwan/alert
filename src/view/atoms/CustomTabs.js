@@ -43,6 +43,8 @@ export default function CustomTabs({
               color,
               backgroundColor,
               m: 0.25,
+              ml: 1,
+              mb: 1,
               p: 0.5,
               opacity,
             }}

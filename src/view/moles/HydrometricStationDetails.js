@@ -15,7 +15,7 @@ export default function HydrometricStationDetails({ place }) {
   const waterLevelHistory = place.waterLevelHistory || [];
   if (waterLevelHistory.length === 0) {
     return (
-      <Alert severity="info" sx={{ maxWidth: "480px" }}>
+      <Alert severity="info" sx={{ ml: 1, maxWidth: "480px" }}>
         Hydrometric Data is only available for Hydrometric Stations.
       </Alert>
     );

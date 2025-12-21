@@ -32,7 +32,7 @@ export default function NaturalDisasterView({ place }) {
       <Alert
         severity="warning"
         icon={<ScienceIcon />}
-        sx={{ ml: 2, maxWidth: "480px" }}
+        sx={{ ml: 1, maxWidth: "480px" }}
       >
         {t(
           "These alerts are automtically generated, and are still under development and should be used for informational purposes only."
