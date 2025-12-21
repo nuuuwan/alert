@@ -21,7 +21,7 @@ export default function CustomTabs({ tabToChild, tabToColor }) {
       {tabKeys.map(function (tabKey, iTab) {
         const color = tabToColor ? tabToColor[tabKey] : COLORS.neutral;
         const backgroundColor =
-          tabKey === selectedTabKey ? COLORS.neutralLighter : "transparent";
+          tabKey === selectedTabKey ? COLORS.neutralLightest : "transparent";
 
         return (
           <Button
