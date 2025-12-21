@@ -8,15 +8,11 @@ import DataSource from "../../nonview/core/DataSource";
 import { CircularProgress } from "@mui/material";
 import DataSourceView from "../atoms/DataSourceView";
 import CustomPaper from "../atoms/CustomPaper";
-import { useState } from "react";
-import Box from "@mui/material/Box";
 import CustomTabs from "../atoms/CustomTabs";
-import CustomTab from "../atoms/CustomTab";
 import { useTranslation } from "react-i18next";
 
 export default function NaturalDisasterOfficialView({ place }) {
   const { t } = useTranslation();
-  const [tabValue, setTabValue] = useState(0);
 
   if (!place) {
     return <CircularProgress />;
@@ -48,7 +44,7 @@ export default function NaturalDisasterOfficialView({ place }) {
       new DataSource({
         label: "Disaster Management Centre of Sri Lanka",
         url: "https://www.dmc.gov.lk",
-      }),
+      })
     );
   }
 
@@ -58,7 +54,7 @@ export default function NaturalDisasterOfficialView({ place }) {
         label:
           "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
         url: "https://github.com/nuuuwan/lk_irrigation",
-      }),
+      })
     );
   }
 
@@ -71,24 +67,19 @@ export default function NaturalDisasterOfficialView({ place }) {
   }
 
   return (
-    <CustomPaper>
-      <Box>
-        <CustomTabs
-          value={tabValue}
-          onChange={(event, newValue) => setTabValue(newValue)}
-        >
-          {tabs.map((tab, index) => (
-            <CustomTab
-              key={tab.label}
-              label={`${index + 1}. ${tab.label}`}
-              color={tab.color}
-            />
-          ))}
-        </CustomTabs>
-        <Box sx={{ mt: 2 }}>{tabs[tabValue]?.card}</Box>
-      </Box>
-      <DataSourceView dataSourceList={dataSourceList} />
-    </CustomPaper>
+    <CustomTabs
+      tabToChild={{
+        Landslides: () => getLandslideCard(place.dsd),
+        "Water Level": () => getWaterLevelCard(place),
+      }}
+      tabToColor={{
+        Landslides: getAlertColor(place.dsd.latestLandslideWarningLevel, 3),
+        "Water Level":
+          place instanceof HydrometricStation
+            ? getAlertColor(place.waterLevelAlertLevel, 3)
+            : undefined,
+      }}
+    />
   );
 }
 
