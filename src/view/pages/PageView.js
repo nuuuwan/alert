@@ -39,24 +39,26 @@ function PageView({ mapLatLng, setMapLatLng, pageMode, setPageMode }) {
         />
       </Box>
 
-      <Box
-        sx={{
-          position: "absolute",
-          width: "100%",
-          height: "calc(100% - 120px)",
-          marginTop: "64px",
-          marginBottom: "56px",
-          zIndex: 1200,
-          overflow: "auto",
-          p: 0,
-        }}
-      >
-        <Grid size={{ xs: 12, md: 6 }}>
-          <NearbyPlacesView ent={selectedEnt} />
-        </Grid>
-        {pageMode === "Alerts" && <AlertsView />}
-        {pageMode === "Data" && <DataView />}
-      </Box>
+      {pageMode !== "Map" && (
+        <Box
+          sx={{
+            position: "absolute",
+            width: "100%",
+            height: "calc(100% - 120px)",
+            marginTop: "64px",
+            marginBottom: "56px",
+            zIndex: 1200,
+            overflow: "auto",
+            p: 0,
+          }}
+        >
+          <Grid size={{ xs: 12, md: 6 }}>
+            <NearbyPlacesView ent={selectedEnt} />
+          </Grid>
+          {pageMode === "Alerts" && <AlertsView />}
+          {pageMode === "Data" && <DataView />}
+        </Box>
+      )}
     </Box>
   );
 }
