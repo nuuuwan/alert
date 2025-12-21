@@ -6,7 +6,7 @@ export default function EntAvatar({
   ent,
   size = 24,
   iconSize = 18,
-  bgcolor = COLORS.neutralLighter,
+  bgcolor = COLORS.neutralLightest,
 }) {
   return (
     <Avatar sx={{ width: size, height: size, bgcolor }}>
