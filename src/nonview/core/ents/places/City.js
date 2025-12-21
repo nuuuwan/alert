@@ -39,7 +39,7 @@ class City extends Place {
           latLng,
         });
         return new City({ ...rawData, ...placeData });
-      }),
+      })
     );
   }
 
@@ -79,7 +79,7 @@ class City extends Place {
       "Moratuwa",
       "Matara",
       "Kalmunai",
-    ];
+    ].slice(0, 1);
   }
 
   static async loadAllMajor() {
