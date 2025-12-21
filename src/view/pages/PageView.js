@@ -17,19 +17,19 @@ function PageView({ mapLatLng, setMapLatLng, pageMode, setPageMode }) {
   }
 
   return (
-    <Box
-      sx={{
-        position: "absolute",
-        width: "100%",
-        height: "calc(100% - 120px)",
-        marginTop: "64px",
-        marginBottom: "56px",
-        zIndex: 200,
-        overflow: "auto",
-        p: 0,
-      }}
-    >
-      {pageMode === "Map" && (
+    <Box sx={{}}>
+      <Box
+        sx={{
+          position: "absolute",
+          width: "100%",
+          height: "calc(100% - 120px)",
+          marginTop: "64px",
+          marginBottom: "56px",
+          zIndex: 200,
+          overflow: "auto",
+          p: 0,
+        }}
+      >
         <MapView
           mapLatLng={mapLatLng}
           setMapLatLng={setMapLatLng}
@@ -37,8 +37,20 @@ function PageView({ mapLatLng, setMapLatLng, pageMode, setPageMode }) {
           pageMode={pageMode}
           setPageMode={setPageMode}
         />
-      )}
-      <Box sx={{ maxWidth: "800px", margin: "auto", marginTop: "1em" }}>
+      </Box>
+
+      <Box
+        sx={{
+          position: "absolute",
+          width: "100%",
+          height: "calc(100% - 120px)",
+          marginTop: "64px",
+          marginBottom: "56px",
+          zIndex: 1200,
+          overflow: "auto",
+          p: 0,
+        }}
+      >
         <Grid size={{ xs: 12, md: 6 }}>
           <NearbyPlacesView ent={selectedEnt} />
         </Grid>

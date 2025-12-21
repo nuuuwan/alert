@@ -1,6 +1,7 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { COLORS } from "../_cons/StyleConstants";
 import { useState } from "react";
+import CustomPaper from "./CustomPaper";
 
 export default function CustomTabs({
   tabToChild,
@@ -25,7 +26,7 @@ export default function CustomTabs({
   const selectedChild = selectedChildGenerator();
 
   return (
-    <Box>
+    <CustomPaper>
       {tabKeys.map(function (tabKey, iTab) {
         const color = tabToColor
           ? tabToColor[tabKey] || COLORS.neutral
@@ -48,6 +49,6 @@ export default function CustomTabs({
         );
       })}
       {selectedChild}
-    </Box>
+    </CustomPaper>
   );
 }
