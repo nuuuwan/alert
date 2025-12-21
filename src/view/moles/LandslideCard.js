@@ -2,6 +2,7 @@ import OldMetricCard from "../atoms/OldMetricCard";
 import LandslideIcon from "@mui/icons-material/Landslide";
 import { getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
+import CustomPaper from "../atoms/CustomPaper";
 
 export default function LandslideCard({ dsd }) {
   const level = dsd.latestLandslideWarningLevel;
@@ -23,14 +24,16 @@ export default function LandslideCard({ dsd }) {
   const color = getAlertColor(level, 3);
 
   return (
-    <OldMetricCard
-      Icon={LandslideIcon}
-      label="Landslide"
-      value={value}
-      unit=""
-      color={color}
-      timeLabel={TimeUtils.getTimeAgoString(timeUt)}
-      alertLabel={alertLabel}
-    />
+    <CustomPaper>
+      <OldMetricCard
+        Icon={LandslideIcon}
+        label="Landslide"
+        value={value}
+        unit=""
+        color={color}
+        timeLabel={TimeUtils.getTimeAgoString(timeUt)}
+        alertLabel={alertLabel}
+      />
+    </CustomPaper>
   );
 }

@@ -48,15 +48,16 @@ function PageView({ mapLatLng, setMapLatLng, pageMode, setPageMode }) {
             marginTop: "64px",
             marginBottom: "56px",
             zIndex: 1200,
-            overflow: "auto",
-            p: 0,
+            overflowY: "auto",
           }}
         >
-          <Grid size={{ xs: 12, md: 6 }}>
-            <NearbyPlacesView ent={selectedEnt} />
-          </Grid>
-          {pageMode === "Alerts" && <AlertsView />}
-          {pageMode === "Data" && <DataView />}
+          <Box sx={{ maxWidth: "800px", margin: "auto" }}>
+            <Grid size={{ xs: 12, md: 6 }}>
+              <NearbyPlacesView ent={selectedEnt} />
+            </Grid>
+            {pageMode === "Alerts" && <AlertsView />}
+            {pageMode === "Data" && <DataView />}
+          </Box>
         </Box>
       )}
     </Box>

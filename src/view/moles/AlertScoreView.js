@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import AlertScoreItemView from "./AlertScoreItemView";
+import CustomPaper from "../atoms/CustomPaper";
 
 export default function AlertScoreView({ iAlertScore, alertScore }) {
   const { t } = useTranslation();
@@ -31,7 +32,7 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
   const alertLabel = NaturalDisaster.getLabel(score, maxScore);
 
   return (
-    <Box>
+    <CustomPaper>
       <Box>
         <OldMetricCard
           label={t(alertScore.name)}
@@ -56,6 +57,6 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
           ))}
         </Grid>
       </Box>
-    </Box>
+    </CustomPaper>
   );
 }

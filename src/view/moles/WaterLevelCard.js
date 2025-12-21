@@ -2,6 +2,7 @@ import OldMetricCard from "../atoms/OldMetricCard";
 import WaterIcon from "@mui/icons-material/Water";
 import { getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
+import CustomPaper from "../atoms/CustomPaper";
 
 export default function WaterLevelCard({ hydrometricStation }) {
   const level = hydrometricStation.waterLevelAlertLevel;
@@ -20,14 +21,16 @@ export default function WaterLevelCard({ hydrometricStation }) {
   const color = getAlertColor(level, 3);
 
   return (
-    <OldMetricCard
-      Icon={WaterIcon}
-      label="Water Level"
-      value={waterLevelM !== undefined ? waterLevelM.toFixed(2) : "N/A"}
-      unit="m"
-      color={color}
-      timeLabel={TimeUtils.getTimeAgoString(timeUt)}
-      alertLabel={alertLabel}
-    />
+    <CustomPaper>
+      <OldMetricCard
+        Icon={WaterIcon}
+        label="Water Level"
+        value={waterLevelM !== undefined ? waterLevelM.toFixed(2) : "N/A"}
+        unit="m"
+        color={color}
+        timeLabel={TimeUtils.getTimeAgoString(timeUt)}
+        alertLabel={alertLabel}
+      />
+    </CustomPaper>
   );
 }
