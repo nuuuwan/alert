@@ -33,9 +33,11 @@ function PlaceLink({ place, distanceM }) {
         </Typography>
 
         <Typography variant="caption">
+          (
           {distanceM > 1000
             ? (distanceM / 1000).toFixed(0) + t("km")
             : t("<1km")}
+          )
         </Typography>
       </Box>
     </Link>
