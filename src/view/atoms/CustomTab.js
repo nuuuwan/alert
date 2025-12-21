@@ -6,7 +6,6 @@ export default function CustomTab({ color, ...props }) {
   const { t } = useTranslation();
   const tabSx = {
     color: color || COLORS.neutralLight,
-    borderRadius: 5,
     "&.Mui-selected": {
       color: color || COLORS.neutral,
     },
