@@ -1,5 +1,6 @@
 import { COLORS } from "../_cons/StyleConstants";
 import Chart from "./Chart";
+import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 import { useTranslation } from "react-i18next";
 export default function RainChart({
   rainListHourly,
@@ -7,8 +8,14 @@ export default function RainChart({
   latLng,
 }) {
   const { t } = useTranslation();
-  const rainListHourlyForChart = rainListHourly.slice(6 * 24, 8 * 24);
-  const timeUtListHourlyForChart = timeUtListHourly.slice(6 * 24, 8 * 24);
+  const rainListHourlyForChart = rainListHourly.slice(
+    (OpenMeteo.SPAN_DAYS_BEFORE - 1) * 24,
+    (OpenMeteo.SPAN_DAYS_BEFORE + 1) * 24
+  );
+  const timeUtListHourlyForChart = timeUtListHourly.slice(
+    (OpenMeteo.SPAN_DAYS_BEFORE - 1) * 24,
+    (OpenMeteo.SPAN_DAYS_BEFORE + 1) * 24
+  );
   return (
     <Chart
       title="Rainfall History & Forecast"

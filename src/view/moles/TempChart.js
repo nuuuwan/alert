@@ -1,14 +1,21 @@
 import { COLORS } from "../_cons/StyleConstants";
 import Chart from "./Chart";
 import { useTranslation } from "react-i18next";
+import OpenMeteo from "../../nonview/core/third_party/OpenMeteo";
 export default function TempChart({
   tempListHourly,
   timeUtListHourly,
   latLng,
 }) {
   const { t } = useTranslation();
-  const tempListHourlyForChart = tempListHourly.slice(6 * 24, 8 * 24);
-  const timeUtListHourlyForChart = timeUtListHourly.slice(6 * 24, 8 * 24);
+  const tempListHourlyForChart = tempListHourly.slice(
+    (OpenMeteo.SPAN_DAYS_BEFORE - 1) * 24,
+    (OpenMeteo.SPAN_DAYS_BEFORE + 1) * 24
+  );
+  const timeUtListHourlyForChart = timeUtListHourly.slice(
+    (OpenMeteo.SPAN_DAYS_BEFORE - 1) * 24,
+    (OpenMeteo.SPAN_DAYS_BEFORE + 1) * 24
+  );
   return (
     <Chart
       title="Temperature History & Forecast"
