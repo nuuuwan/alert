@@ -39,7 +39,7 @@ class City extends Place {
           latLng,
         });
         return new City({ ...rawData, ...placeData });
-      })
+      }),
     );
   }
 
