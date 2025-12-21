@@ -12,7 +12,7 @@ export default function NearbyPlacesView({ ent }) {
   const { nearbyPlaces } = useSelectedEntDataContext();
   return (
     <CustomPaper>
-      <Typography variant="caption" color={COLORS.neutral} sx={{ mb: 1 }}>
+      <Typography variant="caption" sx={{ mb: 1 }}>
         {t("Nearby")}
       </Typography>
       <Stack spacing={1} direction="row" sx={{ flexWrap: "wrap" }}>

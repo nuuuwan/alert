@@ -9,9 +9,8 @@ function PlaceLink({ place, distanceM }) {
   let to = place.url;
   const { t } = useTranslation();
 
-  const color = COLORS.neutral;
   return (
-    <Link to={to} style={{ textDecoration: "none", color: color }}>
+    <Link to={to} style={{ textDecoration: "none", color: "#000" }}>
       <Box
         sx={{
           display: "flex",
@@ -22,8 +21,6 @@ function PlaceLink({ place, distanceM }) {
           margin: 0.125,
           transition: "all 0.3s ease",
           "&:hover": {
-            backgroundColor: COLORS.primary,
-            color: COLORS.white,
             transform: "scale(1.05)",
             boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
           },
@@ -35,7 +32,7 @@ function PlaceLink({ place, distanceM }) {
           {t(place.name)}
         </Typography>
 
-        <Typography variant="caption" color="text.secondary">
+        <Typography variant="caption">
           {distanceM > 1000
             ? (distanceM / 1000).toFixed(0) + t("km")
             : t("<1km")}
