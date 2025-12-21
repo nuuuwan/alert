@@ -16,7 +16,7 @@ export default function AdminRegionView({ regionEnt }) {
       <Typography
         variant="caption"
         component="span"
-        sx={{ ml: 0.5, opacity: 0.5, fontSize: "65%" }}
+        sx={{ ml: 0.5, fontSize: "65%" }}
       >
         {t(regionEnt.constructor.getEntTypeNameShort())}
       </Typography>
