@@ -1,6 +1,6 @@
 // Colors
 export const COLORS = {
-  noAlert: "#4caf50",
+  noAlert: "#cccccc",
   highAlert: "#d32f2f",
   mediumAlert: "#f57c00",
   lowAlert: "#d4a500",
@@ -15,10 +15,10 @@ export const COLORS = {
   neutralLightTransparent: "rgba(204, 204, 204, 0.75)",
 
   // Things
-  water: "rgb(0, 150, 255)",
-  fire: "rgb(255, 87, 34)",
-  earth: "rgb(29, 190, 43)",
-  air: "rgb(192, 128, 20)",
+  water: "#444444",
+  fire: "#444444",
+  earth: "#444444",
+  air: "#444444",
 };
 
 export function getAlertColor(level, maxLevel = 3) {
