@@ -1,5 +1,6 @@
 import Unit from "./Unit";
 import AirIcon from "@mui/icons-material/Air";
+import { COLORS } from "../../../view/_cons/StyleConstants";
 
 export default class USAQI extends Unit {
   static getLabel() {
@@ -12,7 +13,7 @@ export default class USAQI extends Unit {
     return AirIcon;
   }
   static getColor() {
-    return "rgb(76, 175, 80)";
+    return COLORS.air;
   }
 
   format() {

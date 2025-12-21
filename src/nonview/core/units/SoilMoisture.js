@@ -1,3 +1,4 @@
+import { COLORS } from "../../../view/_cons/StyleConstants";
 import Unit from "./Unit";
 import OpacityIcon from "@mui/icons-material/Opacity";
 
@@ -12,7 +13,7 @@ export default class SoilMoisture extends Unit {
     return OpacityIcon;
   }
   static getColor() {
-    return "rgb(29, 190, 43)";
+    return COLORS.earth;
   }
 
   format() {

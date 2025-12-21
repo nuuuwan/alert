@@ -1,3 +1,4 @@
+import { COLORS } from "../../../view/_cons/StyleConstants";
 import Unit from "./Unit";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
@@ -12,7 +13,7 @@ export default class EarthquakeMagnitude extends Unit {
     return WarningAmberIcon;
   }
   static getColor() {
-    return "rgb(255, 152, 0)";
+    return COLORS.earth;
   }
 
   format() {

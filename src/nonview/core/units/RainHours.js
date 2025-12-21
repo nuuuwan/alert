@@ -1,3 +1,4 @@
+import { COLORS } from "../../../view/_cons/StyleConstants";
 import Unit from "./Unit";
 import ThunderstormIcon from "@mui/icons-material/Thunderstorm";
 
@@ -12,7 +13,7 @@ export default class RainHours extends Unit {
     return ThunderstormIcon;
   }
   static getColor() {
-    return "rgb(0, 150, 255)";
+    return COLORS.water;
   }
 
   format() {

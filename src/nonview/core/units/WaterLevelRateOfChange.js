@@ -1,3 +1,4 @@
+import { COLORS } from "../../../view/_cons/StyleConstants";
 import Unit from "./Unit";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 
@@ -12,7 +13,7 @@ export default class WaterLevelRateOfChange extends Unit {
     return TrendingUpIcon;
   }
   static getColor() {
-    return "rgb(255, 152, 0)";
+    return COLORS.water;
   }
 
   format() {

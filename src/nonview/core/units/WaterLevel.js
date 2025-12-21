@@ -1,3 +1,4 @@
+import { COLORS } from "../../../view/_cons/StyleConstants";
 import Unit from "./Unit";
 import WaterIcon from "@mui/icons-material/Water";
 
@@ -12,7 +13,7 @@ export default class WaterLevel extends Unit {
     return WaterIcon;
   }
   static getColor() {
-    return "rgb(0, 150, 255)";
+    return COLORS.water;
   }
 
   format() {

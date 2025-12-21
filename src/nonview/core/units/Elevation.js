@@ -1,5 +1,6 @@
 import Unit from "./Unit";
 import TerrainIcon from "@mui/icons-material/Terrain";
+import { COLORS } from "../../../view/_cons/StyleConstants";
 
 export default class Elevation extends Unit {
   static getLabel() {
@@ -12,7 +13,7 @@ export default class Elevation extends Unit {
     return TerrainIcon;
   }
   static getColor() {
-    return "rgb(139, 90, 43)";
+    return COLORS.earth;
   }
 
   format() {
