@@ -10,11 +10,11 @@ export default function RainChart({
   const { t } = useTranslation();
   const rainListHourlyForChart = rainListHourly.slice(
     (OpenMeteo.SPAN_DAYS_BEFORE - 1) * 24,
-    (OpenMeteo.SPAN_DAYS_BEFORE + 1) * 24
+    (OpenMeteo.SPAN_DAYS_BEFORE + 1) * 24,
   );
   const timeUtListHourlyForChart = timeUtListHourly.slice(
     (OpenMeteo.SPAN_DAYS_BEFORE - 1) * 24,
-    (OpenMeteo.SPAN_DAYS_BEFORE + 1) * 24
+    (OpenMeteo.SPAN_DAYS_BEFORE + 1) * 24,
   );
   return (
     <Chart

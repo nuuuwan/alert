@@ -10,11 +10,11 @@ export default function TempChart({
   const { t } = useTranslation();
   const tempListHourlyForChart = tempListHourly.slice(
     (OpenMeteo.SPAN_DAYS_BEFORE - 1) * 24,
-    (OpenMeteo.SPAN_DAYS_BEFORE + 1) * 24
+    (OpenMeteo.SPAN_DAYS_BEFORE + 1) * 24,
   );
   const timeUtListHourlyForChart = timeUtListHourly.slice(
     (OpenMeteo.SPAN_DAYS_BEFORE - 1) * 24,
-    (OpenMeteo.SPAN_DAYS_BEFORE + 1) * 24
+    (OpenMeteo.SPAN_DAYS_BEFORE + 1) * 24,
   );
   return (
     <Chart
