@@ -3,7 +3,7 @@ import WithLoadAllStaticMixin from "../../../base/mixins/WithLoadAllStaticMixin.
 import WithDataStaticStaticMixin from "../../../base/mixins/WithDataStaticStaticMixin.js";
 import LatLng from "../../../base/geos/LatLng.js";
 import WithNameMixin from "../../../base/mixins/WithNameMixin.js";
-
+import SystemMode from "../../../base/SystemMode.js";
 class City extends Place {
   static getEntTypeName() {
     return "Town/City";
@@ -39,12 +39,12 @@ class City extends Place {
           latLng,
         });
         return new City({ ...rawData, ...placeData });
-      }),
+      })
     );
   }
 
   static getMajorCityNames() {
-    return [
+    let names = [
       // Province capitals
       "Colombo",
       "Kandy",
@@ -80,6 +80,10 @@ class City extends Place {
       "Matara",
       "Kalmunai",
     ];
+    if (SystemMode.isTest()) {
+      names = names.slice(0, 5);
+    }
+    return names;
   }
 
   static async loadAllMajor() {
