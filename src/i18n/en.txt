@@ -44,6 +44,7 @@ Aththanagalu Oya
 Athuraliya
 Athurugiriya
 Attanagalla
+Auto Alerts
 Auto Alerts (Experimental)
 Avissawella
 Ayagama
