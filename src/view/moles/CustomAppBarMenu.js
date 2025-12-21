@@ -26,8 +26,8 @@ const LANGUAGE_LABELS_SHORT = {
 
 const LANGUAGE_NAME_EN = {
   si: "සිංහල",
-  ta: "தමிழ்",
-  en: "Enlish",
+  ta: "தமிழ்",
+  en: "English",
 };
 
 export default function CustomAppBarMenu() {
