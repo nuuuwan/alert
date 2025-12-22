@@ -10,11 +10,19 @@ export default class GeoLocation {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          resolve(LatLng.fromRaw([latitude, longitude]));
+          resolve({ 
+            latLng: LatLng.fromRaw([latitude, longitude]),
+            isDefault: false
+          });
         },
         (error) => {
           console.error("Error getting geolocation:", error);
-          reject(null);
+          // return the default location(colombo) to avoid runtime error
+          resolve({
+            latLng: LatLng.fromRaw([6.9271, 79.8612]),
+            isDefault: true,
+            error: error.message
+          });
         },
       );
     });

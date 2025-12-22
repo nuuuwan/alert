@@ -5,6 +5,7 @@ import GeoLocation from "../base/GeoLocation";
 import HydrometricStation from "./ents/places/HydrometricStation";
 import City from "./ents/places/City";
 import Nearby from "./Nearby";
+import toast, { Toaster } from "react-hot-toast";
 
 const SelectedEntDataContext = createContext();
 
@@ -28,8 +29,19 @@ export function SelectedEntDataProvider({
       dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
 
     async function fetchBrowserLocation() {
-      const latLng = await GeoLocation.getCurrentLatLng();
-      if (!hasSomeEntParam && latLng) {
+      if (hasSomeEntParam) return;
+      const { latLng, isDefault } = await GeoLocation.getCurrentLatLng();
+      // if the user denied the location permission
+      if (isDefault) {
+        toast.error(
+          "Location access denied. Using default location (Colombo).",
+          { duration: 5000, id: 'location-denied' }
+        );
+      } else {
+        // if the user give the permission to access location
+        toast.success("Location accessed!", { duration: 5000, id: 'location-accessed' })
+      }
+      if (latLng) {
         const place = await Place.load({ latLng });
         await place.loadDetails();
         setMapLatLng(latLng);
@@ -102,8 +114,11 @@ export function SelectedEntDataProvider({
   }, [selectedEnt]);
 
   return (
+  <>
+    <Toaster position="top-center"/>
     <SelectedEntDataContext.Provider value={{ selectedEnt, nearbyPlaces }}>
       {children}
     </SelectedEntDataContext.Provider>
+  </>
   );
 }
