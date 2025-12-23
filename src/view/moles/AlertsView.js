@@ -20,6 +20,10 @@ export default function AlertsView() {
         "Official Alerts": getAlertColor(selectedEnt.officialAlertLevel),
         "Auto Alerts": getAlertColor(selectedEnt.autoAlertLevel),
       }}
+      tabToNAlerts={{
+        "Official Alerts": selectedEnt.nOfficialAlerts,
+        "Auto Alerts": selectedEnt.nAutoAlerts,
+      }}
       renderButtonInner={(text, color) => (
         <Typography variant="h6" style={{ color }}>
           {text}

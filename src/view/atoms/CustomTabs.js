@@ -1,4 +1,4 @@
-import { Button, Typography } from "@mui/material";
+import { Badge, Button, Typography } from "@mui/material";
 import { COLORS } from "../_cons/StyleConstants";
 import { useState } from "react";
 import Box from "@mui/material/Box";
@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 export default function CustomTabs({
   tabToChild,
   tabToColor,
+  tabToNAlerts,
   renderButtonInner = (text, color) => (
     <Typography variant="title1" style={{ color }}>
       {text}
@@ -37,22 +38,35 @@ export default function CustomTabs({
         const opacity = tabColor ? 1.0 : 0.22;
         const color = isSelected ? "white" : tabColor;
         const backgroundColor = isSelected ? tabColor : "white";
+        const nAlerts = tabToNAlerts ? tabToNAlerts[tabKey] : 0;
         return (
-          <Button
+          <Badge
             key={iTab}
-            onClick={() => handleChange(tabKey)}
-            sx={{
-              color,
-              backgroundColor,
-              m: 0.25,
-              ml: 1,
-              mb: 1,
-              p: 0.5,
-              opacity,
+            badgeContent={nAlerts}
+            slotProps={{
+              badge: {
+                sx: {
+                  backgroundColor: tabColor,
+                  color: "white",
+                },
+              },
             }}
           >
-            {renderButtonInner(t(tabKey), color)}
-          </Button>
+            <Button
+              onClick={() => handleChange(tabKey)}
+              sx={{
+                color,
+                backgroundColor,
+                m: 0.25,
+                ml: 1,
+                mb: 1,
+                p: 0.5,
+                opacity,
+              }}
+            >
+              {renderButtonInner(t(tabKey), color)}
+            </Button>
+          </Badge>
         );
       })}
 
