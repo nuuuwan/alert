@@ -80,6 +80,7 @@ export default function CustomBottomNavigator({ setPageMode, pageMode }) {
                 badge: {
                   sx: {
                     backgroundColor: alertColor,
+                    zIndex: 3000,
                   },
                 },
               }}
