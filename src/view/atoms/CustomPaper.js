@@ -13,7 +13,7 @@ export default function CustomPaper({ children, sx }) {
           margin: "1em",
           p: 2,
         },
-        sx
+        sx,
       )}
     >
       {children}
