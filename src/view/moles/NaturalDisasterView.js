@@ -17,19 +17,19 @@ export default function NaturalDisasterView({ place }) {
         return <AlertScoreView alertScore={alertScore} place={place} />;
       };
       return [alertScore.name, childGenerator];
-    })
+    }),
   );
 
   const tabToColor = Object.fromEntries(
     alertScoreList.map(function (alertScore) {
       return [alertScore.name, getAlertColor(alertScore.level)];
-    })
+    }),
   );
 
   const tabToNAlerts = Object.fromEntries(
     alertScoreList.map(function (alertScore) {
       return [alertScore.name, alertScore.level > 0 ? 1 : 0];
-    })
+    }),
   );
 
   return (
@@ -40,7 +40,7 @@ export default function NaturalDisasterView({ place }) {
         sx={{ m: 1, maxWidth: "480px" }}
       >
         {t(
-          "These alerts are automtically generated, and are still under development and should be used for informational purposes only."
+          "These alerts are automtically generated, and are still under development and should be used for informational purposes only.",
         )}
       </Alert>
       <CustomTabs
