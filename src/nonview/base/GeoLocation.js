@@ -1,4 +1,5 @@
 import LatLng from "./geos/LatLng.js";
+import { DEFAULT_CENTER } from "../cons/MapConstants.js";
 export default class GeoLocation {
   static async getCurrentLatLng() {
     if (!navigator.geolocation) {
@@ -14,8 +15,8 @@ export default class GeoLocation {
         },
         (error) => {
           console.error("Error getting geolocation:", error);
-          reject(null);
-        },
+          resolve(LatLng.fromRaw(DEFAULT_CENTER));
+        }
       );
     });
   }
