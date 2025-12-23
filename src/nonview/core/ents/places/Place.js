@@ -119,6 +119,19 @@ class Place {
     return Math.max(...autoAlertList.map((alert) => alert.level));
   }
 
+  get nOfficialAlerts() {
+    return this.landslideWarningLevel > 0 ? 1 : 0;
+  }
+
+  get nAutoAlerts() {
+    const autoAlertList = this.autoAlertList || [];
+    return autoAlertList.filter((alert) => alert.level > 0).length;
+  }
+
+  get nAlerts() {
+    return this.nOfficialAlerts + this.nAutoAlerts;
+  }
+
   get alertLevel() {
     return Math.max(this.officialAlertLevel, this.autoAlertLevel);
   }
@@ -128,8 +141,8 @@ class Place {
       Object.fromEntries(
         places
           .filter((place) => place && place.latLng)
-          .map((place) => [place.latLng.id, place]),
-      ),
+          .map((place) => [place.latLng.id, place])
+      )
     );
   }
 }

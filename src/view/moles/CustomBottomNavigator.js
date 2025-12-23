@@ -6,12 +6,11 @@ import WarningIcon from "@mui/icons-material/Warning";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import { COLORS } from "../_cons/StyleConstants";
 import { useTranslation } from "react-i18next";
+import Badge from "@mui/material/Badge";
+import { getAlertColor } from "../_cons/StyleConstants";
+import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 
-export default function CustomBottomNavigator({
-  onSetToMapCenter,
-  setPageMode,
-  pageMode,
-}) {
+export default function CustomBottomNavigator({ setPageMode, pageMode }) {
   const { t } = useTranslation();
   const handleMapMode = () => {
     setPageMode("Map");
@@ -34,6 +33,10 @@ export default function CustomBottomNavigator({
       handleDataMode();
     }
   };
+
+  const { selectedEnt } = useSelectedEntDataContext();
+  const nAlerts = selectedEnt ? selectedEnt.nAlerts : 0;
+  const alertColor = getAlertColor(selectedEnt ? selectedEnt.alertLevel : 0, 3);
 
   return (
     <Paper
@@ -70,7 +73,20 @@ export default function CustomBottomNavigator({
         <BottomNavigationAction
           label={t("Alerts")}
           value="Alerts"
-          icon={<WarningIcon />}
+          icon={
+            <Badge
+              badgeContent={nAlerts}
+              slotProps={{
+                badge: {
+                  sx: {
+                    backgroundColor: alertColor,
+                  },
+                },
+              }}
+            >
+              <WarningIcon />
+            </Badge>
+          }
           disabled={pageMode === "Alerts"}
           showLabel={true}
           sx={{
