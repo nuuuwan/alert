@@ -46,8 +46,8 @@ export default function CustomTabs({
             slotProps={{
               badge: {
                 sx: {
-                  backgroundColor: tabColor,
-                  color: "white",
+                  backgroundColor,
+                  color,
                 },
               },
             }}
