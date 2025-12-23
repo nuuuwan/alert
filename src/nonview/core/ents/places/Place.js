@@ -128,8 +128,8 @@ class Place {
       Object.fromEntries(
         places
           .filter((place) => place && place.latLng)
-          .map((place) => [place.latLng.id, place])
-      )
+          .map((place) => [place.latLng.id, place]),
+      ),
     );
   }
 }

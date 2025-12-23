@@ -16,7 +16,7 @@ export default class GeoLocation {
         (error) => {
           console.error("Error getting geolocation:", error);
           resolve(LatLng.fromRaw(DEFAULT_CENTER));
-        }
+        },
       );
     });
   }
