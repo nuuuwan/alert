@@ -16,6 +16,8 @@ function PageView({ mapLatLng, setMapLatLng, pageMode, setPageMode }) {
     return <DataLoadingView />;
   }
 
+  const isPageModeMap = pageMode === "Map";
+
   return (
     <Box sx={{}}>
       <Box
@@ -39,7 +41,7 @@ function PageView({ mapLatLng, setMapLatLng, pageMode, setPageMode }) {
         />
       </Box>
 
-      {pageMode !== "Map" && (
+      {!isPageModeMap && (
         <Box
           sx={{
             position: "absolute",
