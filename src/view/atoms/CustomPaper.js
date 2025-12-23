@@ -8,12 +8,12 @@ export default function CustomPaper({ children, sx }) {
         {
           background: "rgba(255,2555,255, 0.9)",
           borderRadius: 2,
-          m: 1,
-          p: 1,
-          width: "fit-content",
-          maxWidth: "90vw",
+          minWidth: "fit-content",
+          maxWidth: "calc(100vw - 2em)",
+          margin: "1em",
+          p: 2,
         },
-        sx,
+        sx
       )}
     >
       {children}
