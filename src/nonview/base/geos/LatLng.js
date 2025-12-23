@@ -9,16 +9,16 @@ export default class LatLng {
   static fromRaw(floatPair) {
     return new LatLng(
       [floatPair[0], floatPair[1]].map(
-        (coord) => parseInt(coord / LatLng.PRECISION) * LatLng.PRECISION,
-      ),
+        (coord) => parseInt(coord / LatLng.PRECISION) * LatLng.PRECISION
+      )
     );
   }
 
   static fromReverseRaw(floatPair) {
     return new LatLng(
       [floatPair[1], floatPair[0]].map(
-        (coord) => parseInt(coord / LatLng.PRECISION) * LatLng.PRECISION,
-      ),
+        (coord) => parseInt(coord / LatLng.PRECISION) * LatLng.PRECISION
+      )
     );
   }
 
@@ -52,5 +52,13 @@ export default class LatLng {
         Math.sin(dLng / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c;
+  }
+
+  constrainToSriLanka() {
+    const [latMin, lngMin] = [5.9186, 79.6954];
+    const [latMax, lngMax] = [9.8352, 81.8815];
+    const newLat = Math.min(Math.max(this.lat, latMin), latMax);
+    const newLng = Math.min(Math.max(this.lng, lngMin), lngMax);
+    return new LatLng([newLat, newLng]);
   }
 }
