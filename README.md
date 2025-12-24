@@ -1,7 +1,5 @@
 🚨 ALERT App (Update)
 
-🌐 APP: <http://nuuuwan.github.io/alert/>
-
 v0.1 of ALERT, an Awareness, Logistics, Evacuation, Recovery and Tracking platform for natural disasters in Sri Lanka 🇱🇰
 
 It aggregates
@@ -23,6 +21,6 @@ Trilingual (සිංහල & தமிழ் translations are automatically gen
 🙏 Contributions from developers, translators, and disaster professionals are especially welcome.
 
 CODE: <http://github.com/nuuuwan/alert>
-Long-term plan: <https://github.com/nuuuwan/alert/blob/main/README.requirements.md>
+Long-term plan: <https://github.com/nuuuwanblob/main/README.requirements.md>
 
 🇱🇰 #SriLanka #DisasterPreparedness #AlertApp #EarlyWarning #CrisisTech
