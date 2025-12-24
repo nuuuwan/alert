@@ -64,7 +64,7 @@ export default function MapView({
         height: "100%",
         zIndex: 100,
         filter: isPageModeMap ? "none" : "grayscale(100%)",
-        opacity: isPageModeMap ? 1 : 0.2,
+        opacity: isPageModeMap ? 1 : 0.333,
       }}
     >
       <MapContainer
