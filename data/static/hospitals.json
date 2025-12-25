@@ -1,0 +1,2375 @@
+[
+  {
+    "name": "ABC HOSPITAL",
+    "lat_lng": [
+      6.7186,
+      80.0767
+    ]
+  },
+  {
+    "name": "Abisha Hospital",
+    "lat_lng": [
+      8.7483,
+      80.4941
+    ]
+  },
+  {
+    "name": "Accident Ward",
+    "lat_lng": [
+      6.9187,
+      79.8672
+    ]
+  },
+  {
+    "name": "Agarapatana Divisional Hospital",
+    "lat_lng": [
+      6.8701,
+      80.6853
+    ]
+  },
+  {
+    "name": "Air Force Hospital - Colombo",
+    "lat_lng": [
+      6.9199,
+      79.8834
+    ]
+  },
+  {
+    "name": "Akkurugoda MOH",
+    "lat_lng": [
+      6.0085,
+      80.5007
+    ]
+  },
+  {
+    "name": "Alawwa District Hospital",
+    "lat_lng": [
+      7.2981,
+      80.2302
+    ]
+  },
+  {
+    "name": "Aloka Hospital",
+    "lat_lng": [
+      6.6822,
+      80.4034
+    ]
+  },
+  {
+    "name": "Ambalangoda Districut Hospital",
+    "lat_lng": [
+      6.2491,
+      80.0625
+    ]
+  },
+  {
+    "name": "Ambalantota Hospital",
+    "lat_lng": [
+      6.1147,
+      81.0221
+    ]
+  },
+  {
+    "name": "Angunukolapeless",
+    "lat_lng": [
+      6.1653,
+      80.8998
+    ]
+  },
+  {
+    "name": "Ankumbura Ayurweda Dispensary",
+    "lat_lng": [
+      7.4361,
+      80.5736
+    ]
+  },
+  {
+    "name": "Aralaganwila Hospital",
+    "lat_lng": [
+      7.7879,
+      81.1882
+    ]
+  },
+  {
+    "name": "Aranayake Hospital",
+    "lat_lng": [
+      7.1774,
+      80.4587
+    ]
+  },
+  {
+    "name": "Army Field Hospital",
+    "lat_lng": [
+      8.7401,
+      80.5009
+    ]
+  },
+  {
+    "name": "Army Hospital",
+    "lat_lng": [
+      6.9001,
+      79.8758
+    ]
+  },
+  {
+    "name": "Arogya Gampaha",
+    "lat_lng": [
+      7.0907,
+      80.0005
+    ]
+  },
+  {
+    "name": "Arya Hospital",
+    "lat_lng": [
+      6.6893,
+      80.3946
+    ]
+  },
+  {
+    "name": "Asia Hospital",
+    "lat_lng": [
+      6.8453,
+      79.9292
+    ]
+  },
+  {
+    "name": "Asiri Hospital (PVT)",
+    "lat_lng": [
+      5.9487,
+      80.5387
+    ]
+  },
+  {
+    "name": "Asiri Laboratory",
+    "lat_lng": [
+      6.892,
+      79.929
+    ]
+  },
+  {
+    "name": "Asiri Surgical Hospital",
+    "lat_lng": [
+      6.8945,
+      79.8797
+    ]
+  },
+  {
+    "name": "Athura Hospital",
+    "lat_lng": [
+      6.6448,
+      80.1794
+    ]
+  },
+  {
+    "name": "Aurvedic Center",
+    "lat_lng": [
+      8.3266,
+      80.4113
+    ]
+  },
+  {
+    "name": "Aurvedic Dispensary",
+    "lat_lng": [
+      7.0661,
+      81.0529
+    ]
+  },
+  {
+    "name": "Auyuvedic Hospital Vavuniya",
+    "lat_lng": [
+      8.7606,
+      80.4389
+    ]
+  },
+  {
+    "name": "Ayurveda Central Hospital",
+    "lat_lng": [
+      7.5661,
+      81.0417
+    ]
+  },
+  {
+    "name": "Ayurveda Corporation",
+    "lat_lng": [
+      6.8559,
+      79.9177
+    ]
+  },
+  {
+    "name": "Ayurvedic Hospital",
+    "lat_lng": [
+      7.0219,
+      80.0099
+    ]
+  },
+  {
+    "name": "Ayurvedic Hospital,Kiliveddy",
+    "lat_lng": [
+      8.3515,
+      81.2858
+    ]
+  },
+  {
+    "name": "Ayurweda Hospital",
+    "lat_lng": [
+      6.9021,
+      80.9205
+    ]
+  },
+  {
+    "name": "Ayurweda Hospital Narammala",
+    "lat_lng": [
+      7.4326,
+      80.2126
+    ]
+  },
+  {
+    "name": "Ayurweda Hospital Nildandahinna",
+    "lat_lng": [
+      7.0835,
+      80.8939
+    ]
+  },
+  {
+    "name": "Baddegama Hospital",
+    "lat_lng": [
+      6.1614,
+      80.1805
+    ]
+  },
+  {
+    "name": "Balasooriya Hospital",
+    "lat_lng": [
+      8.0237,
+      79.8399
+    ]
+  },
+  {
+    "name": "Bandaranayake Private Hospital",
+    "lat_lng": [
+      7.1262,
+      80.1118
+    ]
+  },
+  {
+    "name": "Base Hospital",
+    "lat_lng": [
+      6.285,
+      81.2686
+    ]
+  },
+  {
+    "name": "Base Hospital Beliatta",
+    "lat_lng": [
+      6.0507,
+      80.7393
+    ]
+  },
+  {
+    "name": "Base Hospital Mallavi",
+    "lat_lng": [
+      9.1346,
+      80.3087
+    ]
+  },
+  {
+    "name": "Base Hospital Mawanella",
+    "lat_lng": [
+      7.2537,
+      80.4459
+    ]
+  },
+  {
+    "name": "Base Hospital Mulankavil",
+    "lat_lng": [
+      9.2437,
+      80.1429
+    ]
+  },
+  {
+    "name": "Base Hospital Puttalam",
+    "lat_lng": [
+      8.0278,
+      79.8388
+    ]
+  },
+  {
+    "name": "Batumulla Divisional Hospital",
+    "lat_lng": [
+      7.4143,
+      80.9369
+    ]
+  },
+  {
+    "name": "Bemmulla Clinic",
+    "lat_lng": [
+      7.1213,
+      80.0261
+    ]
+  },
+  {
+    "name": "Biyagama Hospital",
+    "lat_lng": [
+      6.9469,
+      79.9939
+    ]
+  },
+  {
+    "name": "Body Doc Medical Center",
+    "lat_lng": [
+      6.8956,
+      79.9602
+    ]
+  },
+  {
+    "name": "Bogahakumbura Base Hospital",
+    "lat_lng": [
+      6.8623,
+      80.8757
+    ]
+  },
+  {
+    "name": "Bokkawala",
+    "lat_lng": [
+      7.3929,
+      80.5532
+    ]
+  },
+  {
+    "name": "Boralanda Base Hospital",
+    "lat_lng": [
+      6.8296,
+      80.8955
+    ]
+  },
+  {
+    "name": "Borella Private Hospital",
+    "lat_lng": [
+      6.9139,
+      79.8805
+    ]
+  },
+  {
+    "name": "Browns Hospital",
+    "lat_lng": [
+      7.0278,
+      79.9206
+    ]
+  },
+  {
+    "name": "Bsr",
+    "lat_lng": [
+      5.9541,
+      80.525
+    ]
+  },
+  {
+    "name": "Campus Dispensary",
+    "lat_lng": [
+      8.6549,
+      81.2113
+    ]
+  },
+  {
+    "name": "Car Park",
+    "lat_lng": [
+      6.0366,
+      80.2162
+    ]
+  },
+  {
+    "name": "Central Camp Government Hospital",
+    "lat_lng": [
+      7.4149,
+      81.7355
+    ]
+  },
+  {
+    "name": "Central Dispensary",
+    "lat_lng": [
+      7.6308,
+      81.0284
+    ]
+  },
+  {
+    "name": "Central Hospital",
+    "lat_lng": [
+      6.99,
+      81.0514
+    ]
+  },
+  {
+    "name": "Chavakachcheri Base Hospital",
+    "lat_lng": [
+      9.6616,
+      80.167
+    ]
+  },
+  {
+    "name": "Chenaikudiruppu Base Hospital",
+    "lat_lng": [
+      7.4174,
+      81.8074
+    ]
+  },
+  {
+    "name": "Chest Clinic Tuberculosis",
+    "lat_lng": [
+      8.3228,
+      80.413
+    ]
+  },
+  {
+    "name": "Chest Hospital Welisara",
+    "lat_lng": [
+      7.0242,
+      79.9029
+    ]
+  },
+  {
+    "name": "Chettikulam Hospital",
+    "lat_lng": [
+      8.6591,
+      80.3124
+    ]
+  },
+  {
+    "name": "City Lab",
+    "lat_lng": [
+      6.7142,
+      79.9082
+    ]
+  },
+  {
+    "name": "Co-operative Hospital",
+    "lat_lng": [
+      6.9779,
+      80.7656
+    ]
+  },
+  {
+    "name": "Colombo Friend-in-Need Society",
+    "lat_lng": [
+      6.9164,
+      79.8559
+    ]
+  },
+  {
+    "name": "Coop Medical Centre",
+    "lat_lng": [
+      6.6874,
+      80.4027
+    ]
+  },
+  {
+    "name": "Dambadeniya Hospital",
+    "lat_lng": [
+      7.3488,
+      80.1377
+    ]
+  },
+  {
+    "name": "Dambagalla Rural Hospital",
+    "lat_lng": [
+      6.98,
+      81.3751
+    ]
+  },
+  {
+    "name": "Dambulla Ayurveda Hospital",
+    "lat_lng": [
+      7.8742,
+      80.6487
+    ]
+  },
+  {
+    "name": "De Soysa Hospital",
+    "lat_lng": [
+      6.784,
+      79.8777
+    ]
+  },
+  {
+    "name": "Dehiwala Medical Centre",
+    "lat_lng": [
+      6.8607,
+      79.8664
+    ]
+  },
+  {
+    "name": "Deiyandara Hospital",
+    "lat_lng": [
+      6.154,
+      80.601
+    ]
+  },
+  {
+    "name": "Deniyaya Hospital",
+    "lat_lng": [
+      6.3575,
+      80.5683
+    ]
+  },
+  {
+    "name": "Dental Surgeon Private",
+    "lat_lng": [
+      7.0686,
+      79.9616
+    ]
+  },
+  {
+    "name": "Dental Surgery",
+    "lat_lng": [
+      6.9251,
+      79.8647
+    ]
+  },
+  {
+    "name": "Dharmajaya Ground",
+    "lat_lng": [
+      7.4764,
+      80.3603
+    ]
+  },
+  {
+    "name": "Diabetic Foot Care & Rehabilitation Centre",
+    "lat_lng": [
+      6.8914,
+      79.8874
+    ]
+  },
+  {
+    "name": "Dickoya Base Hospital",
+    "lat_lng": [
+      6.8549,
+      80.6003
+    ]
+  },
+  {
+    "name": "Digana",
+    "lat_lng": [
+      7.2943,
+      80.7348
+    ]
+  },
+  {
+    "name": "Dissanayake Private Hospital Negombo",
+    "lat_lng": [
+      7.2012,
+      79.8536
+    ]
+  },
+  {
+    "name": "District Ayurvedic Hospital, Mannar",
+    "lat_lng": [
+      8.8744,
+      79.9369
+    ]
+  },
+  {
+    "name": "District General Hospital",
+    "lat_lng": [
+      7.0528,
+      80.5352
+    ]
+  },
+  {
+    "name": "District General Hospital Ampara",
+    "lat_lng": [
+      7.2989,
+      81.6892
+    ]
+  },
+  {
+    "name": "District General Hospital Killinochchi",
+    "lat_lng": [
+      9.3727,
+      80.4114
+    ]
+  },
+  {
+    "name": "District Hospital",
+    "lat_lng": [
+      6.5019,
+      80.6565
+    ]
+  },
+  {
+    "name": "District Hospital Bingiriya",
+    "lat_lng": [
+      7.5984,
+      79.9319
+    ]
+  },
+  {
+    "name": "District Hospital Galagedara",
+    "lat_lng": [
+      7.3721,
+      80.5243
+    ]
+  },
+  {
+    "name": "District Hospital Minuwangoda",
+    "lat_lng": [
+      7.1726,
+      79.9563
+    ]
+  },
+  {
+    "name": "District Hospital Passara",
+    "lat_lng": [
+      6.9336,
+      81.1525
+    ]
+  },
+  {
+    "name": "District Hospital Senarathpura",
+    "lat_lng": [
+      7.4503,
+      81.6279
+    ]
+  },
+  {
+    "name": "District Hospital, Katharagama.",
+    "lat_lng": [
+      6.4126,
+      81.3389
+    ]
+  },
+  {
+    "name": "District Hospital- Udadumbara",
+    "lat_lng": [
+      7.3192,
+      80.8783
+    ]
+  },
+  {
+    "name": "District Hospitel Uva-Paranagama",
+    "lat_lng": [
+      6.9382,
+      80.8904
+    ]
+  },
+  {
+    "name": "Divisional",
+    "lat_lng": [
+      8.681,
+      81.1937
+    ]
+  },
+  {
+    "name": "Divisional Hodpital Pungudutivu",
+    "lat_lng": [
+      9.5725,
+      79.8301
+    ]
+  },
+  {
+    "name": "Divisional Hospital",
+    "lat_lng": [
+      6.788,
+      81.011
+    ]
+  },
+  {
+    "name": "Divisional Hospital - Atchuvely",
+    "lat_lng": [
+      9.7728,
+      80.1155
+    ]
+  },
+  {
+    "name": "Divisional Hospital - Kolongoda",
+    "lat_lng": [
+      7.4715,
+      80.9486
+    ]
+  },
+  {
+    "name": "Divisional Hospital - Lahugala",
+    "lat_lng": [
+      6.8779,
+      81.7179
+    ]
+  },
+  {
+    "name": "Divisional Hospital - Maruthankerny",
+    "lat_lng": [
+      9.622,
+      80.3968
+    ]
+  },
+  {
+    "name": "Divisional Hospital - Nedunkerny",
+    "lat_lng": [
+      9.0537,
+      80.6529
+    ]
+  },
+  {
+    "name": "Divisional Hospital - Panama",
+    "lat_lng": [
+      6.7561,
+      81.8044
+    ]
+  },
+  {
+    "name": "Divisional Hospital - Sithaparapuram",
+    "lat_lng": [
+      8.6794,
+      80.5266
+    ]
+  },
+  {
+    "name": "Divisional Hospital Adampan",
+    "lat_lng": [
+      8.9433,
+      79.9967
+    ]
+  },
+  {
+    "name": "Divisional Hospital Akkarayankulam",
+    "lat_lng": [
+      9.3118,
+      80.3149
+    ]
+  },
+  {
+    "name": "Divisional Hospital Ambanpola",
+    "lat_lng": [
+      7.9168,
+      80.2421
+    ]
+  },
+  {
+    "name": "Divisional Hospital Bogawanthalawa",
+    "lat_lng": [
+      6.7949,
+      80.6785
+    ]
+  },
+  {
+    "name": "Divisional Hospital Ganthuna",
+    "lat_lng": [
+      7.1336,
+      80.4005
+    ]
+  },
+  {
+    "name": "Divisional Hospital Gurunagar",
+    "lat_lng": [
+      9.6526,
+      80.0196
+    ]
+  },
+  {
+    "name": "Divisional Hospital Ilavalai",
+    "lat_lng": [
+      9.7989,
+      79.9943
+    ]
+  },
+  {
+    "name": "Divisional Hospital Kayts",
+    "lat_lng": [
+      9.6981,
+      79.8658
+    ]
+  },
+  {
+    "name": "Divisional Hospital Kothmale",
+    "lat_lng": [
+      7.0625,
+      80.6855
+    ]
+  },
+  {
+    "name": "Divisional Hospital Manipay",
+    "lat_lng": [
+      9.703,
+      79.9927
+    ]
+  },
+  {
+    "name": "Divisional Hospital Murunkan",
+    "lat_lng": [
+      8.8367,
+      80.0378
+    ]
+  },
+  {
+    "name": "Divisional Hospital Nainativu",
+    "lat_lng": [
+      9.6049,
+      79.7731
+    ]
+  },
+  {
+    "name": "Divisional Hospital Oddusuddan",
+    "lat_lng": [
+      9.1628,
+      80.6605
+    ]
+  },
+  {
+    "name": "Divisional Hospital Pallai",
+    "lat_lng": [
+      9.6147,
+      80.3255
+    ]
+  },
+  {
+    "name": "Divisional Hospital Thalangama",
+    "lat_lng": [
+      6.9062,
+      79.9285
+    ]
+  },
+  {
+    "name": "Divisional Hospital Tharmapuram",
+    "lat_lng": [
+      9.4102,
+      80.5175
+    ]
+  },
+  {
+    "name": "Divisional Hospital Varany",
+    "lat_lng": [
+      9.7296,
+      80.2262
+    ]
+  },
+  {
+    "name": "Divisional Hospital Velanai",
+    "lat_lng": [
+      9.6371,
+      79.9038
+    ]
+  },
+  {
+    "name": "Divisional Hospital Vidathalthivu",
+    "lat_lng": [
+      9.0109,
+      80.0655
+    ]
+  },
+  {
+    "name": "Divisional Hospital, Urthipuram",
+    "lat_lng": [
+      9.3929,
+      80.3583
+    ]
+  },
+  {
+    "name": "Divisonal Hospital - Karainagar",
+    "lat_lng": [
+      9.7407,
+      79.8867
+    ]
+  },
+  {
+    "name": "Diyatalawa Base Hospital",
+    "lat_lng": [
+      6.8056,
+      80.9571
+    ]
+  },
+  {
+    "name": "Dolosbage Divisional Hospital",
+    "lat_lng": [
+      7.082,
+      80.4712
+    ]
+  },
+  {
+    "name": "Downside Divisonal Hospital",
+    "lat_lng": [
+      6.9334,
+      80.925
+    ]
+  },
+  {
+    "name": "Dr Muhsin - Dental Clinic",
+    "lat_lng": [
+      6.8957,
+      79.8605
+    ]
+  },
+  {
+    "name": "Erathna Rural Hospital",
+    "lat_lng": [
+      6.8353,
+      80.4075
+    ]
+  },
+  {
+    "name": "Ettampitiya Base Hospital",
+    "lat_lng": [
+      6.9347,
+      80.9899
+    ]
+  },
+  {
+    "name": "Family Medical Centre",
+    "lat_lng": [
+      6.7632,
+      79.9286
+    ]
+  },
+  {
+    "name": "Family Medical Clinic & Diabetes Centre",
+    "lat_lng": [
+      7.1838,
+      79.8605
+    ]
+  },
+  {
+    "name": "Free Dispensary",
+    "lat_lng": [
+      6.9648,
+      79.865
+    ]
+  },
+  {
+    "name": "GLASSUGH A.A.DIVISION HOSPITAL",
+    "lat_lng": [
+      6.9437,
+      80.7397
+    ]
+  },
+  {
+    "name": "Galenbindunuwewa Hospital",
+    "lat_lng": [
+      8.2886,
+      80.7171
+    ]
+  },
+  {
+    "name": "Galewela Base Hospital",
+    "lat_lng": [
+      7.7606,
+      80.5717
+    ]
+  },
+  {
+    "name": "Gallinda Base Hospital",
+    "lat_lng": [
+      6.2451,
+      80.2679
+    ]
+  },
+  {
+    "name": "Gampaha",
+    "lat_lng": [
+      7.0532,
+      80.329
+    ]
+  },
+  {
+    "name": "General",
+    "lat_lng": [
+      6.9731,
+      79.9142
+    ]
+  },
+  {
+    "name": "Ginigathhena Diivisional Hospital",
+    "lat_lng": [
+      6.9905,
+      80.4893
+    ]
+  },
+  {
+    "name": "Girandurukotte Hospital",
+    "lat_lng": [
+      7.4694,
+      81.0191
+    ]
+  },
+  {
+    "name": "Godahena Rural Hospital",
+    "lat_lng": [
+      7.3999,
+      80.5788
+    ]
+  },
+  {
+    "name": "Gomez PVT Hospital",
+    "lat_lng": [
+      6.9541,
+      80.2094
+    ]
+  },
+  {
+    "name": "Government Dispensery",
+    "lat_lng": [
+      6.9767,
+      80.1175
+    ]
+  },
+  {
+    "name": "Government Hospital",
+    "lat_lng": [
+      7.216,
+      80.0114
+    ]
+  },
+  {
+    "name": "Government Hospital - Katuwana",
+    "lat_lng": [
+      6.2678,
+      80.6981
+    ]
+  },
+  {
+    "name": "Government Hospital - Middeniya",
+    "lat_lng": [
+      6.259,
+      80.7639
+    ]
+  },
+  {
+    "name": "Green Medicare Hospital",
+    "lat_lng": [
+      6.3311,
+      80.8576
+    ]
+  },
+  {
+    "name": "HOSPITAL GROUND",
+    "lat_lng": [
+      9.7058,
+      80.0301
+    ]
+  },
+  {
+    "name": "Habarana Divisional Hospital",
+    "lat_lng": [
+      8.0385,
+      80.7562
+    ]
+  },
+  {
+    "name": "Half Way Home Mulleriyawa",
+    "lat_lng": [
+      6.9222,
+      79.9474
+    ]
+  },
+  {
+    "name": "Hambantota General Hospital",
+    "lat_lng": [
+      6.1272,
+      81.1225
+    ]
+  },
+  {
+    "name": "Hatharaliyadda Divisional Hospital",
+    "lat_lng": [
+      7.3427,
+      80.4773
+    ]
+  },
+  {
+    "name": "Healan Hospital",
+    "lat_lng": [
+      6.8407,
+      79.9992
+    ]
+  },
+  {
+    "name": "Health Care",
+    "lat_lng": [
+      8.6553,
+      81.2115
+    ]
+  },
+  {
+    "name": "Hekitta Mental Hospital",
+    "lat_lng": [
+      6.9828,
+      79.8769
+    ]
+  },
+  {
+    "name": "Hemas Hospital",
+    "lat_lng": [
+      6.9887,
+      79.8912
+    ]
+  },
+  {
+    "name": "Hemas Hospital Laboratory",
+    "lat_lng": [
+      6.2384,
+      80.0541
+    ]
+  },
+  {
+    "name": "Hemmathagama Hospital",
+    "lat_lng": [
+      7.1733,
+      80.5016
+    ]
+  },
+  {
+    "name": "High Forest Government Hospital",
+    "lat_lng": [
+      7.0667,
+      80.8401
+    ]
+  },
+  {
+    "name": "Hijama Treatment Center",
+    "lat_lng": [
+      6.4713,
+      80.1033
+    ]
+  },
+  {
+    "name": "Hikkaduwa Clinic",
+    "lat_lng": [
+      6.1407,
+      80.0995
+    ]
+  },
+  {
+    "name": "Hiniduma Distric Hospital",
+    "lat_lng": [
+      6.3314,
+      80.3223
+    ]
+  },
+  {
+    "name": "Hiripitiya",
+    "lat_lng": [
+      7.6532,
+      80.379
+    ]
+  },
+  {
+    "name": "Homagama Base Hospital",
+    "lat_lng": [
+      6.8469,
+      79.9924
+    ]
+  },
+  {
+    "name": "Hopton Hospital",
+    "lat_lng": [
+      6.9847,
+      81.1977
+    ]
+  },
+  {
+    "name": "Hospital",
+    "lat_lng": [
+      7.3752,
+      79.8993
+    ]
+  },
+  {
+    "name": "Hospital, Serunuwara",
+    "lat_lng": [
+      8.3229,
+      81.2997
+    ]
+  },
+  {
+    "name": "IDH Hospital",
+    "lat_lng": [
+      6.9226,
+      79.9165
+    ]
+  },
+  {
+    "name": "IMC MED Hospital-Hikkaduwa",
+    "lat_lng": [
+      6.1241,
+      80.1114
+    ]
+  },
+  {
+    "name": "Ideal Hospital",
+    "lat_lng": [
+      6.9723,
+      80.7682
+    ]
+  },
+  {
+    "name": "Imaduwa Hospital",
+    "lat_lng": [
+      6.0378,
+      80.3914
+    ]
+  },
+  {
+    "name": "Imaza Poly Clinic",
+    "lat_lng": [
+      7.2504,
+      81.8553
+    ]
+  },
+  {
+    "name": "Indika Pharmacy",
+    "lat_lng": [
+      6.3256,
+      80.8433
+    ]
+  },
+  {
+    "name": "Inginiyagala Divisional Hospital",
+    "lat_lng": [
+      7.2263,
+      81.5421
+    ]
+  },
+  {
+    "name": "Ingiriya District Hospital",
+    "lat_lng": [
+      6.7414,
+      80.1621
+    ]
+  },
+  {
+    "name": "Jaela Regional Hospital",
+    "lat_lng": [
+      7.075,
+      79.8941
+    ]
+  },
+  {
+    "name": "Jaffna Teaching Hospital",
+    "lat_lng": [
+      9.6664,
+      80.0127
+    ]
+  },
+  {
+    "name": "Joseph Fraser Memorial Hospital",
+    "lat_lng": [
+      6.8952,
+      79.8652
+    ]
+  },
+  {
+    "name": "Kahawatte Rural Hospital",
+    "lat_lng": [
+      7.1612,
+      80.6047
+    ]
+  },
+  {
+    "name": "Kamburupitiya Base Hospital",
+    "lat_lng": [
+      6.0957,
+      80.5647
+    ]
+  },
+  {
+    "name": "Kandana Base Hospital",
+    "lat_lng": [
+      7.0412,
+      79.9037
+    ]
+  },
+  {
+    "name": "Kandanegedara Hospital",
+    "lat_lng": [
+      7.3992,
+      79.9787
+    ]
+  },
+  {
+    "name": "Kandapola Hospital",
+    "lat_lng": [
+      6.9952,
+      80.8182
+    ]
+  },
+  {
+    "name": "Kandenuwara General Hospital",
+    "lat_lng": [
+      7.4494,
+      80.6797
+    ]
+  },
+  {
+    "name": "Kandy Nursing Home",
+    "lat_lng": [
+      7.291,
+      80.645
+    ]
+  },
+  {
+    "name": "Kandy Private Hospital",
+    "lat_lng": [
+      7.3124,
+      80.6321
+    ]
+  },
+  {
+    "name": "Karawanella Base Hospital",
+    "lat_lng": [
+      7.0245,
+      80.2614
+    ]
+  },
+  {
+    "name": "Katugampala Weda Madura",
+    "lat_lng": [
+      6.8124,
+      79.9633
+    ]
+  },
+  {
+    "name": "Katupotha Divisional Hospital",
+    "lat_lng": [
+      7.5337,
+      80.1866
+    ]
+  },
+  {
+    "name": "Kekirawa District Hospital",
+    "lat_lng": [
+      8.044,
+      80.596
+    ]
+  },
+  {
+    "name": "Keppetipola Dispensary",
+    "lat_lng": [
+      6.8962,
+      80.8744
+    ]
+  },
+  {
+    "name": "Kirama",
+    "lat_lng": [
+      6.2067,
+      80.6684
+    ]
+  },
+  {
+    "name": "Kiribathgoda Base Hospital",
+    "lat_lng": [
+      6.9838,
+      79.9292
+    ]
+  },
+  {
+    "name": "Kiriibanwewa - Primary Medical Care Unit",
+    "lat_lng": [
+      8.996,
+      80.8229
+    ]
+  },
+  {
+    "name": "Kobeigane Base Hospital",
+    "lat_lng": [
+      7.6555,
+      80.1257
+    ]
+  },
+  {
+    "name": "Kotaligoda Hospital",
+    "lat_lng": [
+      7.2895,
+      80.5133
+    ]
+  },
+  {
+    "name": "Kurunduwaththa Divisional Hospital",
+    "lat_lng": [
+      7.1288,
+      80.5314
+    ]
+  },
+  {
+    "name": "Lahiru Medical Center",
+    "lat_lng": [
+      7.1646,
+      80.5677
+    ]
+  },
+  {
+    "name": "Lak Suwa Sahana",
+    "lat_lng": [
+      6.9562,
+      79.9151
+    ]
+  },
+  {
+    "name": "Lions Eye Hospital",
+    "lat_lng": [
+      6.9273,
+      79.9123
+    ]
+  },
+  {
+    "name": "Lunugala District Hospital",
+    "lat_lng": [
+      7.0376,
+      81.2009
+    ]
+  },
+  {
+    "name": "Lunuwila Hospital",
+    "lat_lng": [
+      7.3487,
+      79.8616
+    ]
+  },
+  {
+    "name": "M D.H. Jayawardana Divisional Hospital Nawagamuwa",
+    "lat_lng": [
+      6.9225,
+      80.0143
+    ]
+  },
+  {
+    "name": "M.K Hospital",
+    "lat_lng": [
+      7.1663,
+      80.5717
+    ]
+  },
+  {
+    "name": "MOH Office - Badalkumbura",
+    "lat_lng": [
+      6.9022,
+      81.2411
+    ]
+  },
+  {
+    "name": "MOH Office - Pujapitiya",
+    "lat_lng": [
+      7.381,
+      80.5907
+    ]
+  },
+  {
+    "name": "Maadipola Hospital",
+    "lat_lng": [
+      7.6855,
+      80.5771
+    ]
+  },
+  {
+    "name": "Maccarthy Private Hospital",
+    "lat_lng": [
+      6.914,
+      79.8698
+    ]
+  },
+  {
+    "name": "Madampagama Rural Hospital",
+    "lat_lng": [
+      6.2132,
+      80.0638
+    ]
+  },
+  {
+    "name": "Madolkele Hospital",
+    "lat_lng": [
+      7.398,
+      80.7332
+    ]
+  },
+  {
+    "name": "Madulla Dispensary",
+    "lat_lng": [
+      7.0537,
+      80.9264
+    ]
+  },
+  {
+    "name": "Mahananneriya District Hospital",
+    "lat_lng": [
+      7.9977,
+      80.1768
+    ]
+  },
+  {
+    "name": "Mahaoya Base Hospital",
+    "lat_lng": [
+      7.531,
+      81.3556
+    ]
+  },
+  {
+    "name": "Maharhishi Ayurveda Hospital",
+    "lat_lng": [
+      6.8304,
+      79.8657
+    ]
+  },
+  {
+    "name": "Mahawa Base Hospital",
+    "lat_lng": [
+      7.8235,
+      80.2825
+    ]
+  },
+  {
+    "name": "Mahiyanganaya Base Hospital",
+    "lat_lng": [
+      7.3262,
+      80.9908
+    ]
+  },
+  {
+    "name": "Makkanigama Hospital",
+    "lat_lng": [
+      7.3464,
+      80.7057
+    ]
+  },
+  {
+    "name": "Manampitiya Hospital",
+    "lat_lng": [
+      7.9046,
+      81.1134
+    ]
+  },
+  {
+    "name": "Mankulam Base Hospital",
+    "lat_lng": [
+      9.128,
+      80.447
+    ]
+  },
+  {
+    "name": "Maraka Divisional Hospital",
+    "lat_lng": [
+      7.5871,
+      80.9575
+    ]
+  },
+  {
+    "name": "Mawarala Hospital",
+    "lat_lng": [
+      6.2018,
+      80.592
+    ]
+  },
+  {
+    "name": "Mawathagama Divisional Hospital",
+    "lat_lng": [
+      7.4404,
+      80.448
+    ]
+  },
+  {
+    "name": "Medagama Hospitle",
+    "lat_lng": [
+      7.0391,
+      81.2748
+    ]
+  },
+  {
+    "name": "Medagoda",
+    "lat_lng": [
+      5.951,
+      80.4959
+    ]
+  },
+  {
+    "name": "Medamahanuwara Divisional Hospital",
+    "lat_lng": [
+      7.2897,
+      80.8152
+    ]
+  },
+  {
+    "name": "Medawala Hospital",
+    "lat_lng": [
+      7.3579,
+      80.5665
+    ]
+  },
+  {
+    "name": "Medi Channel Centre",
+    "lat_lng": [
+      6.9425,
+      79.8908
+    ]
+  },
+  {
+    "name": "Medi Clinic Wellawatte",
+    "lat_lng": [
+      6.8782,
+      79.86
+    ]
+  },
+  {
+    "name": "Medical Center",
+    "lat_lng": [
+      6.874,
+      81.0487
+    ]
+  },
+  {
+    "name": "Medical Centre",
+    "lat_lng": [
+      7.2982,
+      81.8621
+    ]
+  },
+  {
+    "name": "Medical Officer Of Health Office- Galagedara",
+    "lat_lng": [
+      7.3717,
+      80.5252
+    ]
+  },
+  {
+    "name": "Medirigiriya Base Hospital",
+    "lat_lng": [
+      8.1431,
+      80.9675
+    ]
+  },
+  {
+    "name": "Meegoda Ayurveda Hospital",
+    "lat_lng": [
+      6.8461,
+      80.0422
+    ]
+  },
+  {
+    "name": "Mihintale District Hospital",
+    "lat_lng": [
+      8.3547,
+      80.5098
+    ]
+  },
+  {
+    "name": "Minneriya Ayurveda Hospital",
+    "lat_lng": [
+      8.0468,
+      80.9045
+    ]
+  },
+  {
+    "name": "Mohotti Private Hostpital",
+    "lat_lng": [
+      5.9482,
+      80.5466
+    ]
+  },
+  {
+    "name": "Mulleriyawa Hospital",
+    "lat_lng": [
+      6.9248,
+      79.9429
+    ]
+  },
+  {
+    "name": "Nalanda Hospital",
+    "lat_lng": [
+      7.6646,
+      80.6369
+    ]
+  },
+  {
+    "name": "Narampanawa Government Hospital",
+    "lat_lng": [
+      7.3436,
+      80.732
+    ]
+  },
+  {
+    "name": "Nawaloka Hospital",
+    "lat_lng": [
+      7.2093,
+      79.8497
+    ]
+  },
+  {
+    "name": "Nawaloka Specialist Centre",
+    "lat_lng": [
+      6.9202,
+      79.8535
+    ]
+  },
+  {
+    "name": "Nawinna Medicare Hospital",
+    "lat_lng": [
+      6.8547,
+      79.9143
+    ]
+  },
+  {
+    "name": "Neriyakulam Divisional Hospital",
+    "lat_lng": [
+      8.6017,
+      80.3701
+    ]
+  },
+  {
+    "name": "New City Channeling Centre",
+    "lat_lng": [
+      7.6694,
+      81.0469
+    ]
+  },
+  {
+    "name": "New Pioneer Hospital",
+    "lat_lng": [
+      7.719,
+      81.7011
+    ]
+  },
+  {
+    "name": "Nightingale Hospital",
+    "lat_lng": [
+      6.9722,
+      79.8918
+    ]
+  },
+  {
+    "name": "Nugegoda Nursing Home",
+    "lat_lng": [
+      6.8685,
+      79.8913
+    ]
+  },
+  {
+    "name": "Nursing Home",
+    "lat_lng": [
+      6.8508,
+      79.9215
+    ]
+  },
+  {
+    "name": "Nuwara Eliya General Hospital",
+    "lat_lng": [
+      6.9741,
+      80.7803
+    ]
+  },
+  {
+    "name": "Odent Dental Surgery",
+    "lat_lng": [
+      6.8449,
+      79.9308
+    ]
+  },
+  {
+    "name": "Okkampitiya Rural Hospital",
+    "lat_lng": [
+      6.7555,
+      81.3006
+    ]
+  },
+  {
+    "name": "Old Hospital",
+    "lat_lng": [
+      6.8256,
+      80.5215
+    ]
+  },
+  {
+    "name": "Owilikanda Hospital",
+    "lat_lng": [
+      7.4612,
+      80.5873
+    ]
+  },
+  {
+    "name": "Oxford Lanka Medical",
+    "lat_lng": [
+      6.9559,
+      79.8876
+    ]
+  },
+  {
+    "name": "Padukka Base Hospital",
+    "lat_lng": [
+      6.8401,
+      80.0897
+    ]
+  },
+  {
+    "name": "Pallebedda Divisional Hospital",
+    "lat_lng": [
+      6.4832,
+      80.7064
+    ]
+  },
+  {
+    "name": "Pallegama Rural Hospital",
+    "lat_lng": [
+      6.3298,
+      80.5224
+    ]
+  },
+  {
+    "name": "Pallekele Ayurveda Hospital",
+    "lat_lng": [
+      7.2714,
+      80.707
+    ]
+  },
+  {
+    "name": "Panawala Ayurveda Hospital",
+    "lat_lng": [
+      6.8881,
+      80.2723
+    ]
+  },
+  {
+    "name": "Pannipitiya Nursing Home",
+    "lat_lng": [
+      6.8468,
+      79.9523
+    ]
+  },
+  {
+    "name": "Park Hospital",
+    "lat_lng": [
+      6.8872,
+      79.8725
+    ]
+  },
+  {
+    "name": "Pat Care Animal Hospital",
+    "lat_lng": [
+      7.1547,
+      80.5701
+    ]
+  },
+  {
+    "name": "Pavatkulam Divisional Hospital",
+    "lat_lng": [
+      8.706,
+      80.421
+    ]
+  },
+  {
+    "name": "Peradeniya Dental Hospital",
+    "lat_lng": [
+      7.2666,
+      80.5993
+    ]
+  },
+  {
+    "name": "Phillip Hospital",
+    "lat_lng": [
+      6.5794,
+      79.963
+    ]
+  },
+  {
+    "name": "Pimbura Distric Hospital",
+    "lat_lng": [
+      6.5757,
+      80.1582
+    ]
+  },
+  {
+    "name": "Police Hospital - Kundasale",
+    "lat_lng": [
+      7.2797,
+      80.6822
+    ]
+  },
+  {
+    "name": "Poonakary Divisional Hospital",
+    "lat_lng": [
+      9.5074,
+      80.2081
+    ]
+  },
+  {
+    "name": "Poovarasankulam Divisional Hospital",
+    "lat_lng": [
+      8.7525,
+      80.3672
+    ]
+  },
+  {
+    "name": "Prabodha Hospital",
+    "lat_lng": [
+      7.292,
+      81.6759
+    ]
+  },
+  {
+    "name": "Primary Care Hospital",
+    "lat_lng": [
+      7.3258,
+      80.5058
+    ]
+  },
+  {
+    "name": "Primary Health Care Centre",
+    "lat_lng": [
+      6.3023,
+      80.2495
+    ]
+  },
+  {
+    "name": "Primary Medical Care Unit (PMCU) Inuvil",
+    "lat_lng": [
+      9.7165,
+      80.0181
+    ]
+  },
+  {
+    "name": "Primary Medical Care Unit (PMCU) Kaithady",
+    "lat_lng": [
+      9.6729,
+      80.0919
+    ]
+  },
+  {
+    "name": "Primary Medical Care Unit (PMCU) Kurumpasiddy",
+    "lat_lng": [
+      9.7728,
+      80.0637
+    ]
+  },
+  {
+    "name": "Primary Medical Care Unit (PMCU) Punnalaikadduvan",
+    "lat_lng": [
+      9.7505,
+      80.0581
+    ]
+  },
+  {
+    "name": "Primary Medical Care Unit (PMCU) Puttur",
+    "lat_lng": [
+      9.7444,
+      80.1075
+    ]
+  },
+  {
+    "name": "Primary Medical Care Unit (PMCU) Tholpuram",
+    "lat_lng": [
+      9.7571,
+      79.9385
+    ]
+  },
+  {
+    "name": "Primary Medical Care Unit (PMCU) Uduvil",
+    "lat_lng": [
+      9.7321,
+      80.0068
+    ]
+  },
+  {
+    "name": "Primary Medical Care Unit (PMCU) Urumpirai",
+    "lat_lng": [
+      9.7204,
+      80.046
+    ]
+  },
+  {
+    "name": "Primary Medical Care Unit Point Pedro",
+    "lat_lng": [
+      9.8235,
+      80.2386
+    ]
+  },
+  {
+    "name": "Primary Medical Center - Damminna",
+    "lat_lng": [
+      7.7377,
+      81.2063
+    ]
+  },
+  {
+    "name": "Public Dispensary",
+    "lat_lng": [
+      7.3372,
+      80.178
+    ]
+  },
+  {
+    "name": "Puliyankulam Divisional Hospital",
+    "lat_lng": [
+      8.9646,
+      80.5259
+    ]
+  },
+  {
+    "name": "Pussellawa Hospital",
+    "lat_lng": [
+      7.1163,
+      80.6252
+    ]
+  },
+  {
+    "name": "Radawana Divisional Hospital",
+    "lat_lng": [
+      7.0324,
+      80.1002
+    ]
+  },
+  {
+    "name": "Rakwana District Hospital",
+    "lat_lng": [
+      6.4716,
+      80.6147
+    ]
+  },
+  {
+    "name": "Rambukkana Hospital",
+    "lat_lng": [
+      7.3265,
+      80.3956
+    ]
+  },
+  {
+    "name": "Ranwwiru Sewana Hospital",
+    "lat_lng": [
+      7.024,
+      79.9227
+    ]
+  },
+  {
+    "name": "Rattota Divisional Hospital",
+    "lat_lng": [
+      7.5184,
+      80.6768
+    ]
+  },
+  {
+    "name": "Rawana Arana",
+    "lat_lng": [
+      6.8854,
+      79.8991
+    ]
+  },
+  {
+    "name": "Rehabilitation Hospital Digana",
+    "lat_lng": [
+      7.2961,
+      80.7309
+    ]
+  },
+  {
+    "name": "Rohana Wijayasiri Wedamahatha",
+    "lat_lng": [
+      6.8012,
+      79.9787
+    ]
+  },
+  {
+    "name": "Rubhins Hospital",
+    "lat_lng": [
+      9.8019,
+      80.206
+    ]
+  },
+  {
+    "name": "Rukkasagara Ayuruwedic Hospital",
+    "lat_lng": [
+      7.4332,
+      80.1355
+    ]
+  },
+  {
+    "name": "Rural Ayurvedic Hospital",
+    "lat_lng": [
+      6.8312,
+      80.8807
+    ]
+  },
+  {
+    "name": "Rural Hospital",
+    "lat_lng": [
+      5.9531,
+      80.4541
+    ]
+  },
+  {
+    "name": "Rural Hospital Halgolla",
+    "lat_lng": [
+      7.0425,
+      80.3665
+    ]
+  },
+  {
+    "name": "Rural Hospital Rasnayakepura",
+    "lat_lng": [
+      7.7763,
+      80.0176
+    ]
+  },
+  {
+    "name": "Sampoor Hospital",
+    "lat_lng": [
+      8.4813,
+      81.2926
+    ]
+  },
+  {
+    "name": "Senapura (Kagama) Rural Hospital",
+    "lat_lng": [
+      8.0919,
+      80.4706
+    ]
+  },
+  {
+    "name": "Siddhalepa",
+    "lat_lng": [
+      6.8312,
+      79.8773
+    ]
+  },
+  {
+    "name": "Sigiriya Base Hospital",
+    "lat_lng": [
+      7.9417,
+      80.7322
+    ]
+  },
+  {
+    "name": "Sirimavo Bandaranayake Government Ayurvedic Hospital",
+    "lat_lng": [
+      6.7112,
+      80.3781
+    ]
+  },
+  {
+    "name": "Sooriya Medical Center",
+    "lat_lng": [
+      7.9062,
+      79.8228
+    ]
+  },
+  {
+    "name": "Sri Jayawardenapura Teaching Hospital",
+    "lat_lng": [
+      6.8683,
+      79.9262
+    ]
+  },
+  {
+    "name": "Sri Jeewarakshaka Bhayshajyalaya",
+    "lat_lng": [
+      6.8522,
+      79.866
+    ]
+  },
+  {
+    "name": "Sugantha Nursing Home",
+    "lat_lng": [
+      9.6712,
+      80.0215
+    ]
+  },
+  {
+    "name": "Sulaiman",
+    "lat_lng": [
+      6.9421,
+      79.8658
+    ]
+  },
+  {
+    "name": "Suwa Medura",
+    "lat_lng": [
+      6.718,
+      79.9083
+    ]
+  },
+  {
+    "name": "Suwasevana Hospital",
+    "lat_lng": [
+      7.2734,
+      80.5918
+    ]
+  },
+  {
+    "name": "Suwasewana Ayurvedic Center",
+    "lat_lng": [
+      6.8251,
+      79.9754
+    ]
+  },
+  {
+    "name": "Suwasewana Hospital",
+    "lat_lng": [
+      7.282,
+      80.6216
+    ]
+  },
+  {
+    "name": "Teaching Hospital - Kalutara",
+    "lat_lng": [
+      6.5629,
+      79.9851
+    ]
+  },
+  {
+    "name": "Teaching Hospital Kegalle",
+    "lat_lng": [
+      7.2475,
+      80.3457
+    ]
+  },
+  {
+    "name": "Teldeniya District Base Hospital",
+    "lat_lng": [
+      7.3077,
+      80.7644
+    ]
+  },
+  {
+    "name": "Tellipalai Co-operative Hospital",
+    "lat_lng": [
+      9.7743,
+      80.0312
+    ]
+  },
+  {
+    "name": "Thalathuoya Hospital",
+    "lat_lng": [
+      7.2512,
+      80.6894
+    ]
+  },
+  {
+    "name": "Thalwaththa Hospital",
+    "lat_lng": [
+      7.2918,
+      80.1858
+    ]
+  },
+  {
+    "name": "Theripehe Hospital",
+    "lat_lng": [
+      7.1205,
+      80.9259
+    ]
+  },
+  {
+    "name": "Udawalawa Government Hospital",
+    "lat_lng": [
+      6.423,
+      80.8152
+    ]
+  },
+  {
+    "name": "Udawalawe Rural Hospital",
+    "lat_lng": [
+      6.4253,
+      80.8162
+    ]
+  },
+  {
+    "name": "Uraniya District Hospital",
+    "lat_lng": [
+      7.2363,
+      81.1082
+    ]
+  },
+  {
+    "name": "Vasan Eye Care",
+    "lat_lng": [
+      6.9017,
+      79.8531
+    ]
+  },
+  {
+    "name": "Walasmulla",
+    "lat_lng": [
+      6.1497,
+      80.6982
+    ]
+  },
+  {
+    "name": "Wanniarachchi Medical Center",
+    "lat_lng": [
+      7.295,
+      80.2379
+    ]
+  },
+  {
+    "name": "Weerasekara Aurwedha Medical Center",
+    "lat_lng": [
+      6.8938,
+      80.8698
+    ]
+  },
+  {
+    "name": "Weligama District Hospital",
+    "lat_lng": [
+      5.9749,
+      80.4189
+    ]
+  },
+  {
+    "name": "Welikanda",
+    "lat_lng": [
+      7.9485,
+      81.2465
+    ]
+  },
+  {
+    "name": "Welimada Base Hospital",
+    "lat_lng": [
+      6.909,
+      80.9087
+    ]
+  },
+  {
+    "name": "Wellatha Rural Hospital",
+    "lat_lng": [
+      6.5702,
+      80.0729
+    ]
+  },
+  {
+    "name": "Western Hospital",
+    "lat_lng": [
+      6.9117,
+      79.8856
+    ]
+  },
+  {
+    "name": "Wethara District Hospital",
+    "lat_lng": [
+      6.7852,
+      79.973
+    ]
+  },
+  {
+    "name": "Wilgamuwa Divisional Hospital",
+    "lat_lng": [
+      7.5403,
+      80.9143
+    ]
+  },
+  {
+    "name": "YMBA Hospital",
+    "lat_lng": [
+      6.9334,
+      79.8944
+    ]
+  },
+  {
+    "name": "Yakghapitiya Divisional Hospital",
+    "lat_lng": [
+      7.2986,
+      80.6676
+    ]
+  },
+  {
+    "name": "\u0b8e\u0bb2\u0bc1\u0bae\u0bcd\u0baa\u0bc1 \u0bae\u0bc1\u0bb1\u0bbf\u0bb5\u0bc1 \u0b9a\u0bbf\u0b95\u0bbf\u0b9a\u0bcd\u0b9a\u0bc8 \u0ba8\u0bbf\u0bb2\u0bc8\u0baf\u0bae\u0bcd",
+    "lat_lng": [
+      8.8141,
+      80.0231
+    ]
+  },
+  {
+    "name": "\u0dbd\u0dba \u0dc0\u0dd2\u0dbb\u0dda\u0d9a \u0db8\u0db0\u0dca\u200d\u0dba\u0dc3\u0dca\u0dae\u0dcf\u0db1\u0dba",
+    "lat_lng": [
+      7.7707,
+      80.5799
+    ]
+  }
+]
