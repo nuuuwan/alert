@@ -1,0 +1,2298 @@
+[
+  {
+    "name": "A S P Office",
+    "lat_lng": [
+      7.2052,
+      79.8513
+    ]
+  },
+  {
+    "name": "Agarapatana Police Station",
+    "lat_lng": [
+      6.8838,
+      80.6929
+    ]
+  },
+  {
+    "name": "Ahangama",
+    "lat_lng": [
+      5.9722,
+      80.3652
+    ]
+  },
+  {
+    "name": "Ahungalle police station",
+    "lat_lng": [
+      6.2999,
+      80.0386
+    ]
+  },
+  {
+    "name": "Akkarayan",
+    "lat_lng": [
+      9.3115,
+      80.3079
+    ]
+  },
+  {
+    "name": "Akmeemana Police Station",
+    "lat_lng": [
+      6.0731,
+      80.2753
+    ]
+  },
+  {
+    "name": "Akuressa Police Station",
+    "lat_lng": [
+      6.0991,
+      80.4776
+    ]
+  },
+  {
+    "name": "Alawatugoda Police Station",
+    "lat_lng": [
+      7.4095,
+      80.6087
+    ]
+  },
+  {
+    "name": "Ambagasdowa Police Station",
+    "lat_lng": [
+      6.9282,
+      80.8985
+    ]
+  },
+  {
+    "name": "Ambanpola Police Station",
+    "lat_lng": [
+      7.9171,
+      80.2438
+    ]
+  },
+  {
+    "name": "Anamaduwa police",
+    "lat_lng": [
+      7.8748,
+      80.0132
+    ]
+  },
+  {
+    "name": "Angunukolapeless",
+    "lat_lng": [
+      6.1655,
+      80.8969
+    ]
+  },
+  {
+    "name": "Ankumbura Police Station",
+    "lat_lng": [
+      7.4388,
+      80.572
+    ]
+  },
+  {
+    "name": "Anuradhapura Police Station",
+    "lat_lng": [
+      8.3295,
+      80.4074
+    ]
+  },
+  {
+    "name": "Aranayake Police Station",
+    "lat_lng": [
+      7.1865,
+      80.4552
+    ]
+  },
+  {
+    "name": "Assistant Superintendent of Police",
+    "lat_lng": [
+      6.431,
+      81.1134
+    ]
+  },
+  {
+    "name": "Attanagalla Police Check Post",
+    "lat_lng": [
+      7.1129,
+      80.1368
+    ]
+  },
+  {
+    "name": "Aukana Temple Police Post",
+    "lat_lng": [
+      8.0095,
+      80.5138
+    ]
+  },
+  {
+    "name": "Avissawella Police Station",
+    "lat_lng": [
+      6.9475,
+      80.2155
+    ]
+  },
+  {
+    "name": "Baddegama",
+    "lat_lng": [
+      6.1727,
+      80.1749
+    ]
+  },
+  {
+    "name": "Badulla Police Station",
+    "lat_lng": [
+      6.9913,
+      81.0553
+    ]
+  },
+  {
+    "name": "Balagolla Police Station",
+    "lat_lng": [
+      7.2787,
+      80.7207
+    ]
+  },
+  {
+    "name": "Balangoda Police Sation",
+    "lat_lng": [
+      6.6494,
+      80.7001
+    ]
+  },
+  {
+    "name": "Bambalapitiya",
+    "lat_lng": [
+      6.8921,
+      79.8556
+    ]
+  },
+  {
+    "name": "Bandarawela Police Station",
+    "lat_lng": [
+      6.8313,
+      80.9867
+    ]
+  },
+  {
+    "name": "Baththalangunduwa Police Post",
+    "lat_lng": [
+      8.5033,
+      79.7826
+    ]
+  },
+  {
+    "name": "Bemmulla Police Station",
+    "lat_lng": [
+      7.1207,
+      80.0261
+    ]
+  },
+  {
+    "name": "Biyagama Police Station",
+    "lat_lng": [
+      6.9623,
+      80.009
+    ]
+  },
+  {
+    "name": "Bogawantalawa Police Station",
+    "lat_lng": [
+      6.7946,
+      80.6794
+    ]
+  },
+  {
+    "name": "Borella Police Station",
+    "lat_lng": [
+      6.9153,
+      79.8783
+    ]
+  },
+  {
+    "name": "Brookside Police Station",
+    "lat_lng": [
+      7.0181,
+      80.8408
+    ]
+  },
+  {
+    "name": "CCD",
+    "lat_lng": [
+      6.9307,
+      79.8822
+    ]
+  },
+  {
+    "name": "CID Department",
+    "lat_lng": [
+      6.0272,
+      80.2194
+    ]
+  },
+  {
+    "name": "Chavakachcheri Police",
+    "lat_lng": [
+      9.6665,
+      80.1325
+    ]
+  },
+  {
+    "name": "Cheddikulam Police Station",
+    "lat_lng": [
+      8.651,
+      80.3145
+    ]
+  },
+  {
+    "name": "Cinnamon Gardens Police",
+    "lat_lng": [
+      6.9073,
+      79.8639
+    ]
+  },
+  {
+    "name": "City Traffic Police",
+    "lat_lng": [
+      6.9614,
+      79.881
+    ]
+  },
+  {
+    "name": "Community Policing Division",
+    "lat_lng": [
+      6.933,
+      79.8572
+    ]
+  },
+  {
+    "name": "Dambulla Police Station",
+    "lat_lng": [
+      7.8622,
+      80.6491
+    ]
+  },
+  {
+    "name": "Dankotuwa",
+    "lat_lng": [
+      7.3004,
+      79.8826
+    ]
+  },
+  {
+    "name": "Daulagala Police Station",
+    "lat_lng": [
+      7.2272,
+      80.5744
+    ]
+  },
+  {
+    "name": "Dehiattakandiya Police Station",
+    "lat_lng": [
+      7.6724,
+      81.0445
+    ]
+  },
+  {
+    "name": "Delwala Police Station",
+    "lat_lng": [
+      6.5234,
+      80.4749
+    ]
+  },
+  {
+    "name": "Dematagoda",
+    "lat_lng": [
+      6.9304,
+      79.877
+    ]
+  },
+  {
+    "name": "Deniyaya Police Station",
+    "lat_lng": [
+      6.3415,
+      80.5587
+    ]
+  },
+  {
+    "name": "Dickwella Police Station",
+    "lat_lng": [
+      5.9642,
+      80.6932
+    ]
+  },
+  {
+    "name": "Divisional Crime Detective Bureau Teldeniya",
+    "lat_lng": [
+      7.3101,
+      80.7639
+    ]
+  },
+  {
+    "name": "Divulapitiya",
+    "lat_lng": [
+      7.2219,
+      80.0171
+    ]
+  },
+  {
+    "name": "Dodangoda Police Station",
+    "lat_lng": [
+      6.5533,
+      80.0237
+    ]
+  },
+  {
+    "name": "Dompe Police Station",
+    "lat_lng": [
+      6.9493,
+      80.0578
+    ]
+  },
+  {
+    "name": "Echchankulam Police Post",
+    "lat_lng": [
+      8.8253,
+      80.4376
+    ]
+  },
+  {
+    "name": "Elpitiya Police Station",
+    "lat_lng": [
+      6.2791,
+      80.143
+    ]
+  },
+  {
+    "name": "Embilipitiya",
+    "lat_lng": [
+      6.3218,
+      80.8451
+    ]
+  },
+  {
+    "name": "Ettampitiya Police Station",
+    "lat_lng": [
+      6.936,
+      80.9894
+    ]
+  },
+  {
+    "name": "Foreshore Police Station",
+    "lat_lng": [
+      6.9496,
+      79.8573
+    ]
+  },
+  {
+    "name": "Galagedara Police",
+    "lat_lng": [
+      7.3738,
+      80.5261
+    ]
+  },
+  {
+    "name": "Galagedara Police Station",
+    "lat_lng": [
+      7.3762,
+      80.5205
+    ]
+  },
+  {
+    "name": "Galaha Police Station",
+    "lat_lng": [
+      7.1959,
+      80.6701
+    ]
+  },
+  {
+    "name": "Galenbindunuwewa Police Station",
+    "lat_lng": [
+      8.2905,
+      80.7153
+    ]
+  },
+  {
+    "name": "Genius English Academy",
+    "lat_lng": [
+      6.0402,
+      80.2135
+    ]
+  },
+  {
+    "name": "Ginigathhena Police Station",
+    "lat_lng": [
+      6.9892,
+      80.494
+    ]
+  },
+  {
+    "name": "Girandurukotte Police Station",
+    "lat_lng": [
+      7.4691,
+      81.0168
+    ]
+  },
+  {
+    "name": "Giriulla police",
+    "lat_lng": [
+      7.3345,
+      80.125
+    ]
+  },
+  {
+    "name": "Gokarella Police Station",
+    "lat_lng": [
+      7.5954,
+      80.4802
+    ]
+  },
+  {
+    "name": "Gongithota Police Station",
+    "lat_lng": [
+      7.0024,
+      79.908
+    ]
+  },
+  {
+    "name": "Gothatuwa Police Post",
+    "lat_lng": [
+      6.9226,
+      79.9135
+    ]
+  },
+  {
+    "name": "Gothatuwa Police Station",
+    "lat_lng": [
+      6.9242,
+      79.9126
+    ]
+  },
+  {
+    "name": "Habaraduwa",
+    "lat_lng": [
+      5.9871,
+      80.3271
+    ]
+  },
+  {
+    "name": "Habarana Police Station",
+    "lat_lng": [
+      8.0395,
+      80.7566
+    ]
+  },
+  {
+    "name": "Hakmana Police Station",
+    "lat_lng": [
+      6.0848,
+      80.6433
+    ]
+  },
+  {
+    "name": "Hambantota Police Station",
+    "lat_lng": [
+      6.1259,
+      81.1254
+    ]
+  },
+  {
+    "name": "Haputale Police Station",
+    "lat_lng": [
+      6.7678,
+      80.9579
+    ]
+  },
+  {
+    "name": "Hasalaka Police Station",
+    "lat_lng": [
+      7.3534,
+      80.9546
+    ]
+  },
+  {
+    "name": "Hataraliyadda Police Station",
+    "lat_lng": [
+      7.337,
+      80.4719
+    ]
+  },
+  {
+    "name": "Hatton Police Station",
+    "lat_lng": [
+      6.894,
+      80.5987
+    ]
+  },
+  {
+    "name": "Hettipola Police Station",
+    "lat_lng": [
+      7.5421,
+      80.9165
+    ]
+  },
+  {
+    "name": "Hingurakgoda Police Station",
+    "lat_lng": [
+      8.0487,
+      80.9659
+    ]
+  },
+  {
+    "name": "Hiniduma Police Station",
+    "lat_lng": [
+      6.3294,
+      80.3224
+    ]
+  },
+  {
+    "name": "Homagama",
+    "lat_lng": [
+      6.836,
+      80.0037
+    ]
+  },
+  {
+    "name": "Horana",
+    "lat_lng": [
+      6.7149,
+      80.0691
+    ]
+  },
+  {
+    "name": "Imaduwa police post",
+    "lat_lng": [
+      6.0371,
+      80.3889
+    ]
+  },
+  {
+    "name": "Inginiyagala Police Station",
+    "lat_lng": [
+      7.22,
+      81.5449
+    ]
+  },
+  {
+    "name": "Ingiriya",
+    "lat_lng": [
+      6.7436,
+      80.1751
+    ]
+  },
+  {
+    "name": "Ittapana Police Station",
+    "lat_lng": [
+      6.4194,
+      80.0839
+    ]
+  },
+  {
+    "name": "Jaela Police Station",
+    "lat_lng": [
+      7.081,
+      79.8905
+    ]
+  },
+  {
+    "name": "Jaffna Police",
+    "lat_lng": [
+      9.6636,
+      80.0132
+    ]
+  },
+  {
+    "name": "Jaffna Prison",
+    "lat_lng": [
+      9.6673,
+      80.003
+    ]
+  },
+  {
+    "name": "Kadawatha Police Station",
+    "lat_lng": [
+      7.0015,
+      79.9502
+    ]
+  },
+  {
+    "name": "Kaduruwela",
+    "lat_lng": [
+      7.9245,
+      81.0375
+    ]
+  },
+  {
+    "name": "Kahathuduwa Police Station",
+    "lat_lng": [
+      6.7831,
+      79.9861
+    ]
+  },
+  {
+    "name": "Kalkudah",
+    "lat_lng": [
+      7.9192,
+      81.5637
+    ]
+  },
+  {
+    "name": "Kalpitiya Police",
+    "lat_lng": [
+      8.235,
+      79.7647
+    ]
+  },
+  {
+    "name": "Kalutara",
+    "lat_lng": [
+      6.585,
+      79.9611
+    ]
+  },
+  {
+    "name": "Kalutara North",
+    "lat_lng": [
+      6.602,
+      79.956
+    ]
+  },
+  {
+    "name": "Kandana Police Station ",
+    "lat_lng": [
+      7.0487,
+      79.897
+    ]
+  },
+  {
+    "name": "Kandapola Police Station",
+    "lat_lng": [
+      6.9976,
+      80.8235
+    ]
+  },
+  {
+    "name": "Kangarayankulam Police Station",
+    "lat_lng": [
+      9.0676,
+      80.4991
+    ]
+  },
+  {
+    "name": "Karandeniya Police Station",
+    "lat_lng": [
+      6.2717,
+      80.0848
+    ]
+  },
+  {
+    "name": "Karapitiya Police Post",
+    "lat_lng": [
+      6.0671,
+      80.2251
+    ]
+  },
+  {
+    "name": "Katharagama",
+    "lat_lng": [
+      6.4134,
+      81.3312
+    ]
+  },
+  {
+    "name": "Katugastota",
+    "lat_lng": [
+      7.332,
+      80.6231
+    ]
+  },
+  {
+    "name": "Katunayake Highway Police Station",
+    "lat_lng": [
+      7.1263,
+      79.8717
+    ]
+  },
+  {
+    "name": "Katupotha Police Station",
+    "lat_lng": [
+      7.5353,
+      80.193
+    ]
+  },
+  {
+    "name": "Katuwana -Police station",
+    "lat_lng": [
+      6.2697,
+      80.6911
+    ]
+  },
+  {
+    "name": "Keerthibandarapura Police Station",
+    "lat_lng": [
+      7.1443,
+      80.8558
+    ]
+  },
+  {
+    "name": "Killinochchi Pollice Station",
+    "lat_lng": [
+      9.3923,
+      80.408
+    ]
+  },
+  {
+    "name": "Kiribathgoda Police Station",
+    "lat_lng": [
+      6.978,
+      79.9295
+    ]
+  },
+  {
+    "name": "Kithulgala",
+    "lat_lng": [
+      6.9952,
+      80.4124
+    ]
+  },
+  {
+    "name": "Kollupitiya",
+    "lat_lng": [
+      6.9141,
+      79.8491
+    ]
+  },
+  {
+    "name": "Kopai",
+    "lat_lng": [
+      9.6859,
+      80.038
+    ]
+  },
+  {
+    "name": "Kosgoda",
+    "lat_lng": [
+      6.3353,
+      80.0304
+    ]
+  },
+  {
+    "name": "Kosmodara",
+    "lat_lng": [
+      6.2896,
+      80.5606
+    ]
+  },
+  {
+    "name": "Koswatta Police",
+    "lat_lng": [
+      7.3745,
+      79.8985
+    ]
+  },
+  {
+    "name": "Kotahena Police Station",
+    "lat_lng": [
+      6.9505,
+      79.861
+    ]
+  },
+  {
+    "name": "Kotawehera Police Station",
+    "lat_lng": [
+      7.8089,
+      80.0778
+    ]
+  },
+  {
+    "name": "Kurunegala Police Station",
+    "lat_lng": [
+      7.4858,
+      80.3641
+    ]
+  },
+  {
+    "name": "Laggala Police Station",
+    "lat_lng": [
+      7.5946,
+      80.8393
+    ]
+  },
+  {
+    "name": "Lunugala Police Station",
+    "lat_lng": [
+      7.0477,
+      81.2035
+    ]
+  },
+  {
+    "name": "Maharambaikulam Police Post",
+    "lat_lng": [
+      8.7832,
+      80.51
+    ]
+  },
+  {
+    "name": "Mahawela Police Station",
+    "lat_lng": [
+      7.5894,
+      80.6102
+    ]
+  },
+  {
+    "name": "Mahiyangana Police Station",
+    "lat_lng": [
+      7.3352,
+      80.9932
+    ]
+  },
+  {
+    "name": "Maho Police station",
+    "lat_lng": [
+      7.8245,
+      80.2806
+    ]
+  },
+  {
+    "name": "Mankulam Police Station",
+    "lat_lng": [
+      9.124,
+      80.4482
+    ]
+  },
+  {
+    "name": "Mankulam SSP Office",
+    "lat_lng": [
+      9.05,
+      80.5124
+    ]
+  },
+  {
+    "name": "Matale Police Station",
+    "lat_lng": [
+      7.4626,
+      80.6262
+    ]
+  },
+  {
+    "name": "Matara Head Office",
+    "lat_lng": [
+      5.9505,
+      80.5387
+    ]
+  },
+  {
+    "name": "Mathurata Police Statiion",
+    "lat_lng": [
+      7.0798,
+      80.8019
+    ]
+  },
+  {
+    "name": "Mattakkuliya Police Station",
+    "lat_lng": [
+      6.976,
+      79.8799
+    ]
+  },
+  {
+    "name": "Matugama police Station",
+    "lat_lng": [
+      6.5209,
+      80.1182
+    ]
+  },
+  {
+    "name": "Mawanella Police Station",
+    "lat_lng": [
+      7.2572,
+      80.4456
+    ]
+  },
+  {
+    "name": "Mawarala Police Station",
+    "lat_lng": [
+      6.198,
+      80.5869
+    ]
+  },
+  {
+    "name": "Mawathagama Police Station",
+    "lat_lng": [
+      7.4325,
+      80.4499
+    ]
+  },
+  {
+    "name": "Meegahathenna Police Station",
+    "lat_lng": [
+      6.4368,
+      80.1943
+    ]
+  },
+  {
+    "name": "Meegalewa Police Station",
+    "lat_lng": [
+      8.0567,
+      80.3562
+    ]
+  },
+  {
+    "name": "Meegoda Pilice Station",
+    "lat_lng": [
+      6.8443,
+      80.0457
+    ]
+  },
+  {
+    "name": "Middeniya Police Station",
+    "lat_lng": [
+      6.2481,
+      80.7651
+    ]
+  },
+  {
+    "name": "Mihinthale police station",
+    "lat_lng": [
+      8.3601,
+      80.5119
+    ]
+  },
+  {
+    "name": "Minuwangoda",
+    "lat_lng": [
+      7.1742,
+      79.9581
+    ]
+  },
+  {
+    "name": "Mirihana Police Station",
+    "lat_lng": [
+      6.8743,
+      79.902
+    ]
+  },
+  {
+    "name": "Morawaka Police Station",
+    "lat_lng": [
+      6.2568,
+      80.4938
+    ]
+  },
+  {
+    "name": "Mount Lavinia Poice Station",
+    "lat_lng": [
+      6.8249,
+      79.8702
+    ]
+  },
+  {
+    "name": "Mulleriyawa Police Station",
+    "lat_lng": [
+      6.9273,
+      79.9292
+    ]
+  },
+  {
+    "name": "Mulliyawalai Police Station",
+    "lat_lng": [
+      9.2127,
+      80.7604
+    ]
+  },
+  {
+    "name": "Nachchikuda Police Station",
+    "lat_lng": [
+      9.3124,
+      80.1599
+    ]
+  },
+  {
+    "name": "Nallathanniya Police Station",
+    "lat_lng": [
+      6.8255,
+      80.521
+    ]
+  },
+  {
+    "name": "Nanuoya Police Station",
+    "lat_lng": [
+      6.9396,
+      80.7442
+    ]
+  },
+  {
+    "name": "Narahenpita Police Station",
+    "lat_lng": [
+      6.8918,
+      79.8768
+    ]
+  },
+  {
+    "name": "Nawagamuwa Police Station",
+    "lat_lng": [
+      6.9253,
+      80.0166
+    ]
+  },
+  {
+    "name": "Nawagattegama Police Station",
+    "lat_lng": [
+      7.9986,
+      80.1024
+    ]
+  },
+  {
+    "name": "Nedunkerny Police",
+    "lat_lng": [
+      9.0609,
+      80.6604
+    ]
+  },
+  {
+    "name": "Negombo Police Station",
+    "lat_lng": [
+      7.2111,
+      79.8354
+    ]
+  },
+  {
+    "name": "Neiryakualm Police Post",
+    "lat_lng": [
+      8.6013,
+      80.371
+    ]
+  },
+  {
+    "name": "Nelukulam Police Station",
+    "lat_lng": [
+      8.7619,
+      80.459
+    ]
+  },
+  {
+    "name": "Neluwa Police Station",
+    "lat_lng": [
+      6.3797,
+      80.3589
+    ]
+  },
+  {
+    "name": "Norwood Police Station",
+    "lat_lng": [
+      6.8372,
+      80.6143
+    ]
+  },
+  {
+    "name": "Nuawara Eliya SSP's Office",
+    "lat_lng": [
+      6.9726,
+      80.7657
+    ]
+  },
+  {
+    "name": "Nuwara Eliya Police Station",
+    "lat_lng": [
+      6.9742,
+      80.7675
+    ]
+  },
+  {
+    "name": "Oddusuddan Police Station",
+    "lat_lng": [
+      9.1613,
+      80.6523
+    ]
+  },
+  {
+    "name": "Office of Superintendent of Police - Elpitiya Division",
+    "lat_lng": [
+      6.298,
+      80.1622
+    ]
+  },
+  {
+    "name": "Omantai Police Station",
+    "lat_lng": [
+      8.8472,
+      80.4979
+    ]
+  },
+  {
+    "name": "Opanayake Police Station",
+    "lat_lng": [
+      6.6084,
+      80.6193
+    ]
+  },
+  {
+    "name": "Padavisripura Police",
+    "lat_lng": [
+      8.9296,
+      80.8144
+    ]
+  },
+  {
+    "name": "Padaviya",
+    "lat_lng": [
+      8.8368,
+      80.7574
+    ]
+  },
+  {
+    "name": "Padukka Police Station",
+    "lat_lng": [
+      6.8422,
+      80.0924
+    ]
+  },
+  {
+    "name": "Pamunugama Police Station",
+    "lat_lng": [
+      7.0793,
+      79.8596
+    ]
+  },
+  {
+    "name": "Panamure",
+    "lat_lng": [
+      6.3444,
+      80.7715
+    ]
+  },
+  {
+    "name": "Parayanalankulam Police Station",
+    "lat_lng": [
+      8.7474,
+      80.1861
+    ]
+  },
+  {
+    "name": "Parhathgama Police Station",
+    "lat_lng": [
+      6.9008,
+      80.0876
+    ]
+  },
+  {
+    "name": "Passara",
+    "lat_lng": [
+      6.9345,
+      81.1548
+    ]
+  },
+  {
+    "name": "Pelmadulla Police Station",
+    "lat_lng": [
+      6.6326,
+      80.5213
+    ]
+  },
+  {
+    "name": "Peradeniya Police Station",
+    "lat_lng": [
+      7.2676,
+      80.6022
+    ]
+  },
+  {
+    "name": "Pettah Police Station",
+    "lat_lng": [
+      6.9366,
+      79.8501
+    ]
+  },
+  {
+    "name": "PoLice Station Beliatta",
+    "lat_lng": [
+      6.0472,
+      80.7353
+    ]
+  },
+  {
+    "name": "Polgahawela Police Station",
+    "lat_lng": [
+      7.3335,
+      80.3004
+    ]
+  },
+  {
+    "name": "Police",
+    "lat_lng": [
+      6.8745,
+      81.0483
+    ]
+  },
+  {
+    "name": "Police Dogs Training Headquaters",
+    "lat_lng": [
+      7.298,
+      80.6314
+    ]
+  },
+  {
+    "name": "Police Kuchchaveli",
+    "lat_lng": [
+      8.819,
+      81.0999
+    ]
+  },
+  {
+    "name": "Police Narammala",
+    "lat_lng": [
+      7.4332,
+      80.2154
+    ]
+  },
+  {
+    "name": "Police Point",
+    "lat_lng": [
+      7.2997,
+      80.7356
+    ]
+  },
+  {
+    "name": "Police Post",
+    "lat_lng": [
+      7.2659,
+      80.5927
+    ]
+  },
+  {
+    "name": "Police Post Galle Fort",
+    "lat_lng": [
+      6.0261,
+      80.2183
+    ]
+  },
+  {
+    "name": "Police Post Hirana",
+    "lat_lng": [
+      6.7367,
+      79.9404
+    ]
+  },
+  {
+    "name": "Police Post Maruthankerny",
+    "lat_lng": [
+      9.623,
+      80.3974
+    ]
+  },
+  {
+    "name": "Police Post, Opatha.",
+    "lat_lng": [
+      6.2602,
+      80.4154
+    ]
+  },
+  {
+    "name": "Police Staion- Welipenna",
+    "lat_lng": [
+      6.4676,
+      80.108
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      6.8023,
+      79.9226
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      6.8671,
+      79.8844
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      6.8501,
+      79.8718
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      6.2449,
+      80.0476
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      7.2974,
+      81.6767
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      7.1626,
+      80.571
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      6.8455,
+      79.929
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      7.0125,
+      80.8585
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      6.6796,
+      80.4022
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      6.9343,
+      79.8698
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      6.0233,
+      80.7979
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      7.4144,
+      81.825
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      7.3396,
+      79.8429
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      7.4938,
+      79.9124
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      7.317,
+      80.7022
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      6.5021,
+      80.6559
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      6.1447,
+      80.0995
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      6.737,
+      81.0163
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      7.8088,
+      79.8254
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      8.6398,
+      80.6691
+    ]
+  },
+  {
+    "name": "Police Station",
+    "lat_lng": [
+      7.2916,
+      80.491
+    ]
+  },
+  {
+    "name": "Police Station  Armour Street",
+    "lat_lng": [
+      6.942,
+      79.8647
+    ]
+  },
+  {
+    "name": "Police Station  Pugoda",
+    "lat_lng": [
+      6.9829,
+      80.1112
+    ]
+  },
+  {
+    "name": "Police Station - Agbopura",
+    "lat_lng": [
+      8.3207,
+      80.9689
+    ]
+  },
+  {
+    "name": "Police Station - Bingiriya",
+    "lat_lng": [
+      7.5969,
+      79.949
+    ]
+  },
+  {
+    "name": "Police Station - Galewela",
+    "lat_lng": [
+      7.7633,
+      80.5742
+    ]
+  },
+  {
+    "name": "Police Station - Galoya",
+    "lat_lng": [
+      8.1491,
+      80.8372
+    ]
+  },
+  {
+    "name": "Police Station - Gothatuwa",
+    "lat_lng": [
+      6.9247,
+      79.9125
+    ]
+  },
+  {
+    "name": "Police Station - Karandugala",
+    "lat_lng": [
+      7.2499,
+      81.3445
+    ]
+  },
+  {
+    "name": "Police Station - Karuwalagaswewa",
+    "lat_lng": [
+      8.0569,
+      79.9599
+    ]
+  },
+  {
+    "name": "Police Station - Katunayake",
+    "lat_lng": [
+      7.1659,
+      79.8828
+    ]
+  },
+  {
+    "name": "Police Station - Kotmale",
+    "lat_lng": [
+      7.0638,
+      80.6852
+    ]
+  },
+  {
+    "name": "Police Station - Modara",
+    "lat_lng": [
+      6.9649,
+      79.8684
+    ]
+  },
+  {
+    "name": "Police Station - Naula",
+    "lat_lng": [
+      7.6926,
+      80.6502
+    ]
+  },
+  {
+    "name": "Police Station - Nittambuwa",
+    "lat_lng": [
+      7.1498,
+      80.1004
+    ]
+  },
+  {
+    "name": "Police Station - Saliyawewa",
+    "lat_lng": [
+      8.1914,
+      80.0916
+    ]
+  },
+  {
+    "name": "Police Station - Weerambugedara",
+    "lat_lng": [
+      7.4757,
+      80.2433
+    ]
+  },
+  {
+    "name": "Police Station -Walapane",
+    "lat_lng": [
+      7.0934,
+      80.8623
+    ]
+  },
+  {
+    "name": "Police Station Angulama",
+    "lat_lng": [
+      6.8022,
+      79.8715
+    ]
+  },
+  {
+    "name": "Police Station Arachchikattuwa",
+    "lat_lng": [
+      7.6616,
+      79.8374
+    ]
+  },
+  {
+    "name": "Police Station Athurugiriya",
+    "lat_lng": [
+      6.8723,
+      79.9962
+    ]
+  },
+  {
+    "name": "Police Station Bambalapitiya",
+    "lat_lng": [
+      6.8919,
+      79.8559
+    ]
+  },
+  {
+    "name": "Police Station Bluemendhal",
+    "lat_lng": [
+      6.9584,
+      79.8676
+    ]
+  },
+  {
+    "name": "Police Station Dam Street",
+    "lat_lng": [
+      6.9383,
+      79.8564
+    ]
+  },
+  {
+    "name": "Police Station Dankotuwa",
+    "lat_lng": [
+      7.2993,
+      79.8829
+    ]
+  },
+  {
+    "name": "Police Station Deraniyagala",
+    "lat_lng": [
+      6.9315,
+      80.3359
+    ]
+  },
+  {
+    "name": "Police Station Divulapitiya",
+    "lat_lng": [
+      7.2267,
+      80.0036
+    ]
+  },
+  {
+    "name": "Police Station Headquarters",
+    "lat_lng": [
+      8.5799,
+      81.2243
+    ]
+  },
+  {
+    "name": "Police Station Kirindiwela",
+    "lat_lng": [
+      7.043,
+      80.1203
+    ]
+  },
+  {
+    "name": "Police Station Kosgama",
+    "lat_lng": [
+      6.9465,
+      80.138
+    ]
+  },
+  {
+    "name": "Police Station Mahaoya",
+    "lat_lng": [
+      7.5311,
+      81.3563
+    ]
+  },
+  {
+    "name": "Police Station Mangalagama",
+    "lat_lng": [
+      7.5247,
+      81.5397
+    ]
+  },
+  {
+    "name": "Police Station Mundalama",
+    "lat_lng": [
+      7.8078,
+      79.8256
+    ]
+  },
+  {
+    "name": "Police Station Panama",
+    "lat_lng": [
+      6.7519,
+      81.7937
+    ]
+  },
+  {
+    "name": "Police Station Peliyagoda",
+    "lat_lng": [
+      6.9555,
+      79.886
+    ]
+  },
+  {
+    "name": "Police Station Siyambanduwa",
+    "lat_lng": [
+      6.9067,
+      81.5478
+    ]
+  },
+  {
+    "name": "Police Station Thalangama - Koswatte",
+    "lat_lng": [
+      6.9109,
+      79.9293
+    ]
+  },
+  {
+    "name": "Police Station Thanmalwila",
+    "lat_lng": [
+      6.4377,
+      81.1311
+    ]
+  },
+  {
+    "name": "Police Station Theldeniya",
+    "lat_lng": [
+      7.3104,
+      80.7637
+    ]
+  },
+  {
+    "name": "Police Station Weerawila",
+    "lat_lng": [
+      6.2621,
+      81.238
+    ]
+  },
+  {
+    "name": "Police Station Weligama",
+    "lat_lng": [
+      5.9731,
+      80.4266
+    ]
+  },
+  {
+    "name": "Police Station Wellampitiya",
+    "lat_lng": [
+      6.9374,
+      79.8962
+    ]
+  },
+  {
+    "name": "Police Station, Rangala",
+    "lat_lng": [
+      7.3313,
+      80.7727
+    ]
+  },
+  {
+    "name": "Police Station, serunuwara",
+    "lat_lng": [
+      8.3219,
+      81.2994
+    ]
+  },
+  {
+    "name": "Police Station-Manipay",
+    "lat_lng": [
+      9.7272,
+      79.9969
+    ]
+  },
+  {
+    "name": "Police post - Vihara maha devi park",
+    "lat_lng": [
+      6.9138,
+      79.8603
+    ]
+  },
+  {
+    "name": "Police staion - Yakkala",
+    "lat_lng": [
+      7.0679,
+      80.0127
+    ]
+  },
+  {
+    "name": "Police station",
+    "lat_lng": [
+      7.5159,
+      81.787
+    ]
+  },
+  {
+    "name": "Poonthoddam Police Post",
+    "lat_lng": [
+      8.7647,
+      80.5069
+    ]
+  },
+  {
+    "name": "Poovarasankulam Police Station",
+    "lat_lng": [
+      8.7524,
+      80.3727
+    ]
+  },
+  {
+    "name": "Pothuhera Police",
+    "lat_lng": [
+      7.4162,
+      80.3275
+    ]
+  },
+  {
+    "name": "Puliyankulam Police",
+    "lat_lng": [
+      8.9675,
+      80.5264
+    ]
+  },
+  {
+    "name": "Pundaluoya Police Station",
+    "lat_lng": [
+      7.0151,
+      80.6697
+    ]
+  },
+  {
+    "name": "Puthukkudiyiruppu Police Station",
+    "lat_lng": [
+      9.3199,
+      80.6842
+    ]
+  },
+  {
+    "name": "Ragama Police Station",
+    "lat_lng": [
+      7.0351,
+      79.9244
+    ]
+  },
+  {
+    "name": "Rajanganaya Police Station",
+    "lat_lng": [
+      8.1979,
+      80.1517
+    ]
+  },
+  {
+    "name": "Rakawana Police Station",
+    "lat_lng": [
+      6.4698,
+      80.6141
+    ]
+  },
+  {
+    "name": "Rambukkana Police Station",
+    "lat_lng": [
+      7.3244,
+      80.3879
+    ]
+  },
+  {
+    "name": "Rattota Police Station",
+    "lat_lng": [
+      7.5207,
+      80.6789
+    ]
+  },
+  {
+    "name": "Rideegama Police Station",
+    "lat_lng": [
+      7.5481,
+      80.4924
+    ]
+  },
+  {
+    "name": "SSP Office",
+    "lat_lng": [
+      7.4752,
+      80.3544
+    ]
+  },
+  {
+    "name": "SSP Office",
+    "lat_lng": [
+      9.3481,
+      80.409
+    ]
+  },
+  {
+    "name": "STF TRAINING BASE - Katukurunda",
+    "lat_lng": [
+      6.5584,
+      79.9849
+    ]
+  },
+  {
+    "name": "Sampur police station",
+    "lat_lng": [
+      8.4636,
+      81.2919
+    ]
+  },
+  {
+    "name": "Sector 4 Police Post",
+    "lat_lng": [
+      8.7658,
+      80.3048
+    ]
+  },
+  {
+    "name": "Security check but entry is free",
+    "lat_lng": [
+      7.293,
+      80.6417
+    ]
+  },
+  {
+    "name": "Sigiriya Police Station",
+    "lat_lng": [
+      7.9424,
+      80.7326
+    ]
+  },
+  {
+    "name": "Silawaththai Police",
+    "lat_lng": [
+      8.7468,
+      79.9549
+    ]
+  },
+  {
+    "name": "Slave Island",
+    "lat_lng": [
+      6.9276,
+      79.8493
+    ]
+  },
+  {
+    "name": "Special Task Force",
+    "lat_lng": [
+      9.6641,
+      80.0057
+    ]
+  },
+  {
+    "name": "Special Task Force Camp Jayawardenapura",
+    "lat_lng": [
+      6.9064,
+      79.9012
+    ]
+  },
+  {
+    "name": "Special Task Force Post Aturugiriya",
+    "lat_lng": [
+      6.8834,
+      79.9781
+    ]
+  },
+  {
+    "name": "Sri Dalada Maligawa Police Station",
+    "lat_lng": [
+      7.2929,
+      80.6424
+    ]
+  },
+  {
+    "name": "Sri Lanka Police College - Elpitiya",
+    "lat_lng": [
+      6.3202,
+      80.1619
+    ]
+  },
+  {
+    "name": "Sub Police Station",
+    "lat_lng": [
+      5.964,
+      80.6023
+    ]
+  },
+  {
+    "name": "Tellipalai Police",
+    "lat_lng": [
+      9.7764,
+      80.03
+    ]
+  },
+  {
+    "name": "Thambuttegama Police Station",
+    "lat_lng": [
+      8.1509,
+      80.2939
+    ]
+  },
+  {
+    "name": "Tharmapuram Police Station",
+    "lat_lng": [
+      9.4084,
+      80.5232
+    ]
+  },
+  {
+    "name": "The Office Of Assistant Superintendent Of Police,Hiniduma.",
+    "lat_lng": [
+      6.3092,
+      80.3168
+    ]
+  },
+  {
+    "name": "Thihagoda Police",
+    "lat_lng": [
+      6.0152,
+      80.5678
+    ]
+  },
+  {
+    "name": "Thissamaharama",
+    "lat_lng": [
+      6.276,
+      81.2905
+    ]
+  },
+  {
+    "name": "Ticket check",
+    "lat_lng": [
+      7.9256,
+      80.994
+    ]
+  },
+  {
+    "name": "Ticket check",
+    "lat_lng": [
+      7.9516,
+      81.0031
+    ]
+  },
+  {
+    "name": "Ticket check",
+    "lat_lng": [
+      7.9585,
+      81.0053
+    ]
+  },
+  {
+    "name": "Ticket check",
+    "lat_lng": [
+      7.969,
+      81.0059
+    ]
+  },
+  {
+    "name": "Ticket check",
+    "lat_lng": [
+      7.962,
+      81.0056
+    ]
+  },
+  {
+    "name": "Ticket check",
+    "lat_lng": [
+      7.9652,
+      80.9985
+    ]
+  },
+  {
+    "name": "Ticket check",
+    "lat_lng": [
+      8.3707,
+      80.3918
+    ]
+  },
+  {
+    "name": "Ticket check",
+    "lat_lng": [
+      7.9654,
+      81.0043
+    ]
+  },
+  {
+    "name": "Tourist Police",
+    "lat_lng": [
+      6.8414,
+      81.8325
+    ]
+  },
+  {
+    "name": "Tourist Police",
+    "lat_lng": [
+      6.1247,
+      80.1097
+    ]
+  },
+  {
+    "name": "Tourist Police",
+    "lat_lng": [
+      7.2908,
+      80.6434
+    ]
+  },
+  {
+    "name": "Tourist Police Mirissa",
+    "lat_lng": [
+      5.9445,
+      80.4609
+    ]
+  },
+  {
+    "name": "Tourist Police Pinnawalla",
+    "lat_lng": [
+      7.3001,
+      80.3865
+    ]
+  },
+  {
+    "name": "Tourist Police Post Pasikudah",
+    "lat_lng": [
+      7.9234,
+      81.5672
+    ]
+  },
+  {
+    "name": "Udamaluwa Police Station",
+    "lat_lng": [
+      8.3434,
+      80.3996
+    ]
+  },
+  {
+    "name": "Udawalawa Police Station",
+    "lat_lng": [
+      6.4219,
+      80.8142
+    ]
+  },
+  {
+    "name": "Ududumbara",
+    "lat_lng": [
+      7.3179,
+      80.8794
+    ]
+  },
+  {
+    "name": "Udugama Police Station",
+    "lat_lng": [
+      6.211,
+      80.3396
+    ]
+  },
+  {
+    "name": "Uhana Police station",
+    "lat_lng": [
+      7.363,
+      81.6366
+    ]
+  },
+  {
+    "name": "Ukkulankulam Police Post",
+    "lat_lng": [
+      8.7501,
+      80.4806
+    ]
+  },
+  {
+    "name": "Urubokka police station",
+    "lat_lng": [
+      6.3104,
+      80.629
+    ]
+  },
+  {
+    "name": "Vavuniya Police Station",
+    "lat_lng": [
+      8.7544,
+      80.4985
+    ]
+  },
+  {
+    "name": "Wadduwa Police Station",
+    "lat_lng": [
+      6.6644,
+      79.9299
+    ]
+  },
+  {
+    "name": "Walasmulla",
+    "lat_lng": [
+      6.1541,
+      80.6968
+    ]
+  },
+  {
+    "name": "Waldeck Police Station",
+    "lat_lng": [
+      6.9937,
+      81.0569
+    ]
+  },
+  {
+    "name": "Warakapola",
+    "lat_lng": [
+      7.2275,
+      80.1997
+    ]
+  },
+  {
+    "name": "Wariyapola Police Station",
+    "lat_lng": [
+      7.6282,
+      80.2409
+    ]
+  },
+  {
+    "name": "Watawala Police Station",
+    "lat_lng": [
+      6.9456,
+      80.5378
+    ]
+  },
+  {
+    "name": "Wattala",
+    "lat_lng": [
+      6.994,
+      79.8948
+    ]
+  },
+  {
+    "name": "Weeragula Police Station",
+    "lat_lng": [
+      7.0972,
+      80.0604
+    ]
+  },
+  {
+    "name": "Weeraketiya Police Station",
+    "lat_lng": [
+      6.1539,
+      80.7679
+    ]
+  },
+  {
+    "name": "Welikada Police Station",
+    "lat_lng": [
+      6.9089,
+      79.8953
+    ]
+  },
+  {
+    "name": "Welimada Police Station",
+    "lat_lng": [
+      6.9003,
+      80.9059
+    ]
+  },
+  {
+    "name": "Welisara",
+    "lat_lng": [
+      7.0149,
+      79.8984
+    ]
+  },
+  {
+    "name": "Wellawatte police station",
+    "lat_lng": [
+      6.8732,
+      79.8614
+    ]
+  },
+  {
+    "name": "bandarawela police station",
+    "lat_lng": [
+      6.8351,
+      80.9852
+    ]
+  },
+  {
+    "name": "bulathsinhala police station",
+    "lat_lng": [
+      6.6505,
+      80.1768
+    ]
+  },
+  {
+    "name": "galenbindunuwewa police station",
+    "lat_lng": [
+      8.2904,
+      80.7151
+    ]
+  },
+  {
+    "name": "kalawana police station",
+    "lat_lng": [
+      6.5311,
+      80.391
+    ]
+  },
+  {
+    "name": "mirigama police station",
+    "lat_lng": [
+      7.2451,
+      80.1286
+    ]
+  },
+  {
+    "name": "national police commission batticaloa",
+    "lat_lng": [
+      7.7104,
+      81.6973
+    ]
+  },
+  {
+    "name": "norton police station",
+    "lat_lng": [
+      6.914,
+      80.5209
+    ]
+  }
+]
