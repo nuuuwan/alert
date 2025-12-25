@@ -98,7 +98,7 @@ export default class TimeUtils {
 
   static sleep(seconds) {
     return new Promise((resolve) =>
-      setTimeout(resolve, parseInt(seconds * 1000))
+      setTimeout(resolve, parseInt(seconds * 1000)),
     );
   }
 
@@ -115,7 +115,7 @@ export default class TimeUtils {
     // Format as HH:MM:SS.SSS
     return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}.${pad(
       milliseconds,
-      3
+      3,
     )}`;
   }
 }

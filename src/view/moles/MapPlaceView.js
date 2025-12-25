@@ -37,12 +37,12 @@ export default function MapPlaceView({ place, setPageMode }) {
       }}
     >
       <EntIcon ent={place} size={iconSize} color={placeColor} />
-    </div>
+    </div>,
   );
 
   entIconSvg = entIconSvg.replace(
     "<svg",
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${iconSize}" height="${iconSize}" fill="${placeColor}"`
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${iconSize}" height="${iconSize}" fill="${placeColor}"`,
   );
 
   return (
