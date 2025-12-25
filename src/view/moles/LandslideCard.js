@@ -3,6 +3,7 @@ import LandslideIcon from "@mui/icons-material/Landslide";
 import { getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import CustomPaper from "../atoms/CustomPaper";
+import DataSourceView from "../atoms/DataSourceView";
 
 export default function LandslideCard({ dsd }) {
   const level = dsd.latestLandslideWarningLevel;
@@ -34,6 +35,7 @@ export default function LandslideCard({ dsd }) {
         timeLabel={TimeUtils.getTimeAgoString(timeUt)}
         alertLabel={alertLabel}
       />
+      <DataSourceView dataSourceList={[dsd.landslideAlertDataSource]} />
     </CustomPaper>
   );
 }
