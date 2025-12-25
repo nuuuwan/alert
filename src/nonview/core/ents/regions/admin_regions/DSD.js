@@ -2,6 +2,7 @@ import AdminRegion from "./AdminRegion";
 import WWW from "../../../../base/WWW";
 import TimeUtils from "../../../../base/TimeUtils";
 import Cache from "../../../../base/Cache";
+import DataSource from "../../../DataSource";
 
 export default class DSD extends AdminRegion {
   get districtId() {
@@ -31,28 +32,37 @@ export default class DSD extends AdminRegion {
       const dsdIDToDateStrToLevel = alertData["event_data"];
       const maxDateStr = Object.values(dsdIDToDateStrToLevel).reduce(function (
         maxDateStr,
-        dateStrToLevel,
+        dateStrToLevel
       ) {
         return Object.keys(dateStrToLevel).reduce(function (
           maxDateStr,
-          dateStr,
+          dateStr
         ) {
           return dateStr > maxDateStr ? dateStr : maxDateStr;
-        }, maxDateStr);
-      }, "00000000");
+        },
+        maxDateStr);
+      },
+      "00000000");
       const dsdIDToLatestLandslideWarning = Object.fromEntries(
         Object.entries(dsdIDToDateStrToLevel)
           .map(([dsdID, dateStrToLevel]) => [
             dsdID,
             dateStrToLevel[maxDateStr] || 0,
           ])
-          .filter((entry) => entry[1]),
+          .filter((entry) => entry[1])
       );
       const timeUt = TimeUtils.parseYYYYMMDD(maxDateStr) + 3_600 * 16;
       return {
         timeUt,
         dsdIDToLatestLandslideWarning,
       };
+    });
+  }
+
+  get landslideAlertDataSource() {
+    return new DataSource({
+      label: "Disaster Management Centre, Sri Lanka",
+      url: "https://www.dmc.gov.lk/",
     });
   }
 
