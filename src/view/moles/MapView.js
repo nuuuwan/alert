@@ -49,9 +49,9 @@ export default function MapView({
 
   const onMapMoveEnd = async (latLng) => {
     const constrainedLatLng = latLng.constrainToSriLanka();
+    setMapLatLng(constrainedLatLng);
     const place = Place.fromLatLng(constrainedLatLng);
     navigate(place.url);
-    setMapLatLng(constrainedLatLng);
   };
 
   const isPageModeMap = pageMode === "Map";
