@@ -74,14 +74,15 @@ export default class TimeUtils {
   }
 
   static getUnixTimeFromDate(date) {
-    return Math.floor(date.getTime() / 1000);
+    return date.getTime() / 1000;
   }
 
   static getUnixTime() {
     return this.getUnixTimeFromDate(new Date());
   }
 
-  static formatISO8601(ut) {
+  static formatISO8601(ut = null) {
+    ut = ut || this.getUnixTime();
     // yyyy-mm-ddThh:mm
     // E.g.: 2023-10-05T14:30
     const date = new Date(ut * 1000);
@@ -97,7 +98,24 @@ export default class TimeUtils {
 
   static sleep(seconds) {
     return new Promise((resolve) =>
-      setTimeout(resolve, parseInt(seconds * 1000)),
+      setTimeout(resolve, parseInt(seconds * 1000))
     );
+  }
+
+  static formatTimeWithMS(ut = null) {
+    ut = ut || this.getUnixTime();
+    const date = new Date(ut * 1000);
+    const pad = (num, size = 2) => num.toString().padStart(size, "0");
+
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+    const milliseconds = date.getMilliseconds();
+
+    // Format as HH:MM:SS.SSS
+    return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}.${pad(
+      milliseconds,
+      3
+    )}`;
   }
 }
