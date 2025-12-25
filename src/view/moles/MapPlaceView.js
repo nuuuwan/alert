@@ -5,9 +5,11 @@ import ReactDOMServer from "react-dom/server";
 import EntIcon from "../atoms/EntIcon";
 import { getAlertColor } from "../_cons/StyleConstants";
 import { useNavigate } from "react-router-dom";
+import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 
 export default function MapPlaceView({ place, setPageMode }) {
   const navigate = useNavigate();
+  const { setSelectedEnt } = useSelectedEntDataContext();
   if (!place) {
     throw new Error("MapPlaceView requires a place prop");
   }
@@ -20,6 +22,7 @@ export default function MapPlaceView({ place, setPageMode }) {
   const onClickInner = (e) => {
     L.DomEvent.stopPropagation(e);
     setPageMode("Alerts");
+    setSelectedEnt(null);
     navigate(place.url);
   };
 
@@ -34,12 +37,12 @@ export default function MapPlaceView({ place, setPageMode }) {
       }}
     >
       <EntIcon ent={place} size={iconSize} color={placeColor} />
-    </div>,
+    </div>
   );
 
   entIconSvg = entIconSvg.replace(
     "<svg",
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${iconSize}" height="${iconSize}" fill="${placeColor}"`,
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${iconSize}" height="${iconSize}" fill="${placeColor}"`
   );
 
   return (

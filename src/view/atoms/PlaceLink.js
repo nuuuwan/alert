@@ -3,13 +3,22 @@ import Typography from "@mui/material/Typography";
 import EntAvatar from "./EntAvatar";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 
 function PlaceLink({ place, distanceM }) {
-  let to = place.url;
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { setSelectedEnt } = useSelectedEntDataContext();
+
+  const onClick = async (e) => {
+    e.preventDefault();
+    setSelectedEnt(null);
+    navigate(place.url);
+  };
 
   return (
-    <Link to={to} style={{ textDecoration: "none", color: "#000" }}>
+    <Link style={{ textDecoration: "none", color: "#000" }} onClick={onClick}>
       <Box
         sx={{
           display: "flex",

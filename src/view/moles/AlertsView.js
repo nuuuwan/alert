@@ -3,10 +3,13 @@ import NaturalDisasterView from "./NaturalDisasterView";
 import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 import CustomTabs from "../atoms/CustomTabs";
 import { getAlertColor } from "../_cons/StyleConstants";
-import { Typography } from "@mui/material";
+import { CircularProgress, Typography } from "@mui/material";
 
 export default function AlertsView() {
   const { selectedEnt } = useSelectedEntDataContext();
+  if (!selectedEnt) {
+    return <CircularProgress />;
+  }
 
   return (
     <CustomTabs
