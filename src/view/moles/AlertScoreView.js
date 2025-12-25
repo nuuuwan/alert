@@ -13,6 +13,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import AlertScoreItemView from "./AlertScoreItemView";
 import CustomPaper from "../atoms/CustomPaper";
+import DataSourceView from "../atoms/DataSourceView";
 
 export default function AlertScoreView({ iAlertScore, alertScore }) {
   const { t } = useTranslation();
@@ -57,6 +58,7 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
           ))}
         </Grid>
       </Box>
+      <DataSourceView dataSourceList={alertScore.getDataSourceList()} />
     </CustomPaper>
   );
 }

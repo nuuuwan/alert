@@ -26,4 +26,18 @@ export default class AlertScore {
 
     return Math.floor(levelF);
   }
+
+  getDataSourceList() {
+    const seenUrls = new Set();
+    return this.metricList
+      .map((metric) => metric.source)
+      .filter((source) => source !== undefined)
+      .filter((source) => {
+        if (seenUrls.has(source.url)) {
+          return false;
+        }
+        seenUrls.add(source.url);
+        return true;
+      });
+  }
 }
