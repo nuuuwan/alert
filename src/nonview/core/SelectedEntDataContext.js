@@ -4,6 +4,9 @@ import LatLng from "../base/geos/LatLng";
 import GeoLocation from "../base/GeoLocation";
 import HydrometricStation from "./ents/places/HydrometricStation";
 import City from "./ents/places/City";
+import Hospital from "./ents/places/Hospital";
+import PoliceStation from "./ents/places/PoliceStation";
+import FireStation from "./ents/places/FireStation";
 import Nearby from "./Nearby";
 
 const SelectedEntDataContext = createContext();
@@ -17,6 +20,9 @@ export function SelectedEntDataProvider({
   dsdNameId,
   hydrometricStationNameId,
   cityNameId,
+  hospitalNameId,
+  policeStationNameId,
+  fireStationNameId,
   placeLatLngId,
   setMapLatLng,
 }) {
@@ -25,7 +31,13 @@ export function SelectedEntDataProvider({
 
   useEffect(() => {
     const hasSomeEntParam =
-      dsdNameId || hydrometricStationNameId || cityNameId || placeLatLngId;
+      dsdNameId ||
+      hydrometricStationNameId ||
+      cityNameId ||
+      policeStationNameId ||
+      fireStationNameId ||
+      hospitalNameId ||
+      placeLatLngId;
 
     async function fetchBrowserLocation() {
       const latLng = await GeoLocation.getCurrentLatLng();
@@ -41,6 +53,9 @@ export function SelectedEntDataProvider({
     dsdNameId,
     hydrometricStationNameId,
     cityNameId,
+    policeStationNameId,
+    fireStationNameId,
+    hospitalNameId,
     placeLatLngId,
     setMapLatLng,
   ]);
@@ -49,7 +64,7 @@ export function SelectedEntDataProvider({
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId,
+          hydrometricStationNameId
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
@@ -74,6 +89,50 @@ export function SelectedEntDataProvider({
     }
     fetchCity();
   }, [cityNameId, setMapLatLng]);
+
+  useEffect(() => {
+    async function fetchHospital() {
+      if (hospitalNameId) {
+        const hospital = await Hospital.loadFromName(hospitalNameId);
+        if (hospital) {
+          await hospital.loadDetails();
+          setSelectedEnt(hospital);
+          setMapLatLng(hospital.latLng);
+        }
+      }
+    }
+    fetchHospital();
+  }, [hospitalNameId, setMapLatLng]);
+
+  useEffect(() => {
+    async function fetchPoliceStation() {
+      if (policeStationNameId) {
+        const policeStation = await PoliceStation.loadFromName(
+          policeStationNameId
+        );
+        if (policeStation) {
+          await policeStation.loadDetails();
+          setSelectedEnt(policeStation);
+          setMapLatLng(policeStation.latLng);
+        }
+      }
+    }
+    fetchPoliceStation();
+  }, [policeStationNameId, setMapLatLng]);
+
+  useEffect(() => {
+    async function fetchFireStation() {
+      if (fireStationNameId) {
+        const fireStation = await FireStation.loadFromName(fireStationNameId);
+        if (fireStation) {
+          await fireStation.loadDetails();
+          setSelectedEnt(fireStation);
+          setMapLatLng(fireStation.latLng);
+        }
+      }
+    }
+    fetchFireStation();
+  }, [fireStationNameId, setMapLatLng]);
 
   useEffect(() => {
     async function fetchPlace() {

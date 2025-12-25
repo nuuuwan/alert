@@ -11,14 +11,19 @@ root.render(
     <Routes>
       <Route path="" element={<App />} />
       <Route path="/DSD/:dsdNameId" element={<App />} />
+
       <Route
         path="/HydrometricStation/:hydrometricStationNameId"
         element={<App />}
       />
       <Route path="/City/:cityNameId" element={<App />} />
+      <Route path="/Hospital/:hospitalNameId" element={<App />} />
+      <Route path="/PoliceStation/:policeStationNameId" element={<App />} />
+      <Route path="/FireStation/:fireStationNameId" element={<App />} />
+
       <Route path="/Place/:placeLatLngId" element={<App />} />
     </Routes>
-  </BrowserRouter>,
+  </BrowserRouter>
 );
 
 reportWebVitals();

@@ -35,6 +35,9 @@ function App() {
     dsdNameId,
     hydrometricStationNameId,
     cityNameId,
+    policeStationNameId,
+    fireStationNameId,
+    hospitalNameId,
     placeLatLngId,
     lang,
   } = useParams();
@@ -73,6 +76,9 @@ function App() {
             dsdNameId={dsdNameId}
             hydrometricStationNameId={hydrometricStationNameId}
             cityNameId={cityNameId}
+            hospitalNameId={hospitalNameId}
+            policeStationNameId={policeStationNameId}
+            fireStationNameId={fireStationNameId}
             placeLatLngId={placeLatLngId}
             setMapLatLng={setMapLatLng}
           >
