@@ -2,502 +2,51 @@
 2. View Alerts
 3. View More Data
 <1km
-AQI
-Addalachchenai
-Addalaichenai
-Agalawatta
-Ahangama
-Air Quality
-Akkaraipattu
-Akmeemana
-Akurana
-Akuressa
-Alawwa
-Alayadivembu
-Alayadiwembu
-Alert
-Alert Level
-Alert Score
-Alerts
-Aluthgama
-Ambagamuwa
-Ambagamuwa Korale
-Ambalangoda
-Ambalantota
-Ambanganga
-Ambanganga Korale
-Ambanpola
-Ampara
-Anamaduwa
-Angoda
-Angunakolapelessa
-Angunukolapelessa
-Ankumbura
-Anuradhapura
-Arachchikattuwa
-Aralaganwila
-Aranayaka
-Aranayake
-Arbitrary Point
-Ariyalai
-Aththanagalu Oya
-Athuraliya
-Athurugiriya
-Attanagalla
-Auto Alerts
-Auto Alerts (Experimental)
-Avissawella
-Ayagama
-Badalgama
-Badalkumbura
-Baddegama
-Badulla
-Badulu Oya
-Baduraliya
-Balangoda
-Balapitiya
-Bamunakotuwa
-Bandaragama
-Bandarawela
-Battaramulla
-Batticaloa
-Beliatta
-Bentota
-Beruwala
-Bibile
-Bingiriya
-Biyagama
-Bope-Poddala
-Boralesgamuwa
-Bowatta
-Bulathkohipitiya
-Bulathkohupitiya
-Bulathsinhala
-Buttala
-Central
-Chankanai
-Chavakachcheri
-Chilaw
-Chunnakam
-Colombo
-Current Weather
-DSD
-Damana
-Dambadeniya
-Dambulla
-Dankotuwa
-Data
-Daulagala
-Deduru Oya
-Dehiattakandiya
-Dehiovita
-Dehiowita
-Dehiwala
-Deiyandara
-Dekatana
-Delft
-Delgoda
-Delkanda
-Deltota
-Deniyaya
-Deraniyagala
-Devinuwara
-Dew Point
-Dickoya
-Dickwella
-Digana
-Dikwella
-Dimbulagala
-Disaster Management Centre of Sri Lanka
-District
-Divulapitiya
-Diyatalawa
-Dodangoda
-Doluwa
-Dompe
-Dondra
-Done
-Drought
-Dunamale
-Dungalpitiya
-Earthquakes
-Eastern
-Eheliyagoda
-Ehetuwewa
-Ekala
-Elahera
-Elapatha
-Elephant Pass
-Elevation
-Ella
-Ellagawa
-Elpitiya
-Embilipitiya
-English
-Eravur Pattu
-Eravur Town
-Etampitiya
-European Space Agency (ESA) Sentinel-2
-Evacuate
-Flood
-Galagedara
-Galenbidunuwewa
-Galenbindunuwewa
-Galewela
-Galgamuwa
-Galigamuwa
-Galle
-Galle 4 Gravets
-Galle Four Gravets
-Galnewa
-Gampaha
-Gampola
-Ganewatta
-Ganga Ihala Korale
-Gangawata Korale
-Gin Ganga
-Ginigathhena
-Girandurukotte
-Giribawa
-Giriulla
-GitHub Repository
-Glencourse
-Godakawela
-Gomarankadawala
-Gonapeenuwala
-Gonapinuwala
-Gothatuwa
-Gurugoda Oya
-Habaraduwa
-Habarana
-Hakmana
-Haldummulla
-Hali-Ela
-Hambantota
-Hanguranketa
-Hanguranketha
-Hanwella
-Haputale
-Harispattuwa
-Hatharaliyadda
-Hatton
-Heat
-Hemmathagama
-Hettipola
-High Alert
-High Risk
-Higurakgoda
-Hikkaduwa
-Hingurakgoda
-Hingurana
-Holombuwa
-Homagama
-Horana
-Horowpathana
-Horowpotana
-Horowpothana
-Hungama
-Hunnasgiriya
-Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka
-Hydrometric
-Hydrometric Station
-Hydrometric Stations
-Ibbagamuwa
-Imaduwa
-Imbulpe
-Induruwa
-Ingiriya
-Ipalogama
-Irakkamam
-Island North (Kayts)
-Island South (Velanai)
-Islands North (Kayts)
-Islands South (Velanai)
-Ja Ela
-Ja-Ela
-Ja-ela
-Jaffna
-Kaburupitiya
-Kadawatha
-Kadugannawa
-Kaduruwela
-Kaduwela
-Kahatagasdigiliya
-Kahawatta
-Kahawattha
-Kaithady
-Kalawana
-Kalawellawa (Millakanda)
-Kalmunai
-Kalmunai Tamil Division
-Kalpitiya
-Kalthota
-Kalu Ganga
-Kalutara
-Kaluwanchikudy
-Kamburupitiya
-Kanakarayankulam
-Kandaketiya
-Kandana
-Kandavalai
-Kandeketiya
-Kandy
-Kandy Four Gravets & Gangawata Korale
-Kankesanturai
-Kantale
-Kanthale
-Karachchi
-Karainagar
-Karaitheevu
-Karaitivu
-Karandeniya
-Karawanella
-Karawita
-Karuwalagaswewa
-Katana
-Kataragama
-Katharagama
-Kattankudy
-Katugasthota
-Katukurunda
-Katunayake
-Katupotha
-Katuwana
-Kayts
-Kebithigollewa
-Kebitigollewa
-Kegalle
-Kehelgamu Oya
-Kekirawa
-Kelani Ganga
-Kelaniya
-Kesbewa
-Kilinochchi
-Kinniya
-Kiribathgoda
-Kiriella
-Kirinda
-Kirinda Puhulwella
-Kirindi Oya
-Kithulgala
-Kobeigane
-Kochchikade
-Kolonna
-Kolonnawa
-Koralai Pattu
-Koralai Pattu  West (Oddamavadi)
-Koralai Pattu (Valachchenai)
-Koralai Pattu Central
-Koralai Pattu North
-Koralai Pattu North (Vaharai)
-Koralai Pattu South
-Koralai Pattu South (Kiran)
-Koralai Pattu West
-Kosgama
-Koslanda
-Kotapola
-Kotavehera
-Kotawehera
-Kothmale
-Kothmale East
-Kothmale West
-Kottawa
-Kotugoda
-Kuchchaveli
-Kuchchaweli
-Kuda Ganga
-Kuda Oya
-Kuliyapitiya
-Kuliyapitiya East
-Kuliyapitiya West
-Kumbukkan Oya
-Kundasale
-Kurunegala
-Kuruvita
-Kuruwita
-Labuduwa
-Laggala
-Laggala-Pallegama
-Lahugala
-Landslide
-Landslides
-Lankapura
-Last 24h total
-Level 1
-Level 2
-Level 3
-Loading
-Loading Data
-Low Alert
-Low Risk
-Lunugala
-Lunugamvehera
-Lunugamwehera
-Madampagama
-Madampe
-Madawala
-Madhu
-Madulla
-Madulsima
-Madurankuliya
-Madurawala
-Maduru Oya
-Magura
-Maguru Ganga
-Maha Oya
-Mahakumbukkadawala
-Mahaoya
-Mahara
-Maharagama
-Mahaweli Ganga
-Mahawewa
-Mahawilachchiya
-Mahiyanganaya
-Maho
-Major Cities
-Major Flood Level
-Malabe
-Malimbada
-Mallawapitiya
-Malwathu Oya
-Manampitiya
-Manipay
-Mankulam
-Manmunai North
-Manmunai Pattu
-Manmunai Pattu (Araipattai)
-Manmunai South & Eruvil Pattu
-Manmunai South & Eruvil pattu
-Manmunai South West
-Manmunai South-West
-Manmunai West
-Mannar
-Mannar Town
-Manthai East
-Manthai West
-Map
-Mapalagama
-Maradankadawala
-Maritimepattu
-Maruthankerny
-Maskeliya
-Maspotha
-Matale
-Matara
-Matara Four Gravets
-Mathugama
-Mathurata
-Matugama
-Mawanella
-Mawathagama
-Max Slope Angle
-Medadumbara
-Medagama
-Medamahanuwara
-Medawachchiya
-Medawala
-Medirigiriya
-Medium Alert
-Medium Risk
-Mee Oya
-Meegahakiula
-Meegahakivula
-Meegoda
-Meepe
-Meerigama
-Menik Ganga
-Menikhinna
-Middeniya
-Mihintale
-Mihinthale
-Millaniya
-Minipe
-Minor Flood Level
-Minuwangoda
-Mirigama
-Mirissa
-Miriswatte
-Monaragala
-Moneragala
-Moragaswewa
-Moraketiya
-Moratuwa
-Morawaka
-Morawewa
-Mukunu Oya
-Mulatiyana
-Mullaitivu
-Mulleriyawa
-Mulliyawalai
-Mundel
-Musali
-Muthur
-Muttur
-Nachchaduwa
-Nagalagam Street
-Nagoda
-Nakkala
-Nallur
-Nanaddan
-Nanattan
-Narammala
-Nattandiya
-Naula
-Navithanveli
-Nawagattegama
-Nawalapitiya
-Nearby
-Neerveli
-Negombo
-Neluwa
-Next 24h
-Next 24h total
-Nikaweratiya
-Nildandahinna
-Nilwala Ganga
-Nintavur
-Ninthavur
-Nivithigala
-Niyagama
-No
-No Alert
-No Risk
-Nochchiyagama
-North Central
-North Western
-Northern
-Norwood
-Now
-Nugegoda
 A S P Office
 ABC HOSPITAL
+AQI
 Aalankeni
 Abisha Hospital
 Accident Ward
+Addalachchenai
 Addalaichchenai
+Addalaichenai
 Agalawatta
 Agarapatana Divisional Hospital
 Agarapatana Police Station
 Ahangama
 Ahungalle Police Station
 Air Force Hospital - Colombo
+Air Quality
 Airport Fire And Rescue
 Akkaraipattu
 Akkarayan
 Akkurugoda MOH
+Akmeemana
 Akmeemana Police Station
+Akurana
 Akuressa
 Akuressa Police Station
 Alawatugoda Police Station
 Alawwa
 Alawwa District Hospital
+Alayadivembu
+Alayadiwembu
+Alert
+Alert Level
+Alert Score
+Alerts
 Aloka Hospital
 Aluthgama
+Ambagamuwa
+Ambagamuwa Korale
 Ambagasdowa Police Station
 Ambalangoda
 Ambalangoda Districut Hospital
 Ambalantota
 Ambalantota Hospital
+Ambanganga
+Ambanganga Korale
 Ambanpola
 Ambanpola Police Station
 Ampara
@@ -505,6 +54,7 @@ Ampitiya
 Anamaduwa
 Anamaduwa Police
 Angoda
+Angunakolapelessa
 Angunukolapeless
 Angunukolapelessa
 Angunuwaragala
@@ -514,10 +64,14 @@ Ankumbura Ayurweda Dispensary
 Ankumbura Police Station
 Anuradhapura
 Anuradhapura Police Station
+Arachchikattuwa
 Aralaganwila
 Aralaganwila Hospital
+Aranayaka
+Aranayake
 Aranayake Hospital
 Aranayake Police Station
+Arbitrary Point
 Ariyalai
 Army Field Hospital
 Army Hospital
@@ -528,16 +82,21 @@ Asiri Hospital (PVT)
 Asiri Laboratory
 Asiri Surgical Hospital
 Assistant Superintendent Of Police
+Aththanagalu Oya
 Athura Hospital
+Athuraliya
 Athurugiriya
 Attanagalla
 Attanagalla Police Check Post
 Aukana Temple Police Post
 Aurvedic Center
 Aurvedic Dispensary
+Auto Alerts
+Auto Alerts (Experimental)
 Auyuvedic Hospital Vavuniya
 Avissawella
 Avissawella Police Station
+Ayagama
 Ayurveda Central Hospital
 Ayurveda Corporation
 Ayurvedic Hospital
@@ -545,18 +104,24 @@ Ayurvedic Hospital,Kiliveddy
 Ayurweda Hospital
 Ayurweda Hospital Narammala
 Ayurweda Hospital Nildandahinna
+Badalgama
 Badalkumbura
 Baddegama
 Baddegama Hospital
 Badulla
 Badulla Police Station
+Badulu Oya
 Baduraliya
 Balagolla Police Station
+Balangoda
 Balangoda Police Sation
 Balapitiya
 Balasooriya Hospital
 Bambalapitiya
+Bamunakotuwa
+Bandaragama
 Bandaranayake Private Hospital
+Bandarawela
 Bandarawela Police Station
 Base Hospital
 Base Hospital Beliatta
@@ -574,12 +139,15 @@ Bemmulla Police Station
 Bentota
 Beruwala
 Bibile
+Bingiriya
+Biyagama
 Biyagama Hospital
 Biyagama Police Station
 Body Doc Medical Center
 Bogahakumbura Base Hospital
 Bogawantalawa Police Station
 Bokkawala
+Bope-Poddala
 Boralanda Base Hospital
 Boralesgamuwa
 Borella Police Station
@@ -588,6 +156,8 @@ Bowatta
 Brookside Police Station
 Browns Hospital
 Bsr
+Bulathkohipitiya
+Bulathkohupitiya
 Bulathsinhala
 Bulathsinhala Police Station
 Buttala
@@ -595,6 +165,7 @@ CCD
 CID Department
 Campus Dispensary
 Car Park
+Central
 Central Camp Government Hospital
 Central Dispensary
 Central Hospital
@@ -620,7 +191,10 @@ Colombo Fire And Rescue (Sub Unit)
 Colombo Friend-in-Need Society
 Community Policing Division
 Coop Medical Centre
+Current Weather
+DSD
 Daladagama
+Damana
 Dambadeniya
 Dambadeniya Hospital
 Dambagalla Rural Hospital
@@ -628,12 +202,15 @@ Dambulla
 Dambulla Ayurveda Hospital
 Dambulla Police Station
 Dankotuwa
+Data
 Daulagala
 Daulagala Police Station
 De Soysa Hospital
+Deduru Oya
 Dehiattakandiya
 Dehiattakandiya Police Station
 Dehigolla
+Dehiovita
 Dehiowita
 Dehiwala
 Dehiwala Medical Centre
@@ -641,8 +218,10 @@ Dehiwala Mount-Lavinia Fire Station
 Deiyandara
 Deiyandara Hospital
 Dekatana
+Delft
 Delgoda
 Delkanda
+Deltota
 Delwala Police Station
 Deniyaya
 Deniyaya Hospital
@@ -650,14 +229,20 @@ Deniyaya Police Station
 Dental Surgeon Private
 Dental Surgery
 Deraniyagala
+Devinuwara
+Dew Point
 Dharmajaya Ground
 Diabetic Foot Care & Rehabilitation Centre
 Dickoya
 Dickoya Base Hospital
+Dickwella
 Dickwella Police Station
 Digana
 Dikwella
+Dimbulagala
+Disaster Management Centre of Sri Lanka
 Dissanayake Private Hospital Negombo
+District
 District Ayurvedic Hospital, Mannar
 District General Hospital
 District General Hospital Ampara
@@ -706,28 +291,47 @@ Divisonal Hospital - Karainagar
 Divulapitiya
 Diyatalawa
 Diyatalawa Base Hospital
+Dodangoda
 Dodangoda Police Station
 Dolosbage Divisional Hospital
+Doluwa
+Dompe
 Dompe Police Station
 Dondra
+Done
 Downside Divisonal Hospital
 Dr Muhsin - Dental Clinic
+Drought
+Dunamale
 Dungalpitiya
+Earthquakes
+Eastern
 Echchankulam Police Post
 Eheliyagoda
+Ehetuwewa
 Ekala
+Elahera
+Elapatha
 Elephant Pass
+Elevation
+Ella
+Ellagawa
 Elpitiya
 Elpitiya Police Station
 Embilipitiya
 Embilmeegama
 Embulgama
+English
 Erathna Rural Hospital
+Eravur Pattu
+Eravur Town
 Erukkalampiddi
 Etampitiya
 Ethgala
 Ettampitiya Base Hospital
 Ettampitiya Police Station
+European Space Agency (ESA) Sentinel-2
+Evacuate
 Family Medical Centre
 Family Medical Clinic & Diabetes Centre
 Fire & Rescue
@@ -738,6 +342,7 @@ Fire Brigade Horana
 Fire Brigade Kandy
 Fire Station
 Fire Station - Chilaw
+Flood
 Foreshore Police Station
 Free Dispensary
 GLASSUGH A.A.DIVISION HOSPITAL
@@ -745,30 +350,47 @@ Galagedara
 Galagedara Police
 Galagedara Police Station
 Galaha Police Station
+Galenbidunuwewa
+Galenbindunuwewa
 Galenbindunuwewa Hospital
 Galenbindunuwewa Police Station
 Galewela
 Galewela Base Hospital
 Galgamuwa
+Galigamuwa
 Galkulama
 Galle
+Galle 4 Gravets
+Galle Four Gravets
 Gallinda Base Hospital
+Galnewa
 Gampaha
 Gampola
 Ganegoda
+Ganewatta
+Ganga Ihala Korale
+Gangawata Korale
 General
 Genius English Academy
+Gin Ganga
 Ginigathhena
 Ginigathhena Diivisional Hospital
 Ginigathhena Police Station
 Girandurukotte
 Girandurukotte Hospital
 Girandurukotte Police Station
+Giribawa
+Giriulla
 Giriulla Police
+GitHub Repository
+Glencourse
 Godahena Rural Hospital
 Godakawela
 Gokarella Police Station
+Gomarankadawala
 Gomez PVT Hospital
+Gonapeenuwala
+Gonapinuwala
 Gongithota Police Station
 Gothatuwa
 Gothatuwa Police Post
@@ -777,6 +399,7 @@ Government Hospital
 Government Hospital - Katuwana
 Government Hospital - Middeniya
 Green Medicare Hospital
+Gurugoda Oya
 HOSPITAL GROUND
 Habaraduwa
 Habarana
@@ -784,15 +407,20 @@ Habarana Divisional Hospital
 Habarana Police Station
 Hakmana
 Hakmana Police Station
+Haldummulla
 Half Way Home Mulleriyawa
 Hali-Ela
 Halloluwa
 Hambantota
 Hambantota General Hospital
 Hambantota Police Station
+Hanguranketa
+Hanguranketha
 Hanwella
 Hapugastalawa
+Haputale
 Haputale Police Station
+Harispattuwa
 Hasalaka Police Station
 Hataraliyadda Police Station
 Hatharaliyadda
@@ -801,6 +429,7 @@ Hatton
 Hatton Police Station
 Healan Hospital
 Health Care
+Heat
 Hekitta Mental Hospital
 Hemas Hospital
 Hemas Hospital Laboratory
@@ -808,10 +437,14 @@ Hemmathagama
 Hemmathagama Hospital
 Hettipola
 Hettipola Police Station
+High Alert
 High Forest Government Hospital
+High Risk
+Higurakgoda
 Hijama Treatment Center
 Hikkaduwa
 Hikkaduwa Clinic
+Hingurakgoda
 Hingurakgoda Police Station
 Hingurana
 Hiniduma Distric Hospital
@@ -819,23 +452,32 @@ Hiniduma Police Station
 Hiripitiya
 Hiriwadunna
 Hokandara
+Holombuwa
 Homagama
 Homagama Base Hospital
 Hopton Hospital
 Horana
+Horowpathana
 Horowpotana
+Horowpothana
 Hospital
 Hospital, Serunuwara
 Hungama
 Hunnasgiriya
+Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka
+Hydrometric
+Hydrometric Station
+Hydrometric Stations
 IDH Hospital
 IMC MED Hospital-Hikkaduwa
+Ibbagamuwa
 Ideal Hospital
 Iluckuchenai
 Imaduwa
 Imaduwa Hospital
 Imaduwa Police Post
 Imaza Poly Clinic
+Imbulpe
 Indika Pharmacy
 Indipalegoda Junction
 Induruwa
@@ -843,9 +485,16 @@ Inginiyagala Divisional Hospital
 Inginiyagala Police Station
 Ingiriya
 Ingiriya District Hospital
+Ipalogama
 Irakkamam
+Island North (Kayts)
+Island South (Velanai)
+Islands North (Kayts)
+Islands South (Velanai)
 Issanganichemai
 Ittapana Police Station
+Ja Ela
+Ja-Ela
 Ja-ela
 Jaela Police Station
 Jaela Regional Hospital
@@ -854,41 +503,58 @@ Jaffna Police
 Jaffna Prison
 Jaffna Teaching Hospital
 Joseph Fraser Memorial Hospital
+Kaburupitiya
 Kadawatha
 Kadawatha Police Station
 Kadugannawa
 Kaduruwela
 Kaduwela
+Kahatagasdigiliya
 Kahathuduwa Police Station
 Kahawatta
 Kahawatte Rural Hospital
+Kahawattha
 Kaithady
 Kalawana
 Kalawana Police Station
 Kalawella
+Kalawellawa (Millakanda)
 Kalkudah
 Kalmunai
 Kalmunai Point
+Kalmunai Tamil Division
+Kalpitiya
 Kalpitiya Police
+Kalthota
+Kalu Ganga
 Kalutara
 Kalutara North
 Kaluwanchikudy
 Kamburupitiya
 Kamburupitiya Base Hospital
 Kanakarayankulam
+Kandaketiya
 Kandana
 Kandana Base Hospital
 Kandana Police Station
 Kandanegedara Hospital
 Kandapola Hospital
 Kandapola Police Station
+Kandavalai
+Kandeketiya
 Kandenuwara General Hospital
 Kandy
+Kandy Four Gravets & Gangawata Korale
 Kandy Nursing Home
 Kandy Private Hospital
 Kangarayankulam Police Station
 Kankesanturai
+Kantale
+Kanthale
+Karachchi
 Karadiyanaru
+Karainagar
+Karaitheevu
 Karaitivu
 Karandeniya
 Karandeniya Police Station
@@ -901,6 +567,7 @@ Karuwalagaswewa
 Katana
 Kataragama
 Katharagama
+Kattankudy
 Katugahawatte
 Katugampala Weda Madura
 Katugasthota
@@ -911,19 +578,24 @@ Katunayake Highway Police Station
 Katupotha
 Katupotha Divisional Hospital
 Katupotha Police Station
+Katuwana
 Katuwana -Police Station
 Kayts
+Kebithigollewa
 Kebitigollewa
 Keerthibandarapura Police Station
 Kegalle
+Kehelgamu Oya
 Kekirawa
 Kekirawa District Hospital
+Kelani Ganga
 Kelaniya
 Kengalla
 Keppetipola Dispensary
 Kesbewa
 Kilinochchi
 Killinochchi Pollice Station
+Kinniya
 Kirama
 Kiribathgoda
 Kiribathgoda Base Hospital
@@ -931,39 +603,82 @@ Kiribathgoda Police Station
 Kiriella
 Kiriibanwewa - Primary Medical Care Unit
 Kirinda
+Kirinda Puhulwella
+Kirindi Oya
 Kithulgala
 Kobeigane
 Kobeigane Base Hospital
 Kochchikade
 Kohilawatte
 Kollupitiya
+Kolonna
 Kolonnawa
 Kopai
+Koralai Pattu
+Koralai Pattu  West (Oddamavadi)
+Koralai Pattu (Valachchenai)
+Koralai Pattu Central
+Koralai Pattu North
+Koralai Pattu North (Vaharai)
+Koralai Pattu South
+Koralai Pattu South (Kiran)
+Koralai Pattu West
 Kosgama
 Kosgoda
 Koslanda
 Kosmodara
 Koswatta Police
 Kotaligoda Hospital
+Kotapola
+Kotavehera
+Kotawehera
 Kotawehera Police Station
+Kothmale
+Kothmale East
+Kothmale West
 Kottawa
 Kottawa Cemetery
 Kotugoda
 Kowthaari Munai
+Kuchchaveli
+Kuchchaweli
+Kuda Ganga
+Kuda Oya
 Kuliyapitiya
+Kuliyapitiya East
+Kuliyapitiya West
 Kumbaloluwa
+Kumbukkan Oya
+Kundasale
 Kurunduwaththa Divisional Hospital
 Kurunegala
 Kurunegala Police Station
+Kuruvita
 Kuruwita
 Labuduwa
+Laggala
 Laggala Police Station
+Laggala-Pallegama
 Lahiru Medical Center
+Lahugala
 Lak Suwa Sahana
+Landslide
+Landslides
+Lankapura
+Last 24h total
+Level 1
+Level 2
+Level 3
 Lions Eye Hospital
+Loading
+Loading Data
+Low Alert
+Low Risk
 Lunugala
 Lunugala District Hospital
 Lunugala Police Station
+Lunugamvehera
+Lunugamwehera
 Lunuwila Hospital
 M D.H. Jayawardana Divisional Hospital Nawagamuwa
 M.K Hospital
@@ -971,30 +686,48 @@ MOH Office - Badalkumbura
 MOH Office - Pujapitiya
 Maadipola Hospital
 Maccarthy Private Hospital
+Madampagama
 Madampagama Rural Hospital
 Madampe
 Madawala
+Madhu
 Madolkele Hospital
+Madulla
 Madulla Dispensary
 Madulsima
 Madurankuliya
+Madurawala
+Maduru Oya
 Maggona
+Magura
+Maguru Ganga
+Maha Oya
+Mahakumbukkadawala
 Mahananneriya District Hospital
 Mahaoya
 Mahaoya Base Hospital
+Mahara
 Maharagama
 Maharambaikulam Police Post
 Maharhishi Ayurveda Hospital
 Mahawa Base Hospital
 Mahawela Police Station
+Mahaweli Ganga
+Mahawewa
+Mahawilachchiya
 Mahiyangana Police Station
 Mahiyanganaya
 Mahiyanganaya Base Hospital
 Maho
 Maho Police Station
+Major Cities
+Major Flood Level
 Makkanigama Hospital
 Malabe
 Maligawatte
+Malimbada
+Mallawapitiya
+Malwathu Oya
 Manampitiya
 Manampitiya Hospital
 Manipay
@@ -1002,17 +735,34 @@ Mankulam
 Mankulam Base Hospital
 Mankulam Police Station
 Mankulam SSP Office
+Manmunai North
+Manmunai Pattu
+Manmunai Pattu (Araipattai)
+Manmunai South & Eruvil Pattu
+Manmunai South & Eruvil pattu
+Manmunai South West
+Manmunai South-West
+Manmunai West
 Mannar
+Mannar Town
 Mannithalai
+Manthai East
+Manthai West
+Map
 Mapalagama
 Maradankadawala
 Maraka Divisional Hospital
+Maritimepattu
 Maruthankerny
 Maskeliya
+Maspotha
 Matale
 Matale Police Station
 Matara
+Matara Four Gravets
 Matara Head Office
+Mathugama
+Mathurata
 Mathurata Police Statiion
 Mattakkuliya Police Station
 Matugama
@@ -1024,10 +774,14 @@ Mawarala Police Station
 Mawathagama
 Mawathagama Divisional Hospital
 Mawathagama Police Station
+Max Slope Angle
+Medadumbara
+Medagama
 Medagama Hospitle
 Medagoda
 Medamahanuwara
 Medamahanuwara Divisional Hospital
+Medawachchiya
 Medawala
 Medawala Hospital
 Medi Channel Centre
@@ -1035,7 +789,13 @@ Medi Clinic Wellawatte
 Medical Center
 Medical Centre
 Medical Officer Of Health Office- Galagedara
+Medirigiriya
 Medirigiriya Base Hospital
+Medium Alert
+Medium Risk
+Mee Oya
+Meegahakiula
+Meegahakivula
 Meegahathenna Police Station
 Meegalewa Police Station
 Meegoda
@@ -1043,14 +803,20 @@ Meegoda Ayurveda Hospital
 Meegoda Pilice Station
 Meepe
 Meerigama
+Menik Ganga
 Menikhinna
 Middeniya
 Middeniya Police Station
 Mihintale
 Mihintale District Hospital
+Mihinthale
 Mihinthale Police Station
+Millaniya
+Minipe
 Minneriya Ayurveda Hospital
+Minor Flood Level
 Minuwangoda
+Mirigama
 Mirigama Police Station
 Mirihana Police Station
 Mirissa
@@ -1058,10 +824,16 @@ Miriswatte
 Mohotti Private Hostpital
 Molagoda
 Monaragala
+Moneragala
+Moragaswewa
+Moraketiya
 Moratuwa
 Morawaka
 Morawaka Police Station
+Morawewa
 Mount Lavinia Poice Station
+Mukunu Oya
+Mulatiyana
 Mullaitivu
 Mulleriyawa
 Mulleriyawa Hospital
@@ -1069,25 +841,37 @@ Mulleriyawa Police Station
 Mulliyawalai
 Mulliyawalai Police Station
 Munamaldeniya
+Mundel
+Musali
+Muthur
+Muttur
+Nachchaduwa
 Nachchikuda Police Station
+Nagalagam Street
 Nagathevanthurai
 Nagoda
 Nakkala
 Nalanda Hospital
 Nallathanniya Police Station
 Nallur
+Nanaddan
+Nanattan
 Nanuoya Police Station
 Narahenpita Police Station
 Narammala
 Narampanawa Government Hospital
 National Police Commission Batticaloa
 Nattandiya
+Naula
+Navithanveli
 Nawagamuwa Police Station
+Nawagattegama
 Nawagattegama Police Station
 Nawalapitiya
 Nawaloka Hospital
 Nawaloka Specialist Centre
 Nawinna Medicare Hospital
+Nearby
 Nedunkerny Police
 Neerveli
 Negombo
@@ -1099,14 +883,28 @@ Neluwa Police Station
 Neriyakulam Divisional Hospital
 New City Channeling Centre
 New Pioneer Hospital
+Next 24h
+Next 24h total
 Nightingale Hospital
 Nikaweratiya
 Nildandahinna
+Nilwala Ganga
+Nintavur
+Ninthavur
 Nivithigala
+Niyagama
 Niyamgamdora
+No
+No Alert
+No Risk
+Nochchiyagama
+North Central
+North Western
+Northern
 Norton Police Station
 Norwood
 Norwood Police Station
+Now
 Nuawara Eliya SSP's Office
 Nugadeniya
 Nugawela
@@ -1115,50 +913,78 @@ Nugegoda Nursing Home
 Nursing Home
 Nuwara Eliya
 Nuwara Eliya General Hospital
+Nuwaragam Palatha Central
+Nuwaragam Palatha East
 Oddusudan
+Oddusuddan
 Oddusuddan Police Station
 Odent Dental Surgery
 Office Of Superintendent Of Police - Elpitiya Division
+Official Alerts
+Okewela
 Okkampitiya
 Okkampitiya Rural Hospital
 Old Hospital
 Omantai Police Station
 Opanayake
 Opanayake Police Station
+Open-Elevation (Free Elevation API)
+Open-Meteo (Real-Time Weather API)
+Open-Meteo Air Quality
+Open-Meteo Weather API
 Owilikanda Hospital
 Oxford Lanka Medical
 Paadeniya
+Pachchilaipalli
+Padavi Sri Pura
 Padavisripura Police
 Padaviya
 Padiyathalawa
+Padukka
 Padukka Base Hospital
 Padukka Police Station
+Palagala
 Palaly
+Palindanuwara
 Pallai
+Pallama
 Pallebedda
 Pallebedda Divisional Hospital
 Pallegama
 Pallegama Rural Hospital
 Pallekele Ayurveda Hospital
+Pallepola
+Palugaswewa
 Pamunugama Police Station
+Panadugama
+Panadura
 Panagoda
 Panamure
 Panawala Ayurveda Hospital
+Panduwasnuwara East
+Panduwasnuwara West
 Pankulam
 Pannala
 Pannipitiya
 Pannipitiya Nursing Home
+Panvila
 Paranthan
 Parayanalankulam Police Station
 Parhathgama Police Station
 Park Hospital
+Pasbage Korale
+Pasbagekorale
+Pasgoda
 Passara
 Pasyala
 Pat Care Animal Hospital
+Pathadumbara
+Pathahewaheta
 Pavatkulam Divisional Hospital
 Pelawatte
 Pelmadulla
 Pelmadulla Police Station
+Peradeniya
 Peradeniya Dental Hospital
 Peradeniya Police Station
 Pesalai
@@ -1167,7 +993,12 @@ Phillip Hospital
 Pilimathalawa
 Pimbura Distric Hospital
 Pinkanda
+Pitabaddara
+Pitabeddara
+Pitigala
+Place
 PoLice Station Beliatta
+Point Location
 Point Pedro
 Polgahawela
 Polgahawela Police Station
@@ -1224,12 +1055,17 @@ Police Station, Rangala
 Police Station, Serunuwara
 Police Station-Manipay
 Polonnaruwa
+Polpithigama
+Polpitigama
+Poojapitiya
 Poonakary
 Poonakary Divisional Hospital
 Poonthoddam Police Post
 Poovarasankulam Divisional Hospital
 Poovarasankulam Police Station
+Porativu Pattu
 Pothuhera Police
+Pothuvil
 Pottuvil
 Prabodha Hospital
 Primary Care Hospital
@@ -1244,18 +1080,27 @@ Primary Medical Care Unit (PMCU) Uduvil
 Primary Medical Care Unit (PMCU) Urumpirai
 Primary Medical Care Unit Point Pedro
 Primary Medical Center - Damminna
+Probabilistic Disaster Risk Alerts (Experimental)
+Province
 Public Dispensary
 Pugoda
+Pujapitiya
 Puliyankulam
 Puliyankulam Divisional Hospital
 Puliyankulam Police
 Pundaluoya Police Station
 Pussellawa Hospital
+Puthukkudiyiruppu
 Puthukkudiyiruppu Police Station
 Puttalam
+Putupaula
 Radawana Divisional Hospital
 Ragama
 Ragama Police Station
+Rain
+Rainfall
+Rainfall History & Forecast
+Rajanganaya
 Rajanganaya Police Station
 Rakawana Police Station
 Rakwana
@@ -1265,13 +1110,29 @@ Rambukkana
 Rambukkana Hospital
 Rambukkana Police Station
 Ranwwiru Sewana Hospital
+Rasnayakapura
+Rathgama
+Rathnapura
+Ratmalana
 Ratnapura
+Rattota
 Rattota Divisional Hospital
 Rattota Police Station
 Rawana Arana
 Rawathawatta
+Recent Earthquakes
+Refresh
 Rehabilitation Hospital Digana
+Relative Elevation
+Relative Humidity
+Report Issues
+Rideegama
 Rideegama Police Station
+Rideemaliyadda
+Risk of the location experiencing a
+Risk of the location experiencing a flood event.
+Risk of the location experiencing a landslide event.
+Risk of the location experiencing a tsunami event.
 Rohana Wijayasiri Wedamahatha
 Rubhins Hospital
 Rukkasagara Ayuruwedic Hospital
@@ -1282,28 +1143,47 @@ Rural Hospital Rasnayakepura
 Ruwanwella
 SSP Office
 STF TRAINING BASE - Katukurunda
+Sabaragamuwa
+Safe
+Sainthamaruthu
 Saliyawewa
+Samanthurai
+Sammanthurai
 Sammanturai
 Sampoor Hospital
 Sampur Police Station
 Sandunpura
+Satellite
+Satellite Image
 Sector 4 Police Post
 Security Check But Entry Is Free
 Seeduwa
+Seethawaka
+Seethawaka Ganga
+Selected Entity
 Senapura (Kagama) Rural Hospital
 Serunuwara
+Seruvila
+Sevanagala
 Siddhalepa
 Sigiriya
 Sigiriya Base Hospital
 Sigiriya Police Station
 Silawaththai Police
+Sinhala
 Sirimavo Bandaranayake Government Ayurvedic Hospital
 Siyambalanduwa
 Slave Island
+Slope
 Sooriya Medical Center
 Sooriyakanda
+Sooriyawewa
+Soranathota
+Source
+Southern
 Special Task Force Camp Jayawardenapura
 Special Task Force Post Aturugiriya
+Sri Jayawardanapura Kotte
 Sri Jayawardenapura Teaching Hospital
 Sri Jayawardenepura Kotte
 Sri Jeewarakshaka Bhayshajyalaya
@@ -1316,6 +1196,7 @@ Suwa Medura
 Suwasevana Hospital
 Suwasewana Ayurvedic Center
 Suwasewana Hospital
+Tamil
 Tangalle
 Teaching Hospital - Kalutara
 Teaching Hospital Kegalle
@@ -1324,246 +1205,52 @@ Teldeniya District Base Hospital
 Tellipalai Co-operative Hospital
 Tellipalai Police
 Tellippalai
-Thalahena
-Thalathuoya
-Thalathuoya Hospital
-Thalawathugoda
-Thalwaththa Hospital
-Thambuttegama Police Station
-Thanamalwila
-Tharmapuram Police Station
-The Office Of Assistant Superintendent Of Police,Hiniduma.
-Thelijjawila
-Theripehe Hospital
-Thihagoda Police
-Thissamaharama
-Thoppur
-Thotalanga
-Ticket Check
-Tourist Police
-Tourist Police Mirissa
-Tourist Police Pinnawalla
-Tourist Police Post Pasikudah
-Trincomalee
-Udamaluwa Police Station
-Udawalawa Government Hospital
-Udawalawa Police Station
-Udawalawe
-Udawalawe Rural Hospital
-Ududumbara
-Udugama
-Udugama Police Station
-Uhana Police Station
-Ukkulankulam Police Post
-Ulapane
-Uragasmanhandiya
-Uraniya District Hospital
-Urapola
-Urubokka
-Urubokka Police Station
-Uthuwankanda
-Valaichchenai
-Varany
-Vasan Eye Care
-Vavuniya
-Vavuniya Police Station
-Velanai
-Veyangoda
-Wadduwa
-Wadduwa Police Station
-Waharaka
-Walapane
-Walasmulla
-Walgama
-Wanniarachchi Medical Center
-Warakapola
-Wariyapola Police Station
-Watawala Police Station
-Wattala
-Wattegama
-Weeragula Police Station
-Weeraketiya Police Station
-Weerasekara Aurwedha Medical Center
-Weerawila
-Weligama
-Weligama District Hospital
-Welikanda
-Welimada
-Welimada Base Hospital
-Welimada Police Station
-Welisara
-Wellampitiya
-Wellatha Rural Hospital
-Wellawatte Police Station
-Wellawaya
-Western Hospital
-Wethara District Hospital
-Wilgamuwa Divisional Hospital
-YMBA Hospital
-Yakghapitiya Divisional Hospital
-Yakkala
-Yakkalamulla
-Yatalamatta
-Yatiyana
-Yatiyantota
-Nuwara Eliya
-Nuwaragam Palatha Central
-Nuwaragam Palatha East
-Oddusudan
-Oddusuddan
-Official Alerts
-Okewela
-Okkampitiya
-Opanayake
-Open-Elevation (Free Elevation API)
-Open-Meteo (Real-Time Weather API)
-Open-Meteo Air Quality
-Open-Meteo Weather API
-Paadeniya
-Pachchilaipalli
-Padavi Sri Pura
-Padaviya
-Padiyathalawa
-Padukka
-Palagala
-Palaly
-Palindanuwara
-Pallai
-Pallama
-Pallebedda
-Pallepola
-Palugaswewa
-Panadugama
-Panadura
-Panduwasnuwara East
-Panduwasnuwara West
-Pannala
-Panvila
-Paranthan
-Pasbage Korale
-Pasbagekorale
-Pasgoda
-Passara
-Pasyala
-Pathadumbara
-Pathahewaheta
-Pelawatte
-Pelmadulla
-Peradeniya
-Pesalai
-Pilimathalawa
-Pitabaddara
-Pitabeddara
-Pitigala
-Place
-Point Location
-Point Pedro
-Polgahawela
-Polonnaruwa
-Polpithigama
-Polpitigama
-Poojapitiya
-Poonakary
-Porativu Pattu
-Pothuvil
-Pottuvil
-Probabilistic Disaster Risk Alerts (Experimental)
-Province
-Pugoda
-Pujapitiya
-Puliyankulam
-Puthukkudiyiruppu
-Puttalam
-Putupaula
-Ragama
-Rain
-Rainfall
-Rainfall History & Forecast
-Rajanganaya
-Rakwana
-Rambewa
-Rambukkana
-Rasnayakapura
-Rathgama
-Rathnapura
-Ratmalana
-Ratnapura
-Rattota
-Rawathawatta
-Recent Earthquakes
-Refresh
-Relative Elevation
-Relative Humidity
-Report Issues
-Rideegama
-Rideemaliyadda
-Risk of the location experiencing a
-Risk of the location experiencing a flood event.
-Risk of the location experiencing a landslide event.
-Risk of the location experiencing a tsunami event.
-Ruwanwella
-Sabaragamuwa
-Safe
-Sainthamaruthu
-Saliyawewa
-Samanthurai
-Sammanthurai
-Sammanturai
-Satellite
-Satellite Image
-Seeduwa
-Seethawaka
-Seethawaka Ganga
-Selected Entity
-Serunuwara
-Seruvila
-Sevanagala
-Sinhala
-Siyambalanduwa
-Slope
-Sooriyakanda
-Sooriyawewa
-Soranathota
-Source
-Southern
-Sri Jayawardanapura Kotte
-Sri Jayawardenepura Kotte
-Suriyawewa
-Tamil
-Tangalle
-Teldeniya
-Tellippalai
 Temp
 Temperature
 Temperature History & Forecast
 Terrain Metrics
+Thalahena
 Thalathuoya
+Thalathuoya Hospital
 Thalawa
 Thalawakele
 Thalawathugoda
 Thaldena
 Thalgahagoda
+Thalwaththa Hospital
 Thamankaduwa
 Thambalagamuwa
 Thambuththegama
 Thambuttegama
+Thambuttegama Police Station
 Thanamalvila
 Thanamalwila
 Thanthirimale
+Tharmapuram Police Station
 Thawalama
+The Office Of Assistant Superintendent Of Police,Hiniduma.
 The following Natural Disaster Risk Scores are automtically generated, and are still under development and should be used for informational purposes only.
 The following Natural Disaster Risk Scores are still under development and should be used for informational purposes only.
 Thelijjawila
 Thenmaradchi (Chavakachcheri)
+Theripehe Hospital
 These alerts are automtically generated, and are still under development and should be used for informational purposes only.
 Thihagoda
+Thihagoda Police
 Thimbirigasyaya
 Thirappane
 Thirukkovil
 Thissamaharama
+Thoppur
+Thotalanga
 Thumpane
 Thunukkai
+Ticket Check
 Tirukkovil
+Tourist Police
+Tourist Police Mirissa
+Tourist Police Pinnawalla
+Tourist Police Post Pasikudah
 Town & Gravets
 Trincomalee
 Trincomalee Town and Gravets
@@ -1571,17 +1258,30 @@ Tsunami
 Tumpane
 USGS Earthquake Data (via lk_tsunamis)
 Udadumbara
+Udamaluwa Police Station
 Udapalatha
+Udawalawa Government Hospital
+Udawalawa Police Station
 Udawalawe
+Udawalawe Rural Hospital
 Udubaddawa
 Ududumbara
 Udugama
+Udugama Police Station
 Udunuwara
 Uhana
+Uhana Police Station
+Ukkulankulam Police Post
 Ukuwela
+Ulapane
+Uragasmanhandiya
+Uraniya District Hospital
+Urapola
 Urawa
 Urubokka
 Urubokka Ganga
+Urubokka Police Station
+Uthuwankanda
 Uva
 Uva Paranagama
 Uvaparanagama
@@ -1601,8 +1301,10 @@ Valikamam West (Chankanai)
 Vanathavilluwa
 Vanathawilluwa
 Varany
+Vasan Eye Care
 Vavuniya
 Vavuniya North
+Vavuniya Police Station
 Vavuniya South
 Velanai
 Vengalacheddikulam
@@ -1610,6 +1312,8 @@ Verugal
 Verugal (Eachchilampattu)
 Veyangoda
 Wadduwa
+Wadduwa Police Station
+Waharaka
 Walallavita
 Walallawita
 Walapane
@@ -1617,8 +1321,11 @@ Walasmulla
 Walawe Ganga
 Walgama
 Wanduramba
+Wanniarachchi Medical Center
 Warakapola
 Wariyapola
+Wariyapola Police Station
+Watawala Police Station
 Watch
 Water Level
 Water Level History
@@ -1628,29 +1335,45 @@ Wattegama
 Weather
 Weather Forecast
 Weerabugedara
+Weeragula Police Station
 Weeraketiya
+Weeraketiya Police Station
 Weerambugedara
+Weerasekara Aurwedha Medical Center
 Weerawila
 Weligama
+Weligama District Hospital
 Weligepola
 Welikanda
 Welimada
+Welimada Base Hospital
+Welimada Police Station
 Welioya
 Welipitiya
+Welisara
 Welivitiya-Divithura
 Welivitiya-Divitura
 Wellampitiya
+Wellatha Rural Hospital
+Wellawatte Police Station
 Wellawaya
 Wennappuwa
 Weraganthota
 Western
+Western Hospital
+Wethara District Hospital
 Wilgamuwa
+Wilgamuwa Divisional Hospital
+YMBA Hospital
 Yaka Wewa
+Yakghapitiya Divisional Hospital
 Yakkala
 Yakkalamulla
 Yan Oya
+Yatalamatta
 Yatawatta
 Yatinuwara
+Yatiyana
 Yatiyanthota
 Yatiyantota
 Yes
