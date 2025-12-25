@@ -84,13 +84,6 @@
     ]
   },
   {
-    "name": "Ankumbura Divitional Hospital",
-    "lat_lng": [
-      7.4404,
-      80.5702
-    ]
-  },
-  {
     "name": "Aralaganwila Hospital",
     "lat_lng": [
       7.7879,
@@ -252,48 +245,6 @@
     ]
   },
   {
-    "name": "Base Hospital",
-    "lat_lng": [
-      6.6451,
-      80.1789
-    ]
-  },
-  {
-    "name": "Base Hospital",
-    "lat_lng": [
-      6.5306,
-      80.3974
-    ]
-  },
-  {
-    "name": "Base Hospital",
-    "lat_lng": [
-      6.8482,
-      80.2644
-    ]
-  },
-  {
-    "name": "Base Hospital",
-    "lat_lng": [
-      7.4667,
-      81.8117
-    ]
-  },
-  {
-    "name": "Base Hospital",
-    "lat_lng": [
-      6.0227,
-      80.7969
-    ]
-  },
-  {
-    "name": "Base Hospital",
-    "lat_lng": [
-      6.5787,
-      80.5753
-    ]
-  },
-  {
     "name": "Base Hospital Beliatta",
     "lat_lng": [
       6.0507,
@@ -385,13 +336,6 @@
     ]
   },
   {
-    "name": "COOP Hospital",
-    "lat_lng": [
-      5.9466,
-      80.5401
-    ]
-  },
-  {
     "name": "Campus Dispensary",
     "lat_lng": [
       8.6549,
@@ -403,13 +347,6 @@
     "lat_lng": [
       6.0366,
       80.2162
-    ]
-  },
-  {
-    "name": "Cardiac Ward",
-    "lat_lng": [
-      6.9207,
-      79.8696
     ]
   },
   {
@@ -476,13 +413,6 @@
     ]
   },
   {
-    "name": "Co-op Hospital",
-    "lat_lng": [
-      6.0366,
-      80.2162
-    ]
-  },
-  {
     "name": "Co-operative Hospital",
     "lat_lng": [
       6.9779,
@@ -497,24 +427,10 @@
     ]
   },
   {
-    "name": "Colombo General Hospital",
-    "lat_lng": [
-      6.9172,
-      79.8672
-    ]
-  },
-  {
     "name": "Coop medical Centre",
     "lat_lng": [
       6.6874,
       80.4027
-    ]
-  },
-  {
-    "name": "Corporative Channel Centre",
-    "lat_lng": [
-      6.6832,
-      80.4018
     ]
   },
   {
@@ -539,24 +455,10 @@
     ]
   },
   {
-    "name": "Dambulla General Provincial Hospital",
-    "lat_lng": [
-      7.8728,
-      80.6505
-    ]
-  },
-  {
     "name": "De Soysa Hospital",
     "lat_lng": [
       6.784,
       79.8777
-    ]
-  },
-  {
-    "name": "De Soysa Hospital for Women",
-    "lat_lng": [
-      6.9198,
-      79.8702
     ]
   },
   {
@@ -574,13 +476,6 @@
     ]
   },
   {
-    "name": "Dental Institute",
-    "lat_lng": [
-      6.8457,
-      79.9286
-    ]
-  },
-  {
     "name": "Dental Surgeon Private",
     "lat_lng": [
       7.0686,
@@ -592,13 +487,6 @@
     "lat_lng": [
       6.9251,
       79.8647
-    ]
-  },
-  {
-    "name": "Dental Ward (Colombo National Hospital)",
-    "lat_lng": [
-      6.9173,
-      79.8661
     ]
   },
   {
@@ -630,13 +518,6 @@
     ]
   },
   {
-    "name": "Dippitiya Hospital",
-    "lat_lng": [
-      7.1771,
-      80.4586
-    ]
-  },
-  {
     "name": "Dissanayake Private Hospital Negombo",
     "lat_lng": [
       7.2012,
@@ -655,13 +536,6 @@
     "lat_lng": [
       7.0528,
       80.5352
-    ]
-  },
-  {
-    "name": "District General Hospital",
-    "lat_lng": [
-      8.9814,
-      79.9029
     ]
   },
   {
@@ -735,13 +609,6 @@
     ]
   },
   {
-    "name": "District Hospital-Galagedara",
-    "lat_lng": [
-      7.3725,
-      80.5246
-    ]
-  },
-  {
     "name": "District Hospitel Uva-Paranagama",
     "lat_lng": [
       6.9382,
@@ -767,27 +634,6 @@
     "lat_lng": [
       6.788,
       81.011
-    ]
-  },
-  {
-    "name": "Divisional Hospital",
-    "lat_lng": [
-      7.4328,
-      81.8111
-    ]
-  },
-  {
-    "name": "Divisional Hospital",
-    "lat_lng": [
-      7.7888,
-      79.8276
-    ]
-  },
-  {
-    "name": "Divisional Hospital",
-    "lat_lng": [
-      7.3128,
-      80.7049
     ]
   },
   {
@@ -1029,13 +875,6 @@
     ]
   },
   {
-    "name": "Ever Green Hospital Pvt Ltd",
-    "lat_lng": [
-      9.6613,
-      80.1681
-    ]
-  },
-  {
     "name": "Family Medical Centre",
     "lat_lng": [
       6.7632,
@@ -1274,321 +1113,6 @@
     ]
   },
   {
-    "name": "Hospital",
-    "lat_lng": [
-      6.0289,
-      80.2163
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      5.9638,
-      80.6019
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      9.3217,
-      80.7021
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.2935,
-      80.0413
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      7.2136,
-      80.5929
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      7.0929,
-      79.852
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.1451,
-      80.7652
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.0884,
-      80.7437
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.0202,
-      80.2476
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      9.7933,
-      80.2038
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      9.6779,
-      80.2367
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.9062,
-      81.5484
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      9.7216,
-      79.9446
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      9.7062,
-      80.065
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      9.7254,
-      79.9979
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.8724,
-      79.8648
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      9.6628,
-      80.0241
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      9.6628,
-      80.0218
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      7.8931,
-      80.1129
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.3328,
-      80.3886
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.3435,
-      80.0784
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      7.4995,
-      80.3535
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.8742,
-      80.6037
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.8735,
-      80.6049
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.8897,
-      80.5984
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.8883,
-      80.5975
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.8897,
-      80.5972
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      9.7046,
-      80.0312
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      9.7054,
-      80.0299
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      9.7058,
-      80.0301
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      9.7059,
-      80.0298
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      9.7058,
-      80.0301
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      9.5269,
-      79.7
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.6253,
-      80.0669
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.6137,
-      80.0887
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.6311,
-      80.068
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.9663,
-      80.932
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.8109,
-      80.0843
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      7.449,
-      81.7549
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      8.0018,
-      80.5344
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.285,
-      81.2695
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      8.0002,
-      79.7412
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      7.2983,
-      81.8621
-    ]
-  },
-  {
-    "name": "Hospital",
-    "lat_lng": [
-      6.8507,
-      79.9077
-    ]
-  },
-  {
-    "name": "Hospital Narammala",
-    "lat_lng": [
-      7.4313,
-      80.2065
-    ]
-  },
-  {
     "name": "Hospital, serunuwara",
     "lat_lng": [
       8.3229,
@@ -1722,13 +1246,6 @@
     ]
   },
   {
-    "name": "Kandy Nursing Home",
-    "lat_lng": [
-      7.2911,
-      80.6449
-    ]
-  },
-  {
     "name": "Kandy Private Hospital",
     "lat_lng": [
       7.3124,
@@ -1785,13 +1302,6 @@
     ]
   },
   {
-    "name": "Kiribathgoda hospital",
-    "lat_lng": [
-      6.9777,
-      79.927
-    ]
-  },
-  {
     "name": "Kiriibanwewa - Primary Medical Care Unit",
     "lat_lng": [
       8.996,
@@ -1834,66 +1344,10 @@
     ]
   },
   {
-    "name": "Lanka Hospitals",
-    "lat_lng": [
-      6.8885,
-      79.8766
-    ]
-  },
-  {
-    "name": "Lanka Medical",
-    "lat_lng": [
-      7.1553,
-      80.5656
-    ]
-  },
-  {
-    "name": "Lanka Pharmacy",
-    "lat_lng": [
-      6.9808,
-      79.9301
-    ]
-  },
-  {
-    "name": "Leesons Hospital",
-    "lat_lng": [
-      7.0317,
-      79.922
-    ]
-  },
-  {
-    "name": "Leprosy Hospital",
-    "lat_lng": [
-      6.9828,
-      79.8755
-    ]
-  },
-  {
-    "name": "Lions Club Eye Hospital",
-    "lat_lng": [
-      6.9832,
-      79.8762
-    ]
-  },
-  {
     "name": "Lions Eye Hospital",
     "lat_lng": [
       6.9273,
       79.9123
-    ]
-  },
-  {
-    "name": "Lunawa Aryuweda Hospital",
-    "lat_lng": [
-      6.7835,
-      79.878
-    ]
-  },
-  {
-    "name": "Lunawa hospital",
-    "lat_lng": [
-      6.7837,
-      79.8775
     ]
   },
   {
@@ -1936,13 +1390,6 @@
     "lat_lng": [
       7.381,
       80.5907
-    ]
-  },
-  {
-    "name": "MOH office",
-    "lat_lng": [
-      9.7059,
-      80.0299
     ]
   },
   {
@@ -2079,13 +1526,6 @@
     ]
   },
   {
-    "name": "Medamahanuwara Divisional Hospital",
-    "lat_lng": [
-      7.2898,
-      80.8151
-    ]
-  },
-  {
     "name": "Medawala Hospital",
     "lat_lng": [
       7.3579,
@@ -2104,13 +1544,6 @@
     "lat_lng": [
       6.8782,
       79.86
-    ]
-  },
-  {
-    "name": "Medi Sevana Private Hosepital",
-    "lat_lng": [
-      7.2544,
-      80.4452
     ]
   },
   {
@@ -2135,24 +1568,10 @@
     ]
   },
   {
-    "name": "Medicare",
-    "lat_lng": [
-      6.9216,
-      79.8723
-    ]
-  },
-  {
     "name": "Medirigiriya Base Hospital",
     "lat_lng": [
       8.1431,
       80.9675
-    ]
-  },
-  {
-    "name": "Medisi Channel Centre",
-    "lat_lng": [
-      6.9744,
-      80.7674
     ]
   },
   {
@@ -2191,13 +1610,6 @@
     ]
   },
   {
-    "name": "NANUOYA HOSPITAL",
-    "lat_lng": [
-      6.9424,
-      80.7445
-    ]
-  },
-  {
     "name": "Nalanda Hospital",
     "lat_lng": [
       7.6646,
@@ -2209,20 +1621,6 @@
     "lat_lng": [
       7.3436,
       80.732
-    ]
-  },
-  {
-    "name": "Navy Hospital Welisara",
-    "lat_lng": [
-      7.0189,
-      79.9005
-    ]
-  },
-  {
-    "name": "Nawala Medical Centre",
-    "lat_lng": [
-      6.887,
-      79.8873
     ]
   },
   {
@@ -2251,13 +1649,6 @@
     "lat_lng": [
       8.6017,
       80.3701
-    ]
-  },
-  {
-    "name": "Neurology Ward",
-    "lat_lng": [
-      6.9193,
-      79.8704
     ]
   },
   {
@@ -2293,13 +1684,6 @@
     "lat_lng": [
       6.9741,
       80.7803
-    ]
-  },
-  {
-    "name": "OSRO Hospital",
-    "lat_lng": [
-      7.251,
-      80.4498
     ]
   },
   {
@@ -2359,13 +1743,6 @@
     ]
   },
   {
-    "name": "Panadura Nursing Home",
-    "lat_lng": [
-      6.7057,
-      79.9059
-    ]
-  },
-  {
     "name": "Panawala Ayurveda Hospital",
     "lat_lng": [
       6.8881,
@@ -2408,20 +1785,6 @@
     ]
   },
   {
-    "name": "Peradeniya Teaching Hospital",
-    "lat_lng": [
-      7.2664,
-      80.5981
-    ]
-  },
-  {
-    "name": "Pet Care Animal Hospital",
-    "lat_lng": [
-      7.1601,
-      80.5687
-    ]
-  },
-  {
     "name": "Phillip Hospital",
     "lat_lng": [
       6.5794,
@@ -2461,13 +1824,6 @@
     "lat_lng": [
       7.292,
       81.6759
-    ]
-  },
-  {
-    "name": "Prapoda private hospital",
-    "lat_lng": [
-      7.2907,
-      81.6758
     ]
   },
   {
@@ -2597,38 +1953,10 @@
     ]
   },
   {
-    "name": "Ranpatha Weda Madura",
-    "lat_lng": [
-      6.8488,
-      79.9486
-    ]
-  },
-  {
     "name": "Ranwwiru Sewana Hospital",
     "lat_lng": [
       7.024,
       79.9227
-    ]
-  },
-  {
-    "name": "Ratnam Private Hospital",
-    "lat_lng": [
-      6.9206,
-      79.8576
-    ]
-  },
-  {
-    "name": "Ratnam's",
-    "lat_lng": [
-      6.9211,
-      79.8569
-    ]
-  },
-  {
-    "name": "Ratnapura Teaching Hospital",
-    "lat_lng": [
-      6.6871,
-      80.3925
     ]
   },
   {
@@ -2688,41 +2016,6 @@
     ]
   },
   {
-    "name": "Rural Hospital",
-    "lat_lng": [
-      7.1062,
-      80.5644
-    ]
-  },
-  {
-    "name": "Rural Hospital",
-    "lat_lng": [
-      6.3797,
-      80.3743
-    ]
-  },
-  {
-    "name": "Rural Hospital",
-    "lat_lng": [
-      6.2883,
-      80.4016
-    ]
-  },
-  {
-    "name": "Rural Hospital",
-    "lat_lng": [
-      6.2344,
-      80.8801
-    ]
-  },
-  {
-    "name": "Rural Hospital",
-    "lat_lng": [
-      5.9484,
-      80.6138
-    ]
-  },
-  {
     "name": "Rural Hospital Halgolla",
     "lat_lng": [
       7.0425,
@@ -2734,13 +2027,6 @@
     "lat_lng": [
       7.7763,
       80.0176
-    ]
-  },
-  {
-    "name": "Sachitra Hospital",
-    "lat_lng": [
-      6.7111,
-      79.9107
     ]
   },
   {
@@ -2765,24 +2051,10 @@
     ]
   },
   {
-    "name": "Sidha Medicine Teaching Hospital",
-    "lat_lng": [
-      9.6704,
-      80.0942
-    ]
-  },
-  {
     "name": "Sigiriya Base Hospital",
     "lat_lng": [
       7.9417,
       80.7322
-    ]
-  },
-  {
-    "name": "Singhe Hospital",
-    "lat_lng": [
-      6.6909,
-      80.3944
     ]
   },
   {
@@ -2814,13 +2086,6 @@
     ]
   },
   {
-    "name": "Sri Jeewarakshaka Bhayshajyalaya Ayurvedic Medical Center",
-    "lat_lng": [
-      6.8523,
-      79.866
-    ]
-  },
-  {
     "name": "Sugantha Nursing Home",
     "lat_lng": [
       9.6712,
@@ -2832,13 +2097,6 @@
     "lat_lng": [
       6.9421,
       79.8658
-    ]
-  },
-  {
-    "name": "Suwa Bawana Hospital",
-    "lat_lng": [
-      7.1639,
-      80.5735
     ]
   },
   {
@@ -2877,24 +2135,10 @@
     ]
   },
   {
-    "name": "Teaching Hospital Kalutara",
-    "lat_lng": [
-      6.5631,
-      79.9852
-    ]
-  },
-  {
     "name": "Teaching Hospital Kegalle",
     "lat_lng": [
       7.2475,
       80.3457
-    ]
-  },
-  {
-    "name": "Teaching Hospital, Kurunegala",
-    "lat_lng": [
-      7.479,
-      80.3584
     ]
   },
   {
@@ -2923,13 +2167,6 @@
     "lat_lng": [
       7.2918,
       80.1858
-    ]
-  },
-  {
-    "name": "Thasim Chest Clinic",
-    "lat_lng": [
-      6.0364,
-      80.2165
     ]
   },
   {
@@ -3003,13 +2240,6 @@
     ]
   },
   {
-    "name": "Welikanda",
-    "lat_lng": [
-      7.9476,
-      81.2458
-    ]
-  },
-  {
     "name": "Welimada Base Hospital",
     "lat_lng": [
       6.909,
@@ -3021,20 +2251,6 @@
     "lat_lng": [
       6.5702,
       80.0729
-    ]
-  },
-  {
-    "name": "Western Dispensary",
-    "lat_lng": [
-      6.913,
-      79.8841
-    ]
-  },
-  {
-    "name": "Western Dispensary",
-    "lat_lng": [
-      6.8927,
-      79.8713
     ]
   },
   {
@@ -3133,13 +2349,6 @@
     "lat_lng": [
       7.6532,
       80.379
-    ]
-  },
-  {
-    "name": "medical centre",
-    "lat_lng": [
-      7.2983,
-      81.8621
     ]
   },
   {

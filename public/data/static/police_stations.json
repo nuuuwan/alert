@@ -301,13 +301,6 @@
     ]
   },
   {
-    "name": "Dematagoda",
-    "lat_lng": [
-      6.9304,
-      79.877
-    ]
-  },
-  {
     "name": "Deniyaya Police Station",
     "lat_lng": [
       6.3415,
@@ -459,13 +452,6 @@
     "lat_lng": [
       6.9226,
       79.9135
-    ]
-  },
-  {
-    "name": "Gothatuwa Police Station",
-    "lat_lng": [
-      6.9242,
-      79.9126
     ]
   },
   {
@@ -791,13 +777,6 @@
     ]
   },
   {
-    "name": "Kotahena Police Station",
-    "lat_lng": [
-      6.9505,
-      79.861
-    ]
-  },
-  {
     "name": "Kotawehera Police Station",
     "lat_lng": [
       7.8089,
@@ -1092,13 +1071,6 @@
     ]
   },
   {
-    "name": "Nuwara Eliya Police Station",
-    "lat_lng": [
-      6.9742,
-      80.7675
-    ]
-  },
-  {
     "name": "Oddusuddan Police Station",
     "lat_lng": [
       9.1613,
@@ -1260,13 +1232,6 @@
     ]
   },
   {
-    "name": "Police Post Galle Fort",
-    "lat_lng": [
-      6.0261,
-      80.2183
-    ]
-  },
-  {
     "name": "Police Post Hirana",
     "lat_lng": [
       6.7367,
@@ -1299,146 +1264,6 @@
     "lat_lng": [
       6.8023,
       79.9226
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      6.8671,
-      79.8844
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      6.8501,
-      79.8718
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      6.2449,
-      80.0476
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      7.2974,
-      81.6767
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      7.1626,
-      80.571
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      6.8455,
-      79.929
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      7.0125,
-      80.8585
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      6.6796,
-      80.4022
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      6.9343,
-      79.8698
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      6.0233,
-      80.7979
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      7.4144,
-      81.825
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      7.3396,
-      79.8429
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      7.4938,
-      79.9124
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      7.317,
-      80.7022
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      6.5021,
-      80.6559
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      6.1447,
-      80.0995
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      6.737,
-      81.0163
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      7.8088,
-      79.8254
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      8.6398,
-      80.6691
-    ]
-  },
-  {
-    "name": "Police Station",
-    "lat_lng": [
-      7.2916,
-      80.491
     ]
   },
   {
@@ -1481,13 +1306,6 @@
     "lat_lng": [
       8.1491,
       80.8372
-    ]
-  },
-  {
-    "name": "Police Station - Gothatuwa",
-    "lat_lng": [
-      6.9247,
-      79.9125
     ]
   },
   {
@@ -1582,34 +1400,6 @@
     ]
   },
   {
-    "name": "Police Station Bambalapitiya",
-    "lat_lng": [
-      6.8919,
-      79.8559
-    ]
-  },
-  {
-    "name": "Police Station Bluemendhal",
-    "lat_lng": [
-      6.9584,
-      79.8676
-    ]
-  },
-  {
-    "name": "Police Station Dam Street",
-    "lat_lng": [
-      6.9383,
-      79.8564
-    ]
-  },
-  {
-    "name": "Police Station Dankotuwa",
-    "lat_lng": [
-      7.2993,
-      79.8829
-    ]
-  },
-  {
     "name": "Police Station Deraniyagala",
     "lat_lng": [
       6.9315,
@@ -1701,13 +1491,6 @@
     ]
   },
   {
-    "name": "Police Station Theldeniya",
-    "lat_lng": [
-      7.3104,
-      80.7637
-    ]
-  },
-  {
     "name": "Police Station Weerawila",
     "lat_lng": [
       6.2621,
@@ -1747,13 +1530,6 @@
     "lat_lng": [
       9.7272,
       79.9969
-    ]
-  },
-  {
-    "name": "Police post - Vihara maha devi park",
-    "lat_lng": [
-      6.9138,
-      79.8603
     ]
   },
   {
@@ -1862,13 +1638,6 @@
     ]
   },
   {
-    "name": "SSP Office",
-    "lat_lng": [
-      9.3481,
-      80.409
-    ]
-  },
-  {
     "name": "STF TRAINING BASE - Katukurunda",
     "lat_lng": [
       6.5584,
@@ -1918,13 +1687,6 @@
     ]
   },
   {
-    "name": "Special Task Force",
-    "lat_lng": [
-      9.6641,
-      80.0057
-    ]
-  },
-  {
     "name": "Special Task Force Camp Jayawardenapura",
     "lat_lng": [
       6.9064,
@@ -1936,13 +1698,6 @@
     "lat_lng": [
       6.8834,
       79.9781
-    ]
-  },
-  {
-    "name": "Sri Dalada Maligawa Police Station",
-    "lat_lng": [
-      7.2929,
-      80.6424
     ]
   },
   {
@@ -2009,73 +1764,10 @@
     ]
   },
   {
-    "name": "Ticket check",
-    "lat_lng": [
-      7.9516,
-      81.0031
-    ]
-  },
-  {
-    "name": "Ticket check",
-    "lat_lng": [
-      7.9585,
-      81.0053
-    ]
-  },
-  {
-    "name": "Ticket check",
-    "lat_lng": [
-      7.969,
-      81.0059
-    ]
-  },
-  {
-    "name": "Ticket check",
-    "lat_lng": [
-      7.962,
-      81.0056
-    ]
-  },
-  {
-    "name": "Ticket check",
-    "lat_lng": [
-      7.9652,
-      80.9985
-    ]
-  },
-  {
-    "name": "Ticket check",
-    "lat_lng": [
-      8.3707,
-      80.3918
-    ]
-  },
-  {
-    "name": "Ticket check",
-    "lat_lng": [
-      7.9654,
-      81.0043
-    ]
-  },
-  {
     "name": "Tourist Police",
     "lat_lng": [
       6.8414,
       81.8325
-    ]
-  },
-  {
-    "name": "Tourist Police",
-    "lat_lng": [
-      6.1247,
-      80.1097
-    ]
-  },
-  {
-    "name": "Tourist Police",
-    "lat_lng": [
-      7.2908,
-      80.6434
     ]
   },
   {
@@ -2170,13 +1862,6 @@
     ]
   },
   {
-    "name": "Waldeck Police Station",
-    "lat_lng": [
-      6.9937,
-      81.0569
-    ]
-  },
-  {
     "name": "Warakapola",
     "lat_lng": [
       7.2275,
@@ -2219,13 +1904,6 @@
     ]
   },
   {
-    "name": "Welikada Police Station",
-    "lat_lng": [
-      6.9089,
-      79.8953
-    ]
-  },
-  {
     "name": "Welimada Police Station",
     "lat_lng": [
       6.9003,
@@ -2258,13 +1936,6 @@
     "lat_lng": [
       6.6505,
       80.1768
-    ]
-  },
-  {
-    "name": "galenbindunuwewa police station",
-    "lat_lng": [
-      8.2904,
-      80.7151
     ]
   },
   {
