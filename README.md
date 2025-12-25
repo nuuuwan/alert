@@ -1,6 +1,6 @@
 🚨 ALERT App (Update)
 
-🌐 APP: <http://nuuuwan.github.io/alert/>
+💻 APP: <https://alert.lk>
 
 v0.1 of ALERT, an Awareness, Logistics, Evacuation, Recovery and Tracking platform for natural disasters in Sri Lanka 🇱🇰
 

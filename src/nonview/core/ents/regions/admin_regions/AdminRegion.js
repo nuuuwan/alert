@@ -54,7 +54,7 @@ class AdminRegion extends Region {
         const url =
           "https://raw.githubusercontent.com" +
           "/nuuuwan/lk_admin_regions/refs/heads/main" +
-          `/data/geo/json/smaller/${this.getAdminRegionType()}s.json/${id}.json`;
+          `/data/geo/json/smallest/${this.getAdminRegionType()}s.json/${id}.json`;
         return await WWW.fetch(url);
       },
     );
@@ -110,17 +110,12 @@ class AdminRegion extends Region {
       return distanceA - distanceB;
     });
 
-    // Find the first region where latLng is inside
     for (const region of sortedRegions) {
       if (region.isInside(latLng)) {
         return region;
       }
     }
 
-    console.warn(
-      `No ${this.getAdminRegionType()} contains the given latLng.` +
-        ` Returning region with nearest centroid instead.`,
-    );
     return sortedRegions[0] || null;
   }
 }

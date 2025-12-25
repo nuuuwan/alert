@@ -48,10 +48,13 @@ export default function MapView({
   const zoom = DEFAULT_ZOOM;
 
   const onMapMoveEnd = async (latLng) => {
-    const place = Place.fromLatLng(latLng);
+    const constrainedLatLng = latLng.constrainToSriLanka();
+    const place = Place.fromLatLng(constrainedLatLng);
     navigate(place.url);
-    setMapLatLng(latLng);
+    setMapLatLng(constrainedLatLng);
   };
+
+  const isPageModeMap = pageMode === "Map";
 
   return (
     <Box
@@ -60,6 +63,8 @@ export default function MapView({
         width: "100%",
         height: "100%",
         zIndex: 100,
+        filter: isPageModeMap ? "none" : "grayscale(100%)",
+        opacity: isPageModeMap ? 1 : 0.333,
       }}
     >
       <MapContainer

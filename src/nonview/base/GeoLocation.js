@@ -1,4 +1,5 @@
 import LatLng from "./geos/LatLng.js";
+import { DEFAULT_CENTER } from "../cons/MapConstants.js";
 export default class GeoLocation {
   static async getCurrentLatLng() {
     if (!navigator.geolocation) {
@@ -17,12 +18,7 @@ export default class GeoLocation {
         },
         (error) => {
           console.error("Error getting geolocation:", error);
-          // return the default location(colombo) to avoid runtime error
-          resolve({
-            latLng: LatLng.fromRaw([6.9271, 79.8612]),
-            isDefault: true,
-            error: error.message
-          });
+          resolve(LatLng.fromRaw(DEFAULT_CENTER));
         },
       );
     });

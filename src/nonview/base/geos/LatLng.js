@@ -1,3 +1,5 @@
+import { MAX_LAT_LNG, MIN_LAT_LNG } from "../../cons/MapConstants.js";
+
 export default class LatLng {
   static PRECISION = 0.0001;
   constructor(floatPair) {
@@ -52,5 +54,13 @@ export default class LatLng {
         Math.sin(dLng / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c;
+  }
+
+  constrainToSriLanka() {
+    const [latMin, lngMin] = MIN_LAT_LNG;
+    const [latMax, lngMax] = MAX_LAT_LNG;
+    const newLat = Math.min(Math.max(this.lat, latMin), latMax);
+    const newLng = Math.min(Math.max(this.lng, lngMin), lngMax);
+    return new LatLng([newLat, newLng]);
   }
 }

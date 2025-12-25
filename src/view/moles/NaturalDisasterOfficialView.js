@@ -52,6 +52,19 @@ export default function NaturalDisasterOfficialView({ place }) {
             ? getAlertColor(place.waterLevelAlertLevel, 3)
             : undefined,
       }}
+      tabToNAlerts={{
+        Landslides:
+          place.dsd.latestLandslideWarningLevel &&
+          place.dsd.latestLandslideWarningLevel > 0
+            ? 1
+            : 0,
+        "Water Level":
+          place instanceof HydrometricStation &&
+          place.waterLevelAlertLevel &&
+          place.waterLevelAlertLevel > 0
+            ? 1
+            : 0,
+      }}
     />
   );
 }

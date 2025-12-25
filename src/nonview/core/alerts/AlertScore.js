@@ -16,6 +16,14 @@ export default class AlertScore {
   }
 
   get level() {
-    return Math.floor((3 * this.score) / this.maxScore);
+    if (this.score === 0) {
+      return 0;
+    }
+    const levelF = (3 * this.score) / this.maxScore;
+    if (levelF < 1) {
+      return 1;
+    }
+
+    return Math.floor(levelF);
   }
 }

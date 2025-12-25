@@ -2,6 +2,9 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { COLORS } from "../_cons/StyleConstants";
 import { useTranslation } from "react-i18next";
+import { useEffect, useRef } from "react";
+import L from "leaflet";
+
 export default function AlertLegend() {
   const { t } = useTranslation();
   const legendItems = [
@@ -23,6 +26,19 @@ export default function AlertLegend() {
     },
   ];
 
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (ref.current) {
+      L.DomEvent.disableClickPropagation(ref.current);
+    }
+  }, []);
+
+  const onClick = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+  };
+
   return (
     <Box
       sx={{
@@ -31,6 +47,8 @@ export default function AlertLegend() {
         right: "16px",
         zIndex: 1000,
       }}
+      onClick={onClick}
+      ref={ref}
     >
       {legendItems.map((item) => (
         <Box

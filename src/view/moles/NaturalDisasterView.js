@@ -26,6 +26,12 @@ export default function NaturalDisasterView({ place }) {
     }),
   );
 
+  const tabToNAlerts = Object.fromEntries(
+    alertScoreList.map(function (alertScore) {
+      return [alertScore.name, alertScore.level > 0 ? 1 : 0];
+    }),
+  );
+
   return (
     <Box>
       <Alert
@@ -37,7 +43,11 @@ export default function NaturalDisasterView({ place }) {
           "These alerts are automtically generated, and are still under development and should be used for informational purposes only.",
         )}
       </Alert>
-      <CustomTabs tabToChild={tabToChild} tabToColor={tabToColor} />
+      <CustomTabs
+        tabToChild={tabToChild}
+        tabToColor={tabToColor}
+        tabToNAlerts={tabToNAlerts}
+      />
     </Box>
   );
 }

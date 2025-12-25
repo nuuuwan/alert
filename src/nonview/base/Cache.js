@@ -2,6 +2,7 @@ export default class Cache {
   static SALT = "v1";
   static CACHE_DURATION_MS = 10 * 60 * 1000;
   static LOCAL_CACHE = {};
+  static LOCAL_CACHE_SIZE = 0;
 
   static async get(key, callback) {
     const roundedTimestamp = Math.floor(Date.now() / this.CACHE_DURATION_MS);
@@ -24,12 +25,18 @@ export default class Cache {
 
     try {
       const payload = JSON.stringify(value);
-      const payloadSizeK = payload.length / 1_000;
-      if (payloadSizeK > 100) {
-        console.warn(`⚠️ [Cache] ${payloadSizeK}KB: "${cacheKey}"`);
-      }
+      const payloadSize = payload.length;
       localStorage.setItem(cacheKey, payload);
       Cache.LOCAL_CACHE[cacheKey] = value;
+      Cache.LOCAL_CACHE_SIZE += payloadSize;
+
+      if (Cache.LOCAL_CACHE_SIZE > 5 * 1_000_000 || payloadSize > 100_000) {
+        console.warn(
+          `⚠️[Cache] ${(payloadSize / 1_000_000.0).toFixed(3)}MB/${(
+            Cache.LOCAL_CACHE_SIZE / 1_000_000.0
+          ).toFixed(1)}MB: "${cacheKey}"`,
+        );
+      }
     } catch (error) {
       console.error(`Error writing to cache for key "${cacheKey}":`, error);
       localStorage.clear();
@@ -45,6 +52,7 @@ export default class Cache {
     } else {
       localStorage.clear();
       Cache.LOCAL_CACHE = {};
+      Cache.LOCAL_CACHE_SIZE = 0;
     }
   }
 }
