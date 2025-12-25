@@ -11,7 +11,10 @@ export default class GeoLocation {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          resolve(LatLng.fromRaw([latitude, longitude]));
+          resolve({ 
+            latLng: LatLng.fromRaw([latitude, longitude]),
+            isDefault: false
+          });
         },
         (error) => {
           console.error("Error getting geolocation:", error);
