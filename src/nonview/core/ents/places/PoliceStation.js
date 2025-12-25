@@ -39,7 +39,7 @@ class PoliceStation extends Place {
           latLng,
         });
         return new PoliceStation({ ...rawData, ...placeData });
-      })
+      }),
     );
   }
 }

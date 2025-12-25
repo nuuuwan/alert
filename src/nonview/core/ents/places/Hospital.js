@@ -39,7 +39,7 @@ class Hospital extends Place {
           latLng,
         });
         return new Hospital({ ...rawData, ...placeData });
-      })
+      }),
     );
   }
 }

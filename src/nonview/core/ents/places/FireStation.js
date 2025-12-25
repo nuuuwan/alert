@@ -39,7 +39,7 @@ class FireStation extends Place {
           latLng,
         });
         return new FireStation({ ...rawData, ...placeData });
-      })
+      }),
     );
   }
 }
