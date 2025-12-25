@@ -175,7 +175,7 @@
     ]
   },
   {
-    "name": "Auyuvedic Hospital Vavuniya ",
+    "name": "Auyuvedic Hospital Vavuniya",
     "lat_lng": [
       8.7606,
       80.4389
@@ -196,10 +196,24 @@
     ]
   },
   {
+    "name": "Ayurvedic Hospital",
+    "lat_lng": [
+      7.0219,
+      80.0099
+    ]
+  },
+  {
     "name": "Ayurvedic Hospital,Kiliveddy",
     "lat_lng": [
       8.3515,
       81.2858
+    ]
+  },
+  {
+    "name": "Ayurweda Hospital",
+    "lat_lng": [
+      6.9021,
+      80.9205
     ]
   },
   {
@@ -315,6 +329,13 @@
     ]
   },
   {
+    "name": "Bokkawala",
+    "lat_lng": [
+      7.3929,
+      80.5532
+    ]
+  },
+  {
     "name": "Boralanda Base Hospital",
     "lat_lng": [
       6.8296,
@@ -333,6 +354,13 @@
     "lat_lng": [
       7.0278,
       79.9206
+    ]
+  },
+  {
+    "name": "Bsr",
+    "lat_lng": [
+      5.9541,
+      80.525
     ]
   },
   {
@@ -364,7 +392,7 @@
     ]
   },
   {
-    "name": "Central hospital",
+    "name": "Central Hospital",
     "lat_lng": [
       6.99,
       81.0514
@@ -385,17 +413,17 @@
     ]
   },
   {
+    "name": "Chest Clinic Tuberculosis",
+    "lat_lng": [
+      8.3228,
+      80.413
+    ]
+  },
+  {
     "name": "Chest Hospital Welisara",
     "lat_lng": [
       7.0242,
       79.9029
-    ]
-  },
-  {
-    "name": "Chest clinic tuberculosis",
-    "lat_lng": [
-      8.3228,
-      80.413
     ]
   },
   {
@@ -406,7 +434,7 @@
     ]
   },
   {
-    "name": "City lab",
+    "name": "City Lab",
     "lat_lng": [
       6.7142,
       79.9082
@@ -427,21 +455,21 @@
     ]
   },
   {
-    "name": "Coop medical Centre",
+    "name": "Coop Medical Centre",
     "lat_lng": [
       6.6874,
       80.4027
     ]
   },
   {
-    "name": "Dambadeniya hospital",
+    "name": "Dambadeniya Hospital",
     "lat_lng": [
       7.3488,
       80.1377
     ]
   },
   {
-    "name": "Dambagalla rural hospital",
+    "name": "Dambagalla Rural Hospital",
     "lat_lng": [
       6.98,
       81.3751
@@ -469,6 +497,13 @@
     ]
   },
   {
+    "name": "Deiyandara Hospital",
+    "lat_lng": [
+      6.154,
+      80.601
+    ]
+  },
+  {
     "name": "Deniyaya Hospital",
     "lat_lng": [
       6.3575,
@@ -490,7 +525,7 @@
     ]
   },
   {
-    "name": "Dharmajaya ground",
+    "name": "Dharmajaya Ground",
     "lat_lng": [
       7.4764,
       80.3603
@@ -882,7 +917,7 @@
     ]
   },
   {
-    "name": "Family medical clinic & diabetes centre",
+    "name": "Family Medical Clinic & Diabetes Centre",
     "lat_lng": [
       7.1838,
       79.8605
@@ -921,6 +956,13 @@
     "lat_lng": [
       6.2451,
       80.2679
+    ]
+  },
+  {
+    "name": "Gampaha",
+    "lat_lng": [
+      7.0532,
+      80.329
     ]
   },
   {
@@ -994,7 +1036,7 @@
     ]
   },
   {
-    "name": "HOSPITAL  GROUND",
+    "name": "HOSPITAL GROUND",
     "lat_lng": [
       9.7058,
       80.0301
@@ -1036,7 +1078,7 @@
     ]
   },
   {
-    "name": "Health care",
+    "name": "Health Care",
     "lat_lng": [
       8.6553,
       81.2115
@@ -1078,7 +1120,14 @@
     ]
   },
   {
-    "name": "Hikkaduwa clinic",
+    "name": "Hijama Treatment Center",
+    "lat_lng": [
+      6.4713,
+      80.1033
+    ]
+  },
+  {
+    "name": "Hikkaduwa Clinic",
     "lat_lng": [
       6.1407,
       80.0995
@@ -1089,6 +1138,13 @@
     "lat_lng": [
       6.3314,
       80.3223
+    ]
+  },
+  {
+    "name": "Hiripitiya",
+    "lat_lng": [
+      7.6532,
+      80.379
     ]
   },
   {
@@ -1113,7 +1169,7 @@
     ]
   },
   {
-    "name": "Hospital, serunuwara",
+    "name": "Hospital, Serunuwara",
     "lat_lng": [
       8.3229,
       81.2997
@@ -1148,7 +1204,7 @@
     ]
   },
   {
-    "name": "Imaza poly clinic",
+    "name": "Imaza Poly Clinic",
     "lat_lng": [
       7.2504,
       81.8553
@@ -1176,7 +1232,7 @@
     ]
   },
   {
-    "name": "Jaela regional hospital",
+    "name": "Jaela Regional Hospital",
     "lat_lng": [
       7.075,
       79.8941
@@ -1232,7 +1288,7 @@
     ]
   },
   {
-    "name": "Kandenuwara General  Hospital",
+    "name": "Kandenuwara General Hospital",
     "lat_lng": [
       7.4494,
       80.6797
@@ -1337,7 +1393,7 @@
     ]
   },
   {
-    "name": "Lak suwa sahana",
+    "name": "Lak Suwa Sahana",
     "lat_lng": [
       6.9562,
       79.9151
@@ -1540,7 +1596,7 @@
     ]
   },
   {
-    "name": "Medi Clinic wellawatte",
+    "name": "Medi Clinic Wellawatte",
     "lat_lng": [
       6.8782,
       79.86
@@ -1554,14 +1610,14 @@
     ]
   },
   {
-    "name": "Medical centre",
+    "name": "Medical Centre",
     "lat_lng": [
       7.2982,
       81.8621
     ]
   },
   {
-    "name": "Medical officer of Health Office- Galagedara",
+    "name": "Medical Officer Of Health Office- Galagedara",
     "lat_lng": [
       7.3717,
       80.5252
@@ -1582,7 +1638,7 @@
     ]
   },
   {
-    "name": "Mihintale district Hospital",
+    "name": "Mihintale District Hospital",
     "lat_lng": [
       8.3547,
       80.5098
@@ -1631,7 +1687,7 @@
     ]
   },
   {
-    "name": "Nawaloka specialist centre",
+    "name": "Nawaloka Specialist Centre",
     "lat_lng": [
       6.9202,
       79.8535
@@ -1656,6 +1712,13 @@
     "lat_lng": [
       7.6694,
       81.0469
+    ]
+  },
+  {
+    "name": "New Pioneer Hospital",
+    "lat_lng": [
+      7.719,
+      81.7011
     ]
   },
   {
@@ -1698,6 +1761,13 @@
     "lat_lng": [
       6.7555,
       81.3006
+    ]
+  },
+  {
+    "name": "Old Hospital",
+    "lat_lng": [
+      6.8256,
+      80.5215
     ]
   },
   {
@@ -1764,7 +1834,7 @@
     ]
   },
   {
-    "name": "Pat care Animal Hospital",
+    "name": "Pat Care Animal Hospital",
     "lat_lng": [
       7.1547,
       80.5701
@@ -1981,7 +2051,7 @@
     ]
   },
   {
-    "name": "Rohana wijayasiri wedamahatha",
+    "name": "Rohana Wijayasiri Wedamahatha",
     "lat_lng": [
       6.8012,
       79.9787
@@ -1995,7 +2065,7 @@
     ]
   },
   {
-    "name": "Rukkasagara Ayuruwedic hospital",
+    "name": "Rukkasagara Ayuruwedic Hospital",
     "lat_lng": [
       7.4332,
       80.1355
@@ -2030,7 +2100,7 @@
     ]
   },
   {
-    "name": "Sampoor hospital",
+    "name": "Sampoor Hospital",
     "lat_lng": [
       8.4813,
       81.2926
@@ -2072,7 +2142,7 @@
     ]
   },
   {
-    "name": "Sri Jayawardenapura teaching hospital",
+    "name": "Sri Jayawardenapura Teaching Hospital",
     "lat_lng": [
       6.8683,
       79.9262
@@ -2107,14 +2177,14 @@
     ]
   },
   {
-    "name": "Suwasevana hospital",
+    "name": "Suwasevana Hospital",
     "lat_lng": [
       7.2734,
       80.5918
     ]
   },
   {
-    "name": "Suwasewana Ayurvedic center",
+    "name": "Suwasewana Ayurvedic Center",
     "lat_lng": [
       6.8251,
       79.9754
@@ -2219,7 +2289,7 @@
     ]
   },
   {
-    "name": "Weerasekara Aurwedha medical Center",
+    "name": "Weerasekara Aurwedha Medical Center",
     "lat_lng": [
       6.8938,
       80.8698
@@ -2286,83 +2356,6 @@
     "lat_lng": [
       7.2986,
       80.6676
-    ]
-  },
-  {
-    "name": "ayurvedic hospital",
-    "lat_lng": [
-      7.0219,
-      80.0099
-    ]
-  },
-  {
-    "name": "ayurweda hospital",
-    "lat_lng": [
-      6.9021,
-      80.9205
-    ]
-  },
-  {
-    "name": "base hospital",
-    "lat_lng": [
-      7.2258,
-      80.1958
-    ]
-  },
-  {
-    "name": "bokkawala",
-    "lat_lng": [
-      7.3929,
-      80.5532
-    ]
-  },
-  {
-    "name": "bsr",
-    "lat_lng": [
-      5.9541,
-      80.525
-    ]
-  },
-  {
-    "name": "deiyandara hospital",
-    "lat_lng": [
-      6.154,
-      80.601
-    ]
-  },
-  {
-    "name": "gampaha",
-    "lat_lng": [
-      7.0532,
-      80.329
-    ]
-  },
-  {
-    "name": "hijama treatment center",
-    "lat_lng": [
-      6.4713,
-      80.1033
-    ]
-  },
-  {
-    "name": "hiripitiya",
-    "lat_lng": [
-      7.6532,
-      80.379
-    ]
-  },
-  {
-    "name": "new pioneer hospital",
-    "lat_lng": [
-      7.719,
-      81.7011
-    ]
-  },
-  {
-    "name": "old hospital",
-    "lat_lng": [
-      6.8256,
-      80.5215
     ]
   },
   {

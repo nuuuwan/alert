@@ -1,6 +1,6 @@
 [
   {
-    "name": "Airport fire and rescue",
+    "name": "Airport Fire And Rescue",
     "lat_lng": [
       7.1796,
       79.8873
@@ -77,17 +77,17 @@
     ]
   },
   {
+    "name": "Fire Station - Chilaw",
+    "lat_lng": [
+      7.577,
+      79.7987
+    ]
+  },
+  {
     "name": "Kottawa Cemetery",
     "lat_lng": [
       6.8448,
       79.966
-    ]
-  },
-  {
-    "name": "fire station - chilaw",
-    "lat_lng": [
-      7.577,
-      79.7987
     ]
   }
 ]
