@@ -2,7 +2,6 @@ import { LineChart } from "@mui/x-charts/LineChart";
 import { COLORS } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import InformationGroup from "./InformationGroup";
-import DataSource from "../../nonview/core/DataSource";
 import { useTranslation } from "react-i18next";
 
 const DASHED_STYLE = {
@@ -60,13 +59,7 @@ export default function WaterLevelChart({
   return (
     <InformationGroup
       title="Water Level History"
-      dataSourceList={[
-        new DataSource({
-          label:
-            "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
-          url: "https://github.com/nuuuwan/lk_irrigation",
-        }),
-      ]}
+      dataSourceList={[HydrometricStation.getWaterLevelAlertDataSource()]}
     >
       <LineChart
         xAxis={[

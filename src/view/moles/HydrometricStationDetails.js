@@ -8,7 +8,7 @@ import WaterLevelChart from "../atoms/WaterLevelChart";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import InformationGroup from "../atoms/InformationGroup";
-import DataSource from "../../nonview/core/DataSource";
+import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 import { Alert } from "@mui/material";
 
 export default function HydrometricStationDetails({ place }) {
@@ -66,13 +66,7 @@ export default function HydrometricStationDetails({ place }) {
         <InformationGroup
           title="Water Level Metrics"
           Icon={WavesIcon}
-          dataSourceList={[
-            new DataSource({
-              label:
-                "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
-              url: "https://github.com/nuuuwan/lk_irrigation",
-            }),
-          ]}
+          dataSourceList={[HydrometricStation.getWaterLevelAlertDataSource()]}
         >
           <OldMetricCard
             Icon={WavesIcon}

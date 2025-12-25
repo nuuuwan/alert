@@ -6,6 +6,7 @@ import WWW from "../../../base/WWW.js";
 import Cache from "../../../base/Cache.js";
 import TimeUtils from "../../../base/TimeUtils.js";
 import WithNameMixin from "../../../base/mixins/WithNameMixin.js";
+import DataSource from "../../DataSource.js";
 
 class HydrometricStation extends Place {
   static getEntTypeName() {
@@ -46,7 +47,7 @@ class HydrometricStation extends Place {
           latLng,
         });
         return new HydrometricStation({ ...rawData, ...placeData });
-      }),
+      })
     );
   }
 
@@ -59,16 +60,17 @@ class HydrometricStation extends Place {
       .reduce(function (waterLevelHistory, [dateId, timeOnlyIdToWaterLevelM]) {
         return Object.entries(timeOnlyIdToWaterLevelM).reduce(function (
           waterLevelHistory,
-          [timeOnlyId, waterLevelM],
+          [timeOnlyId, waterLevelM]
         ) {
           const timeUt = TimeUtils.parseYYYYMMDDHHHMMSS(
-            `${dateId}${timeOnlyId}`,
+            `${dateId}${timeOnlyId}`
           );
           if (timeUt > minTimeUt) {
             waterLevelHistory.push({ timeUt, waterLevelM });
           }
           return waterLevelHistory;
-        }, waterLevelHistory);
+        },
+        waterLevelHistory);
       }, [])
       .sort(TimeUtils.compareTimeUtDescending);
     this.waterLevelHistory = waterLevelHistory;
@@ -100,8 +102,16 @@ class HydrometricStation extends Place {
   get officialAlertLevel() {
     return Math.max(
       super.officialAlertLevel || 0,
-      this.waterLevelAlertLevel || 0,
+      this.waterLevelAlertLevel || 0
     );
+  }
+
+  static getWaterLevelAlertDataSource() {
+    return new DataSource({
+      label:
+        "Hydrology and Disaster Management Division, Irrigation Deptartment of Sri Lanka",
+      url: "https://github.com/nuuuwan/lk_irrigation",
+    });
   }
 
   static async getRawAlertData() {
@@ -123,7 +133,7 @@ class HydrometricStation extends Place {
             return HydrometricStation;
           }
           return null;
-        }),
+        })
       )
     ).filter((HydrometricStation) => HydrometricStation !== null);
     return HydrometricStationsWithAlerts;

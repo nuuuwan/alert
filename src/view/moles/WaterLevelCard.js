@@ -3,6 +3,8 @@ import WaterIcon from "@mui/icons-material/Water";
 import { getAlertColor } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import CustomPaper from "../atoms/CustomPaper";
+import DataSourceView from "../atoms/DataSourceView";
+import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 
 export default function WaterLevelCard({ hydrometricStation }) {
   const level = hydrometricStation.waterLevelAlertLevel;
@@ -30,6 +32,9 @@ export default function WaterLevelCard({ hydrometricStation }) {
         color={color}
         timeLabel={TimeUtils.getTimeAgoString(timeUt)}
         alertLabel={alertLabel}
+      />
+      <DataSourceView
+        dataSourceList={[HydrometricStation.getWaterLevelAlertDataSource()]}
       />
     </CustomPaper>
   );
