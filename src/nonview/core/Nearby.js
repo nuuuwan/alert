@@ -5,12 +5,14 @@ import PoliceStation from "./ents/places/PoliceStation";
 import FireStation from "./ents/places/FireStation";
 
 export default class Nearby {
-  static async findNearbyPlaces(latLng, radius = 500_000, limit = 6) {
+  static async findNearbyPlaces(latLng, radius = 500_000, limit = 7) {
     const allHydrometricStations = await HydrometricStation.loadAll();
+
     const allCities = await City.loadAll();
     const allHospitals = await Hospital.loadAll();
     const allPoliceStations = await PoliceStation.loadAll();
     const allFireStations = await FireStation.loadAll();
+
     const allPlaces = [
       ...allHydrometricStations,
       ...allCities,
