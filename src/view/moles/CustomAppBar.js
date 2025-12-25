@@ -5,7 +5,7 @@ import EntTitle from "../atoms/EntTitle";
 import CustomAppBarMenu from "./CustomAppBarMenu";
 import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 
-export default function CustomAppBar({ mapLatLng }) {
+export default function CustomAppBar() {
   const { selectedEnt } = useSelectedEntDataContext();
 
   const color = selectedEnt
@@ -32,7 +32,7 @@ export default function CustomAppBar({ mapLatLng }) {
             gap: "8px",
           }}
         >
-          <EntTitle ent={selectedEnt} mapLatLng={mapLatLng} />
+          <EntTitle ent={selectedEnt} />
         </div>
         <CustomAppBarMenu />
       </Toolbar>

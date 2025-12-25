@@ -1,23 +1,30 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { CircularProgress, Stack, Typography } from "@mui/material";
 import EntAvatar from "./EntAvatar";
-import Place from "../../nonview/core/ents/places/Place";
+import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 import DSDLocationBreadcrumbs from "../moles/DSDLocationBreadcrumbs";
 import { useTranslation } from "react-i18next";
 
-export default function EntTitle({ ent, mapLatLng }) {
-  const entDisplay = ent || Place.fromLatLng(mapLatLng);
+export default function EntTitle() {
   const { t } = useTranslation();
-
-  document.title = entDisplay.title;
-  return (
-    <Box>
+  const { selectedEnt } = useSelectedEntDataContext();
+  if (!selectedEnt) {
+    document.title = "ALERT Loading...";
+    return (
       <Stack direction="row" alignItems="center" spacing={1}>
-        <EntAvatar ent={entDisplay} color="white" size="32px" />
-        <Stack direction="column" spacing={0} justifyContent="center">
-          <Typography variant="body1">{t(entDisplay.title)}</Typography>
-          <DSDLocationBreadcrumbs ent={entDisplay} />
-        </Stack>
+        <CircularProgress />
+        <Typography variant="body1">{t("Loading Data")}...</Typography>
       </Stack>
-    </Box>
+    );
+  }
+
+  document.title = selectedEnt.title;
+  return (
+    <Stack direction="row" alignItems="center" spacing={1}>
+      <EntAvatar ent={selectedEnt} color="white" size="32px" />
+      <Stack direction="column" spacing={0} justifyContent="center">
+        <Typography variant="body1">{t(selectedEnt.title)}</Typography>
+        <DSDLocationBreadcrumbs ent={selectedEnt} />
+      </Stack>
+    </Stack>
   );
 }

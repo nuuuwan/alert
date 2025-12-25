@@ -64,7 +64,7 @@ export function SelectedEntDataProvider({
     async function fetchHydrometricStation() {
       if (hydrometricStationNameId) {
         const hydrometricStation = await HydrometricStation.loadFromName(
-          hydrometricStationNameId,
+          hydrometricStationNameId
         );
         if (hydrometricStation) {
           await hydrometricStation.loadDetails();
@@ -107,8 +107,9 @@ export function SelectedEntDataProvider({
   useEffect(() => {
     async function fetchPoliceStation() {
       if (policeStationNameId) {
-        const policeStation =
-          await PoliceStation.loadFromName(policeStationNameId);
+        const policeStation = await PoliceStation.loadFromName(
+          policeStationNameId
+        );
         if (policeStation) {
           await policeStation.loadDetails();
           setSelectedEnt(policeStation);
@@ -160,7 +161,9 @@ export function SelectedEntDataProvider({
   }, [selectedEnt]);
 
   return (
-    <SelectedEntDataContext.Provider value={{ selectedEnt, nearbyPlaces }}>
+    <SelectedEntDataContext.Provider
+      value={{ selectedEnt, nearbyPlaces, setSelectedEnt }}
+    >
       {children}
     </SelectedEntDataContext.Provider>
   );
