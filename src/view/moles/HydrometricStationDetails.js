@@ -91,10 +91,7 @@ export default function HydrometricStationDetails({ place }) {
       </Grid>
 
       <Grid size={{ xs: 12 }}>
-        <WaterLevelChart
-          waterLevelHistory={waterLevelHistory}
-          HydrometricStation={place}
-        />
+        <WaterLevelChart waterLevelHistory={waterLevelHistory} />
       </Grid>
     </Grid>
   );
