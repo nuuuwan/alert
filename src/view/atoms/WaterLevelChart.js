@@ -3,15 +3,13 @@ import { COLORS } from "../_cons/StyleConstants";
 import TimeUtils from "../../nonview/base/TimeUtils";
 import InformationGroup from "./InformationGroup";
 import { useTranslation } from "react-i18next";
+import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
 
 const DASHED_STYLE = {
   strokeDasharray: "5 5",
 };
 
-export default function WaterLevelChart({
-  waterLevelHistory,
-  HydrometricStation,
-}) {
+export default function WaterLevelChart({ waterLevelHistory }) {
   const { t } = useTranslation();
   const chartData = [...waterLevelHistory].reverse().slice(-168); // Last 7d
   const xAxisData = chartData.map((d) => new Date(d.timeUt * 1000));
