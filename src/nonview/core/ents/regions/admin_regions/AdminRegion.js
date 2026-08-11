@@ -52,9 +52,11 @@ class AdminRegion extends Region {
       `AdminRegion:getGeoForId:${this.getAdminRegionType()}:${id}`,
       async () => {
         const url =
-          "https://raw.githubusercontent.com" +
-          "/nuuuwan/lk_admin_regions/refs/heads/main" +
-          `/data/geo/json/smallest/${this.getAdminRegionType()}s.json/${id}.json`;
+          `https://raw.githubusercontent.com/nuuuwan/lk_admin_regions` +
+          `/refs/heads/main` +
+          `/data/geo/json/original` +
+          `/${this.getAdminRegionType()}s.json/${id}.json`;
+
         return await WWW.fetch(url);
       },
     );
