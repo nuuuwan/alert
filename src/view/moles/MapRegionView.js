@@ -1,4 +1,4 @@
-import { Polygon } from "react-leaflet";
+import { GeoJSON } from "react-leaflet";
 import DSD from "../../nonview/core/ents/regions/admin_regions/DSD";
 import { COLORS, getAlertColor } from "../_cons/StyleConstants";
 
@@ -10,19 +10,15 @@ export default function MapRegionView({ region }) {
   }
 
   return (
-    <>
-      {region.multiPolygon.raw().map((rawPolygon, index) => (
-        <Polygon
-          key={`${region.id}-latLngList-${index}`}
-          positions={rawPolygon}
-          pathOptions={{
-            fillColor: color,
-            color: "white",
-            weight: 1,
-            fillOpacity: 0.5,
-          }}
-        />
-      ))}
-    </>
+    <GeoJSON
+      key={region.id}
+      data={region.topoJSON}
+      pathOptions={{
+        fillColor: color,
+        color: "white",
+        weight: 1,
+        fillOpacity: 0.5,
+      }}
+    />
   );
 }
