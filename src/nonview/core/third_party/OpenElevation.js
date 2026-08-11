@@ -20,8 +20,15 @@ export default class OpenElevation {
     const responseJSON = await Cache.get(
       `OpenElevation:${locations}`,
       async () => {
-        const response = await WWW.fetchJSON(url);
-        return JSON.stringify(response);
+        try {
+          const response = await WWW.fetchJSON(url);
+          return JSON.stringify(response);
+        } catch (error) {
+          console.error(
+            `Error fetching elevation data from Open-Elevation API: ${error}`,
+          );
+          return JSON.stringify({ results: [] });
+        }
       },
     );
     await TimeUtils.sleep(0.1);
