@@ -2,7 +2,7 @@ export default class WWW {
   static async fetchJSON(url) {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`HTTP error! status: ${response.status} for URL: ${url}`);
     }
     return await response.json();
   }
@@ -10,7 +10,7 @@ export default class WWW {
   static async fetchTSV(url) {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`HTTP error! status: ${response.status} for URL: ${url}`);
     }
     const text = await response.text();
 
