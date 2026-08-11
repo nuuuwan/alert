@@ -1,3 +1,4 @@
+import * as topojson from "topojson-client";
 import WWW from "../../../../base/WWW";
 import WithLoadAllStaticMixin from "../../../../base/mixins/WithLoadAllStaticMixin";
 import Region from "../Region";
@@ -72,19 +73,22 @@ class AdminRegion extends Region {
           `https://raw.githubusercontent.com` +
           `/nuuuwan/lk_admin_regions` +
           `/refs/heads/main` +
-          `/data/geo/topojson/e4_medium/${regionType}s.topojson`;
-        return await WWW.fetch(url);
+          `/data/geo/topojson/e3_small/${regionType}s.topojson`;
+        const topoData = await WWW.fetch(url);
+        const obj = Object.values(topoData.objects)[0];
+        return topojson.feature(topoData, obj);
       },
     );
   }
 
   static async getTopoJSONForId(id) {
+    const topoJSONForType = await this.getTopoJSONForType(
+      this.getAdminRegionType(),
+    );
+
     return await Cache.get(
       `AdminRegion:getTopoJSONForId:${this.getAdminRegionType()}:${id}`,
       async () => {
-        const topoJSONForType = await this.getTopoJSONForType(
-          this.getAdminRegionType(),
-        );
         const feature = topoJSONForType.features.find(
           (f) => f.properties.id === id,
         );
@@ -111,6 +115,9 @@ class AdminRegion extends Region {
   }
 
   static async loadFromRawDataList(rawDataList) {
+    // Preload TopoJSON for all regions of this type
+    await this.getTopoJSONForType(this.getAdminRegionType());
+
     return await Promise.all(
       rawDataList.map((rawData) =>
         this.loadFromData({
