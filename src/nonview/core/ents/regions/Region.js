@@ -1,10 +1,13 @@
 import Place from "../../ents/places/Place.js";
+import MultiPolygon from "../../../base/geos/MultiPolygon.js";
 export default class Region {
   static getEntTypeName() {
     return "Region";
   }
-  constructor({ multiPolygon }) {
-    this.multiPolygon = multiPolygon;
+  constructor({ multiPolygon, topoJSON }) {
+    this.topoJSON = topoJSON;
+    this.multiPolygon =
+      multiPolygon ?? (topoJSON ? MultiPolygon.fromGeoJSON(topoJSON) : null);
   }
 
   getCentroidLatLng() {

@@ -117,9 +117,7 @@ class HydrometricStation extends Place {
     const url =
       "https://raw.githubusercontent.com/nuuuwan/lk_irrigation/refs/heads/main/data/alert_data.json";
     return await Cache.get("HydrometricStation.getRawAlertData", async () => {
-      const data = await WWW.fetchJSON(url);
-      console.debug(data);
-      return data;
+      return await WWW.fetchJSON(url);
     });
   }
 

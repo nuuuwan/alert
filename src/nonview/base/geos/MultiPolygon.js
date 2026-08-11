@@ -51,4 +51,15 @@ export default class MultiPolygon {
   isInside(latLng) {
     return this.polygonList.some((polygon) => polygon.isInside(latLng));
   }
+
+  static fromGeoJSON(feature) {
+    const { type, coordinates } = feature.geometry;
+    if (type === "Polygon") {
+      return MultiPolygon.fromReverseRaw([coordinates[0]]);
+    }
+    if (type === "MultiPolygon") {
+      return MultiPolygon.fromReverseRaw(coordinates.map((poly) => poly[0]));
+    }
+    return new MultiPolygon([]);
+  }
 }

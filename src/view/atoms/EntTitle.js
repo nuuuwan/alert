@@ -9,10 +9,10 @@ export default function EntTitle() {
   const { t } = useTranslation();
   const { selectedEnt } = useSelectedEntDataContext();
   const { data } = useDataContext();
-  const {hydrometricStations,majorCities} = data;
+  const { hydrometricStations, majorCities } = data;
 
-  const isLoaded = hydrometricStations && majorCities && selectedEnt; 
-  
+  const isLoaded = hydrometricStations && majorCities && selectedEnt;
+
   if (!isLoaded) {
     document.title = "ALERT Loading...";
     return (
