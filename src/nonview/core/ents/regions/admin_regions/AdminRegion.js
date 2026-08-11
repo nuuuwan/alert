@@ -64,9 +64,42 @@ class AdminRegion extends Region {
     return MultiPolygon.fromReverseRaw(revFloatPairListList);
   }
 
+  static async getTopoJSONForType(regionType) {
+    return await Cache.get(
+      `AdminRegion:getTopoJSONForType:${this.getAdminRegionType()}`,
+      async () => {
+        const url =
+          `https://raw.githubusercontent.com` +
+          `/nuuuwan/lk_admin_regions` +
+          `/refs/heads/main` +
+          `/data/geo/topojson/e4_medium/${regionType}.topojson`;
+        return await WWW.fetch(url);
+      },
+    );
+  }
+
+  static async getTopoJSONForId(id) {
+    return await Cache.get(
+      `AdminRegion:getTopoJSONForId:${this.getAdminRegionType()}:${id}`,
+      async () => {
+        const topoJSONForType = await this.getTopoJSONForType(
+          this.getAdminRegionType(),
+        );
+        const feature = topoJSONForType.features.find(
+          (f) => f.properties.id === id,
+        );
+        if (!feature) {
+          throw new Error(`Feature with id ${id} not found in TopoJSON`);
+        }
+        return feature;
+      },
+    );
+  }
+
   static async loadFromData({ id, name, areaSqKm }) {
     const multiPolygon = await this.getGeoForId(id);
-    return new this({ multiPolygon, id, name, areaSqKm });
+    const topoJSON = await this.getTopoJSONForId(id);
+    return new this({ id, name, areaSqKm, multiPolygon, topoJSON });
   }
 
   static async getRawDataList() {
