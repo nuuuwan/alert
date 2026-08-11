@@ -72,7 +72,7 @@ class AdminRegion extends Region {
           `https://raw.githubusercontent.com` +
           `/nuuuwan/lk_admin_regions` +
           `/refs/heads/main` +
-          `/data/geo/topojson/e4_medium/${regionType}.topojson`;
+          `/data/geo/topojson/e4_medium/${regionType}s.topojson`;
         return await WWW.fetch(url);
       },
     );
@@ -97,9 +97,8 @@ class AdminRegion extends Region {
   }
 
   static async loadFromData({ id, name, areaSqKm }) {
-    const multiPolygon = await this.getGeoForId(id);
     const topoJSON = await this.getTopoJSONForId(id);
-    return new this({ id, name, areaSqKm, multiPolygon, topoJSON });
+    return new this({ id, name, areaSqKm, topoJSON });
   }
 
   static async getRawDataList() {
