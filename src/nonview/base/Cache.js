@@ -26,20 +26,14 @@ export default class Cache {
     try {
       const payload = JSON.stringify(value);
       const payloadSize = payload.length;
-      localStorage.setItem(cacheKey, payload);
       Cache.LOCAL_CACHE[cacheKey] = value;
       Cache.LOCAL_CACHE_SIZE += payloadSize;
 
-      if (payloadSize > 200_000) {
-        console.warn(
-          `⚠️[Cache] ${(payloadSize / 1_000_000.0).toFixed(3)}MB/${(
-            Cache.LOCAL_CACHE_SIZE / 1_000_000.0
-          ).toFixed(1)}MB: "${cacheKey}"`,
-        );
+      if (payloadSize < 500_000) {
+        localStorage.setItem(cacheKey, payload);
       }
     } catch (error) {
       console.error(`Error writing to cache for key "${cacheKey}":`, error);
-      localStorage.clear();
     }
 
     return value;
