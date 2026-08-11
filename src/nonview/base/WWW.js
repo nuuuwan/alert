@@ -30,7 +30,7 @@ export default class WWW {
   }
 
   static async fetch(url) {
-    if (url.endsWith(".json")) {
+    if (url.endsWith(".json") || url.endsWith(".topojson")) {
       return await this.fetchJSON(url);
     }
     if (url.endsWith(".tsv")) {
