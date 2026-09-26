@@ -4,62 +4,6 @@ This backlog focuses on making ALERT feel trustworthy, calm, and professional wh
 
 ## P0 — Trust and core experience
 
-### [x] Introduce a complete MUI theme and design tokens
-
-**Goal:** Replace the current mix of one-off `sx` values and a small color constant file with a coherent visual system.
-
-**Implementation:** Expand the theme in `App.js` (or move it to `src/view/theme.js`) with named severity colors, neutral surfaces, typography roles, spacing, radii, shadows, and component overrides for `Button`, `Paper`, `Chip`, `Tabs`, and navigation. Keep severity tokens in one place and remove duplicated magic values as touched. Add CSS variables only where Leaflet or non-MUI CSS needs the same tokens.
-
-**Done when:** The main shell, cards, buttons, tabs, and navigation use shared tokens; there are no visual regressions in English, Sinhala, or Tamil; and new UI can use the theme without copying color or spacing values.
-
-### [x] Redesign the app header around location and status
-
-**Goal:** Make the selected location, its administrative context, and current alert status understandable at a glance.
-
-**Implementation:** Give the header a neutral brand surface instead of tinting the entire bar by severity. Add the ALERT wordmark, a compact severity chip with icon and text, a two-line location block, and the existing menu. Use a subtle severity accent or border so a red header never becomes the only status signal.
-
-**Done when:** The header clearly identifies the product and selected place at 320 px width, long translated place names truncate gracefully, the severity remains readable without relying on color, and all controls have accessible labels.
-
-### [x] Turn place search into a persistent location selector
-
-**Goal:** Make changing location obvious without requiring users to drag or tap the map.
-
-**Implementation:** Place a search field or location button in the map surface and expose the existing `PlaceSearch` behavior from the primary flow. Add a clear label, search icon, current-location shortcut, debounced lookup, and a friendly no-results/error state. Keep map-tap selection as an alternative.
-
-**Done when:** A user can search for a Sri Lankan place from the main screen, see loading/no-results/error feedback, select a result, and arrive at that location's alert view using only the keyboard or touch.
-
-### [x] Add an alert overview before detailed alert tabs
-
-**Goal:** Answer “Am I at risk, from what, and what should I do next?” before showing raw detail.
-
-**Implementation:** Add a summary panel at the top of `AlertsView` with overall severity, active-alert count, affected hazards, the latest update time, and a short action-oriented message. Derive it from the selected entity's existing official and automatic alert data; clearly label experimental automatic alerts.
-
-**Done when:** The panel handles zero, one, and multiple alerts; distinguishes official from automatic information; includes icon + text + color for severity; and remains useful when one data source is unavailable.
-
-### [x] Standardize alert severity presentation
-
-**Goal:** Make alert meaning consistent across the header, map, badges, cards, and charts.
-
-**Implementation:** Define a single severity model containing level, translated label, color, icon, and recommended presentation. Use it in `getAlertColor`, `AlertLegend`, alert cards, map markers, and navigation badges. Adjust the palette to meet WCAG AA contrast and never use color as the only indicator.
-
-**Done when:** Every level has the same name and visual treatment throughout the app, text contrast passes WCAG AA, color-blind users can distinguish levels by label/icon/shape, and “no alert” looks neutral rather than disabled.
-
-### [x] Show data freshness and provenance beside critical values
-
-**Goal:** Help users judge whether an alert or metric is current and trustworthy.
-
-**Implementation:** Create a compact metadata row for “Updated … ago”, source name, and official/experimental status. Reuse it in official alerts, automatic alerts, water levels, weather, and charts. Make the source link accessible and reveal the exact timestamp on tap, hover, or focus.
-
-**Done when:** Every safety-critical card shows a human-readable freshness indicator and source; stale data is visibly flagged; exact timestamps include timezone; and missing timestamps display “Update time unavailable” instead of disappearing.
-
-### [x] Provide explicit loading, empty, error, and offline states
-
-**Goal:** Avoid indefinite spinners and blank sections when a feed is slow or unavailable.
-
-**Implementation:** Create a shared state panel with icon, plain-language message, and optional retry action. Apply it to initial data loading, selected-location loading, nearby places, search, alerts, weather, elevation, earthquakes, satellite imagery, and hydrometric data. Detect offline mode and distinguish it from an API error.
-
-**Done when:** Each data surface has distinct loading, empty, error, and offline behavior; loading states use stable skeletons where practical; retry works without a full-page refresh; and errors never expose raw exception text to users.
-
 ## P1 — Visual hierarchy and interaction polish
 
 ### [ ] Create one reusable content-card pattern
