@@ -11,6 +11,7 @@ import Place from "../../nonview/core/ents/places/Place";
 import { useNavigate } from "react-router-dom";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../nonview/cons/MapConstants";
 import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
+import PlaceSearch from "../organisms/PlaceSearch";
 
 function MapEventHandler({ onMapMoveEnd }) {
   useMapEvents({
@@ -47,7 +48,7 @@ export default function MapView({
   const navigate = useNavigate();
   const center = mapLatLng.raw() || DEFAULT_CENTER;
   const zoom = DEFAULT_ZOOM;
-  const { setSelectedEnt, selectedEnt } = useSelectedEntDataContext();
+  const { setSelectedEnt } = useSelectedEntDataContext();
 
   const onMapMoveEnd = async (latLng) => {
     const constrainedLatLng = latLng.constrainToSriLanka();
@@ -58,7 +59,7 @@ export default function MapView({
   };
 
   const isPageModeMap = pageMode === "Map";
-  const isGrayedOut = !isPageModeMap || !selectedEnt;
+  const isGrayedOut = !isPageModeMap;
 
   return (
     <Box
@@ -88,6 +89,7 @@ export default function MapView({
 
         {pageMode === "Map" && (
           <Box>
+            <PlaceSearch setPageMode={setPageMode} />
             <MapCrosshair />
             <AlertLegend />
             <CurrentLocationButton />

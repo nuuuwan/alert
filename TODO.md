@@ -4,7 +4,7 @@ This backlog focuses on making ALERT feel trustworthy, calm, and professional wh
 
 ## P0 — Trust and core experience
 
-### [ ] Introduce a complete MUI theme and design tokens
+### [x] Introduce a complete MUI theme and design tokens
 
 **Goal:** Replace the current mix of one-off `sx` values and a small color constant file with a coherent visual system.
 
@@ -12,7 +12,7 @@ This backlog focuses on making ALERT feel trustworthy, calm, and professional wh
 
 **Done when:** The main shell, cards, buttons, tabs, and navigation use shared tokens; there are no visual regressions in English, Sinhala, or Tamil; and new UI can use the theme without copying color or spacing values.
 
-### [ ] Redesign the app header around location and status
+### [x] Redesign the app header around location and status
 
 **Goal:** Make the selected location, its administrative context, and current alert status understandable at a glance.
 
@@ -20,7 +20,7 @@ This backlog focuses on making ALERT feel trustworthy, calm, and professional wh
 
 **Done when:** The header clearly identifies the product and selected place at 320 px width, long translated place names truncate gracefully, the severity remains readable without relying on color, and all controls have accessible labels.
 
-### [ ] Turn place search into a persistent location selector
+### [x] Turn place search into a persistent location selector
 
 **Goal:** Make changing location obvious without requiring users to drag or tap the map.
 
@@ -28,7 +28,7 @@ This backlog focuses on making ALERT feel trustworthy, calm, and professional wh
 
 **Done when:** A user can search for a Sri Lankan place from the main screen, see loading/no-results/error feedback, select a result, and arrive at that location's alert view using only the keyboard or touch.
 
-### [ ] Add an alert overview before detailed alert tabs
+### [x] Add an alert overview before detailed alert tabs
 
 **Goal:** Answer “Am I at risk, from what, and what should I do next?” before showing raw detail.
 
@@ -36,7 +36,7 @@ This backlog focuses on making ALERT feel trustworthy, calm, and professional wh
 
 **Done when:** The panel handles zero, one, and multiple alerts; distinguishes official from automatic information; includes icon + text + color for severity; and remains useful when one data source is unavailable.
 
-### [ ] Standardize alert severity presentation
+### [x] Standardize alert severity presentation
 
 **Goal:** Make alert meaning consistent across the header, map, badges, cards, and charts.
 
@@ -44,7 +44,7 @@ This backlog focuses on making ALERT feel trustworthy, calm, and professional wh
 
 **Done when:** Every level has the same name and visual treatment throughout the app, text contrast passes WCAG AA, color-blind users can distinguish levels by label/icon/shape, and “no alert” looks neutral rather than disabled.
 
-### [ ] Show data freshness and provenance beside critical values
+### [x] Show data freshness and provenance beside critical values
 
 **Goal:** Help users judge whether an alert or metric is current and trustworthy.
 
@@ -52,7 +52,7 @@ This backlog focuses on making ALERT feel trustworthy, calm, and professional wh
 
 **Done when:** Every safety-critical card shows a human-readable freshness indicator and source; stale data is visibly flagged; exact timestamps include timezone; and missing timestamps display “Update time unavailable” instead of disappearing.
 
-### [ ] Provide explicit loading, empty, error, and offline states
+### [x] Provide explicit loading, empty, error, and offline states
 
 **Goal:** Avoid indefinite spinners and blank sections when a feed is slow or unavailable.
 

@@ -4,10 +4,9 @@ import Paper from "@mui/material/Paper";
 import MapIcon from "@mui/icons-material/Map";
 import WarningIcon from "@mui/icons-material/Warning";
 import AssessmentIcon from "@mui/icons-material/Assessment";
-import { COLORS } from "../_cons/StyleConstants";
+import { COLORS, getAlertMeta } from "../_cons/StyleConstants";
 import { useTranslation } from "react-i18next";
 import Badge from "@mui/material/Badge";
-import { getAlertColor } from "../_cons/StyleConstants";
 import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
 
 export default function CustomBottomNavigator({ setPageMode, pageMode }) {
@@ -36,7 +35,7 @@ export default function CustomBottomNavigator({ setPageMode, pageMode }) {
 
   const { selectedEnt } = useSelectedEntDataContext();
   const nAlerts = selectedEnt ? selectedEnt.nAlerts : 0;
-  const alertColor = getAlertColor(selectedEnt ? selectedEnt.alertLevel : 0, 3);
+  const alertMeta = getAlertMeta(selectedEnt ? selectedEnt.alertLevel : 0, 3);
 
   return (
     <Paper
@@ -46,8 +45,8 @@ export default function CustomBottomNavigator({ setPageMode, pageMode }) {
         left: 0,
         right: 0,
         zIndex: 1000,
-        height: 60,
-        paddingBottom: 5,
+        minHeight: "calc(56px + env(safe-area-inset-bottom))",
+        paddingBottom: "env(safe-area-inset-bottom)",
       }}
       elevation={3}
     >
@@ -62,7 +61,6 @@ export default function CustomBottomNavigator({ setPageMode, pageMode }) {
           label={t("Map")}
           value="Map"
           icon={<MapIcon />}
-          disabled={pageMode === "Map"}
           showLabel={true}
           sx={{
             ...(pageMode === "Map" && {
@@ -75,11 +73,12 @@ export default function CustomBottomNavigator({ setPageMode, pageMode }) {
           value="Alerts"
           icon={
             <Badge
-              badgeContent={nAlerts}
+              badgeContent={nAlerts > 99 ? "99+" : nAlerts}
               slotProps={{
                 badge: {
                   sx: {
-                    backgroundColor: alertColor,
+                    backgroundColor: alertMeta.color,
+                    color: "white",
                     zIndex: 3000,
                   },
                 },
@@ -88,7 +87,6 @@ export default function CustomBottomNavigator({ setPageMode, pageMode }) {
               <WarningIcon />
             </Badge>
           }
-          disabled={pageMode === "Alerts"}
           showLabel={true}
           sx={{
             ...(pageMode === "Alerts" && {
@@ -100,7 +98,6 @@ export default function CustomBottomNavigator({ setPageMode, pageMode }) {
           label={t("Data")}
           value="Data"
           icon={<AssessmentIcon />}
-          disabled={pageMode === "Data"}
           showLabel={true}
           sx={{
             ...(pageMode === "Data" && {

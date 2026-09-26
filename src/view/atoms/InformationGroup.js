@@ -10,6 +10,9 @@ export default function InformationGroup({
   title,
   children,
   dataSourceList,
+  timeUt,
+  experimental = false,
+  official = false,
   Icon = InfoIcon,
   InnerComponent = Grid,
 }) {
@@ -28,7 +31,12 @@ export default function InformationGroup({
       </InnerComponent>
 
       <Box>
-        <DataSourceView dataSourceList={dataSourceList} />
+        <DataSourceView
+          dataSourceList={dataSourceList}
+          timeUt={timeUt}
+          experimental={experimental}
+          official={official}
+        />
       </Box>
     </CustomPaper>
   );

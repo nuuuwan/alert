@@ -1,33 +1,20 @@
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
-import Box from "@mui/material/Box";
-import { useTranslation } from "react-i18next";
+import DataMeta from "./DataMeta";
 
-export default function DataSourceView({ dataSourceList }) {
-  const { t } = useTranslation();
+export default function DataSourceView({
+  dataSourceList,
+  timeUt,
+  experimental,
+  official,
+}) {
   if (!dataSourceList || dataSourceList.length === 0) {
     return null;
   }
-
   return (
-    <Box sx={{ mt: 2, maxWidth: "320px" }}>
-      <Typography variant="caption" color="text.secondary">
-        {t("Source") + ": "}
-        {dataSourceList.map((dataSource, index) => (
-          <span key={index}>
-            {index > 0 && ", "}
-            <Link
-              href={dataSource.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              underline="hover"
-              color="inherit"
-            >
-              {t(dataSource.label)}
-            </Link>
-          </span>
-        ))}
-      </Typography>
-    </Box>
+    <DataMeta
+      dataSourceList={dataSourceList}
+      timeUt={timeUt}
+      experimental={experimental}
+      official={official}
+    />
   );
 }

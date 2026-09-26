@@ -35,7 +35,11 @@ export default function LandslideCard({ dsd }) {
         timeLabel={TimeUtils.getTimeAgoString(timeUt)}
         alertLabel={alertLabel}
       />
-      <DataSourceView dataSourceList={[dsd.landslideAlertDataSource]} />
+      <DataSourceView
+        dataSourceList={[dsd.landslideAlertDataSource]}
+        timeUt={timeUt}
+        official
+      />
     </CustomPaper>
   );
 }

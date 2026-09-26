@@ -34,6 +34,9 @@ export default function Chart({
   const nowPoint =
     xAxisData.find((date) => date.getTime() >= currentTime) ||
     new Date(currentTime);
+  const latestObservedTime = Math.max(
+    ...timeData.filter((time) => time * 1000 <= currentTime),
+  );
 
   const series = [
     {
@@ -59,6 +62,9 @@ export default function Chart({
       title={title}
       Icon={TimelineIcon}
       dataSourceList={[OpenMeteo.getDataSource(latLng)]}
+      timeUt={
+        Number.isFinite(latestObservedTime) ? latestObservedTime : undefined
+      }
     >
       <ChartContainer
         sx={{

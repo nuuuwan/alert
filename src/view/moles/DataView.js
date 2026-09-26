@@ -4,14 +4,14 @@ import OpenMeteoView from "../moles/OpenMeteoView";
 import HydrometricStationDetails from "../moles/HydrometricStationDetails";
 import OpenElevationView from "../moles/OpenElevationView";
 import RecentEarthquakesView from "../moles/RecentEarthquakesView";
-import { CircularProgress } from "@mui/material";
 import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
+import StatePanel from "../atoms/StatePanel";
 
 export default function DataView() {
   const { selectedEnt } = useSelectedEntDataContext();
 
   if (!selectedEnt) {
-    return <CircularProgress />;
+    return <StatePanel state="loading" message="Loading location data" />;
   }
 
   return (

@@ -4,7 +4,8 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family: "Ubuntu", sans-serif;
+  font-family:
+    "Fira Sans", "Noto Sans Sinhala", "Noto Sans Tamil", "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

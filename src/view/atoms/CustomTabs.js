@@ -9,7 +9,7 @@ export default function CustomTabs({
   tabToColor,
   tabToNAlerts,
   renderButtonInner = (text, color) => (
-    <Typography variant="title1" style={{ color }}>
+    <Typography variant="subtitle1" style={{ color }}>
       {text}
     </Typography>
   ),

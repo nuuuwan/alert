@@ -35,6 +35,8 @@ export default function WaterLevelCard({ hydrometricStation }) {
       />
       <DataSourceView
         dataSourceList={[HydrometricStation.getWaterLevelAlertDataSource()]}
+        timeUt={timeUt}
+        official
       />
     </CustomPaper>
   );

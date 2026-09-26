@@ -3,7 +3,7 @@ import { DEFAULT_CENTER } from "../cons/MapConstants.js";
 export default class GeoLocation {
   static async getCurrentLatLng() {
     if (!navigator.geolocation) {
-      console.error("Geolocation is not supported by this browser.");
+      console.warn("Geolocation is not supported by this browser.");
       return null;
     }
 
@@ -14,7 +14,10 @@ export default class GeoLocation {
           resolve(LatLng.fromRaw([latitude, longitude]));
         },
         (error) => {
-          console.error("Error getting geolocation:", error);
+          console.warn(
+            "Using the default location because geolocation failed:",
+            error,
+          );
           resolve(LatLng.fromRaw(DEFAULT_CENTER));
         },
       );

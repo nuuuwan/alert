@@ -2,8 +2,8 @@ import MapPlaceView from "../moles/MapPlaceView";
 import Box from "@mui/material/Box";
 import { useDataContext } from "../../nonview/core/DataContext";
 import Place from "../../nonview/core/ents/places/Place";
-import CircularProgress from "@mui/material/CircularProgress";
 import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataContext";
+import StatePanel from "../atoms/StatePanel";
 
 export default function MapViewInner({ setPageMode }) {
   const { data } = useDataContext();
@@ -22,7 +22,7 @@ export default function MapViewInner({ setPageMode }) {
   ]);
 
   if (!deduplicatedPlaces) {
-    return <CircularProgress />;
+    return <StatePanel state="loading" message="Loading map alerts" compact />;
   }
 
   return (

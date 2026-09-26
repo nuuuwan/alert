@@ -32,6 +32,7 @@ export default function RecentEarthquakesView({ place }) {
       title="Recent Earthquakes"
       Icon={WarningAmberIcon}
       dataSourceList={[Earthquake.getDataSource()]}
+      timeUt={recentData.length > 0 ? recentData[0].timeUt : undefined}
     >
       <List sx={{ width: "100%", bgcolor: "background.paper" }}>
         {recentData.map((earthquake, index) => {

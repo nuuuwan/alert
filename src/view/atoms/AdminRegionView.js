@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { useTranslation } from "react-i18next";
 
@@ -9,17 +8,14 @@ export default function AdminRegionView({ regionEnt }) {
   }
 
   return (
-    <Box component="span" color="white">
-      <Typography variant="body2" component="span" sx={{ fontSize: "75%" }}>
-        {t(regionEnt.name)}
-      </Typography>
-      <Typography
-        variant="caption"
-        component="span"
-        sx={{ ml: 0.5, fontSize: "65%" }}
-      >
-        {t(regionEnt.constructor.getEntTypeNameShort())}
-      </Typography>
-    </Box>
+    <Typography
+      component="span"
+      variant="caption"
+      color="text.secondary"
+      noWrap
+      sx={{ display: "inline-block", lineHeight: 1.2, minWidth: 0 }}
+    >
+      {t(regionEnt.name)} {t(regionEnt.constructor.getEntTypeNameShort())}
+    </Typography>
   );
 }

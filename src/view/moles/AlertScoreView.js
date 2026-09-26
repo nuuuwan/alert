@@ -15,7 +15,7 @@ import AlertScoreItemView from "./AlertScoreItemView";
 import CustomPaper from "../atoms/CustomPaper";
 import DataSourceView from "../atoms/DataSourceView";
 
-export default function AlertScoreView({ iAlertScore, alertScore }) {
+export default function AlertScoreView({ alertScore, place }) {
   const { t } = useTranslation();
 
   const Icon =
@@ -58,7 +58,11 @@ export default function AlertScoreView({ iAlertScore, alertScore }) {
           ))}
         </Grid>
       </Box>
-      <DataSourceView dataSourceList={alertScore.getDataSourceList()} />
+      <DataSourceView
+        dataSourceList={alertScore.getDataSourceList()}
+        timeUt={place?.openMeteoData?.timeUtNow}
+        experimental
+      />
     </CustomPaper>
   );
 }

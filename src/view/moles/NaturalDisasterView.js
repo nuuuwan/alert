@@ -40,7 +40,7 @@ export default function NaturalDisasterView({ place }) {
         sx={{ m: 1, maxWidth: "480px" }}
       >
         {t(
-          "These alerts are automtically generated, and are still under development and should be used for informational purposes only.",
+          "These alerts are automatically generated, are still under development, and should be used for informational purposes only.",
         )}
       </Alert>
       <CustomTabs

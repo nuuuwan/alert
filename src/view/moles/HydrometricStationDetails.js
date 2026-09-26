@@ -67,6 +67,8 @@ export default function HydrometricStationDetails({ place }) {
           title="Water Level Metrics"
           Icon={WavesIcon}
           dataSourceList={[HydrometricStation.getWaterLevelAlertDataSource()]}
+          timeUt={latestReading.timeUt}
+          official
         >
           <OldMetricCard
             Icon={WavesIcon}

@@ -12,7 +12,7 @@ export default class Nominatim {
         },
       );
     } catch (error) {
-      console.error("Failed to fetch reverse geocoding data:", error);
+      console.warn("Failed to fetch reverse geocoding data:", error);
       return null;
     }
   }
@@ -29,8 +29,8 @@ export default class Nominatim {
         return await WWW.fetchJSON(url);
       });
     } catch (error) {
-      console.error("Failed to fetch search data:", error);
-      return [];
+      console.warn("Failed to fetch search data:", error);
+      throw error;
     }
   }
 }

@@ -21,6 +21,7 @@ export default function OpenMeteoView({ place }) {
             OpenMeteo.getDataSource(latLng),
             OpenMeteoAirQuality.getDataSource(),
           ]}
+          timeUt={openMeteoData.timeUtNow}
         >
           <MetricCard
             timedUnitValue={newTimedUnit(openMeteoData, "rainNext24hSum")}
@@ -53,6 +54,7 @@ export default function OpenMeteoView({ place }) {
             OpenMeteo.getDataSource(latLng),
             OpenMeteoAirQuality.getDataSource(),
           ]}
+          timeUt={openMeteoData.timeUtNow}
         >
           <MetricCard
             timedUnitValue={newTimedUnit(openMeteoData, "rainPrev24hSum")}

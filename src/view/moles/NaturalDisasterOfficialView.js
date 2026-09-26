@@ -1,13 +1,13 @@
 import { getAlertColor } from "../_cons/StyleConstants";
 import HydrometricStation from "../../nonview/core/ents/places/HydrometricStation";
-import { CircularProgress } from "@mui/material";
 import CustomTabs from "../atoms/CustomTabs";
 import LandslideCard from "./LandslideCard";
 import WaterLevelCard from "./WaterLevelCard";
+import StatePanel from "../atoms/StatePanel";
 
 export default function NaturalDisasterOfficialView({ place }) {
   if (!place) {
-    return <CircularProgress />;
+    return <StatePanel state="loading" message="Loading official alerts" />;
   }
 
   const isHydrometricStation = place instanceof HydrometricStation;
