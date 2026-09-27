@@ -4,6 +4,7 @@ import AlertOverview from "./view/moles/AlertOverview";
 import StatePanel from "./view/atoms/StatePanel";
 import { getAlertMeta } from "./view/_cons/StyleConstants";
 import theme from "./view/theme";
+import SummaryView from "./view/moles/SummaryView";
 import "./i18n";
 
 function renderWithTheme(component) {
@@ -59,4 +60,56 @@ test("normalizes alert levels to the shared severity scale", () => {
   expect(getAlertMeta(1).label).toBe("Low alert");
   expect(getAlertMeta(2).label).toBe("Medium alert");
   expect(getAlertMeta(3).label).toBe("High alert");
+});
+
+test("summarizes whether the selected location is safe", () => {
+  const onViewDetails = jest.fn();
+  const experimentalAlert = {
+    name: "Flood",
+    level: 2,
+    score: 2,
+    maxScore: 3,
+    timeLabel: "Next 24h",
+    getDataSourceList: () => [],
+  };
+  const { rerender } = renderWithTheme(
+    <SummaryView
+      place={{ officialAlertLevel: 0, autoAlertList: [experimentalAlert] }}
+      onViewDetails={onViewDetails}
+    />,
+  );
+
+  expect(screen.getByRole("heading", { name: "Safe" })).toBeInTheDocument();
+  expect(screen.getByText("No active official alerts.")).toBeInTheDocument();
+  expect(
+    screen.getByText("2 of 3 risk factors are active · Next 24h"),
+  ).toBeInTheDocument();
+
+  fireEvent.click(screen.getByRole("button", { name: "View detailed alerts" }));
+  expect(onViewDetails).toHaveBeenCalledTimes(1);
+
+  rerender(
+    <ThemeProvider theme={theme}>
+      <SummaryView
+        place={{
+          officialAlertLevel: 2,
+          dsd: {
+            latestLandslideWarningLevel: 2,
+            landslideAlertDataSource: {
+              label: "Disaster Management Centre, Sri Lanka",
+              url: "https://www.dmc.gov.lk/",
+            },
+          },
+        }}
+        onViewDetails={onViewDetails}
+      />
+    </ThemeProvider>,
+  );
+
+  expect(
+    screen.getByRole("heading", {
+      name: "Not safe",
+    }),
+  ).toBeInTheDocument();
+  expect(screen.getByText("Official warning level 2")).toBeInTheDocument();
 });

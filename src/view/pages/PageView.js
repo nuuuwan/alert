@@ -10,6 +10,7 @@ import { useSelectedEntDataContext } from "../../nonview/core/SelectedEntDataCon
 import Alert from "@mui/material/Alert";
 import WifiOffIcon from "@mui/icons-material/WifiOff";
 import { useTranslation } from "react-i18next";
+import SummaryView from "../moles/SummaryView";
 function PageView({ mapLatLng, setMapLatLng, pageMode, setPageMode }) {
   const { t } = useTranslation();
   const { data, isOnline } = useDataContext();
@@ -74,9 +75,17 @@ function PageView({ mapLatLng, setMapLatLng, pageMode, setPageMode }) {
           >
             {pageMode === "Alerts" && <AlertsView />}
             {pageMode === "Data" && <DataView />}
-            <Grid size={{ xs: 12, md: 6 }}>
-              <NearbyPlacesView ent={selectedEnt} />
-            </Grid>
+            {pageMode === "Summary" && (
+              <SummaryView
+                place={selectedEnt}
+                onViewDetails={() => setPageMode("Alerts")}
+              />
+            )}
+            {pageMode !== "Summary" && (
+              <Grid size={{ xs: 12, md: 6 }}>
+                <NearbyPlacesView ent={selectedEnt} />
+              </Grid>
+            )}
           </Box>
         </Box>
       )}

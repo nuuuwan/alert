@@ -4,6 +4,7 @@ import Paper from "@mui/material/Paper";
 import MapIcon from "@mui/icons-material/Map";
 import WarningIcon from "@mui/icons-material/Warning";
 import AssessmentIcon from "@mui/icons-material/Assessment";
+import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 import { COLORS, getAlertMeta } from "../_cons/StyleConstants";
 import { useTranslation } from "react-i18next";
 import Badge from "@mui/material/Badge";
@@ -19,6 +20,10 @@ export default function CustomBottomNavigator({ setPageMode, pageMode }) {
     setPageMode("Alerts");
   };
 
+  const handleSummaryMode = () => {
+    setPageMode("Summary");
+  };
+
   const handleDataMode = () => {
     setPageMode("Data");
   };
@@ -26,6 +31,8 @@ export default function CustomBottomNavigator({ setPageMode, pageMode }) {
   const handleNavigationChange = (event, newValue) => {
     if (newValue === "Map") {
       handleMapMode();
+    } else if (newValue === "Summary") {
+      handleSummaryMode();
     } else if (newValue === "Alerts") {
       handleAlertsMode();
     } else if (newValue === "Data") {
@@ -64,6 +71,17 @@ export default function CustomBottomNavigator({ setPageMode, pageMode }) {
           showLabel={true}
           sx={{
             ...(pageMode === "Map" && {
+              bgcolor: "rgba(0, 0, 0, 0.1)",
+            }),
+          }}
+        />
+        <BottomNavigationAction
+          label={t("Summary")}
+          value="Summary"
+          icon={<HealthAndSafetyIcon />}
+          showLabel={true}
+          sx={{
+            ...(pageMode === "Summary" && {
               bgcolor: "rgba(0, 0, 0, 0.1)",
             }),
           }}
